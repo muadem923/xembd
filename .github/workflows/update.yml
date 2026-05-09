@@ -27,6 +27,6 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add buncha_live.m3u
+          git add buncha.m3u
           git commit -m "Tự động cập nhật link m3u" || echo "Không có trận mới"
           git push
