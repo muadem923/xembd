@@ -1,6 +1,7 @@
 from curl_cffi import requests
 from bs4 import BeautifulSoup
 import re
+import codecs
 
 def clean_match_title(raw_text):
     if not raw_text: return ""
@@ -38,7 +39,6 @@ def get_matches(url):
                 full_link = href if href.startswith('http') else f"https://bunchatv4.net{href}"
                 
                 title = extract_name_from_url(full_link)
-                
                 if not title:
                     raw_title = a_tag.get('title') or a_tag.text.strip()
                     title = re.sub(r'\s+', ' ', raw_title)
@@ -68,59 +68,79 @@ def get_matches(url):
         print(f"Lỗi quét trang chủ: {e}")
         return []
 
+def clean_stream_link(link):
+    """Làm sạch link bị mã hóa trong Javascript"""
+    link = link.replace('\\/', '/')
+    link = link.replace('\\u0026', '&').replace('u0026', '&') # Sửa lỗi mã hóa dấu &
+    link = link.replace('\\', '')
+    return link
+
 def extract_all_m3u8_from_url(url):
-    """Chiêu thức vét cạn: Tìm toàn bộ link m3u8 và tên BLV"""
+    """Nội soi toàn diện: Quét JSON, Quét Nút bấm, Quét Iframe"""
     try:
         res = requests.get(url, impersonate="chrome110", timeout=15)
-        soup = BeautifulSoup(res.text, 'html.parser')
+        html_content = res.text
+        soup = BeautifulSoup(html_content, 'html.parser')
         
         streams = []
-        seen_links = set() # Dùng để chống trùng lặp link
+        seen_links = set()
+        url_to_name = {}
+
+        # --- BƯỚC 1: NỘI SOI JAVASCRIPT/JSON CỦA WEB ---
+        # Tìm các đoạn code có dạng: name: "BLV Shin", url: "https..."
+        json_pattern1 = re.findall(r'["\']?(?:name|title)["\']?\s*:\s*["\']([^"\']+)["\'].*?["\']?(?:url|link|src|iframe)["\']?\s*:\s*["\']([^"\']+)["\']', html_content, re.IGNORECASE)
+        json_pattern2 = re.findall(r'["\']?(?:url|link|src|iframe)["\']?\s*:\s*["\']([^"\']+)["\'].*?["\']?(?:name|title)["\']?\s*:\s*["\']([^"\']+)["\']', html_content, re.IGNORECASE)
         
-        def add_stream(link, name):
-            link = link.replace('\\', '')
-            if link not in seen_links:
-                streams.append({'url': link, 'name': name})
-                seen_links.add(link)
+        for name, link in json_pattern1:
+            url_to_name[clean_stream_link(link)] = codecs.decode(name.encode(), 'unicode_escape')
+            
+        for link, name in json_pattern2:
+            url_to_name[clean_stream_link(link)] = codecs.decode(name.encode(), 'unicode_escape')
 
-        # 1. BẮT CÁC NÚT BẤM (Các tab BLV, Server)
-        # Các web thường giấu link trong thuộc tính data-link, data-src ở các thẻ span, button, li
+        # --- BƯỚC 2: QUÉT NÚT BẤM HTML (Đề phòng web không dùng JSON) ---
         for tag in soup.find_all(['button', 'a', 'span', 'li', 'div']):
-            data_link = tag.get('data-link') or tag.get('data-src') or tag.get('data-url') or tag.get('data-play')
-            if data_link and ('http' in data_link or '//' in data_link):
-                if data_link.startswith('//'): data_link = 'https:' + data_link
-                
-                # Cố gắng đọc tên BLV trên cái nút đó
-                blv_name = re.sub(r'\s+', ' ', tag.text.strip())
-                if not blv_name or len(blv_name) > 25: 
-                    blv_name = "Server Phụ"
-                    
+            text = re.sub(r'\s+', ' ', tag.text.strip())
+            if text and 2 <= len(text) <= 25: # Nếu là 1 cụm từ ngắn giống tên BLV
+                tag_html = str(tag)
+                urls = re.findall(r'(https?://[^\s"\'<>]+|//[^\s"\'<>]+)', tag_html)
+                for u in urls:
+                    u = clean_stream_link(u)
+                    if u.startswith('//'): u = 'https:' + u
+                    if len(u) > 10: url_to_name[u] = text
+
+        def add_stream(m3u8_link, name):
+            m3u8_link = clean_stream_link(m3u8_link)
+            if m3u8_link not in seen_links:
+                name = name.replace('Đang phát', '').replace('Chọn', '').strip()
+                if not name or name == '-': name = f"Luồng {len(streams)+1}"
+                streams.append({'url': m3u8_link, 'name': name})
+                seen_links.add(m3u8_link)
+
+        # --- BƯỚC 3: RÁP TÊN VÀO LINK ---
+        # 3.1 Gắn tên cho các link tìm thấy trực tiếp
+        for u, name in url_to_name.items():
+            if '.m3u8' in u:
+                add_stream(u, name)
+            elif 'http' in u or u.startswith('//'):
+                # Nếu là link iframe, truy cập vào để moi m3u8 ra
                 try:
-                    sub_res = requests.get(data_link, impersonate="chrome110", timeout=10)
-                    sub_links = re.findall(r'(https?://[^\s"\'<>]*\.m3u8[^\s"\'<>]*)', sub_res.text)
-                    for l in sub_links: add_stream(l, blv_name)
+                    iframe_res = requests.get(u, impersonate="chrome110", timeout=10)
+                    sub_links = re.findall(r'(https?://[^\s"\'<>]*\.m3u8[^\s"\'<>]*)', iframe_res.text)
+                    for l in sub_links: add_stream(l, name)
                 except:
                     pass
 
-        # 2. BẮT CÁC IFRAME HIỂN THỊ SẴN
-        for iframe in soup.find_all('iframe'):
-            iframe_src = iframe.get('src')
-            if iframe_src:
-                if iframe_src.startswith('//'): iframe_src = 'https:' + iframe_src
-                try:
-                    iframe_res = requests.get(iframe_src, impersonate="chrome110", timeout=10)
-                    iframe_links = re.findall(r'(https?://[^\s"\'<>]*\.m3u8[^\s"\'<>]*)', iframe_res.text)
-                    for l in iframe_links: add_stream(l, "Luồng Chính")
-                except:
-                    pass
-                    
-        # 3. VÉT CẠN TRONG MÃ NGUỒN GỐC (Trường hợp web không dùng iframe)
-        main_links = re.findall(r'(https?://[^\s"\'<>]*\.m3u8[^\s"\'<>]*)', res.text)
+        # 3.2 Vét cạn (Nếu web còn giấu m3u8 ở đâu đó mà bước trên chưa móc ra)
+        main_links = re.findall(r'(https?://[^\s"\'<>]*\.m3u8[^\s"\'<>]*)', html_content)
         for l in main_links:
-            add_stream(l, "Luồng Nhanh")
+            # Ưu tiên tìm tên trong mớ JSON, nếu không có mới dùng chữ "Dự phòng"
+            l_clean = clean_stream_link(l)
+            name = url_to_name.get(l_clean, "Luồng Dự Phòng")
+            add_stream(l, name)
             
         return streams
-    except Exception:
+    except Exception as e:
+        print(f"Lỗi trích xuất: {e}")
         return []
 
 def main():
@@ -145,9 +165,9 @@ def main():
         
         if streams:
             for stream in streams:
-                # Nếu trận đấu có nhiều hơn 1 luồng, ta gắn thêm tên BLV vào ngoặc đơn
+                # Phép màu hiện tên BLV ở đây
                 display_name = match['title']
-                if len(streams) > 1 and stream['name']:
+                if stream['name'] and stream['name'] != "Luồng Dự Phòng":
                     display_name = f"{match['title']} ({stream['name']})"
                 
                 playlist += f'#EXTINF:-1 tvg-logo="{match["logo"]}", {display_name}\n'
@@ -155,7 +175,7 @@ def main():
                 playlist += f'{stream["url"]}\n'
                 
             success_count += 1
-            print(f"  -> Lấy thành công {len(streams)} luồng (Gồm: {', '.join([s['name'] for s in streams])})")
+            print(f"  -> Lấy thành công {len(streams)} luồng: {', '.join([s['name'] for s in streams])}")
         else:
             print("  -> Thất bại (Không tìm thấy luồng stream nào).")
             
