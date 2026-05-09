@@ -2,31 +2,27 @@ from curl_cffi import requests
 from bs4 import BeautifulSoup
 import re
 
-def clean_match_title(raw_text):
-    """Làm sạch tên trận đấu và xóa tỷ số"""
-    if not raw_text: return ""
-    # Xóa khoảng trắng thừa
-    title = re.sub(r'\s+', ' ', raw_text.strip())
-    # Nhận diện và thay thế tỷ số thành chữ 'vs' (ví dụ: 1-0, 2:2 -> vs)
-    title = re.sub(r'\s+\d+\s*[-:]\s*\d+\s+', ' vs ', title)
-    return title
-
 def extract_name_from_url(url):
-    """Tuyệt chiêu dịch ngược tên trận từ đường link nếu web giấu text"""
+    """Tuyệt chiêu: Ưu tiên bóc tách tên 2 đội trực tiếp từ link gốc"""
     try:
         parts = [p for p in url.split('/') if p]
-        # Lấy đoạn slug (ví dụ: chinese-taipei-vs-japan-2300-09-05-2026)
-        slug = parts[-2] if parts[-1].isdigit() else parts[-1]
+        slug = ""
+        # Tìm đoạn có chứa chữ '-vs-' (ví dụ: chinese-taipei-vs-japan)
+        for part in parts:
+            if '-vs-' in part:
+                slug = part
+                break
         
-        # Xóa cụm giờ-ngày-tháng-năm ở đuôi đi
-        name = re.sub(r'-\d{3,4}-\d{2}-\d{2}-\d{4}.*', '', slug)
-        
-        # Thay dấu gạch ngang thành dấu cách, viết hoa chữ cái đầu
-        name = name.replace('-', ' ').title()
-        name = name.replace(' Vs ', ' vs ') # Sửa lại chữ vs cho chuẩn
-        return name
+        if slug:
+            # Cắt bỏ phần ngày tháng giờ ở đuôi (ví dụ: -2300-09-05-2026)
+            name = re.sub(r'-\d{3,4}-\d{2}-\d{2}-\d{4}.*', '', slug)
+            # Thay gạch ngang thành dấu cách, viết hoa chữ cái đầu
+            name = name.replace('-', ' ').title()
+            name = name.replace(' Vs ', ' vs ')
+            return name
     except:
-        return ""
+        pass
+    return ""
 
 def get_matches(url):
     print(f"Đang quét trang chủ: {url}")
@@ -40,39 +36,37 @@ def get_matches(url):
             if '/truc-tiep/' in href or '/truoc-tran/' in href:
                 full_link = href if href.startswith('http') else f"https://bunchatv4.net{href}"
                 
-                # --- 1. TRUY TÌM LOGO (Mở rộng phạm vi tìm kiếm nhiều tầng) ---
-                img_tag = a_tag.find('img')
-                # Nếu trong thẻ <a> không có, mò ra thẻ cha bên ngoài
-                if not img_tag and a_tag.parent:
-                    img_tag = a_tag.parent.find('img')
-                # Mò tiếp ra thẻ ông nội
-                if not img_tag and a_tag.parent and a_tag.parent.parent:
-                    img_tag = a_tag.parent.parent.find('img')
+                # --- 1. LẤY TÊN TRẬN CHUẨN 100% TỪ LINK ---
+                title = extract_name_from_url(full_link)
+                
+                # Nếu bóc từ link thất bại (hiếm), mới mò HTML như cũ
+                if not title:
+                    raw_title = a_tag.get('title') or a_tag.text.strip()
+                    title = re.sub(r'\s+', ' ', raw_title)
+                    title = re.sub(r'\s+\d+\s*[-:]\s*\d+\s+', ' vs ', title)
+                    if title.lower() in ['bóng đá', 'trực tiếp', 'trang chủ']: 
+                        title = full_link.split('/')[-1]
 
+                # --- 2. TRUY TÌM LOGO CHUẨN (Loại bỏ logo quả bóng) ---
+                imgs = a_tag.find_all('img')
+                if not imgs and a_tag.parent:
+                    imgs = a_tag.parent.find_all('img')
+                
                 logo_url = ""
-                if img_tag:
-                    logo_url = img_tag.get('data-src') or img_tag.get('data-original') or img_tag.get('src') or ""
-                    if logo_url and logo_url.startswith('//'):
-                        logo_url = 'https:' + logo_url
+                for img in imgs:
+                    src = img.get('data-src') or img.get('data-original') or img.get('src') or ""
+                    # Lọc bỏ các ảnh chứa chữ categories, icon, logo web chung
+                    if src and '/categories/' not in src and 'icon' not in src:
+                        logo_url = src
+                        if logo_url.startswith('//'):
+                            logo_url = 'https:' + logo_url
+                        break # Tìm được 1 ảnh hợp lệ là dừng luôn
                 
-                # --- 2. TRUY TÌM TÊN TRẬN ĐẤU ---
-                raw_title = a_tag.get('title') or (img_tag.get('alt') if img_tag else "")
-                if not raw_title:
-                    raw_title = a_tag.text
-                
-                # Nếu text vẫn trống, mò ra thẻ cha để lấy chữ
-                if not raw_title.strip() and a_tag.parent:
-                    raw_title = a_tag.parent.text
-                
-                title = clean_match_title(raw_title)
-                
-                # --- 3. CHỐT CHẶN CUỐI (Phân tích link nếu tên bị lỗi thành số) ---
-                if not title or len(title) < 5 or title.isdigit():
-                    title = extract_name_from_url(full_link)
-                
-                # Tránh lấy trùng 1 trận 2 lần
-                if not any(m['url'] == full_link for m in matches):
-                    matches.append({'url': full_link, 'title': title, 'logo': logo_url})
+                # --- Thêm vào danh sách (chống trùng) ---
+                # Chỉ thêm nếu tên trận có ý nghĩa (chứa chữ cái)
+                if title and re.search('[a-zA-Z]', title):
+                    if not any(m['url'] == full_link for m in matches):
+                        matches.append({'url': full_link, 'title': title, 'logo': logo_url})
                     
         return matches
     except Exception as e:
@@ -85,11 +79,9 @@ def extract_m3u8_from_url(url):
         res = requests.get(url, impersonate="chrome110", timeout=15)
         html_content = res.text
         
-        # Cách 1: Tìm thẳng link m3u8 trong mã nguồn
         links = re.findall(r'(https?://[^\s"\'<>]*\.m3u8[^\s"\'<>]*)', html_content)
         if links: return links[0]
             
-        # Cách 2: Tìm link m3u8 ẩn trong các iframe
         soup = BeautifulSoup(html_content, 'html.parser')
         for iframe in soup.find_all('iframe'):
             iframe_src = iframe.get('src')
@@ -109,9 +101,8 @@ def main():
     
     if not matches:
         print("Không có trận đấu nào hoặc web chặn kết nối.")
-        # Tạo file báo lỗi thẳng vào ứng dụng TV
         with open("buncha_live.m3u", "w", encoding="utf-8") as f:
-            f.write('#EXTM3U\n#EXTINF:-1 tvg-logo="", ❌ HIỆN KHÔNG CÓ TRẬN ĐẤU HOẶC WEB BẢO TRÌ\nhttp://localhost/error.m3u8\n')
+            f.write('#EXTM3U\n#EXTINF:-1 tvg-logo="", ❌ HIỆN KHÔNG CÓ TRẬN ĐẤU\nhttp://localhost/error.m3u8\n')
         return
 
     playlist = "#EXTM3U\n"
@@ -132,7 +123,7 @@ def main():
             print("  -> Thất bại (Không tìm thấy luồng stream).")
             
     if success_count == 0:
-         playlist += '#EXTINF:-1 tvg-logo="", ❌ LỖI KHÔNG TÌM THẤY LINK STREAM BẤT KỲ TRẬN NÀO\nhttp://localhost/error.m3u8\n'
+         playlist += '#EXTINF:-1 tvg-logo="", ❌ LỖI KHÔNG TÌM THẤY LINK STREAM\nhttp://localhost/error.m3u8\n'
 
     with open("buncha_live.m3u", "w", encoding="utf-8") as f:
         f.write(playlist)
