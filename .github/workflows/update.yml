@@ -3,7 +3,7 @@ name: Get Link M3U Auto
 on:
   schedule:
     - cron: '*/30 * * * *' # Chạy tự động mỗi 30 phút
-  workflow_dispatch: # Tạo nút bấm chạy thủ công
+  workflow_dispatch: # Cho phép nhấn nút chạy thủ công
 
 jobs:
   build:
@@ -17,16 +17,16 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Cài đặt thư viện
+      - name: Cài đặt thư viện (Đã fix lỗi blinker)
         run: pip install blinker==1.6.2 requests beautifulsoup4 selenium-wire webdriver-manager selenium
 
-      - name: Chạy code lấy link
+      - name: Chạy code lấy link m3u8
         run: python main.py
 
-      - name: Lưu file m3u lên GitHub
+      - name: Lưu file m3u lên GitHub (Đã fix lỗi git add)
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add buncha.m3u
-          git commit -m "Tự động cập nhật link m3u" || echo "Không có trận mới"
+          git add .
+          git commit -m "Tự động cập nhật link m3u" || echo "Không có trận mới hoặc file không đổi"
           git push
