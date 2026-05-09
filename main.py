@@ -2,7 +2,7 @@ from curl_cffi import requests
 from bs4 import BeautifulSoup
 import re
 import codecs
-import concurrent.futures # Vũ khí bí mật: Đa luồng
+import concurrent.futures 
 
 def clean_match_title(raw_text):
     if not raw_text: return ""
@@ -77,7 +77,8 @@ def clean_stream_link(link):
 
 def extract_all_m3u8_from_url(url):
     try:
-        res = requests.get(url, impersonate="chrome110", timeout=10) # Giảm timeout
+        # Bẫy timeout cực gắt để chống bị giam lỏng
+        res = requests.get(url, impersonate="chrome110", timeout=10) 
         html_content = res.text
         soup = BeautifulSoup(html_content, 'html.parser')
         
@@ -116,7 +117,7 @@ def extract_all_m3u8_from_url(url):
                 add_stream(u, name)
             elif 'http' in u or u.startswith('//'):
                 try:
-                    # Giảm timeout xuống 3s cho server phụ. Lâu quá cho next luôn!
+                    # Chờ tối đa 3 giây, lag thì cút
                     iframe_res = requests.get(u, impersonate="chrome110", timeout=3) 
                     sub_links = re.findall(r'(https?://[^\s"\'<>]*\.m3u8[^\s"\'<>]*)', iframe_res.text)
                     for l in sub_links: add_stream(l, name)
@@ -130,10 +131,10 @@ def extract_all_m3u8_from_url(url):
             add_stream(l, name)
             
         return streams
-    except Exception:
+    except Exception as e:
+        print(f"Bỏ qua 1 link do bị kẹt mạng: {e}")
         return []
 
-# Hàm xử lý cho 1 công nhân (1 Thread)
 def process_single_match(match):
     user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
     chunk_data = ""
@@ -169,20 +170,24 @@ def main():
     
     print(f"✅ Đã tìm thấy {len(matches)} trận đấu. Bắt đầu DÙNG ĐA LUỒNG để vét cạn...")
     
-    # KÍCH HOẠT 10 CÔNG NHÂN CÙNG QUÉT MỘT LÚC
-    with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
-        # Ném tất cả các trận đấu cho 10 công nhân này xử lý
-        futures = [executor.submit(process_single_match, match) for match in matches]
+    # ÉP XUỐNG 3 CÔNG NHÂN (Tránh bị chặn do DDoS)
+    with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
+        futures = {executor.submit(process_single_match, match): match for match in matches}
         
-        # Nhận kết quả từ công nhân nào làm xong trước
-        for future in concurrent.futures.as_completed(futures):
-            chunk_data, stream_count, title, stream_names = future.result()
-            if stream_count > 0:
-                playlist += chunk_data
-                success_count += 1
-                print(f"  -> Xong: {title} | Gắp được {stream_count} luồng ({', '.join(stream_names)})")
-            else:
-                print(f"  -> Thất bại: {title} (Không có luồng)")
+        # Thêm bẫy thời gian: Quá 3 phút là tự động ngắt không chờ nữa
+        for future in concurrent.futures.as_completed(futures, timeout=180):
+            try:
+                chunk_data, stream_count, title, stream_names = future.result()
+                if stream_count > 0:
+                    playlist += chunk_data
+                    success_count += 1
+                    print(f"  -> Xong: {title} | Gắp được {stream_count} luồng ({', '.join(stream_names)})")
+                else:
+                    print(f"  -> Thất bại: {title} (Không có luồng)")
+            except concurrent.futures.TimeoutError:
+                print("  -> Bị web giam lỏng, đã ép tự động ngắt kết nối!")
+            except Exception as exc:
+                print(f"  -> Lỗi không xác định: {exc}")
             
     if success_count == 0:
          playlist += '#EXTINF:-1 tvg-logo="", ❌ LỖI KHÔNG TÌM THẤY LINK STREAM\nhttp://localhost/error.m3u8\n'
@@ -190,7 +195,8 @@ def main():
     with open("buncha_live.m3u", "w", encoding="utf-8") as f:
         f.write(playlist)
         
-    print(f"\n🎉 [HOÀN TẤT] Tốc độ bàn thờ! Đã tạo file buncha_live.m3u thành công rực rỡ!")
+    print(f"\n🎉 [HOÀN TẤT] Đã tạo file buncha_live.m3u thành công rực rỡ!")
 
 if __name__ == "__main__":
     main()
+    
