@@ -14,7 +14,7 @@ def get_matches(url):
         for a_tag in soup.find_all('a', href=True):
             href = a_tag['href']
             if '/truc-tiep/' in href or '/truoc-tran/' in href:
-                full_link = href if href.startswith('http') else f"https://bunchatv4.net{href}"
+                full_link = href if href.startswith('http') else f"https://xembongda.digital/{href}"
                 img_tag = a_tag.find('img')
                 logo_url = img_tag['src'] if img_tag and 'src' in img_tag.attrs else ""
                 title = a_tag.get('title') or a_tag.text.strip().replace('\n', ' ')
@@ -25,7 +25,7 @@ def get_matches(url):
         return []
 
 def main():
-    url = "https://bunchatv4.net/"
+    url = "https://xembongda.digital/"
     matches = get_matches(url)
     
     if not matches:
