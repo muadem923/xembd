@@ -27,11 +27,13 @@ def get_matches(url):
 def main():
     url = "https://bunchatv4.net/"
     matches = get_matches(url)
-    if not matches: return
+    
+    if not matches:
+        print("Hiện tại không có trận đấu nào.")
+        return
     
     options = webdriver.ChromeOptions()
     options.add_argument('--headless')
-    # 2 Dòng dưới cực kỳ quan trọng để chạy trên GitHub Actions
     options.add_argument('--no-sandbox') 
     options.add_argument('--disable-dev-shm-usage') 
     options.add_argument('--mute-audio')
@@ -42,7 +44,7 @@ def main():
     for match in matches:
         try:
             driver.get(match['url'])
-            time.sleep(12)
+            time.sleep(12) # Chờ 12s để video load
             for request in driver.requests:
                 if request.response and '.m3u8' in request.url:
                     playlist += f'#EXTINF:-1 tvg-logo="{match["logo"]}", {match["title"]}\n{request.url}\n'
@@ -53,8 +55,10 @@ def main():
             
     driver.quit()
     
+    # Ghi file với tên cố định là buncha_live.m3u
     with open("buncha_live.m3u", "w", encoding="utf-8") as f:
         f.write(playlist)
+    print("Đã tạo/cập nhật thành công file buncha_live.m3u")
 
 if __name__ == "__main__":
     main()
