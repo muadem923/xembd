@@ -1,238 +1,253 @@
 #EXTM3U
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Thailand U17 vs Saudi Arabia U17 (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://cdn-hls.taoxanh.biz/live/69ff61b6203f5_74012/index.m3u8?expire=1778949174&sign=0e31d2869434e46999a9076aa8bdbddb
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Thailand U17 vs Saudi Arabia U17 (BÃºn Cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/a27edf06b0bac87688fa2ac7de4e2028/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Toronto Fc vs Inter Miami Cf (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://cdn-hls.taoxanh.biz/live/69ff5e2642283_128756/index.m3u8?expire=1778948262&sign=8a365f07c1d06db24bd3ce9d318c4372
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Toronto Fc vs Inter Miami Cf (BÃºn Cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/a6f6290d4b7699729dc19349484841bf.png", Toronto Fc vs Inter Miami Cf (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://vlsrq.alilicloud.com/live/6d133b0b76714f7bd1994b08a25ea6d3/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Myanmar U17 vs Tajikistan U17 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/a6f6290d4b7699729dc19349484841bf.png", Toronto Fc vs Inter Miami Cf (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://cdn-hls.taoxanh.biz/live/69ff58f442283_103/index.m3u8?expire=1778946932&sign=814dc9b3375a321434ae5a7ff1db0a90
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Myanmar U17 vs Tajikistan U17 (BÃºn Cháº£ TV)
+https://2893254555.global.cdnfastest.com/live/69ff5e2642283_128756/index.m3u8?expire=1778948262u0026sign=8a365f07c1d06db24bd3ce9d318c4372
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/a6f6290d4b7699729dc19349484841bf.png", Toronto Fc vs Inter Miami Cf (Luồng Chính)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://59w50226.edgemaxcdn.org/live/69ff5e2642283_128756/index.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/a6f6290d4b7699729dc19349484841bf.png", Toronto Fc vs Inter Miami Cf (Luồng Nhanh)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://cdn-hls.taoxanh.biz/live/69ff5e2642283_128756/index.m3u8?expire=1778948262&sign=8a365f07c1d06db24bd3ce9d318c4372
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/fbbcb591970475f0c7737c04c9d2f2da.png", Myanmar U17 vs Tajikistan U17 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://vlsrq.alilicloud.com/live/0ad6e9f0d52560d401fb26df856cda86/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Lecce vs Juventus (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/fbbcb591970475f0c7737c04c9d2f2da.png", Myanmar U17 vs Tajikistan U17 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://cdn-hls.taoxanh.biz/live/69ff7db2203f5_73445/index.m3u8?expire=1778956338&sign=d249a9feae11c4172641bf4839551839
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Lecce vs Juventus (BÃºn Cháº£ TV)
+https://2893254555.global.cdnfastest.com/live/69ff58f442283_103/index.m3u8?expire=1778946932u0026sign=814dc9b3375a321434ae5a7ff1db0a90
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/fbbcb591970475f0c7737c04c9d2f2da.png", Myanmar U17 vs Tajikistan U17 (Luồng Chính)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://59w50226.edgemaxcdn.org/live/69ff58f442283_103/index.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/fbbcb591970475f0c7737c04c9d2f2da.png", Myanmar U17 vs Tajikistan U17 (Luồng Nhanh)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://cdn-hls.taoxanh.biz/live/69ff58f442283_103/index.m3u8?expire=1778946932&sign=814dc9b3375a321434ae5a7ff1db0a90
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/777d0840066313da8c0f85977e9178be.png", Lecce vs Juventus (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://vlsrq.alilicloud.com/live/d74602337bab8f68f7ee7c8b78d06496/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/0fc049420e5300f27dba300d93e3a386.jpg", Cleveland Cavaliers vs Detroit Pistons (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/777d0840066313da8c0f85977e9178be.png", Lecce vs Juventus (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://cdn-hls.taoxanh.biz/live/69ff822742283_72787/index.m3u8?expire=1778957479&sign=d092ab6c9557bcc6902a270f95e7cb97
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/0fc049420e5300f27dba300d93e3a386.jpg", Cleveland Cavaliers vs Detroit Pistons (BÃºn Cháº£ TV)
+https://2893254555.global.cdnfastest.com/live/69ff7db2203f5_73445/index.m3u8?expire=1778956338u0026sign=d249a9feae11c4172641bf4839551839
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/777d0840066313da8c0f85977e9178be.png", Lecce vs Juventus (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://live.alilicloud.com/live/2601973286c5b7f83248fa264fd36908/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/04/10/2fe99032bec2bf52359fc9f25a33d5dd.jpg", China vs France (BÃºn cháº£ TV)
+https://59w50226.edgemaxcdn.org/live/69ff7db2203f5_73445/index.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/777d0840066313da8c0f85977e9178be.png", Lecce vs Juventus (Luồng Nhanh)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://cdn-hls.taoxanh.biz/live/69ff720342283_42127/index.m3u8?expire=1778953347&sign=1a3ab75010e45d4dae7fd5f0c1e15e69
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Besiktas Jk vs Trabzonspor (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/5d98a431ae72500191d2bb34cb6d3106/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Slavia Praha vs Sparta Praha (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/197509c2fc16215d61d3b762bbe4bd0a/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Alanyaspor vs Kayserispor (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/7dbf607cab2a7d107d0315ca1aba74b2/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Galatasaray vs Antalyaspor (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/cd9ee6284969ed1451b413b041ed8d2f/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Genclerbirligi vs Kasimpasa (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/37cc6099b78cb4f401b6302e43923c9f/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Kocaelispor vs Karagumruk (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/774fbfb8bcd15a53aacc724cd43139ee/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Konyaspor vs Fenerbahce (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/21ec56d219b6751b513846c1571dd05a/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Goztepe vs Gazisehir Gaziantep (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/ae705d13667ce2acaa6c1e52733cbd5d/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Baakehir Futbol Kulb vs Samsunspor (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/709e578a77583bd6114437b80889b4c9/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Maccabi Bnei Reineh vs Hapoel Kiryat Shmona (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/77a9a8e564a14d1e32b7cbcf28a2427d/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Znicz Pruszkow vs Polonia Bytom (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/6734f248d156b6efc0df0cc25a5f8c5e/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Ks Wieczysta Krakow vs Miedz Legnica (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/ed14a45f4d33f53f645d6d7581f9ef18/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Stal Mielec vs Puszcza Niepolomice (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/31c4990a3fd80a53dd6b82c92a23e2c7/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Maccabi Haifa vs Beitar Jerusalem (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/b70961c93b96eb458ead71db43db5778/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Hapoel Tel Aviv vs Maccabi Tel Aviv (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/d4267e94d1c396b93357330d54a66705/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Hapoel Petah Tikva vs Hapoel Beer Sheva (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/cc06f3e25cc153e0c9a81f940ed8d63d/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Partizan Belgrade vs Ofk Beograd (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/40d78f91b244b72ca59eb7014049bd1b/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Stade Briochin vs Quevilly Rouen Metropole (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/f41976ecf95d967c2ea15762a1525cc2/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Fc Rouen vs Versailles 78 (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/d7e61882e903542884274687c4f917e6/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Paris 13 Atletico vs Aubagne (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/65ec65f7c06b8b9a2922eefd17eee4a7/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Us Orleans vs Fleury Merogis Us (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/491f853496c83b3762df7910ee9cb97e/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Le Puy Foot 43 Auvergne vs Dijon (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/d1c5cc4e001bdef6cb6099108c5fae55/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Chateauroux vs Sochaux (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/766b08298b57c53f6074a6b9e688028f/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Caen vs Concarneau (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/24c73b89095be08232561ea3dcd96785/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Bresse Peronnas 01 vs Valenciennes (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/d11b96fadd9f469ce4a3f8e8227b5687/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", San Telmo vs Atletico Mitre De Santiago Del Estero (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/8c50ce34ef3eb1286ae9f03f28b7c439/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", De Graafschap vs Almere City Fc (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/85c1069981873712103040ca19940724/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Fc Universitatea Cluj vs Fc Rapid 1923 (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/505635e4c830784db18dc74e5ca370d0/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Arsenal Tivat vs Fk Sutjeska Niksic (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/b503695cf56fcce608a7103008e9f748/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Ucv Moquegua vs Ad Tarma (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/d157dd8fe32f051f7d54cc89e0a50cfe/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Tristan Suarez vs Ferrocarril Midland (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/2e79243e16a6b2a15edbaf9b3fe9bd84/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Annecy vs Rodez Aveyron (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/563ef920f3111d5286400908b1f34382/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Bastia vs Le Mans (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/f625d54012c499627187fd9c72d79b3b/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Clermont vs Guingamp (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/ddccfaf03e7d70574a723f486a8ac03c/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Grenoble vs Troyes (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/d007f98b3f218244f6b2a39930a88ab8/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Stade Lavallois Mfc vs Boulogne (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/7eaccb0b6f773df251b5416625df9287/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Nancy vs Usl Dunkerque (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/61d57b420a4402248857109ccbfe0b3a/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Red Star Fc 93 vs Montpellier Herault Sc (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/47e35fa14faef0ee2060ac86ee729438/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Stade De Reims vs Pau Fc (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/a6bac9daea7f1b552fd46366ae5eef7f/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", As Saintetienne vs Amiens (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/b5f80daac4eaa31725b4c7ad43612e53/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Alfayha vs Alqadsiah (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/c155b64c5f0da679a32124390d8a7839/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Maribor vs Nk Olimpija Ljubljana (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/152aef5f626bd10175b5d8b9f012af06/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Gornik Zabrze vs Zaglebie Lubin (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/4483b56d85bdf496fdb1625d294fc61e/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Benevento vs Arezzo (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/9cd5b950be981334acae3a25af5b0d5e/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", 1 Fc Nrnberg vs Schalke 04 (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/7f4def73bfa9a037e4223f8fe360ad0a/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Ca San Miguel vs Estudiantes De Caseros (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/bd8884331f6ed6d4f149003bf515f811/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Temperley vs Deportivo Maipu (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/581470130900385b4366afb191b65b53/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Tecnico Universitario vs Delfin Sc (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/45d36e89933b88dae44f687bb42904ec/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Tatran Presov vs Mfk Skalica (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/f56439ab64ab08e997dbe33ab1848df2/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Luzern vs Servette (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/9638a2abc01fe2184eeb2163598d2060/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Chicago Fire vs New York Red Bulls (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/e9cd6c90c91114ca44b822d64ae3949b/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Club Brugge vs Sinttruidense (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/ecdb5ce6afd8aaa33342e120b9390bfe/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Posusje vs Fk Velez Mostar (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/2b1a6f13d872efca8c563159b810c61c/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/0fc049420e5300f27dba300d93e3a386.jpg", Indiana Fever vs Dallas Wings (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://live.alilicloud.com/live/9670e07e9bf84199a60f88d03f0f7560/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/0fc049420e5300f27dba300d93e3a386.jpg", Kirchheim vs Bg Gottingen (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://live.alilicloud.com/live/14e6735dbb5fc34635337f6a2d2558ed/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/0fc049420e5300f27dba300d93e3a386.jpg", Hapoel Migdal Haemek vs Hapoel Tel Aviv (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://live.alilicloud.com/live/091d0fbb8ee3364c60d12ad2037d517b/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/0fc049420e5300f27dba300d93e3a386.jpg", Ps Karlsruhe vs Phoenix Hagen (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://live.alilicloud.com/live/e4efd7ebfa59814700ddcbfb6440182a/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/0fc049420e5300f27dba300d93e3a386.jpg", Ada Blois Basket 41 vs La Rochelle (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://live.alilicloud.com/live/797e6d6650510c8a67da97c503b7cf0d/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/0fc049420e5300f27dba300d93e3a386.jpg", Entente Orleanaise vs Rouen (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://live.alilicloud.com/live/8bb716ffa8e6dbc0c9738243d7e4eba2/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/0fc049420e5300f27dba300d93e3a386.jpg", Aek Bc vs Rytas Vilnius (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://live.alilicloud.com/live/3a8aa963ed78609add9fd4f888c82a87/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/0fc049420e5300f27dba300d93e3a386.jpg", Scavolini Spar Pesaro vs Edilizia Moderna Rimini (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://live.alilicloud.com/live/e407e8bd2412c96e1365f0c5e9ec90ca/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/0fc049420e5300f27dba300d93e3a386.jpg", Elitzur Ashkelon vs Maccabi Ashdod (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://live.alilicloud.com/live/7daa44948adcdaf6fbd33a22bc2371db/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/0fc049420e5300f27dba300d93e3a386.jpg", Lyonvilleurbanne vs Strasbourg (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://live.alilicloud.com/live/e9c3c26c6c71575523c14cda0d710e3a/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/0fc049420e5300f27dba300d93e3a386.jpg", Fortitudo Bologna vs Avellino Basket (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://live.alilicloud.com/live/be75d23b25d1bd3fb4f41a20da391433/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/0fc049420e5300f27dba300d93e3a386.jpg", Tezenis Verona vs New Basket Brindisi (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://live.alilicloud.com/live/61453d73eae76a1ca97b80e3e7015b1d/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Real Sociedad vs Real Betis (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://cdn-hls.taoxanh.biz/live/69ff7fef42283_6308/index.m3u8?expire=1778956911&sign=0faedfe34630ab2d5cfd8069f15e7c82
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/categories/2025/03/21/29209907ed8331043581e143b9897df4.jpg", Real Sociedad vs Real Betis (BÃºn Cháº£ TV)
+https://cdn-hls.taoxanh.biz/live/69ff7db2203f5_73445/index.m3u8?expire=1778956338&sign=d249a9feae11c4172641bf4839551839
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/579db6e95905545973035e6eab8df2cd.png", Real Sociedad vs Real Betis (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://vlsrq.alilicloud.com/live/047622b9508cab7bcf8b766f8c9d9f55/playlist.m3u8
-#EXTINF:-1 tvg-logo="", Trực tiếp (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/579db6e95905545973035e6eab8df2cd.png", Real Sociedad vs Real Betis (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://cdn-hls.taoxanh.biz/live/69ff5feb203f5_79/index.m3u8?expire=1778948715&sign=3428de27899716e06057816ed8f1e2dd
+https://2893254555.global.cdnfastest.com/live/69ff7fef42283_6308/index.m3u8?expire=1778956911u0026sign=0faedfe34630ab2d5cfd8069f15e7c82
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/579db6e95905545973035e6eab8df2cd.png", Real Sociedad vs Real Betis (Luồng Chính)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://59w50226.edgemaxcdn.org/live/69ff7fef42283_6308/index.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/579db6e95905545973035e6eab8df2cd.png", Real Sociedad vs Real Betis (Luồng Nhanh)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://cdn-hls.taoxanh.biz/live/69ff7fef42283_6308/index.m3u8?expire=1778956911&sign=0faedfe34630ab2d5cfd8069f15e7c82
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/2c3f4f15f3330c4ea9ea9638ae5fb9ce.png", Bolton Wanderers vs Bradford City
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/5ce71ff93a549b1ef3dc68007df9b719/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/802842336a0cf26a0592a780dce88051.png", Usm Alger vs Zamalek Sc
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/aa07270e665aa319498d540af5aac699/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/57c938e35ceb2ee92562a09c4165fb47.png", Cleveland Cavaliers vs Detroit Pistons (Luồng Chính)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://live.alilicloud.com/live/2601973286c5b7f83248fa264fd36908/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/57c938e35ceb2ee92562a09c4165fb47.png", Cleveland Cavaliers vs Detroit Pistons (Luồng Chính)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://2893254555.global.cdnfastest.com/live/69ff822742283_72787/index.m3u8?expire=1778957479u0026sign=d092ab6c9557bcc6902a270f95e7cb97
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/57c938e35ceb2ee92562a09c4165fb47.png", Cleveland Cavaliers vs Detroit Pistons (Luồng Chính)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://59w50226.edgemaxcdn.org/live/69ff822742283_72787/index.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/57c938e35ceb2ee92562a09c4165fb47.png", Cleveland Cavaliers vs Detroit Pistons (Luồng Nhanh)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://cdn-hls.taoxanh.biz/live/69ff822742283_72787/index.m3u8?expire=1778957479&sign=d092ab6c9557bcc6902a270f95e7cb97
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/cms/a850878335b9557f32b13c47b8474302.png", China vs France (Luồng Chính)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://2893254555.global.cdnfastest.com/live/69ff720342283_42127/index.m3u8?expire=1778953347u0026sign=1a3ab75010e45d4dae7fd5f0c1e15e69
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/cms/a850878335b9557f32b13c47b8474302.png", China vs France (Luồng Chính)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://59w50226.edgemaxcdn.org/live/69ff720342283_42127/index.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/cms/a850878335b9557f32b13c47b8474302.png", China vs France (Luồng Nhanh)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://cdn-hls.taoxanh.biz/live/69ff720342283_42127/index.m3u8?expire=1778953347&sign=1a3ab75010e45d4dae7fd5f0c1e15e69
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/6a5db2a66428a695a9060d9accac6e6d.png", Maccabi Bnei Reineh vs Hapoel Kiryat Shmona
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/77a9a8e564a14d1e32b7cbcf28a2427d/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/f694143f9cde3001b1b7c612c1059fd2.png", Znicz Pruszkow vs Polonia Bytom
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/6734f248d156b6efc0df0cc25a5f8c5e/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/34747a7a6365a2dfd49f88c481652cb4.png", Fc Rouen vs Versailles 78
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/d7e61882e903542884274687c4f917e6/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/a4d26d87f7ead99c11d22750eeae3bf5.png", Stade Briochin vs Quevilly Rouen Metropole
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/f41976ecf95d967c2ea15762a1525cc2/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/f2cc8904afb100d60dfe9266b3ded7cf.png", Partizan Belgrade vs Ofk Beograd
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/40d78f91b244b72ca59eb7014049bd1b/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/558fd159895a1cb0e8b434e49d125128.png", Hapoel Petah Tikva vs Hapoel Beer Sheva
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/cc06f3e25cc153e0c9a81f940ed8d63d/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/8792b3e6d7e0e128fcbfa17f4c59dfc7.png", Paris 13 Atletico vs Aubagne
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/65ec65f7c06b8b9a2922eefd17eee4a7/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/aac881cf177c83c85e6e31181aaf12c6.png", Hapoel Tel Aviv vs Maccabi Tel Aviv
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/d4267e94d1c396b93357330d54a66705/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/426666bc594a8c414a9b6c0caa6b74b0.png", Us Orleans vs Fleury Merogis Us
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/491f853496c83b3762df7910ee9cb97e/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/1806830e98fc5cbe80f41fceed5fe355.png", Le Puy Foot 43 Auvergne vs Dijon
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/d1c5cc4e001bdef6cb6099108c5fae55/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/bb5e56788b036b1305fe02460fd4b095.png", Chateauroux vs Sochaux
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/766b08298b57c53f6074a6b9e688028f/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/49f16b80aa6bbdf0f40c6170339d3239.png", Caen vs Concarneau
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/24c73b89095be08232561ea3dcd96785/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/2ff2b4bf2937ba4317fafd1a1b700e7c.png", Bresse Peronnas 01 vs Valenciennes
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/d11b96fadd9f469ce4a3f8e8227b5687/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/49e4ff5b51f311b1ed45ce0eaa07aefa.png", Stal Mielec vs Puszcza Niepolomice
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/31c4990a3fd80a53dd6b82c92a23e2c7/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/958847e6fef63efb5913d460746ba5b7.png", Ks Wieczysta Krakow vs Miedz Legnica
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/ed14a45f4d33f53f645d6d7581f9ef18/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/0c520a5ff707978cf7ce6e3ff30dc98e.png", De Graafschap vs Almere City Fc
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/85c1069981873712103040ca19940724/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/2b0b85fcec97994a4758002512957d7a.png", Alfayha vs Alqadsiah
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/c155b64c5f0da679a32124390d8a7839/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/a4967ba8c3ca4f7889eac544f7b4798e.png", Tristan Suarez vs Ferrocarril Midland
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/2e79243e16a6b2a15edbaf9b3fe9bd84/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/ec6bbb420c8429ea3419301419c9e9f8.png", Arsenal Tivat vs Fk Sutjeska Niksic
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/b503695cf56fcce608a7103008e9f748/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/19be19d979fd79bf0a2e6a78dfdadc4c.png", Ucv Moquegua vs Ad Tarma
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/d157dd8fe32f051f7d54cc89e0a50cfe/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/fa567fc18ae75ae70fc4e6ac08713155.png", Annecy vs Rodez Aveyron
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/563ef920f3111d5286400908b1f34382/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/64ce1c7870a36892fde05cfc7f64c06b.png", Bastia vs Le Mans
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/f625d54012c499627187fd9c72d79b3b/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/53bcb0dffb14a347071436feb56a6436.png", Clermont vs Guingamp
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/ddccfaf03e7d70574a723f486a8ac03c/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/89b40b4dba68bc2b6ef4e82dd8e156bd.png", Grenoble vs Troyes
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/d007f98b3f218244f6b2a39930a88ab8/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/f4a20fb2ff268799ad07c8593295231c.png", Stade Lavallois Mfc vs Boulogne
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/7eaccb0b6f773df251b5416625df9287/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/bc6a3878c6c35a50764da297004493e1.png", Nancy vs Usl Dunkerque
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/61d57b420a4402248857109ccbfe0b3a/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/edbfeea99762e34ba21a25d78fe741dc.png", Red Star Fc 93 vs Montpellier Herault Sc
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/47e35fa14faef0ee2060ac86ee729438/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/956fe8fb5f3853251405e5b726992c07.png", Stade De Reims vs Pau Fc
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/a6bac9daea7f1b552fd46366ae5eef7f/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/9fb247c43a1c4b07d1f2534ea6b9c07a.png", As Saintetienne vs Amiens
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/b5f80daac4eaa31725b4c7ad43612e53/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/74c37787bcf9656e1372913981f69859.png", Fc Universitatea Cluj vs Fc Rapid 1923
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/505635e4c830784db18dc74e5ca370d0/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/e50fadf148a07731dbba8acade1645fe.png", San Telmo vs Atletico Mitre De Santiago Del Estero
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/8c50ce34ef3eb1286ae9f03f28b7c439/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/0f66aafde07d8ce9a2ad882abfbe4aac.png", Gornik Zabrze vs Zaglebie Lubin
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/4483b56d85bdf496fdb1625d294fc61e/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/f6c8a28bf01610447b86c48ec05ce1b4.png", Maribor vs Nk Olimpija Ljubljana
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/152aef5f626bd10175b5d8b9f012af06/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/895a263ae5237d0edbaf850a907a59b0.png", 1 Fc Nrnberg vs Schalke 04
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/7f4def73bfa9a037e4223f8fe360ad0a/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/32ea0f2d506ec8181164b8563387f7f0.png", Benevento vs Arezzo
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/9cd5b950be981334acae3a25af5b0d5e/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/167d36c2bdb0fb5d887bc909aa26a88a.png", Ca San Miguel vs Estudiantes De Caseros
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/bd8884331f6ed6d4f149003bf515f811/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/9a1ce30a4d491f205368bdca1a168c4f.png", Temperley vs Deportivo Maipu
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/581470130900385b4366afb191b65b53/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/a5c19caa8f0d2c476156ece6470b15a0.png", Tecnico Universitario vs Delfin Sc
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/45d36e89933b88dae44f687bb42904ec/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/d58e9c957ece735462e6cd0c80052e57.png", Tatran Presov vs Mfk Skalica
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/f56439ab64ab08e997dbe33ab1848df2/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/54b45ccae7dea1e4b2d74dab279e4620.png", Luzern vs Servette
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/9638a2abc01fe2184eeb2163598d2060/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/929fe1b737e458218cbe8ce00a55a05c.png", Chicago Fire vs New York Red Bulls
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/e9cd6c90c91114ca44b822d64ae3949b/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/2e9f652d28ec91e0b66c0b714bff8d78.png", Club Brugge vs Sinttruidense
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/ecdb5ce6afd8aaa33342e120b9390bfe/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/6abcc8f24321d1eb8c95855eab78ee95.jpg", Posusje vs Fk Velez Mostar
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/2b1a6f13d872efca8c563159b810c61c/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/9c7c68ee0cad47be69a9d57e43261484.png", Malaga vs Sporting Gijon
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/d59947d9e8969580691fe102f2b1c7c9/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/4f7a0095b9a3a4756318efd55451badb.png", Coritiba Pr vs Internacional Rs
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/f8add8e9ad64877830895a63374737f5/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/86cb19586d66a7d65de64a3bad288c1f.png", Goias Ec vs Vila Nova
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/4f56c7d35c6e3529dcb02b00e5138216/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/5cb7c1dd88e5c3358210c33b61bd6c5f.png", Motherwell vs Heart Of Midlothian
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/2117588437bcef90fc73bada7d7f29e2/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/cb77637e1d20cac74b83b0c567f8eb05.png", Cd Mafra vs Academica Coimbra
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/74879e869d7815179387f97bfc520e13/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/81e9f1f9d6393fd128c6c014783d9fa2.png", Indiana Fever vs Dallas Wings
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://live.alilicloud.com/live/9670e07e9bf84199a60f88d03f0f7560/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/23b38ae1c7be3fdad7504f02e8cc64e9.png", Hapoel Migdal Haemek vs Hapoel Tel Aviv
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://live.alilicloud.com/live/091d0fbb8ee3364c60d12ad2037d517b/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/1939b11db85008c46ed85415dd601c06.png", Ps Karlsruhe vs Phoenix Hagen
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://live.alilicloud.com/live/e4efd7ebfa59814700ddcbfb6440182a/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/f9a5b5f24269dc032158a3c281b4b9b8.png", Scavolini Spar Pesaro vs Edilizia Moderna Rimini
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://live.alilicloud.com/live/e407e8bd2412c96e1365f0c5e9ec90ca/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/31e923dcb7e37ee42d4481bfad7ff9b9.png", Aek Bc vs Rytas Vilnius
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://live.alilicloud.com/live/3a8aa963ed78609add9fd4f888c82a87/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/01bed2a907f15373adc07d7e093713cb.png", Entente Orleanaise vs Rouen
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://live.alilicloud.com/live/8bb716ffa8e6dbc0c9738243d7e4eba2/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/2fd4f3f255b6e81c859284c6156184b1.png", Ada Blois Basket 41 vs La Rochelle
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://live.alilicloud.com/live/797e6d6650510c8a67da97c503b7cf0d/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/7d0499da837e3bacf4e0061a1511d6fb.png", Elitzur Ashkelon vs Maccabi Ashdod
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://live.alilicloud.com/live/7daa44948adcdaf6fbd33a22bc2371db/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/78e991e55d0b24b17629e0364697b38c.png", Fortitudo Bologna vs Avellino Basket
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://live.alilicloud.com/live/be75d23b25d1bd3fb4f41a20da391433/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/52f3855efbb7bd632dc6ca68e167abd9.png", Tezenis Verona vs New Basket Brindisi
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://live.alilicloud.com/live/61453d73eae76a1ca97b80e3e7015b1d/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/4660d3b4854deac4eadf6c9212f18f34.png", Lyonvilleurbanne vs Strasbourg
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://live.alilicloud.com/live/e9c3c26c6c71575523c14cda0d710e3a/playlist.m3u8
