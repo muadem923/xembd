@@ -1,0 +1,32 @@
+name: Get Link M3U Auto
+
+on:
+  schedule:
+    - cron: '*/30 * * * *' # Chạy tự động mỗi 30 phút
+  workflow_dispatch: # Tạo nút bấm chạy thủ công
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Cài đặt Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Cài đặt thư viện
+        run: pip install requests beautifulsoup4 selenium-wire webdriver-manager selenium
+
+      - name: Chạy code lấy link
+        run: python main.py
+
+      - name: Lưu file m3u lên GitHub
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add buncha_live.m3u
+          git commit -m "Tự động cập nhật link m3u" || echo "Không có trận mới"
+          git push
