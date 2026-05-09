@@ -2,6 +2,7 @@ from curl_cffi import requests
 from bs4 import BeautifulSoup
 import re
 import codecs
+import concurrent.futures # Vũ khí bí mật: Đa luồng
 
 def clean_match_title(raw_text):
     if not raw_text: return ""
@@ -69,16 +70,14 @@ def get_matches(url):
         return []
 
 def clean_stream_link(link):
-    """Làm sạch link bị mã hóa trong Javascript"""
     link = link.replace('\\/', '/')
-    link = link.replace('\\u0026', '&').replace('u0026', '&') # Sửa lỗi mã hóa dấu &
+    link = link.replace('\\u0026', '&').replace('u0026', '&') 
     link = link.replace('\\', '')
     return link
 
 def extract_all_m3u8_from_url(url):
-    """Nội soi toàn diện: Quét JSON, Quét Nút bấm, Quét Iframe"""
     try:
-        res = requests.get(url, impersonate="chrome110", timeout=15)
+        res = requests.get(url, impersonate="chrome110", timeout=10) # Giảm timeout
         html_content = res.text
         soup = BeautifulSoup(html_content, 'html.parser')
         
@@ -86,21 +85,17 @@ def extract_all_m3u8_from_url(url):
         seen_links = set()
         url_to_name = {}
 
-        # --- BƯỚC 1: NỘI SOI JAVASCRIPT/JSON CỦA WEB ---
-        # Tìm các đoạn code có dạng: name: "BLV Shin", url: "https..."
         json_pattern1 = re.findall(r'["\']?(?:name|title)["\']?\s*:\s*["\']([^"\']+)["\'].*?["\']?(?:url|link|src|iframe)["\']?\s*:\s*["\']([^"\']+)["\']', html_content, re.IGNORECASE)
         json_pattern2 = re.findall(r'["\']?(?:url|link|src|iframe)["\']?\s*:\s*["\']([^"\']+)["\'].*?["\']?(?:name|title)["\']?\s*:\s*["\']([^"\']+)["\']', html_content, re.IGNORECASE)
         
         for name, link in json_pattern1:
             url_to_name[clean_stream_link(link)] = codecs.decode(name.encode(), 'unicode_escape')
-            
         for link, name in json_pattern2:
             url_to_name[clean_stream_link(link)] = codecs.decode(name.encode(), 'unicode_escape')
 
-        # --- BƯỚC 2: QUÉT NÚT BẤM HTML (Đề phòng web không dùng JSON) ---
         for tag in soup.find_all(['button', 'a', 'span', 'li', 'div']):
             text = re.sub(r'\s+', ' ', tag.text.strip())
-            if text and 2 <= len(text) <= 25: # Nếu là 1 cụm từ ngắn giống tên BLV
+            if text and 2 <= len(text) <= 25: 
                 tag_html = str(tag)
                 urls = re.findall(r'(https?://[^\s"\'<>]+|//[^\s"\'<>]+)', tag_html)
                 for u in urls:
@@ -116,32 +111,48 @@ def extract_all_m3u8_from_url(url):
                 streams.append({'url': m3u8_link, 'name': name})
                 seen_links.add(m3u8_link)
 
-        # --- BƯỚC 3: RÁP TÊN VÀO LINK ---
-        # 3.1 Gắn tên cho các link tìm thấy trực tiếp
         for u, name in url_to_name.items():
             if '.m3u8' in u:
                 add_stream(u, name)
             elif 'http' in u or u.startswith('//'):
-                # Nếu là link iframe, truy cập vào để moi m3u8 ra
                 try:
-                    iframe_res = requests.get(u, impersonate="chrome110", timeout=10)
+                    # Giảm timeout xuống 3s cho server phụ. Lâu quá cho next luôn!
+                    iframe_res = requests.get(u, impersonate="chrome110", timeout=3) 
                     sub_links = re.findall(r'(https?://[^\s"\'<>]*\.m3u8[^\s"\'<>]*)', iframe_res.text)
                     for l in sub_links: add_stream(l, name)
                 except:
                     pass
 
-        # 3.2 Vét cạn (Nếu web còn giấu m3u8 ở đâu đó mà bước trên chưa móc ra)
         main_links = re.findall(r'(https?://[^\s"\'<>]*\.m3u8[^\s"\'<>]*)', html_content)
         for l in main_links:
-            # Ưu tiên tìm tên trong mớ JSON, nếu không có mới dùng chữ "Dự phòng"
             l_clean = clean_stream_link(l)
             name = url_to_name.get(l_clean, "Luồng Dự Phòng")
             add_stream(l, name)
             
         return streams
-    except Exception as e:
-        print(f"Lỗi trích xuất: {e}")
+    except Exception:
         return []
+
+# Hàm xử lý cho 1 công nhân (1 Thread)
+def process_single_match(match):
+    user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    chunk_data = ""
+    print(f"Đang xử lý: {match['title']}...")
+    
+    streams = extract_all_m3u8_from_url(match['url'])
+    
+    if streams:
+        for stream in streams:
+            display_name = match['title']
+            if stream['name'] and stream['name'] != "Luồng Dự Phòng":
+                display_name = f"{match['title']} ({stream['name']})"
+            
+            chunk_data += f'#EXTINF:-1 tvg-logo="{match["logo"]}", {display_name}\n'
+            chunk_data += f'#EXTVLCOPT:http-user-agent={user_agent}\n'
+            chunk_data += f'{stream["url"]}\n'
+        return chunk_data, len(streams), match['title'], [s['name'] for s in streams]
+    
+    return "", 0, match['title'], []
 
 def main():
     target_url = "https://bunchatv4.net/"
@@ -155,29 +166,23 @@ def main():
 
     playlist = "#EXTM3U\n"
     success_count = 0
-    user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
     
-    print(f"✅ Đã tìm thấy {len(matches)} trận đấu. Bắt đầu lặn lấy toàn bộ luồng BLV...")
+    print(f"✅ Đã tìm thấy {len(matches)} trận đấu. Bắt đầu DÙNG ĐA LUỒNG để vét cạn...")
     
-    for match in matches:
-        print(f"\nĐang xử lý: {match['title']}")
-        streams = extract_all_m3u8_from_url(match['url'])
+    # KÍCH HOẠT 10 CÔNG NHÂN CÙNG QUÉT MỘT LÚC
+    with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
+        # Ném tất cả các trận đấu cho 10 công nhân này xử lý
+        futures = [executor.submit(process_single_match, match) for match in matches]
         
-        if streams:
-            for stream in streams:
-                # Phép màu hiện tên BLV ở đây
-                display_name = match['title']
-                if stream['name'] and stream['name'] != "Luồng Dự Phòng":
-                    display_name = f"{match['title']} ({stream['name']})"
-                
-                playlist += f'#EXTINF:-1 tvg-logo="{match["logo"]}", {display_name}\n'
-                playlist += f'#EXTVLCOPT:http-user-agent={user_agent}\n'
-                playlist += f'{stream["url"]}\n'
-                
-            success_count += 1
-            print(f"  -> Lấy thành công {len(streams)} luồng: {', '.join([s['name'] for s in streams])}")
-        else:
-            print("  -> Thất bại (Không tìm thấy luồng stream nào).")
+        # Nhận kết quả từ công nhân nào làm xong trước
+        for future in concurrent.futures.as_completed(futures):
+            chunk_data, stream_count, title, stream_names = future.result()
+            if stream_count > 0:
+                playlist += chunk_data
+                success_count += 1
+                print(f"  -> Xong: {title} | Gắp được {stream_count} luồng ({', '.join(stream_names)})")
+            else:
+                print(f"  -> Thất bại: {title} (Không có luồng)")
             
     if success_count == 0:
          playlist += '#EXTINF:-1 tvg-logo="", ❌ LỖI KHÔNG TÌM THẤY LINK STREAM\nhttp://localhost/error.m3u8\n'
@@ -185,7 +190,7 @@ def main():
     with open("buncha_live.m3u", "w", encoding="utf-8") as f:
         f.write(playlist)
         
-    print(f"\n🎉 [HOÀN TẤT] Đã tạo file buncha_live.m3u thành công rực rỡ!")
+    print(f"\n🎉 [HOÀN TẤT] Tốc độ bàn thờ! Đã tạo file buncha_live.m3u thành công rực rỡ!")
 
 if __name__ == "__main__":
     main()
