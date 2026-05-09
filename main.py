@@ -39,7 +39,6 @@ def get_matches(url):
                 # --- 1. LẤY TÊN TRẬN CHUẨN 100% TỪ LINK ---
                 title = extract_name_from_url(full_link)
                 
-                # Nếu bóc từ link thất bại (hiếm), mới mò HTML như cũ
                 if not title:
                     raw_title = a_tag.get('title') or a_tag.text.strip()
                     title = re.sub(r'\s+', ' ', raw_title)
@@ -47,7 +46,7 @@ def get_matches(url):
                     if title.lower() in ['bóng đá', 'trực tiếp', 'trang chủ']: 
                         title = full_link.split('/')[-1]
 
-                # --- 2. TRUY TÌM LOGO CHUẨN (Loại bỏ logo quả bóng) ---
+                # --- 2. TRUY TÌM LOGO CHUẨN (Loại bỏ logo rác) ---
                 imgs = a_tag.find_all('img')
                 if not imgs and a_tag.parent:
                     imgs = a_tag.parent.find_all('img')
@@ -55,15 +54,14 @@ def get_matches(url):
                 logo_url = ""
                 for img in imgs:
                     src = img.get('data-src') or img.get('data-original') or img.get('src') or ""
-                    # Lọc bỏ các ảnh chứa chữ categories, icon, logo web chung
+                    # Lọc bỏ các ảnh chứa chữ categories, icon
                     if src and '/categories/' not in src and 'icon' not in src:
                         logo_url = src
                         if logo_url.startswith('//'):
                             logo_url = 'https:' + logo_url
-                        break # Tìm được 1 ảnh hợp lệ là dừng luôn
+                        break 
                 
-                # --- Thêm vào danh sách (chống trùng) ---
-                # Chỉ thêm nếu tên trận có ý nghĩa (chứa chữ cái)
+                # --- Thêm vào danh sách ---
                 if title and re.search('[a-zA-Z]', title):
                     if not any(m['url'] == full_link for m in matches):
                         matches.append({'url': full_link, 'title': title, 'logo': logo_url})
@@ -108,6 +106,9 @@ def main():
     playlist = "#EXTM3U\n"
     success_count = 0
     
+    # Khai báo áo khoác tàng hình (User-Agent)
+    user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    
     print(f"✅ Đã tìm thấy {len(matches)} trận đấu. Bắt đầu lấy link video...")
     
     for match in matches:
@@ -116,7 +117,14 @@ def main():
         
         if m3u8_link:
             m3u8_link = m3u8_link.replace('\\', '') 
-            playlist += f'#EXTINF:-1 tvg-logo="{match["logo"]}", {match["title"]}\n{m3u8_link}\n'
+            
+            # Ghi thông tin Trận đấu & Logo
+            playlist += f'#EXTINF:-1 tvg-logo="{match["logo"]}", {match["title"]}\n'
+            # Ép thêm cái bùa hộ mệnh chống chặn
+            playlist += f'#EXTVLCOPT:http-user-agent={user_agent}\n'
+            # Link luồng stream
+            playlist += f'{m3u8_link}\n'
+            
             success_count += 1
             print("  -> Lấy thành công!")
         else:
