@@ -18,7 +18,7 @@ jobs:
           python-version: '3.10'
 
       - name: Cài đặt thư viện
-        run: pip install requests beautifulsoup4 selenium-wire webdriver-manager selenium
+        run: pip install blinker==1.6.2 requests beautifulsoup4 selenium-wire webdriver-manager selenium
 
       - name: Chạy code lấy link
         run: python main.py
