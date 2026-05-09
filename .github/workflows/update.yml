@@ -18,7 +18,7 @@ jobs:
           python-version: '3.10'
 
       - name: Cài đặt thư viện (Đã fix lỗi blinker)
-        run: pip install blinker==1.6.2 requests beautifulsoup4 selenium-wire webdriver-manager selenium
+        run: pip install curl_cffi beautifulsoup4
 
       - name: Chạy code lấy link m3u8
         run: python main.py
