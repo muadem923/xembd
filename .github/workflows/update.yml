@@ -2,7 +2,7 @@ name: Get Link M3U Auto
 
 on:
   schedule:
-    - cron: '*/30 * * * *' # Chạy tự động mỗi 30 phút
+    - cron: '0 * * * *' # Chạy tự động mỗi 30 phút
   workflow_dispatch: # Cho phép nhấn nút chạy thủ công
 
 jobs:
