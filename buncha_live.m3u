@@ -1,94 +1,154 @@
 #EXTM3U
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/ff7126c702dacb0624f223c0bc0d66ad.png", Alexei Popyrin vs Jakub Mensik (Luồng Chính)
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/dcb67dd58619e29d84853ac2e4ac5e27.png", Atlanta United vs Los Angeles Galaxy (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://2893254555.global.cdnfastest.com/live/69ff5b3642283_72787/index.m3u8?expire=1778947510u0026sign=16f2036eba5c4a517e09569356ecd4f4
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/ff7126c702dacb0624f223c0bc0d66ad.png", Alexei Popyrin vs Jakub Mensik (Luồng Chính)
+https://vlsrq.alilicloud.com/live/25e73da62a9072f08c20bb7c55993e34/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/dcb67dd58619e29d84853ac2e4ac5e27.png", Atlanta United vs Los Angeles Galaxy (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://59w50226.edgemaxcdn.org/live/69ff5b3642283_72787/index.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/ff7126c702dacb0624f223c0bc0d66ad.png", Alexei Popyrin vs Jakub Mensik (Luồng Nhanh)
+https://2893254555.global.cdnfastest.com/live/69ffbba4203f5_95554/index.m3u8?expire=1778972196u0026sign=c9018e510c47f10c92605c08a2704702
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/dcb67dd58619e29d84853ac2e4ac5e27.png", Atlanta United vs Los Angeles Galaxy (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://cdn-hls.taoxanh.biz/live/69ff5b3642283_72787/index.m3u8?expire=1778947510&sign=16f2036eba5c4a517e09569356ecd4f4
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/57c938e35ceb2ee92562a09c4165fb47.png", Cleveland Cavaliers vs Detroit Pistons (Luồng Chính)
+https://59w50226.edgemaxcdn.org/live/69ffbba4203f5_95554/index.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/dcb67dd58619e29d84853ac2e4ac5e27.png", Atlanta United vs Los Angeles Galaxy (Luồng Nhanh)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://live.alilicloud.com/live/2601973286c5b7f83248fa264fd36908/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/57c938e35ceb2ee92562a09c4165fb47.png", Cleveland Cavaliers vs Detroit Pistons (Luồng Chính)
+https://cdn-hls.taoxanh.biz/live/69ffbba4203f5_95554/index.m3u8?expire=1778972196&sign=c9018e510c47f10c92605c08a2704702
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/20456802ad5f8243dc282c4650c414e1.png", Bahia vs Cruzeiro Esporte Clube (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://2893254555.global.cdnfastest.com/live/69ff822742283_72787/index.m3u8?expire=1778957479u0026sign=d092ab6c9557bcc6902a270f95e7cb97
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/57c938e35ceb2ee92562a09c4165fb47.png", Cleveland Cavaliers vs Detroit Pistons (Luồng Chính)
+https://vlsrq.alilicloud.com/live/f3dc6033d12771f8e719610acfbca581/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/20456802ad5f8243dc282c4650c414e1.png", Bahia vs Cruzeiro Esporte Clube (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://59w50226.edgemaxcdn.org/live/69ff822742283_72787/index.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/57c938e35ceb2ee92562a09c4165fb47.png", Cleveland Cavaliers vs Detroit Pistons (Luồng Nhanh)
+https://2893254555.global.cdnfastest.com/live/69ffc753203f5_153967/index.m3u8?expire=1778975187u0026sign=48be74934bdeab08c2bc9e5e058563bb
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/20456802ad5f8243dc282c4650c414e1.png", Bahia vs Cruzeiro Esporte Clube (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://cdn-hls.taoxanh.biz/live/69ff822742283_72787/index.m3u8?expire=1778957479&sign=d092ab6c9557bcc6902a270f95e7cb97
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/cms/a850878335b9557f32b13c47b8474302.png", China vs France (Luồng Chính)
+https://59w50226.edgemaxcdn.org/live/69ffc753203f5_153967/index.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/20456802ad5f8243dc282c4650c414e1.png", Bahia vs Cruzeiro Esporte Clube (Luồng Nhanh)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://2893254555.global.cdnfastest.com/live/69ff720342283_42127/index.m3u8?expire=1778953347u0026sign=1a3ab75010e45d4dae7fd5f0c1e15e69
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/cms/a850878335b9557f32b13c47b8474302.png", China vs France (Luồng Chính)
+https://cdn-hls.taoxanh.biz/live/69ffc753203f5_153967/index.m3u8?expire=1778975187&sign=48be74934bdeab08c2bc9e5e058563bb
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/fa6f985041ec3f9729172380ae9cebf8.png", Los Angeles Lakers vs Oklahoma City Thunder (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://59w50226.edgemaxcdn.org/live/69ff720342283_42127/index.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/cms/a850878335b9557f32b13c47b8474302.png", China vs France (Luồng Nhanh)
+https://live.alilicloud.com/live/0587cfcb4490050fb76983aeab72fd10/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/fa6f985041ec3f9729172380ae9cebf8.png", Los Angeles Lakers vs Oklahoma City Thunder (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://cdn-hls.taoxanh.biz/live/69ff720342283_42127/index.m3u8?expire=1778953347&sign=1a3ab75010e45d4dae7fd5f0c1e15e69
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/44cb6b8a76b2194e16849eace4743e54.png", Talleres Cordoba vs Belgrano
+https://2893254555.global.cdnfastest.com/live/69ffce0142283_42127/index.m3u8?expire=1778976897u0026sign=4fe8b0bb6fc6789ce7422a2f385bc7ba
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/fa6f985041ec3f9729172380ae9cebf8.png", Los Angeles Lakers vs Oklahoma City Thunder (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/3c1b84dfb91cc128bcf3f6f22c3138c3/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/54b45952992ecffc33601a8eecc9881e.png", Vizela vs Uniao Leiria
+https://59w50226.edgemaxcdn.org/live/69ffce0142283_42127/index.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/fa6f985041ec3f9729172380ae9cebf8.png", Los Angeles Lakers vs Oklahoma City Thunder (Luồng Nhanh)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/05dd2af87744ef7c62f99faaad2f8ab5/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/0413f3620ec30423777be92f84078824.png", Sl Benfica B vs Viseu
+https://cdn-hls.taoxanh.biz/live/69ffce0142283_42127/index.m3u8?expire=1778976897&sign=4fe8b0bb6fc6789ce7422a2f385bc7ba
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/78febf9c2b8c7c5bff95797b00c90459.png", Hartford Athletic vs Detroit City
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/0a0343ee703f705922bf19d4d4ce459e/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/c90b74c91a43e6170c860a5e328293ff.png", San Martin San Juan vs Patronato Parana
+https://vlsrq.alilicloud.com/live/bb21be7b2bcb55a089d53d56131bc882/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/362e93771930fdf18e2fbfbb2a991e1c.png", Brooklyn Fc vs Loudoun United
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/226bd19537cbe1646d680b4ae26ab104/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/b0d99b5e163d56f84425d465e6e11343.png", San Jose Earthquakes Reserve vs Vancouver Whitecaps Reserve
+https://vlsrq.alilicloud.com/live/4c03aff499442853b96479d55b47bc02/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/8f4c8b7e2cd333ab2e32d65bcbd3c7ff.png", Louisville City Fc vs Pittsburgh Riverhounds
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/d7090899d82fa5e32606776cf2a49dbf/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/5d3d6622bf84c648d439e68dd075e9fa.png", Chicago Flame B vs Crown Legacy Fc
+https://vlsrq.alilicloud.com/live/ef2277f9a9e155f5cfdff65bda75a1a5/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/96f9d71dc6038477efe2b3ff71c1631e.png", Indy Eleven vs Sporting Jax
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/dc2d3135474065978a42bc4045cc780c/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/741486b3cc28391ffd7720dc0a8e2265.png", Sc Paysandu Para vs Anapolis Fc
+https://vlsrq.alilicloud.com/live/fe24e35d478a9aa6490df91d6182c2b1/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/ffa3acd73ef1b617c050414162a20694.png", Fc Nacional Asuncion vs Club Sportivo Trinidense
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/a1c52697caab7f83b5eb80b6f0b862ba/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/eef8932afd66a66daa76d47cf7503957.png", Forge Fc vs Hfx Wanderers Fc
+https://vlsrq.alilicloud.com/live/8361763f660ea1cd9bc7f959fd6d3101/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/5dbc9a62431184ca78d587065674c4a2.png", Greenville Triumph vs Richmond Kickers
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/f050fdebc2229cb61a7a2f0e5a5b1076/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/25afbf2325055b13d468c19167ba532e.png", Itabaianase vs Floresta Ce
+https://vlsrq.alilicloud.com/live/4d9079ba92b78e893183f55b95934553/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/400b8c4c420fe3b0c0855fa4ce7ecc3f.jpg", Pacific Fc vs Cavalry Fc
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/a88fdce6d26b6be25a85ca018ff93138/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/6a6cce9aa801c9ba65832a685dd144b7.png", Atletico Grau vs Cienciano
+https://vlsrq.alilicloud.com/live/b706699bbf13a1c23718f740192cfece/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/40f17f08ff7bb44a641273044db78c64.png", Deportes Tolima vs Deportivo Pasto
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/99c617aab5075ed74418b2ad3660bb7e/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/abd87a03b9befd43df6c45c9b17e9a79.png", Montreal Impact vs Orlando City
+https://vlsrq.alilicloud.com/live/67482cd6a3094e121a438608ea882041/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/2177301a342c64d8ef826cfa8dd9a6dd.png", Tampa Bay Sun W vs Dallas Trinity W
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/0cf8cdff8ebbe1583d58e27a37fa09ff/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/ef90155d7ce7ad5223e50df90eff5d19.png", Club Sportivo 2 De Mayo vs Rubio Nu
+https://vlsrq.alilicloud.com/live/0498dae57b2354c24ef30c9180fcb04f/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/98bbf5c88e07485ab9fba5ca287e6454.png", Fort Lauderdale Utd W vs Carolina Ascent W
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/563e8b624c7be83b8147d24a7d3db0e0/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/26cb7444370bac657b78559413af0a26.png", Maranhao vs Botafogo Pb
+https://vlsrq.alilicloud.com/live/73070494f312d258a040cb9e9bdc2943/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/556ae50b42b399564a1d9fcdff9c740c.png", Rhode Island vs Tampa Bay Rowdies
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/5beda4dff38b6ca4afc03c8966223d3b/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/109f72e810b7fdf166636650f0ed244a.png", Atletico Rafaela vs Gimnasia Ytiro
+https://vlsrq.alilicloud.com/live/4bb97d553d4629126e7865f61fc83e6d/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/96413c5ef284eec6c6e0d76c87732471.png", Crb Al vs Operario Ferroviario Pr
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/fcd77707a16ce5569ea57e35ec5f496e/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/a6bce9adfac7903426bed2b253991a18.png", Fluminense Rj vs Vitoria Ba
+https://vlsrq.alilicloud.com/live/3ffc1133b213ddd6bcd2994942853628/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/fad8d1edc7eefb0c2ff0dc7d6c579c21.png", Fort Wayne Fc vs Westchester Sc
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/501a75924db6d1a119555a09b827b24b/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/06c168e54604cc2392646b4c8cea7d9b.png", Guayaquil City vs Deportivo Cuenca
+https://vlsrq.alilicloud.com/live/c96bafb110157377a93c5ec345bb8369/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/5c01731e3c513a3797c85b95c436e0d9.png", Charlotte Fc vs Fc Cincinnati
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/3e2c85d9c4a19c3e4f15d24e471ae5f0/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/265454b5fee1950f8aa1173147c8c593.png", La Equidad vs Atletico Nacional Medellin
+https://vlsrq.alilicloud.com/live/a7aa6164a1fac82d19734a02866f0235/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/f1b7c49790e05778f194ed436515b240.png", New England Revolution vs Philadelphia Union
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/643d8665c1eaf6974a96180c8059d269/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/fb1cad107d460687012fa7b8fac6dc11.png", Saint Louis City B vs Houston Dynamo B
+https://vlsrq.alilicloud.com/live/403a64096757f0b79878d72a340a5c48/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/cb9797fa8614b9664231a4861ed71875.png", Independiente Del Valle vs Barcelona Scecu
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/f50b916adc5d500c77982fbdefe3e7a5/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/ed16dd3c5970174b77eb04b0ea5b0960.png", Athletic Club vs Cuiaba
+https://vlsrq.alilicloud.com/live/5bbc9622c3f03e55022b8fb1513100fc/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/0dea9d20b78bf22e53d6f5cdb94d2e5b.png", Minnesota United B vs North Texas Sc
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/6194d129d8fea0cd120bb1166847f38d/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/d390f3b4be2499face8eb4af0e73140e.png", Club Guabira vs Gualberto Villarroel Deportivo San Jose
+https://vlsrq.alilicloud.com/live/0534e79bd96bf9b684c731b9b6c8fe58/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/3656d046d7ca027ff1aa38d4b5e4b6bb.png", Universidad Central De Venezuela vs Academia Puerto Cabello
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/02687552e1d98ec6b4336499b6a8ffba/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/ce8ab1125fdb3fdbd8c09dba8c437c49.png", Las Vegas Aces vs Phoenix Mercury
+https://vlsrq.alilicloud.com/live/8873044a7387173c017c77cc261df7cc/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/c2aa5eb71d7ff818c9a50d8af7c20e28.png", Omaha vs Portland Hearts Of Pine
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://live.alilicloud.com/live/1dd475163e0189af13f898c1411a3f8b/playlist.m3u8
+https://vlsrq.alilicloud.com/live/d76595856ae483c00bf64e84272fe912/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/7a9a6275e29e0f51ea68ba1ec740bf1e.png", Juventude vs Criciuma
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/3b3774f1fa0220e0f97149c6e6da9572/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/577e0df3f80cd623c4b15f2f9d814468.png", Sv La Fama vs Sv Britannia
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/4604ca26815c4e181660fb4381782deb/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/7e779bba58b944c8cfa786d857430383.png", Independiente Rivadavia vs Club Atletico Union
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/cf4a2f3f793d4f75ba22327732b39194/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/e11f58ba6522a5c6ab7b037e2cd110e9.png", Corpus Christi Fc vs Charlotte Independence
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/327d8b66682cf4c11327bb15a0bbabf6/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/e829da6b3050ec03f3c8715690ec39c4.png", Fc Dallas vs Real Salt Lake
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/0e61ead86d84254b8db8641ff20fb218/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/984e8b2a7f23e585e1cc8d2fc0df89f1.png", Paulistano Amil vs Ec Pinheiros Sao Paolo
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://live.alilicloud.com/live/3285d095013af55ce5c2369927207a3a/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/02a351730503afd125dbe82be64e10a9.png", Manati vs Criollos De Caguas
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://live.alilicloud.com/live/a1da3c4e80f6104020c77d9264c6b7c2/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/49fd2772263eaccfe78608a04e5b6f4c.png", Minnesota Lynx vs Atlanta Dream
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://live.alilicloud.com/live/e23c4b8b18bab126c9074517a69f8f8f/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/d222c2ed4cf731b2052eb91a0a8f0ec3.png", Puerto Montt vs Deportivo Valdivia
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://live.alilicloud.com/live/0c501092bd2b7e8b750ce691b6b55966/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/00cb6ac3921c4774a47aa9032980696e.png", Defensor Sporting vs Malvin
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://live.alilicloud.com/live/282715aaf8dd4958daf801c52a5d2cc8/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/872867a492989e6a9a0785cfd0a40680.png", Chivas Guadalajara vs Tigres Uanl (Luồng Chính)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://2893254555.global.cdnfastest.com/live/69ffd50242283_74012/index.m3u8?expire=1778978690u0026sign=84a44960751793af9aecc6b89eba1cae
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/872867a492989e6a9a0785cfd0a40680.png", Chivas Guadalajara vs Tigres Uanl (Luồng Chính)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://59w50226.edgemaxcdn.org/live/69ffd50242283_74012/index.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/872867a492989e6a9a0785cfd0a40680.png", Chivas Guadalajara vs Tigres Uanl (Luồng Nhanh)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://cdn-hls.taoxanh.biz/live/69ffd50242283_74012/index.m3u8?expire=1778978690&sign=84a44960751793af9aecc6b89eba1cae
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/fdef90456d2a2eee09976c558457aec7.png", Rcd Mallorca vs Villarreal Cf
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/25449e69a03c8d933ae947f71b830413/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/1091af5aa9fc4a30411785954edb9159.png", Burnley vs Aston Villa
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/285c827b0f66bd7b665cd2f64f5e127c/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/62572999d107f777efa4aeb907443527.png", Nottingham Forest vs Newcastle United
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/69ec50be7077b091ea6f3c5400015452/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/0b0e25267dabd15c405070329df5fbdb.png", Cremonese vs Pisa
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/f6a45db39d633815f14188ed59a304bb/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/42396d18444156e640c37476c2b41b93.png", Crystal Palace vs Everton
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/a24f40e82451080f1b61257c45a231aa/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/858d87ded0cce014bae0c9681af48524.png", Fiorentina vs Genoa
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/40322c5c593654c94facc9a1d6f84d09/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/81f8f9e258e6b73bc522bab06730720a.png", Hamburger Sv vs Sc Freiburg
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/3c6932bfabf6b931a405714335a850ed/playlist.m3u8
