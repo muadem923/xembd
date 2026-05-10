@@ -4,134 +4,135 @@ import re
 import codecs
 from datetime import datetime
 
-# Cấu hình
+# Cấu hình chuẩn
 TARGET_URL = "https://bunchatv4.net/"
-USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 def get_match_time(url):
-    """Lấy thời gian từ link để sắp xếp"""
+    """Bóc tách giờ từ URL"""
     try:
-        match = re.search(r'-(\d{4})-(\d{2})-(\d{2})-(\d{4})', url)
-        if match:
-            t = f"{match.group(1)[:2]}:{match.group(1)[2:]}"
-            d = f"{match.group(2)}/{match.group(3)}"
-            sort_val = datetime.strptime(f"{match.group(4)}-{match.group(3)}-{match.group(2)} {t}", "%Y-%m-%d %H:%M")
+        m = re.search(r'-(\d{4})-(\d{2})-(\d{2})-(\d{4})', url)
+        if m:
+            t = f"{m.group(1)[:2]}:{m.group(1)[2:]}"
+            d = f"{m.group(2)}/{m.group(3)}"
+            sort_val = datetime.strptime(f"{m.group(4)}-{m.group(3)}-{m.group(2)} {t}", "%Y-%m-%d %H:%M")
             return f"[{t} {d}]", sort_val
     except: pass
     return "", datetime.now()
 
-def get_matches(url):
-    print(f"🚀 Đang quét danh sách trận từ trang chủ...")
+def get_matches():
+    print(f"🚀 Đang quét trang chủ: {TARGET_URL}")
     try:
-        response = requests.get(url, impersonate="chrome110", timeout=15)
-        soup = BeautifulSoup(response.text, 'html.parser')
+        res = requests.get(TARGET_URL, impersonate="chrome110", timeout=20)
+        soup = BeautifulSoup(res.text, 'html.parser')
         matches = []
         
-        # Tìm tất cả các khối chứa trận đấu (thường là thẻ có link)
-        for a_tag in soup.find_all('a', href=True):
-            href = a_tag['href']
-            if '/truc-tiep/' in href or '/truoc-tran/' in href:
-                full_link = href if href.startswith('http') else f"https://bunchatv4.net{href}"
-                
-                # --- LẤY TÊN TRẬN (Lấy text trực tiếp từ trang chủ) ---
-                # Thường tên trận nằm trong thẻ span hoặc ngay trong text của thẻ a
-                raw_name = a_tag.text.strip()
-                if not raw_name or len(raw_name) < 5:
-                    raw_name = a_tag.get('title') or ""
-                
-                # Làm sạch tên: xóa tỷ số, xóa "Bóng đá", xóa xuống dòng
-                clean_name = re.sub(r'\s+', ' ', raw_name)
-                clean_name = re.sub(r'\s+\d+\s*[-:]\s*\d+\s+', ' vs ', clean_name)
-                clean_name = clean_name.replace('Trực tiếp ', '').replace('Bóng đá ', '')
+        # Chiến thuật: Tìm các khối bao quanh trận đấu thay vì tìm thẻ <a> cô đơn
+        # Thường là các thẻ div có class chứa 'item' hoặc 'match'
+        items = soup.find_all(['div', 'a'], class_=re.compile(r'item|match|live', re.I))
+        
+        for item in items:
+            a_tag = item if item.name == 'a' else item.find('a', href=True)
+            if not a_tag or '/truc-tiep/' not in a_tag['href']: continue
+            
+            url = a_tag['href'] if a_tag['href'].startswith('http') else f"https://bunchatv4.net{a_tag['href']}"
+            
+            # 1. Tìm tên trận đấu: Quét sạch text trong khối item, bỏ qua các chữ rác
+            name = item.get_text(" ", strip=True)
+            name = re.sub(r'\s+', ' ', name)
+            # Lọc bỏ tỷ số và các chữ trạng thái
+            name = re.sub(r'\d+\s*[-:]\s*\d+', 'vs', name)
+            name = name.replace("Trực tiếp", "").replace("Bóng đá", "").strip()
+            
+            # 2. Lấy Logo: Tìm ảnh xịn nhất trong khối
+            img = item.find('img')
+            logo = ""
+            if img:
+                logo = img.get('data-src') or img.get('data-original') or img.get('src') or ""
+                if '/categories/' in logo: logo = ""
+                if logo.startswith('//'): logo = "https:" + logo
 
-                # --- LẤY LOGO ---
-                img_tag = a_tag.find('img') or (a_tag.parent.find('img') if a_tag.parent else None)
-                logo_url = ""
-                if img_tag:
-                    logo_url = img_tag.get('data-src') or img_tag.get('src') or ""
-                    if '/categories/' in logo_url: logo_url = "" # Bỏ qua icon quả bóng
-                    if logo_url.startswith('//'): logo_url = 'https:' + logo_url
+            time_tag, sort_val = get_match_time(url)
+            
+            # Chốt chặn tên: Nếu tên lấy được quá ngắn, bóc từ slug URL
+            if len(name) < 5:
+                slug = url.split('/')[-2].replace('-', ' ').title()
+                name = re.sub(r'\d{4}.*', '', slug).strip()
 
-                time_tag, sort_val = get_match_time(full_link)
-                
-                if clean_name and not any(m['url'] == full_link for m in matches):
-                    matches.append({
-                        'url': full_link, 'title': clean_name, 
-                        'time': time_tag, 'logo': logo_url, 'sort': sort_val
-                    })
+            if not any(m['url'] == url for m in matches):
+                matches.append({'url': url, 'title': name, 'logo': logo, 'time': time_tag, 'sort': sort_val})
         
         matches.sort(key=lambda x: x['sort'])
         return matches
     except Exception as e:
         print(f"Lỗi: {e}"); return []
 
-def extract_all_m3u8(url):
-    """Mổ xẻ lấy link video và khớp tên BLV"""
+def extract_streams(url):
+    """Mổ xẻ từng trận để lấy link và tên BLV"""
+    streams = []
+    seen = set()
     try:
         res = requests.get(url, impersonate="chrome110", timeout=15)
         html = res.text
-        soup = BeautifulSoup(html, 'html.parser')
         
-        streams = []
-        seen = set()
-        blv_map = {}
+        # Bẫy tên BLV từ JSON và Script
+        blv_dict = {}
+        # Tìm các cặp "name":"..." và "url":"..."
+        pairs = re.findall(r'["\']?name["\']?\s*:\s*["\']([^"\']+)["\'].*?["\']?(?:url|src)["\']?\s*:\s*["\']([^"\']+)["\']', html, re.I)
+        for b_name, b_url in pairs:
+            u_clean = b_url.replace('\\/', '/').replace('\\', '').replace('u0026', '&')
+            try: blv_dict[u_clean] = codecs.decode(b_name.encode(), 'unicode_escape')
+            except: blv_dict[u_clean] = b_name
 
-        # 1. Tìm tên BLV giấu trong mã Script
-        json_data = re.findall(r'["\']?(?:name|title)["\']?\s*:\s*["\']([^"\']+)["\'].*?["\']?(?:url|link|src|iframe)["\']?\s*:\s*["\']([^"\']+)["\']', html, re.IGNORECASE)
-        for b_name, b_url in json_data:
-            u = b_url.replace('\\/', '/').replace('\\u0026', '&').replace('u0026', '&').replace('\\', '')
-            try: blv_map[u] = codecs.decode(b_name.encode(), 'unicode_escape')
-            except: blv_map[u] = b_name
+        def add(l, n):
+            l = l.replace('\\/', '/').replace('\\', '').replace('u0026', '&').strip()
+            if l not in seen and '.m3u8' in l:
+                # Ưu tiên tên BLV từ bẫy JSON, nếu không có mới dùng n
+                final_n = blv_dict.get(l, n)
+                streams.append({'url': l, 'name': final_n})
+                seen.add(l)
 
-        def add(link, name):
-            link = link.replace('\\', '').replace('\\u0026', '&').replace('u0026', '&')
-            if link not in seen and '.m3u8' in link:
-                final_name = blv_map.get(link, name)
-                streams.append({'url': link, 'name': final_name})
-                seen.add(link)
-
-        # 2. Quét các nút Server
-        for tag in soup.find_all(['button', 'span', 'li']):
-            d_link = tag.get('data-link') or tag.get('data-src') or tag.get('data-url')
-            if d_link:
-                if d_link.startswith('//'): d_link = 'https:' + d_link
-                btn_text = tag.text.strip()
-                if not btn_text or len(btn_text) > 20: btn_text = "Server"
-                try:
-                    s_res = requests.get(d_link, impersonate="chrome110", timeout=5)
-                    for l in re.findall(r'(https?://[^\s"\'<>]*\.m3u8[^\s"\'<>]*)', s_res.text):
-                        add(l, btn_text)
-                except: pass
-
-        # 3. Quét mã nguồn chính
-        for l in re.findall(r'(https?://[^\s"\'<>]*\.m3u8[^\s"\'<>]*)', html):
-            add(l, "Luồng Nhanh")
+        # Quét m3u8 trong toàn bộ mã nguồn
+        all_links = re.findall(r'(https?://[^\s"\'<>]*\.m3u8[^\s"\'<>]*)', html)
+        for l in all_links: add(l, "Luồng Nhanh")
             
-        return streams
-    except: return []
+        # Tìm trong iframe
+        iframes = re.findall(r'<iframe.*?src=["\'](.*?)["\']', html)
+        for ifr in iframes:
+            if ifr.startswith('//'): ifr = "https:" + ifr
+            try:
+                ifr_res = requests.get(ifr, impersonate="chrome110", timeout=7)
+                ifr_links = re.findall(r'(https?://[^\s"\'<>]*\.m3u8[^\s"\'<>]*)', ifr_res.text)
+                for l in ifr_links: add(l, "Luồng Chính")
+            except: pass
+            
+    except: pass
+    return streams
 
 def main():
-    matches = get_matches(TARGET_URL)
+    matches = get_matches()
     if not matches: return
 
     playlist = "#EXTM3U\n"
     count = 0
-    ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    print(f"✅ Đã tìm thấy {len(matches)} trận. Bắt đầu gắp link...")
 
     for m in matches:
-        print(f"-> {m['time']} {m['title']}")
-        links = extract_all_m3u8(m['url'])
+        print(f"-> {m['time']} {m['title']}", end=" ", flush=True)
+        links = extract_streams(m['url'])
         if links:
             for s in links:
                 full_name = f"{m['time']} {m['title']} ({s['name']})"
                 playlist += f'#EXTINF:-1 tvg-logo="{m["logo"]}", {full_name}\n'
-                playlist += f'#EXTVLCOPT:http-user-agent={ua}\n'
+                playlist += f'#EXTVLCOPT:http-user-agent={UA}\n'
                 playlist += f'{s["url"]}\n'
             count += 1
-    
+            print(f"[OK - {len(links)} luồng]")
+        else: print("[X]")
+
     with open("buncha_live.m3u", "w", encoding="utf-8") as f:
         f.write(playlist)
-    print(f"\n🎉 Đã xong! Lấy được {count} trận.")
+    print(f"\n🎉 HOÀN TẤT! Đã gắp xong {count} trận.")
 
 if __name__ == "__main__":
     main()
