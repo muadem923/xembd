@@ -3,65 +3,62 @@ from bs4 import BeautifulSoup
 import re
 import codecs
 from datetime import datetime
+import time
 
-# Cấu hình
+# --- CẤU HÌNH HỆ THỐNG ---
 TARGET_URL = "https://bunchatv4.net/"
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 def get_match_time(url):
+    """Bóc tách thời gian từ URL để định dạng và sắp xếp"""
     try:
         m = re.search(r'-(\d{4})-(\d{2})-(\d{2})-(\d{4})', url)
         if m:
-            t = f"{m.group(1)[:2]}:{m.group(1)[2:]}"
-            d = f"{m.group(3)}/{m.group(2)}" # Sửa lại định dạng Ngày/Tháng cho chuẩn Việt Nam
+            t = f"{m.group(1)[:2]}:{m.group(1)[2:]}" # Giờ:Phút
+            d = f"{m.group(3)}/{m.group(2)}" # Ngày/Tháng
             sort_val = datetime.strptime(f"{m.group(4)}-{m.group(2)}-{m.group(3)} {t}", "%Y-%m-%d %H:%M")
             return f"[{t} {d}]", sort_val
     except: pass
     return "", datetime.now()
 
 def get_matches():
-    print(f"🚀 Đang quét trang chủ: Kết hợp logic Logo cũ + Tên mới...")
+    """Quét trang chủ lấy danh sách trận đấu và Logo"""
+    print(f"🚀 Đang quét danh sách trận từ trang chủ...")
     try:
         res = requests.get(TARGET_URL, impersonate="chrome110", timeout=20)
         soup = BeautifulSoup(res.text, 'html.parser')
         matches = []
         
-        # Lấy tất cả các thẻ <a> chứa link trực tiếp
         for a_tag in soup.find_all('a', href=True):
             href = a_tag['href']
             if '/truc-tiep/' in href or '/truoc-tran/' in href:
                 full_link = href if href.startswith('http') else f"https://bunchatv4.net{href}"
                 
-                # --- LOGIC LẤY LOGO TỪ FILE CHUẨN CỦA BÁC ---
+                # --- LẤY LOGO (Logic chuẩn từ file của bác) ---
                 imgs = a_tag.find_all('img')
                 if not imgs and a_tag.parent:
                     imgs = a_tag.parent.find_all('img')
                 
                 logo_url = ""
                 for img in imgs:
-                    # Quét đa tầng thuộc tính ảnh
                     src = img.get('data-src') or img.get('data-original') or img.get('src') or img.get('data-lazy-src') or ""
                     if src and '/categories/' not in src and 'icon' not in src.lower():
                         logo_url = src if src.startswith('http') else f"https:{src}" if src.startswith('//') else src
                         break 
 
-                # --- LOGIC LẤY TÊN VÀ THỜI GIAN ---
+                # --- LẤY TÊN VÀ THỜI GIAN ---
                 time_tag, sort_val = get_match_time(full_link)
-                
-                # Ưu tiên lấy tên từ Title hoặc Text của thẻ A
                 raw_name = a_tag.get('title') or a_tag.text.strip()
                 if not raw_name or len(raw_name) < 5:
-                    # Nếu thẻ A không có tên, tìm trong các thẻ h3, h5 lân cận
                     parent = a_tag.parent
                     raw_name = parent.get_text(" ", strip=True) if parent else ""
 
                 # Dọn rác tên trận
                 clean_name = re.sub(r'\s+', ' ', raw_name)
-                trash = ["CƯỢC NGAY", "Live", "Trực tiếp", "Bóng đá", "Hot", "Click", "vào"]
+                trash = ["CƯỢC NGAY", "Live", "Trực tiếp", "Bóng đá", "Hot", "Click", "vào", "vs -"]
                 for w in trash: clean_name = clean_name.replace(w, "")
                 clean_name = re.sub(r'\d+\s*[-:]\s*\d+', ' vs ', clean_name).strip()
                 
-                # Chốt chặn nếu tên vẫn lỗi (lấy từ Slug URL)
                 if len(clean_name) < 5:
                     slug = full_link.split('/')[-2].replace('-', ' ').title()
                     clean_name = re.sub(r'\d{4}.*', '', slug).strip()
@@ -77,8 +74,8 @@ def get_matches():
     except Exception as e:
         print(f"Lỗi trang chủ: {e}"); return []
 
-def extract_all_m3u8_from_url(url):
-    """Mổ xẻ lấy link video và khớp tên BLV (Giữ logic vét cạn của bác)"""
+def extract_all_m3u8(url):
+    """Mổ xẻ từng trận để lấy link video và khớp tên BLV"""
     try:
         res = requests.get(url, impersonate="chrome110", timeout=15)
         html = res.text
@@ -86,7 +83,7 @@ def extract_all_m3u8_from_url(url):
         streams = []
         seen = set()
         
-        # Bẫy tên BLV từ Script
+        # Bẫy tên BLV từ Script JSON
         blv_map = {}
         json_data = re.findall(r'["\']?(?:name|title)["\']?\s*:\s*["\']([^"\']+)["\'].*?["\']?(?:url|link|src|iframe)["\']?\s*:\s*["\']([^"\']+)["\']', html, re.I)
         for b_name, b_url in json_data:
@@ -102,7 +99,7 @@ def extract_all_m3u8_from_url(url):
                 streams.append({'url': link, 'name': final_n})
                 seen.add(link)
 
-        # 1. Quét các nút bấm (Logic bản chuẩn của bác)
+        # 1. Quét các nút Server phụ
         for tag in soup.find_all(['button', 'a', 'span', 'li']):
             d_link = tag.get('data-link') or tag.get('data-src') or tag.get('data-url') or tag.get('data-play')
             if d_link and ('.m3u8' in d_link or 'http' in d_link or '//' in d_link):
@@ -111,7 +108,6 @@ def extract_all_m3u8_from_url(url):
                 if not btn_text or len(btn_text) > 20: btn_text = "Server"
                 
                 try:
-                    # Với các link server phụ, ta quét nhẹ để lấy m3u8
                     if '.m3u8' not in d_link:
                         s_res = requests.get(d_link, impersonate="chrome110", timeout=5)
                         for l in re.findall(r'(https?://[^\s"\'<>]*\.m3u8[^\s"\'<>]*)', s_res.text):
@@ -119,7 +115,7 @@ def extract_all_m3u8_from_url(url):
                     else: add(d_link, btn_text)
                 except: pass
 
-        # 2. Vét cạn toàn bộ link m3u8 trong HTML
+        # 2. Vét cạn toàn bộ link m3u8 trong mã nguồn
         for l in re.findall(r'(https?://[^\s"\'<>]*\.m3u8[^\s"\'<>]*)', html):
             add(l, "Luồng Chính")
             
@@ -135,21 +131,32 @@ def main():
     
     for m in matches:
         print(f"-> {m['time']} {m['title']}")
-        links = extract_all_m3u8_from_url(m['url'])
+        links = extract_all_m3u8(m['url'])
         if links:
             for s in links:
-                # Định dạng tên chuẩn: [Giờ] Tên Trận (BLV)
-                blv = f" ({s['name']})" if s['name'] and s['name'] not in ["Luồng Chính", "Server"] else ""
+                # Định dạng tên: [Thời gian] Tên Trận (Bình luận viên)
+                blv = f" ({s['name']})" if s['name'] and s['name'] not in ["Luồng Chính", "Server", "Luồng Nhanh"] else ""
                 display_name = f"{m['time']} {m['title']}{blv}"
                 
                 playlist += f'#EXTINF:-1 tvg-logo="{m["logo"]}", {display_name}\n'
+                
+                # --- FIX LỖI XÁC THỰC (BÙA HỘ MỆNH) ---
+                # Ép App OTT Navigator gửi kèm Referer và Origin để máy chủ video không chặn
                 playlist += f'#EXTVLCOPT:http-user-agent={UA}\n'
-                playlist += f'{s["url"]}\n'
+                playlist += f'#EXTVLCOPT:http-referer=https://bunchatv4.net/\n'
+                playlist += f'#EXTVLCOPT:http-origin=https://bunchatv4.net\n'
+                
+                # Gắn Header trực tiếp vào đuôi link để tăng tỉ lệ thành công
+                final_url = s["url"]
+                if "|" not in final_url:
+                    final_url += f"|Referer=https://bunchatv4.net/&User-Agent={UA}"
+                
+                playlist += f'{final_url}\n'
             count += 1
             
     with open("buncha_live.m3u", "w", encoding="utf-8") as f:
         f.write(playlist)
-    print(f"\n🎉 HOÀN TẤT! Đã gắp xong {count} trận với đầy đủ Logo và BLV.")
+    print(f"\n🎉 HOÀN TẤT! Đã gắp xong {count} trận.")
 
 if __name__ == "__main__":
     main()
