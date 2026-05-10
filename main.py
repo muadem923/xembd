@@ -8,8 +8,11 @@ from datetime import datetime
 BITLY_URL = "https://bit.ly/bunchatv"
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
-# Danh sách đen để lọc các môn không phải bóng đá
-BLACKLIST = ["ufc", "mma", "tennis", "quần vợt", "bóng rổ", "cầu lông", "bóng chuyền", "esport"]
+# Danh sách đen: Bổ sung mạnh tay các giải Quần vợt (ATP, WTA, ITF), Bóng rổ, v.v.
+BLACKLIST = [
+    "ufc", "mma", "tennis", "quần vợt", "bóng rổ", "cầu lông", "bóng chuyền", "esport",
+    "atp", "wta", "itf", "challenger", "bóng bàn", "futsal", "đua xe", "golf"
+]
 
 def expand_url(short_url):
     try:
@@ -29,33 +32,30 @@ def get_match_time(url):
     except: pass
     return "", datetime.now()
 
-def clean_title_v20(text):
-    """Bộ lọc siêu sạch: Chỉ giữ lại Tên Đội A vs Tên Đội B"""
+def clean_title_v21(text):
+    """Bộ lọc V21: Cắt sạch tên giải đấu và tên Quốc gia"""
     if not text: return ""
-    # 1. Xóa các cụm từ rác và giải đấu
+    
+    # Bổ sung các từ khóa tên nước, tên giải để gọt cho sạch
     junk = [
         "CƯỢC NGAY", "Trực tiếp", "Bóng đá", "Live", "vs -", "Click xem", 
-        "Football", "Super League", "League", "Championship", "Premier", "Cup", "Serie A", "Laliga"
+        "Football", "Super League", "League", "Championship", "Premier", "Cup", "Serie A", "Laliga", "Bundesliga", "Ligue 1",
+        "English", "England", "Italian", "Italy", "Spanish", "Spain", "French", "France", 
+        "German", "Germany", "Dutch", "Portuguese", "Portugal", "Chinese", "China", 
+        "Japanese", "Japan", "Korean", "Korea", "Saudi", "Arabia", "Turkish", "Turkey"
     ]
     for w in junk:
         text = re.sub(re.escape(w), '', text, flags=re.IGNORECASE)
     
-    # 2. Xóa ngày tháng năm (ví dụ: 10/05, 05/10, 2026)
-    text = re.sub(r'\d{1,2}/\d{1,2}', '', text)
-    text = re.sub(r'\d{4}', '', text)
+    text = re.sub(r'\d{1,2}/\d{1,2}', '', text) # Xóa 10/05
+    text = re.sub(r'\d{4}', '', text)          # Xóa 2026
+    text = re.sub(r'\d+\s*\'', '', text)       # Xóa số phút (79 ')
+    text = re.sub(r'\d+\s*[-:]\s*\d+', ' vs ', text) # Xóa tỷ số
     
-    # 3. Xóa tỷ số hoặc phút đang đá (ví dụ: 79 ', 1 - 0)
-    text = re.sub(r'\d+\s*\'', '', text)
-    text = re.sub(r'\d+\s*[-:]\s*\d+', ' vs ', text)
-    
-    # 4. Dọn dẹp khoảng trắng và dấu gạch dư thừa
     text = re.sub(r'\s+', ' ', text)
     text = text.replace('vs vs', 'vs').replace('- vs', 'vs').strip()
-    
-    # 5. Nếu còn chữ 'vs' ở đầu hoặc cuối thì xóa nốt
     text = re.sub(r'^vs\s+|^\s+vs\s+|-|vs$', '', text).strip()
     
-    # 6. Đảm bảo có chữ 'vs' chuẩn ở giữa 2 đội
     if 'vs' not in text.lower() and len(text.split()) > 2:
         parts = text.split()
         mid = len(parts) // 2
@@ -80,7 +80,7 @@ def get_matches(domain_url):
                     parent = a_tag.parent
                     raw_name = parent.get_text(" ", strip=True) if parent else ""
 
-                # Lọc môn thể thao khác
+                # --- SÁT THỦ DIỆT TẠP NHAM (Soi cả URL lẫn Tên hiển thị) ---
                 check_text = (full_link + " " + raw_name).lower()
                 if any(kw in check_text for kw in BLACKLIST): continue
 
@@ -95,8 +95,8 @@ def get_matches(domain_url):
                         break 
 
                 time_tag, sort_val = get_match_time(full_link)
-                # Dùng bộ lọc V20 mới để làm sạch tên
-                clean_name = clean_title_v20(raw_name)
+                # Đưa vào máy xay rác V21
+                clean_name = clean_title_v21(raw_name)
 
                 if not any(m['url'] == full_link for m in matches):
                     matches.append({'url': full_link, 'title': clean_name, 'time': time_tag, 'logo': logo_url, 'sort': sort_val})
@@ -159,10 +159,12 @@ def main():
         links = extract_all_m3u8(m['url'])
         if links:
             for s in links:
-                # Gắn tên BLV vào sau cùng
-                blv = f" ({s['name']})" if s['name'] and s['name'] not in ["Luồng Chính", "Server", "Luồng Nhanh"] else ""
-                # Kết quả mong muốn: [Giờ Ngày] Đội A vs Đội B (BLV)
-                display_name = f"{m['time']} {m['title']}{blv}"
+                # --- ĐẢO VỊ TRÍ BLV LÊN TRƯỚC TÊN ĐỘI BÓNG ---
+                # Đóng ngoặc vuông cho tên BLV cho đẹp mắt (nếu có tên)
+                blv_prefix = f"[{s['name']}] " if s['name'] and s['name'] not in ["Luồng Chính", "Server", "Luồng Nhanh"] else ""
+                
+                # Định dạng mới: [Giờ Ngày/Tháng] [Tên BLV] Đội A vs Đội B
+                display_name = f"{m['time']} {blv_prefix}{m['title']}"
                 
                 playlist += f'#EXTINF:-1 tvg-logo="{m["logo"]}", {display_name}\n'
                 playlist += f'#EXTVLCOPT:http-user-agent={UA}\n'
@@ -177,7 +179,7 @@ def main():
             
     with open("buncha_live.m3u", "w", encoding="utf-8") as f:
         f.write(playlist)
-    print(f"🎉 Xong! Đã gắp {count} trận.")
+    print(f"🎉 Xong! Đã gắp {count} trận siêu tinh khiết.")
 
 if __name__ == "__main__":
     main()
