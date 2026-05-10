@@ -1,148 +1,178 @@
 #EXTM3U
-#EXTINF:-1 tvg-logo="", [Đang đá] Atlanta United Vs Los Angeles Galaxy 0640 10 05 2026 (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://cdn-hls.taoxanh.biz/live/69ffbba4203f5_95554/index.m3u8?expire=1778972196&sign=c9018e510c47f10c92605c08a2704702
-#EXTINF:-1 tvg-logo="", [Đang đá] Atlanta United Vs Los Angeles Galaxy 0640 10 05 2026 (BÃºn Cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/dcb67dd58619e29d84853ac2e4ac5e27.png",  601449607 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://vlsrq.alilicloud.com/live/25e73da62a9072f08c20bb7c55993e34/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Bahia Vs Cruzeiro Esporte Clube 0700 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/dcb67dd58619e29d84853ac2e4ac5e27.png",  601449607 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://cdn-hls.taoxanh.biz/live/69ffc753203f5_153967/index.m3u8?expire=1778975187&sign=48be74934bdeab08c2bc9e5e058563bb
-#EXTINF:-1 tvg-logo="", [Đang đá] Bahia Vs Cruzeiro Esporte Clube 0700 10 05 2026 (BÃºn Cháº£ TV)
+https://2893254555.global.cdnfastest.com/live/69ffbba4203f5_95554/index.m3u8?expire=1778972196&sign=c9018e510c47f10c92605c08a2704702
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/dcb67dd58619e29d84853ac2e4ac5e27.png",  601449607 (Luồng Chính)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://59w50226.edgemaxcdn.org/live/69ffbba4203f5_95554/index.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/dcb67dd58619e29d84853ac2e4ac5e27.png",  601449607 (Luồng Nhanh)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://cdn-hls.taoxanh.biz/live/69ffbba4203f5_95554/index.m3u8?expire=1778972196&sign=c9018e510c47f10c92605c08a2704702
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/20456802ad5f8243dc282c4650c414e1.png",  601449637 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://vlsrq.alilicloud.com/live/f3dc6033d12771f8e719610acfbca581/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Chivas Guadalajara Vs Tigres Uanl 0807 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/20456802ad5f8243dc282c4650c414e1.png",  601449637 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://cdn-hls.taoxanh.biz/live/69ffd50242283_74012/index.m3u8?expire=1778978690&sign=84a44960751793af9aecc6b89eba1cae
-#EXTINF:-1 tvg-logo="", [Đang đá] Chivas Guadalajara Vs Tigres Uanl 0807 10 05 2026 (BÃºn Cháº£ TV)
+https://2893254555.global.cdnfastest.com/live/69ffc753203f5_153967/index.m3u8?expire=1778975187&sign=48be74934bdeab08c2bc9e5e058563bb
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/20456802ad5f8243dc282c4650c414e1.png",  601449637 (Luồng Chính)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://59w50226.edgemaxcdn.org/live/69ffc753203f5_153967/index.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/20456802ad5f8243dc282c4650c414e1.png",  601449637 (Luồng Nhanh)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://cdn-hls.taoxanh.biz/live/69ffc753203f5_153967/index.m3u8?expire=1778975187&sign=48be74934bdeab08c2bc9e5e058563bb
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/872867a492989e6a9a0785cfd0a40680.png",  601449700 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://vlsrq.alilicloud.com/live/c14400946dd2b751084591eeb830ba67/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Los Angeles Lakers Vs Oklahoma City Thunder 0730 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/872867a492989e6a9a0785cfd0a40680.png",  601449700 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://cdn-hls.taoxanh.biz/live/69ffce0142283_42127/index.m3u8?expire=1778976897&sign=4fe8b0bb6fc6789ce7422a2f385bc7ba
-#EXTINF:-1 tvg-logo="", [Đang đá] Los Angeles Lakers Vs Oklahoma City Thunder 0730 10 05 2026 (BÃºn Cháº£ TV)
+https://2893254555.global.cdnfastest.com/live/69ffd50242283_74012/index.m3u8?expire=1778978690&sign=84a44960751793af9aecc6b89eba1cae
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/872867a492989e6a9a0785cfd0a40680.png",  601449700 (Luồng Chính)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://59w50226.edgemaxcdn.org/live/69ffd50242283_74012/index.m3u8
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/872867a492989e6a9a0785cfd0a40680.png",  601449700 (Luồng Nhanh)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://cdn-hls.taoxanh.biz/live/69ffd50242283_74012/index.m3u8?expire=1778978690&sign=84a44960751793af9aecc6b89eba1cae
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/fa6f985041ec3f9729172380ae9cebf8.png",  601440391 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://live.alilicloud.com/live/0587cfcb4490050fb76983aeab72fd10/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Ufc 328 0400 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/fa6f985041ec3f9729172380ae9cebf8.png",  601440391 (Luồng Chính)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://2893254555.global.cdnfastest.com/live/69ffce0142283_42127/index.m3u8?expire=1778976897&sign=4fe8b0bb6fc6789ce7422a2f385bc7ba
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/fa6f985041ec3f9729172380ae9cebf8.png",  601440391 (Luồng Chính)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://59w50226.edgemaxcdn.org/live/69ffce0142283_42127/index.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/fa6f985041ec3f9729172380ae9cebf8.png",  601440391 (Luồng Nhanh)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://cdn-hls.taoxanh.biz/live/69ffce0142283_42127/index.m3u8?expire=1778976897&sign=4fe8b0bb6fc6789ce7422a2f385bc7ba
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/user_avatar/2025/03/29/b225be0ae8e534a00cb05adbd7218255.png",  601437166 (Luồng Chính)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://2893254555.global.cdnfastest.com/live/69ff99c1203f5_4733/index.m3u8?expire=1778963521&sign=3daa9c7f7e46eca9b81cdfe6c7ecd430
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/user_avatar/2025/03/29/b225be0ae8e534a00cb05adbd7218255.png",  601437166 (Luồng Chính)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://59w50226.edgemaxcdn.org/live/69ff99c1203f5_4733/index.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/user_avatar/2025/03/29/b225be0ae8e534a00cb05adbd7218255.png",  601437166 (Luồng Nhanh)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://cdn-hls.taoxanh.biz/live/69ff99c1203f5_4733/index.m3u8?expire=1778963521&sign=3daa9c7f7e46eca9b81cdfe6c7ecd430
-#EXTINF:-1 tvg-logo="", [Đang đá] Fort Wayne Fc Vs Westchester Sc 0630 10 05 2026 (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/c96bafb110157377a93c5ec345bb8369/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Crb Al Vs Operario Ferroviario Pr 0630 10 05 2026 (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/3ffc1133b213ddd6bcd2994942853628/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Rhode Island Vs Tampa Bay Rowdies 0630 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/556ae50b42b399564a1d9fcdff9c740c.png",  601449616 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://vlsrq.alilicloud.com/live/4bb97d553d4629126e7865f61fc83e6d/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Fort Lauderdale Utd W Vs Carolina Ascent W 0630 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/98bbf5c88e07485ab9fba5ca287e6454.png",  601449604 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://vlsrq.alilicloud.com/live/73070494f312d258a040cb9e9bdc2943/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Tampa Bay Sun W Vs Dallas Trinity W 0630 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/2177301a342c64d8ef826cfa8dd9a6dd.png",  601449601 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://vlsrq.alilicloud.com/live/0498dae57b2354c24ef30c9180fcb04f/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] New England Revolution Vs Philadelphia Union 0640 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/f1b7c49790e05778f194ed436515b240.png",  601449613 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://vlsrq.alilicloud.com/live/403a64096757f0b79878d72a340a5c48/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Charlotte Fc Vs Fc Cincinnati 0640 10 05 2026 (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/a7aa6164a1fac82d19734a02866f0235/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Minnesota United B Vs North Texas Sc 0700 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/0dea9d20b78bf22e53d6f5cdb94d2e5b.png",  601449658 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://vlsrq.alilicloud.com/live/0534e79bd96bf9b684c731b9b6c8fe58/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Universidad Central De Venezuela Vs Academia Puerto Cabello 0700 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/3656d046d7ca027ff1aa38d4b5e4b6bb.png",  601449652 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://vlsrq.alilicloud.com/live/8873044a7387173c017c77cc261df7cc/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Omaha Vs Portland Hearts Of Pine 0700 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/c2aa5eb71d7ff818c9a50d8af7c20e28.png",  601449646 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://vlsrq.alilicloud.com/live/d76595856ae483c00bf64e84272fe912/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Independiente Del Valle Vs Barcelona Scecu 0700 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/cb9797fa8614b9664231a4861ed71875.png",  601449643 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://vlsrq.alilicloud.com/live/5bbc9622c3f03e55022b8fb1513100fc/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Juventude Vs Criciuma 0715 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/7a9a6275e29e0f51ea68ba1ec740bf1e.png",  601449670 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://vlsrq.alilicloud.com/live/3b3774f1fa0220e0f97149c6e6da9572/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Sv La Fama Vs Sv Britannia 0730 10 05 2026 (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/4604ca26815c4e181660fb4381782deb/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Corpus Christi Fc Vs Charlotte Independence 0730 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/e11f58ba6522a5c6ab7b037e2cd110e9.png",  601449676 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://vlsrq.alilicloud.com/live/327d8b66682cf4c11327bb15a0bbabf6/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Deportivo Tachira Vs Carabobo 0730 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/9829676db6c5f615b441eb7b13a8b413.png",  601449679 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://vlsrq.alilicloud.com/live/ba51c4c3cc80c8a5c11af58615e0db1d/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Independiente Rivadavia Vs Club Atletico Union 0730 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/7e779bba58b944c8cfa786d857430383.png",  601455217 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://vlsrq.alilicloud.com/live/cf4a2f3f793d4f75ba22327732b39194/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Fc Dallas Vs Real Salt Lake 0740 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/577e0df3f80cd623c4b15f2f9d814468.png",  601459537 (Luồng Chính)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/4604ca26815c4e181660fb4381782deb/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/e829da6b3050ec03f3c8715690ec39c4.png",  601449673 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://vlsrq.alilicloud.com/live/0e61ead86d84254b8db8641ff20fb218/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Angel City Fc W Vs San Diego Wave W 0745 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/bcedf53b78b380edaeb5b36dce2515ff.png",  601449685 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://vlsrq.alilicloud.com/live/8ecd84068da1ce8ff0d63b6270e386a9/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Solomon Kings Fc Vs Vanuatu United Fc 0800 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/b4cb6ea7beafaf3b649d4d3e7a8eef62.png",  601455223 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://vlsrq.alilicloud.com/live/5e821e4bae2ff4fa09bc3696807b789b/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] New Mexico United Vs Las Vegas Lights 0800 10 05 2026 (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/89f47ee32213ab02a135b7cceaaa582d/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Alianza Lima Vs Sporting Cristal 0800 10 05 2026 (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/c2797e24414fbb62a965a28fa405945f/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Tampico Madero Vs Tepatitlan De Morelos 0800 10 05 2026 (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://vlsrq.alilicloud.com/live/fa0d527721587c88325bfec8236f3165/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Newcastle Olympic Fc Reserves Vs Lambton Jaffas Reserves 0800 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/c15d35c692bbc81249bbf8dc1755b42a.png",  601460794 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://vlsrq.alilicloud.com/live/628bbf4c43feee06c27d5ef3de79464a/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Argentinos Juniors Vs Club Atletico Lanus 0815 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/bced686ea9d08190520be6eaaa6edf0b.png",  601449688 (Luồng Chính)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/89f47ee32213ab02a135b7cceaaa582d/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/8ca7ce17e1edd9f9e517060d10cb0680.png",  601449697 (Luồng Chính)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/fa0d527721587c88325bfec8236f3165/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/8941e026a8debbd82633b019552e1515.png",  601449691 (Luồng Chính)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/c2797e24414fbb62a965a28fa405945f/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/5d8f8c8c289dbb2d67203988c8275cbc.png",  601455220 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://vlsrq.alilicloud.com/live/7e41a7a8caebd63a7d5783feed21e927/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Paulistano Amil Vs Ec Pinheiros Sao Paolo 0630 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/ed6ae7fa894cb5bdbccfd605d1d6ad04.png",  601449706 (Luồng Chính)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/5bcd7a5fead55778384040689d3238b6/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/eafb707bc6f8028dc71923176915c8e3.png",  601449703 (Luồng Chính)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://vlsrq.alilicloud.com/live/70cbf1a76dda1dc22c9e29ea7cd9f799/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/984e8b2a7f23e585e1cc8d2fc0df89f1.png",  601442986 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://live.alilicloud.com/live/3285d095013af55ce5c2369927207a3a/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Gigantes Carolina Vs Guaynabo 0700 10 05 2026 (BÃºn cháº£ TV)
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-https://live.alilicloud.com/live/053d3c4d4e66e68253812660b5cac77c/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Manati Vs Criollos De Caguas 0700 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/02a351730503afd125dbe82be64e10a9.png",  601442995 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://live.alilicloud.com/live/a1da3c4e80f6104020c77d9264c6b7c2/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Minnesota Lynx Vs Atlanta Dream 0700 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/01dc0a5dbc1e23e84b48822bd89fcc35.png",  601442998 (Luồng Chính)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://live.alilicloud.com/live/053d3c4d4e66e68253812660b5cac77c/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/49fd2772263eaccfe78608a04e5b6f4c.png",  601442992 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://live.alilicloud.com/live/e23c4b8b18bab126c9074517a69f8f8f/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Puerto Montt Vs Deportivo Valdivia 0730 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/d222c2ed4cf731b2052eb91a0a8f0ec3.png",  601453861 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://live.alilicloud.com/live/0c501092bd2b7e8b750ce691b6b55966/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Defensor Sporting Vs Malvin 0745 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/00cb6ac3921c4774a47aa9032980696e.png",  601453864 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://live.alilicloud.com/live/282715aaf8dd4958daf801c52a5d2cc8/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Norths Bears Women Vs Hornsby Spiders Women 0800 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/bbef7b4827b0ae813130af1df0c07989.png",  601443004 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://live.alilicloud.com/live/e02a7a57274bd73ca5006e2e0143b762/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Portland Fire Vs Chicago Sky 0800 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/43b63f097099b8178eba0e6f9388cabc.png",  601443001 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://live.alilicloud.com/live/61578a3c66f22667742e57d29c341f49/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Rcd Mallorca Vs Villarreal Cf 1900 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/baa7a635bc2f4580871fec15ec491a5a.png",  601443007 (Luồng Chính)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://live.alilicloud.com/live/bd68d82713ccb4ab2bfb6e6bf5b13fc3/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/fdef90456d2a2eee09976c558457aec7.png",  601450738 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://vlsrq.alilicloud.com/live/25449e69a03c8d933ae947f71b830413/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Fiorentina Vs Genoa 2000 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/858d87ded0cce014bae0c9681af48524.png",  601450984 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://vlsrq.alilicloud.com/live/40322c5c593654c94facc9a1d6f84d09/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Cremonese Vs Pisa 2000 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/0b0e25267dabd15c405070329df5fbdb.png",  601450981 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://vlsrq.alilicloud.com/live/f6a45db39d633815f14188ed59a304bb/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Nottingham Forest Vs Newcastle United 2000 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/62572999d107f777efa4aeb907443527.png",  601450993 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://vlsrq.alilicloud.com/live/69ec50be7077b091ea6f3c5400015452/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Burnley Vs Aston Villa 2000 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/1091af5aa9fc4a30411785954edb9159.png",  601450987 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://vlsrq.alilicloud.com/live/285c827b0f66bd7b665cd2f64f5e127c/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Crystal Palace Vs Everton 2000 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/42396d18444156e640c37476c2b41b93.png",  601450990 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://vlsrq.alilicloud.com/live/a24f40e82451080f1b61257c45a231aa/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Hamburger Sv Vs Sc Freiburg 2030 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn-live.taoxanh.biz/live-dev/football/team/logo/81f8f9e258e6b73bc522bab06730720a.png",  601451377 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://vlsrq.alilicloud.com/live/3c6932bfabf6b931a405714335a850ed/playlist.m3u8
-#EXTINF:-1 tvg-logo="", [Đang đá] Athletic Club Vs Valencia Cf 2115 10 05 2026 (BÃºn cháº£ TV)
+#EXTINF:-1 tvg-logo="https://cdn.rapid-api.icu/football/team/abbb31d42c55612737713aac6567a226.png",  601451791 (Luồng Chính)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://vlsrq.alilicloud.com/live/a3b38d258f13b22e0264bb7dcec5c454/playlist.m3u8
