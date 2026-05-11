@@ -6,7 +6,7 @@ from datetime import datetime
 
 # --- CẤU HÌNH ---
 BITLY_URL = "https://bit.ly/bunchatv"
-UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+UA = "Mozilla/5.0 AppleWebKit/537.36 Chrome/81.0.4044.138 Safari/537.36"
 
 # Danh sách đen để lọc các môn không phải bóng đá
 BLACKLIST = ["ufc", "mma", "tennis", "quần vợt", "bóng rổ", "cầu lông", "bóng chuyền", "esport"]
