@@ -7,7 +7,7 @@ from datetime import datetime
 # --- CẤU HÌNH HỆ THỐNG ---
 # Bác chỉ cần để link Bitly ở đây, code sẽ tự đi tìm tên miền thật
 BITLY_URL = "https://bit.ly/bunchatv"
-UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
 
 def expand_url(short_url):
     """Tự động giải mã link rút gọn để tìm tên miền mới nhất (Vượt Cloudflare không cần Proxy)"""
