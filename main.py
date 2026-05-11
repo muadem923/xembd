@@ -6,7 +6,6 @@ from datetime import datetime
 
 # --- CẤU HÌNH ---
 BITLY_URL = "https://bit.ly/bunchatv"
-# Dùng đúng UA chuẩn bác đã cung cấp
 UA = "Mozilla/5.0 AppleWebKit/537.36 Chrome/81.0.4044.138 Safari/537.36"
 
 # Danh sách đen: Cấm tiệt các môn không phải bóng đá
@@ -27,8 +26,8 @@ def get_match_time(url):
         m = re.search(r'-(\d{4})-(\d{2})-(\d{2})-(\d{4})', url)
         if m:
             t = f"{m.group(1)[:2]}h{m.group(1)[2:]}" # 19h00
-            d = f"{m.group(3)}/{m.group(2)}"         # 11/05
-            sort_val = datetime.strptime(f"{m.group(4)}-{m.group(2)}-{m.group(3)} {m.group(1)[:2]}:{m.group(1)[2:]}", "%Y-%m-%d %H:%M")
+            d = f"{m.group(2)}/{m.group(3)}"         # Chuẩn Ngày/Tháng
+            sort_val = datetime.strptime(f"{m.group(4)}-{m.group(3)}-{m.group(2)} {m.group(1)[:2]}:{m.group(1)[2:]}", "%Y-%m-%d %H:%M")
             return f"{t} ngày {d}", sort_val
     except: pass
     return "", datetime.now()
@@ -48,7 +47,7 @@ def clean_title_basic(raw_text):
     return re.sub(r'\s+', ' ', raw_text).strip(' -').replace('vs vs', 'vs').replace('Vs', 'vs')
 
 def extract_streams(url):
-    """BỘ QUÉT MỚI: Hỗ trợ tìm và bắt cả .m3u8 và .flv"""
+    """BỘ QUÉT FLV & M3U8"""
     try:
         res = requests.get(url, impersonate="chrome110", timeout=15)
         html = res.text
@@ -71,10 +70,12 @@ def extract_streams(url):
 
         def add_stream(link, fallback_name):
             link = link.replace('\\', '').replace('u0026', '&').strip()
-            # Điều kiện mới: Tìm cả m3u8 và flv
             if link not in seen and ('.m3u8' in link or '.flv' in link):
-                final_name = blv_map.get(link, fallback_name).replace("CƯỢC NGAY", "").strip()
-                streams.append({'url': link, 'name': final_n})
+                final_name = blv_map.get(link, fallback_name)
+                if final_name is None: final_name = ""
+                final_name = final_name.replace("CƯỢC NGAY", "").strip()
+                # FIX LỖI TẠI ĐÂY: Dùng đúng biến final_name
+                streams.append({'url': link, 'name': final_name})
                 seen.add(link)
 
         for tag in soup.find_all(['button', 'a', 'span', 'li']):
@@ -87,14 +88,12 @@ def extract_streams(url):
                 if '.m3u8' not in d_link and '.flv' not in d_link:
                     try:
                         s_res = requests.get(d_link, impersonate="chrome110", timeout=5)
-                        # Quét m3u8 và flv trong trang con
                         for l in re.findall(r'(https?://[^\s"\'<>]*\.(?:m3u8|flv)[^\s"\'<>]*)', s_res.text):
                             add_stream(l, btn_name)
                     except: pass
                 else: 
                     add_stream(d_link, btn_name)
 
-        # Quét HTML chính lấy link trực tiếp
         for l in re.findall(r'(https?://[^\s"\'<>]*\.(?:m3u8|flv)[^\s"\'<>]*)', html):
             add_stream(l, "")
             
@@ -145,11 +144,9 @@ def main():
             streams = extract_streams(m['url'])
             if streams:
                 for s in streams:
-                    # Lấy phần mở rộng flv hoặc m3u8 từ URL
                     ext = "flv" if ".flv" in s['url'].lower() else "m3u8"
-                    
                     blv_name = s['name']
-                    # Xử lý gắn chữ BLV
+                    
                     if blv_name and blv_name not in ["Luồng Chính", "Luồng Phụ", "Server", ""]:
                         blv_tag = f"BLV {blv_name}" if "BLV" not in blv_name.upper() else blv_name
                     else:
@@ -159,7 +156,6 @@ def main():
                     display_parts = [m['time'], m['clean_title'], blv_tag, ext]
                     display_name = " ".join(part for part in display_parts if part)
                     
-                    # DÙNG MẪU CHUẨN CỦA BÁC
                     playlist += f'#EXTINF:0 group-title="Bún Chả TV" tvg-logo="{m["logo"]}",{display_name}\n'
                     playlist += f'#EXTVLCOPT:http-user-agent={UA}\n'
                     playlist += f'{s["url"]}\n'
