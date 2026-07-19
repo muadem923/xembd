@@ -1,11 +1,17 @@
 #EXTM3U
+#EXTINF:-1 tvg-id="chuoichien-1528028-1" tvg-name="[17:20] Altay vs Aktobe - Ngoại Hạng Kazakhstan" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123036_f7c8e720.png",[17:20] Altay vs Aktobe - Ngoại Hạng Kazakhstan [M3U8]
+#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
+https://gckc0525.edgemaxcdn.org/live/chuoitieu/playlist.m3u8|User-Agent=Mozilla/5.0%20(Windows%20NT%2010.0;%20Win64;%20x64)%20AppleWebKit/537.36%20(KHTML,%20like%20Gecko)%20Chrome/120.0.0.0%20Safari/537.36&Referer=https://live.chuoichien.tv/
 #EXTINF:-1 tvg-id="chuoichien-1507003-1" tvg-name="[17:20] Bucheon FC 1995 vs FC Seoul - K League 1" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123036_f7c8e720.png",[17:20] Bucheon FC 1995 vs FC Seoul - K League 1 [M3U8]
 #EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
 https://gckc0525.edgemaxcdn.org/live/troctru/playlist.m3u8|User-Agent=Mozilla/5.0%20(Windows%20NT%2010.0;%20Win64;%20x64)%20AppleWebKit/537.36%20(KHTML,%20like%20Gecko)%20Chrome/120.0.0.0%20Safari/537.36&Referer=https://live.chuoichien.tv/
-#EXTINF:-1 tvg-id="chuoichien-1507002-1" tvg-name="[17:20] FC Anyang vs Gwangju FC - K League 1" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123036_f7c8e720.png",[17:20] FC Anyang vs Gwangju FC - K League 1 [M3U8]
+#EXTINF:-1 tvg-id="chuoichien-1507002-1" tvg-name="[17:20] fc anyang vs gwangju fc" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123036_f7c8e720.png",[17:20] fc anyang vs gwangju fc [M3U8]
 #EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
@@ -23,3 +29,9 @@ https://gckc0525.edgemaxcdn.org/live/chuoitay/playlist.m3u8|User-Agent=Mozilla/5
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
 https://gckc0525.edgemaxcdn.org/live/chuoigia/playlist.m3u8|User-Agent=Mozilla/5.0%20(Windows%20NT%2010.0;%20Win64;%20x64)%20AppleWebKit/537.36%20(KHTML,%20like%20Gecko)%20Chrome/120.0.0.0%20Safari/537.36&Referer=https://live.chuoichien.tv/
+#EXTINF:-1 tvg-id="chuoichien-1577445-1" tvg-name="[17:20] Ural vs Yenisey - FNL Nga" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123036_f7c8e720.png",[17:20] Ural vs Yenisey - FNL Nga [M3U8]
+#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
+https://gckc0525.edgemaxcdn.org/live/angao/playlist.m3u8|User-Agent=Mozilla/5.0%20(Windows%20NT%2010.0;%20Win64;%20x64)%20AppleWebKit/537.36%20(KHTML,%20like%20Gecko)%20Chrome/120.0.0.0%20Safari/537.36&Referer=https://live.chuoichien.tv/
