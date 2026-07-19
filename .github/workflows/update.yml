@@ -1,4 +1,4 @@
-name: Bot Quet chuoichien v3.6
+name: Bot Quet chuoichien v3.6.1
 
 on:
   workflow_dispatch:
@@ -43,6 +43,8 @@ jobs:
           SOCOLIVE_VERIFY_TIMEOUT_SECONDS: "8"
           SOCOLIVE_MAX_VERIFY_CANDIDATES: "6"
           SOCOLIVE_MAX_OUTPUT_STREAMS_PER_MATCH: "4"
+          SOCOLIVE_ALLOW_UNVERIFIED_BROWSER_FALLBACK: "0"
+          SOCOLIVE_KEEP_PREVIOUS_UNVERIFIED: "0"
         run: |
           set -o pipefail
           python -u main.py 2>&1 | tee chuoichien_scan.log
@@ -155,6 +157,9 @@ jobs:
                   if ".m3u8&autoplay=" in url or ".flv&autoplay=" in url:
                       malformed.append(url)
           print(f"Đầu ra={output_count} | verified={verified_count} | fallback={fallback_count}")
+          if fallback_count:
+              print("::error::Playlist chính còn chứa stream chưa xác minh:", fallback_count)
+              raise SystemExit(1)
           if oversized:
               print("::error::Có trận vượt giới hạn 4 stream:", oversized)
               raise SystemExit(1)
@@ -185,6 +190,24 @@ jobs:
                   if len(row.get("streams") or []) < 2:
                       print("::warning::Trận 1528034 hiện bắt dưới 2 stream; tải artifact debug để kiểm tra nguồn HD/FHD.")
           PY_AUDIT
+
+
+          echo "--- Audit giờ trận USA vs Poland nếu còn trên trang ---"
+          python - <<'PY_TIME_AUDIT'
+          import json
+          from pathlib import Path
+
+          debug = Path("chuoichien_debug.json")
+          if debug.exists():
+              rows = json.loads(debug.read_text(encoding="utf-8"))
+              sample = [row for row in rows if "200907" in str(row.get("url", ""))]
+              if sample:
+                  row = sample[0]
+                  print("USA vs Poland:", row.get("time"), row.get("date"), row.get("time_source"))
+                  if row.get("time") == "23:00":
+                      print("::error::Giờ trận 200907 vẫn bị lấy nhầm 23:00.")
+                      raise SystemExit(1)
+          PY_TIME_AUDIT
 
           echo "--- Thống kê thư mục ---"
           grep '^#EXTINF' chuoichien_live.m3u \
@@ -219,5 +242,5 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Validate playable streams and remove global false positives v3.6"
+          git commit -m "Fix kickoff time and reject dead historical links v3.6.1"
           git push origin "HEAD:${GITHUB_REF_NAME}"
