@@ -37,10 +37,23 @@ jobs:
           # main.py mới đã đọc thật các biến này.
           SOCOLIVE_MATCH_CONCURRENCY: "4"
           SOCOLIVE_HOME_WAIT_MS: "5000"
-          SOCOLIVE_ROOM_WAIT_SECONDS: "7"
+          SOCOLIVE_ROOM_WAIT_SECONDS: "15"
         run: python main.py
 
-      - name: 5. Kiểm tra file đầu ra
+
+      - name: 5. Tải nhật ký debug
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: chuoichien-debug-${{ github.run_id }}
+          path: |
+            chuoichien_debug.json
+            chuoichien_home_debug.html
+            chuoichien_home_debug.png
+          if-no-files-found: ignore
+          retention-days: 3
+
+      - name: 6. Kiểm tra file đầu ra
         shell: bash
         run: |
           echo "Các file đầu ra hiện có:"
@@ -50,7 +63,7 @@ jobs:
             echo "::warning::Không có chuoichien_live.m3u; bỏ qua cập nhật playlist thay vì làm workflow lỗi 128."
           fi
 
-      - name: 6. Lưu thành quả lên GitHub
+      - name: 7. Lưu thành quả lên GitHub
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
