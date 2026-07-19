@@ -18,6 +18,8 @@ from playwright.async_api import BrowserContext, Page, Route, async_playwright
 TARGET_URL = "https://live03.chuoichientv.me/"
 OUTPUT_M3U = "chuoichien_live.m3u"
 OUTPUT_DEBUG = "chuoichien_debug.json"
+OUTPUT_HOME_DEBUG_HTML = "chuoichien_home_debug.html"
+OUTPUT_HOME_DEBUG_PNG = "chuoichien_home_debug.png"
 
 
 def read_env_int(name: str, default: int, minimum: int, maximum: int) -> int:
@@ -77,23 +79,115 @@ PLAY_SELECTORS = (
 )
 
 
-def is_stream_url(url: str) -> bool:
-    """Trả về True nếu URL có vẻ là luồng HLS/FLV thật."""
+def decode_url_repeatedly(value: str, rounds: int = 3) -> str:
+    """Giải mã HTML + percent-encoding nhiều lớp nhưng không lặp vô hạn."""
+    current = html.unescape(value or "").replace("\\/", "/").strip()
+
+    for _ in range(rounds):
+        decoded = unquote(current)
+        if decoded == current:
+            break
+        current = decoded
+
+    return current.strip()
+
+
+def is_direct_stream_url(url: str) -> bool:
+    """Chỉ nhận URL mà chính path của nó là m3u8/flv, tránh nhận nhầm URL embed."""
     if not url:
         return False
 
-    clean = html.unescape(url).replace("\\/", "/").strip()
-    lower = clean.lower()
+    clean = decode_url_repeatedly(url)
+    parsed = urlparse(clean)
+    lower_path = parsed.path.lower()
+    lower_url = clean.lower()
 
-    if not any(ext in lower for ext in STREAM_EXTENSIONS):
+    if parsed.scheme not in {"http", "https"}:
         return False
 
-    return not any(marker in lower for marker in AD_MARKERS)
+    if not any(ext in lower_path for ext in STREAM_EXTENSIONS):
+        return False
+
+    return not any(marker in lower_url for marker in AD_MARKERS)
+
+
+def extract_stream_urls(raw_url: str) -> list[str]:
+    """
+    Trích URL luồng thật từ:
+      - request trực tiếp tới .m3u8/.flv
+      - URL embed có query streamUrl/file/src/url đã percent-encode
+      - chuỗi có URL lồng nhiều lớp
+
+    Ví dụ:
+      https://live.chuoichien.tv/embed/?streamUrl=https%3A%2F%2Fcdn%2Flive.flv
+      -> https://cdn/live.flv
+    """
+    if not raw_url:
+        return []
+
+    pending = [raw_url]
+    seen_values: set[str] = set()
+    found: list[str] = []
+
+    nested_param_names = {
+        "streamurl",
+        "stream_url",
+        "stream",
+        "url",
+        "src",
+        "file",
+        "source",
+        "video",
+        "hls",
+        "flv",
+        "playurl",
+        "play_url",
+    }
+
+    while pending and len(seen_values) < 40:
+        value = decode_url_repeatedly(pending.pop(0))
+        if not value or value in seen_values:
+            continue
+        seen_values.add(value)
+
+        if is_direct_stream_url(value):
+            if value not in found:
+                found.append(value)
+            continue
+
+        try:
+            parsed = urlparse(value)
+            query = parse_qs(parsed.query, keep_blank_values=False)
+        except Exception:
+            query = {}
+
+        for key, values in query.items():
+            if key.lower() not in nested_param_names:
+                continue
+            for nested in values:
+                decoded = decode_url_repeatedly(nested)
+                if decoded.startswith(("http://", "https://")):
+                    pending.append(decoded)
+
+        # Fallback cho URL lồng trong text/HTML nhưng không nằm ở query quen thuộc.
+        decoded_text = decode_url_repeatedly(value)
+        for match in re.findall(
+            r"https?://[^\s\"'<>]+?(?:\.m3u8|\.flv)(?:\?[^\s\"'<>]*)?",
+            decoded_text,
+            flags=re.IGNORECASE,
+        ):
+            pending.append(match.rstrip("),];"))
+
+    return found
+
+
+def is_stream_url(url: str) -> bool:
+    """Giữ tương thích với code cũ."""
+    return bool(extract_stream_urls(url))
 
 
 def normalize_stream_url(url: str) -> str:
-    return html.unescape(url).replace("\\/", "/").strip()
-
+    return decode_url_repeatedly(url)
 
 def derive_match_info(url: str, raw_title: str = "") -> tuple[str, str, str]:
     """
@@ -157,51 +251,71 @@ async def install_route_filter(page: Page, homepage: bool = False) -> None:
 
 async def collect_dom_stream_candidates(page: Page) -> list[str]:
     """
-    Bắt thêm URL từ:
-      - Performance Resource Timing
-      - src/currentSrc của video/source
-      - HTML/script đã render
+    Bắt URL từ mọi frame, gồm video/source và iframe embed.
+    Iframe rất quan trọng vì Chuối Chiên hiện nhét streamUrl đã encode trong src.
     """
-    try:
-        candidates = await page.evaluate(
-            r"""() => {
-                const out = new Set();
+    candidates: set[str] = set()
 
-                try {
-                    for (const entry of performance.getEntriesByType("resource")) {
-                        if (entry && entry.name) out.add(entry.name);
-                    }
-                } catch (_) {}
+    for frame in page.frames:
+        try:
+            frame_candidates = await frame.evaluate(
+                r"""() => {
+                    const out = new Set();
 
-                document.querySelectorAll("video, source").forEach((el) => {
-                    const values = [
-                        el.src,
-                        el.currentSrc,
-                        el.getAttribute("src"),
-                        el.getAttribute("data-src"),
-                        el.getAttribute("data-url"),
-                        el.getAttribute("data-stream"),
-                    ];
-                    values.forEach((value) => {
-                        if (value) out.add(value);
+                    try {
+                        for (const entry of performance.getEntriesByType("resource")) {
+                            if (entry && entry.name) out.add(entry.name);
+                        }
+                    } catch (_) {}
+
+                    document.querySelectorAll(
+                        "video, source, iframe, embed, object, " +
+                        "[data-stream], [data-stream-url], [data-url], [data-src]"
+                    ).forEach((el) => {
+                        const values = [
+                            el.src,
+                            el.currentSrc,
+                            el.data,
+                            el.getAttribute("src"),
+                            el.getAttribute("data"),
+                            el.getAttribute("data-src"),
+                            el.getAttribute("data-url"),
+                            el.getAttribute("data-stream"),
+                            el.getAttribute("data-stream-url"),
+                            el.getAttribute("data-file"),
+                        ];
+                        values.forEach((value) => {
+                            if (value) out.add(value);
+                        });
                     });
-                });
 
-                const htmlText = document.documentElement
-                    ? document.documentElement.innerHTML
-                    : "";
+                    const htmlText = document.documentElement
+                        ? document.documentElement.innerHTML
+                        : "";
 
-                const absoluteMatches =
-                    htmlText.match(/https?:\/\/[^"' <>\n\r]+?(?:\.m3u8|\.flv)(?:\?[^"' <>\n\r]*)?/gi) || [];
+                    const normalizedHtml = htmlText
+                        .replace(/\\\//g, "/")
+                        .replace(/&amp;/g, "&");
 
-                absoluteMatches.forEach((value) => out.add(value));
+                    const absoluteMatches = normalizedHtml.match(
+                        /https?:\/\/[^"' <>\n\r]+?(?:\.m3u8|\.flv)(?:\?[^"' <>\n\r]*)?/gi
+                    ) || [];
+                    absoluteMatches.forEach((value) => out.add(value));
 
-                return Array.from(out);
-            }"""
-        )
-        return [str(item) for item in candidates if item]
-    except Exception:
-        return []
+                    // Bắt cả URL embed chứa streamUrl=https%3A%2F%2F...flv.
+                    const embedMatches = normalizedHtml.match(
+                        /https?:\/\/[^"' <>\n\r]+?(?:streamUrl|stream_url|file|src|url)=[^"' <>\n\r]+/gi
+                    ) || [];
+                    embedMatches.forEach((value) => out.add(value));
+
+                    return Array.from(out);
+                }"""
+            )
+            candidates.update(str(item) for item in frame_candidates if item)
+        except Exception:
+            continue
+
+    return sorted(candidates)
 
 
 async def stimulate_player(page: Page) -> None:
@@ -263,11 +377,11 @@ async def fetch_stream(
         def capture_url(url: str, source: str) -> None:
             nonlocal first_stream_at
 
-            normalized = normalize_stream_url(url)
-            if not is_stream_url(normalized):
-                return
+            for stream_url in extract_stream_urls(url):
+                normalized = normalize_stream_url(stream_url)
+                if normalized in stream_urls:
+                    continue
 
-            if normalized not in stream_urls:
                 stream_urls.add(normalized)
                 if first_stream_at is None:
                     first_stream_at = time.monotonic()
@@ -419,23 +533,67 @@ async def collect_home_links(context: BrowserContext) -> list[dict[str, str]]:
         await page.wait_for_timeout(HOME_WAIT_MS)
 
         # Cuộn nhẹ để các danh sách lazy-load được render.
-        for _ in range(4):
+        for _ in range(5):
             await page.evaluate("window.scrollBy(0, Math.max(700, window.innerHeight));")
-            await page.wait_for_timeout(500)
+            await page.wait_for_timeout(600)
 
-        links = await page.evaluate(
+        result = await page.evaluate(
             r"""() => {
                 const items = [];
                 const seen = new Set();
 
-                document.querySelectorAll("a").forEach((a) => {
-                    const href = a.href || "";
-                    if (
-                        !href.includes("/truc-tiep/") &&
-                        !href.includes("/room/")
-                    ) {
-                        return;
+                function normalizeHref(value) {
+                    try {
+                        return new URL(value, location.href).href;
+                    } catch (_) {
+                        return "";
                     }
+                }
+
+                function isMatchHref(value) {
+                    const href = normalizeHref(value);
+                    if (!href) return false;
+
+                    try {
+                        const path = new URL(href).pathname;
+                        return (
+                            /^\/live\/\d+(?:\/|$)/i.test(path) ||
+                            path.includes("/truc-tiep/") ||
+                            path.includes("/room/")
+                        );
+                    } catch (_) {
+                        return false;
+                    }
+                }
+
+                function addItem(hrefValue, titleValue = "", logoValue = "") {
+                    const href = normalizeHref(hrefValue);
+                    if (!isMatchHref(href) || seen.has(href)) return;
+                    seen.add(href);
+
+                    const fallbackTitle = (() => {
+                        try {
+                            const parts = new URL(href).pathname.split("/").filter(Boolean);
+                            return decodeURIComponent(parts[parts.length - 1] || href)
+                                .replace(/-vs-/gi, " vs ")
+                                .replace(/-/g, " ");
+                        } catch (_) {
+                            return href;
+                        }
+                    })();
+
+                    items.push({
+                        url: href,
+                        raw_title: String(titleValue || fallbackTitle)
+                            .replace(/\s+/g, " ")
+                            .trim(),
+                        logo: String(logoValue || "").trim(),
+                    });
+                }
+
+                document.querySelectorAll("a[href]").forEach((a) => {
+                    const href = a.href || a.getAttribute("href") || "";
+                    if (!isMatchHref(href)) return;
 
                     const text = (a.innerText || "").replace(/\s+/g, " ").trim();
                     const lowerText = text.toLowerCase();
@@ -447,9 +605,6 @@ async def collect_home_links(context: BrowserContext) -> list[dict[str, str]]:
                     ) {
                         return;
                     }
-
-                    if (seen.has(href)) return;
-                    seen.add(href);
 
                     let logo = "";
                     const container =
@@ -481,24 +636,84 @@ async def collect_home_links(context: BrowserContext) -> list[dict[str, str]]:
                         }
                     }
 
-                    const title =
-                        a.title ||
-                        a.getAttribute("aria-label") ||
-                        text ||
-                        href;
-
-                    items.push({
-                        url: href,
-                        raw_title: title.replace(/\s+/g, " ").trim(),
-                        logo: logo,
-                    });
+                    addItem(
+                        href,
+                        a.title || a.getAttribute("aria-label") || text || href,
+                        logo
+                    );
                 });
 
-                return items;
+                // Fallback cho React/Next.js: link có thể nằm trong JSON/script,
+                // chưa được render thành thẻ <a> khi chạy headless trên GitHub.
+                const htmlText = document.documentElement
+                    ? document.documentElement.innerHTML
+                    : "";
+                const normalizedHtml = htmlText
+                    .replace(/\\\//g, "/")
+                    .replace(/&amp;/g, "&")
+                    .replace(/\\u002F/gi, "/");
+
+                const patterns = [
+                    /https?:\/\/[^"' <>\n\r]+\/live\/\d+\/[^"' <>\n\r]+/gi,
+                    /\/live\/\d+\/[a-z0-9][a-z0-9._~!$&'()*+,;=:@%\/-]*/gi,
+                    /https?:\/\/[^"' <>\n\r]+\/(?:truc-tiep|room)\/[^"' <>\n\r]+/gi,
+                    /\/(?:truc-tiep|room)\/[^"' <>\n\r]+/gi,
+                ];
+
+                for (const pattern of patterns) {
+                    const matches = normalizedHtml.match(pattern) || [];
+                    matches.forEach((href) => addItem(href));
+                }
+
+                const allAnchors = Array.from(document.querySelectorAll("a[href]"));
+                return {
+                    items,
+                    diagnostics: {
+                        final_url: location.href,
+                        title: document.title || "",
+                        anchor_count: allAnchors.length,
+                        html_length: normalizedHtml.length,
+                        sample_hrefs: allAnchors
+                            .slice(0, 20)
+                            .map((a) => a.href || a.getAttribute("href") || ""),
+                    },
+                };
             }"""
         )
 
-        return list(links)
+        links = list(result.get("items") or [])
+        diagnostics = result.get("diagnostics") or {}
+        print(
+            "ℹ️ Trang chủ: "
+            f"title={diagnostics.get('title', '')!r} | "
+            f"anchors={diagnostics.get('anchor_count', 0)} | "
+            f"html={diagnostics.get('html_length', 0)} ký tự | "
+            f"match_links={len(links)}"
+        )
+
+        if not links:
+            try:
+                Path(OUTPUT_HOME_DEBUG_HTML).write_text(
+                    await page.content(),
+                    encoding="utf-8",
+                )
+                await page.screenshot(
+                    path=OUTPUT_HOME_DEBUG_PNG,
+                    full_page=True,
+                )
+                print(
+                    "⚠️ Đã lưu trang debug: "
+                    f"{OUTPUT_HOME_DEBUG_HTML}, {OUTPUT_HOME_DEBUG_PNG}"
+                )
+                samples = diagnostics.get("sample_hrefs") or []
+                if samples:
+                    print("ℹ️ Một số href nhìn thấy trên trang:")
+                    for href in samples[:10]:
+                        print(f"   - {href}")
+            except Exception as debug_exc:
+                print(f"⚠️ Không lưu được trang debug: {debug_exc}")
+
+        return links
 
     except Exception as exc:
         print(f"❌ Không lấy được danh sách trang chủ: {type(exc).__name__}: {exc}")
@@ -633,7 +848,7 @@ async def main() -> None:
     print("🥷 KHỞI ĐỘNG SOCOLIVE STREAM SCANNER - BẢN FIX")
     print(
         "ℹ️ Có thể test riêng một trận bằng lệnh:\n"
-        '   python main.py "https://live03.chuoichientv.me/truc-tiep/.../?blv=..."'
+        '   python main.py "https://live03.chuoichientv.me/live/1524177/capalaba-vs-holland-park-hawks"'
     )
 
     direct_urls = [
