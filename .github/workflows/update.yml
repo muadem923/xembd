@@ -1,4 +1,4 @@
-name: Bot Quet chuoichien
+name: Bot Quet chuoichien v3.1
 
 on:
   workflow_dispatch:
@@ -6,7 +6,6 @@ on:
 permissions:
   contents: write
 
-# Không cho hai lượt chạy cùng lúc cùng đẩy vào một nhánh.
 concurrency:
   group: chuoichien-m3u-${{ github.ref }}
   cancel-in-progress: false
@@ -32,55 +31,68 @@ jobs:
           python -m pip install playwright
           python -m playwright install --with-deps chromium
 
-      - name: 4. Kích hoạt quét link
+      - name: 4. Quét link và metadata
         env:
-          # main.py mới đã đọc thật các biến này.
           SOCOLIVE_MATCH_CONCURRENCY: "4"
-          SOCOLIVE_HOME_WAIT_MS: "5000"
-          SOCOLIVE_ROOM_WAIT_SECONDS: "15"
+          SOCOLIVE_HOME_WAIT_MS: "6000"
+          SOCOLIVE_ROOM_WAIT_SECONDS: "20"
+          SOCOLIVE_FULL_SCAN: "1"
         run: python main.py
 
+      - name: 5. Kiểm tra playlist
+        shell: bash
+        run: |
+          test -f chuoichien_live.m3u
+          echo "--- 40 dòng đầu playlist ---"
+          sed -n '1,40p' chuoichien_live.m3u
 
-      - name: 5. Tải nhật ký debug
+          # URL phải để nguyên; header nằm ở dòng option riêng cho VLC.
+          if grep -E '^https?://.*\|Referer=' chuoichien_live.m3u; then
+            echo "::error::Playlist vẫn chứa URL kiểu |Referer=, player VLC sẽ lỗi."
+            exit 1
+          fi
+          if grep -Eq '\.(m3u8|flv)(\?|$)' chuoichien_live.m3u; then
+            grep -q '^#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/' chuoichien_live.m3u || {
+              echo "::error::Thiếu http-referrer bắt buộc cho VLC."; exit 1;
+            }
+            grep -q '^#EXTVLCOPT:http-user-agent=Mozilla/5.0 ' chuoichien_live.m3u || {
+              echo "::error::Thiếu http-user-agent bắt buộc cho VLC."; exit 1;
+            }
+          fi
+          if grep -q '^#EXTVLCOPT:http-origin=' chuoichien_live.m3u; then
+            echo "::error::Không được tự chèn Origin vào playlist v3.1."
+            exit 1
+          fi
+
+      - name: 6. Tải nhật ký debug
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: chuoichien-debug-${{ github.run_id }}
           path: |
+            chuoichien_live.m3u
             chuoichien_debug.json
             chuoichien_home_debug.html
             chuoichien_home_debug.png
           if-no-files-found: ignore
           retention-days: 3
 
-      - name: 6. Kiểm tra file đầu ra
-        shell: bash
-        run: |
-          echo "Các file đầu ra hiện có:"
-          ls -lah chuoichien_live.m3u chuoichien_debug.json 2>/dev/null || true
-
-          if [[ ! -f chuoichien_live.m3u ]]; then
-            echo "::warning::Không có chuoichien_live.m3u; bỏ qua cập nhật playlist thay vì làm workflow lỗi 128."
-          fi
-
-      - name: 7. Lưu thành quả lên GitHub
+      - name: 7. Lưu playlist lên GitHub
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           if [[ ! -f chuoichien_live.m3u ]]; then
-            echo "Không có chuoichien_live.m3u để commit. Workflow kết thúc bình thường."
+            echo "Không có playlist để commit."
             exit 0
           fi
 
-          # Chỉ commit playlist; file debug vẫn nằm trong log runner, không đẩy lên kho.
           git add -- chuoichien_live.m3u
-
           if git diff --cached --quiet; then
-            echo "File đầu ra không thay đổi; không cần commit/push."
+            echo "Playlist không thay đổi; không cần commit."
             exit 0
           fi
 
-          git commit -m "Bot auto update link M3U"
+          git commit -m "Full scan M3U8 FLV with VLC headers v3.1"
           git push origin "HEAD:${GITHUB_REF_NAME}"
