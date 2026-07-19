@@ -1,10 +1,10 @@
 #EXTM3U
-#EXTINF:-1 tvg-id="chuoichien-1513591-1" tvg-name="[21:00] Kuressaare vs Kalju Nomme - Vô địch Estonia" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_133915_9fee4393.png",[21:00] Kuressaare vs Kalju Nomme - Vô địch Estonia [M3U8]
+#EXTINF:-1 tvg-id="chuoichien-1528034-1" tvg-name="[21:00] Ordabasy vs Yelimay Semey - Ngoại Hạng Kazakhstan" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_133915_9fee4393.png",[21:00] Ordabasy vs Yelimay Semey - Ngoại Hạng Kazakhstan [M3U8]
 #EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
-https://gckc0525.edgemaxcdn.org/live/chuoito/playlist.m3u8|User-Agent=Mozilla/5.0%20(Windows%20NT%2010.0;%20Win64;%20x64)%20AppleWebKit/537.36%20(KHTML,%20like%20Gecko)%20Chrome/120.0.0.0%20Safari/537.36&Referer=https://live.chuoichien.tv/
+https://gckc0525.edgemaxcdn.org/live/angao/playlist.m3u8|User-Agent=Mozilla/5.0%20(Windows%20NT%2010.0;%20Win64;%20x64)%20AppleWebKit/537.36%20(KHTML,%20like%20Gecko)%20Chrome/120.0.0.0%20Safari/537.36&Referer=https://live.chuoichien.tv/
 #EXTINF:-1 tvg-id="chuoichien-200903-1" tvg-name="[21:00] Ukraine vs Germany - Nations League" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_133915_9fee4393.png",[21:00] Ukraine vs Germany - Nations League [M3U8]
 #EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
