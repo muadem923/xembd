@@ -1,6 +1,7 @@
 import asyncio
 import html
 import json
+import os
 import re
 import sys
 import time
@@ -18,9 +19,32 @@ TARGET_URL = "https://live03.chuoichientv.me/"
 OUTPUT_M3U = "chuoichien_live.m3u"
 OUTPUT_DEBUG = "chuoichien_debug.json"
 
-CONCURRENCY_LIMIT = 8
-HOME_WAIT_MS = 5000
-STREAM_WAIT_SECONDS = 20
+
+def read_env_int(name: str, default: int, minimum: int, maximum: int) -> int:
+    """Đọc số nguyên từ biến môi trường và ép vào khoảng an toàn."""
+    raw = os.getenv(name, "").strip()
+    if not raw:
+        return default
+
+    try:
+        value = int(raw)
+    except ValueError:
+        print(f"⚠️ {name}={raw!r} không hợp lệ; dùng mặc định {default}.")
+        return default
+
+    return max(minimum, min(value, maximum))
+
+
+# Các giá trị này có thể chỉnh trực tiếp trong GitHub Actions.
+CONCURRENCY_LIMIT = read_env_int(
+    "SOCOLIVE_MATCH_CONCURRENCY", 8, minimum=1, maximum=16
+)
+HOME_WAIT_MS = read_env_int(
+    "SOCOLIVE_HOME_WAIT_MS", 5000, minimum=1000, maximum=30000
+)
+STREAM_WAIT_SECONDS = read_env_int(
+    "SOCOLIVE_ROOM_WAIT_SECONDS", 20, minimum=3, maximum=120
+)
 EXTRA_WAIT_AFTER_FIRST_STREAM = 2.0
 
 HEADLESS = True
@@ -581,10 +605,25 @@ def write_outputs(results: list[dict[str, Any]]) -> tuple[int, int]:
         encoding="utf-8",
     )
 
+    playlist_path = Path(OUTPUT_M3U)
+
     if count_links:
-        Path(OUTPUT_M3U).write_text(
+        playlist_path.write_text(
             "\n".join(playlist_lines) + "\n",
             encoding="utf-8",
+        )
+    elif playlist_path.exists():
+        # Lần quét lỗi/rỗng không được xóa playlist tốt của lần chạy trước.
+        print(
+            f"⚠️ Không có link mới; giữ nguyên playlist cũ: "
+            f"{playlist_path.resolve()}"
+        )
+    else:
+        # Repository chạy lần đầu vẫn cần một file hợp lệ để git add không lỗi 128.
+        playlist_path.write_text("#EXTM3U\n", encoding="utf-8")
+        print(
+            f"⚠️ Chưa có playlist cũ; đã tạo playlist rỗng hợp lệ: "
+            f"{playlist_path.resolve()}"
         )
 
     return len(match_keys_with_streams), count_links
@@ -594,7 +633,7 @@ async def main() -> None:
     print("🥷 KHỞI ĐỘNG SOCOLIVE STREAM SCANNER - BẢN FIX")
     print(
         "ℹ️ Có thể test riêng một trận bằng lệnh:\n"
-        '   python main_socolive_fixed.py "https://socolivem.cv/truc-tiep/.../?blv=..."'
+        '   python main.py "https://live03.chuoichientv.me/truc-tiep/.../?blv=..."'
     )
 
     direct_urls = [
@@ -643,6 +682,8 @@ async def main() -> None:
 
         if not links:
             print("❌ Không tìm thấy link trận/phòng nào.")
+            # Vẫn tạo debug và bảo đảm playlist tồn tại; không ghi đè playlist cũ.
+            write_outputs([])
             await context.close()
             await browser.close()
             return
