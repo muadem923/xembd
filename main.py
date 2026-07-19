@@ -5,9 +5,11 @@ import os
 import re
 import sys
 import time
+from datetime import datetime
 from pathlib import Path
 from typing import Any
-from urllib.parse import parse_qs, unquote, urlparse
+from urllib.parse import parse_qs, unquote, urljoin, urlparse
+from zoneinfo import ZoneInfo
 
 from playwright.async_api import BrowserContext, Page, Route, async_playwright
 
@@ -16,45 +18,56 @@ from playwright.async_api import BrowserContext, Page, Route, async_playwright
 # CẤU HÌNH
 # =========================
 TARGET_URL = "https://live03.chuoichientv.me/"
+PLAYER_ORIGIN_FALLBACK = "https://live.chuoichien.tv"
 OUTPUT_M3U = "chuoichien_live.m3u"
 OUTPUT_DEBUG = "chuoichien_debug.json"
 OUTPUT_HOME_DEBUG_HTML = "chuoichien_home_debug.html"
 OUTPUT_HOME_DEBUG_PNG = "chuoichien_home_debug.png"
+SCANNER_VERSION = "3.1-FULL-SCAN-VLC-HEADERS"
+
+
+def read_env_bool(name: str, default: bool = True) -> bool:
+    raw = os.getenv(name, "").strip().lower()
+    if not raw:
+        return default
+    if raw in {"1", "true", "yes", "on"}:
+        return True
+    if raw in {"0", "false", "no", "off"}:
+        return False
+    print(f"⚠️ {name}={raw!r} không hợp lệ; dùng mặc định {default}.")
+    return default
 
 
 def read_env_int(name: str, default: int, minimum: int, maximum: int) -> int:
-    """Đọc số nguyên từ biến môi trường và ép vào khoảng an toàn."""
     raw = os.getenv(name, "").strip()
     if not raw:
         return default
-
     try:
         value = int(raw)
     except ValueError:
         print(f"⚠️ {name}={raw!r} không hợp lệ; dùng mặc định {default}.")
         return default
-
     return max(minimum, min(value, maximum))
 
 
-# Các giá trị này có thể chỉnh trực tiếp trong GitHub Actions.
 CONCURRENCY_LIMIT = read_env_int(
-    "SOCOLIVE_MATCH_CONCURRENCY", 8, minimum=1, maximum=16
+    "SOCOLIVE_MATCH_CONCURRENCY", 4, minimum=1, maximum=12
 )
 HOME_WAIT_MS = read_env_int(
-    "SOCOLIVE_HOME_WAIT_MS", 5000, minimum=1000, maximum=30000
+    "SOCOLIVE_HOME_WAIT_MS", 6000, minimum=1000, maximum=30000
 )
 STREAM_WAIT_SECONDS = read_env_int(
-    "SOCOLIVE_ROOM_WAIT_SECONDS", 20, minimum=3, maximum=120
+    "SOCOLIVE_ROOM_WAIT_SECONDS", 20, minimum=5, maximum=120
 )
-EXTRA_WAIT_AFTER_FIRST_STREAM = 2.0
-
+EXTRA_WAIT_AFTER_FIRST_STREAM = 5.0
+FULL_SCAN = read_env_bool("SOCOLIVE_FULL_SCAN", True)
 HEADLESS = True
 
+# Dùng đúng User-Agent đã được kiểm chứng phát được bằng VLC.
 UA = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
     "AppleWebKit/537.36 (KHTML, like Gecko) "
-    "Chrome/150.0.0.0 Safari/537.36"
+    "Chrome/120.0.0.0 Safari/537.36"
 )
 
 STREAM_EXTENSIONS = (".m3u8", ".flv")
@@ -78,86 +91,124 @@ PLAY_SELECTORS = (
     "[class*='play'][role='button']",
 )
 
+TIME_RE = re.compile(r"(?<!\d)([01]?\d|2[0-3])[:h.]([0-5]\d)(?!\d)", re.I)
+
+
+def clean_text(value: str) -> str:
+    return re.sub(r"\s+", " ", value or "").strip()
+
 
 def decode_url_repeatedly(value: str, rounds: int = 3) -> str:
-    """Giải mã HTML + percent-encoding nhiều lớp nhưng không lặp vô hạn."""
     current = html.unescape(value or "").replace("\\/", "/").strip()
-
     for _ in range(rounds):
         decoded = unquote(current)
         if decoded == current:
             break
         current = decoded
-
     return current.strip()
 
 
-def is_direct_stream_url(url: str) -> bool:
-    """Chỉ nhận URL mà chính path của nó là m3u8/flv, tránh nhận nhầm URL embed."""
+def absolute_url(value: str, base: str = TARGET_URL) -> str:
+    value = decode_url_repeatedly(value)
+    if not value or value.startswith(("data:", "blob:", "javascript:")):
+        return ""
+    try:
+        return urljoin(base, value)
+    except Exception:
+        return value
+
+
+def origin_from_url(value: str) -> str:
+    try:
+        parsed = urlparse(value)
+        if parsed.scheme and parsed.netloc:
+            return f"{parsed.scheme}://{parsed.netloc}"
+    except Exception:
+        pass
+    return ""
+
+
+def extract_time(value: str) -> str:
+    text = clean_text(value)
+
+    # JSON/JSON-LD thường trả ISO UTC. Chuyển đúng sang giờ Việt Nam trước.
+    iso_match = re.search(
+        r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?(?:Z|[+-]\d{2}:?\d{2})?",
+        text,
+    )
+    if iso_match:
+        try:
+            iso_value = iso_match.group(0).replace("Z", "+00:00")
+            parsed = datetime.fromisoformat(iso_value)
+            if parsed.tzinfo is not None:
+                parsed = parsed.astimezone(ZoneInfo("Asia/Ho_Chi_Minh"))
+            return parsed.strftime("%H:%M")
+        except Exception:
+            pass
+
+    match = TIME_RE.search(text)
+    if not match:
+        return ""
+    return f"{int(match.group(1)):02d}:{match.group(2)}"
+
+
+def stream_kind(url: str, content_type: str = "") -> str:
+    clean = decode_url_repeatedly(url)
+    lower_path = urlparse(clean).path.lower()
+    lower_type = (content_type or "").lower()
+
+    if ".m3u8" in lower_path or any(marker in lower_type for marker in (
+        "application/vnd.apple.mpegurl", "application/x-mpegurl",
+        "audio/mpegurl", "audio/x-mpegurl",
+    )):
+        return "m3u8"
+    if ".flv" in lower_path or any(marker in lower_type for marker in (
+        "video/x-flv", "video/flv", "application/x-flv",
+    )):
+        return "flv"
+    return ""
+
+
+def is_direct_stream_url(url: str, content_type: str = "") -> bool:
     if not url:
         return False
-
     clean = decode_url_repeatedly(url)
     parsed = urlparse(clean)
-    lower_path = parsed.path.lower()
     lower_url = clean.lower()
-
     if parsed.scheme not in {"http", "https"}:
         return False
-
-    if not any(ext in lower_path for ext in STREAM_EXTENSIONS):
+    if not stream_kind(clean, content_type):
         return False
-
     return not any(marker in lower_url for marker in AD_MARKERS)
 
 
-def extract_stream_urls(raw_url: str) -> list[str]:
-    """
-    Trích URL luồng thật từ:
-      - request trực tiếp tới .m3u8/.flv
-      - URL embed có query streamUrl/file/src/url đã percent-encode
-      - chuỗi có URL lồng nhiều lớp
-
-    Ví dụ:
-      https://live.chuoichien.tv/embed/?streamUrl=https%3A%2F%2Fcdn%2Flive.flv
-      -> https://cdn/live.flv
-    """
+def extract_stream_urls(raw_url: str, content_type: str = "") -> list[str]:
+    """Tách luồng trực tiếp, kể cả streamUrl đã percent-encode trong iframe embed."""
     if not raw_url:
         return []
 
     pending = [raw_url]
     seen_values: set[str] = set()
     found: list[str] = []
-
     nested_param_names = {
-        "streamurl",
-        "stream_url",
-        "stream",
-        "url",
-        "src",
-        "file",
-        "source",
-        "video",
-        "hls",
-        "flv",
-        "playurl",
-        "play_url",
+        "streamurl", "stream_url", "stream", "url", "src", "file",
+        "source", "video", "hls", "flv", "playurl", "play_url",
     }
 
-    while pending and len(seen_values) < 40:
+    while pending and len(seen_values) < 60:
         value = decode_url_repeatedly(pending.pop(0))
         if not value or value in seen_values:
             continue
         seen_values.add(value)
 
-        if is_direct_stream_url(value):
+        direct_type = content_type if value == decode_url_repeatedly(raw_url) else ""
+        if is_direct_stream_url(value, direct_type):
             if value not in found:
                 found.append(value)
             continue
 
         try:
-            parsed = urlparse(value)
-            query = parse_qs(parsed.query, keep_blank_values=False)
+            query = parse_qs(urlparse(value).query, keep_blank_values=False)
         except Exception:
             query = {}
 
@@ -169,11 +220,9 @@ def extract_stream_urls(raw_url: str) -> list[str]:
                 if decoded.startswith(("http://", "https://")):
                     pending.append(decoded)
 
-        # Fallback cho URL lồng trong text/HTML nhưng không nằm ở query quen thuộc.
-        decoded_text = decode_url_repeatedly(value)
         for match in re.findall(
             r"https?://[^\s\"'<>]+?(?:\.m3u8|\.flv)(?:\?[^\s\"'<>]*)?",
-            decoded_text,
+            decode_url_repeatedly(value),
             flags=re.IGNORECASE,
         ):
             pending.append(match.rstrip("),];"))
@@ -181,62 +230,101 @@ def extract_stream_urls(raw_url: str) -> list[str]:
     return found
 
 
-def is_stream_url(url: str) -> bool:
-    """Giữ tương thích với code cũ."""
-    return bool(extract_stream_urls(url))
+def stream_referer_hint(raw_candidate: str, frame_url: str = "") -> str:
+    """Ưu tiên origin của iframe embed chứa streamUrl, không dùng nhầm trang trận."""
+    decoded = decode_url_repeatedly(raw_candidate)
+    if extract_stream_urls(decoded) and not is_direct_stream_url(decoded):
+        embedded_origin = origin_from_url(decoded)
+        if embedded_origin:
+            return embedded_origin + "/"
+    if frame_url:
+        frame_origin = origin_from_url(frame_url)
+        if frame_origin:
+            return frame_origin + "/"
+    return ""
 
 
-def normalize_stream_url(url: str) -> str:
-    return decode_url_repeatedly(url)
+def normalize_playback_referer(value: str) -> str:
+    """Chuẩn hóa Referer cho player; ưu tiên root live.chuoichien.tv đã kiểm chứng."""
+    candidate = decode_url_repeatedly(value)
+    parsed = urlparse(candidate)
+    if parsed.scheme and parsed.netloc:
+        origin = f"{parsed.scheme}://{parsed.netloc}"
+        if parsed.netloc.lower() == urlparse(PLAYER_ORIGIN_FALLBACK).netloc.lower():
+            return origin + "/"
+        return candidate
+    return PLAYER_ORIGIN_FALLBACK + "/"
 
-def derive_match_info(url: str, raw_title: str = "") -> tuple[str, str, str]:
-    """
-    Trả về:
-      - tên trận
-      - giờ trận
-      - tên BLV suy đoán
-    """
+
+def clean_match_name(value: str, fallback_url: str) -> str:
+    text = clean_text(value)
+    # Ưu tiên dòng/đoạn chứa "vs" nếu card còn kèm giải, thời gian, trạng thái.
+    pieces = [clean_text(p) for p in re.split(r"[\n|]", value or "") if clean_text(p)]
+    vs_piece = next((p for p in pieces if re.search(r"\bvs\b", p, re.I)), "")
+    if vs_piece:
+        text = vs_piece
+
+    text = TIME_RE.sub(" ", text)
+    text = re.sub(
+        r"(?i)\b(xem ngay|trực tiếp|hot|live|bóng đá|sắp diễn ra|đang diễn ra|socolive)\b",
+        " ",
+        text,
+    )
+    text = clean_text(text).strip(" -|•")
+
+    if not re.search(r"\bvs\b", text, re.I):
+        slug = unquote(urlparse(fallback_url).path.rstrip("/").split("/")[-1])
+        slug = re.sub(r"-\d{2}-\d{2}-\d{4}-\d{4}$", "", slug)
+        slug = re.sub(r"-vs-", " vs ", slug, flags=re.I)
+        slug = slug.replace("-", " ")
+        text = clean_text(slug)
+
+    return text or fallback_url
+
+
+def derive_match_info(
+    url: str,
+    raw_title: str = "",
+    raw_time: str = "",
+) -> tuple[str, str, str]:
     parsed = urlparse(url)
     query = parse_qs(parsed.query)
+    match_name = clean_match_name(raw_title, url)
+    time_str = extract_time(raw_time) or extract_time(raw_title)
 
-    raw_title = re.sub(r"\s+", " ", raw_title or "").strip()
-    raw_lower = raw_title.lower()
+    if not time_str:
+        suffix = re.search(r"-(\d{2})(\d{2})/?$", parsed.path)
+        if suffix:
+            time_str = f"{suffix.group(1)}:{suffix.group(2)}"
 
-    has_match_title = " vs " in f" {raw_lower} "
     blv_name = ""
+    if "blv" in query and raw_title and not re.search(r"\bvs\b", raw_title, re.I):
+        blv_name = clean_text(raw_title)
 
-    if "blv" in query and raw_title and not has_match_title:
-        blv_name = raw_title
+    return match_name, time_str, blv_name
 
-    if has_match_title:
-        match_name = raw_title
-    else:
-        slug = unquote(parsed.path.rstrip("/").split("/")[-1])
-        slug = re.sub(r"-\d{2}-\d{2}-\d{4}-\d{4}$", "", slug)
-        slug = slug.replace("-vs-", " vs ")
-        slug = slug.replace("-", " ")
-        match_name = re.sub(r"\s+", " ", slug).strip()
 
-    match_name = re.sub(
-        r"(?i)\b(xem ngay|trực tiếp|hot|live|bóng đá|sắp diễn ra|socolive)\b",
-        "",
-        match_name,
-    )
-    match_name = re.sub(r"\s+", " ", match_name).strip(" -")
+def is_good_logo_url(value: str) -> bool:
+    lower = (value or "").lower()
+    if not value or value.startswith(("data:", "blob:")):
+        return False
+    bad = ("avatar", "banner", "advert", "doubleclick", "googleads", "emoji", "flag")
+    return not any(marker in lower for marker in bad)
 
-    time_match = re.search(r"-(\d{2})(\d{2})/?$", parsed.path)
-    time_str = f"{time_match.group(1)}:{time_match.group(2)}" if time_match else ""
 
-    return match_name or raw_title or url, time_str, blv_name
+def choose_logo(candidates: list[str], base: str) -> str:
+    seen: set[str] = set()
+    for value in candidates:
+        fixed = absolute_url(value, base)
+        if fixed and fixed not in seen and is_good_logo_url(fixed):
+            seen.add(fixed)
+            return fixed
+    return ""
 
 
 async def install_route_filter(page: Page, homepage: bool = False) -> None:
-    """
-    Trang trận KHÔNG chặn media/manifest/other.
-    Chỉ chặn ảnh và font để giảm tải.
-    Trang chủ có thể chặn media vì chỉ cần lấy danh sách link.
-    """
-    blocked_types = {"image", "font"}
+    """Cho ảnh tải để lazy-load logo hoạt động; chỉ chặn font và media ở trang chủ."""
+    blocked_types = {"font"}
     if homepage:
         blocked_types.add("media")
 
@@ -249,19 +337,15 @@ async def install_route_filter(page: Page, homepage: bool = False) -> None:
     await page.route("**/*", route_handler)
 
 
-async def collect_dom_stream_candidates(page: Page) -> list[str]:
-    """
-    Bắt URL từ mọi frame, gồm video/source và iframe embed.
-    Iframe rất quan trọng vì Chuối Chiên hiện nhét streamUrl đã encode trong src.
-    """
-    candidates: set[str] = set()
+async def collect_dom_stream_candidates(page: Page) -> list[dict[str, str]]:
+    candidates: list[dict[str, str]] = []
+    seen: set[tuple[str, str]] = set()
 
     for frame in page.frames:
         try:
             frame_candidates = await frame.evaluate(
                 r"""() => {
                     const out = new Set();
-
                     try {
                         for (const entry of performance.getEntriesByType("resource")) {
                             if (entry && entry.name) out.add(entry.name);
@@ -272,54 +356,39 @@ async def collect_dom_stream_candidates(page: Page) -> list[str]:
                         "video, source, iframe, embed, object, " +
                         "[data-stream], [data-stream-url], [data-url], [data-src]"
                     ).forEach((el) => {
-                        const values = [
-                            el.src,
-                            el.currentSrc,
-                            el.data,
-                            el.getAttribute("src"),
-                            el.getAttribute("data"),
-                            el.getAttribute("data-src"),
-                            el.getAttribute("data-url"),
-                            el.getAttribute("data-stream"),
-                            el.getAttribute("data-stream-url"),
-                            el.getAttribute("data-file"),
-                        ];
-                        values.forEach((value) => {
-                            if (value) out.add(value);
-                        });
+                        [
+                            el.src, el.currentSrc, el.data,
+                            el.getAttribute("src"), el.getAttribute("data"),
+                            el.getAttribute("data-src"), el.getAttribute("data-url"),
+                            el.getAttribute("data-stream"), el.getAttribute("data-stream-url"),
+                            el.getAttribute("data-file")
+                        ].forEach((value) => { if (value) out.add(value); });
                     });
 
                     const htmlText = document.documentElement
-                        ? document.documentElement.innerHTML
-                        : "";
-
-                    const normalizedHtml = htmlText
-                        .replace(/\\\//g, "/")
-                        .replace(/&amp;/g, "&");
-
-                    const absoluteMatches = normalizedHtml.match(
+                        ? document.documentElement.innerHTML : "";
+                    const normalized = htmlText.replace(/\\\//g, "/").replace(/&amp;/g, "&");
+                    (normalized.match(
                         /https?:\/\/[^"' <>\n\r]+?(?:\.m3u8|\.flv)(?:\?[^"' <>\n\r]*)?/gi
-                    ) || [];
-                    absoluteMatches.forEach((value) => out.add(value));
-
-                    // Bắt cả URL embed chứa streamUrl=https%3A%2F%2F...flv.
-                    const embedMatches = normalizedHtml.match(
+                    ) || []).forEach((value) => out.add(value));
+                    (normalized.match(
                         /https?:\/\/[^"' <>\n\r]+?(?:streamUrl|stream_url|file|src|url)=[^"' <>\n\r]+/gi
-                    ) || [];
-                    embedMatches.forEach((value) => out.add(value));
-
+                    ) || []).forEach((value) => out.add(value));
                     return Array.from(out);
                 }"""
             )
-            candidates.update(str(item) for item in frame_candidates if item)
+            for item in frame_candidates:
+                key = (str(item), frame.url or "")
+                if item and key not in seen:
+                    seen.add(key)
+                    candidates.append({"url": str(item), "frame_url": frame.url or ""})
         except Exception:
             continue
 
-    return sorted(candidates)
+    return candidates
 
 
 async def stimulate_player(page: Page) -> None:
-    """Thử kích hoạt player/autoplay mà không làm hỏng trang."""
     for selector in PLAY_SELECTORS:
         try:
             locator = page.locator(selector)
@@ -328,23 +397,124 @@ async def stimulate_player(page: Page) -> None:
         except Exception:
             pass
 
+    for frame in page.frames:
+        try:
+            await frame.evaluate(
+                """() => {
+                    document.querySelectorAll("video").forEach((video) => {
+                        try {
+                            video.muted = true;
+                            video.volume = 0;
+                            const result = video.play();
+                            if (result && typeof result.catch === "function") {
+                                result.catch(() => {});
+                            }
+                        } catch (_) {}
+                    });
+                }"""
+            )
+        except Exception:
+            pass
+
+
+async def read_match_metadata(page: Page, match_url: str) -> dict[str, Any]:
     try:
-        await page.evaluate(
-            """() => {
-                document.querySelectorAll("video").forEach((video) => {
+        data = await page.evaluate(
+            r"""() => {
+                const clean = (v) => String(v || "").replace(/\s+/g, " ").trim();
+                const urls = [];
+                const seen = new Set();
+
+                function addUrl(v) {
+                    if (!v) return;
+                    let value = String(v).trim();
+                    if (!value || value.startsWith("data:") || value.startsWith("blob:")) return;
+                    try { value = new URL(value, location.href).href; } catch (_) {}
+                    if (!seen.has(value)) { seen.add(value); urls.push(value); }
+                }
+
+                function inspectImage(img) {
+                    [
+                        img.currentSrc, img.src,
+                        img.getAttribute("src"), img.getAttribute("data-src"),
+                        img.getAttribute("data-original"), img.getAttribute("data-lazy-src")
+                    ].forEach(addUrl);
+                    const sets = [img.getAttribute("srcset"), img.getAttribute("data-srcset")];
+                    sets.forEach((set) => {
+                        if (!set) return;
+                        set.split(",").forEach((part) => addUrl(part.trim().split(/\s+/)[0]));
+                    });
+                }
+
+                const scopes = [
+                    document.querySelector("[class*='match-info']"),
+                    document.querySelector("[class*='match-detail']"),
+                    document.querySelector("[class*='team']")?.closest("section, article, main, div"),
+                    document.querySelector("main"),
+                    document.body
+                ].filter(Boolean);
+
+                for (const scope of scopes) {
+                    scope.querySelectorAll("img").forEach(inspectImage);
+                    if (urls.length >= 8) break;
+                }
+
+                [
+                    document.querySelector("meta[property='og:image']")?.content,
+                    document.querySelector("meta[name='twitter:image']")?.content,
+                    document.querySelector("link[rel='image_src']")?.href
+                ].forEach(addUrl);
+
+                const titleSelectors = [
+                    "h1", "[class*='match-title']", "[class*='match-name']",
+                    "[class*='event-title']", "h2", "title"
+                ];
+                let title = "";
+                for (const selector of titleSelectors) {
+                    const nodes = selector === "title"
+                        ? [document.querySelector("title")]
+                        : Array.from(document.querySelectorAll(selector));
+                    const found = nodes.find((el) => el && /\bvs\b/i.test(clean(el.innerText || el.textContent)));
+                    if (found) { title = clean(found.innerText || found.textContent); break; }
+                }
+
+                const timeParts = [];
+                document.querySelectorAll(
+                    "time, [datetime], [data-time], [data-start], [data-date], " +
+                    "[class*='time'], [class*='kickoff'], [class*='date']"
+                ).forEach((el) => {
+                    [
+                        el.getAttribute("datetime"), el.getAttribute("data-time"),
+                        el.getAttribute("data-start"), el.getAttribute("data-date"),
+                        el.innerText, el.textContent
+                    ].forEach((v) => { if (v) timeParts.push(clean(v)); });
+                });
+
+                document.querySelectorAll("script[type='application/ld+json']").forEach((script) => {
                     try {
-                        video.muted = true;
-                        video.volume = 0;
-                        const result = video.play();
-                        if (result && typeof result.catch === "function") {
-                            result.catch(() => {});
-                        }
+                        const raw = JSON.parse(script.textContent || "null");
+                        const items = Array.isArray(raw) ? raw : [raw];
+                        items.forEach((item) => {
+                            if (item && item.startDate) timeParts.push(String(item.startDate));
+                            if (!title && item && item.name) title = clean(item.name);
+                            if (item && item.image) {
+                                (Array.isArray(item.image) ? item.image : [item.image]).forEach(addUrl);
+                            }
+                        });
                     } catch (_) {}
                 });
+
+                const iframeUrls = Array.from(document.querySelectorAll("iframe[src]"))
+                    .map((el) => el.src || el.getAttribute("src") || "")
+                    .filter(Boolean);
+
+                return { title, time_text: timeParts.join(" | "), logos: urls, iframe_urls: iframeUrls };
             }"""
         )
+        data["logos"] = [absolute_url(str(v), match_url) for v in data.get("logos", []) if v]
+        return data
     except Exception:
-        pass
+        return {"title": "", "time_text": "", "logos": [], "iframe_urls": []}
 
 
 async def fetch_stream(
@@ -354,48 +524,115 @@ async def fetch_stream(
 ) -> dict[str, Any]:
     async with sem:
         match_name, time_str, blv_from_link = derive_match_info(
-            match["url"], match.get("raw_title", "")
+            match["url"], match.get("raw_title", ""), match.get("raw_time", "")
         )
         match["match_name"] = match_name
         match["time"] = time_str
         match["blv"] = blv_from_link
+        match["streams"] = []
         match["stream_urls"] = []
         match["errors"] = []
 
-        label = match_name
-        if blv_from_link:
-            label += f" | BLV {blv_from_link}"
-
-        print(f"-> Đang quét: {label[:90]}")
-
+        print(f"-> Đang quét: {match_name[:90]}")
         page = await context.new_page()
         await install_route_filter(page, homepage=False)
 
-        stream_urls: set[str] = set()
+        stream_map: dict[str, dict[str, Any]] = {}
         first_stream_at: float | None = None
+        rate_limit_urls: set[str] = set()
 
-        def capture_url(url: str, source: str) -> None:
+        def capture_url(
+            raw_url: str,
+            source: str,
+            headers: dict[str, str] | None = None,
+            frame_url: str = "",
+            status: int | None = None,
+            content_type: str = "",
+        ) -> None:
             nonlocal first_stream_at
+            normalized_headers = {
+                str(k).lower(): str(v) for k, v in (headers or {}).items()
+            }
+            hint = stream_referer_hint(raw_url, frame_url)
 
-            for stream_url in extract_stream_urls(url):
-                normalized = normalize_stream_url(stream_url)
-                if normalized in stream_urls:
-                    continue
+            for stream_url in extract_stream_urls(raw_url, content_type):
+                normalized = decode_url_repeatedly(stream_url)
+                entry = stream_map.setdefault(
+                    normalized,
+                    {
+                        "url": normalized,
+                        "referer": "",
+                        "origin": "",
+                        "user_agent": "",
+                        "status": None,
+                        "content_type": "",
+                        "sources": [],
+                    },
+                )
 
-                stream_urls.add(normalized)
+                referer = normalize_playback_referer(
+                    normalized_headers.get("referer", "") or hint
+                )
+                # Không tự tạo Origin. VLC thử nghiệm chạy với Referer + User-Agent;
+                # Origin dư thừa có thể làm CDN từ chối. Chỉ lưu nếu request thật có gửi.
+                origin = normalized_headers.get("origin", "")
+                user_agent = normalized_headers.get("user-agent", "") or UA
+
+                if referer:
+                    entry["referer"] = referer
+                if origin:
+                    entry["origin"] = origin
+                if user_agent:
+                    entry["user_agent"] = user_agent
+                if status is not None:
+                    entry["status"] = status
+                if content_type:
+                    entry["content_type"] = content_type
+                if source not in entry["sources"]:
+                    entry["sources"].append(source)
+
                 if first_stream_at is None:
                     first_stream_at = time.monotonic()
-                print(f"   🎯 [{source}] {normalized}")
+                if len(entry["sources"]) == 1:
+                    print(f"   🎯 [{source}] {normalized}")
 
         def handle_request(request: Any) -> None:
-            capture_url(request.url, f"request/{request.resource_type}")
+            try:
+                frame_url = request.frame.url if request.frame else ""
+            except Exception:
+                frame_url = ""
+            capture_url(
+                request.url,
+                f"request/{request.resource_type}",
+                headers=request.headers,
+                frame_url=frame_url,
+            )
 
         def handle_response(response: Any) -> None:
-            capture_url(response.url, "response")
+            try:
+                if response.status == 429 and response.url not in rate_limit_urls:
+                    rate_limit_urls.add(response.url)
+                    match["errors"].append(
+                        f"HTTP 429 (tiếp tục quét, không restart): {response.url}"
+                    )
+                    print(f"   ⚠️ HTTP 429 nhưng vẫn tiếp tục quét full: {response.url}")
+
+                req = response.request
+                frame_url = req.frame.url if req.frame else ""
+                content_type = response.headers.get("content-type", "")
+                capture_url(
+                    response.url,
+                    "response",
+                    headers=req.headers,
+                    frame_url=frame_url,
+                    status=response.status,
+                    content_type=content_type,
+                )
+            except Exception:
+                capture_url(response.url, "response", status=response.status)
 
         def handle_page_error(error: Any) -> None:
-            message = f"JS: {error}"
-            match["errors"].append(message)
+            match["errors"].append(f"JS: {error}")
 
         def handle_console(message: Any) -> None:
             if message.type in {"error", "warning"}:
@@ -409,274 +646,255 @@ async def fetch_stream(
         page.on("console", handle_console)
 
         try:
-            await page.goto(
-                match["url"],
-                wait_until="domcontentloaded",
-                timeout=30000,
-            )
+            await page.goto(match["url"], wait_until="domcontentloaded", timeout=30000)
+            await page.wait_for_timeout(1200)
 
-            # Thử đọc tên BLV thật trên trang.
-            try:
-                dom_blv = await page.evaluate(
-                    """() => {
-                        const selectors = [
-                            ".blv-name",
-                            ".player-info-name",
-                            ".name-blv",
-                            ".chat-item-name",
-                            "[class*='blv'] [class*='name']",
-                            "[class*='commentator'] [class*='name']"
-                        ];
+            metadata = await read_match_metadata(page, match["url"])
+            if metadata.get("title"):
+                better_name = clean_match_name(metadata["title"], match["url"])
+                if re.search(r"\bvs\b", better_name, re.I):
+                    match["match_name"] = better_name
+            if not match.get("time"):
+                match["time"] = extract_time(metadata.get("time_text", ""))
 
-                        for (const selector of selectors) {
-                            const el = document.querySelector(selector);
-                            if (el && el.innerText && el.innerText.trim()) {
-                                return el.innerText.trim();
-                            }
-                        }
-                        return "";
-                    }"""
-                )
-                if dom_blv:
-                    match["blv"] = re.sub(r"\s+", " ", dom_blv).strip()
-            except Exception:
-                pass
+            logo_candidates = list(match.get("team_logos") or [])
+            if match.get("logo"):
+                logo_candidates.insert(0, match["logo"])
+            logo_candidates.extend(metadata.get("logos") or [])
+            match["team_logos"] = [
+                absolute_url(v, match["url"]) for v in logo_candidates if v
+            ]
+            match["logo"] = choose_logo(match["team_logos"], match["url"])
 
-            # Logo chỉ dùng để hiển thị; đuôi JPG không còn bị coi là phòng rác.
-            if not match.get("logo"):
-                try:
-                    room_logo = await page.evaluate(
-                        """() => {
-                            const imgs = document.querySelectorAll(
-                                ".team-logo img, .match-info img, .logo img, img"
-                            );
-
-                            for (const img of imgs) {
-                                const src =
-                                    img.getAttribute("data-src") ||
-                                    img.getAttribute("data-original") ||
-                                    img.getAttribute("src") ||
-                                    img.src ||
-                                    "";
-
-                                if (
-                                    src &&
-                                    !src.includes("base64") &&
-                                    !src.includes("data:image") &&
-                                    !src.includes("icon") &&
-                                    !src.includes(".svg") &&
-                                    !src.includes(".gif")
-                                ) {
-                                    return src;
-                                }
-                            }
-                            return "";
-                        }"""
-                    )
-                    if room_logo:
-                        match["logo"] = room_logo
-                except Exception:
-                    pass
+            for iframe_url in metadata.get("iframe_urls") or []:
+                capture_url(iframe_url, "iframe/src", frame_url=iframe_url)
 
             deadline = time.monotonic() + STREAM_WAIT_SECONDS
-
             while time.monotonic() < deadline:
                 await stimulate_player(page)
-
                 for candidate in await collect_dom_stream_candidates(page):
-                    capture_url(candidate, "dom/performance")
+                    capture_url(
+                        candidate["url"],
+                        "dom/performance",
+                        frame_url=candidate.get("frame_url", ""),
+                    )
 
                 if (
-                    first_stream_at is not None
-                    and time.monotonic() - first_stream_at
-                    >= EXTRA_WAIT_AFTER_FIRST_STREAM
+                    not FULL_SCAN
+                    and first_stream_at is not None
+                    and time.monotonic() - first_stream_at >= EXTRA_WAIT_AFTER_FIRST_STREAM
                 ):
                     break
-
                 await page.wait_for_timeout(1000)
 
         except Exception as exc:
             error_text = f"{type(exc).__name__}: {exc}"
             match["errors"].append(error_text)
-            print(f"   ❌ {label[:70]} | {error_text}")
+            print(f"   ❌ {match_name[:70]} | {error_text}")
         finally:
-            # Quét lần cuối trước khi đóng trang.
             try:
                 for candidate in await collect_dom_stream_candidates(page):
-                    capture_url(candidate, "final-scan")
+                    capture_url(
+                        candidate["url"],
+                        "final-scan",
+                        frame_url=candidate.get("frame_url", ""),
+                    )
             except Exception:
                 pass
-
             await page.close()
 
-        match["stream_urls"] = sorted(stream_urls)
+        streams = []
+        for entry in stream_map.values():
+            # Header fallback đúng player embed, không dùng nhầm origin live03.
+            entry["referer"] = normalize_playback_referer(
+                entry.get("referer") or PLAYER_ORIGIN_FALLBACK + "/"
+            )
+            if not entry.get("user_agent"):
+                entry["user_agent"] = UA
 
-        if not stream_urls:
-            print(f"   ⚠️ Không thấy m3u8/flv: {label[:85]}")
+            status = entry.get("status")
+            if status is not None and int(status) >= 400:
+                match["errors"].append(f"Stream HTTP {status}: {entry['url']}")
+                print(f"   ⚠️ Loại stream HTTP {status}: {entry['url']}")
+                continue
+            streams.append(entry)
+
+        match["streams"] = sorted(streams, key=lambda item: item["url"])
+        match["stream_urls"] = [item["url"] for item in match["streams"]]
+
+        if match["streams"]:
+            for entry in match["streams"]:
+                state = entry.get("status") or "chưa có status"
+                print(
+                    f"   ✅ Stream {state} | referer={entry.get('referer', '')} | "
+                    f"logo={'có' if match.get('logo') else 'không'} | "
+                    f"giờ={match.get('time') or 'không rõ'}"
+                )
+        else:
+            print(f"   ⚠️ Không thấy m3u8/flv: {match_name[:85]}")
 
         return match
 
 
-async def collect_home_links(context: BrowserContext) -> list[dict[str, str]]:
+async def collect_home_links(context: BrowserContext) -> list[dict[str, Any]]:
     page = await context.new_page()
     await install_route_filter(page, homepage=True)
-
     print(f"👉 Đang mở trang chủ: {TARGET_URL}")
 
     try:
-        await page.goto(
-            TARGET_URL,
-            wait_until="domcontentloaded",
-            timeout=30000,
-        )
-
+        await page.goto(TARGET_URL, wait_until="domcontentloaded", timeout=30000)
         await page.wait_for_timeout(HOME_WAIT_MS)
 
-        # Cuộn nhẹ để các danh sách lazy-load được render.
         for _ in range(5):
             await page.evaluate("window.scrollBy(0, Math.max(700, window.innerHeight));")
-            await page.wait_for_timeout(600)
+            await page.wait_for_timeout(700)
 
         result = await page.evaluate(
             r"""() => {
                 const items = [];
                 const seen = new Set();
+                const clean = (v) => String(v || "").replace(/\s+/g, " ").trim();
 
                 function normalizeHref(value) {
-                    try {
-                        return new URL(value, location.href).href;
-                    } catch (_) {
-                        return "";
-                    }
+                    try { return new URL(value, location.href).href; }
+                    catch (_) { return ""; }
                 }
 
                 function isMatchHref(value) {
                     const href = normalizeHref(value);
                     if (!href) return false;
-
                     try {
                         const path = new URL(href).pathname;
-                        return (
-                            /^\/live\/\d+(?:\/|$)/i.test(path) ||
-                            path.includes("/truc-tiep/") ||
-                            path.includes("/room/")
-                        );
-                    } catch (_) {
-                        return false;
-                    }
+                        return /^\/live\/\d+(?:\/|$)/i.test(path) ||
+                            path.includes("/truc-tiep/") || path.includes("/room/");
+                    } catch (_) { return false; }
                 }
 
-                function addItem(hrefValue, titleValue = "", logoValue = "") {
+                function imageCandidates(scope) {
+                    const scored = [];
+                    if (!scope) return [];
+                    scope.querySelectorAll("img").forEach((img, index) => {
+                        const context = clean([
+                            img.alt, img.title, img.className,
+                            img.parentElement?.className, img.parentElement?.parentElement?.className
+                        ].join(" ")).toLowerCase();
+                        let score = 0;
+                        if (/team|club|home|away|doi|đội/.test(context)) score += 12;
+                        if (/logo/.test(context)) score += 4;
+                        if (/avatar|blv|comment|banner|advert|ads|flag/.test(context)) score -= 20;
+                        if ((img.naturalWidth || img.width || 0) <= 256) score += 2;
+                        score -= index * 0.01;
+
+                        const values = [
+                            img.currentSrc, img.src,
+                            img.getAttribute("src"), img.getAttribute("data-src"),
+                            img.getAttribute("data-original"), img.getAttribute("data-lazy-src")
+                        ];
+                        [img.getAttribute("srcset"), img.getAttribute("data-srcset")]
+                            .filter(Boolean)
+                            .forEach((set) => set.split(",").forEach((part) =>
+                                values.push(part.trim().split(/\s+/)[0])
+                            ));
+
+                        values.filter(Boolean).forEach((value) => {
+                            try { value = new URL(value, location.href).href; } catch (_) {}
+                            scored.push({ value, score });
+                        });
+                    });
+
+                    scope.querySelectorAll("[style*='background-image']").forEach((el) => {
+                        const match = (el.style.backgroundImage || "").match(/url\(["']?([^"')]+)["']?\)/i);
+                        if (match) {
+                            let value = match[1];
+                            try { value = new URL(value, location.href).href; } catch (_) {}
+                            scored.push({ value, score: 3 });
+                        }
+                    });
+
+                    const out = [];
+                    const unique = new Set();
+                    scored.sort((a, b) => b.score - a.score).forEach((item) => {
+                        if (!unique.has(item.value)) { unique.add(item.value); out.push(item.value); }
+                    });
+                    return out;
+                }
+
+                function findContainer(a) {
+                    return a.closest(
+                        "[data-match-id], [data-event-id], [class*='match-card'], " +
+                        "[class*='match-item'], [class*='game-card'], [class*='fixture'], article, li"
+                    ) || a.parentElement?.parentElement || a.parentElement || a;
+                }
+
+                function addItem(hrefValue, titleValue = "", cardText = "", timeValue = "", logos = []) {
                     const href = normalizeHref(hrefValue);
                     if (!isMatchHref(href) || seen.has(href)) return;
                     seen.add(href);
-
-                    const fallbackTitle = (() => {
-                        try {
-                            const parts = new URL(href).pathname.split("/").filter(Boolean);
-                            return decodeURIComponent(parts[parts.length - 1] || href)
-                                .replace(/-vs-/gi, " vs ")
-                                .replace(/-/g, " ");
-                        } catch (_) {
-                            return href;
-                        }
-                    })();
-
+                    const parts = new URL(href).pathname.split("/").filter(Boolean);
+                    const fallback = decodeURIComponent(parts[parts.length - 1] || href)
+                        .replace(/-vs-/gi, " vs ").replace(/-/g, " ");
                     items.push({
                         url: href,
-                        raw_title: String(titleValue || fallbackTitle)
-                            .replace(/\s+/g, " ")
-                            .trim(),
-                        logo: String(logoValue || "").trim(),
+                        raw_title: clean(titleValue || cardText || fallback),
+                        card_text: clean(cardText),
+                        raw_time: clean(timeValue || cardText),
+                        logo: logos[0] || "",
+                        team_logos: logos.slice(0, 8),
                     });
                 }
 
                 document.querySelectorAll("a[href]").forEach((a) => {
                     const href = a.href || a.getAttribute("href") || "";
                     if (!isMatchHref(href)) return;
+                    const container = findContainer(a);
+                    const cardText = clean(container?.innerText || a.innerText || "");
+                    const lower = cardText.toLowerCase();
+                    if (lower.includes("bóng rổ") || lower.includes("tennis") || lower.includes("cầu lông")) return;
 
-                    const text = (a.innerText || "").replace(/\s+/g, " ").trim();
-                    const lowerText = text.toLowerCase();
+                    const timeEl = container?.querySelector(
+                        "time, [datetime], [data-time], [data-start], [class*='time'], [class*='kickoff']"
+                    );
+                    const timeValue = clean([
+                        timeEl?.getAttribute("datetime"), timeEl?.getAttribute("data-time"),
+                        timeEl?.getAttribute("data-start"), timeEl?.innerText
+                    ].filter(Boolean).join(" "));
 
-                    if (
-                        lowerText.includes("bóng rổ") ||
-                        lowerText.includes("tennis") ||
-                        lowerText.includes("cầu lông")
-                    ) {
-                        return;
-                    }
-
-                    let logo = "";
-                    const container =
-                        a.closest("div[class*='item']") ||
-                        a.closest("article") ||
-                        a.closest("li") ||
-                        a.closest("div");
-
-                    if (container) {
-                        const imgs = container.querySelectorAll("img");
-                        for (const img of imgs) {
-                            const src =
-                                img.getAttribute("data-src") ||
-                                img.getAttribute("data-original") ||
-                                img.getAttribute("src") ||
-                                img.src ||
-                                "";
-
-                            if (
-                                src &&
-                                !src.includes("data:image") &&
-                                !src.includes("base64") &&
-                                !src.includes("icon") &&
-                                !src.includes("gif")
-                            ) {
-                                logo = src;
-                                break;
-                            }
-                        }
-                    }
+                    const titleNode = Array.from(container?.querySelectorAll(
+                        "h1, h2, h3, [class*='match-title'], [class*='match-name'], [class*='team-name']"
+                    ) || []).find((el) => /\bvs\b/i.test(clean(el.innerText || el.textContent)));
 
                     addItem(
                         href,
-                        a.title || a.getAttribute("aria-label") || text || href,
-                        logo
+                        clean(titleNode?.innerText || titleNode?.textContent || a.innerText || a.title || a.getAttribute("aria-label")),
+                        cardText,
+                        timeValue,
+                        imageCandidates(container)
                     );
                 });
 
-                // Fallback cho React/Next.js: link có thể nằm trong JSON/script,
-                // chưa được render thành thẻ <a> khi chạy headless trên GitHub.
-                const htmlText = document.documentElement
-                    ? document.documentElement.innerHTML
-                    : "";
-                const normalizedHtml = htmlText
-                    .replace(/\\\//g, "/")
-                    .replace(/&amp;/g, "&")
-                    .replace(/\\u002F/gi, "/");
-
+                const htmlText = document.documentElement?.innerHTML || "";
+                const normalizedHtml = htmlText.replace(/\\\//g, "/")
+                    .replace(/&amp;/g, "&").replace(/\\u002F/gi, "/");
                 const patterns = [
                     /https?:\/\/[^"' <>\n\r]+\/live\/\d+\/[^"' <>\n\r]+/gi,
                     /\/live\/\d+\/[a-z0-9][a-z0-9._~!$&'()*+,;=:@%\/-]*/gi,
                     /https?:\/\/[^"' <>\n\r]+\/(?:truc-tiep|room)\/[^"' <>\n\r]+/gi,
                     /\/(?:truc-tiep|room)\/[^"' <>\n\r]+/gi,
                 ];
-
                 for (const pattern of patterns) {
-                    const matches = normalizedHtml.match(pattern) || [];
-                    matches.forEach((href) => addItem(href));
+                    (normalizedHtml.match(pattern) || []).forEach((href) => addItem(href));
                 }
 
-                const allAnchors = Array.from(document.querySelectorAll("a[href]"));
+                const anchors = Array.from(document.querySelectorAll("a[href]"));
                 return {
                     items,
                     diagnostics: {
                         final_url: location.href,
                         title: document.title || "",
-                        anchor_count: allAnchors.length,
+                        anchor_count: anchors.length,
                         html_length: normalizedHtml.length,
-                        sample_hrefs: allAnchors
-                            .slice(0, 20)
-                            .map((a) => a.href || a.getAttribute("href") || ""),
-                    },
+                        sample_hrefs: anchors.slice(0, 20).map((a) => a.href || "")
+                    }
                 };
             }"""
         )
@@ -693,26 +911,11 @@ async def collect_home_links(context: BrowserContext) -> list[dict[str, str]]:
 
         if not links:
             try:
-                Path(OUTPUT_HOME_DEBUG_HTML).write_text(
-                    await page.content(),
-                    encoding="utf-8",
-                )
-                await page.screenshot(
-                    path=OUTPUT_HOME_DEBUG_PNG,
-                    full_page=True,
-                )
-                print(
-                    "⚠️ Đã lưu trang debug: "
-                    f"{OUTPUT_HOME_DEBUG_HTML}, {OUTPUT_HOME_DEBUG_PNG}"
-                )
-                samples = diagnostics.get("sample_hrefs") or []
-                if samples:
-                    print("ℹ️ Một số href nhìn thấy trên trang:")
-                    for href in samples[:10]:
-                        print(f"   - {href}")
+                Path(OUTPUT_HOME_DEBUG_HTML).write_text(await page.content(), encoding="utf-8")
+                await page.screenshot(path=OUTPUT_HOME_DEBUG_PNG, full_page=True)
+                print(f"⚠️ Đã lưu trang debug: {OUTPUT_HOME_DEBUG_HTML}, {OUTPUT_HOME_DEBUG_PNG}")
             except Exception as debug_exc:
                 print(f"⚠️ Không lưu được trang debug: {debug_exc}")
-
         return links
 
     except Exception as exc:
@@ -722,138 +925,115 @@ async def collect_home_links(context: BrowserContext) -> list[dict[str, str]]:
         await page.close()
 
 
-def normalize_logo(logo: str) -> str:
-    logo = (logo or "").strip()
-
-    if not logo:
-        return TARGET_URL.rstrip("/") + "/logo.png"
-
-    if logo.startswith("//"):
-        return "https:" + logo
-
-    if logo.startswith("/"):
-        return TARGET_URL.rstrip("/") + logo
-
-    return logo
-
-
 def escape_m3u_text(value: str) -> str:
     return re.sub(r"[\r\n]+", " ", value or "").replace('"', "'").strip()
+
+
+def header_json(user_agent: str, referer: str) -> str:
+    values = {"User-Agent": user_agent}
+    if referer:
+        values["Referer"] = referer
+    return json.dumps(values, ensure_ascii=False, separators=(",", ":"))
 
 
 def write_outputs(results: list[dict[str, Any]]) -> tuple[int, int]:
     playlist_lines = ["#EXTM3U"]
     written_streams: set[str] = set()
     match_keys_with_streams: set[str] = set()
-
-    referer_origin = TARGET_URL.rstrip("/")
     count_links = 0
 
     for result in results:
-        streams = result.get("stream_urls") or []
+        streams = result.get("streams") or [
+            {"url": value} for value in (result.get("stream_urls") or [])
+        ]
         if not streams:
             continue
 
-        match_name = result.get("match_name") or result.get("raw_title") or "Socolive"
+        match_name = result.get("match_name") or result.get("raw_title") or "Chuối Chiên TV"
         time_str = result.get("time") or ""
         blv = result.get("blv") or ""
-        logo = normalize_logo(result.get("logo", ""))
-        page_referer = result.get("url") or TARGET_URL
+        logo = choose_logo(
+            [result.get("logo", "")] + list(result.get("team_logos") or []),
+            result.get("url") or TARGET_URL,
+        )
 
         display_base = f"[{time_str}] {match_name}" if time_str else match_name
         if blv and blv.lower() not in display_base.lower():
             display_base += f" [BLV {blv}]"
-
         display_base = escape_m3u_text(display_base)
         logo = escape_m3u_text(logo)
 
-        unique_streams = [
-            stream for stream in streams
-            if stream not in written_streams
-        ]
-
+        unique_streams = [item for item in streams if item.get("url") not in written_streams]
         if not unique_streams:
             continue
 
-        match_key = f"{match_name}|{blv}|{time_str}"
-        match_keys_with_streams.add(match_key)
+        match_keys_with_streams.add(f"{match_name}|{blv}|{time_str}")
+        for index, stream_info in enumerate(unique_streams, start=1):
+            stream_url = decode_url_repeatedly(stream_info.get("url", ""))
+            if not stream_url:
+                continue
+            written_streams.add(stream_url)
 
-        for index, stream in enumerate(unique_streams, start=1):
-            written_streams.add(stream)
+            display_name = display_base
+            if len(unique_streams) > 1:
+                display_name += f" (Luồng {index})"
 
-            server_tag = (
-                f" (Luồng {index})"
-                if len(unique_streams) > 1
-                else ""
+            referer = normalize_playback_referer(
+                stream_info.get("referer") or PLAYER_ORIGIN_FALLBACK + "/"
             )
-            display_name = display_base + server_tag
+            user_agent = stream_info.get("user_agent") or UA
+            kind = stream_kind(stream_url, stream_info.get("content_type", ""))
+            if kind:
+                display_name += f" [{kind.upper()}]"
 
-            fixed_url = (
-                f"{stream}"
-                f"|Referer={page_referer}"
-                f"&Origin={referer_origin}"
-                f"&User-Agent={UA}"
-            )
+            attributes = 'group-title="Chuối Chiên TV"'
+            if logo:
+                attributes += f' tvg-logo="{logo}"'
+            playlist_lines.append(f"#EXTINF:-1 {attributes},{display_name}")
 
-            playlist_lines.append(
-                f'#EXTINF:-1 group-title="Socolive" tvg-logo="{logo}",'
-                f'{display_name}'
-            )
-            playlist_lines.append(
-                f"#EXTVLCOPT:http-referrer={page_referer}"
-            )
-            playlist_lines.append(
-                f"#EXTVLCOPT:http-referer={page_referer}"
-            )
-            playlist_lines.append(
-                f"#EXTVLCOPT:http-origin={referer_origin}"
-            )
-            playlist_lines.append(
-                f"#EXTVLCOPT:http-user-agent={UA}"
-            )
-            playlist_lines.append(fixed_url)
-
+            # Các player khác nhau đọc các dòng header khác nhau. URL cuối phải để nguyên,
+            # tuyệt đối không nối |Referer=... vì VLC coi đó là một phần của URL.
+            playlist_lines.append(f"#EXTVLCOPT:http-referrer={referer}")
+            playlist_lines.append(f"#EXTVLCOPT:http-user-agent={user_agent}")
+            playlist_lines.append("#EXTVLCOPT:http-reconnect=true")
+            playlist_lines.append(f"#EXTHTTP:{header_json(user_agent, referer)}")
+            playlist_lines.append(stream_url)
             count_links += 1
 
     Path(OUTPUT_DEBUG).write_text(
-        json.dumps(results, ensure_ascii=False, indent=2),
-        encoding="utf-8",
+        json.dumps(results, ensure_ascii=False, indent=2), encoding="utf-8"
     )
 
     playlist_path = Path(OUTPUT_M3U)
+    if count_links:
+        playlist_path.write_text("\n".join(playlist_lines) + "\n", encoding="utf-8")
+    elif playlist_path.exists():
+        print(f"⚠️ Không có link mới; giữ nguyên playlist cũ: {playlist_path.resolve()}")
+    else:
+        playlist_path.write_text("#EXTM3U\n", encoding="utf-8")
+        print(f"⚠️ Chưa có playlist cũ; đã tạo playlist rỗng hợp lệ: {playlist_path.resolve()}")
 
     if count_links:
-        playlist_path.write_text(
-            "\n".join(playlist_lines) + "\n",
-            encoding="utf-8",
-        )
-    elif playlist_path.exists():
-        # Lần quét lỗi/rỗng không được xóa playlist tốt của lần chạy trước.
-        print(
-            f"⚠️ Không có link mới; giữ nguyên playlist cũ: "
-            f"{playlist_path.resolve()}"
-        )
-    else:
-        # Repository chạy lần đầu vẫn cần một file hợp lệ để git add không lỗi 128.
-        playlist_path.write_text("#EXTM3U\n", encoding="utf-8")
-        print(
-            f"⚠️ Chưa có playlist cũ; đã tạo playlist rỗng hợp lệ: "
-            f"{playlist_path.resolve()}"
-        )
+        m3u8_count = sum(1 for line in playlist_lines if line.startswith("http") and stream_kind(line) == "m3u8")
+        flv_count = sum(1 for line in playlist_lines if line.startswith("http") and stream_kind(line) == "flv")
+        print(f"📊 Playlist: M3U8={m3u8_count} | FLV={flv_count}")
 
     return len(match_keys_with_streams), count_links
 
 
 async def main() -> None:
-    print("🥷 KHỞI ĐỘNG SOCOLIVE STREAM SCANNER - BẢN FIX")
+    print(f"🥷 KHỞI ĐỘNG CHUỐI CHIÊN STREAM SCANNER - {SCANNER_VERSION}")
     print(
-        "ℹ️ Có thể test riêng một trận bằng lệnh:\n"
+        "ℹ️ Test riêng một trận:\n"
         '   python main.py "https://live03.chuoichientv.me/live/1524177/capalaba-vs-holland-park-hawks"'
+    )
+    print(
+        f"ℹ️ Chế độ quét: {'FULL toàn bộ thời gian' if FULL_SCAN else 'dừng sớm'} | "
+        f"định dạng={','.join(STREAM_EXTENSIONS)} | chờ mỗi trận={STREAM_WAIT_SECONDS}s"
     )
 
     direct_urls = [
-        arg.strip()
-        for arg in sys.argv[1:]
+        arg.strip() for arg in sys.argv[1:]
         if arg.strip().startswith(("http://", "https://"))
     ]
 
@@ -868,11 +1048,11 @@ async def main() -> None:
                 "--disable-dev-shm-usage",
             ],
         )
-
         context = await browser.new_context(
             viewport={"width": 1366, "height": 768},
             user_agent=UA,
             locale="vi-VN",
+            timezone_id="Asia/Ho_Chi_Minh",
             ignore_https_errors=True,
             service_workers="block",
             extra_http_headers={
@@ -884,20 +1064,19 @@ async def main() -> None:
             links = []
             for url in direct_urls:
                 match_name, _, _ = derive_match_info(url)
-                links.append(
-                    {
-                        "url": url,
-                        "raw_title": match_name,
-                        "logo": "",
-                    }
-                )
+                links.append({
+                    "url": url,
+                    "raw_title": match_name,
+                    "raw_time": "",
+                    "logo": "",
+                    "team_logos": [],
+                })
             print(f"✅ Chế độ test trực tiếp: {len(links)} URL.")
         else:
             links = await collect_home_links(context)
 
         if not links:
             print("❌ Không tìm thấy link trận/phòng nào.")
-            # Vẫn tạo debug và bảo đảm playlist tồn tại; không ghi đè playlist cũ.
             write_outputs([])
             await context.close()
             await browser.close()
@@ -907,25 +1086,17 @@ async def main() -> None:
             f"✅ Tìm thấy {len(links)} link trận/phòng. "
             f"Bắt đầu quét tối đa {CONCURRENCY_LIMIT} trang cùng lúc..."
         )
-
         semaphore = asyncio.Semaphore(CONCURRENCY_LIMIT)
-        tasks = [
-            fetch_stream(context, match, semaphore)
-            for match in links
-        ]
-        results = await asyncio.gather(*tasks)
-
+        results = await asyncio.gather(*[
+            fetch_stream(context, match, semaphore) for match in links
+        ])
         count_matches, count_links = write_outputs(results)
 
         if count_links:
-            print(
-                f"\n🎉 HOÀN TẤT: lấy được {count_links} link "
-                f"từ {count_matches} trận/phòng."
-            )
+            print(f"\n🎉 HOÀN TẤT: lấy được {count_links} link từ {count_matches} trận/phòng.")
             print(f"📺 Playlist: {Path(OUTPUT_M3U).resolve()}")
         else:
             print("\n❌ Không bắt được m3u8/flv nào.")
-
         print(f"🧾 Nhật ký chi tiết: {Path(OUTPUT_DEBUG).resolve()}")
 
         await context.close()
