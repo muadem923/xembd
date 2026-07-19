@@ -1,4 +1,4 @@
-name: Bot Quet chuoichien v3.4
+name: Bot Quet chuoichien v3.5.1
 
 on:
   workflow_dispatch:
@@ -37,7 +37,7 @@ jobs:
           PYTHONUNBUFFERED: "1"
           SOCOLIVE_MATCH_CONCURRENCY: "4"
           SOCOLIVE_HOME_WAIT_MS: "6000"
-          SOCOLIVE_ROOM_WAIT_SECONDS: "20"
+          SOCOLIVE_ROOM_WAIT_SECONDS: "25"
           SOCOLIVE_FULL_SCAN: "1"
         run: |
           set -o pipefail
@@ -103,6 +103,41 @@ jobs:
             }
           fi
 
+          echo "--- Kiểm tra logo bị dùng lặp ---"
+          duplicate_logos="$(grep '^#EXTINF' chuoichien_live.m3u \
+            | sed -n 's/.*tvg-logo="\([^"]*\)".*/\1/p' \
+            | sort | uniq -cd || true)"
+          if [ -n "$duplicate_logos" ]; then
+            echo "::warning::Có logo lặp; xem debug để xác nhận có phải cùng đội hay không:"
+            printf '%s\n' "$duplicate_logos"
+          fi
+
+          echo "--- Kênh có bình luận viên ---"
+          grep '^#EXTINF' chuoichien_live.m3u | grep '\[BLV ' || true
+
+          echo "--- Kênh HD/FHD/4K ---"
+          grep '^#EXTINF' chuoichien_live.m3u | grep -E '\[(HD|FHD|4K) (M3U8|FLV)\]' || true
+
+          echo "--- Audit trận mẫu 1528034 nếu còn trên trang ---"
+          python - <<'PY_AUDIT'
+          import json
+          from pathlib import Path
+
+          debug = Path("chuoichien_debug.json")
+          if debug.exists():
+              rows = json.loads(debug.read_text(encoding="utf-8"))
+              sample = [row for row in rows if "1528034" in str(row.get("url", ""))]
+              if sample:
+                  row = sample[0]
+                  print("BLV:", row.get("blv") or "không rõ")
+                  print("Số stream:", len(row.get("streams") or []))
+                  print("Chất lượng:", [s.get("quality") for s in row.get("streams") or []])
+                  if row.get("blv") != "A Ngáo":
+                      print("::warning::Trận 1528034 chưa đọc đúng BLV A Ngáo; tải artifact debug để xem DOM mới.")
+                  if len(row.get("streams") or []) < 2:
+                      print("::warning::Trận 1528034 hiện bắt dưới 2 stream; tải artifact debug để kiểm tra nguồn HD/FHD.")
+          PY_AUDIT
+
           echo "--- Thống kê thư mục ---"
           grep '^#EXTINF' chuoichien_live.m3u \
             | sed -n 's/.*group-title="\([^"]*\)".*/\1/p' \
@@ -136,5 +171,5 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Fix universal IPTV playlist headers v3.4"
+          git commit -m "Fix logo, BLV and multi-quality streams v3.5.1"
           git push origin "HEAD:${GITHUB_REF_NAME}"
