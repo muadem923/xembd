@@ -31,7 +31,7 @@ OUTPUT_VLC_M3U = "chuoichien_live_vlc.m3u"
 OUTPUT_DEBUG = "chuoichien_debug.json"
 OUTPUT_HOME_DEBUG_HTML = "chuoichien_home_debug.html"
 OUTPUT_HOME_DEBUG_PNG = "chuoichien_home_debug.png"
-SCANNER_VERSION = "3.6-PLAYABLE-STREAM-VALIDATION"
+SCANNER_VERSION = "3.6.1-ACCURATE-KICKOFF-STRICT-VERIFICATION"
 
 
 def read_env_bool(name: str, default: bool = True) -> bool:
@@ -73,6 +73,8 @@ VERIFY_STREAMS = read_env_bool("SOCOLIVE_VERIFY_STREAMS", True)
 VERIFY_TIMEOUT_SECONDS = read_env_int("SOCOLIVE_VERIFY_TIMEOUT_SECONDS", 8, minimum=3, maximum=20)
 MAX_VERIFY_CANDIDATES = read_env_int("SOCOLIVE_MAX_VERIFY_CANDIDATES", 6, minimum=2, maximum=12)
 MAX_OUTPUT_STREAMS_PER_MATCH = read_env_int("SOCOLIVE_MAX_OUTPUT_STREAMS_PER_MATCH", 4, minimum=1, maximum=8)
+ALLOW_UNVERIFIED_BROWSER_FALLBACK = read_env_bool("SOCOLIVE_ALLOW_UNVERIFIED_BROWSER_FALLBACK", False)
+KEEP_PREVIOUS_UNVERIFIED = read_env_bool("SOCOLIVE_KEEP_PREVIOUS_UNVERIFIED", False)
 HEADLESS = True
 
 # Dùng đúng User-Agent đã được kiểm chứng phát được bằng VLC.
@@ -104,6 +106,7 @@ PLAY_SELECTORS = (
 )
 
 TIME_RE = re.compile(r"(?<!\d)([01]?\d|2[0-3])[:h.]([0-5]\d)(?!\d)", re.I)
+DATE_DMY_RE = re.compile(r"(?<!\d)(0?[1-9]|[12]\d|3[01])[\-/\.](0?[1-9]|1[0-2])(?:[\-/\.](20\d{2}|\d{2}))?(?!\d)")
 
 BLV_ALIASES = {
     "angao": "A Ngáo",
@@ -330,10 +333,13 @@ def origin_from_url(value: str) -> str:
     return ""
 
 
-def extract_time(value: str) -> str:
+def extract_datetime_parts(value: str) -> tuple[str, str]:
+    """Trả về (giờ HH:MM, ngày DD/MM) từ đúng một candidate thời gian."""
     text = clean_text(value)
+    if not text:
+        return "", ""
 
-    # JSON/JSON-LD thường trả ISO UTC. Chuyển đúng sang giờ Việt Nam trước.
+    # ISO có timezone được đổi sang giờ Việt Nam. ISO không timezone được coi là giờ hiển thị của trang.
     iso_match = re.search(
         r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?(?:Z|[+-]\d{2}:?\d{2})?",
         text,
@@ -344,14 +350,50 @@ def extract_time(value: str) -> str:
             parsed = datetime.fromisoformat(iso_value)
             if parsed.tzinfo is not None:
                 parsed = parsed.astimezone(ZoneInfo("Asia/Ho_Chi_Minh"))
-            return parsed.strftime("%H:%M")
+            return parsed.strftime("%H:%M"), parsed.strftime("%d/%m")
         except Exception:
             pass
 
-    match = TIME_RE.search(text)
-    if not match:
-        return ""
-    return f"{int(match.group(1)):02d}:{match.group(2)}"
+    time_match = TIME_RE.search(text)
+    time_str = f"{int(time_match.group(1)):02d}:{time_match.group(2)}" if time_match else ""
+    date_match = DATE_DMY_RE.search(text)
+    date_str = ""
+    if date_match:
+        date_str = f"{int(date_match.group(1)):02d}/{int(date_match.group(2)):02d}"
+    return time_str, date_str
+
+
+def extract_time(value: str) -> str:
+    return extract_datetime_parts(value)[0]
+
+
+def extract_date(value: str) -> str:
+    return extract_datetime_parts(value)[1]
+
+
+def select_best_time_candidate(metadata: dict[str, Any]) -> tuple[str, str, str]:
+    """Chọn giờ từ candidate có điểm cao nhất, không quét chuỗi thời gian toàn trang theo thứ tự ngẫu nhiên."""
+    candidates = metadata.get("time_candidates") or []
+    ranked: list[tuple[int, str, str, str]] = []
+    for item in candidates:
+        if isinstance(item, dict):
+            value = clean_text(str(item.get("value", "")))
+            score = int(item.get("score") or 0)
+            source = clean_text(str(item.get("source", "")))
+        else:
+            value = clean_text(str(item))
+            score = 0
+            source = "legacy"
+        time_str, date_str = extract_datetime_parts(value)
+        if time_str:
+            ranked.append((score, time_str, date_str, source))
+    if ranked:
+        ranked.sort(key=lambda row: row[0], reverse=True)
+        _, time_str, date_str, source = ranked[0]
+        return time_str, date_str, source
+    legacy = clean_text(str(metadata.get("time_text", "")))
+    time_str, date_str = extract_datetime_parts(legacy)
+    return time_str, date_str, "legacy-time-text" if time_str else ""
 
 
 def stream_kind(url: str, content_type: str = "") -> str:
@@ -838,27 +880,40 @@ async def validate_stream_candidates(
             )
             continue
 
-        if state in {"blocked", "invalid"} and entry.get("high_confidence_observed") and blocking_status in {0, 401, 403, 429}:
+        browser_statuses = {int(value) for value in (entry.get("statuses") or []) if str(value).isdigit()}
+        if (
+            ALLOW_UNVERIFIED_BROWSER_FALLBACK
+            and state == "blocked"
+            and entry.get("high_confidence_observed")
+            and blocking_status in {401, 403, 429}
+            and any(value in {200, 206} for value in browser_statuses)
+        ):
             entry["playability"] = "browser-observed"
             observed_fallback.append(entry)
             print(
-                f"   🟡 Runner chưa xác minh được ({probe.get('detail')}); "
-                f"nhưng player đã thực sự tham chiếu URL: {entry['url']}",
+                f"   🟡 Giữ URL vì browser đã nhận 200/206 nhưng probe riêng bị chặn: {entry['url']}",
                 flush=True,
             )
             continue
 
-        if state in {"blocked", "invalid"} and "previous-playlist" in (entry.get("sources") or []):
+        if (
+            KEEP_PREVIOUS_UNVERIFIED
+            and state == "blocked"
+            and "previous-playlist" in (entry.get("sources") or [])
+            and blocking_status in {401, 403, 429}
+        ):
             entry["playability"] = "previous-fallback"
             observed_fallback.append(entry)
             print(
-                f"   🟠 Giữ tạm link playlist cũ vì runner bị chặn: {entry['url']}",
+                f"   🟠 Giữ link lịch sử theo tùy chọn KEEP_PREVIOUS_UNVERIFIED: {entry['url']}",
                 flush=True,
             )
             continue
 
         entry["playability"] = "rejected"
         entry["reject_reason"] = probe.get("detail") or state
+        if "previous-playlist" in (entry.get("sources") or []) and not probe.get("playable"):
+            entry["reject_reason"] = f"playlist cũ không còn xác minh được: {entry['reject_reason']}"
         rejected.append(entry)
         print(
             f"   ❌ Loại link không phát được | {entry.get('reject_reason')} | {entry['url']}",
@@ -1817,34 +1872,90 @@ async def read_match_metadata(
                     "[class*='event-title']", "h2", "title"
                 ];
                 let title = "";
+                let titleNode = null;
                 for (const selector of titleSelectors) {
                     const nodes = selector === "title" ? [document.querySelector("title")] : Array.from(document.querySelectorAll(selector));
                     const found = nodes.find((el) => el && /\bvs\b/i.test(clean(el.innerText || el.textContent)));
-                    if (found) { title = clean(found.innerText || found.textContent); break; }
+                    if (found) { title = clean(found.innerText || found.textContent); titleNode = found; break; }
                 }
 
-                const timeParts = [];
-                document.querySelectorAll(
-                    "time, [datetime], [data-time], [data-start], [data-date], " +
-                    "[class*='time'], [class*='kickoff'], [class*='date']"
-                ).forEach((el) => {
-                    [el.getAttribute("datetime"), el.getAttribute("data-time"),
-                     el.getAttribute("data-start"), el.getAttribute("data-date"),
-                     el.innerText, el.textContent].forEach((v) => { if (v) timeParts.push(clean(v)); });
-                });
+                // Thu hẹp thêm từ tiêu đề trận để không vô tình dùng giờ của trận liên quan bên dưới.
+                let timeRoot = primaryRoot;
+                if (titleNode && titleNode.tagName !== "TITLE") {
+                    let node = titleNode;
+                    let best = titleNode.parentElement || titleNode;
+                    for (let depth = 0; node && depth < 8; depth += 1, node = node.parentElement) {
+                        const blob = clean(node.innerText || node.textContent || "").slice(0, 4000);
+                        const links = Array.from(node.querySelectorAll?.("a[href*='/live/'], a[href*='/truc-tiep/'], a[href*='/room/']") || []);
+                        if (tokenMatchCount(blob, homeTokens) > 0 && tokenMatchCount(blob, awayTokens) > 0 && links.length <= 1) {
+                            best = node;
+                        } else if (links.length > 1) {
+                            break;
+                        }
+                    }
+                    timeRoot = best;
+                }
+
+                const timeCandidates = [];
+                const timeSeen = new Set();
+                const looksLikeTime = (value) =>
+                    /(?:^|\D)(?:[01]?\d|2[0-3])[:h.]?[0-5]\d(?:\D|$)/i.test(String(value || "")) ||
+                    /\d{4}-\d{2}-\d{2}T\d{2}:\d{2}/.test(String(value || ""));
+                const addTime = (value, score, source) => {
+                    const fixed = clean(value);
+                    if (!fixed || !looksLikeTime(fixed) || fixed.length > 500) return;
+                    const key = `${fixed}\n${source}`;
+                    if (timeSeen.has(key)) return;
+                    timeSeen.add(key);
+                    timeCandidates.push({value: fixed, score, source});
+                };
+                const nodeBelongsToMatch = (element) => {
+                    let node = element;
+                    for (let depth = 0; node && depth < 6; depth += 1, node = node.parentElement) {
+                        if (belongsToCurrentMatch(node)) return true;
+                    }
+                    return false;
+                };
+                const scanTimeScope = (scope, baseScore, source, strictContext = false) => {
+                    if (!scope) return;
+                    scope.querySelectorAll(
+                        "time, [datetime], [data-time], [data-start], [data-date], " +
+                        "[class*='kickoff'], [class*='match-time'], [class*='event-time'], " +
+                        "[class*='start-time'], [class*='match-date'], [class*='event-date']"
+                    ).forEach((el) => {
+                        if (strictContext && !nodeBelongsToMatch(el)) return;
+                        addTime(el.getAttribute("datetime"), baseScore + 25, `${source}/datetime`);
+                        addTime(el.getAttribute("data-start"), baseScore + 22, `${source}/data-start`);
+                        addTime(el.getAttribute("data-time"), baseScore + 20, `${source}/data-time`);
+                        addTime(el.getAttribute("data-date"), baseScore + 15, `${source}/data-date`);
+                        addTime(el.innerText || el.textContent, baseScore + 10, `${source}/visible`);
+                    });
+                    const matchLinks = Array.from(scope.querySelectorAll?.("a[href*='/live/'], a[href*='/truc-tiep/'], a[href*='/room/']") || []);
+                    const broadRoot = scope === document || scope.tagName === "MAIN" || matchLinks.length > 1;
+                    if (!broadRoot) addTime(scope.innerText || scope.textContent, baseScore, `${source}/root-text`);
+                };
+
+                // Chỉ ưu tiên khối nhỏ nhất có đúng hai đội; khối rộng phải qua kiểm tra ngữ cảnh.
+                const timeRootLinks = Array.from(timeRoot?.querySelectorAll?.("a[href*='/live/'], a[href*='/truc-tiep/'], a[href*='/room/']") || []);
+                const timeRootIsBroad = !timeRoot || timeRoot.tagName === "MAIN" || timeRootLinks.length > 1;
+                scanTimeScope(timeRoot, 100, "match-root", timeRootIsBroad);
 
                 document.querySelectorAll("script[type='application/ld+json']").forEach((script) => {
                     try {
                         const raw = JSON.parse(script.textContent || "null");
                         const items = Array.isArray(raw) ? raw : [raw];
                         items.forEach((item) => {
-                            if (item && item.startDate) timeParts.push(String(item.startDate));
+                            if (item && item.startDate) addTime(String(item.startDate), 55, "json-ld/startDate");
                             if (!title && item && item.name) title = clean(item.name);
                             if (item && item.image) (Array.isArray(item.image) ? item.image : [item.image])
                                 .forEach((value) => addLogo(value, 2, String(item.name || "json ld")));
                         });
                     } catch (_) {}
                 });
+
+                // Chỉ dùng selector toàn trang làm fallback khi khối trận không cho ra giờ nào.
+                if (!timeCandidates.length) scanTimeScope(document, 10, "document-fallback", true);
+                timeCandidates.sort((a, b) => b.score - a.score);
 
                 const iframeUrls = Array.from(document.querySelectorAll("iframe[src]"))
                     .map((el) => el.src || el.getAttribute("src") || "").filter(Boolean);
@@ -1927,7 +2038,8 @@ async def read_match_metadata(
 
                 logoItems.sort((a, b) => b.score - a.score);
                 return {
-                    title, time_text: timeParts.join(" | "),
+                    title, time_text: timeCandidates[0]?.value || "",
+                    time_candidates: timeCandidates.slice(0, 24),
                     logos: logoItems.map((item) => item.url),
                     logo_candidates: logoItems.slice(0, 24),
                     iframe_urls: iframeUrls,
@@ -1944,7 +2056,7 @@ async def read_match_metadata(
         return data
     except Exception:
         return {
-            "title": "", "time_text": "", "logos": [], "logo_candidates": [],
+            "title": "", "time_text": "", "time_candidates": [], "logos": [], "logo_candidates": [],
             "iframe_urls": [], "quality_sources": [], "sport_text": "", "blv": "",
         }
 
@@ -1960,6 +2072,8 @@ async def fetch_stream(
         )
         match["match_name"] = match_name
         match["time"] = time_str
+        match["date"] = extract_date(match.get("raw_time", "")) or extract_date(match.get("raw_title", ""))
+        match["time_source"] = "home-card" if time_str else ""
         match["blv"] = blv_from_link
         match["streams"] = []
         match["stream_urls"] = []
@@ -2157,8 +2271,18 @@ async def fetch_stream(
                 better_name = clean_match_name(metadata["title"], match["url"])
                 if re.search(r"\bvs\b", better_name, re.I):
                     match["match_name"] = better_name
-            if not match.get("time"):
-                match["time"] = extract_time(metadata.get("time_text", ""))
+            detail_time, detail_date, detail_time_source = select_best_time_candidate(metadata)
+            if detail_time:
+                old_time = match.get("time", "")
+                if old_time and old_time != detail_time:
+                    print(
+                        f"   🕒 Sửa giờ trận từ {old_time} thành {detail_time} "
+                        f"theo nguồn {detail_time_source}",
+                        flush=True,
+                    )
+                match["time"] = detail_time
+                match["date"] = detail_date or match.get("date", "")
+                match["time_source"] = detail_time_source
             if metadata.get("blv"):
                 match["blv"] = normalize_blv_name(metadata.get("blv", "")) or match.get("blv", "")
 
@@ -2495,7 +2619,7 @@ async def collect_home_links(context: BrowserContext) -> list[dict[str, Any]]:
                         url: href,
                         raw_title: clean(titleValue || cardText || fallback),
                         card_text: clean(cardText),
-                        raw_time: clean(timeValue || cardText),
+                        raw_time: clean(timeValue),
                         logo: logos[0]?.url || "",
                         team_logos: logos.slice(0, 12).map((item) => item.url),
                         logo_candidates: logos.slice(0, 20),
@@ -2511,7 +2635,8 @@ async def collect_home_links(context: BrowserContext) -> list[dict[str, Any]]:
                     const sportHint = sportContext(a, container);
 
                     const timeEl = container?.querySelector(
-                        "time, [datetime], [data-time], [data-start], [class*='time'], [class*='kickoff']"
+                        "time, [datetime], [data-time], [data-start], [data-date], " +
+                        "[class*='kickoff'], [class*='match-time'], [class*='event-time'], [class*='start-time']"
                     );
                     const timeValue = clean([
                         timeEl?.getAttribute("datetime"), timeEl?.getAttribute("data-time"),
@@ -2678,6 +2803,7 @@ def write_outputs(results: list[dict[str, Any]]) -> tuple[int, int]:
 
         match_name = result.get("match_name") or result.get("raw_title") or "Chuối Chiên TV"
         time_str = result.get("time") or ""
+        date_str = result.get("date") or ""
         blv = result.get("blv") or ""
         sport_group = result.get("sport_group") or classify_sport(
             result.get("sport_hint", ""),
@@ -2691,7 +2817,8 @@ def write_outputs(results: list[dict[str, Any]]) -> tuple[int, int]:
         # cho nhiều trận. Không chấm lại ở đây vì có thể vô tình chọn lại logo lỗi.
         logo = result.get("logo", "")
 
-        display_base = f"[{time_str}] {match_name}" if time_str else match_name
+        kickoff_label = " ".join(part for part in (time_str, date_str) if part)
+        display_base = f"[{kickoff_label}] {match_name}" if kickoff_label else match_name
         if blv and blv.lower() not in display_base.lower():
             display_base += f" [BLV {blv}]"
         display_base = escape_m3u_text(display_base)
@@ -2701,7 +2828,7 @@ def write_outputs(results: list[dict[str, Any]]) -> tuple[int, int]:
         if not unique_streams:
             continue
 
-        match_keys_with_streams.add(f"{match_name}|{blv}|{time_str}")
+        match_keys_with_streams.add(f"{match_name}|{blv}|{time_str}|{date_str}")
         for index, stream_info in enumerate(unique_streams, start=1):
             stream_url = decode_url_repeatedly(stream_info.get("url", ""))
             if not stream_url:
@@ -2840,7 +2967,8 @@ async def main() -> None:
         f"ℹ️ Chế độ quét: {'FULL toàn bộ thời gian' if FULL_SCAN else 'dừng sớm'} | "
         f"định dạng={','.join(STREAM_EXTENSIONS)} | chờ mỗi trận={STREAM_WAIT_SECONDS}s | "
         f"xác minh phát thật={'BẬT' if VERIFY_STREAMS else 'TẮT'} | "
-        f"tối đa {MAX_VERIFY_CANDIDATES} ứng viên/{MAX_OUTPUT_STREAMS_PER_MATCH} link đầu ra"
+        f"tối đa {MAX_VERIFY_CANDIDATES} ứng viên/{MAX_OUTPUT_STREAMS_PER_MATCH} link đầu ra | "
+        f"fallback chưa xác minh={'BẬT' if (ALLOW_UNVERIFIED_BROWSER_FALLBACK or KEEP_PREVIOUS_UNVERIFIED) else 'TẮT'}"
     )
 
     direct_urls = [
@@ -2850,7 +2978,7 @@ async def main() -> None:
     previous_streams_by_match = load_previous_playlist_streams()
     if previous_streams_by_match:
         print(
-            f"ℹ️ Đã nạp playlist cũ của {len(previous_streams_by_match)} trận để chống mất link đang chạy.",
+            f"ℹ️ Đã nạp playlist cũ của {len(previous_streams_by_match)} trận làm ứng viên xác minh lại; link thất bại sẽ không được xuất.",
             flush=True,
         )
 
