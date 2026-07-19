@@ -1,4 +1,4 @@
-name: Bot Quet chuoichien v3.7
+name: Quet Chuoi Chien va Luong Son v4.0.1 - One M3U
 
 on:
   workflow_dispatch:
@@ -7,270 +7,171 @@ permissions:
   contents: write
 
 concurrency:
-  group: chuoichien-m3u-${{ github.ref }}
+  group: multi-source-live-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
-  build:
+  scan:
     runs-on: ubuntu-latest
+    timeout-minutes: 75
 
     steps:
-      - name: 1. Lấy code từ kho về
+      - name: 1. Lay code tu kho ve
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 3
 
-      - name: 2. Cài đặt Python
+      - name: 2. Cai dat Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: 3. Cài đặt Playwright
+      - name: 3. Cai dat Playwright Chromium
+        shell: bash
         run: |
+          set -euo pipefail
           python -m pip install --upgrade pip
           python -m pip install playwright
           python -m playwright install --with-deps chromium
 
-      - name: 4. Quét full và hiện log realtime
+      - name: 4. Audit source va bo gop offline
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile main.py merger.py sources/chuoichien.py sources/luongson.py
+          python -m unittest discover -s tests -v
+
+      - name: 5. Quet hai nguon va hien log realtime
         shell: bash
         env:
           PYTHONUNBUFFERED: "1"
+          MULTI_MAX_STREAMS_PER_MATCH: "2"
+          MULTI_UPCOMING_KEEP_HOURS: "3"
+
           SOCOLIVE_MATCH_CONCURRENCY: "4"
-          SOCOLIVE_HOME_WAIT_MS: "6000"
+          SOCOLIVE_HOME_WAIT_MS: "5000"
           SOCOLIVE_ROOM_WAIT_SECONDS: "25"
           SOCOLIVE_FULL_SCAN: "1"
           SOCOLIVE_VERIFY_STREAMS: "1"
           SOCOLIVE_VERIFY_TIMEOUT_SECONDS: "8"
           SOCOLIVE_MAX_VERIFY_CANDIDATES: "6"
           SOCOLIVE_MAX_OUTPUT_STREAMS_PER_MATCH: "2"
-          SOCOLIVE_ALLOW_UNVERIFIED_BROWSER_FALLBACK: "0"
-          SOCOLIVE_KEEP_PREVIOUS_UNVERIFIED: "0"
           SOCOLIVE_UPCOMING_KEEP_HOURS: "3"
-          SOCOLIVE_UPCOMING_MIN_CANDIDATE_SCORE: "150"
+          SOCOLIVE_KEEP_PREVIOUS_UNVERIFIED: "0"
+          SOCOLIVE_ALLOW_UNVERIFIED_BROWSER_FALLBACK: "0"
+
+          HYGENIE_MATCH_CONCURRENCY: "4"
+          HYGENIE_HOME_WAIT_MS: "6000"
+          HYGENIE_ROOM_WAIT_SECONDS: "25"
+          HYGENIE_FULL_SCAN: "1"
+          HYGENIE_VERIFY_STREAMS: "1"
+          HYGENIE_VERIFY_TIMEOUT_SECONDS: "8"
+          HYGENIE_MAX_VERIFY_CANDIDATES: "6"
+          HYGENIE_MAX_OUTPUT_STREAMS_PER_MATCH: "4"
         run: |
           set -o pipefail
-          python -u main.py 2>&1 | tee chuoichien_scan.log
+          python -u main.py 2>&1 | tee multi_source_scan.log
 
-      - name: 5. Kiểm tra playlist, nhóm và độ tin cậy stream
+      - name: 6. Audit playlist chung
         shell: bash
         run: |
-          test -f chuoichien_live.m3u
-          test -f chuoichien_live_pipe.m3u
-          test -f chuoichien_live_vlc.m3u
+          set -euo pipefail
+          test -f all_live.m3u
+          test -f all_live_debug.json
 
-          echo "--- Android TV: 80 dòng đầu ---"
-          sed -n '1,80p' chuoichien_live.m3u
-          echo "--- Pipe/Kodi: 40 dòng đầu ---"
-          sed -n '1,40p' chuoichien_live_pipe.m3u
-          echo "--- VLC: 60 dòng đầu ---"
-          sed -n '1,60p' chuoichien_live_vlc.m3u
-
-          invalid_groups="$(grep '^#EXTINF' chuoichien_live.m3u | grep -Ev 'group-title="(Bóng đá|Bóng rổ|Bóng chuyền|Tennis|Esports|Khác)"' || true)"
-          if [ -n "$invalid_groups" ]; then
-            echo "::error::Có kênh thiếu group-title hợp lệ."
-            printf '%s\n' "$invalid_groups"
+          mapfile -t generated_m3u < <(find . -maxdepth 1 -type f -name '*.m3u' -printf '%f\n' | sort)
+          if [[ ${#generated_m3u[@]} -ne 1 || "${generated_m3u[0]}" != "all_live.m3u" ]]; then
+            echo "::error::Sau khi gộp chỉ được tồn tại duy nhất all_live.m3u. Đang có: ${generated_m3u[*]:-không có}"
             exit 1
           fi
 
-          if grep -E '^https?://.*\|User-Agent=' chuoichien_live.m3u; then
-            echo "::error::Playlist mặc định không được nối pipe headers vào URL."
+          if grep -E '^https?://.*\|User-Agent=' all_live.m3u; then
+            echo "::error::Playlist mac dinh khong duoc noi pipe header vao URL."
             exit 1
           fi
 
-          if grep -Eq '^https?://.*\.(m3u8|flv)(\?.*)?$' chuoichien_live.m3u; then
-            grep -q '^#EXTHTTP:{"User-Agent":' chuoichien_live.m3u || {
-              echo "::error::Playlist mặc định thiếu EXTHTTP User-Agent/Referer."; exit 1;
-            }
-            grep -q '^#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/' chuoichien_live.m3u || {
-              echo "::error::Playlist mặc định thiếu http-referrer."; exit 1;
-            }
-            grep -q '^#EXTVLCOPT:http-user-agent=Mozilla/5.0 ' chuoichien_live.m3u || {
-              echo "::error::Playlist mặc định thiếu http-user-agent."; exit 1;
-            }
-            echo "Playlist mặc định URL nguyên bản + header tags: OK"
-          fi
-
-          if grep -Eq '\.(m3u8|flv)[^|]*\|User-Agent=.*&Referer=' chuoichien_live_pipe.m3u; then
-            echo "Playlist pipe/Kodi: OK"
-          elif grep -Eq '\.(m3u8|flv)(\?|$)' chuoichien_live_pipe.m3u; then
-            echo "::error::Playlist pipe có stream nhưng thiếu protocol options."
-            exit 1
-          fi
-
-          if grep -E '^https?://.*\|User-Agent=' chuoichien_live_vlc.m3u; then
-            echo "::error::Playlist VLC không được chứa pipe headers."
-            exit 1
-          fi
-
-          if grep -Eq '\.(m3u8|flv)(\?|$)' chuoichien_live_vlc.m3u; then
-            grep -q '^#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/' chuoichien_live_vlc.m3u || {
-              echo "::error::Playlist VLC thiếu Referer."; exit 1;
-            }
-            grep -q '^#EXTVLCOPT:http-user-agent=Mozilla/5.0 ' chuoichien_live_vlc.m3u || {
-              echo "::error::Playlist VLC thiếu User-Agent."; exit 1;
-            }
-          fi
-
-          echo "--- Kiểm tra logo bị dùng lặp ---"
-          duplicate_logos="$(grep '^#EXTINF' chuoichien_live.m3u \
-            | sed -n 's/.*tvg-logo="\([^"]*\)".*/\1/p' \
-            | sort | uniq -cd || true)"
-          if [ -n "$duplicate_logos" ]; then
-            echo "::warning::Có logo lặp; xem debug để xác nhận có phải cùng đội hay không:"
-            printf '%s\n' "$duplicate_logos"
-          fi
-
-          echo "--- Kênh có bình luận viên ---"
-          grep '^#EXTINF' chuoichien_live.m3u | grep '\[BLV ' || true
-
-          echo "--- Kênh HD/FHD/4K ---"
-          grep '^#EXTINF' chuoichien_live.m3u | grep -E '\[(CHỜ PHÁT )?(HD|FHD|4K) (M3U8|FLV)\]' || true
-
-          echo "--- Audit xác minh stream phát thật ---"
-          python - <<'PY_VERIFY'
-          import json
-          from pathlib import Path
-
-          debug = Path("chuoichien_debug.json")
-          if not debug.exists():
-              raise SystemExit("::error::Thiếu chuoichien_debug.json")
-          rows = json.loads(debug.read_text(encoding="utf-8"))
-          output_count = 0
-          verified_count = 0
-          upcoming_pending_count = 0
-          invalid_fallback_count = 0
-          oversized = []
-          body_only_output = []
-          malformed = []
-          invalid_upcoming = []
-          duplicated_quality = []
-          for row in rows:
-              streams = row.get("streams") or []
-              output_count += len(streams)
-              if len(streams) > 2:
-                  oversized.append((row.get("match_name"), len(streams)))
-              seen_quality = set()
-              for stream in streams:
-                  state = stream.get("playability")
-                  if state == "verified":
-                      verified_count += 1
-                  elif state == "upcoming-pending":
-                      upcoming_pending_count += 1
-                      delta = row.get("minutes_to_kickoff")
-                      sources = set(stream.get("sources") or [])
-                      if (
-                          row.get("timing_state") != "upcoming-window"
-                          or not isinstance(delta, int)
-                          or not (0 <= delta <= 180)
-                          or not any(source.startswith("request/") or source in {"response", "iframe/src", "hls/variant", "metadata/quality-source"} for source in sources)
-                      ):
-                          invalid_upcoming.append((row.get("match_name"), delta, stream.get("url"), sorted(sources)))
-                  else:
-                      invalid_fallback_count += 1
-                  quality = stream.get("quality") or "UNKNOWN"
-                  if quality in seen_quality:
-                      duplicated_quality.append((row.get("match_name"), quality))
-                  seen_quality.add(quality)
-                  sources = stream.get("sources") or []
-                  if sources and all(source == "response/body" for source in sources):
-                      body_only_output.append(stream.get("url"))
-                  url = stream.get("url", "")
-                  if ".m3u8&autoplay=" in url or ".flv&autoplay=" in url:
-                      malformed.append(url)
-          print(
-              f"Đầu ra={output_count} | verified={verified_count} | "
-              f"upcoming-pending={upcoming_pending_count} | invalid-fallback={invalid_fallback_count}"
-          )
-          if invalid_fallback_count:
-              print("::error::Playlist còn fallback ngoài cơ chế trận sắp đá 3 giờ:", invalid_fallback_count)
-              raise SystemExit(1)
-          if invalid_upcoming:
-              print("::error::Có link chờ phát không đúng cửa sổ 3 giờ/không có nguồn player tin cậy:", invalid_upcoming)
-              raise SystemExit(1)
-          if duplicated_quality:
-              print("::error::Một trận còn nhiều link cùng mức chất lượng:", duplicated_quality)
-              raise SystemExit(1)
-          if oversized:
-              print("::error::Có trận vượt giới hạn 2 mức chất lượng:", oversized)
-              raise SystemExit(1)
-          if body_only_output:
-              print("::error::Còn stream chỉ lấy từ response body toàn cục:", body_only_output)
-              raise SystemExit(1)
-          if malformed:
-              print("::error::Còn URL nối nhầm autoplay/isHome:", malformed)
-              raise SystemExit(1)
-          PY_VERIFY
-
-          echo "--- Audit trận mẫu 1528034 nếu còn trên trang ---"
           python - <<'PY_AUDIT'
           import json
+          import re
+          from collections import Counter
           from pathlib import Path
 
-          debug = Path("chuoichien_debug.json")
-          if debug.exists():
-              rows = json.loads(debug.read_text(encoding="utf-8"))
-              sample = [row for row in rows if "1528034" in str(row.get("url", ""))]
-              if sample:
-                  row = sample[0]
-                  print("BLV:", row.get("blv") or "không rõ")
-                  print("Số stream:", len(row.get("streams") or []))
-                  print("Chất lượng:", [s.get("quality") for s in row.get("streams") or []])
-                  if row.get("blv") != "A Ngáo":
-                      print("::warning::Trận 1528034 chưa đọc đúng BLV A Ngáo; tải artifact debug để xem DOM mới.")
-                  if len(row.get("streams") or []) < 2:
-                      print("::warning::Trận 1528034 hiện bắt dưới 2 stream; tải artifact debug để kiểm tra nguồn HD/FHD.")
+          report = json.loads(Path("all_live_debug.json").read_text(encoding="utf-8"))
+          failures = []
+          urls = []
+          per_match_quality = Counter()
+
+          for channel in report.get("channels", []):
+              url = channel.get("url", "")
+              urls.append(url)
+              if channel.get("playability") not in {"verified", "browser-observed", "upcoming-pending"}:
+                  failures.append(f"Trang thai khong hop le: {url}")
+              key = (channel.get("match_key"), channel.get("quality"))
+              per_match_quality[key] += 1
+
+          if len(urls) != len(set(urls)):
+              failures.append("Playlist chung co URL trung lap")
+
+          for (match_key, quality), count in per_match_quality.items():
+              if count > 1:
+                  failures.append(f"Trung chat luong {quality} trong {match_key}: {count}")
+
+          text = Path("all_live.m3u").read_text(encoding="utf-8")
+          for line in text.splitlines():
+              if line.startswith("#EXTINF"):
+                  match = re.search(r'group-title="([^"]+)"', line)
+                  if not match or match.group(1) not in {"Bóng đá", "Bóng rổ", "Bóng chuyền", "Tennis", "Esports", "Khác"}:
+                      failures.append(f"group-title khong hop le: {line}")
+
+          if failures:
+              for item in failures:
+                  print(f"::error::{item}")
+              raise SystemExit(1)
+
+          print(f"Audit OK: {len(urls)} stream chung; nguon={report.get('sources')}")
           PY_AUDIT
 
+          echo "--- Playlist chung ---"
+          sed -n '1,160p' all_live.m3u
 
-          echo "--- Audit giờ trận USA vs Poland nếu còn trên trang ---"
-          python - <<'PY_TIME_AUDIT'
-          import json
-          from pathlib import Path
-
-          debug = Path("chuoichien_debug.json")
-          if debug.exists():
-              rows = json.loads(debug.read_text(encoding="utf-8"))
-              sample = [row for row in rows if "200907" in str(row.get("url", ""))]
-              if sample:
-                  row = sample[0]
-                  print("USA vs Poland:", row.get("time"), row.get("date"), row.get("time_source"))
-                  if row.get("time") == "23:00":
-                      print("::error::Giờ trận 200907 vẫn bị lấy nhầm 23:00.")
-                      raise SystemExit(1)
-          PY_TIME_AUDIT
-
-          echo "--- Thống kê thư mục ---"
-          grep '^#EXTINF' chuoichien_live.m3u \
-            | sed -n 's/.*group-title="\([^"]*\)".*/\1/p' \
-            | sort | uniq -c || true
-
-      - name: 6. Tải nhật ký debug
+      - name: 7. Tai artifact debug
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: chuoichien-debug-${{ github.run_id }}
+          name: multi-source-debug-${{ github.run_id }}
           path: |
-            chuoichien_live.m3u
-            chuoichien_live_pipe.m3u
-            chuoichien_live_vlc.m3u
+            all_live.m3u
+            all_live_debug.json
             chuoichien_debug.json
-            chuoichien_scan.log
-            chuoichien_home_debug.html
-            chuoichien_home_debug.png
+            hygenie_debug.json
+            *_home_debug.html
+            *_home_debug.png
+            multi_source_scan.log
           if-no-files-found: ignore
           retention-days: 3
 
-      - name: 7. Lưu playlist lên GitHub
+      - name: 8. Luu playlist len GitHub
         shell: bash
         run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add -- chuoichien_live.m3u chuoichien_live_pipe.m3u chuoichien_live_vlc.m3u
+          test -f all_live.m3u
+
+          # Xóa các playlist nhiều-file của bản cũ khỏi repository nếu chúng từng được commit.
+          old_playlists=(
+            all_live_pipe.m3u all_live_vlc.m3u
+            chuoichien_live.m3u chuoichien_live_pipe.m3u chuoichien_live_vlc.m3u
+            hygenie_live.m3u hygenie_live_pipe.m3u hygenie_live_vlc.m3u
+            luongson_live.m3u luongson_live_pipe.m3u luongson_live_vlc.m3u
+          )
+          git rm -f --ignore-unmatch -- "${old_playlists[@]}"
+          git add -- all_live.m3u all_live_debug.json
           if git diff --cached --quiet; then
-            echo "Playlist không thay đổi; không cần commit."
+            echo "Playlist khong thay doi; khong can commit."
             exit 0
           fi
 
-          git commit -m "Keep upcoming 3h streams and limit quality tiers v3.7"
+          git commit -m "Update combined live streams v4.0.1 (single M3U)"
           git push origin "HEAD:${GITHUB_REF_NAME}"
