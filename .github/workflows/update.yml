@@ -1,4 +1,4 @@
-name: Bot Quet chuoichien v3.6.1
+name: Bot Quet chuoichien v3.7
 
 on:
   workflow_dispatch:
@@ -42,9 +42,11 @@ jobs:
           SOCOLIVE_VERIFY_STREAMS: "1"
           SOCOLIVE_VERIFY_TIMEOUT_SECONDS: "8"
           SOCOLIVE_MAX_VERIFY_CANDIDATES: "6"
-          SOCOLIVE_MAX_OUTPUT_STREAMS_PER_MATCH: "4"
+          SOCOLIVE_MAX_OUTPUT_STREAMS_PER_MATCH: "2"
           SOCOLIVE_ALLOW_UNVERIFIED_BROWSER_FALLBACK: "0"
           SOCOLIVE_KEEP_PREVIOUS_UNVERIFIED: "0"
+          SOCOLIVE_UPCOMING_KEEP_HOURS: "3"
+          SOCOLIVE_UPCOMING_MIN_CANDIDATE_SCORE: "150"
         run: |
           set -o pipefail
           python -u main.py 2>&1 | tee chuoichien_scan.log
@@ -122,7 +124,7 @@ jobs:
           grep '^#EXTINF' chuoichien_live.m3u | grep '\[BLV ' || true
 
           echo "--- Kênh HD/FHD/4K ---"
-          grep '^#EXTINF' chuoichien_live.m3u | grep -E '\[(HD|FHD|4K) (M3U8|FLV)\]' || true
+          grep '^#EXTINF' chuoichien_live.m3u | grep -E '\[(CHỜ PHÁT )?(HD|FHD|4K) (M3U8|FLV)\]' || true
 
           echo "--- Audit xác minh stream phát thật ---"
           python - <<'PY_VERIFY'
@@ -135,33 +137,61 @@ jobs:
           rows = json.loads(debug.read_text(encoding="utf-8"))
           output_count = 0
           verified_count = 0
-          fallback_count = 0
+          upcoming_pending_count = 0
+          invalid_fallback_count = 0
           oversized = []
           body_only_output = []
           malformed = []
+          invalid_upcoming = []
+          duplicated_quality = []
           for row in rows:
               streams = row.get("streams") or []
               output_count += len(streams)
-              if len(streams) > 4:
+              if len(streams) > 2:
                   oversized.append((row.get("match_name"), len(streams)))
+              seen_quality = set()
               for stream in streams:
                   state = stream.get("playability")
                   if state == "verified":
                       verified_count += 1
+                  elif state == "upcoming-pending":
+                      upcoming_pending_count += 1
+                      delta = row.get("minutes_to_kickoff")
+                      sources = set(stream.get("sources") or [])
+                      if (
+                          row.get("timing_state") != "upcoming-window"
+                          or not isinstance(delta, int)
+                          or not (0 <= delta <= 180)
+                          or not any(source.startswith("request/") or source in {"response", "iframe/src", "hls/variant", "metadata/quality-source"} for source in sources)
+                      ):
+                          invalid_upcoming.append((row.get("match_name"), delta, stream.get("url"), sorted(sources)))
                   else:
-                      fallback_count += 1
+                      invalid_fallback_count += 1
+                  quality = stream.get("quality") or "UNKNOWN"
+                  if quality in seen_quality:
+                      duplicated_quality.append((row.get("match_name"), quality))
+                  seen_quality.add(quality)
                   sources = stream.get("sources") or []
                   if sources and all(source == "response/body" for source in sources):
                       body_only_output.append(stream.get("url"))
                   url = stream.get("url", "")
                   if ".m3u8&autoplay=" in url or ".flv&autoplay=" in url:
                       malformed.append(url)
-          print(f"Đầu ra={output_count} | verified={verified_count} | fallback={fallback_count}")
-          if fallback_count:
-              print("::error::Playlist chính còn chứa stream chưa xác minh:", fallback_count)
+          print(
+              f"Đầu ra={output_count} | verified={verified_count} | "
+              f"upcoming-pending={upcoming_pending_count} | invalid-fallback={invalid_fallback_count}"
+          )
+          if invalid_fallback_count:
+              print("::error::Playlist còn fallback ngoài cơ chế trận sắp đá 3 giờ:", invalid_fallback_count)
+              raise SystemExit(1)
+          if invalid_upcoming:
+              print("::error::Có link chờ phát không đúng cửa sổ 3 giờ/không có nguồn player tin cậy:", invalid_upcoming)
+              raise SystemExit(1)
+          if duplicated_quality:
+              print("::error::Một trận còn nhiều link cùng mức chất lượng:", duplicated_quality)
               raise SystemExit(1)
           if oversized:
-              print("::error::Có trận vượt giới hạn 4 stream:", oversized)
+              print("::error::Có trận vượt giới hạn 2 mức chất lượng:", oversized)
               raise SystemExit(1)
           if body_only_output:
               print("::error::Còn stream chỉ lấy từ response body toàn cục:", body_only_output)
@@ -242,5 +272,5 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Fix kickoff time and reject dead historical links v3.6.1"
+          git commit -m "Keep upcoming 3h streams and limit quality tiers v3.7"
           git push origin "HEAD:${GITHUB_REF_NAME}"
