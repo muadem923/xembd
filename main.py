@@ -4,7 +4,10 @@ import html
 import json
 import os
 import re
+import subprocess
 import sys
+import urllib.error
+import urllib.request
 import time
 import unicodedata
 from collections import Counter
@@ -28,7 +31,7 @@ OUTPUT_VLC_M3U = "chuoichien_live_vlc.m3u"
 OUTPUT_DEBUG = "chuoichien_debug.json"
 OUTPUT_HOME_DEBUG_HTML = "chuoichien_home_debug.html"
 OUTPUT_HOME_DEBUG_PNG = "chuoichien_home_debug.png"
-SCANNER_VERSION = "3.5.1-LOGO-BLV-MULTI-QUALITY-AUDIT"
+SCANNER_VERSION = "3.6-PLAYABLE-STREAM-VALIDATION"
 
 
 def read_env_bool(name: str, default: bool = True) -> bool:
@@ -66,6 +69,10 @@ STREAM_WAIT_SECONDS = read_env_int(
 )
 EXTRA_WAIT_AFTER_FIRST_STREAM = 5.0
 FULL_SCAN = read_env_bool("SOCOLIVE_FULL_SCAN", True)
+VERIFY_STREAMS = read_env_bool("SOCOLIVE_VERIFY_STREAMS", True)
+VERIFY_TIMEOUT_SECONDS = read_env_int("SOCOLIVE_VERIFY_TIMEOUT_SECONDS", 8, minimum=3, maximum=20)
+MAX_VERIFY_CANDIDATES = read_env_int("SOCOLIVE_MAX_VERIFY_CANDIDATES", 6, minimum=2, maximum=12)
+MAX_OUTPUT_STREAMS_PER_MATCH = read_env_int("SOCOLIVE_MAX_OUTPUT_STREAMS_PER_MATCH", 4, minimum=1, maximum=8)
 HEADLESS = True
 
 # Dùng đúng User-Agent đã được kiểm chứng phát được bằng VLC.
@@ -364,10 +371,599 @@ def stream_kind(url: str, content_type: str = "") -> str:
     return ""
 
 
+WRAPPER_QUERY_KEYS = {"autoplay", "ishome", "is_home", "muted", "controls"}
+
+
+def canonicalize_stream_url(value: str) -> str:
+    """Làm sạch URL media nhưng giữ nguyên query token/chữ ký hợp lệ."""
+    clean = decode_url_repeatedly(value).strip().rstrip("),];'\"")
+    if not clean:
+        return ""
+    match = re.match(
+        r"(?is)^(https?://.*?\.(?:m3u8|flv))(?P<tail>[?&#].*)?$",
+        clean,
+    )
+    if not match:
+        return clean
+    base = match.group(1)
+    tail = match.group("tail") or ""
+    if tail.startswith("&"):
+        # Đây là tham số của URL embed bị nối nhầm sau streamUrl.
+        return base
+    if tail.startswith("#"):
+        return base
+    if tail.startswith("?"):
+        raw_parts = [part for part in tail[1:].split("&") if part]
+        kept = []
+        for part in raw_parts:
+            key = part.split("=", 1)[0].strip().lower()
+            if key in WRAPPER_QUERY_KEYS:
+                continue
+            kept.append(part)
+        return base + ("?" + "&".join(kept) if kept else "")
+    return base
+
+
+def stream_channel_key(url: str) -> str:
+    """Ví dụ /live/angao/playlist.m3u8 -> angao; /live/chuoichao.flv -> chuoichao."""
+    path = urlparse(canonicalize_stream_url(url)).path.strip("/")
+    if not path:
+        return ""
+    parts = [part for part in path.split("/") if part]
+    last = parts[-1].lower()
+    if last in {"playlist.m3u8", "index.m3u8", "master.m3u8"} and len(parts) >= 2:
+        return re.sub(r"[^a-z0-9_-]+", "", parts[-2].lower())
+    stem = re.sub(r"\.(?:m3u8|flv)$", "", last, flags=re.I)
+    return re.sub(r"[^a-z0-9_-]+", "", stem.lower())
+
+
+def stream_family_key(url: str) -> str:
+    key = stream_channel_key(url)
+    return re.sub(r"(?:[-_]?)(?:fullhd|fhd|1080p?|hd|720p?)$", "", key, flags=re.I)
+
+
+def _entry_is_browser_observed(entry: dict[str, Any]) -> bool:
+    for source in entry.get("sources") or []:
+        if (
+            source.startswith("request/")
+            or source == "response"
+            or source == "iframe/src"
+            or source == "hls/variant"
+            or source.startswith("dom/")
+            or source.startswith("quality/")
+        ):
+            return True
+    return False
+
+
+def _entry_is_high_confidence_observed(entry: dict[str, Any]) -> bool:
+    """Nguồn đủ chắc để fallback khi runner bị CDN chặn."""
+    for source in entry.get("sources") or []:
+        if (
+            source.startswith("request/")
+            or source == "response"
+            or source == "iframe/src"
+            or source == "hls/variant"
+        ):
+            return True
+    return False
+
+
+def shortlist_stream_candidates(
+    stream_map: dict[str, dict[str, Any]],
+    match: dict[str, Any],
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """Loại danh sách stream toàn cục và chỉ giữ nguồn có liên hệ với player trận hiện tại."""
+    active_families: set[str] = set()
+    blv_slug = (parse_qs(urlparse(match.get("url", "")).query).get("blv") or [""])[0]
+    blv_family = re.sub(r"[^a-z0-9_-]+", "", blv_slug.lower())
+    if blv_family:
+        active_families.add(blv_family)
+
+    for entry in stream_map.values():
+        if _entry_is_browser_observed(entry):
+            family = stream_family_key(entry.get("url", ""))
+            if family:
+                active_families.add(family)
+
+    ranked: list[dict[str, Any]] = []
+    rejected: list[dict[str, Any]] = []
+    source_weights = {
+        "response": 120,
+        "iframe/src": 115,
+        "hls/variant": 110,
+        "previous-playlist": 82,
+        "metadata/quality-source": 72,
+        "response/body": 5,
+    }
+
+    for original in stream_map.values():
+        entry = dict(original)
+        entry["sources"] = list(original.get("sources") or [])
+        entry["url"] = canonicalize_stream_url(entry.get("url", ""))
+        if not is_direct_stream_url(entry["url"], entry.get("content_type", "")):
+            entry["reject_reason"] = "URL media không hợp lệ"
+            rejected.append(entry)
+            continue
+
+        family = stream_family_key(entry["url"])
+        sources = entry.get("sources") or []
+        only_body = bool(sources) and all(source == "response/body" for source in sources)
+        is_previous = "previous-playlist" in sources
+        is_observed = _entry_is_browser_observed(entry)
+        if only_body and family not in active_families:
+            entry["reject_reason"] = "chỉ xuất hiện trong response body toàn cục, không thuộc player hiện tại"
+            rejected.append(entry)
+            continue
+        if active_families and family and family not in active_families and not is_previous and not is_observed:
+            entry["reject_reason"] = "khác family stream đang được player trận hiện tại sử dụng"
+            rejected.append(entry)
+            continue
+
+        score = 0
+        for source in sources:
+            if source.startswith("request/"):
+                score = max(score, 125)
+            elif source.startswith("dom/"):
+                score = max(score, 100)
+            elif source.startswith("quality/"):
+                score = max(score, 105)
+            else:
+                score = max(score, source_weights.get(source, 20))
+        statuses = [int(value) for value in (entry.get("statuses") or [])]
+        if any(value in {200, 206} for value in statuses):
+            score += 35
+        if any(value == 204 for value in statuses):
+            score -= 45
+        if any(value in {404, 410} for value in statuses):
+            score -= 90
+        if family and family in active_families:
+            score += 55
+        if blv_family and (family == blv_family or stream_channel_key(entry["url"]).startswith(blv_family)):
+            score += 70
+        if entry.get("quality"):
+            score += 8
+        if normalize_playback_referer(entry.get("referer", "")).startswith(PLAYER_ORIGIN_FALLBACK):
+            score += 8
+
+        entry["candidate_score"] = score
+        entry["observed_active"] = _entry_is_browser_observed(entry)
+        entry["high_confidence_observed"] = _entry_is_high_confidence_observed(entry)
+        entry["channel_key"] = stream_channel_key(entry["url"])
+        entry["family_key"] = family
+        ranked.append(entry)
+
+    ranked.sort(
+        key=lambda item: (
+            int(item.get("candidate_score") or 0),
+            bool(item.get("observed_active")),
+            item.get("quality") in {"4K", "FHD", "HD"},
+        ),
+        reverse=True,
+    )
+
+    # Giữ số lượng nhỏ để tránh tự tạo 429 trong bước xác minh.
+    shortlisted: list[dict[str, Any]] = []
+    per_channel: Counter[str] = Counter()
+    for entry in ranked:
+        channel = entry.get("channel_key") or entry["url"]
+        if per_channel[channel] >= 2:
+            entry["reject_reason"] = "trùng quá nhiều biến thể cùng channel"
+            rejected.append(entry)
+            continue
+        shortlisted.append(entry)
+        per_channel[channel] += 1
+        if len(shortlisted) >= MAX_VERIFY_CANDIDATES:
+            break
+
+    for entry in ranked[len(shortlisted):]:
+        if entry not in shortlisted and "reject_reason" not in entry:
+            entry["reject_reason"] = "vượt giới hạn ứng viên xác minh"
+            rejected.append(entry)
+    return shortlisted, rejected
+
+
+def _http_read_sample(
+    url: str,
+    headers: dict[str, str],
+    timeout: int,
+    max_bytes: int,
+    range_header: str = "",
+) -> dict[str, Any]:
+    request_headers = dict(headers)
+    request_headers.setdefault("Connection", "close")
+    if range_header:
+        request_headers["Range"] = range_header
+    request = urllib.request.Request(url, headers=request_headers, method="GET")
+    try:
+        with urllib.request.urlopen(request, timeout=timeout) as response:
+            status = int(getattr(response, "status", response.getcode()) or 0)
+            data = response.read(max_bytes)
+            return {
+                "status": status,
+                "data": data,
+                "content_type": response.headers.get("Content-Type", ""),
+                "final_url": response.geturl(),
+                "error": "",
+            }
+    except urllib.error.HTTPError as exc:
+        sample = b""
+        try:
+            sample = exc.read(min(max_bytes, 4096))
+        except Exception:
+            pass
+        return {
+            "status": int(exc.code or 0),
+            "data": sample,
+            "content_type": exc.headers.get("Content-Type", "") if exc.headers else "",
+            "final_url": exc.geturl() or url,
+            "error": f"HTTP {exc.code}",
+        }
+    except Exception as exc:
+        return {
+            "status": 0,
+            "data": b"",
+            "content_type": "",
+            "final_url": url,
+            "error": f"{type(exc).__name__}: {exc}",
+        }
+
+
+def _first_hls_uri(text: str) -> str:
+    lines = [line.strip() for line in (text or "").splitlines() if line.strip()]
+    for line in lines:
+        if not line.startswith("#"):
+            return line
+    # Hỗ trợ LL-HLS/fMP4 khi segment chỉ xuất hiện trong thuộc tính URI.
+    for line in lines:
+        if line.startswith(("#EXT-X-PART:", "#EXT-X-PRELOAD-HINT:", "#EXT-X-MAP:")):
+            match = re.search(r'URI="([^"]+)"', line, re.I)
+            if match:
+                return match.group(1)
+    return ""
+
+
+def _looks_like_error_page(data: bytes) -> bool:
+    sample = data.lstrip()[:200].lower()
+    return sample.startswith((b"<html", b"<!doctype", b"{\"error", b"access denied"))
+
+
+def probe_stream_sync(
+    url: str,
+    user_agent: str,
+    referer: str,
+    cookie_header: str = "",
+    timeout: int = 8,
+) -> dict[str, Any]:
+    """Xác minh manifest/segment HLS hoặc chữ ký FLV bằng request có đúng header."""
+    canonical = canonicalize_stream_url(url)
+    kind = stream_kind(canonical)
+    headers = {
+        "User-Agent": user_agent or UA,
+        "Referer": referer or PLAYER_ORIGIN_FALLBACK + "/",
+        "Accept": "*/*",
+        "Accept-Language": "vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7",
+    }
+    if cookie_header:
+        headers["Cookie"] = cookie_header
+
+    if kind == "flv":
+        result = _http_read_sample(
+            canonical, headers, timeout, 4096, range_header="bytes=0-4095"
+        )
+        # Một số live server trả 204/416 khi có Range nhưng lại phát bình thường
+        # bằng GET thường (đúng trường hợp người dùng đã thử VLC). Thử lại một lần.
+        if int(result.get("status") or 0) in {204, 416} or not (result.get("data") or b""):
+            retry = _http_read_sample(canonical, headers, timeout, 4096)
+            if int(retry.get("status") or 0) or retry.get("data"):
+                result = retry
+        status = int(result.get("status") or 0)
+        data = result.get("data") or b""
+        ctype = str(result.get("content_type") or "").lower()
+        playable = status in {200, 206} and (
+            data.startswith(b"FLV") or ("flv" in ctype and len(data) >= 3)
+        )
+        state = "verified" if playable else (
+            "blocked" if status in {401, 403, 429} else
+            "dead" if status in {404, 410} else
+            "empty" if status == 204 else
+            "invalid"
+        )
+        return {
+            **result,
+            "playable": playable,
+            "state": state,
+            "kind": kind,
+            "detail": "FLV signature/content-type OK" if playable else result.get("error") or "không có chữ ký FLV",
+        }
+
+    if kind == "m3u8":
+        manifest = _http_read_sample(canonical, headers, timeout, 768_000)
+        status = int(manifest.get("status") or 0)
+        data = manifest.get("data") or b""
+        text = data.decode("utf-8", errors="ignore").lstrip("\ufeff\r\n \t")
+        if status not in {200, 206}:
+            state = "blocked" if status in {401, 403, 429} else "dead" if status in {404, 410} else "invalid"
+            return {
+                **manifest,
+                "playable": False,
+                "state": state,
+                "kind": kind,
+                "detail": manifest.get("error") or f"manifest HTTP {status}",
+            }
+        if not text.startswith("#EXTM3U"):
+            return {
+                **manifest,
+                "playable": False,
+                "state": "invalid",
+                "kind": kind,
+                "detail": "nội dung không bắt đầu bằng #EXTM3U",
+            }
+
+        first_uri = _first_hls_uri(text)
+        if not first_uri:
+            return {
+                **manifest,
+                "playable": False,
+                "state": "empty",
+                "kind": kind,
+                "detail": "manifest chưa có variant/segment",
+            }
+
+        child_url = urljoin(str(manifest.get("final_url") or canonical), first_uri)
+        if "#EXT-X-STREAM-INF" in text:
+            child = _http_read_sample(child_url, headers, timeout, 768_000)
+            child_status = int(child.get("status") or 0)
+            child_text = (child.get("data") or b"").decode("utf-8", errors="ignore").lstrip("\ufeff\r\n \t")
+            if child_status not in {200, 206} or not child_text.startswith("#EXTM3U"):
+                return {
+                    **manifest,
+                    "playable": False,
+                    "state": "blocked" if child_status in {401, 403, 429} else "invalid",
+                    "kind": kind,
+                    "detail": f"variant không tải được: HTTP {child_status}",
+                    "child_url": child_url,
+                }
+            first_uri = _first_hls_uri(child_text)
+            if not first_uri:
+                return {
+                    **manifest,
+                    "playable": False,
+                    "state": "empty",
+                    "kind": kind,
+                    "detail": "variant chưa có segment",
+                    "child_url": child_url,
+                }
+            child_url = urljoin(str(child.get("final_url") or child_url), first_uri)
+
+        segment = _http_read_sample(
+            child_url, headers, timeout, 4096, range_header="bytes=0-4095"
+        )
+        if int(segment.get("status") or 0) in {204, 416} or not (segment.get("data") or b""):
+            retry_segment = _http_read_sample(child_url, headers, timeout, 4096)
+            if int(retry_segment.get("status") or 0) or retry_segment.get("data"):
+                segment = retry_segment
+        segment_status = int(segment.get("status") or 0)
+        segment_data = segment.get("data") or b""
+        playable = (
+            segment_status in {200, 206}
+            and len(segment_data) >= 64
+            and not _looks_like_error_page(segment_data)
+        )
+        return {
+            **manifest,
+            "playable": playable,
+            "state": "verified" if playable else (
+                "blocked" if segment_status in {401, 403, 429} else
+                "dead" if segment_status in {404, 410} else
+                "invalid"
+            ),
+            "kind": kind,
+            "detail": "manifest + segment OK" if playable else f"segment HTTP {segment_status}",
+            "segment_url": child_url,
+            "segment_status": segment_status,
+            "segment_bytes": len(segment_data),
+        }
+
+    return {
+        "playable": False,
+        "state": "invalid",
+        "kind": "",
+        "status": 0,
+        "detail": "không nhận diện được loại stream",
+    }
+
+
+async def validate_stream_candidates(
+    context: BrowserContext,
+    candidates: list[dict[str, Any]],
+    match: dict[str, Any],
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    if not candidates:
+        return [], []
+    if not VERIFY_STREAMS:
+        for entry in candidates:
+            entry["playability"] = "not-checked"
+        return candidates[:MAX_OUTPUT_STREAMS_PER_MATCH], []
+
+    semaphore = asyncio.Semaphore(2)
+
+    async def validate_one(entry: dict[str, Any]) -> dict[str, Any]:
+        async with semaphore:
+            referer = normalize_playback_referer(
+                entry.get("referer") or PLAYER_ORIGIN_FALLBACK + "/"
+            )
+            user_agent = clean_text(entry.get("user_agent") or UA)
+            cookie_header = ""
+            try:
+                cookies = await context.cookies([entry["url"]])
+                cookie_header = "; ".join(
+                    f"{cookie.get('name')}={cookie.get('value')}" for cookie in cookies
+                    if cookie.get("name")
+                )
+            except Exception:
+                pass
+            probe = await asyncio.to_thread(
+                probe_stream_sync,
+                entry["url"],
+                user_agent,
+                referer,
+                cookie_header,
+                VERIFY_TIMEOUT_SECONDS,
+            )
+            sample_data = probe.pop("data", b"")
+            probe["sample_bytes"] = len(sample_data) if isinstance(sample_data, (bytes, bytearray)) else 0
+            entry["probe"] = probe
+            entry["referer"] = referer
+            entry["user_agent"] = user_agent
+            return entry
+
+    checked = await asyncio.gather(*(validate_one(dict(entry)) for entry in candidates))
+    verified: list[dict[str, Any]] = []
+    observed_fallback: list[dict[str, Any]] = []
+    rejected: list[dict[str, Any]] = []
+
+    for entry in checked:
+        probe = entry.get("probe") or {}
+        state = probe.get("state", "invalid")
+        status = int(probe.get("status") or 0)
+        blocking_status = int(probe.get("segment_status") or probe.get("child_status") or status or 0)
+        if probe.get("playable"):
+            entry["playability"] = "verified"
+            verified.append(entry)
+            print(
+                f"   ✅ ĐÃ XÁC MINH {stream_kind(entry['url']).upper()} | "
+                f"HTTP {status} | {probe.get('detail')} | {entry['url']}",
+                flush=True,
+            )
+            continue
+
+        if state in {"blocked", "invalid"} and entry.get("high_confidence_observed") and blocking_status in {0, 401, 403, 429}:
+            entry["playability"] = "browser-observed"
+            observed_fallback.append(entry)
+            print(
+                f"   🟡 Runner chưa xác minh được ({probe.get('detail')}); "
+                f"nhưng player đã thực sự tham chiếu URL: {entry['url']}",
+                flush=True,
+            )
+            continue
+
+        if state in {"blocked", "invalid"} and "previous-playlist" in (entry.get("sources") or []):
+            entry["playability"] = "previous-fallback"
+            observed_fallback.append(entry)
+            print(
+                f"   🟠 Giữ tạm link playlist cũ vì runner bị chặn: {entry['url']}",
+                flush=True,
+            )
+            continue
+
+        entry["playability"] = "rejected"
+        entry["reject_reason"] = probe.get("detail") or state
+        rejected.append(entry)
+        print(
+            f"   ❌ Loại link không phát được | {entry.get('reject_reason')} | {entry['url']}",
+            flush=True,
+        )
+
+    # Có link xác minh thật thì không trộn link mơ hồ vào playlist chính.
+    if verified:
+        for entry in observed_fallback:
+            entry["reject_reason"] = "đã có stream xác minh thật nên không dùng fallback"
+        rejected.extend(observed_fallback)
+        selected = verified
+    else:
+        selected = observed_fallback
+    selected.sort(
+        key=lambda item: (
+            item.get("playability") == "verified",
+            int(item.get("candidate_score") or 0),
+            item.get("quality") in {"4K", "FHD", "HD"},
+        ),
+        reverse=True,
+    )
+    return selected[:MAX_OUTPUT_STREAMS_PER_MATCH], rejected + selected[MAX_OUTPUT_STREAMS_PER_MATCH:]
+
+
+def match_id_from_url(value: str) -> str:
+    match = re.search(r"/live/(\d+)", value or "")
+    return match.group(1) if match else ""
+
+
+def _parse_previous_playlist_text(text: str, source_label: str) -> dict[str, list[dict[str, str]]]:
+    mapping: dict[str, list[dict[str, str]]] = {}
+    current_match_id = ""
+    referer = PLAYER_ORIGIN_FALLBACK + "/"
+    user_agent = UA
+    for raw_line in (text or "").splitlines():
+        line = raw_line.strip()
+        if line.startswith("#EXTINF"):
+            id_match = re.search(r'tvg-id="chuoichien-(\d+)-\d+"', line)
+            current_match_id = id_match.group(1) if id_match else ""
+            referer = PLAYER_ORIGIN_FALLBACK + "/"
+            user_agent = UA
+        elif line.startswith("#EXTVLCOPT:http-referrer="):
+            referer = line.split("=", 1)[1].strip()
+        elif line.startswith("#EXTVLCOPT:http-user-agent="):
+            user_agent = line.split("=", 1)[1].strip()
+        elif line.startswith(("http://", "https://")) and current_match_id:
+            url = canonicalize_stream_url(line.split("|", 1)[0])
+            if is_direct_stream_url(url):
+                mapping.setdefault(current_match_id, []).append({
+                    "url": url,
+                    "referer": referer,
+                    "user_agent": user_agent,
+                    "history_source": source_label,
+                })
+            current_match_id = ""
+    return mapping
+
+
+def load_previous_playlist_streams(path: str = OUTPUT_M3U) -> dict[str, list[dict[str, str]]]:
+    """Đọc playlist hiện tại và tối đa 2 commit trước để cứu link từng chạy tốt."""
+    sources: list[tuple[str, str]] = []
+    playlist = Path(path)
+    if playlist.exists():
+        try:
+            sources.append(("working-tree", playlist.read_text(encoding="utf-8", errors="ignore")))
+        except Exception:
+            pass
+
+    # Workflow checkout dùng fetch-depth=0, nên có thể kiểm tra lại playlist trước
+    # khi bản parser mới ghi đè. Mọi link lịch sử vẫn phải qua bước probe.
+    for revision in ("HEAD~1", "HEAD~2"):
+        try:
+            completed = subprocess.run(
+                ["git", "show", f"{revision}:{path}"],
+                check=False,
+                capture_output=True,
+                text=True,
+                encoding="utf-8",
+                errors="ignore",
+                timeout=5,
+            )
+            if completed.returncode == 0 and completed.stdout.strip():
+                sources.append((revision, completed.stdout))
+        except Exception:
+            continue
+
+    merged: dict[str, list[dict[str, str]]] = {}
+    seen: set[tuple[str, str]] = set()
+    for source_label, text in sources:
+        parsed = _parse_previous_playlist_text(text, source_label)
+        for match_id, items in parsed.items():
+            for item in items:
+                key = (match_id, item["url"])
+                if key in seen:
+                    continue
+                seen.add(key)
+                merged.setdefault(match_id, []).append(item)
+    return merged
+
+
 def is_direct_stream_url(url: str, content_type: str = "") -> bool:
     if not url:
         return False
-    clean = decode_url_repeatedly(url)
+    clean = canonicalize_stream_url(url)
     parsed = urlparse(clean)
     lower_url = clean.lower()
     if parsed.scheme not in {"http", "https"}:
@@ -397,9 +993,10 @@ def extract_stream_urls(raw_url: str, content_type: str = "") -> list[str]:
         seen_values.add(value)
 
         direct_type = content_type if value == decode_url_repeatedly(raw_url) else ""
-        if is_direct_stream_url(value, direct_type):
-            if value not in found:
-                found.append(value)
+        canonical = canonicalize_stream_url(value)
+        if is_direct_stream_url(canonical, direct_type):
+            if canonical not in found:
+                found.append(canonical)
             continue
 
         try:
@@ -445,8 +1042,15 @@ def normalize_playback_referer(value: str) -> str:
     parsed = urlparse(candidate)
     if parsed.scheme and parsed.netloc:
         origin = f"{parsed.scheme}://{parsed.netloc}"
-        if parsed.netloc.lower() == urlparse(PLAYER_ORIGIN_FALLBACK).netloc.lower():
+        host = parsed.netloc.lower()
+        player_host = urlparse(PLAYER_ORIGIN_FALLBACK).netloc.lower()
+        target_host = urlparse(TARGET_URL).netloc.lower()
+        if host == player_host:
             return origin + "/"
+        # CDN đã được người dùng kiểm chứng cần Referer của iframe player,
+        # không phải Referer của trang trận live03.
+        if host == target_host or host.endswith(".chuoichientv.me"):
+            return PLAYER_ORIGIN_FALLBACK + "/"
         return candidate
     return PLAYER_ORIGIN_FALLBACK + "/"
 
@@ -761,6 +1365,7 @@ async def install_route_filter(page: Page, homepage: bool = False) -> None:
 
 
 async def collect_dom_stream_candidates(page: Page) -> list[dict[str, str]]:
+    """Chỉ lấy nguồn đang được player sử dụng; không quét regex toàn bộ HTML/script."""
     candidates: list[dict[str, str]] = []
     seen: set[tuple[str, str, str]] = set()
 
@@ -776,68 +1381,104 @@ async def collect_dom_stream_candidates(page: Page) -> list[dict[str, str]]:
                         const match = text.match(/\b(4K|UHD|2160p?|Full\s*HD|FHD|1080p?|HD|720p?|SD|480p?|Auto)\b/i);
                         return match ? match[1] : "";
                     };
-                    const add = (value, quality = "", context = "") => {
+                    const add = (value, source, quality = "", context = "") => {
                         if (!value) return;
                         const raw = String(value).trim();
                         if (!raw || raw.length > 12000) return;
-                        const key = `${raw}\n${quality}`;
+                        const key = `${raw}\n${source}\n${quality}`;
                         if (seen.has(key)) return;
                         seen.add(key);
-                        out.push({url: raw, quality: qualityOf(quality || context), context: clean(context)});
+                        out.push({
+                            url: raw,
+                            source,
+                            quality: qualityOf(quality || context),
+                            context: clean(context),
+                        });
                     };
 
+                    // Resource Timing chỉ chứa request đã thực sự được trình duyệt phát ra.
                     try {
                         for (const entry of performance.getEntriesByType("resource")) {
-                            if (entry && entry.name) add(entry.name);
+                            if (entry && entry.name && /\.m3u8|\.flv/i.test(entry.name)) {
+                                add(entry.name, "performance");
+                            }
                         }
                     } catch (_) {}
 
-                    document.querySelectorAll("*").forEach((el) => {
-                        const attrs = Array.from(el.attributes || []).map((attr) => `${attr.name}=${attr.value}`);
+                    // Nguồn đang gắn trực tiếp vào player.
+                    document.querySelectorAll("video, source").forEach((el) => {
                         const context = clean([
-                            el.innerText && el.innerText.length < 160 ? el.innerText : "",
-                            el.getAttribute?.("aria-label"), el.getAttribute?.("title"),
-                            el.className, attrs.join(" ")
+                            el.getAttribute("data-quality"),
+                            el.getAttribute("data-resolution"),
+                            el.getAttribute("aria-label"),
+                            el.title,
+                            el.className,
                         ].filter(Boolean).join(" "));
                         const quality = qualityOf(context);
-                        [el.src, el.currentSrc, el.data].forEach((value) => add(value, quality, context));
-                        attrs.forEach((entry) => {
-                            const value = entry.slice(entry.indexOf("=") + 1);
-                            if (/m3u8|\.flv|stream|playurl|source|https?(?:%3a|:)/i.test(value)) {
-                                add(value, quality, context);
-                            }
-                        });
+                        [
+                            el.currentSrc,
+                            el.src,
+                            el.getAttribute("src"),
+                            el.getAttribute("data-src"),
+                            el.getAttribute("data-url"),
+                            el.getAttribute("data-stream"),
+                            el.getAttribute("data-stream-url"),
+                            el.getAttribute("data-file"),
+                        ].forEach((value) => add(value, "media-element", quality, context));
                     });
 
-                    const htmlText = document.documentElement?.innerHTML || "";
-                    const normalized = htmlText
-                        .replace(/\\u002[fF]/g, "/")
-                        .replace(/\\x2[fF]/g, "/")
-                        .replace(/\\u003[aA]/g, ":")
-                        .replace(/\\u0026/g, "&")
-                        .replace(/\\u003[dD]/g, "=")
-                        .replace(/\\\//g, "/")
-                        .replace(/&amp;/g, "&");
-                    (normalized.match(/https?:\/\/[^"' <>\n\r]+?(?:\.m3u8|\.flv)(?:\?[^"' <>\n\r]*)?/gi) || [])
-                        .forEach((value) => add(value));
-                    (normalized.match(/https?:\/\/[^"' <>\n\r]+?(?:streamUrl|stream_url|file|src|url|source|playurl)=[^"' <>\n\r]+/gi) || [])
-                        .forEach((value) => add(value));
-                    (normalized.match(/https?%3[aA]%2[fF]%2[fF][^"' <>\n\r]+/g) || [])
-                        .forEach((value) => add(value));
-                    return out.slice(0, 800);
+                    // Iframe active thường chứa streamUrl đã percent-encode.
+                    document.querySelectorAll("iframe[src]").forEach((el) => {
+                        const context = clean([
+                            el.getAttribute("title"),
+                            el.getAttribute("aria-label"),
+                            el.className,
+                        ].filter(Boolean).join(" "));
+                        add(el.src || el.getAttribute("src"), "iframe", qualityOf(context), context);
+                    });
+
+                    // Chỉ đọc data-* của phần tử đang active/selected/visible trong player.
+                    document.querySelectorAll(
+                        "[data-stream], [data-stream-url], [data-hls], [data-flv], [data-file], [data-url]"
+                    ).forEach((el) => {
+                        const rect = el.getBoundingClientRect();
+                        const style = getComputedStyle(el);
+                        const active = el.matches(
+                            ".active, .selected, [aria-selected='true'], [aria-current='true'], :checked"
+                        );
+                        const visible = rect.width > 0 && rect.height > 0 &&
+                            style.display !== "none" && style.visibility !== "hidden";
+                        if (!active && !visible) return;
+                        const context = clean([
+                            el.innerText, el.textContent, el.getAttribute("aria-label"),
+                            el.getAttribute("title"), el.getAttribute("data-quality"),
+                            el.getAttribute("data-resolution"), el.className,
+                        ].filter(Boolean).join(" "));
+                        const quality = qualityOf(context);
+                        [
+                            el.getAttribute("data-stream"),
+                            el.getAttribute("data-stream-url"),
+                            el.getAttribute("data-hls"),
+                            el.getAttribute("data-flv"),
+                            el.getAttribute("data-file"),
+                            el.getAttribute("data-url"),
+                        ].forEach((value) => add(value, "active-data", quality, context));
+                    });
+                    return out.slice(0, 120);
                 }"""
             )
             for item in frame_candidates:
                 raw_url = str(item.get("url", "")) if isinstance(item, dict) else str(item)
                 quality = str(item.get("quality", "")) if isinstance(item, dict) else ""
-                context = str(item.get("context", "")) if isinstance(item, dict) else ""
-                key = (raw_url, frame.url or "", quality)
+                source = str(item.get("source", "dom")) if isinstance(item, dict) else "dom"
+                key = (raw_url, frame.url or "", source)
                 if raw_url and key not in seen:
                     seen.add(key)
                     candidates.append({
                         "url": raw_url,
                         "frame_url": frame.url or "",
-                        "quality": normalize_quality_hint(quality or context),
+                        "quality": normalize_quality_hint(quality),
+                        "source": source,
                     })
         except Exception:
             continue
@@ -923,7 +1564,7 @@ async def stimulate_quality_variants(page: Page) -> int:
 
 
 async def scan_quality_variants(page: Page, capture_callback: Any) -> list[str]:
-    """Bấm từng mức chất lượng, chờ player đổi nguồn rồi quét lại URL sau mỗi lần."""
+    """Bấm từng chất lượng và chỉ ghi URL mới xuất hiện sau lần bấm đó."""
     discovered: list[str] = []
 
     for frame in list(page.frames):
@@ -947,7 +1588,7 @@ async def scan_quality_variants(page: Page, capture_callback: Any) -> list[str]:
                         const blob = clean([
                             el.innerText, el.textContent, el.getAttribute("aria-label"),
                             el.getAttribute("title"), el.getAttribute("data-quality"),
-                            el.getAttribute("data-resolution"), el.className
+                            el.getAttribute("data-resolution"), el.className,
                         ].filter(Boolean).join(" "));
                         const quality = qualityOf(blob);
                         if (quality && !values.includes(quality)) values.push(quality);
@@ -967,6 +1608,13 @@ async def scan_quality_variants(page: Page, capture_callback: Any) -> list[str]:
     activated: list[str] = []
 
     for target in discovered[:8]:
+        before_items = await collect_dom_stream_candidates(page)
+        before_urls = {
+            canonicalize_stream_url(url)
+            for item in before_items
+            for url in extract_stream_urls(item.get("url", ""))
+            if canonicalize_stream_url(url)
+        }
         clicked = False
         for frame in list(page.frames):
             try:
@@ -993,7 +1641,7 @@ async def scan_quality_variants(page: Page, capture_callback: Any) -> list[str]:
                         const textOf = (el) => clean([
                             el.innerText, el.textContent, el.getAttribute("aria-label"),
                             el.getAttribute("title"), el.getAttribute("data-quality"),
-                            el.getAttribute("data-resolution"), el.className
+                            el.getAttribute("data-resolution"), el.className,
                         ].filter(Boolean).join(" "));
 
                         let nodes = Array.from(document.querySelectorAll(selector));
@@ -1013,8 +1661,10 @@ async def scan_quality_variants(page: Page, capture_callback: Any) -> list[str]:
                         try {
                             option.scrollIntoView({block: "center", inline: "center"});
                             option.click();
-                            option.dispatchEvent(new MouseEvent("click", {bubbles: true, cancelable: true, view: window}));
-                            await delay(500);
+                            option.dispatchEvent(new MouseEvent("click", {
+                                bubbles: true, cancelable: true, view: window,
+                            }));
+                            await delay(550);
                             return true;
                         } catch (_) {
                             return false;
@@ -1026,14 +1676,29 @@ async def scan_quality_variants(page: Page, capture_callback: Any) -> list[str]:
                 clicked = False
 
             if clicked:
-                await page.wait_for_timeout(900)
+                await page.wait_for_timeout(1100)
                 await stimulate_player(page)
-                for candidate in await collect_dom_stream_candidates(page):
-                    capture_callback(
-                        candidate["url"],
-                        f"quality/{target}",
-                        frame_url=candidate.get("frame_url", ""),
-                        quality=target or candidate.get("quality", ""),
+                after_items = await collect_dom_stream_candidates(page)
+                new_count = 0
+                for candidate in after_items:
+                    extracted = extract_stream_urls(candidate.get("url", ""))
+                    for raw_stream in extracted:
+                        canonical = canonicalize_stream_url(raw_stream)
+                        if not canonical or canonical in before_urls:
+                            continue
+                        capture_callback(
+                            canonical,
+                            f"quality/{target}",
+                            frame_url=candidate.get("frame_url", ""),
+                            quality=target or candidate.get("quality", ""),
+                        )
+                        new_count += 1
+                # Network event handlers vẫn bắt nguồn nếu player tái sử dụng URL cũ.
+                if new_count == 0:
+                    print(
+                        f"   ℹ️ Đã bấm {target} nhưng DOM chưa xuất hiện URL mới; "
+                        "chờ request/response của player.",
+                        flush=True,
                     )
                 activated.append(target)
                 break
@@ -1339,7 +2004,7 @@ async def fetch_stream(
             hint = stream_referer_hint(raw_url, frame_url)
 
             for stream_url in extract_stream_urls(raw_url, content_type):
-                normalized = decode_url_repeatedly(stream_url)
+                normalized = canonicalize_stream_url(stream_url)
                 entry = stream_map.setdefault(
                     normalized,
                     {
@@ -1410,18 +2075,17 @@ async def fetch_stream(
                     frame_url = request.frame.url if request.frame else ""
                 except Exception:
                     frame_url = ""
-                for candidate in extract_stream_urls(text, content_type):
-                    capture_url(
-                        candidate, "response/body", headers=request.headers,
-                        frame_url=frame_url, content_type=content_type,
-                    )
-                for variant in parse_hls_variants(text, response.url):
-                    capture_url(
-                        variant["url"], "hls/variant", headers=request.headers,
-                        frame_url=frame_url, content_type="application/vnd.apple.mpegurl",
-                        quality=variant.get("quality", ""),
-                        parent_url=variant.get("parent_url", ""),
-                    )
+                # Không quét URL bằng regex trong mọi JSON/JS/HTML nữa. Trang player
+                # chứa danh sách cấu hình chung của nhiều BLV/kênh, khiến mỗi trận bị gán
+                # hàng chục link không liên quan. Chỉ tách variant khi response chính là HLS.
+                if kind == "m3u8" or "mpegurl" in content_type:
+                    for variant in parse_hls_variants(text, response.url):
+                        capture_url(
+                            variant["url"], "hls/variant", headers=request.headers,
+                            frame_url=frame_url, content_type="application/vnd.apple.mpegurl",
+                            quality=variant.get("quality", ""),
+                            parent_url=variant.get("parent_url", ""),
+                        )
             except Exception:
                 return
 
@@ -1454,9 +2118,7 @@ async def fetch_stream(
                 req = response.request
                 frame_url = req.frame.url if req.frame else ""
                 content_type = response.headers.get("content-type", "")
-                if any(marker in content_type.lower() for marker in (
-                    "json", "javascript", "text/", "mpegurl", "xml"
-                )) or stream_kind(response.url, content_type) == "m3u8":
+                if stream_kind(response.url, content_type) == "m3u8" or "mpegurl" in content_type.lower():
                     track_response_body(response)
                 capture_url(
                     response.url,
@@ -1540,6 +2202,19 @@ async def fetch_stream(
                     quality=str(source_info.get("quality") or ""),
                 )
 
+            for previous in match.get("_previous_streams") or []:
+                if not isinstance(previous, dict):
+                    continue
+                capture_url(
+                    str(previous.get("url") or ""),
+                    "previous-playlist",
+                    headers={
+                        "referer": str(previous.get("referer") or PLAYER_ORIGIN_FALLBACK + "/"),
+                        "user-agent": str(previous.get("user_agent") or UA),
+                    },
+                    frame_url=match["url"],
+                )
+
             activated_qualities = await scan_quality_variants(page, capture_url)
             if activated_qualities:
                 print(
@@ -1562,7 +2237,7 @@ async def fetch_stream(
                 for candidate in await collect_dom_stream_candidates(page):
                     capture_url(
                         candidate["url"],
-                        "dom/performance",
+                        f"dom/{candidate.get('source', 'candidate')}",
                         frame_url=candidate.get("frame_url", ""),
                         quality=candidate.get("quality", ""),
                     )
@@ -1602,7 +2277,7 @@ async def fetch_stream(
                 for candidate in await collect_dom_stream_candidates(page):
                     capture_url(
                         candidate["url"],
-                        "final-scan",
+                        f"dom/{candidate.get('source', 'final')}",
                         frame_url=candidate.get("frame_url", ""),
                         quality=candidate.get("quality", ""),
                     )
@@ -1610,39 +2285,16 @@ async def fetch_stream(
                 pass
             await page.close()
 
-        streams = []
-        for entry in stream_map.values():
-            # Header fallback đúng player embed, không dùng nhầm origin live03.
-            entry["referer"] = normalize_playback_referer(
-                entry.get("referer") or PLAYER_ORIGIN_FALLBACK + "/"
-            )
-            if not entry.get("user_agent"):
-                entry["user_agent"] = UA
-
-            status = entry.get("status")
-            statuses = [int(value) for value in (entry.get("statuses") or [])]
-
-            # 404/410 là link đã mất rõ ràng nên mới loại. Các mã 401/403/429/5xx
-            # vẫn được giữ vì request trong Chromium có thể bị chặn, trong khi player
-            # phát được khi gửi đúng Referer + User-Agent. Đây chính là trường hợp
-            # URL FLV thử thủ công bằng VLC của người dùng.
-            terminal_statuses = {404, 410}
-            if statuses and all(value in terminal_statuses for value in statuses):
-                match["errors"].append(
-                    f"Stream chỉ trả {statuses}, loại link đã mất: {entry['url']}"
-                )
-                print(f"   ⚠️ Loại stream HTTP {statuses}: {entry['url']}")
-                continue
-
-            if status is not None and int(status) >= 400:
-                match["errors"].append(
-                    f"Stream HTTP {status} nhưng vẫn giữ để phát kèm header: {entry['url']}"
-                )
-                print(
-                    f"   🛡️ Giữ stream HTTP {status}; Android/VLC sẽ gửi "
-                    f"Referer + User-Agent: {entry['url']}"
-                )
-            streams.append(entry)
+        candidates, pre_rejected = shortlist_stream_candidates(stream_map, match)
+        print(
+            f"   🔎 Ứng viên sau lọc quan hệ player: {len(candidates)}/"
+            f"{len(stream_map)}; loại sớm={len(pre_rejected)}",
+            flush=True,
+        )
+        streams, validation_rejected = await validate_stream_candidates(
+            context, candidates, match
+        )
+        match["rejected_streams"] = pre_rejected + validation_rejected
 
         variant_parents = {
             entry.get("parent_url") for entry in streams
@@ -1654,22 +2306,39 @@ async def fetch_stream(
                 if entry.get("url") not in variant_parents or entry.get("quality")
             ]
         match["streams"] = sorted(
-            streams, key=lambda item: (item.get("quality") or "ZZZ", item["url"])
+            streams,
+            key=lambda item: (
+                item.get("playability") != "verified",
+                item.get("quality") or "ZZZ",
+                item["url"],
+            ),
         )
         match["stream_urls"] = [item["url"] for item in match["streams"]]
 
         if match["streams"]:
+            verified_count = sum(
+                1 for entry in match["streams"]
+                if entry.get("playability") == "verified"
+            )
+            fallback_count = len(match["streams"]) - verified_count
+            print(
+                f"   📌 Kết quả cuối: verified={verified_count} | "
+                f"fallback={fallback_count} | rejected={len(match['rejected_streams'])}",
+                flush=True,
+            )
             for entry in match["streams"]:
-                state = entry.get("status") or "chưa có status"
+                probe = entry.get("probe") or {}
                 print(
-                    f"   ✅ Stream {state} | referer={entry.get('referer', '')} | "
+                    f"   ✅ Stream {entry.get('playability', 'unknown')} | "
+                    f"HTTP={probe.get('status') or entry.get('status') or 'N/A'} | "
+                    f"referer={entry.get('referer', '')} | "
                     f"logo={'có' if match.get('logo') else 'không'} | "
                     f"BLV={match.get('blv') or 'không rõ'} | "
                     f"chất lượng={entry.get('quality') or 'không rõ'} | "
                     f"giờ={match.get('time') or 'không rõ'}"
                 )
         else:
-            print(f"   ⚠️ Không thấy m3u8/flv: {match_name[:85]}")
+            print(f"   ⚠️ Không có stream đủ tin cậy: {match_name[:85]}")
 
         return match
 
@@ -2169,13 +2838,21 @@ async def main() -> None:
     )
     print(
         f"ℹ️ Chế độ quét: {'FULL toàn bộ thời gian' if FULL_SCAN else 'dừng sớm'} | "
-        f"định dạng={','.join(STREAM_EXTENSIONS)} | chờ mỗi trận={STREAM_WAIT_SECONDS}s"
+        f"định dạng={','.join(STREAM_EXTENSIONS)} | chờ mỗi trận={STREAM_WAIT_SECONDS}s | "
+        f"xác minh phát thật={'BẬT' if VERIFY_STREAMS else 'TẮT'} | "
+        f"tối đa {MAX_VERIFY_CANDIDATES} ứng viên/{MAX_OUTPUT_STREAMS_PER_MATCH} link đầu ra"
     )
 
     direct_urls = [
         arg.strip() for arg in sys.argv[1:]
         if arg.strip().startswith(("http://", "https://"))
     ]
+    previous_streams_by_match = load_previous_playlist_streams()
+    if previous_streams_by_match:
+        print(
+            f"ℹ️ Đã nạp playlist cũ của {len(previous_streams_by_match)} trận để chống mất link đang chạy.",
+            flush=True,
+        )
 
     async with async_playwright() as playwright:
         browser = await playwright.chromium.launch(
@@ -2224,6 +2901,10 @@ async def main() -> None:
             await context.close()
             await browser.close()
             return
+
+        for match in links:
+            match_id = match_id_from_url(match.get("url", ""))
+            match["_previous_streams"] = list(previous_streams_by_match.get(match_id, []))
 
         print(
             f"✅ Tìm thấy {len(links)} link trận/phòng. "
