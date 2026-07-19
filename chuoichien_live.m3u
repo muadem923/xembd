@@ -1,37 +1,19 @@
 #EXTM3U
-#EXTINF:-1 tvg-id="chuoichien-200904-1" tvg-name="[00:00 20/07] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[00:00 20/07] China vs Brazil - Nations League [BLV Chuối Bơ] [FHD FLV]
-#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
-https://gckc0525.edgemaxcdn.org/live/chuoibo.flv
-#EXTINF:-1 tvg-id="chuoichien-200904-2" tvg-name="[00:00 20/07] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[00:00 20/07] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 2) [FLV]
+#EXTINF:-1 tvg-id="chuoichien-200904-1" tvg-name="[00:00 20/07] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[00:00 20/07] China vs Brazil - Nations League [BLV Chuối Bơ] [FLV]
 #EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
 https://gckc0525.edgemaxcdn.org/live/angao.flv
-#EXTINF:-1 tvg-id="chuoichien-200904-3" tvg-name="[00:00 20/07] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[00:00 20/07] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 3) [FLV]
+#EXTINF:-1 tvg-id="chuoichien-1591866-1" tvg-name="[02:00 20/07] Spain vs Argentina - World Cup [BLV Chuối Nhỏ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_125449_8711159b.png",[02:00 20/07] Spain vs Argentina - World Cup [BLV Chuối Nhỏ] [FHD FLV]
 #EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
-https://gckc0525.edgemaxcdn.org/live/chuoibohd.flv
-#EXTINF:-1 tvg-id="chuoichien-1528034-1" tvg-name="[23:00 19/07] Ordabasy vs Yelimay Semey - Ngoại Hạng Kazakhstan [BLV A Ngáo]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_125655_97f5bfc7.png",[23:00 19/07] Ordabasy vs Yelimay Semey - Ngoại Hạng Kazakhstan [BLV A Ngáo] [M3U8]
+https://gckc0525.edgemaxcdn.org/live/chuoinho.flv
+#EXTINF:-1 tvg-id="chuoichien-1591866-2" tvg-name="[02:00 20/07] Spain vs Argentina - World Cup [BLV Chuối Nhỏ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_125449_8711159b.png",[02:00 20/07] Spain vs Argentina - World Cup [BLV Chuối Nhỏ] (Luồng 2) [M3U8]
 #EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
-https://gckc0525.edgemaxcdn.org/live/angao/playlist.m3u8
-#EXTINF:-1 tvg-id="chuoichien-1565188-1" tvg-name="[23:30 19/07] Petrolul Ploiesti vs Dinamo Bucuresti - VĐQG Roma [BLV Chuối Chao]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_133915_0d9261aa.png",[23:30 19/07] Petrolul Ploiesti vs Dinamo Bucuresti - VĐQG Roma [BLV Chuối Chao] [FHD FLV]
-#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
-https://gckc0525.edgemaxcdn.org/live/chuoichao.flv
-#EXTINF:-1 tvg-id="chuoichien-1565188-2" tvg-name="[23:30 19/07] Petrolul Ploiesti vs Dinamo Bucuresti - VĐQG Roma [BLV Chuối Chao]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_133915_0d9261aa.png",[23:30 19/07] Petrolul Ploiesti vs Dinamo Bucuresti - VĐQG Roma [BLV Chuối Chao] (Luồng 2) [M3U8]
-#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
-https://gckc0525.edgemaxcdn.org/live/chuoichao/playlist.m3u8
+https://gckc0525.edgemaxcdn.org/live/chuoinho/playlist.m3u8
