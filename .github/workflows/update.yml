@@ -1,10 +1,15 @@
 name: Bot Quet chuoichien
 
 on:
-  workflow_dispatch: # Nút bấm chạy thủ công bằng tay
+  workflow_dispatch:
 
 permissions:
   contents: write
+
+# Không cho hai lượt chạy cùng lúc cùng đẩy vào một nhánh.
+concurrency:
+  group: chuoichien-m3u-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -13,29 +18,56 @@ jobs:
     steps:
       - name: 1. Lấy code từ kho về
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: 2. Cài đặt Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
       - name: 3. Cài đặt Playwright
         run: |
-          pip install playwright
-          playwright install chromium
+          python -m pip install --upgrade pip
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
 
-      - name: 4. Kích hoạt Sát thủ quét link
+      - name: 4. Kích hoạt quét link
         env:
+          # main.py mới đã đọc thật các biến này.
           SOCOLIVE_MATCH_CONCURRENCY: "4"
+          SOCOLIVE_HOME_WAIT_MS: "5000"
           SOCOLIVE_ROOM_WAIT_SECONDS: "7"
-          SOCOLIVE_MAX_ROOMS_PER_MATCH: "3"
-          SOCOLIVE_MAX_SUCCESSFUL_ROOMS_PER_MATCH: "1"
         run: python main.py
 
-      - name: 5. Lưu thành quả lên GitHub
+      - name: 5. Kiểm tra file đầu ra
+        shell: bash
         run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add chuoichien_live.m3u
-          git commit -m "Bot auto update link M3U" || exit 0
-          git push
+          echo "Các file đầu ra hiện có:"
+          ls -lah chuoichien_live.m3u chuoichien_debug.json 2>/dev/null || true
+
+          if [[ ! -f chuoichien_live.m3u ]]; then
+            echo "::warning::Không có chuoichien_live.m3u; bỏ qua cập nhật playlist thay vì làm workflow lỗi 128."
+          fi
+
+      - name: 6. Lưu thành quả lên GitHub
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if [[ ! -f chuoichien_live.m3u ]]; then
+            echo "Không có chuoichien_live.m3u để commit. Workflow kết thúc bình thường."
+            exit 0
+          fi
+
+          # Chỉ commit playlist; file debug vẫn nằm trong log runner, không đẩy lên kho.
+          git add -- chuoichien_live.m3u
+
+          if git diff --cached --quiet; then
+            echo "File đầu ra không thay đổi; không cần commit/push."
+            exit 0
+          fi
+
+          git commit -m "Bot auto update link M3U"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
