@@ -14,7 +14,7 @@ from playwright.async_api import BrowserContext, Page, Route, async_playwright
 # =========================
 # CẤU HÌNH
 # =========================
-TARGET_URL = "https://socolivem.cv/"
+TARGET_URL = "https://live03.chuoichientv.me/"
 OUTPUT_M3U = "chuoichien_live.m3u"
 OUTPUT_DEBUG = "chuoichien_debug.json"
 
