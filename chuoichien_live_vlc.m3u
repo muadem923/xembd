@@ -1,15 +1,10 @@
 #EXTM3U
-#EXTINF:-1 tvg-id="chuoichien-1528028-1" tvg-name="[18:00] Altay vs Aktobe - Ngoại Hạng Kazakhstan" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20250914_221746_f5db5283.png",[18:00] Altay vs Aktobe - Ngoại Hạng Kazakhstan [M3U8]
+#EXTINF:-1 tvg-id="chuoichien-1565189-1" tvg-name="[19:00] Universitatea Cluj vs Farul Constanta - VĐQG Roma" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_133808_6b5faed9.png",[19:00] Universitatea Cluj vs Farul Constanta - VĐQG Roma [M3U8]
 #EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-https://gckc0525.edgemaxcdn.org/live/chuoitieu/playlist.m3u8
-#EXTINF:-1 tvg-id="chuoichien-200902-1" tvg-name="[18:00] Turkey vs Iran - Nations League" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20250914_221746_f5db5283.png",[18:00] Turkey vs Iran - Nations League [M3U8]
-#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-https://gckc0525.edgemaxcdn.org/live/chuoigia/playlist.m3u8
-#EXTINF:-1 tvg-id="chuoichien-1577445-1" tvg-name="[18:00] Ural vs Yenisey - FNL Nga" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20250914_221746_f5db5283.png",[18:00] Ural vs Yenisey - FNL Nga [M3U8]
+https://gckc0525.edgemaxcdn.org/live/troctru/playlist.m3u8
+#EXTINF:-1 tvg-id="chuoichien-1577445-1" tvg-name="[19:00] Ural vs Yenisey - FNL Nga" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_133808_6b5faed9.png",[19:00] Ural vs Yenisey - FNL Nga [M3U8]
 #EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
