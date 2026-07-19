@@ -11,7 +11,7 @@ import urllib.request
 import time
 import unicodedata
 from collections import Counter
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any
 from urllib.parse import parse_qs, quote, unquote, urljoin, urlparse
@@ -31,7 +31,7 @@ OUTPUT_VLC_M3U = "chuoichien_live_vlc.m3u"
 OUTPUT_DEBUG = "chuoichien_debug.json"
 OUTPUT_HOME_DEBUG_HTML = "chuoichien_home_debug.html"
 OUTPUT_HOME_DEBUG_PNG = "chuoichien_home_debug.png"
-SCANNER_VERSION = "3.6.1-ACCURATE-KICKOFF-STRICT-VERIFICATION"
+SCANNER_VERSION = "3.7-UPCOMING-3H-QUALITY-PRIORITY"
 
 
 def read_env_bool(name: str, default: bool = True) -> bool:
@@ -72,7 +72,9 @@ FULL_SCAN = read_env_bool("SOCOLIVE_FULL_SCAN", True)
 VERIFY_STREAMS = read_env_bool("SOCOLIVE_VERIFY_STREAMS", True)
 VERIFY_TIMEOUT_SECONDS = read_env_int("SOCOLIVE_VERIFY_TIMEOUT_SECONDS", 8, minimum=3, maximum=20)
 MAX_VERIFY_CANDIDATES = read_env_int("SOCOLIVE_MAX_VERIFY_CANDIDATES", 6, minimum=2, maximum=12)
-MAX_OUTPUT_STREAMS_PER_MATCH = read_env_int("SOCOLIVE_MAX_OUTPUT_STREAMS_PER_MATCH", 4, minimum=1, maximum=8)
+MAX_OUTPUT_STREAMS_PER_MATCH = read_env_int("SOCOLIVE_MAX_OUTPUT_STREAMS_PER_MATCH", 2, minimum=1, maximum=4)
+UPCOMING_KEEP_HOURS = read_env_int("SOCOLIVE_UPCOMING_KEEP_HOURS", 3, minimum=1, maximum=12)
+UPCOMING_MIN_CANDIDATE_SCORE = read_env_int("SOCOLIVE_UPCOMING_MIN_CANDIDATE_SCORE", 150, minimum=80, maximum=300)
 ALLOW_UNVERIFIED_BROWSER_FALLBACK = read_env_bool("SOCOLIVE_ALLOW_UNVERIFIED_BROWSER_FALLBACK", False)
 KEEP_PREVIOUS_UNVERIFIED = read_env_bool("SOCOLIVE_KEEP_PREVIOUS_UNVERIFIED", False)
 HEADLESS = True
@@ -396,6 +398,179 @@ def select_best_time_candidate(metadata: dict[str, Any]) -> tuple[str, str, str]
     return time_str, date_str, "legacy-time-text" if time_str else ""
 
 
+
+VN_TZ = ZoneInfo("Asia/Ho_Chi_Minh")
+QUALITY_PRIORITY = {"4K": 50, "FHD": 40, "HD": 30, "SD": 20, "AUTO": 10, "": 0}
+PLAYABILITY_PRIORITY = {
+    "verified": 40,
+    "upcoming-pending": 30,
+    "browser-observed": 20,
+    "previous-fallback": 10,
+    "not-checked": 5,
+}
+
+
+def resolve_kickoff_datetime(
+    time_str: str,
+    date_str: str = "",
+    now: datetime | None = None,
+) -> tuple[datetime | None, str]:
+    """Ghép giờ/ngày của trang thành datetime VN; ngày thiếu được suy luận gần thời điểm quét nhất."""
+    time_match = re.fullmatch(r"\s*([01]?\d|2[0-3]):([0-5]\d)\s*", time_str or "")
+    if not time_match:
+        return None, "missing-time"
+    now = now.astimezone(VN_TZ) if now and now.tzinfo else (now.replace(tzinfo=VN_TZ) if now else datetime.now(VN_TZ))
+    hour = int(time_match.group(1))
+    minute = int(time_match.group(2))
+
+    date_match = re.fullmatch(r"\s*(0?[1-9]|[12]\d|3[01])/(0?[1-9]|1[0-2])\s*", date_str or "")
+    candidates: list[datetime] = []
+    if date_match:
+        day = int(date_match.group(1))
+        month = int(date_match.group(2))
+        for year in (now.year - 1, now.year, now.year + 1):
+            try:
+                candidates.append(datetime(year, month, day, hour, minute, tzinfo=VN_TZ))
+            except ValueError:
+                pass
+        source = "explicit-date"
+    else:
+        today = now.date()
+        for offset in (-1, 0, 1):
+            day = today + timedelta(days=offset)
+            candidates.append(datetime(day.year, day.month, day.day, hour, minute, tzinfo=VN_TZ))
+        source = "inferred-nearest-date"
+
+    if not candidates:
+        return None, "invalid-date"
+    # Trang chủ thường chỉ hiển thị hôm nay/ngày mai. Chọn mốc gần thời điểm quét nhất
+    # giúp 08:00 lúc 23:00 được hiểu là sáng hôm sau, còn 23:00 lúc 01:00 là tối hôm trước.
+    kickoff = min(candidates, key=lambda item: abs((item - now).total_seconds()))
+    return kickoff, source
+
+
+def annotate_match_timing(match: dict[str, Any], now: datetime | None = None) -> None:
+    now = now.astimezone(VN_TZ) if now and now.tzinfo else (now.replace(tzinfo=VN_TZ) if now else datetime.now(VN_TZ))
+    kickoff, date_resolution = resolve_kickoff_datetime(
+        clean_text(str(match.get("time", ""))),
+        clean_text(str(match.get("date", ""))),
+        now,
+    )
+    match["scan_time_iso"] = now.isoformat()
+    match["kickoff_iso"] = kickoff.isoformat() if kickoff else ""
+    match["kickoff_resolution"] = date_resolution
+    match["minutes_to_kickoff"] = None
+    match["timing_state"] = "unknown"
+    match["upcoming_within_window"] = False
+    if not kickoff:
+        return
+
+    delta_minutes = int(round((kickoff - now).total_seconds() / 60))
+    match["minutes_to_kickoff"] = delta_minutes
+    if not match.get("date") and abs(delta_minutes) <= 12 * 60:
+        match["date"] = kickoff.strftime("%d/%m")
+
+    window_minutes = UPCOMING_KEEP_HOURS * 60
+    if 0 <= delta_minutes <= window_minutes:
+        state = "upcoming-window"
+        match["upcoming_within_window"] = True
+    elif delta_minutes > window_minutes:
+        state = "future"
+    elif -180 <= delta_minutes < 0:
+        state = "started-recently"
+    else:
+        state = "past"
+    match["timing_state"] = state
+
+
+def is_upcoming_within_window(match: dict[str, Any]) -> bool:
+    delta = match.get("minutes_to_kickoff")
+    return (
+        match.get("timing_state") == "upcoming-window"
+        and isinstance(delta, int)
+        and 0 <= delta <= UPCOMING_KEEP_HOURS * 60
+    )
+
+
+def quality_rank(value: str) -> int:
+    return QUALITY_PRIORITY.get(normalize_quality_hint(value), 0)
+
+
+def apply_paired_quality_hints(entries: list[dict[str, Any]]) -> None:
+    """Chuẩn hóa cặp tên kiểu angao/angaohd thành HD/FHD và ưu tiên metadata HLS thật."""
+    families_with_hd: set[str] = set()
+    for entry in entries:
+        channel = stream_channel_key(entry.get("url", ""))
+        family = stream_family_key(entry.get("url", ""))
+        if family and channel != family and re.search(r"(?:fullhd|fhd|1080p?|hd|720p?)$", channel, re.I):
+            families_with_hd.add(family)
+
+    for entry in entries:
+        channel = stream_channel_key(entry.get("url", ""))
+        family = stream_family_key(entry.get("url", ""))
+        explicit = normalize_quality_hint(entry.get("quality", ""))
+        from_variant = bool(entry.get("parent_url"))
+        if re.search(r"(?:fullhd|fhd|1080p?|hd)$", channel, re.I):
+            inferred = "FHD"
+        elif family and family in families_with_hd and channel == family:
+            inferred = "HD"
+        else:
+            inferred = explicit
+        # RESOLUTION trong master HLS đáng tin hơn tên channel; click UI đơn thuần thì không.
+        if from_variant and explicit:
+            inferred = explicit
+        entry["quality"] = inferred
+        entry["quality_rank"] = quality_rank(inferred)
+
+
+def select_best_quality_streams(
+    streams: list[dict[str, Any]],
+    limit: int,
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """Chỉ giữ một URL tốt nhất cho mỗi mức chất lượng; ưu tiên M3U8 và stream đã xác minh."""
+    apply_paired_quality_hints(streams)
+    ranked = sorted(
+        streams,
+        key=lambda item: (
+            PLAYABILITY_PRIORITY.get(str(item.get("playability", "")), 0),
+            int(item.get("quality_rank") or quality_rank(item.get("quality", ""))),
+            2 if stream_kind(item.get("url", ""), item.get("content_type", "")) == "m3u8" else 1,
+            int(item.get("candidate_score") or 0),
+            item.get("url", ""),
+        ),
+        reverse=True,
+    )
+    selected: list[dict[str, Any]] = []
+    rejected: list[dict[str, Any]] = []
+    used_tiers: set[str] = set()
+    used_urls: set[str] = set()
+
+    for entry in ranked:
+        url = canonicalize_stream_url(entry.get("url", ""))
+        if not url or url in used_urls:
+            entry["reject_reason"] = "trùng URL"
+            rejected.append(entry)
+            continue
+        quality = normalize_quality_hint(entry.get("quality", ""))
+        tier = quality or "UNKNOWN"
+        if tier in used_tiers:
+            entry["reject_reason"] = (
+                f"trùng mức chất lượng {tier}; đã ưu tiên stream có độ tin cậy/khả năng tương thích cao hơn"
+            )
+            rejected.append(entry)
+            continue
+        if len(selected) >= limit:
+            entry["reject_reason"] = f"vượt giới hạn {limit} mức chất lượng tốt nhất"
+            rejected.append(entry)
+            continue
+        entry["url"] = url
+        selected.append(entry)
+        used_urls.add(url)
+        used_tiers.add(tier)
+
+    return selected, rejected
+
+
 def stream_kind(url: str, content_type: str = "") -> str:
     clean = decode_url_repeatedly(url)
     lower_path = urlparse(clean).path.lower()
@@ -486,6 +661,7 @@ def _entry_is_high_confidence_observed(entry: dict[str, Any]) -> bool:
             or source == "response"
             or source == "iframe/src"
             or source == "hls/variant"
+            or source == "metadata/quality-source"
         ):
             return True
     return False
@@ -575,11 +751,27 @@ def shortlist_stream_candidates(
         entry["family_key"] = family
         ranked.append(entry)
 
+    # Khi URL trận chỉ rõ ?blv=..., chỉ dùng đúng family của BLV đó.
+    # Không để link lịch sử hoặc request phụ của BLV khác lọt vào cùng trận.
+    if blv_family:
+        matching_family = [
+            entry for entry in ranked
+            if entry.get("family_key") == blv_family
+            or str(entry.get("channel_key") or "").startswith(blv_family)
+        ]
+        if matching_family:
+            for entry in ranked:
+                if entry not in matching_family:
+                    entry["reject_reason"] = f"khác BLV/family được chỉ định: {blv_family}"
+                    rejected.append(entry)
+            ranked = matching_family
+
+    apply_paired_quality_hints(ranked)
     ranked.sort(
         key=lambda item: (
             int(item.get("candidate_score") or 0),
             bool(item.get("observed_active")),
-            item.get("quality") in {"4K", "FHD", "HD"},
+            int(item.get("quality_rank") or quality_rank(item.get("quality", ""))),
         ),
         reverse=True,
     )
@@ -881,6 +1073,26 @@ async def validate_stream_candidates(
             continue
 
         browser_statuses = {int(value) for value in (entry.get("statuses") or []) if str(value).isdigit()}
+        sources = set(entry.get("sources") or [])
+        current_observed_sources = {source for source in sources if source != "previous-playlist"}
+        if (
+            is_upcoming_within_window(match)
+            and entry.get("high_confidence_observed")
+            and current_observed_sources
+            and state not in {"dead"}
+            and blocking_status not in {404, 410}
+            and int(entry.get("candidate_score") or 0) >= UPCOMING_MIN_CANDIDATE_SCORE
+        ):
+            entry["playability"] = "upcoming-pending"
+            observed_fallback.append(entry)
+            delta = int(match.get("minutes_to_kickoff") or 0)
+            print(
+                f"   🕒 Giữ link chờ phát: trận bắt đầu sau {delta} phút | "
+                f"{probe.get('detail') or state} | {entry['url']}",
+                flush=True,
+            )
+            continue
+
         if (
             ALLOW_UNVERIFIED_BROWSER_FALLBACK
             and state == "blocked"
@@ -930,13 +1142,13 @@ async def validate_stream_candidates(
         selected = observed_fallback
     selected.sort(
         key=lambda item: (
-            item.get("playability") == "verified",
+            PLAYABILITY_PRIORITY.get(str(item.get("playability", "")), 0),
             int(item.get("candidate_score") or 0),
-            item.get("quality") in {"4K", "FHD", "HD"},
+            int(item.get("quality_rank") or quality_rank(item.get("quality", ""))),
         ),
         reverse=True,
     )
-    return selected[:MAX_OUTPUT_STREAMS_PER_MATCH], rejected + selected[MAX_OUTPUT_STREAMS_PER_MATCH:]
+    return selected, rejected
 
 
 def match_id_from_url(value: str) -> str:
@@ -2286,6 +2498,23 @@ async def fetch_stream(
             if metadata.get("blv"):
                 match["blv"] = normalize_blv_name(metadata.get("blv", "")) or match.get("blv", "")
 
+            annotate_match_timing(match)
+            if match.get("kickoff_iso"):
+                delta = match.get("minutes_to_kickoff")
+                state = match.get("timing_state")
+                suffix = (
+                    f"còn {delta} phút; cho phép giữ link chờ phát"
+                    if state == "upcoming-window"
+                    else f"lệch {delta:+d} phút so với lúc quét"
+                )
+                print(
+                    f"   🕒 Giờ trận xác định: {match.get('time')} {match.get('date')} | "
+                    f"{state} | {suffix}",
+                    flush=True,
+                )
+            else:
+                print("   ⚠️ Chưa xác định đủ giờ trận; không giữ link chưa phát.", flush=True)
+
             match["sport_group"] = classify_sport(
                 match.get("sport_hint", ""),
                 metadata.get("sport_text", ""),
@@ -2409,6 +2638,8 @@ async def fetch_stream(
                 pass
             await page.close()
 
+        if not match.get("scan_time_iso"):
+            annotate_match_timing(match)
         candidates, pre_rejected = shortlist_stream_candidates(stream_map, match)
         print(
             f"   🔎 Ứng viên sau lọc quan hệ player: {len(candidates)}/"
@@ -2429,13 +2660,18 @@ async def fetch_stream(
                 entry for entry in streams
                 if entry.get("url") not in variant_parents or entry.get("quality")
             ]
+        streams, quality_rejected = select_best_quality_streams(
+            streams, MAX_OUTPUT_STREAMS_PER_MATCH
+        )
+        match["rejected_streams"].extend(quality_rejected)
         match["streams"] = sorted(
             streams,
             key=lambda item: (
-                item.get("playability") != "verified",
-                item.get("quality") or "ZZZ",
-                item["url"],
+                PLAYABILITY_PRIORITY.get(str(item.get("playability", "")), 0),
+                int(item.get("quality_rank") or quality_rank(item.get("quality", ""))),
+                1 if stream_kind(item.get("url", "")) == "m3u8" else 0,
             ),
+            reverse=True,
         )
         match["stream_urls"] = [item["url"] for item in match["streams"]]
 
@@ -2459,7 +2695,8 @@ async def fetch_stream(
                     f"logo={'có' if match.get('logo') else 'không'} | "
                     f"BLV={match.get('blv') or 'không rõ'} | "
                     f"chất lượng={entry.get('quality') or 'không rõ'} | "
-                    f"giờ={match.get('time') or 'không rõ'}"
+                    f"giờ={match.get('time') or 'không rõ'} {match.get('date') or ''} | "
+                    f"timing={match.get('timing_state') or 'unknown'}"
                 )
         else:
             print(f"   ⚠️ Không có stream đủ tin cậy: {match_name[:85]}")
@@ -2847,6 +3084,8 @@ def write_outputs(results: list[dict[str, Any]]) -> tuple[int, int]:
             kind = stream_kind(stream_url, stream_info.get("content_type", ""))
             if kind:
                 suffix = f"{quality} {kind.upper()}" if quality else kind.upper()
+                if stream_info.get("playability") == "upcoming-pending":
+                    suffix = f"CHỜ PHÁT {suffix}"
                 display_name += f" [{suffix}]"
 
             channel_id = channel_id_for(result, stream_url, index)
@@ -2967,8 +3206,9 @@ async def main() -> None:
         f"ℹ️ Chế độ quét: {'FULL toàn bộ thời gian' if FULL_SCAN else 'dừng sớm'} | "
         f"định dạng={','.join(STREAM_EXTENSIONS)} | chờ mỗi trận={STREAM_WAIT_SECONDS}s | "
         f"xác minh phát thật={'BẬT' if VERIFY_STREAMS else 'TẮT'} | "
-        f"tối đa {MAX_VERIFY_CANDIDATES} ứng viên/{MAX_OUTPUT_STREAMS_PER_MATCH} link đầu ra | "
-        f"fallback chưa xác minh={'BẬT' if (ALLOW_UNVERIFIED_BROWSER_FALLBACK or KEEP_PREVIOUS_UNVERIFIED) else 'TẮT'}"
+        f"tối đa {MAX_VERIFY_CANDIDATES} ứng viên/{MAX_OUTPUT_STREAMS_PER_MATCH} mức chất lượng đầu ra | "
+        f"giữ link chờ phát trong {UPCOMING_KEEP_HOURS} giờ tới | "
+        f"fallback chung chưa xác minh={'BẬT' if (ALLOW_UNVERIFIED_BROWSER_FALLBACK or KEEP_PREVIOUS_UNVERIFIED) else 'TẮT'}"
     )
 
     direct_urls = [
