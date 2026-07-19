@@ -5,243 +5,63 @@
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
 https://gckc0525.edgemaxcdn.org/live/chuoibo.flv
-#EXTINF:-1 tvg-id="chuoichien-200904-2" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] [FHD FLV]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
-https://gckc0525.edgemaxcdn.org/live/chuoibo.flv&autoplay=1&isHome=0
-#EXTINF:-1 tvg-id="chuoichien-200904-3" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] [FHD M3U8]
+#EXTINF:-1 tvg-id="chuoichien-200904-2" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 2) [M3U8]
 #EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
 https://gckc0525.edgemaxcdn.org/live/chuoibo/playlist.m3u8
-#EXTINF:-1 tvg-id="chuoichien-200904-4" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 4) [FLV]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
+#EXTINF:-1 tvg-id="chuoichien-200904-3" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 3) [FLV]
+#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
-https://gckc0525.edgemaxcdn.org/live/angao.flv
-#EXTINF:-1 tvg-id="chuoichien-200904-5" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 5) [M3U8]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
-https://gckc0525.edgemaxcdn.org/live/angao/playlist.m3u8
-#EXTINF:-1 tvg-id="chuoichien-200904-6" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 6) [FLV]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
-https://gckc0525.edgemaxcdn.org/live/angaohd.flv
-#EXTINF:-1 tvg-id="chuoichien-200904-7" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 7) [M3U8]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
-https://gckc0525.edgemaxcdn.org/live/angaohd/playlist.m3u8
-#EXTINF:-1 tvg-id="chuoichien-200904-8" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 8) [FLV]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
 https://gckc0525.edgemaxcdn.org/live/chuoibohd.flv
-#EXTINF:-1 tvg-id="chuoichien-200904-9" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 9) [M3U8]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
+#EXTINF:-1 tvg-id="chuoichien-200904-4" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 4) [M3U8]
+#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
 https://gckc0525.edgemaxcdn.org/live/chuoibohd/playlist.m3u8
-#EXTINF:-1 tvg-id="chuoichien-200904-10" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 10) [FLV]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
+#EXTINF:-1 tvg-id="chuoichien-1528034-1" tvg-name="[23:00] Ordabasy vs Yelimay Semey - Ngoại Hạng Kazakhstan [BLV A Ngáo]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_125655_97f5bfc7.png",[23:00] Ordabasy vs Yelimay Semey - Ngoại Hạng Kazakhstan [BLV A Ngáo] [FHD FLV]
+#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
+https://gckc0525.edgemaxcdn.org/live/angao.flv
+#EXTINF:-1 tvg-id="chuoichien-1528034-2" tvg-name="[23:00] Ordabasy vs Yelimay Semey - Ngoại Hạng Kazakhstan [BLV A Ngáo]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_125655_97f5bfc7.png",[23:00] Ordabasy vs Yelimay Semey - Ngoại Hạng Kazakhstan [BLV A Ngáo] (Luồng 2) [M3U8]
+#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
+https://gckc0525.edgemaxcdn.org/live/angao/playlist.m3u8
+#EXTINF:-1 tvg-id="chuoichien-1565188-1" tvg-name="[23:00] Petrolul Ploiesti vs Dinamo Bucuresti - VĐQG Roma [BLV Chuối Chao]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_133915_0d9261aa.png",[23:00] Petrolul Ploiesti vs Dinamo Bucuresti - VĐQG Roma [BLV Chuối Chao] [FHD FLV]
+#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
 https://gckc0525.edgemaxcdn.org/live/chuoichao.flv
-#EXTINF:-1 tvg-id="chuoichien-200904-11" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 11) [M3U8]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
-https://gckc0525.edgemaxcdn.org/live/chuoichao/playlist.m3u8
-#EXTINF:-1 tvg-id="chuoichien-200904-12" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 12) [FLV]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
-https://gckc0525.edgemaxcdn.org/live/chuoichaohd.flv
-#EXTINF:-1 tvg-id="chuoichien-200904-13" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 13) [M3U8]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
-https://gckc0525.edgemaxcdn.org/live/chuoichaohd/playlist.m3u8
-#EXTINF:-1 tvg-id="chuoichien-200904-14" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 14) [FLV]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
-https://gckc0525.edgemaxcdn.org/live/chuoigia.flv
-#EXTINF:-1 tvg-id="chuoichien-200904-15" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 15) [M3U8]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
-https://gckc0525.edgemaxcdn.org/live/chuoigia/playlist.m3u8
-#EXTINF:-1 tvg-id="chuoichien-200904-16" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 16) [FLV]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
-https://gckc0525.edgemaxcdn.org/live/chuoigiahd.flv
-#EXTINF:-1 tvg-id="chuoichien-200904-17" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 17) [M3U8]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
-https://gckc0525.edgemaxcdn.org/live/chuoigiahd/playlist.m3u8
-#EXTINF:-1 tvg-id="chuoichien-200904-18" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 18) [FLV]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
-https://gckc0525.edgemaxcdn.org/live/chuoinho.flv
-#EXTINF:-1 tvg-id="chuoichien-200904-19" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 19) [M3U8]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
-https://gckc0525.edgemaxcdn.org/live/chuoinho/playlist.m3u8
-#EXTINF:-1 tvg-id="chuoichien-200904-20" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 20) [FLV]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
-https://gckc0525.edgemaxcdn.org/live/chuoinhohd.flv
-#EXTINF:-1 tvg-id="chuoichien-200904-21" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 21) [M3U8]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
-https://gckc0525.edgemaxcdn.org/live/chuoinhohd/playlist.m3u8
-#EXTINF:-1 tvg-id="chuoichien-200904-22" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 22) [FLV]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
-https://gckc0525.edgemaxcdn.org/live/chuoitieu.flv
-#EXTINF:-1 tvg-id="chuoichien-200904-23" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 23) [M3U8]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
-https://gckc0525.edgemaxcdn.org/live/chuoitieu/playlist.m3u8
-#EXTINF:-1 tvg-id="chuoichien-200904-24" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 24) [FLV]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
-https://gckc0525.edgemaxcdn.org/live/chuoitieuhd.flv
-#EXTINF:-1 tvg-id="chuoichien-200904-25" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 25) [M3U8]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
-https://gckc0525.edgemaxcdn.org/live/chuoitieuhd/playlist.m3u8
-#EXTINF:-1 tvg-id="chuoichien-200904-26" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 26) [FLV]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
-https://gckc0525.edgemaxcdn.org/live/chuoito.flv
-#EXTINF:-1 tvg-id="chuoichien-200904-27" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 27) [M3U8]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
-https://gckc0525.edgemaxcdn.org/live/chuoito/playlist.m3u8
-#EXTINF:-1 tvg-id="chuoichien-200904-28" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 28) [FLV]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
-https://gckc0525.edgemaxcdn.org/live/chuoitohd.flv
-#EXTINF:-1 tvg-id="chuoichien-200904-29" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 29) [M3U8]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
-https://gckc0525.edgemaxcdn.org/live/chuoitohd/playlist.m3u8
-#EXTINF:-1 tvg-id="chuoichien-200904-30" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 30) [FLV]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
-https://gckc0525.edgemaxcdn.org/live/troctru.flv
-#EXTINF:-1 tvg-id="chuoichien-200904-31" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 31) [M3U8]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
-https://gckc0525.edgemaxcdn.org/live/troctru/playlist.m3u8
-#EXTINF:-1 tvg-id="chuoichien-200904-32" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 32) [FLV]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
-https://gckc0525.edgemaxcdn.org/live/troctruhd.flv
-#EXTINF:-1 tvg-id="chuoichien-200904-33" tvg-name="[23:00] China vs Brazil - Nations League [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123052_d31bb816.png",[23:00] China vs Brazil - Nations League [BLV Chuối Bơ] (Luồng 33) [M3U8]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
-https://gckc0525.edgemaxcdn.org/live/troctruhd/playlist.m3u8
-#EXTINF:-1 tvg-id="chuoichien-1528034-1" tvg-name="[23:00] ordabasy vs yelimay semey" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_132454_9c7271e1.png",[23:00] ordabasy vs yelimay semey [FHD FLV]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
-https://gckc0525.edgemaxcdn.org/live/angao.flv&autoplay=1&isHome=0
-#EXTINF:-1 tvg-id="chuoichien-1528034-2" tvg-name="[23:00] ordabasy vs yelimay semey" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_132454_9c7271e1.png",[23:00] ordabasy vs yelimay semey (Luồng 2) [M3U8]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
-https://gckc0525.edgemaxcdn.org/live/angao/playlist.m3u8&autoplay=1&isHome=0
-#EXTINF:-1 tvg-id="chuoichien-1565188-1" tvg-name="[23:00] petrolul ploiesti vs dinamo bucuresti" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_133915_0d9261aa.png",[23:00] petrolul ploiesti vs dinamo bucuresti [FHD FLV]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
-https://gckc0525.edgemaxcdn.org/live/chuoichao.flv&autoplay=1&isHome=0
-#EXTINF:-1 tvg-id="chuoichien-1565188-2" tvg-name="[23:00] petrolul ploiesti vs dinamo bucuresti" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_133915_0d9261aa.png",[23:00] petrolul ploiesti vs dinamo bucuresti (Luồng 2) [M3U8]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
-https://gckc0525.edgemaxcdn.org/live/chuoichao/playlist.m3u8&autoplay=1&isHome=0
 #EXTINF:-1 tvg-id="chuoichien-200907-1" tvg-name="[23:00] USA vs Poland - Nations League [BLV Chuối Tây]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123053_fc9cbefe.png",[23:00] USA vs Poland - Nations League [BLV Chuối Tây] (Luồng 1) [FLV]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
+#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
 https://gckc0525.edgemaxcdn.org/live/chuoitay.flv
 #EXTINF:-1 tvg-id="chuoichien-200907-2" tvg-name="[23:00] USA vs Poland - Nations League [BLV Chuối Tây]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123053_fc9cbefe.png",[23:00] USA vs Poland - Nations League [BLV Chuối Tây] (Luồng 2) [M3U8]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
+#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
 https://gckc0525.edgemaxcdn.org/live/chuoitay/playlist.m3u8
 #EXTINF:-1 tvg-id="chuoichien-200907-3" tvg-name="[23:00] USA vs Poland - Nations League [BLV Chuối Tây]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123053_fc9cbefe.png",[23:00] USA vs Poland - Nations League [BLV Chuối Tây] (Luồng 3) [FLV]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
+#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
 https://gckc0525.edgemaxcdn.org/live/chuoitayhd.flv
 #EXTINF:-1 tvg-id="chuoichien-200907-4" tvg-name="[23:00] USA vs Poland - Nations League [BLV Chuối Tây]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123053_fc9cbefe.png",[23:00] USA vs Poland - Nations League [BLV Chuối Tây] (Luồng 4) [M3U8]
-#EXTVLCOPT:http-referrer=https://live03.chuoichientv.me/
+#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live03.chuoichientv.me/"}
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
 https://gckc0525.edgemaxcdn.org/live/chuoitayhd/playlist.m3u8
