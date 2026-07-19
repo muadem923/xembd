@@ -1,6 +1,21 @@
 #EXTM3U
-#EXTINF:-1 tvg-id="chuoichien-991831-1" tvg-name="[16:00] Phong Phú Hà Nam Nữ vs Hồ Chí Minh Nữ - VĐQG Nữ Việt Nam" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20250903_205412_f148dbb7.png",[16:00] Phong Phú Hà Nam Nữ vs Hồ Chí Minh Nữ - VĐQG Nữ Việt Nam [M3U8]
+#EXTINF:-1 tvg-id="chuoichien-1507003-1" tvg-name="[17:20] Bucheon FC 1995 vs FC Seoul - K League 1" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123036_f7c8e720.png",[17:20] Bucheon FC 1995 vs FC Seoul - K League 1 [M3U8]
 #EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-https://gckc0525.edgemaxcdn.org/live/chuoitieu/playlist.m3u8
+https://gckc0525.edgemaxcdn.org/live/troctru/playlist.m3u8
+#EXTINF:-1 tvg-id="chuoichien-1507002-1" tvg-name="[17:20] FC Anyang vs Gwangju FC - K League 1" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123036_f7c8e720.png",[17:20] FC Anyang vs Gwangju FC - K League 1 [M3U8]
+#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+https://gckc0525.edgemaxcdn.org/live/chuoinho/playlist.m3u8
+#EXTINF:-1 tvg-id="chuoichien-200901-1" tvg-name="[17:20] Japan vs Argentina - Nations League" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123036_f7c8e720.png",[17:20] Japan vs Argentina - Nations League [M3U8]
+#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+https://gckc0525.edgemaxcdn.org/live/chuoitay/playlist.m3u8
+#EXTINF:-1 tvg-id="chuoichien-200902-1" tvg-name="[17:20] Turkey vs Iran - Nations League" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/20251115_123036_f7c8e720.png",[17:20] Turkey vs Iran - Nations League [M3U8]
+#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+https://gckc0525.edgemaxcdn.org/live/chuoigia/playlist.m3u8
