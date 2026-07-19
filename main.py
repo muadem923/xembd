@@ -1,14 +1,17 @@
 import asyncio
+import hashlib
 import html
 import json
 import os
 import re
 import sys
 import time
+import unicodedata
+from collections import Counter
 from datetime import datetime
 from pathlib import Path
 from typing import Any
-from urllib.parse import parse_qs, unquote, urljoin, urlparse
+from urllib.parse import parse_qs, quote, unquote, urljoin, urlparse
 from zoneinfo import ZoneInfo
 
 from playwright.async_api import BrowserContext, Page, Route, async_playwright
@@ -20,10 +23,11 @@ from playwright.async_api import BrowserContext, Page, Route, async_playwright
 TARGET_URL = "https://live03.chuoichientv.me/"
 PLAYER_ORIGIN_FALLBACK = "https://live.chuoichien.tv"
 OUTPUT_M3U = "chuoichien_live.m3u"
+OUTPUT_VLC_M3U = "chuoichien_live_vlc.m3u"
 OUTPUT_DEBUG = "chuoichien_debug.json"
 OUTPUT_HOME_DEBUG_HTML = "chuoichien_home_debug.html"
 OUTPUT_HOME_DEBUG_PNG = "chuoichien_home_debug.png"
-SCANNER_VERSION = "3.1-FULL-SCAN-VLC-HEADERS"
+SCANNER_VERSION = "3.3-FULL-SPORT-GROUPS-REALTIME-LOG"
 
 
 def read_env_bool(name: str, default: bool = True) -> bool:
@@ -92,6 +96,92 @@ PLAY_SELECTORS = (
 )
 
 TIME_RE = re.compile(r"(?<!\d)([01]?\d|2[0-3])[:h.]([0-5]\d)(?!\d)", re.I)
+
+SPORT_GROUP_ORDER = (
+    "Bóng đá",
+    "Bóng rổ",
+    "Bóng chuyền",
+    "Tennis",
+    "Esports",
+    "Khác",
+)
+SPORT_GROUP_RANK = {name: index for index, name in enumerate(SPORT_GROUP_ORDER)}
+SPORT_KEYWORDS: dict[str, tuple[tuple[str, int], ...]] = {
+    "Esports": (
+        ("esports", 12), ("e sports", 12), ("esport", 12),
+        ("counter strike", 9), ("cs2", 9), ("csgo", 9),
+        ("dota", 9), ("league of legends", 9), ("valorant", 9),
+        ("pubg", 8), ("mobile legends", 8), ("lien quan", 8),
+        ("efootball", 8), ("fifa online", 8), ("arena of valor", 8),
+    ),
+    "Tennis": (
+        ("tennis", 12), ("quan vot", 12), ("atp", 8), ("wta", 8),
+        ("challenger", 7), ("wimbledon", 8), ("roland garros", 8),
+        ("australian open", 8), ("us open", 7), ("davis cup", 7),
+    ),
+    "Bóng rổ": (
+        ("bong ro", 12), ("basketball", 12), ("nba", 9), ("wnba", 9),
+        ("euroleague", 8), ("fiba", 8), ("ncaa", 7), ("vba", 7),
+        ("cba", 6), ("basket", 6),
+    ),
+    "Bóng chuyền": (
+        ("bong chuyen", 12), ("volleyball", 12), ("fivb", 9),
+        ("volleyball nations league", 10), ("nations league women", 8),
+        ("nations league men", 8), ("vnl", 8), ("pvl", 7),
+        ("cev", 5),
+    ),
+    "Bóng đá": (
+        ("bong da", 12), ("football", 11), ("soccer", 11),
+        ("futsal", 10), ("premier league", 8), ("champions league", 8),
+        ("europa league", 8), ("conference league", 8),
+        ("world cup", 7), ("asian cup", 7), ("copa", 6),
+        ("uefa", 6), ("afc", 5), ("fc ", 4), (" fc", 4),
+    ),
+    "Khác": (
+        ("cau long", 12), ("badminton", 12), ("bong ban", 12),
+        ("table tennis", 12), ("baseball", 10), ("ice hockey", 10),
+        ("hockey", 8), ("handball", 9), ("boxing", 9), ("mma", 9),
+        ("motogp", 9), ("formula 1", 9), ("f1 racing", 9),
+    ),
+}
+
+
+def normalize_search_text(value: str) -> str:
+    text = unicodedata.normalize("NFKD", clean_text(value).lower())
+    text = "".join(ch for ch in text if not unicodedata.combining(ch))
+    text = re.sub(r"[^a-z0-9]+", " ", text)
+    return f" {clean_text(text)} "
+
+
+def classify_sport(*values: str, default: str = "Bóng đá") -> str:
+    """Phân loại theo tín hiệu gần card/trang trận; tín hiệu đầu tiên có độ tin cậy cao thắng."""
+    for value in values:
+        normalized = normalize_search_text(value)
+        if not normalized.strip():
+            continue
+        scores: dict[str, int] = {}
+        for group, keywords in SPORT_KEYWORDS.items():
+            score = 0
+            for keyword, weight in keywords:
+                token = f" {keyword.strip()} "
+                if token in normalized or (len(keyword.strip()) >= 6 and keyword.strip() in normalized):
+                    score += weight
+            if score:
+                scores[group] = score
+        if not scores:
+            continue
+        ranked = sorted(scores.items(), key=lambda item: item[1], reverse=True)
+        if len(ranked) == 1 or ranked[0][1] > ranked[1][1]:
+            return ranked[0][0]
+    return default if default in SPORT_GROUP_RANK else "Khác"
+
+
+def channel_id_for(result: dict[str, Any], stream_url: str, index: int) -> str:
+    path_match = re.search(r"/live/(\d+)", result.get("url", ""))
+    base = path_match.group(1) if path_match else hashlib.sha1(
+        (result.get("url", "") + stream_url).encode("utf-8")
+    ).hexdigest()[:12]
+    return f"chuoichien-{base}-{index}"
 
 
 def clean_text(value: str) -> str:
@@ -508,13 +598,32 @@ async def read_match_metadata(page: Page, match_url: str) -> dict[str, Any]:
                     .map((el) => el.src || el.getAttribute("src") || "")
                     .filter(Boolean);
 
-                return { title, time_text: timeParts.join(" | "), logos: urls, iframe_urls: iframeUrls };
+                const sportParts = [
+                    document.body?.getAttribute("data-sport"),
+                    document.body?.getAttribute("data-category"),
+                    document.querySelector("meta[name='description']")?.content,
+                    document.querySelector("[data-sport]")?.getAttribute("data-sport"),
+                    document.querySelector("[data-category]")?.getAttribute("data-category"),
+                    document.querySelector("[class*='breadcrumb']")?.innerText,
+                    document.querySelector("[class*='sport-name']")?.innerText,
+                    document.querySelector("[class*='category-name']")?.innerText,
+                    document.querySelector("[class*='league-name']")?.innerText,
+                    title
+                ].filter(Boolean).map(clean);
+
+                return {
+                    title,
+                    time_text: timeParts.join(" | "),
+                    logos: urls,
+                    iframe_urls: iframeUrls,
+                    sport_text: sportParts.join(" | ")
+                };
             }"""
         )
         data["logos"] = [absolute_url(str(v), match_url) for v in data.get("logos", []) if v]
         return data
     except Exception:
-        return {"title": "", "time_text": "", "logos": [], "iframe_urls": []}
+        return {"title": "", "time_text": "", "logos": [], "iframe_urls": [], "sport_text": ""}
 
 
 async def fetch_stream(
@@ -532,8 +641,21 @@ async def fetch_stream(
         match["streams"] = []
         match["stream_urls"] = []
         match["errors"] = []
+        match["sport_group"] = classify_sport(
+            match.get("sport_hint", ""),
+            match.get("card_text", ""),
+            match.get("raw_title", ""),
+            match.get("url", ""),
+            default=match.get("sport_group", "Bóng đá"),
+        )
 
-        print(f"-> Đang quét: {match_name[:90]}")
+        scan_index = int(match.get("_scan_index", 0))
+        scan_total = int(match.get("_scan_total", 0))
+        prefix = f"[{scan_index}/{scan_total}] " if scan_index and scan_total else ""
+        print(
+            f"-> {prefix}Đang quét [{match['sport_group']}]: {match_name[:90]}",
+            flush=True,
+        )
         page = await context.new_page()
         await install_route_filter(page, homepage=False)
 
@@ -565,6 +687,7 @@ async def fetch_stream(
                         "origin": "",
                         "user_agent": "",
                         "status": None,
+                        "statuses": [],
                         "content_type": "",
                         "sources": [],
                     },
@@ -586,6 +709,8 @@ async def fetch_stream(
                     entry["user_agent"] = user_agent
                 if status is not None:
                     entry["status"] = status
+                    if status not in entry["statuses"]:
+                        entry["statuses"].append(status)
                 if content_type:
                     entry["content_type"] = content_type
                 if source not in entry["sources"]:
@@ -657,6 +782,15 @@ async def fetch_stream(
             if not match.get("time"):
                 match["time"] = extract_time(metadata.get("time_text", ""))
 
+            match["sport_group"] = classify_sport(
+                match.get("sport_hint", ""),
+                metadata.get("sport_text", ""),
+                match.get("card_text", ""),
+                match.get("match_name", ""),
+                match.get("url", ""),
+                default=match.get("sport_group", "Bóng đá"),
+            )
+
             logo_candidates = list(match.get("team_logos") or [])
             if match.get("logo"):
                 logo_candidates.insert(0, match["logo"])
@@ -713,10 +847,28 @@ async def fetch_stream(
                 entry["user_agent"] = UA
 
             status = entry.get("status")
-            if status is not None and int(status) >= 400:
-                match["errors"].append(f"Stream HTTP {status}: {entry['url']}")
-                print(f"   ⚠️ Loại stream HTTP {status}: {entry['url']}")
+            statuses = [int(value) for value in (entry.get("statuses") or [])]
+
+            # 404/410 là link đã mất rõ ràng nên mới loại. Các mã 401/403/429/5xx
+            # vẫn được giữ vì request trong Chromium có thể bị chặn, trong khi player
+            # phát được khi gửi đúng Referer + User-Agent. Đây chính là trường hợp
+            # URL FLV thử thủ công bằng VLC của người dùng.
+            terminal_statuses = {404, 410}
+            if statuses and all(value in terminal_statuses for value in statuses):
+                match["errors"].append(
+                    f"Stream chỉ trả {statuses}, loại link đã mất: {entry['url']}"
+                )
+                print(f"   ⚠️ Loại stream HTTP {statuses}: {entry['url']}")
                 continue
+
+            if status is not None and int(status) >= 400:
+                match["errors"].append(
+                    f"Stream HTTP {status} nhưng vẫn giữ để phát kèm header: {entry['url']}"
+                )
+                print(
+                    f"   🛡️ Giữ stream HTTP {status}; Android/VLC sẽ gửi "
+                    f"Referer + User-Agent: {entry['url']}"
+                )
             streams.append(entry)
 
         match["streams"] = sorted(streams, key=lambda item: item["url"])
@@ -826,7 +978,53 @@ async def collect_home_links(context: BrowserContext) -> list[dict[str, Any]]:
                     ) || a.parentElement?.parentElement || a.parentElement || a;
                 }
 
-                function addItem(hrefValue, titleValue = "", cardText = "", timeValue = "", logos = []) {
+                function sportContext(a, container) {
+                    const parts = [];
+                    const add = (value) => {
+                        const fixed = clean(value);
+                        if (fixed && fixed.length <= 300 && !parts.includes(fixed)) parts.push(fixed);
+                    };
+                    const inspect = (node) => {
+                        if (!node) return;
+                        [
+                            node.getAttribute?.("data-sport"),
+                            node.getAttribute?.("data-category"),
+                            node.getAttribute?.("data-type"),
+                            node.getAttribute?.("aria-label"),
+                            node.id,
+                            node.className
+                        ].forEach(add);
+                        const heading = node.querySelector?.(
+                            ":scope > h1, :scope > h2, :scope > h3, :scope > h4, " +
+                            ":scope > [class*='sport-title'], :scope > [class*='category-title']"
+                        );
+                        add(heading?.innerText || heading?.textContent);
+                    };
+
+                    inspect(a);
+                    inspect(container);
+                    let node = container;
+                    for (let depth = 0; node && depth < 6; depth += 1, node = node.parentElement) {
+                        inspect(node);
+                        let previous = node.previousElementSibling;
+                        for (let step = 0; previous && step < 3; step += 1, previous = previous.previousElementSibling) {
+                            if (/^H[1-6]$/.test(previous.tagName || "") ||
+                                /sport|category|tab|section/i.test(String(previous.className || ""))) {
+                                add(previous.innerText || previous.textContent);
+                            }
+                        }
+                    }
+                    return parts.join(" | ");
+                }
+
+                function addItem(
+                    hrefValue,
+                    titleValue = "",
+                    cardText = "",
+                    timeValue = "",
+                    logos = [],
+                    sportHint = ""
+                ) {
                     const href = normalizeHref(hrefValue);
                     if (!isMatchHref(href) || seen.has(href)) return;
                     seen.add(href);
@@ -840,6 +1038,7 @@ async def collect_home_links(context: BrowserContext) -> list[dict[str, Any]]:
                         raw_time: clean(timeValue || cardText),
                         logo: logos[0] || "",
                         team_logos: logos.slice(0, 8),
+                        sport_hint: clean(sportHint),
                     });
                 }
 
@@ -848,8 +1047,7 @@ async def collect_home_links(context: BrowserContext) -> list[dict[str, Any]]:
                     if (!isMatchHref(href)) return;
                     const container = findContainer(a);
                     const cardText = clean(container?.innerText || a.innerText || "");
-                    const lower = cardText.toLowerCase();
-                    if (lower.includes("bóng rổ") || lower.includes("tennis") || lower.includes("cầu lông")) return;
+                    const sportHint = sportContext(a, container);
 
                     const timeEl = container?.querySelector(
                         "time, [datetime], [data-time], [data-start], [class*='time'], [class*='kickoff']"
@@ -868,7 +1066,8 @@ async def collect_home_links(context: BrowserContext) -> list[dict[str, Any]]:
                         clean(titleNode?.innerText || titleNode?.textContent || a.innerText || a.title || a.getAttribute("aria-label")),
                         cardText,
                         timeValue,
-                        imageCandidates(container)
+                        imageCandidates(container),
+                        sportHint
                     );
                 });
 
@@ -900,6 +1099,13 @@ async def collect_home_links(context: BrowserContext) -> list[dict[str, Any]]:
         )
 
         links = list(result.get("items") or [])
+        for item in links:
+            item["sport_group"] = classify_sport(
+                item.get("sport_hint", ""),
+                item.get("card_text", ""),
+                item.get("raw_title", ""),
+                item.get("url", ""),
+            )
         diagnostics = result.get("diagnostics") or {}
         print(
             "ℹ️ Trang chủ: "
@@ -908,6 +1114,13 @@ async def collect_home_links(context: BrowserContext) -> list[dict[str, Any]]:
             f"html={diagnostics.get('html_length', 0)} ký tự | "
             f"match_links={len(links)}"
         )
+
+        if links:
+            counts = Counter(item.get("sport_group", "Khác") for item in links)
+            summary = " | ".join(
+                f"{group}={counts[group]}" for group in SPORT_GROUP_ORDER if counts[group]
+            )
+            print(f"📂 Phân loại link trang chủ: {summary}", flush=True)
 
         if not links:
             try:
@@ -936,13 +1149,46 @@ def header_json(user_agent: str, referer: str) -> str:
     return json.dumps(values, ensure_ascii=False, separators=(",", ":"))
 
 
+def escape_pipe_header(value: str) -> str:
+    """Mã hóa giá trị protocol-option để URL không vỡ bởi khoảng trắng, &, | hoặc %."""
+    return quote(clean_text(value), safe=":/().,;=-_")
+
+
+def android_stream_url(stream_url: str, user_agent: str, referer: str) -> str:
+    """
+    Header syntax understood by many Android IPTV players:
+      URL|User-Agent=...&Referer=...
+
+    Keep EXTVLCOPT too because TiviMate versions differ in which syntax they honor.
+    """
+    headers = [f"User-Agent={escape_pipe_header(user_agent)}"]
+    if referer:
+        headers.append(f"Referer={escape_pipe_header(referer)}")
+    return stream_url + "|" + "&".join(headers)
+
+
 def write_outputs(results: list[dict[str, Any]]) -> tuple[int, int]:
-    playlist_lines = ["#EXTM3U"]
+    # Android/TiviMate/IPTV Pro: pipe headers on the URL plus EXTVLCOPT fallback.
+    android_lines = ["#EXTM3U"]
+    # VLC desktop/mobile: raw URL with VLC option lines; no pipe suffix.
+    vlc_lines = ["#EXTM3U"]
+
     written_streams: set[str] = set()
     match_keys_with_streams: set[str] = set()
     count_links = 0
 
-    for result in results:
+    sorted_results = sorted(
+        results,
+        key=lambda item: (
+            SPORT_GROUP_RANK.get(item.get("sport_group", "Khác"), 999),
+            item.get("time") or "99:99",
+            clean_text(item.get("match_name") or item.get("raw_title") or "").lower(),
+        ),
+    )
+
+    group_stream_counts: Counter[str] = Counter()
+
+    for result in sorted_results:
         streams = result.get("streams") or [
             {"url": value} for value in (result.get("stream_urls") or [])
         ]
@@ -952,6 +1198,14 @@ def write_outputs(results: list[dict[str, Any]]) -> tuple[int, int]:
         match_name = result.get("match_name") or result.get("raw_title") or "Chuối Chiên TV"
         time_str = result.get("time") or ""
         blv = result.get("blv") or ""
+        sport_group = result.get("sport_group") or classify_sport(
+            result.get("sport_hint", ""),
+            result.get("card_text", ""),
+            match_name,
+            result.get("url", ""),
+        )
+        if sport_group not in SPORT_GROUP_RANK:
+            sport_group = "Khác"
         logo = choose_logo(
             [result.get("logo", "")] + list(result.get("team_logos") or []),
             result.get("url") or TARGET_URL,
@@ -986,43 +1240,102 @@ def write_outputs(results: list[dict[str, Any]]) -> tuple[int, int]:
             if kind:
                 display_name += f" [{kind.upper()}]"
 
-            attributes = 'group-title="Chuối Chiên TV"'
+            channel_id = channel_id_for(result, stream_url, index)
+            attributes = (
+                f'tvg-id="{escape_m3u_text(channel_id)}" '
+                f'tvg-name="{escape_m3u_text(display_base)}" '
+                f'group-title="{escape_m3u_text(sport_group)}"'
+            )
             if logo:
                 attributes += f' tvg-logo="{logo}"'
-            playlist_lines.append(f"#EXTINF:-1 {attributes},{display_name}")
+            extinf = f"#EXTINF:-1 {attributes},{display_name}"
 
-            # Các player khác nhau đọc các dòng header khác nhau. URL cuối phải để nguyên,
-            # tuyệt đối không nối |Referer=... vì VLC coi đó là một phần của URL.
-            playlist_lines.append(f"#EXTVLCOPT:http-referrer={referer}")
-            playlist_lines.append(f"#EXTVLCOPT:http-user-agent={user_agent}")
-            playlist_lines.append("#EXTVLCOPT:http-reconnect=true")
-            playlist_lines.append(f"#EXTHTTP:{header_json(user_agent, referer)}")
-            playlist_lines.append(stream_url)
+            common_options = [
+                extinf,
+                f"#EXTVLCOPT:http-referrer={referer}",
+                f"#EXTVLCOPT:http-user-agent={user_agent}",
+                "#EXTVLCOPT:http-reconnect=true",
+                f"#EXTHTTP:{header_json(user_agent, referer)}",
+            ]
+
+            android_lines.extend(common_options)
+            android_lines.append(android_stream_url(stream_url, user_agent, referer))
+
+            vlc_lines.extend(common_options)
+            vlc_lines.append(stream_url)
+            group_stream_counts[sport_group] += 1
             count_links += 1
 
     Path(OUTPUT_DEBUG).write_text(
         json.dumps(results, ensure_ascii=False, indent=2), encoding="utf-8"
     )
 
-    playlist_path = Path(OUTPUT_M3U)
+    android_path = Path(OUTPUT_M3U)
+    vlc_path = Path(OUTPUT_VLC_M3U)
     if count_links:
-        playlist_path.write_text("\n".join(playlist_lines) + "\n", encoding="utf-8")
-    elif playlist_path.exists():
-        print(f"⚠️ Không có link mới; giữ nguyên playlist cũ: {playlist_path.resolve()}")
+        android_path.write_text("\n".join(android_lines) + "\n", encoding="utf-8")
+        vlc_path.write_text("\n".join(vlc_lines) + "\n", encoding="utf-8")
     else:
-        playlist_path.write_text("#EXTM3U\n", encoding="utf-8")
-        print(f"⚠️ Chưa có playlist cũ; đã tạo playlist rỗng hợp lệ: {playlist_path.resolve()}")
+        if android_path.exists():
+            print(f"⚠️ Không có link mới; giữ nguyên playlist Android: {android_path.resolve()}")
+        else:
+            android_path.write_text("#EXTM3U\n", encoding="utf-8")
+            print(f"⚠️ Đã tạo playlist Android rỗng: {android_path.resolve()}")
+
+        if vlc_path.exists():
+            print(f"⚠️ Không có link mới; giữ nguyên playlist VLC: {vlc_path.resolve()}")
+        else:
+            vlc_path.write_text("#EXTM3U\n", encoding="utf-8")
+            print(f"⚠️ Đã tạo playlist VLC rỗng: {vlc_path.resolve()}")
 
     if count_links:
-        m3u8_count = sum(1 for line in playlist_lines if line.startswith("http") and stream_kind(line) == "m3u8")
-        flv_count = sum(1 for line in playlist_lines if line.startswith("http") and stream_kind(line) == "flv")
+        m3u8_count = sum(
+            1 for line in vlc_lines if line.startswith("http") and stream_kind(line) == "m3u8"
+        )
+        flv_count = sum(
+            1 for line in vlc_lines if line.startswith("http") and stream_kind(line) == "flv"
+        )
         print(f"📊 Playlist: M3U8={m3u8_count} | FLV={flv_count}")
+        group_summary = " | ".join(
+            f"{group}={group_stream_counts[group]}"
+            for group in SPORT_GROUP_ORDER if group_stream_counts[group]
+        )
+        print(f"📁 Nhóm playlist: {group_summary}")
+        print(f"📱 Android/TiviMate/OTT Navigator/IPTV Pro/Televizo: {android_path.resolve()}")
+        print(f"🖥️ VLC: {vlc_path.resolve()}")
 
     return len(match_keys_with_streams), count_links
 
 
+async def progress_heartbeat(tasks: list[asyncio.Task[Any]], total: int) -> None:
+    """In tiến trình đều đặn để GitHub Actions không đứng im trong lúc các tab đang chờ."""
+    started = time.monotonic()
+    try:
+        while True:
+            await asyncio.sleep(5)
+            completed = sum(task.done() for task in tasks)
+            if completed >= total:
+                return
+            active = min(CONCURRENCY_LIMIT, total - completed)
+            waiting = max(0, total - completed - active)
+            elapsed = int(time.monotonic() - started)
+            print(
+                f"⏳ Tiến trình realtime: xong {completed}/{total} | "
+                f"đang/chờ tối đa {active}/{waiting} | đã chạy {elapsed}s",
+                flush=True,
+            )
+    except asyncio.CancelledError:
+        return
+
+
 async def main() -> None:
-    print(f"🥷 KHỞI ĐỘNG CHUỐI CHIÊN STREAM SCANNER - {SCANNER_VERSION}")
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(line_buffering=True, write_through=True)
+        except Exception:
+            pass
+
+    print(f"🥷 KHỞI ĐỘNG CHUỐI CHIÊN STREAM SCANNER - {SCANNER_VERSION}", flush=True)
     print(
         "ℹ️ Test riêng một trận:\n"
         '   python main.py "https://live03.chuoichientv.me/live/1524177/capalaba-vs-holland-park-hawks"'
@@ -1070,6 +1383,8 @@ async def main() -> None:
                     "raw_time": "",
                     "logo": "",
                     "team_logos": [],
+                    "sport_hint": "",
+                    "sport_group": classify_sport(match_name, url),
                 })
             print(f"✅ Chế độ test trực tiếp: {len(links)} URL.")
         else:
@@ -1087,14 +1402,38 @@ async def main() -> None:
             f"Bắt đầu quét tối đa {CONCURRENCY_LIMIT} trang cùng lúc..."
         )
         semaphore = asyncio.Semaphore(CONCURRENCY_LIMIT)
-        results = await asyncio.gather(*[
-            fetch_stream(context, match, semaphore) for match in links
-        ])
+        total_links = len(links)
+        tasks: list[asyncio.Task[dict[str, Any]]] = []
+        for index, match in enumerate(links, start=1):
+            match["_scan_index"] = index
+            match["_scan_total"] = total_links
+            tasks.append(asyncio.create_task(fetch_stream(context, match, semaphore)))
+
+        heartbeat = asyncio.create_task(progress_heartbeat(tasks, total_links))
+        results: list[dict[str, Any]] = []
+        completed = 0
+        try:
+            for future in asyncio.as_completed(tasks):
+                result = await future
+                results.append(result)
+                completed += 1
+                found = len(result.get("streams") or [])
+                print(
+                    f"📈 Hoàn thành {completed}/{total_links}: "
+                    f"[{result.get('sport_group', 'Khác')}] "
+                    f"{result.get('match_name', '')[:70]} | stream={found}",
+                    flush=True,
+                )
+        finally:
+            heartbeat.cancel()
+            await asyncio.gather(heartbeat, return_exceptions=True)
+
         count_matches, count_links = write_outputs(results)
 
         if count_links:
             print(f"\n🎉 HOÀN TẤT: lấy được {count_links} link từ {count_matches} trận/phòng.")
-            print(f"📺 Playlist: {Path(OUTPUT_M3U).resolve()}")
+            print(f"📺 Playlist Android: {Path(OUTPUT_M3U).resolve()}")
+            print(f"📺 Playlist VLC: {Path(OUTPUT_VLC_M3U).resolve()}")
         else:
             print("\n❌ Không bắt được m3u8/flv nào.")
         print(f"🧾 Nhật ký chi tiết: {Path(OUTPUT_DEBUG).resolve()}")
