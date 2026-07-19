@@ -1,30 +1,36 @@
-name: Get Link M3U Auto
+name: Bot Quet Socolive
 
 on:
-  workflow_dispatch: # Cho phép nhấn nút chạy thủ công
+  workflow_dispatch: # Nút bấm chạy thủ công bằng tay
+
+permissions:
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: 1. Lấy code từ kho về
+        uses: actions/checkout@v4
 
-      - name: Cài đặt Python
-        uses: actions/setup-python@v4
+      - name: 2. Cài đặt Python
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.11'
 
-      - name: Cài đặt thư viện (Đã fix lỗi blinker)
-        run: pip install curl_cffi beautifulsoup4
+      - name: 3. Cài đặt Playwright
+        run: |
+          pip install playwright
+          playwright install chromium
 
-      - name: Chạy code lấy link m3u8
+      - name: 4. Kích hoạt Sát thủ quét link
         run: python main.py
 
-      - name: Lưu file m3u lên GitHub (Đã fix lỗi git add)
+      - name: 5. Lưu thành quả lên GitHub
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add .
-          git commit -m "Tự động cập nhật link m3u" || echo "Không có trận mới hoặc file không đổi"
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add socolive_live.m3u
+          git commit -m "Bot auto update link M3U" || exit 0
           git push
