@@ -1,4 +1,4 @@
-name: Bot Quet chuoichien v3.5.1
+name: Bot Quet chuoichien v3.6
 
 on:
   workflow_dispatch:
@@ -39,11 +39,15 @@ jobs:
           SOCOLIVE_HOME_WAIT_MS: "6000"
           SOCOLIVE_ROOM_WAIT_SECONDS: "25"
           SOCOLIVE_FULL_SCAN: "1"
+          SOCOLIVE_VERIFY_STREAMS: "1"
+          SOCOLIVE_VERIFY_TIMEOUT_SECONDS: "8"
+          SOCOLIVE_MAX_VERIFY_CANDIDATES: "6"
+          SOCOLIVE_MAX_OUTPUT_STREAMS_PER_MATCH: "4"
         run: |
           set -o pipefail
           python -u main.py 2>&1 | tee chuoichien_scan.log
 
-      - name: 5. Kiểm tra playlist và nhóm thể thao
+      - name: 5. Kiểm tra playlist, nhóm và độ tin cậy stream
         shell: bash
         run: |
           test -f chuoichien_live.m3u
@@ -118,6 +122,50 @@ jobs:
           echo "--- Kênh HD/FHD/4K ---"
           grep '^#EXTINF' chuoichien_live.m3u | grep -E '\[(HD|FHD|4K) (M3U8|FLV)\]' || true
 
+          echo "--- Audit xác minh stream phát thật ---"
+          python - <<'PY_VERIFY'
+          import json
+          from pathlib import Path
+
+          debug = Path("chuoichien_debug.json")
+          if not debug.exists():
+              raise SystemExit("::error::Thiếu chuoichien_debug.json")
+          rows = json.loads(debug.read_text(encoding="utf-8"))
+          output_count = 0
+          verified_count = 0
+          fallback_count = 0
+          oversized = []
+          body_only_output = []
+          malformed = []
+          for row in rows:
+              streams = row.get("streams") or []
+              output_count += len(streams)
+              if len(streams) > 4:
+                  oversized.append((row.get("match_name"), len(streams)))
+              for stream in streams:
+                  state = stream.get("playability")
+                  if state == "verified":
+                      verified_count += 1
+                  else:
+                      fallback_count += 1
+                  sources = stream.get("sources") or []
+                  if sources and all(source == "response/body" for source in sources):
+                      body_only_output.append(stream.get("url"))
+                  url = stream.get("url", "")
+                  if ".m3u8&autoplay=" in url or ".flv&autoplay=" in url:
+                      malformed.append(url)
+          print(f"Đầu ra={output_count} | verified={verified_count} | fallback={fallback_count}")
+          if oversized:
+              print("::error::Có trận vượt giới hạn 4 stream:", oversized)
+              raise SystemExit(1)
+          if body_only_output:
+              print("::error::Còn stream chỉ lấy từ response body toàn cục:", body_only_output)
+              raise SystemExit(1)
+          if malformed:
+              print("::error::Còn URL nối nhầm autoplay/isHome:", malformed)
+              raise SystemExit(1)
+          PY_VERIFY
+
           echo "--- Audit trận mẫu 1528034 nếu còn trên trang ---"
           python - <<'PY_AUDIT'
           import json
@@ -171,5 +219,5 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Fix logo, BLV and multi-quality streams v3.5.1"
+          git commit -m "Validate playable streams and remove global false positives v3.6"
           git push origin "HEAD:${GITHUB_REF_NAME}"
