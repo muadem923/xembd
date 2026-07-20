@@ -1,6 +1,6 @@
 {
   "version": "4.0.1-SINGLE-M3U",
-  "generated_at": "2026-07-20T23:35:34.820555+07:00",
+  "generated_at": "2026-07-21T00:05:13.207219+07:00",
   "policy": {
     "max_streams_per_match_blv": 2,
     "upcoming_keep_hours": 4,
@@ -12,8 +12,8 @@
       "label": "Chuối Chiên",
       "returncode": 0,
       "fresh": true,
-      "debug_rows": 6,
-      "playlist_blocks": 8,
+      "debug_rows": 5,
+      "playlist_blocks": 5,
       "included": true
     },
     {
@@ -21,67 +21,15 @@
       "label": "Lương Sơn",
       "returncode": 0,
       "fresh": true,
-      "debug_rows": 40,
-      "playlist_blocks": 14,
+      "debug_rows": 36,
+      "playlist_blocks": 13,
       "included": true
     }
   ],
-  "input_candidates": 22,
-  "selected_count": 21,
-  "dropped_count": 1,
+  "input_candidates": 18,
+  "selected_count": 18,
+  "dropped_count": 0,
   "channels": [
-    {
-      "source": "luongson",
-      "source_label": "Lương Sơn",
-      "url": "https://hls.cdnfaster-a.live/live/TONLAP/index.m3u8?expire=1788427256&sign=72cc58a29d787d621b0832b54e1a78df",
-      "match_key": "fk transinvest ii vs fk neptunas klaipeda|ton lap",
-      "display_name": "[20/07/2026 22:00] FK TRANSINVEST II vs FK NEPTUNAS KLAIPEDA [BLV TÔN LẬP] [M3U8]",
-      "group": "Bóng đá",
-      "quality": "UNKNOWN",
-      "kind": "m3u8",
-      "playability": "verified",
-      "score": 439,
-      "kickoff_iso": "2026-07-20T22:00:00+07:00"
-    },
-    {
-      "source": "chuoichien",
-      "source_label": "Chuối Chiên",
-      "url": "https://gckc0525.edgemaxcdn.org/live/chuoitieu.flv",
-      "match_key": "fs jelgava vs rigas fs|chuoi tieu",
-      "display_name": "[22:00 20/07] FS Jelgava vs Rīgas FS - VĐQG Latvia [BLV Chuối Tiêu] [FHD FLV]",
-      "group": "Bóng đá",
-      "quality": "FHD",
-      "kind": "flv",
-      "playability": "verified",
-      "score": 456,
-      "kickoff_iso": "2026-07-20T22:00:00+07:00"
-    },
-    {
-      "source": "chuoichien",
-      "source_label": "Chuối Chiên",
-      "url": "https://gckc0525.edgemaxcdn.org/live/chuoitieu/playlist.m3u8",
-      "match_key": "fs jelgava vs rigas fs|chuoi tieu",
-      "display_name": "[22:00 20/07] FS Jelgava vs Rīgas FS - VĐQG Latvia [BLV Chuối Tiêu] (Luồng 2) [M3U8]",
-      "group": "Bóng đá",
-      "quality": "UNKNOWN",
-      "kind": "m3u8",
-      "playability": "verified",
-      "score": 429,
-      "kickoff_iso": "2026-07-20T22:00:00+07:00"
-    },
-    {
-      "source": "luongson",
-      "source_label": "Lương Sơn",
-      "url": "https://hls.cdnfaster-a.live/live/NGUOITHEP/index.m3u8?expire=2556118740&sign=6d80f4e33c3761371f29a8ca0645fee5",
-      "match_key": "tps turku vs ilves tampere|nguoi thep",
-      "display_name": "[20/07/2026 22:00] TPS TURKU vs ILVES TAMPERE [BLV NGƯỜI THÉP] [M3U8]",
-      "group": "Bóng đá",
-      "quality": "UNKNOWN",
-      "kind": "m3u8",
-      "playability": "verified",
-      "score": 439,
-      "kickoff_iso": "2026-07-20T22:00:00+07:00"
-    },
     {
       "source": "chuoichien",
       "source_label": "Chuối Chiên",
@@ -96,24 +44,11 @@
       "kickoff_iso": "2026-07-20T22:30:00+07:00"
     },
     {
-      "source": "chuoichien",
-      "source_label": "Chuối Chiên",
-      "url": "https://gckc0525.edgemaxcdn.org/live/chuoibo/playlist.m3u8",
-      "match_key": "corvinul hunedoara vs csikszereda|chuoi bo",
-      "display_name": "[22:30 20/07] Corvinul Hunedoara vs Csikszereda - VĐQG Roma [BLV Chuối Bơ] (Luồng 2) [M3U8]",
-      "group": "Bóng đá",
-      "quality": "UNKNOWN",
-      "kind": "m3u8",
-      "playability": "verified",
-      "score": 429,
-      "kickoff_iso": "2026-07-20T22:30:00+07:00"
-    },
-    {
       "source": "luongson",
       "source_label": "Lương Sơn",
-      "url": "https://hls.cdnfaster-a.live/live/LUBO/index.m3u8?expire=1788427256&sign=fa2834495401eb5d1dc40ba2f3bd21c1",
-      "match_key": "corvinul hunedoara vs fk csikszereda miercurea ciuc|lu bo",
-      "display_name": "[20/07/2026 22:30] CORVINUL HUNEDOARA vs FK CSIKSZEREDA MIERCUREA CIUC [BLV Lữ Bố] [M3U8]",
+      "url": "https://hls.cdnfaster-a.live/live/YENTHANH1/index.m3u8?expire=1788427256&sign=a79cc8d996707223a0011d33d04d4582",
+      "match_key": "corvinul hunedoara vs fk csikszereda miercurea ciuc|yen thanh",
+      "display_name": "[20/07/2026 22:30] CORVINUL HUNEDOARA vs FK CSIKSZEREDA MIERCUREA CIUC [BLV YẾN THANH] [M3U8]",
       "group": "Bóng đá",
       "quality": "UNKNOWN",
       "kind": "m3u8",
@@ -124,9 +59,9 @@
     {
       "source": "luongson",
       "source_label": "Lương Sơn",
-      "url": "https://hls.cdnfaster-a.live/live/YENTHANH1/index.m3u8?expire=1788427256&sign=a79cc8d996707223a0011d33d04d4582",
-      "match_key": "corvinul hunedoara vs fk csikszereda miercurea ciuc|yen thanh",
-      "display_name": "[20/07/2026 22:30] CORVINUL HUNEDOARA vs FK CSIKSZEREDA MIERCUREA CIUC [BLV YẾN THANH] [M3U8]",
+      "url": "https://hls.cdnfaster-a.live/live/LUBO/index.m3u8?expire=1788427256&sign=fa2834495401eb5d1dc40ba2f3bd21c1",
+      "match_key": "corvinul hunedoara vs fk csikszereda miercurea ciuc|lu bo",
+      "display_name": "[20/07/2026 22:30] CORVINUL HUNEDOARA vs FK CSIKSZEREDA MIERCUREA CIUC [BLV Lữ Bố] [M3U8]",
       "group": "Bóng đá",
       "quality": "UNKNOWN",
       "kind": "m3u8",
@@ -202,9 +137,9 @@
     {
       "source": "luongson",
       "source_label": "Lương Sơn",
-      "url": "https://hls.cdnfaster-a.live/live/HEINEKEN/index.m3u8?expire=2530639860&sign=03a2e74c3447f79f8c6e80a8fa2ee0b6",
-      "match_key": "super nova vs grobina|heineken",
-      "display_name": "[20/07/2026 23:00] SUPER NOVA vs GROBINA [BLV Heineken] [M3U8]",
+      "url": "https://hls.cdnfaster-a.live/live/VOTONG/index.m3u8?expire=1891347600&sign=cbb47d2000b9576a7b34114624ff8299",
+      "match_key": "super nova vs grobina|vo tong",
+      "display_name": "[20/07/2026 23:00] SUPER NOVA vs GROBINA [BLV VÕ TÒNG] [M3U8]",
       "group": "Bóng đá",
       "quality": "UNKNOWN",
       "kind": "m3u8",
@@ -215,9 +150,9 @@
     {
       "source": "luongson",
       "source_label": "Lương Sơn",
-      "url": "https://hls.cdnfaster-a.live/live/VOTONG/index.m3u8?expire=1891347600&sign=cbb47d2000b9576a7b34114624ff8299",
-      "match_key": "super nova vs grobina|vo tong",
-      "display_name": "[20/07/2026 23:00] SUPER NOVA vs GROBINA [BLV VÕ TÒNG] [M3U8]",
+      "url": "https://hls.cdnfaster-a.live/live/HEINEKEN/index.m3u8?expire=2530639860&sign=03a2e74c3447f79f8c6e80a8fa2ee0b6",
+      "match_key": "super nova vs grobina|heineken",
+      "display_name": "[20/07/2026 23:00] SUPER NOVA vs GROBINA [BLV Heineken] [M3U8]",
       "group": "Bóng đá",
       "quality": "UNKNOWN",
       "kind": "m3u8",
@@ -236,6 +171,19 @@
       "kind": "flv",
       "playability": "verified",
       "score": 456,
+      "kickoff_iso": "2026-07-20T23:15:00+07:00"
+    },
+    {
+      "source": "luongson",
+      "source_label": "Lương Sơn",
+      "url": "https://hls.cdnfaster-a.live/live/VUONGLUAN/index.m3u8?expire=1893165900&sign=60fcb5252d4dafeac0cb5da922c56645",
+      "match_key": "slavia sofia vs cska sofia|vuong luan",
+      "display_name": "[20/07/2026 23:15] SLAVIA SOFIA vs CSKA SOFIA [BLV VƯƠNG LUÂN] [M3U8]",
+      "group": "Bóng đá",
+      "quality": "UNKNOWN",
+      "kind": "m3u8",
+      "playability": "verified",
+      "score": 439,
       "kickoff_iso": "2026-07-20T23:15:00+07:00"
     },
     {
@@ -263,6 +211,19 @@
       "playability": "verified",
       "score": 439,
       "kickoff_iso": "2026-07-20T23:30:00+07:00"
+    },
+    {
+      "source": "luongson",
+      "source_label": "Lương Sơn",
+      "url": "https://hls.cdnfaster-a.live/live/FERNANDO/index.m3u8?expire=1924930980&sign=bab24fb93b0be5c98af9138659989bcb",
+      "match_key": "kalmar vs malmo ff|fernando",
+      "display_name": "[21/07/2026 00:00] KALMAR vs MALMO FF [BLV Fernando] [M3U8]",
+      "group": "Bóng đá",
+      "quality": "UNKNOWN",
+      "kind": "m3u8",
+      "playability": "verified",
+      "score": 439,
+      "kickoff_iso": "2026-07-21T00:00:00+07:00"
     },
     {
       "source": "luongson",
@@ -304,13 +265,6 @@
       "kickoff_iso": "2026-07-21T01:30:00+07:00"
     }
   ],
-  "dropped": [
-    {
-      "url": "https://hls.cdnfaster-a.live/live/VUONGLUAN/index.m3u8?expire=1893165900&sign=60fcb5252d4dafeac0cb5da922c56645",
-      "reason": "duplicate-quality-UNKNOWN",
-      "source": "luongson",
-      "match_key": "slavia sofia vs cska sofia|ma sieu"
-    }
-  ],
+  "dropped": [],
   "outputs_written": true
 }
