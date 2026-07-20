@@ -49,7 +49,7 @@ SOURCES = {
         pipe=ROOT / "hygenie_live_pipe.m3u",
         vlc=ROOT / "hygenie_live_vlc.m3u",
         debug=ROOT / "hygenie_debug.json",
-        host_markers=("hygenie.io",),
+        host_markers=("hygenie.io", "catbee.io"),
     ),
 }
 
