@@ -1,6 +1,6 @@
 {
   "version": "4.0.1-SINGLE-M3U",
-  "generated_at": "2026-07-20T14:04:26.911353+07:00",
+  "generated_at": "2026-07-20T15:04:05.966033+07:00",
   "policy": {
     "max_streams_per_match_blv": 2,
     "upcoming_keep_hours": 4,
@@ -21,36 +21,42 @@
       "label": "Lương Sơn",
       "returncode": 0,
       "fresh": true,
-      "debug_rows": 23,
+      "debug_rows": 20,
       "playlist_blocks": 2,
       "included": true
     }
   ],
   "input_candidates": 2,
-  "selected_count": 1,
-  "dropped_count": 1,
+  "selected_count": 2,
+  "dropped_count": 0,
   "channels": [
     {
       "source": "luongson",
       "source_label": "Lương Sơn",
-      "url": "https://hls.cdnfaster-a.live/live/LUUBI/index.m3u8?expire=1788427256&sign=e15f8b184dc9c61cc5dacfd962841ae1",
-      "match_key": "shandong jinghua ii w vs shanxi xihua w|pele",
-      "display_name": "[20/07/2026 13:00] SHANDONG JINGHUA II W vs SHANXI XIHUA W [BLV Pele] [M3U8]",
+      "url": "https://hls.cdnfaster-a.live/live/VOTONG/index.m3u8?expire=1891347600&sign=cbb47d2000b9576a7b34114624ff8299",
+      "match_key": "dalian football school w vs wuhan three towns martial arts w|vo tong",
+      "display_name": "[20/07/2026 15:30] DALIAN FOOTBALL SCHOOL(W) vs WUHAN THREE TOWNS MARTIAL ARTS (W) [BLV VÕ TÒNG] [M3U8]",
       "group": "Bóng đá",
       "quality": "UNKNOWN",
       "kind": "m3u8",
       "playability": "verified",
       "score": 439,
-      "kickoff_iso": "2026-07-20T13:00:00+07:00"
-    }
-  ],
-  "dropped": [
+      "kickoff_iso": "2026-07-20T15:30:00+07:00"
+    },
     {
-      "url": "https://hls.cdnfaster-a.live/live/NGUCA/index.m3u8?expire=1788427256&sign=abf9c93edd0de1c833f9ffc14381d526",
-      "reason": "duplicate-quality-UNKNOWN",
       "source": "luongson",
-      "match_key": "shandong jinghua ii w vs shanxi xihua w|pele"
+      "source_label": "Lương Sơn",
+      "url": "https://hls.cdnfaster-a.live/live/TAOTHAO/index.m3u8?expire=1917964380&sign=6379fc6251248341f0547089859f8ee9",
+      "match_key": "t t hanoi u21 vs cong an ha noi u21|tao thao",
+      "display_name": "[20/07/2026 15:30] T T HANOI U21 vs CONG AN HA NOI U21 [BLV TÀO THÁO] [M3U8]",
+      "group": "Bóng đá",
+      "quality": "UNKNOWN",
+      "kind": "m3u8",
+      "playability": "verified",
+      "score": 439,
+      "kickoff_iso": "2026-07-20T15:30:00+07:00"
     }
   ],
+  "dropped": [],
   "outputs_written": true
 }
