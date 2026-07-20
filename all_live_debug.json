@@ -1,6 +1,6 @@
 {
   "version": "4.0.1-SINGLE-M3U",
-  "generated_at": "2026-07-20T11:39:30.707768+07:00",
+  "generated_at": "2026-07-20T12:01:06.638777+07:00",
   "policy": {
     "max_streams_per_match_blv": 2,
     "upcoming_keep_hours": 4,
@@ -21,29 +21,15 @@
       "label": "Lương Sơn",
       "returncode": 0,
       "fresh": true,
-      "debug_rows": 10,
-      "playlist_blocks": 1,
-      "included": true
+      "debug_rows": 0,
+      "playlist_blocks": 0,
+      "included": false
     }
   ],
-  "input_candidates": 1,
-  "selected_count": 1,
+  "input_candidates": 0,
+  "selected_count": 0,
   "dropped_count": 0,
-  "channels": [
-    {
-      "source": "luongson",
-      "source_label": "Lương Sơn",
-      "url": "https://hls.cdnfaster-a.live/live/TEST/index.m3u8?expire=1788427256&sign=47963ed63da3360fd84dccfb53a2c83c",
-      "match_key": "tay ban nha vs argentina|kaka replay",
-      "display_name": "[20/07/2026 09:40] TÂY BAN NHA vs ARGENTINA [BLV KAKA REPLAY] [M3U8]",
-      "group": "Bóng đá",
-      "quality": "UNKNOWN",
-      "kind": "m3u8",
-      "playability": "verified",
-      "score": 439,
-      "kickoff_iso": "2026-07-20T09:40:00+07:00"
-    }
-  ],
+  "channels": [],
   "dropped": [],
-  "outputs_written": true
+  "outputs_written": false
 }
