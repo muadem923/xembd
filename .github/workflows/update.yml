@@ -1,4 +1,4 @@
-name: Quet Chuoi Chien va Luong Son v4.0.1 - One M3U
+name: Quet Chuoi Chien va Luong Son v4.1.0 - Time Window
 
 on:
   workflow_dispatch:
@@ -45,29 +45,36 @@ jobs:
         shell: bash
         env:
           PYTHONUNBUFFERED: "1"
+          MULTI_RUN_SOURCES_PARALLEL: "1"
           MULTI_MAX_STREAMS_PER_MATCH: "2"
-          MULTI_UPCOMING_KEEP_HOURS: "3"
+          MULTI_UPCOMING_KEEP_HOURS: "4"
 
-          SOCOLIVE_MATCH_CONCURRENCY: "4"
+          SOCOLIVE_MATCH_CONCURRENCY: "3"
           SOCOLIVE_HOME_WAIT_MS: "5000"
-          SOCOLIVE_ROOM_WAIT_SECONDS: "25"
+          SOCOLIVE_ROOM_WAIT_SECONDS: "20"
+          SOCOLIVE_SCAN_PAST_MINUTES: "180"
+          SOCOLIVE_SCAN_FUTURE_MINUTES: "240"
+          SOCOLIVE_SCAN_UNKNOWN_LIVE: "1"
           SOCOLIVE_FULL_SCAN: "1"
           SOCOLIVE_VERIFY_STREAMS: "1"
-          SOCOLIVE_VERIFY_TIMEOUT_SECONDS: "8"
-          SOCOLIVE_MAX_VERIFY_CANDIDATES: "6"
+          SOCOLIVE_VERIFY_TIMEOUT_SECONDS: "6"
+          SOCOLIVE_MAX_VERIFY_CANDIDATES: "4"
           SOCOLIVE_MAX_OUTPUT_STREAMS_PER_MATCH: "2"
-          SOCOLIVE_UPCOMING_KEEP_HOURS: "3"
+          SOCOLIVE_UPCOMING_KEEP_HOURS: "4"
           SOCOLIVE_KEEP_PREVIOUS_UNVERIFIED: "0"
           SOCOLIVE_ALLOW_UNVERIFIED_BROWSER_FALLBACK: "0"
 
-          HYGENIE_MATCH_CONCURRENCY: "4"
+          HYGENIE_MATCH_CONCURRENCY: "3"
           HYGENIE_HOME_WAIT_MS: "6000"
-          HYGENIE_ROOM_WAIT_SECONDS: "25"
+          HYGENIE_ROOM_WAIT_SECONDS: "20"
+          HYGENIE_SCAN_PAST_MINUTES: "120"
+          HYGENIE_SCAN_FUTURE_MINUTES: "240"
+          HYGENIE_SCAN_UNKNOWN_LIVE: "1"
           HYGENIE_FULL_SCAN: "1"
           HYGENIE_VERIFY_STREAMS: "1"
-          HYGENIE_VERIFY_TIMEOUT_SECONDS: "8"
-          HYGENIE_MAX_VERIFY_CANDIDATES: "6"
-          HYGENIE_MAX_OUTPUT_STREAMS_PER_MATCH: "4"
+          HYGENIE_VERIFY_TIMEOUT_SECONDS: "6"
+          HYGENIE_MAX_VERIFY_CANDIDATES: "4"
+          HYGENIE_MAX_OUTPUT_STREAMS_PER_MATCH: "2"
         run: |
           set -o pipefail
           python -u main.py 2>&1 | tee multi_source_scan.log
@@ -100,6 +107,21 @@ jobs:
           failures = []
           urls = []
           per_match_quality = Counter()
+
+          # Scanner phải lọc TRƯỚC khi mở trang trận: -120 phút đến +240 phút.
+          for debug_name in ("chuoichien_debug.json", "hygenie_debug.json"):
+              debug_path = Path(debug_name)
+              if not debug_path.exists():
+                  continue
+              payload = json.loads(debug_path.read_text(encoding="utf-8"))
+              rows = payload if isinstance(payload, list) else payload.get("results", [])
+              for row in rows:
+                  delta = row.get("minutes_to_kickoff")
+                  reason = row.get("scan_window_reason", "")
+                  if isinstance(delta, int) and not (-120 <= delta <= 240):
+                      failures.append(f"{debug_name}: quét ngoài cửa sổ {delta} phút: {row.get('url')}")
+                  if delta is None and reason not in {"unknown-time-live", ""}:
+                      failures.append(f"{debug_name}: lý do giờ không hợp lệ {reason}: {row.get('url')}")
 
           for channel in report.get("channels", []):
               url = channel.get("url", "")
@@ -173,5 +195,5 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Update combined live streams v4.0.1 (single M3U)"
+          git commit -m "Update combined live streams v4.1.0 (time window)"
           git push origin "HEAD:${GITHUB_REF_NAME}"
