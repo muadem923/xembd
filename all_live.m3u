@@ -1,13 +1,13 @@
 #EXTM3U
-#EXTINF:-1 tvg-id="hygenie-ae2224a7dad2-328-1" tvg-name="[20/07/2026 15:30] DALIAN FOOTBALL SCHOOL(W) vs WUHAN THREE TOWNS MARTIAL ARTS (W) [BLV VÕ TÒNG]" group-title="Bóng đá" tvg-logo="https://cdn-img.cdnokvip.com/logos/61797_1k28xd5f3613.png",[20/07/2026 15:30] DALIAN FOOTBALL SCHOOL(W) vs WUHAN THREE TOWNS MARTIAL ARTS (W) [BLV VÕ TÒNG] [M3U8]
-#EXTVLCOPT:http-referrer=https://hygenie.io/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTINF:-1 tvg-id="chuoichien-1515885-1" tvg-name="[22:00 20/07] FS Jelgava vs Rīgas FS - VĐQG Latvia [BLV Chuối Tiêu]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_132554_aedaa92f.png",[22:00 20/07] FS Jelgava vs Rīgas FS - VĐQG Latvia [BLV Chuối Tiêu] [FHD FLV]
+#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://hygenie.io/","Origin":"https://hygenie.io"}
-https://hls.cdnfaster-a.live/live/VOTONG/index.m3u8?expire=1891347600&sign=cbb47d2000b9576a7b34114624ff8299
-#EXTINF:-1 tvg-id="hygenie-66e38453e935-383-1" tvg-name="[20/07/2026 15:30] T T HANOI U21 vs CONG AN HA NOI U21 [BLV TÀO THÁO]" group-title="Bóng đá" tvg-logo="https://cdn-img.cdnokvip.com/logos/23285_167169925734.png",[20/07/2026 15:30] T T HANOI U21 vs CONG AN HA NOI U21 [BLV TÀO THÁO] [M3U8]
-#EXTVLCOPT:http-referrer=https://hygenie.io/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
+https://gckc0525.edgemaxcdn.org/live/chuoitieu.flv
+#EXTINF:-1 tvg-id="chuoichien-1515885-2" tvg-name="[22:00 20/07] FS Jelgava vs Rīgas FS - VĐQG Latvia [BLV Chuối Tiêu]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_132554_aedaa92f.png",[22:00 20/07] FS Jelgava vs Rīgas FS - VĐQG Latvia [BLV Chuối Tiêu] (Luồng 2) [M3U8]
+#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://hygenie.io/","Origin":"https://hygenie.io"}
-https://hls.cdnfaster-a.live/live/TAOTHAO/index.m3u8?expire=1917964380&sign=6379fc6251248341f0547089859f8ee9
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
+https://gckc0525.edgemaxcdn.org/live/chuoitieu/playlist.m3u8
