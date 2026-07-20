@@ -1,4 +1,4 @@
-name: Quet Chuoi Chien va Luong Son v4.1.0 - Time Window
+name: Quet Chuoi Chien va Luong Son v4.2.0 - Domain Failover
 
 on:
   workflow_dispatch:
@@ -8,12 +8,12 @@ permissions:
 
 concurrency:
   group: multi-source-live-${{ github.ref }}
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 75
+    timeout-minutes: 45
 
     steps:
       - name: 1. Lay code tu kho ve
@@ -49,10 +49,11 @@ jobs:
           MULTI_MAX_STREAMS_PER_MATCH: "2"
           MULTI_UPCOMING_KEEP_HOURS: "4"
 
+          SOCOLIVE_HOME_URLS: "https://live04.chuoichientv.me/,https://live03.chuoichientv.me/"
           SOCOLIVE_MATCH_CONCURRENCY: "3"
           SOCOLIVE_HOME_WAIT_MS: "5000"
           SOCOLIVE_ROOM_WAIT_SECONDS: "20"
-          SOCOLIVE_SCAN_PAST_MINUTES: "180"
+          SOCOLIVE_SCAN_PAST_MINUTES: "120"
           SOCOLIVE_SCAN_FUTURE_MINUTES: "240"
           SOCOLIVE_SCAN_UNKNOWN_LIVE: "1"
           SOCOLIVE_FULL_SCAN: "1"
@@ -61,13 +62,17 @@ jobs:
           SOCOLIVE_MAX_VERIFY_CANDIDATES: "4"
           SOCOLIVE_MAX_OUTPUT_STREAMS_PER_MATCH: "2"
           SOCOLIVE_UPCOMING_KEEP_HOURS: "4"
+          SOCOLIVE_UPCOMING_FAR_THRESHOLD_MINUTES: "45"
+          SOCOLIVE_UPCOMING_FAR_WAIT_SECONDS: "7"
+          SOCOLIVE_UPCOMING_NEAR_WAIT_SECONDS: "12"
           SOCOLIVE_KEEP_PREVIOUS_UNVERIFIED: "0"
           SOCOLIVE_ALLOW_UNVERIFIED_BROWSER_FALLBACK: "0"
 
+          HYGENIE_HOME_URLS: "https://catbee.io/,https://hygenie.io/"
           HYGENIE_MATCH_CONCURRENCY: "3"
           HYGENIE_HOME_WAIT_MS: "6000"
           HYGENIE_ROOM_WAIT_SECONDS: "20"
-          HYGENIE_SCAN_PAST_MINUTES: "180"
+          HYGENIE_SCAN_PAST_MINUTES: "120"
           HYGENIE_SCAN_FUTURE_MINUTES: "240"
           HYGENIE_SCAN_UNKNOWN_LIVE: "1"
           HYGENIE_FULL_SCAN: "1"
@@ -75,6 +80,9 @@ jobs:
           HYGENIE_VERIFY_TIMEOUT_SECONDS: "6"
           HYGENIE_MAX_VERIFY_CANDIDATES: "4"
           HYGENIE_MAX_OUTPUT_STREAMS_PER_MATCH: "2"
+          HYGENIE_UPCOMING_FAR_THRESHOLD_MINUTES: "45"
+          HYGENIE_UPCOMING_FAR_WAIT_SECONDS: "7"
+          HYGENIE_UPCOMING_NEAR_WAIT_SECONDS: "12"
         run: |
           set -o pipefail
           python -u main.py 2>&1 | tee multi_source_scan.log
@@ -195,5 +203,5 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Update combined live streams v4.1.0 (time window)"
+          git commit -m "Update combined live streams v4.2.0 (domain failover)"
           git push origin "HEAD:${GITHUB_REF_NAME}"
