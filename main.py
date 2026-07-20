@@ -39,7 +39,7 @@ SOURCES = {
         pipe=ROOT / "chuoichien_live_pipe.m3u",
         vlc=ROOT / "chuoichien_live_vlc.m3u",
         debug=ROOT / "chuoichien_debug.json",
-        host_markers=("chuoichientv.me", "chuoichien.tv"),
+        host_markers=("chuoichientv.me", "live04.chuoichientv.me", "chuoichien.tv"),
     ),
     "luongson": SourceConfig(
         key="luongson",
