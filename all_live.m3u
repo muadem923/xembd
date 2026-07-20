@@ -1,49 +1,7 @@
 #EXTM3U
-#EXTINF:-1 tvg-id="hygenie-c8834d73875a-377-1" tvg-name="[20/07/2026 04:45] GUAYAQUIL CITY vs MANTA FC [BLV PHI HỔ]" group-title="Bóng đá" tvg-logo="https://cdn-img.cdnokvip.com/logos/21673_1gt31t5xqg20.png",[20/07/2026 04:45] GUAYAQUIL CITY vs MANTA FC [BLV PHI HỔ] [M3U8]
+#EXTINF:-1 tvg-id="hygenie-668039be5747-1" tvg-name="[20/07/2026 09:40] TÂY BAN NHA vs ARGENTINA [BLV KAKA REPLAY]" group-title="Bóng đá" tvg-logo="https://upload-img.cdnokvip.com/uploads/team_logo/1784514443.png",[20/07/2026 09:40] TÂY BAN NHA vs ARGENTINA [BLV KAKA REPLAY] [M3U8]
 #EXTVLCOPT:http-referrer=https://hygenie.io/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://hygenie.io/","Origin":"https://hygenie.io"}
-https://hls.cdnfaster-a.live/live/PHIHO/index.m3u8?expire=2556118740&sign=ebc20a588b7a62eb65d12f7372d39a3f
-#EXTINF:-1 tvg-id="hygenie-c8834d73875a-372-1" tvg-name="[20/07/2026 04:45] GUAYAQUIL CITY vs MANTA FC [BLV LÃO HẠC]" group-title="Bóng đá" tvg-logo="https://cdn-img.cdnokvip.com/logos/21673_1gt31t5xqg20.png",[20/07/2026 04:45] GUAYAQUIL CITY vs MANTA FC [BLV LÃO HẠC] [M3U8]
-#EXTVLCOPT:http-referrer=https://hygenie.io/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://hygenie.io/","Origin":"https://hygenie.io"}
-https://hls.cdnfaster-a.live/live/LAOHAC/index.m3u8?expire=2556118740&sign=d7e003f1201f61166a559ac474dc7491
-#EXTINF:-1 tvg-id="hygenie-37bc76bdbc55-135-1" tvg-name="[20/07/2026 05:00] CONNECTICUT UNITED FC vs NEW YORK RED BULLS B [BLV LƯU BỊ]" group-title="Bóng đá" tvg-logo="https://hygenie.io/truc-tiep/connecticut-united-fc-vs-new-york-red-bulls-b-vao-luc-0500-20-07-2026/?blv=135",[20/07/2026 05:00] CONNECTICUT UNITED FC vs NEW YORK RED BULLS B [BLV LƯU BỊ] [M3U8]
-#EXTVLCOPT:http-referrer=https://hygenie.io/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://hygenie.io/","Origin":"https://hygenie.io"}
-https://hls.cdnfaster-a.live/live/LUUBI/index.m3u8?expire=1788427256&sign=e15f8b184dc9c61cc5dacfd962841ae1
-#EXTINF:-1 tvg-id="hygenie-37bc76bdbc55-218-1" tvg-name="[20/07/2026 05:00] CONNECTICUT UNITED FC vs NEW YORK RED BULLS B [BLV Kaka]" group-title="Bóng đá" tvg-logo="https://hygenie.io/truc-tiep/connecticut-united-fc-vs-new-york-red-bulls-b-vao-luc-0500-20-07-2026/?blv=218",[20/07/2026 05:00] CONNECTICUT UNITED FC vs NEW YORK RED BULLS B [BLV Kaka] [M3U8]
-#EXTVLCOPT:http-referrer=https://hygenie.io/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://hygenie.io/","Origin":"https://hygenie.io"}
-https://hls.cdnfaster-a.live/live/KAKA/index.m3u8?expire=1788427256&sign=c34e1c9b22c9ced94eca7e7bf7a81ae6
-#EXTINF:-1 tvg-id="hygenie-7b7d03f5ce46-320-1" tvg-name="[20/07/2026 05:30] RAPTORS vs DENVER NUGGETS [BLV YẾN THANH]" group-title="Bóng đá" tvg-logo="https://upload-img.cdnokvip.com/uploads/team_logo/1784491117.png",[20/07/2026 05:30] RAPTORS vs DENVER NUGGETS [BLV YẾN THANH] [M3U8]
-#EXTVLCOPT:http-referrer=https://hygenie.io/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://hygenie.io/","Origin":"https://hygenie.io"}
-https://hls.cdnfaster-a.live/live/YENTHANH1/index.m3u8?expire=1788427256&sign=a79cc8d996707223a0011d33d04d4582
-#EXTINF:-1 tvg-id="hygenie-ea754194b34b-1" tvg-name="[20/07/2026 06:00] BOSTON LEGACY W vs WASHINGTON SPIRIT (W) [BLV VÕ TÒNG]" group-title="Bóng đá" tvg-logo="https://hygenie.io/truc-tiep/boston-legacy-w-vs-washington-spirit-w-vao-luc-0600-20-07-2026/",[20/07/2026 06:00] BOSTON LEGACY W vs WASHINGTON SPIRIT (W) [BLV VÕ TÒNG] [M3U8]
-#EXTVLCOPT:http-referrer=https://hygenie.io/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://hygenie.io/","Origin":"https://hygenie.io"}
-https://hls.cdnfaster-a.live/live/VOTONG/index.m3u8?expire=1891347600&sign=cbb47d2000b9576a7b34114624ff8299
-#EXTINF:-1 tvg-id="hygenie-61fa4b26ee41-324-1" tvg-name="[20/07/2026 06:00] PHOENIX MERCURY W vs CONNECTICUT SUN W [BLV LÝ QUỲ]" group-title="Bóng đá" tvg-logo="https://upload-img.cdnokvip.com/uploads/team_logo/1784491275.png",[20/07/2026 06:00] PHOENIX MERCURY W vs CONNECTICUT SUN W [BLV LÝ QUỲ] [M3U8]
-#EXTVLCOPT:http-referrer=https://hygenie.io/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://hygenie.io/","Origin":"https://hygenie.io"}
-https://hls.cdnfaster-a.live/live/LYQUY/index.m3u8?expire=1891408380&sign=4eb9451ad0178fa8207d583db7d469e3
-#EXTINF:-1 tvg-id="hygenie-d9cc1e89d5d6-135-1" tvg-name="[20/07/2026 13:00] SHANGHAI SHENHUA W vs SHANGHAI JIADING HUILONG B W [BLV LƯU BỊ]" group-title="Bóng đá" tvg-logo="https://cdn-img.cdnokvip.com/logos/61788_1gzzwznehk1c.png",[20/07/2026 13:00] SHANGHAI SHENHUA W vs SHANGHAI JIADING HUILONG B W [BLV LƯU BỊ] [M3U8]
-#EXTVLCOPT:http-referrer=https://ls96.site/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://ls96.site/","Origin":"https://ls96.site"}
-https://tvc.cdnfaster-a.live/playlist.m3u8
+https://hls.cdnfaster-a.live/live/TEST/index.m3u8?expire=1788427256&sign=47963ed63da3360fd84dccfb53a2c83c

@@ -1,9 +1,9 @@
 {
   "version": "4.0.1-SINGLE-M3U",
-  "generated_at": "2026-07-20T06:14:10.547702+07:00",
+  "generated_at": "2026-07-20T11:39:30.707768+07:00",
   "policy": {
     "max_streams_per_match_blv": 2,
-    "upcoming_keep_hours": 3,
+    "upcoming_keep_hours": 4,
     "requires_verified_or_observed": true
   },
   "sources": [
@@ -12,136 +12,38 @@
       "label": "Chuối Chiên",
       "returncode": 0,
       "fresh": true,
-      "debug_rows": 9,
+      "debug_rows": 0,
       "playlist_blocks": 0,
-      "included": true
+      "included": false
     },
     {
       "key": "luongson",
       "label": "Lương Sơn",
       "returncode": 0,
       "fresh": true,
-      "debug_rows": 91,
-      "playlist_blocks": 9,
+      "debug_rows": 10,
+      "playlist_blocks": 1,
       "included": true
     }
   ],
-  "input_candidates": 9,
-  "selected_count": 8,
-  "dropped_count": 1,
+  "input_candidates": 1,
+  "selected_count": 1,
+  "dropped_count": 0,
   "channels": [
     {
       "source": "luongson",
       "source_label": "Lương Sơn",
-      "url": "https://hls.cdnfaster-a.live/live/PHIHO/index.m3u8?expire=2556118740&sign=ebc20a588b7a62eb65d12f7372d39a3f",
-      "match_key": "guayaquil city vs manta fc|phi ho",
-      "display_name": "[20/07/2026 04:45] GUAYAQUIL CITY vs MANTA FC [BLV PHI HỔ] [M3U8]",
+      "url": "https://hls.cdnfaster-a.live/live/TEST/index.m3u8?expire=1788427256&sign=47963ed63da3360fd84dccfb53a2c83c",
+      "match_key": "tay ban nha vs argentina|kaka replay",
+      "display_name": "[20/07/2026 09:40] TÂY BAN NHA vs ARGENTINA [BLV KAKA REPLAY] [M3U8]",
       "group": "Bóng đá",
       "quality": "UNKNOWN",
       "kind": "m3u8",
       "playability": "verified",
       "score": 439,
-      "kickoff_iso": "2026-07-20T04:45:00+07:00"
-    },
-    {
-      "source": "luongson",
-      "source_label": "Lương Sơn",
-      "url": "https://hls.cdnfaster-a.live/live/LAOHAC/index.m3u8?expire=2556118740&sign=d7e003f1201f61166a559ac474dc7491",
-      "match_key": "guayaquil city vs manta fc|lao hac",
-      "display_name": "[20/07/2026 04:45] GUAYAQUIL CITY vs MANTA FC [BLV LÃO HẠC] [M3U8]",
-      "group": "Bóng đá",
-      "quality": "UNKNOWN",
-      "kind": "m3u8",
-      "playability": "verified",
-      "score": 439,
-      "kickoff_iso": "2026-07-20T04:45:00+07:00"
-    },
-    {
-      "source": "luongson",
-      "source_label": "Lương Sơn",
-      "url": "https://hls.cdnfaster-a.live/live/LUUBI/index.m3u8?expire=1788427256&sign=e15f8b184dc9c61cc5dacfd962841ae1",
-      "match_key": "connecticut united fc vs new york red bulls b|luu bi",
-      "display_name": "[20/07/2026 05:00] CONNECTICUT UNITED FC vs NEW YORK RED BULLS B [BLV LƯU BỊ] [M3U8]",
-      "group": "Bóng đá",
-      "quality": "UNKNOWN",
-      "kind": "m3u8",
-      "playability": "verified",
-      "score": 439,
-      "kickoff_iso": "2026-07-20T05:00:00+07:00"
-    },
-    {
-      "source": "luongson",
-      "source_label": "Lương Sơn",
-      "url": "https://hls.cdnfaster-a.live/live/KAKA/index.m3u8?expire=1788427256&sign=c34e1c9b22c9ced94eca7e7bf7a81ae6",
-      "match_key": "connecticut united fc vs new york red bulls b|kaka",
-      "display_name": "[20/07/2026 05:00] CONNECTICUT UNITED FC vs NEW YORK RED BULLS B [BLV Kaka] [M3U8]",
-      "group": "Bóng đá",
-      "quality": "UNKNOWN",
-      "kind": "m3u8",
-      "playability": "verified",
-      "score": 439,
-      "kickoff_iso": "2026-07-20T05:00:00+07:00"
-    },
-    {
-      "source": "luongson",
-      "source_label": "Lương Sơn",
-      "url": "https://hls.cdnfaster-a.live/live/YENTHANH1/index.m3u8?expire=1788427256&sign=a79cc8d996707223a0011d33d04d4582",
-      "match_key": "raptors vs denver nuggets|yen thanh",
-      "display_name": "[20/07/2026 05:30] RAPTORS vs DENVER NUGGETS [BLV YẾN THANH] [M3U8]",
-      "group": "Bóng đá",
-      "quality": "UNKNOWN",
-      "kind": "m3u8",
-      "playability": "verified",
-      "score": 439,
-      "kickoff_iso": "2026-07-20T05:30:00+07:00"
-    },
-    {
-      "source": "luongson",
-      "source_label": "Lương Sơn",
-      "url": "https://hls.cdnfaster-a.live/live/VOTONG/index.m3u8?expire=1891347600&sign=cbb47d2000b9576a7b34114624ff8299",
-      "match_key": "boston legacy w vs washington spirit w|vo tong",
-      "display_name": "[20/07/2026 06:00] BOSTON LEGACY W vs WASHINGTON SPIRIT (W) [BLV VÕ TÒNG] [M3U8]",
-      "group": "Bóng đá",
-      "quality": "UNKNOWN",
-      "kind": "m3u8",
-      "playability": "verified",
-      "score": 439,
-      "kickoff_iso": "2026-07-20T06:00:00+07:00"
-    },
-    {
-      "source": "luongson",
-      "source_label": "Lương Sơn",
-      "url": "https://hls.cdnfaster-a.live/live/LYQUY/index.m3u8?expire=1891408380&sign=4eb9451ad0178fa8207d583db7d469e3",
-      "match_key": "phoenix mercury w vs connecticut sun w|ly quy",
-      "display_name": "[20/07/2026 06:00] PHOENIX MERCURY W vs CONNECTICUT SUN W [BLV LÝ QUỲ] [M3U8]",
-      "group": "Bóng đá",
-      "quality": "UNKNOWN",
-      "kind": "m3u8",
-      "playability": "verified",
-      "score": 439,
-      "kickoff_iso": "2026-07-20T06:00:00+07:00"
-    },
-    {
-      "source": "luongson",
-      "source_label": "Lương Sơn",
-      "url": "https://tvc.cdnfaster-a.live/playlist.m3u8",
-      "match_key": "shanghai shenhua w vs shanghai jiading huilong b w|luu bi",
-      "display_name": "[20/07/2026 13:00] SHANGHAI SHENHUA W vs SHANGHAI JIADING HUILONG B W [BLV LƯU BỊ] [M3U8]",
-      "group": "Bóng đá",
-      "quality": "UNKNOWN",
-      "kind": "m3u8",
-      "playability": "verified",
-      "score": 429,
-      "kickoff_iso": "2026-07-20T13:00:00+07:00"
+      "kickoff_iso": "2026-07-20T09:40:00+07:00"
     }
   ],
-  "dropped": [
-    {
-      "url": "https://hls.cdnfaster-a.live/live/NGUOITHEP/index.m3u8?expire=2556118740&sign=6d80f4e33c3761371f29a8ca0645fee5",
-      "reason": "duplicate-quality-UNKNOWN",
-      "source": "luongson",
-      "match_key": "connecticut united fc vs new york red bulls b|luu bi"
-    }
-  ],
+  "dropped": [],
   "outputs_written": true
 }
