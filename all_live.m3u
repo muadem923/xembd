@@ -1,13 +1,25 @@
 #EXTM3U
-#EXTINF:-1 tvg-id="chuoichien-1515885-1" tvg-name="[22:00 20/07] FS Jelgava vs Rīgas FS - VĐQG Latvia [BLV Chuối Tiêu]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_132554_aedaa92f.png",[22:00 20/07] FS Jelgava vs Rīgas FS - VĐQG Latvia [BLV Chuối Tiêu] [FHD FLV]
+#EXTINF:-1 tvg-id="chuoichien-1515885-1" tvg-name="[22:00 20/07] FS Jelgava vs Rīgas FS - VĐQG Latvia [BLV trực tiếp: Chuối Tiêu Trận đấu FS Jelgav]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_125700_2fd9b5bd.png",[22:00 20/07] FS Jelgava vs Rīgas FS - VĐQG Latvia [BLV trực tiếp: Chuối Tiêu Trận đấu FS Jelgav] [FHD FLV]
 #EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
 https://gckc0525.edgemaxcdn.org/live/chuoitieu.flv
-#EXTINF:-1 tvg-id="chuoichien-1515885-2" tvg-name="[22:00 20/07] FS Jelgava vs Rīgas FS - VĐQG Latvia [BLV Chuối Tiêu]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_132554_aedaa92f.png",[22:00 20/07] FS Jelgava vs Rīgas FS - VĐQG Latvia [BLV Chuối Tiêu] (Luồng 2) [M3U8]
+#EXTINF:-1 tvg-id="chuoichien-1565183-1" tvg-name="[22:30 20/07] Corvinul Hunedoara vs Csikszereda - VĐQG Roma [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_132655_e584855e.png",[22:30 20/07] Corvinul Hunedoara vs Csikszereda - VĐQG Roma [BLV Chuối Bơ] [FHD FLV]
 #EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
-https://gckc0525.edgemaxcdn.org/live/chuoitieu/playlist.m3u8
+https://gckc0525.edgemaxcdn.org/live/chuoibo.flv
+#EXTINF:-1 tvg-id="chuoichien-1565183-2" tvg-name="[22:30 20/07] Corvinul Hunedoara vs Csikszereda - VĐQG Roma [BLV Chuối Bơ]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_132655_e584855e.png",[22:30 20/07] Corvinul Hunedoara vs Csikszereda - VĐQG Roma [BLV Chuối Bơ] (Luồng 2) [M3U8]
+#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
+https://gckc0525.edgemaxcdn.org/live/chuoibo/playlist.m3u8
+#EXTINF:-1 tvg-id="chuoichien-1547593-1" tvg-name="[22:45 20/07] Suduva Marijampole vs Hegelmann Litauen - VĐQG Lithuania [BLV trực tiếp: Chuối Chao Trận đấu Suduva Ma]" group-title="Bóng đá" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_132602_461ecdf6.png",[22:45 20/07] Suduva Marijampole vs Hegelmann Litauen - VĐQG Lithuania [BLV trực tiếp: Chuối Chao Trận đấu Suduva Ma] [FHD FLV]
+#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
+https://gckc0525.edgemaxcdn.org/live/chuoichao.flv
