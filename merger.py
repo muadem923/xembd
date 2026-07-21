@@ -8,10 +8,10 @@ from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any, Iterable
-from urllib.parse import unquote, urlparse
+from urllib.parse import unquote, urljoin, urlparse
 from zoneinfo import ZoneInfo
 
-VERSION = "4.4.5-GAVANG-SOFT-METADATA-AUDIT"
+VERSION = "4.4.7-GAVANG-PENDING-DERIVED-FLV"
 TZ_VIETNAM = ZoneInfo("Asia/Ho_Chi_Minh")
 ALLOWED_GROUPS = {"Bóng đá", "Bóng rổ", "Bóng chuyền", "Tennis", "Esports", "Khác"}
 SOURCE_ORDER = {"chuoichien": 0, "luongson": 1, "gavang": 2}
@@ -219,6 +219,41 @@ def _candidate_key_score(key_tokens: list[str], candidate_name: str) -> tuple[in
     return score, matched, coverage
 
 
+INVALID_LOGO_MARKERS = ("[object object]", "object object", "undefined", "null")
+DEFAULT_GAVANG_LOGO = os.getenv("GAVANG_SOURCE_LOGO_URL", "https://smorf.io/favicon.ico").strip()
+
+
+def valid_logo_url(value: Any) -> bool:
+    text = clean_text(value)
+    if not text or any(marker in text.lower() for marker in INVALID_LOGO_MARKERS):
+        return False
+    parsed = urlparse(text)
+    return parsed.scheme in {"http", "https"} and bool(parsed.netloc)
+
+
+def _set_block_logo(block: M3UBlock, value: str, source: str) -> bool:
+    logo = clean_text(value).replace('"', "'")
+    if not valid_logo_url(logo):
+        return False
+    if re.search(r'(?<![\w-])tvg-logo="[^"]*"', block.extinf):
+        block.extinf = re.sub(
+            r'(?<![\w-])tvg-logo="[^"]*"', f'tvg-logo="{logo}"', block.extinf, count=1
+        )
+    else:
+        head, sep, tail = block.extinf.partition(",")
+        head = f'{head} tvg-logo="{logo}"'
+        block.extinf = f"{head},{tail}" if sep else head
+    block.attributes["tvg-logo"] = logo
+    block.metadata["logo"] = logo
+    block.metadata["logo_source"] = source
+    block.metadata["logo_is_fallback"] = source == "gavang-source-fallback"
+    for index, line in enumerate(block.lines):
+        if line.strip().startswith("#EXTINF:"):
+            block.lines[index] = block.extinf
+            break
+    return True
+
+
 def _replace_extinf_display(extinf: str, display_base: str, display_full: str) -> str:
     safe_base = clean_text(display_base).replace('"', "'")
     safe_full = clean_text(display_full).replace("\r", " ").replace("\n", " ")
@@ -343,6 +378,50 @@ def enrich_gavang_metadata_from_other_sources(blocks: list[M3UBlock]) -> dict[st
     return stats
 
 
+def enrich_gavang_logos_from_other_sources(blocks: list[M3UBlock]) -> dict[str, int]:
+    """Ưu tiên logo đội từ nguồn khác khi khớp đủ chắc; nếu không có, giữ logo nguồn."""
+    reference = [
+        item for item in blocks
+        if item.source_key != "gavang" and valid_logo_url(item.attributes.get("tvg-logo"))
+    ]
+    stats = {"team_logo": 0, "source_fallback": 0, "repaired_invalid": 0}
+    for block in blocks:
+        if block.source_key != "gavang":
+            continue
+        current = block.attributes.get("tvg-logo", "")
+        current_invalid = not valid_logo_url(current)
+        current_fallback = bool(block.metadata.get("logo_is_fallback")) or current.rstrip("/").endswith("favicon.ico")
+        key_tokens = gavang_key_tokens_from_stream(block.canonical_url)
+        candidates: list[tuple[int, M3UBlock, int, float]] = []
+        for candidate in reference:
+            candidate_name = _metadata_name(candidate.metadata, candidate.display_name)
+            score, matched, coverage = _candidate_key_score(key_tokens, candidate_name)
+            if candidate.kickoff:
+                score += 20
+            candidates.append((score, candidate, matched, coverage))
+        candidates.sort(key=lambda row: row[0], reverse=True)
+        best = candidates[0] if candidates else None
+        second = candidates[1] if len(candidates) > 1 else None
+        required = min(2, len(key_tokens)) if key_tokens else 99
+        confident = bool(
+            best and best[2] >= required and best[3] >= 0.5 and
+            (not second or best[0] - second[0] >= 5 or normalize_match_name(_metadata_name(best[1].metadata, best[1].display_name)) == normalize_match_name(_metadata_name(second[1].metadata, second[1].display_name)))
+        )
+        if confident and (current_invalid or current_fallback):
+            candidate_logo = best[1].attributes.get("tvg-logo", "")
+            if _set_block_logo(block, candidate_logo, f"team-from-{best[1].source_key}"):
+                block.metadata["logo_enriched_from"] = best[1].source_key
+                stats["team_logo"] += 1
+                if current_invalid:
+                    stats["repaired_invalid"] += 1
+                continue
+        if current_invalid:
+            _set_block_logo(block, DEFAULT_GAVANG_LOGO, "gavang-source-fallback")
+            stats["repaired_invalid"] += 1
+        stats["source_fallback"] += 1
+    return stats
+
+
 def extract_blv(row: dict[str, Any], display_name: str) -> str:
     value = clean_text(row.get("blv"))
     if value:
@@ -412,7 +491,22 @@ def is_candidate_allowed(block: M3UBlock, now: datetime, upcoming_hours: int) ->
         return True
     if block.playability in {"browser-observed", "upcoming-pending"} and block.kickoff:
         minutes = (block.kickoff - now).total_seconds() / 60
+        pending_past_minutes = max(0, min(int(os.getenv("MULTI_PENDING_PAST_MINUTES", "150")), 1440))
+        if block.playability == "upcoming-pending":
+            return -pending_past_minutes <= minutes <= upcoming_hours * 60
         return 0 <= minutes <= upcoming_hours * 60
+    if (
+        block.source_key == "gavang"
+        and block.playability == "upcoming-pending"
+        and block.metadata.get("derived_pending")
+        and os.getenv("MULTI_KEEP_GAVANG_UNKNOWN_PENDING", "1").strip().lower()
+        not in {"0", "false", "no", "off"}
+        and clean_text(block.metadata.get("scan_window_reason"))
+        in {"unknown-time-live", "unknown-time-derived-probe"}
+    ):
+        # Không có kickoff nhưng URL vừa xuất hiện trên trang chủ Gà Vàng ở chính run này.
+        # Khi fixture biến mất ở run sau, playlist nguồn mới sẽ không còn block này.
+        return True
     return False
 
 
@@ -553,6 +647,7 @@ def merge_sources(
         })
 
     gavang_metadata_stats = enrich_gavang_metadata_from_other_sources(all_blocks)
+    gavang_logo_stats = enrich_gavang_logos_from_other_sources(all_blocks)
     selected, dropped = choose_candidates(all_blocks, now, max_per_match, upcoming_hours)
     outputs = {
         "playlist": root / "all_live.m3u",
@@ -577,12 +672,18 @@ def merge_sources(
             "quality": item.quality,
             "kind": item.kind,
             "playability": item.playability,
+            "derived_pending": bool(item.metadata.get("derived_pending")),
+            "pending_reason": item.metadata.get("pending_reason"),
             "score": item.score,
             "kickoff_iso": item.kickoff.isoformat() if item.kickoff else None,
             "metadata_audit": item.metadata.get("metadata_audit"),
             "metadata_enriched_from": item.metadata.get("metadata_enriched_from"),
             "metadata_warning": item.metadata.get("metadata_warning"),
             "stream_key_tokens": item.metadata.get("stream_key_tokens"),
+            "logo": item.attributes.get("tvg-logo"),
+            "logo_source": item.metadata.get("logo_source"),
+            "logo_enriched_from": item.metadata.get("logo_enriched_from"),
+            "logo_is_fallback": item.metadata.get("logo_is_fallback"),
         })
 
     report = {
@@ -591,13 +692,16 @@ def merge_sources(
         "policy": {
             "max_streams_per_match_blv": max_per_match,
             "upcoming_keep_hours": upcoming_hours,
-            "requires_verified_or_observed": True,
+            "requires_verified_or_observed_or_gavang_pending": True,
+            "pending_past_minutes": max(0, min(int(os.getenv("MULTI_PENDING_PAST_MINUTES", "150")), 1440)),
+            "keep_gavang_unknown_pending": os.getenv("MULTI_KEEP_GAVANG_UNKNOWN_PENDING", "1").strip().lower() not in {"0", "false", "no", "off"},
         },
         "sources": source_stats,
         "input_candidates": len(all_blocks),
         "selected_count": len(selected),
         "dropped_count": len(dropped),
         "gavang_metadata": gavang_metadata_stats,
+        "gavang_logo": gavang_logo_stats,
         "channels": channels,
         "dropped": dropped,
         "outputs_written": bool(selected),
