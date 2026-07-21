@@ -41,20 +41,20 @@ except ImportError:  # chạy trực tiếp: python sources/<scanner>.py
 # CẤU HÌNH
 # =========================
 DEFAULT_HOME_URLS = (
-    "https://live04.chuoichientv.me/",
-    "https://live03.chuoichientv.me/",
+    "https://smorf.io/",
 )
 TARGET_URL = DEFAULT_HOME_URLS[0]
-PLAYER_ORIGIN_FALLBACK = "https://live.chuoichien.tv"
+PLAYER_ORIGIN_FALLBACK = "https://smorf.io"
+GAVANG_STREAM_BASE = "https://flv.lauthaitv.cc/live/"
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-OUTPUT_M3U = PROJECT_ROOT / "chuoichien_live.m3u"
-OUTPUT_PIPE_M3U = PROJECT_ROOT / "chuoichien_live_pipe.m3u"
-OUTPUT_VLC_M3U = PROJECT_ROOT / "chuoichien_live_vlc.m3u"
-LEGACY_GIT_PLAYLIST_PATH = "chuoichien/chuoichien_live.m3u"
-OUTPUT_DEBUG = "chuoichien_debug.json"
-OUTPUT_HOME_DEBUG_HTML = "chuoichien_home_debug.html"
-OUTPUT_HOME_DEBUG_PNG = "chuoichien_home_debug.png"
-SCANNER_VERSION = "4.4.2-CHUOICHIEN-SOURCE-GROUP"
+OUTPUT_M3U = PROJECT_ROOT / "gavang_live.m3u"
+OUTPUT_PIPE_M3U = PROJECT_ROOT / "gavang_live_pipe.m3u"
+OUTPUT_VLC_M3U = PROJECT_ROOT / "gavang_live_vlc.m3u"
+LEGACY_GIT_PLAYLIST_PATH = "gavang/gavang_live.m3u"
+OUTPUT_DEBUG = "gavang_debug.json"
+OUTPUT_HOME_DEBUG_HTML = "gavang_home_debug.html"
+OUTPUT_HOME_DEBUG_PNG = "gavang_home_debug.png"
+SCANNER_VERSION = "4.4.2-GAVANG-DERIVED-FLV-SOURCE-GROUP"
 
 
 def read_env_bool(name: str, default: bool = True) -> bool:
@@ -94,49 +94,49 @@ def read_env_urls(name: str, defaults: tuple[str, ...]) -> tuple[str, ...]:
     return tuple(normalized or defaults)
 
 
-HOME_URLS = read_env_urls("SOCOLIVE_HOME_URLS", DEFAULT_HOME_URLS)
+HOME_URLS = read_env_urls("GAVANG_HOME_URLS", DEFAULT_HOME_URLS)
 TARGET_URL = HOME_URLS[0]
 
 
 CONCURRENCY_LIMIT = read_env_int(
-    "SOCOLIVE_MATCH_CONCURRENCY", 4, minimum=1, maximum=12
+    "GAVANG_MATCH_CONCURRENCY", 4, minimum=1, maximum=12
 )
 HOME_WAIT_MS = read_env_int(
-    "SOCOLIVE_HOME_WAIT_MS", 6000, minimum=1000, maximum=30000
+    "GAVANG_HOME_WAIT_MS", 6000, minimum=1000, maximum=30000
 )
 STREAM_WAIT_SECONDS = read_env_int(
-    "SOCOLIVE_ROOM_WAIT_SECONDS", 20, minimum=5, maximum=120
+    "GAVANG_ROOM_WAIT_SECONDS", 20, minimum=5, maximum=120
 )
 EXTRA_WAIT_AFTER_FIRST_STREAM = 5.0
-FULL_SCAN = read_env_bool("SOCOLIVE_FULL_SCAN", True)
-VERIFY_STREAMS = read_env_bool("SOCOLIVE_VERIFY_STREAMS", True)
-VERIFY_TIMEOUT_SECONDS = read_env_int("SOCOLIVE_VERIFY_TIMEOUT_SECONDS", 8, minimum=3, maximum=20)
-MAX_VERIFY_CANDIDATES = read_env_int("SOCOLIVE_MAX_VERIFY_CANDIDATES", 6, minimum=2, maximum=12)
-MAX_OUTPUT_STREAMS_PER_MATCH = read_env_int("SOCOLIVE_MAX_OUTPUT_STREAMS_PER_MATCH", 2, minimum=1, maximum=4)
-UPCOMING_KEEP_HOURS = read_env_int("SOCOLIVE_UPCOMING_KEEP_HOURS", 4, minimum=1, maximum=12)
-SCAN_PAST_MINUTES = read_env_int("SOCOLIVE_SCAN_PAST_MINUTES", 150, minimum=0, maximum=1440)
-SCAN_FUTURE_MINUTES = read_env_int("SOCOLIVE_SCAN_FUTURE_MINUTES", 240, minimum=0, maximum=1440)
-SCAN_UNKNOWN_LIVE = read_env_bool("SOCOLIVE_SCAN_UNKNOWN_LIVE", True)
-UPCOMING_MIN_CANDIDATE_SCORE = read_env_int("SOCOLIVE_UPCOMING_MIN_CANDIDATE_SCORE", 150, minimum=80, maximum=300)
-ALLOW_UNVERIFIED_BROWSER_FALLBACK = read_env_bool("SOCOLIVE_ALLOW_UNVERIFIED_BROWSER_FALLBACK", False)
-KEEP_PREVIOUS_UNVERIFIED = read_env_bool("SOCOLIVE_KEEP_PREVIOUS_UNVERIFIED", False)
-UPCOMING_FAR_THRESHOLD_MINUTES = read_env_int("SOCOLIVE_UPCOMING_FAR_THRESHOLD_MINUTES", 45, minimum=5, maximum=240)
-UPCOMING_FAR_WAIT_SECONDS = read_env_int("SOCOLIVE_UPCOMING_FAR_WAIT_SECONDS", 7, minimum=3, maximum=30)
-UPCOMING_NEAR_WAIT_SECONDS = read_env_int("SOCOLIVE_UPCOMING_NEAR_WAIT_SECONDS", 12, minimum=5, maximum=60)
-HYBRID_HTTP_FIRST = read_env_bool("SOCOLIVE_HYBRID_HTTP_FIRST", True)
-HTTP_DISCOVERY_TIMEOUT_SECONDS = read_env_int("SOCOLIVE_HTTP_DISCOVERY_TIMEOUT_SECONDS", 8, minimum=3, maximum=20)
-HTTP_DISCOVERY_MAX_FOLLOWS = read_env_int("SOCOLIVE_HTTP_DISCOVERY_MAX_FOLLOWS", 4, minimum=1, maximum=10)
-DELTA_SCAN_ENABLED = read_env_bool("SOCOLIVE_DELTA_SCAN_ENABLED", True)
-DELTA_NEAR_MINUTES = read_env_int("SOCOLIVE_DELTA_NEAR_MINUTES", 45, minimum=5, maximum=180)
-STATE_PATH = Path(os.getenv("SOCOLIVE_STATE_PATH", "chuoichien_state.json"))
+FULL_SCAN = read_env_bool("GAVANG_FULL_SCAN", True)
+VERIFY_STREAMS = read_env_bool("GAVANG_VERIFY_STREAMS", True)
+VERIFY_TIMEOUT_SECONDS = read_env_int("GAVANG_VERIFY_TIMEOUT_SECONDS", 8, minimum=3, maximum=20)
+MAX_VERIFY_CANDIDATES = read_env_int("GAVANG_MAX_VERIFY_CANDIDATES", 6, minimum=2, maximum=12)
+MAX_OUTPUT_STREAMS_PER_MATCH = read_env_int("GAVANG_MAX_OUTPUT_STREAMS_PER_MATCH", 2, minimum=1, maximum=4)
+UPCOMING_KEEP_HOURS = read_env_int("GAVANG_UPCOMING_KEEP_HOURS", 4, minimum=1, maximum=12)
+SCAN_PAST_MINUTES = read_env_int("GAVANG_SCAN_PAST_MINUTES", 150, minimum=0, maximum=1440)
+SCAN_FUTURE_MINUTES = read_env_int("GAVANG_SCAN_FUTURE_MINUTES", 240, minimum=0, maximum=1440)
+SCAN_UNKNOWN_LIVE = read_env_bool("GAVANG_SCAN_UNKNOWN_LIVE", True)
+UPCOMING_MIN_CANDIDATE_SCORE = read_env_int("GAVANG_UPCOMING_MIN_CANDIDATE_SCORE", 150, minimum=80, maximum=300)
+ALLOW_UNVERIFIED_BROWSER_FALLBACK = read_env_bool("GAVANG_ALLOW_UNVERIFIED_BROWSER_FALLBACK", False)
+KEEP_PREVIOUS_UNVERIFIED = read_env_bool("GAVANG_KEEP_PREVIOUS_UNVERIFIED", False)
+UPCOMING_FAR_THRESHOLD_MINUTES = read_env_int("GAVANG_UPCOMING_FAR_THRESHOLD_MINUTES", 45, minimum=5, maximum=240)
+UPCOMING_FAR_WAIT_SECONDS = read_env_int("GAVANG_UPCOMING_FAR_WAIT_SECONDS", 7, minimum=3, maximum=30)
+UPCOMING_NEAR_WAIT_SECONDS = read_env_int("GAVANG_UPCOMING_NEAR_WAIT_SECONDS", 12, minimum=5, maximum=60)
+HYBRID_HTTP_FIRST = read_env_bool("GAVANG_HYBRID_HTTP_FIRST", True)
+HTTP_DISCOVERY_TIMEOUT_SECONDS = read_env_int("GAVANG_HTTP_DISCOVERY_TIMEOUT_SECONDS", 8, minimum=3, maximum=20)
+HTTP_DISCOVERY_MAX_FOLLOWS = read_env_int("GAVANG_HTTP_DISCOVERY_MAX_FOLLOWS", 4, minimum=1, maximum=10)
+DELTA_SCAN_ENABLED = read_env_bool("GAVANG_DELTA_SCAN_ENABLED", True)
+DELTA_NEAR_MINUTES = read_env_int("GAVANG_DELTA_NEAR_MINUTES", 45, minimum=5, maximum=180)
+STATE_PATH = Path(os.getenv("GAVANG_STATE_PATH", "gavang_state.json"))
 HEADLESS = True
-PROBE_CACHE: dict[tuple[str, str, str, str], dict[str, Any]] = {}
+PROBE_CACHE: dict[tuple[str, str, str, str, str], dict[str, Any]] = {}
 
 # Dùng đúng User-Agent đã được kiểm chứng phát được bằng VLC.
 UA = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
     "AppleWebKit/537.36 (KHTML, like Gecko) "
-    "Chrome/120.0.0.0 Safari/537.36"
+    "Chrome/150.0.0.0 Safari/537.36"
 )
 
 STREAM_EXTENSIONS = (".m3u8", ".flv")
@@ -252,12 +252,10 @@ def classify_sport(*values: str, default: str = "Bóng đá") -> str:
 
 
 def channel_id_for(result: dict[str, Any], stream_url: str, index: int) -> str:
-    path_match = re.search(r"/live/(\d+)", result.get("url", ""))
-    base = path_match.group(1) if path_match else hashlib.sha1(
+    base = match_id_from_url(result.get("url", "")) or hashlib.sha1(
         (result.get("url", "") + stream_url).encode("utf-8")
     ).hexdigest()[:12]
-    return f"chuoichien-{base}-{index}"
-
+    return f"gavang-{base}-{index}"
 
 def clean_text(value: str) -> str:
     return re.sub(r"\s+", " ", value or "").strip()
@@ -1022,6 +1020,7 @@ def probe_stream_sync(
     url: str,
     user_agent: str,
     referer: str,
+    origin: str = "",
     cookie_header: str = "",
     timeout: int = 8,
 ) -> dict[str, Any]:
@@ -1034,6 +1033,8 @@ def probe_stream_sync(
         "Accept": "*/*",
         "Accept-Language": "vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7",
     }
+    if origin:
+        headers["Origin"] = origin
     if cookie_header:
         headers["Cookie"] = cookie_header
 
@@ -1184,6 +1185,7 @@ async def validate_stream_candidates(
                 entry.get("referer") or PLAYER_ORIGIN_FALLBACK + "/"
             )
             user_agent = clean_text(entry.get("user_agent") or UA)
+            origin = clean_text(entry.get("origin") or origin_from_url(match.get("url", "")))
             cookie_header = ""
             try:
                 cookies = await context.cookies([entry["url"]])
@@ -1193,7 +1195,7 @@ async def validate_stream_candidates(
                 )
             except Exception:
                 pass
-            cache_key = (entry["url"], referer, user_agent, cookie_header)
+            cache_key = (entry["url"], referer, user_agent, origin, cookie_header)
             cached = PROBE_CACHE.get(cache_key)
             if cached is None:
                 probe = await asyncio.to_thread(
@@ -1201,6 +1203,7 @@ async def validate_stream_candidates(
                     entry["url"],
                     user_agent,
                     referer,
+                    origin,
                     cookie_header,
                     VERIFY_TIMEOUT_SECONDS,
                 )
@@ -1215,6 +1218,7 @@ async def validate_stream_candidates(
             probe.setdefault("sample_bytes", len(sample_data) if isinstance(sample_data, (bytes, bytearray)) else 0)
             entry["probe"] = probe
             entry["referer"] = referer
+            entry["origin"] = origin
             entry["user_agent"] = user_agent
             return entry
 
@@ -1356,9 +1360,49 @@ async def finalize_stream_map(
 
 
 def match_id_from_url(value: str) -> str:
-    match = re.search(r"/live/(\d+)", value or "")
-    return match.group(1) if match else ""
+    parsed = urlparse(value or "")
+    match = re.search(r"/s8-live/(\d+)(?:/|$)", parsed.path, re.I)
+    if match:
+        return match.group(1)
+    query = parse_qs(parsed.query)
+    values = query.get("s8_live_fixture_id") or query.get("fixture_id") or []
+    return clean_text(values[0]) if values else ""
 
+
+def extract_gavang_stream_key(value: str) -> str:
+    """Lấy stream key công khai từ query hoặc slug /s8-live/<id>/<key>/.
+
+    Chỉ chấp nhận ký tự an toàn để không biến dữ liệu trang thành đường dẫn tùy ý.
+    """
+    parsed = urlparse(decode_url_repeatedly(value or ""))
+    query = parse_qs(parsed.query)
+    candidates = list(query.get("s8_live_stream_key") or [])
+    path_match = re.search(r"/s8-live/\d+/([^/?#]+)", parsed.path, re.I)
+    if path_match:
+        candidates.append(unquote(path_match.group(1)))
+    for candidate in candidates:
+        key = clean_text(candidate).strip("/ ")
+        if re.fullmatch(r"[a-zA-Z0-9][a-zA-Z0-9._-]{1,180}", key):
+            return key
+    return ""
+
+
+def derived_gavang_stream_candidates(match_url: str) -> list[dict[str, str]]:
+    """Dựng ứng viên FLV theo mẫu client-side quan sát được của Gà Vàng.
+
+    URL dựng ra vẫn phải qua probe chữ ký FLV trước khi được ghi playlist.
+    """
+    key = extract_gavang_stream_key(match_url)
+    if not key:
+        return []
+    origin = origin_from_url(match_url) or PLAYER_ORIGIN_FALLBACK
+    return [{
+        "url": urljoin(GAVANG_STREAM_BASE, key + ".flv"),
+        "referer": match_url,
+        "origin": origin,
+        "quality": "",
+        "source": "derived/s8_live_stream_key",
+    }]
 
 def _parse_previous_playlist_text(text: str, source_label: str) -> dict[str, list[dict[str, str]]]:
     mapping: dict[str, list[dict[str, str]]] = {}
@@ -1368,7 +1412,7 @@ def _parse_previous_playlist_text(text: str, source_label: str) -> dict[str, lis
     for raw_line in (text or "").splitlines():
         line = raw_line.strip()
         if line.startswith("#EXTINF"):
-            id_match = re.search(r'tvg-id="chuoichien-(\d+)-\d+"', line)
+            id_match = re.search(r'tvg-id="gavang-(\d+)-\d+"', line)
             current_match_id = id_match.group(1) if id_match else ""
             referer = PLAYER_ORIGIN_FALLBACK + "/"
             user_agent = UA
@@ -1516,23 +1560,12 @@ def stream_referer_hint(raw_candidate: str, frame_url: str = "") -> str:
 
 
 def normalize_playback_referer(value: str) -> str:
-    """Chuẩn hóa Referer cho player; ưu tiên root live.chuoichien.tv đã kiểm chứng."""
+    """Gà Vàng gửi full URL phòng làm Referer; không rút về trang chủ."""
     candidate = decode_url_repeatedly(value)
     parsed = urlparse(candidate)
-    if parsed.scheme and parsed.netloc:
-        origin = f"{parsed.scheme}://{parsed.netloc}"
-        host = parsed.netloc.lower()
-        player_host = urlparse(PLAYER_ORIGIN_FALLBACK).netloc.lower()
-        target_host = urlparse(TARGET_URL).netloc.lower()
-        if host == player_host:
-            return origin + "/"
-        # CDN đã được người dùng kiểm chứng cần Referer của iframe player,
-        # không phải Referer của trang trận live03.
-        if host == target_host or host.endswith(".chuoichientv.me"):
-            return PLAYER_ORIGIN_FALLBACK + "/"
+    if parsed.scheme in {"http", "https"} and parsed.netloc:
         return candidate
     return PLAYER_ORIGIN_FALLBACK + "/"
-
 
 def clean_match_name(value: str, fallback_url: str) -> str:
     text = clean_text(value)
@@ -1544,7 +1577,7 @@ def clean_match_name(value: str, fallback_url: str) -> str:
 
     text = TIME_RE.sub(" ", text)
     text = re.sub(
-        r"(?i)\b(xem ngay|trực tiếp|hot|live|bóng đá|sắp diễn ra|đang diễn ra|socolive)\b",
+        r"(?i)\b(xem ngay|trực tiếp|hot|live|bóng đá|sắp diễn ra|đang diễn ra|gavang|gà vàng)\b",
         " ",
         text,
     )
@@ -1554,6 +1587,7 @@ def clean_match_name(value: str, fallback_url: str) -> str:
         slug = unquote(urlparse(fallback_url).path.rstrip("/").split("/")[-1])
         slug = re.sub(r"-\d{2}-\d{2}-\d{4}-\d{4}$", "", slug)
         slug = re.sub(r"-vs-", " vs ", slug, flags=re.I)
+        slug = re.sub(r"-(?:finveik|wc|live)$", "", slug, flags=re.I)
         slug = slug.replace("-", " ")
         text = clean_text(slug)
 
@@ -2310,7 +2344,7 @@ async def read_match_metadata(
                     let best = titleNode.parentElement || titleNode;
                     for (let depth = 0; node && depth < 8; depth += 1, node = node.parentElement) {
                         const blob = clean(node.innerText || node.textContent || "").slice(0, 4000);
-                        const links = Array.from(node.querySelectorAll?.("a[href*='/live/'], a[href*='/truc-tiep/'], a[href*='/room/']") || []);
+                        const links = Array.from(node.querySelectorAll?.("a[href*='/s8-live/']") || []);
                         if (tokenMatchCount(blob, homeTokens) > 0 && tokenMatchCount(blob, awayTokens) > 0 && links.length <= 1) {
                             best = node;
                         } else if (links.length > 1) {
@@ -2354,13 +2388,13 @@ async def read_match_metadata(
                         addTime(el.getAttribute("data-date"), baseScore + 15, `${source}/data-date`);
                         addTime(el.innerText || el.textContent, baseScore + 10, `${source}/visible`);
                     });
-                    const matchLinks = Array.from(scope.querySelectorAll?.("a[href*='/live/'], a[href*='/truc-tiep/'], a[href*='/room/']") || []);
+                    const matchLinks = Array.from(scope.querySelectorAll?.("a[href*='/s8-live/']") || []);
                     const broadRoot = scope === document || scope.tagName === "MAIN" || matchLinks.length > 1;
                     if (!broadRoot) addTime(scope.innerText || scope.textContent, baseScore, `${source}/root-text`);
                 };
 
                 // Chỉ ưu tiên khối nhỏ nhất có đúng hai đội; khối rộng phải qua kiểm tra ngữ cảnh.
-                const timeRootLinks = Array.from(timeRoot?.querySelectorAll?.("a[href*='/live/'], a[href*='/truc-tiep/'], a[href*='/room/']") || []);
+                const timeRootLinks = Array.from(timeRoot?.querySelectorAll?.("a[href*='/s8-live/']") || []);
                 const timeRootIsBroad = !timeRoot || timeRoot.tagName === "MAIN" || timeRootLinks.length > 1;
                 scanTimeScope(timeRoot, 100, "match-root", timeRootIsBroad);
 
@@ -2650,8 +2684,8 @@ async def fetch_stream(
                 referer = normalize_playback_referer(
                     normalized_headers.get("referer", "") or hint
                 )
-                # Không tự tạo Origin. VLC thử nghiệm chạy với Referer + User-Agent;
-                # Origin dư thừa có thể làm CDN từ chối. Chỉ lưu nếu request thật có gửi.
+                # Chỉ lưu Origin khi request thật hoặc cơ chế dựng Gà Vàng cung cấp;
+                # không tự suy đoán Origin cho các URL bắt được từ nguồn khác.
                 origin = normalized_headers.get("origin", "")
                 user_agent = normalized_headers.get("user-agent", "") or UA
 
@@ -2680,6 +2714,26 @@ async def fetch_stream(
                 if len(entry["sources"]) == 1:
                     print(f"   🎯 [{source}] {normalized}")
 
+        derived_candidates = derived_gavang_stream_candidates(match.get("url", ""))
+        for candidate in derived_candidates:
+            capture_url(
+                candidate["url"],
+                candidate["source"],
+                headers={
+                    "referer": candidate["referer"],
+                    "origin": candidate["origin"],
+                    "user-agent": UA,
+                },
+                frame_url=match.get("url", ""),
+                quality=candidate.get("quality", ""),
+            )
+        if derived_candidates:
+            print(
+                f"   ⚡ Dựng {len(derived_candidates)} FLV từ s8_live_stream_key; "
+                "vẫn probe trước khi xuất.",
+                flush=True,
+            )
+
         http_reference_count = await discover_http_candidates(context, match, capture_url)
         if http_reference_count:
             print(
@@ -2696,7 +2750,7 @@ async def fetch_stream(
                 1 for entry in early_streams if entry.get("playability") == "verified"
             )
             delta = match.get("minutes_to_kickoff")
-            enough = verified_count >= MAX_OUTPUT_STREAMS_PER_MATCH
+            enough = verified_count >= 1
             far_with_result = isinstance(delta, int) and delta > DELTA_NEAR_MINUTES and bool(early_streams)
             if enough or far_with_result:
                 match["scan_decision"] = "http-first-complete"
@@ -2705,7 +2759,7 @@ async def fetch_stream(
                 match["stream_urls"] = [item["url"] for item in early_streams]
                 print(
                     f"   🚀 Dừng sớm HTTP-first: verified={verified_count}, "
-                    f"đầu ra={len(early_streams)}; không mở Chromium.",
+                    f"đầu ra={len(early_streams)}; không mở tab Chromium.",
                     flush=True,
                 )
                 return match
@@ -2715,7 +2769,7 @@ async def fetch_stream(
             match["scan_decision"] = "http-only-far-upcoming"
             print(
                 f"   ⏭️ Trận còn {delta} phút và HTTP chưa lộ stream; "
-                "bỏ qua Chromium, sẽ kiểm tra lại theo lịch delta.",
+                "bỏ qua tab Chromium, sẽ kiểm tra lại theo lịch delta.",
                 flush=True,
             )
             return match
@@ -3044,7 +3098,7 @@ async def fetch_stream(
 async def collect_home_links(context: BrowserContext, home_url: str = TARGET_URL) -> list[dict[str, Any]]:
     page = await context.new_page()
     await install_route_filter(page, homepage=True)
-    print(f"👉 Đang mở trang chủ Chuối Chiên: {home_url}")
+    print(f"👉 Đang mở trang chủ Gà Vàng: {home_url}")
 
     try:
         await page.goto(home_url, wait_until="domcontentloaded", timeout=30000)
@@ -3070,8 +3124,7 @@ async def collect_home_links(context: BrowserContext, home_url: str = TARGET_URL
                     if (!href) return false;
                     try {
                         const path = new URL(href).pathname;
-                        return /^\/live\/\d+(?:\/|$)/i.test(path) ||
-                            path.includes("/truc-tiep/") || path.includes("/room/");
+                        return /^\/s8-live\/\d+(?:\/|$)/i.test(path);
                     } catch (_) { return false; }
                 }
 
@@ -3255,10 +3308,8 @@ async def collect_home_links(context: BrowserContext, home_url: str = TARGET_URL
                 const normalizedHtml = htmlText.replace(/\\\//g, "/")
                     .replace(/&amp;/g, "&").replace(/\\u002F/gi, "/");
                 const patterns = [
-                    /https?:\/\/[^"' <>\n\r]+\/live\/\d+\/[^"' <>\n\r]+/gi,
-                    /\/live\/\d+\/[a-z0-9][a-z0-9._~!$&'()*+,;=:@%\/-]*/gi,
-                    /https?:\/\/[^"' <>\n\r]+\/(?:truc-tiep|room)\/[^"' <>\n\r]+/gi,
-                    /\/(?:truc-tiep|room)\/[^"' <>\n\r]+/gi,
+                    /https?:\/\/[^"' <>\n\r]+\/s8-live\/\d+\/[^"' <>\n\r]+/gi,
+                    /\/s8-live\/\d+\/[a-z0-9][a-z0-9._~!$&'()*+,;=:@%\/-]*/gi,
                 ];
                 for (const pattern of patterns) {
                     (normalizedHtml.match(pattern) || []).forEach((href) => addItem(href));
@@ -3332,16 +3383,16 @@ async def collect_home_links(context: BrowserContext, home_url: str = TARGET_URL
 
 
 async def collect_home_links_with_failover(context: BrowserContext) -> list[dict[str, Any]]:
-    """Thử lần lượt live04 rồi live03; chỉ chọn miền thực sự trả được card trận."""
+    """Thử lần lượt các domain Gà Vàng đã cấu hình; chọn domain có card trận."""
     attempts: list[tuple[str, int]] = []
     for home_url in HOME_URLS:
         links = await collect_home_links(context, home_url)
         attempts.append((home_url, len(links)))
         if links:
-            print(f"✅ Chọn miền Chuối Chiên: {home_url} | trận={len(links)}", flush=True)
+            print(f"✅ Chọn miền Gà Vàng: {home_url} | trận={len(links)}", flush=True)
             return links
-        print(f"⚠️ Miền Chuối Chiên không có card trận, thử miền tiếp theo: {home_url}", flush=True)
-    print("❌ Không miền Chuối Chiên nào trả được card trận: " + ", ".join(f"{url}={count}" for url, count in attempts), flush=True)
+        print(f"⚠️ Miền Gà Vàng không có card trận, thử miền tiếp theo: {home_url}", flush=True)
+    print("❌ Không miền Gà Vàng nào trả được card trận: " + ", ".join(f"{url}={count}" for url, count in attempts), flush=True)
     return []
 
 
@@ -3349,37 +3400,39 @@ def escape_m3u_text(value: str) -> str:
     return re.sub(r"[\r\n]+", " ", value or "").replace('"', "'").strip()
 
 
-def header_json(user_agent: str, referer: str) -> str:
+def header_json(user_agent: str, referer: str, origin: str = "") -> str:
     values = {"User-Agent": user_agent}
     if referer:
         values["Referer"] = referer
+    if origin:
+        values["Origin"] = origin
     return json.dumps(values, ensure_ascii=False, separators=(",", ":"))
-
 
 def escape_pipe_header(value: str) -> str:
     """Mã hóa giá trị protocol-option để URL không vỡ bởi khoảng trắng, &, | hoặc %."""
     return quote(clean_text(value), safe=":/().,;=-_")
 
 
-def android_stream_url(stream_url: str, user_agent: str, referer: str) -> str:
-    """
-    Header syntax understood by many Android IPTV players:
-      URL|User-Agent=...&Referer=...
-
-    Keep EXTVLCOPT too because TiviMate versions differ in which syntax they honor.
-    """
+def android_stream_url(
+    stream_url: str,
+    user_agent: str,
+    referer: str,
+    origin: str = "",
+) -> str:
+    """Kodi/Android pipe syntax, có đủ header được request thật của Gà Vàng dùng."""
     headers = [f"User-Agent={escape_pipe_header(user_agent)}"]
     if referer:
         headers.append(f"Referer={escape_pipe_header(referer)}")
+    if origin:
+        headers.append(f"Origin={escape_pipe_header(origin)}")
     return stream_url + "|" + "&".join(headers)
-
 
 def write_outputs(results: list[dict[str, Any]]) -> tuple[int, int]:
     """
     Tạo 3 playlist:
-      - chuoichien_live.m3u: playlist phổ thông, URL nguyên bản + EXTHTTP/EXTVLCOPT.
-      - chuoichien_live_pipe.m3u: biến thể Kodi-style URL|Header=Value.
-      - chuoichien_live_vlc.m3u: URL nguyên bản + EXTVLCOPT dành riêng VLC.
+      - gavang_live.m3u: playlist phổ thông, URL nguyên bản + EXTHTTP/EXTVLCOPT.
+      - gavang_live_pipe.m3u: biến thể Kodi-style URL|Header=Value.
+      - gavang_live_vlc.m3u: URL nguyên bản + EXTVLCOPT dành riêng VLC.
 
     Không gắn pipe headers vào playlist mặc định vì nhiều IPTV player Android
     coi phần sau dấu | là một phần URL và báo lỗi phát kênh.
@@ -3414,7 +3467,7 @@ def write_outputs(results: list[dict[str, Any]]) -> tuple[int, int]:
         if not streams:
             continue
 
-        match_name = result.get("match_name") or result.get("raw_title") or "Chuối Chiên TV"
+        match_name = result.get("match_name") or result.get("raw_title") or "Gà Vàng TV"
         time_str = result.get("time") or ""
         date_str = result.get("date") or ""
         blv = result.get("blv") or ""
@@ -3457,6 +3510,7 @@ def write_outputs(results: list[dict[str, Any]]) -> tuple[int, int]:
                 stream_info.get("referer") or PLAYER_ORIGIN_FALLBACK + "/"
             )
             user_agent = clean_text(stream_info.get("user_agent") or UA)
+            origin = clean_text(stream_info.get("origin") or origin_from_url(result.get("url", "")))
             kind = stream_kind(stream_url, stream_info.get("content_type", ""))
             if kind:
                 suffix = f"{quality} {kind.upper()}" if quality else kind.upper()
@@ -3479,7 +3533,7 @@ def write_outputs(results: list[dict[str, Any]]) -> tuple[int, int]:
                 f"#EXTVLCOPT:http-referrer={referer}",
                 f"#EXTVLCOPT:http-user-agent={user_agent}",
                 "#EXTVLCOPT:http-reconnect=true",
-                f"#EXTHTTP:{header_json(user_agent, referer)}",
+                f"#EXTHTTP:{header_json(user_agent, referer, origin)}",
                 stream_url,
             ])
 
@@ -3488,8 +3542,8 @@ def write_outputs(results: list[dict[str, Any]]) -> tuple[int, int]:
                 f"#EXTVLCOPT:http-referrer={referer}",
                 f"#EXTVLCOPT:http-user-agent={user_agent}",
                 "#EXTVLCOPT:http-reconnect=true",
-                f"#EXTHTTP:{header_json(user_agent, referer)}",
-                android_stream_url(stream_url, user_agent, referer),
+                f"#EXTHTTP:{header_json(user_agent, referer, origin)}",
+                android_stream_url(stream_url, user_agent, referer, origin),
             ])
 
             vlc_lines.extend([
@@ -3573,10 +3627,10 @@ async def main() -> None:
         except Exception:
             pass
 
-    print(f"🥷 KHỞI ĐỘNG CHUỐI CHIÊN STREAM SCANNER - {SCANNER_VERSION}", flush=True)
+    print(f"🥷 KHỞI ĐỘNG GÀ VÀNG STREAM SCANNER - {SCANNER_VERSION}", flush=True)
     print(
         "ℹ️ Lệnh test riêng một trận (chỉ là hướng dẫn, không tự chạy):\n"
-        '   python sources/chuoichien.py "URL_TRẬN_CHUỐI_CHIÊN"'
+        '   python sources/gavang.py "URL_TRẬN_GÀ_VÀNG"'
     )
     print(
         f"ℹ️ Chế độ quét: {'FULL toàn bộ thời gian' if FULL_SCAN else 'dừng sớm'} | "
@@ -3736,7 +3790,7 @@ async def main() -> None:
 
         if DELTA_SCAN_ENABLED:
             update_state_from_results(delta_state, results, match_id_from_url)
-            save_delta_state(STATE_PATH, delta_state, "chuoichien")
+            save_delta_state(STATE_PATH, delta_state, "gavang")
             print(f"💾 Đã cập nhật delta state: {STATE_PATH.resolve()}", flush=True)
 
         count_matches, count_links = write_outputs(results)

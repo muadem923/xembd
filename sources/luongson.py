@@ -19,6 +19,23 @@ from zoneinfo import ZoneInfo
 
 from playwright.async_api import BrowserContext, Page, Route, async_playwright
 
+try:
+    from .hybrid_support import (
+        extract_explicit_references,
+        load_state as load_delta_state,
+        save_state as save_delta_state,
+        should_scan_now,
+        update_state_from_results,
+    )
+except ImportError:  # chạy trực tiếp: python sources/<scanner>.py
+    from hybrid_support import (
+        extract_explicit_references,
+        load_state as load_delta_state,
+        save_state as save_delta_state,
+        should_scan_now,
+        update_state_from_results,
+    )
+
 
 # =========================
 # CẤU HÌNH
@@ -29,13 +46,15 @@ DEFAULT_HOME_URLS = (
 )
 TARGET_URL = DEFAULT_HOME_URLS[0]
 PLAYER_ORIGIN_FALLBACK = TARGET_URL.rstrip("/")
-OUTPUT_M3U = "hygenie_live.m3u"
-OUTPUT_PIPE_M3U = "hygenie_live_pipe.m3u"
-OUTPUT_VLC_M3U = "hygenie_live_vlc.m3u"
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+OUTPUT_M3U = PROJECT_ROOT / "hygenie_live.m3u"
+OUTPUT_PIPE_M3U = PROJECT_ROOT / "hygenie_live_pipe.m3u"
+OUTPUT_VLC_M3U = PROJECT_ROOT / "hygenie_live_vlc.m3u"
+LEGACY_GIT_PLAYLIST_PATH = "luongson/hygenie_live.m3u"
 OUTPUT_DEBUG = "hygenie_debug.json"
 OUTPUT_HOME_DEBUG_HTML = "hygenie_home_debug.html"
 OUTPUT_HOME_DEBUG_PNG = "hygenie_home_debug.png"
-SCANNER_VERSION = "1.2.0-DOMAIN-FAILOVER-ADAPTIVE-SCAN"
+SCANNER_VERSION = "4.4.2-LUONGSON-SOURCE-GROUP"
 
 
 def read_env_bool(name: str, default: bool = True) -> bool:
@@ -95,13 +114,20 @@ VERIFY_STREAMS = read_env_bool("HYGENIE_VERIFY_STREAMS", True)
 VERIFY_TIMEOUT_SECONDS = read_env_int("HYGENIE_VERIFY_TIMEOUT_SECONDS", 8, minimum=3, maximum=20)
 MAX_VERIFY_CANDIDATES = read_env_int("HYGENIE_MAX_VERIFY_CANDIDATES", 6, minimum=2, maximum=12)
 MAX_OUTPUT_STREAMS_PER_MATCH = read_env_int("HYGENIE_MAX_OUTPUT_STREAMS_PER_MATCH", 2, minimum=1, maximum=4)
-SCAN_PAST_MINUTES = read_env_int("HYGENIE_SCAN_PAST_MINUTES", 120, minimum=0, maximum=1440)
+SCAN_PAST_MINUTES = read_env_int("HYGENIE_SCAN_PAST_MINUTES", 150, minimum=0, maximum=1440)
 SCAN_FUTURE_MINUTES = read_env_int("HYGENIE_SCAN_FUTURE_MINUTES", 240, minimum=0, maximum=1440)
 SCAN_UNKNOWN_LIVE = read_env_bool("HYGENIE_SCAN_UNKNOWN_LIVE", True)
 UPCOMING_FAR_THRESHOLD_MINUTES = read_env_int("HYGENIE_UPCOMING_FAR_THRESHOLD_MINUTES", 45, minimum=5, maximum=240)
 UPCOMING_FAR_WAIT_SECONDS = read_env_int("HYGENIE_UPCOMING_FAR_WAIT_SECONDS", 7, minimum=3, maximum=30)
 UPCOMING_NEAR_WAIT_SECONDS = read_env_int("HYGENIE_UPCOMING_NEAR_WAIT_SECONDS", 12, minimum=5, maximum=60)
+HYBRID_HTTP_FIRST = read_env_bool("HYGENIE_HYBRID_HTTP_FIRST", True)
+HTTP_DISCOVERY_TIMEOUT_SECONDS = read_env_int("HYGENIE_HTTP_DISCOVERY_TIMEOUT_SECONDS", 8, minimum=3, maximum=20)
+HTTP_DISCOVERY_MAX_FOLLOWS = read_env_int("HYGENIE_HTTP_DISCOVERY_MAX_FOLLOWS", 4, minimum=1, maximum=10)
+DELTA_SCAN_ENABLED = read_env_bool("HYGENIE_DELTA_SCAN_ENABLED", True)
+DELTA_NEAR_MINUTES = read_env_int("HYGENIE_DELTA_NEAR_MINUTES", 45, minimum=5, maximum=180)
+STATE_PATH = Path(os.getenv("HYGENIE_STATE_PATH", "hygenie_state.json"))
 HEADLESS = True
+PROBE_CACHE: dict[tuple[str, str, str, str], dict[str, Any]] = {}
 
 # Dùng đúng User-Agent đã được kiểm chứng phát được bằng VLC.
 UA = (
@@ -641,6 +667,7 @@ def _entry_is_browser_observed(entry: dict[str, Any]) -> bool:
     for source in entry.get("sources") or []:
         if (
             source.startswith("request/")
+            or source.startswith("http/")
             or source == "response"
             or source == "iframe/src"
             or source == "hls/variant"
@@ -657,6 +684,7 @@ def _entry_is_high_confidence_observed(entry: dict[str, Any]) -> bool:
     for source in entry.get("sources") or []:
         if (
             source.startswith("request/")
+            or source.startswith("http/")
             or source == "response"
             or source == "iframe/src"
             or source == "hls/variant"
@@ -686,6 +714,9 @@ def shortlist_stream_candidates(
     ranked: list[dict[str, Any]] = []
     rejected: list[dict[str, Any]] = []
     source_weights = {
+        "http/iframe": 132,
+        "http/stream": 130,
+        "http/reference": 118,
         "response": 120,
         "iframe/src": 115,
         "hls/variant": 110,
@@ -724,7 +755,9 @@ def shortlist_stream_candidates(
 
         score = 0
         for source in sources:
-            if source.startswith("request/"):
+            if source.startswith("http/"):
+                score = max(score, 130)
+            elif source.startswith("request/"):
                 score = max(score, 125)
             elif source.startswith("dom/"):
                 score = max(score, 100)
@@ -1020,17 +1053,27 @@ async def validate_stream_candidates(
                 )
             except Exception:
                 pass
-            probe = await asyncio.to_thread(
-                probe_stream_sync,
-                entry["url"],
-                user_agent,
-                referer,
-                origin,
-                cookie_header,
-                VERIFY_TIMEOUT_SECONDS,
-            )
-            sample_data = probe.pop("data", b"")
-            probe["sample_bytes"] = len(sample_data) if isinstance(sample_data, (bytes, bytearray)) else 0
+            cache_key = (entry["url"], referer, user_agent, origin + "|" + cookie_header)
+            cached = PROBE_CACHE.get(cache_key)
+            if cached is None:
+                probe = await asyncio.to_thread(
+                    probe_stream_sync,
+                    entry["url"],
+                    user_agent,
+                    referer,
+                    origin,
+                    cookie_header,
+                    VERIFY_TIMEOUT_SECONDS,
+                )
+                sample_data = probe.pop("data", b"")
+                probe["sample_bytes"] = len(sample_data) if isinstance(sample_data, (bytes, bytearray)) else 0
+                if len(PROBE_CACHE) >= 500:
+                    PROBE_CACHE.clear()
+                PROBE_CACHE[cache_key] = dict(probe)
+            else:
+                probe = dict(cached)
+                sample_data = b""
+            probe.setdefault("sample_bytes", len(sample_data) if isinstance(sample_data, (bytes, bytearray)) else 0)
             entry["probe"] = probe
             entry["referer"] = referer
             entry["origin"] = origin
@@ -1106,6 +1149,43 @@ async def validate_stream_candidates(
     return selected[:MAX_OUTPUT_STREAMS_PER_MATCH], rejected + selected[MAX_OUTPUT_STREAMS_PER_MATCH:]
 
 
+async def finalize_stream_map(
+    context: BrowserContext,
+    stream_map: dict[str, dict[str, Any]],
+    match: dict[str, Any],
+    *,
+    log_prefix: str = "",
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    candidates, pre_rejected = shortlist_stream_candidates(stream_map, match)
+    print(
+        f"   🔎 {log_prefix}Ứng viên sau lọc quan hệ player: {len(candidates)}/"
+        f"{len(stream_map)}; loại sớm={len(pre_rejected)}",
+        flush=True,
+    )
+    streams, validation_rejected = await validate_stream_candidates(context, candidates, match)
+    rejected = pre_rejected + validation_rejected
+    variant_parents = {
+        entry.get("parent_url") for entry in streams
+        if entry.get("parent_url") and entry.get("quality")
+    }
+    if variant_parents:
+        streams = [
+            entry for entry in streams
+            if entry.get("url") not in variant_parents or entry.get("quality")
+        ]
+    streams = sorted(
+        streams,
+        key=lambda item: (
+            item.get("playability") == "verified",
+            item.get("quality") in {"4K", "FHD", "HD"},
+            stream_kind(item.get("url", "")) == "m3u8",
+            int(item.get("candidate_score") or 0),
+        ),
+        reverse=True,
+    )[:MAX_OUTPUT_STREAMS_PER_MATCH]
+    return streams, rejected
+
+
 def match_id_from_url(value: str) -> str:
     return match_key_from_url(value)
 
@@ -1154,29 +1234,37 @@ def load_previous_playlist_streams(path: str = OUTPUT_M3U) -> dict[str, list[dic
     """Đọc playlist hiện tại và tối đa 2 commit trước để cứu link từng chạy tốt."""
     sources: list[tuple[str, str]] = []
     playlist = Path(path)
+    try:
+        git_playlist_path = playlist.resolve().relative_to(PROJECT_ROOT.resolve()).as_posix()
+    except ValueError:
+        git_playlist_path = playlist.as_posix()
     if playlist.exists():
         try:
             sources.append(("working-tree", playlist.read_text(encoding="utf-8", errors="ignore")))
         except Exception:
             pass
 
-    # Workflow checkout dùng fetch-depth=0, nên có thể kiểm tra lại playlist trước
-    # khi bản parser mới ghi đè. Mọi link lịch sử vẫn phải qua bước probe.
+    # Đọc cả đường dẫn hiện tại và layout thư mục của v4.4.1 để lần nâng cấp
+    # đầu tiên không mất ứng viên lịch sử. Mọi link vẫn phải qua probe lại.
+    git_playlist_paths = [git_playlist_path]
+    if LEGACY_GIT_PLAYLIST_PATH not in git_playlist_paths:
+        git_playlist_paths.append(LEGACY_GIT_PLAYLIST_PATH)
     for revision in ("HEAD~1", "HEAD~2"):
-        try:
-            completed = subprocess.run(
-                ["git", "show", f"{revision}:{path}"],
-                check=False,
-                capture_output=True,
-                text=True,
-                encoding="utf-8",
-                errors="ignore",
-                timeout=5,
-            )
-            if completed.returncode == 0 and completed.stdout.strip():
-                sources.append((revision, completed.stdout))
-        except Exception:
-            continue
+        for history_path in git_playlist_paths:
+            try:
+                completed = subprocess.run(
+                    ["git", "show", f"{revision}:{history_path}"],
+                    check=False,
+                    capture_output=True,
+                    text=True,
+                    encoding="utf-8",
+                    errors="ignore",
+                    timeout=5,
+                )
+                if completed.returncode == 0 and completed.stdout.strip():
+                    sources.append((f"{revision}:{history_path}", completed.stdout))
+            except Exception:
+                continue
 
     merged: dict[str, list[dict[str, str]]] = {}
     seen: set[tuple[str, str]] = set()
@@ -2067,6 +2155,97 @@ async def read_match_metadata(
             "metadata_error": f"{type(exc).__name__}: {exc}",
         }
 
+async def _http_fetch_text(
+    context: BrowserContext,
+    url: str,
+    referer: str,
+) -> tuple[int, dict[str, str], str, str]:
+    try:
+        response = await context.request.get(
+            url,
+            headers={
+                "User-Agent": UA,
+                "Referer": referer or TARGET_URL,
+                "Accept-Language": "vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7",
+            },
+            timeout=HTTP_DISCOVERY_TIMEOUT_SECONDS * 1000,
+            fail_on_status_code=False,
+        )
+        body = await response.body()
+        headers = {str(k).lower(): str(v) for k, v in response.headers.items()}
+        content_type = headers.get("content-type", "")
+        if len(body) > 3_000_000:
+            body = body[:3_000_000]
+        encoding = "utf-8"
+        match = re.search(r"charset=([a-zA-Z0-9._-]+)", content_type)
+        if match:
+            encoding = match.group(1)
+        return response.status, headers, body.decode(encoding, errors="ignore"), response.url
+    except Exception as exc:
+        return 0, {}, f"__HTTP_ERROR__:{type(exc).__name__}:{exc}", url
+
+
+async def discover_http_candidates(
+    context: BrowserContext,
+    match: dict[str, Any],
+    capture_callback: Any,
+) -> int:
+    if not HYBRID_HTTP_FIRST:
+        return 0
+    queue: list[tuple[str, str, int]] = [(match.get("url", ""), match.get("url", ""), 0)]
+    visited: set[str] = set()
+    discovered_before = 0
+    followed = 0
+    while queue and followed <= HTTP_DISCOVERY_MAX_FOLLOWS:
+        url, referer, depth = queue.pop(0)
+        if not url or url in visited:
+            continue
+        visited.add(url)
+        followed += 1
+        status, headers, text, final_url = await _http_fetch_text(context, url, referer)
+        if status == 0:
+            match.setdefault("errors", []).append(text.removeprefix("__HTTP_ERROR__:"))
+            continue
+        if depth == 0 and not match.get("blv"):
+            blv_match = re.search(
+                r"(?i)(?:\bBLV\b|bình\s*luận\s*viên)\s*[:\-]?\s*([A-Za-zÀ-ỹ0-9 _.-]{2,32})",
+                clean_text(re.sub(r"<[^>]+>", " ", text)),
+            )
+            if blv_match:
+                match["blv"] = normalize_blv_name(blv_match.group(1))
+        base_url = final_url or url
+        refs = extract_explicit_references(text, base_url)
+        for ref in refs:
+            raw = ref.get("url", "")
+            kind = ref.get("kind", "reference")
+            if not raw:
+                continue
+            capture_callback(
+                raw,
+                f"http/{kind}",
+                headers={
+                    "referer": base_url if depth else match.get("url", ""),
+                    "user-agent": UA,
+                    "origin": headers.get("origin", ""),
+                },
+                frame_url=base_url,
+                status=None,
+                content_type=headers.get("content-type", "") if kind == "stream" else "",
+            )
+            discovered_before += 1
+            lower = raw.lower()
+            if (
+                depth < 1
+                and kind in {"iframe", "reference"}
+                and raw.startswith(("http://", "https://"))
+                and any(marker in lower for marker in ("embed", "player", "live", "stream"))
+                and ".m3u8" not in lower
+                and ".flv" not in lower
+            ):
+                queue.append((raw, base_url, depth + 1))
+    return discovered_before
+
+
 async def fetch_stream(
     context: BrowserContext,
     match: dict[str, Any],
@@ -2100,9 +2279,6 @@ async def fetch_stream(
             f"-> {prefix}Đang quét [{match['sport_group']}]: {match_name[:90]}",
             flush=True,
         )
-        page = await context.new_page()
-        await install_route_filter(page, homepage=False)
-
         stream_map: dict[str, dict[str, Any]] = {}
         first_stream_at: float | None = None
         rate_limit_urls: set[str] = set()
@@ -2177,6 +2353,50 @@ async def fetch_stream(
                     first_stream_at = time.monotonic()
                 if len(entry["sources"]) == 1:
                     print(f"   🎯 [{source}] {normalized}")
+
+        http_reference_count = await discover_http_candidates(context, match, capture_url)
+        if http_reference_count:
+            print(
+                f"   ⚡ HTTP-first phát hiện {len(stream_map)} URL media từ "
+                f"{http_reference_count} tham chiếu player; chưa cần mở tab Chromium.",
+                flush=True,
+            )
+
+        if stream_map:
+            early_streams, early_rejected = await finalize_stream_map(
+                context, stream_map, match, log_prefix="HTTP-first: "
+            )
+            verified_count = sum(
+                1 for entry in early_streams if entry.get("playability") == "verified"
+            )
+            delta = match.get("minutes_to_kickoff")
+            enough = verified_count >= MAX_OUTPUT_STREAMS_PER_MATCH
+            far_with_result = isinstance(delta, int) and delta > DELTA_NEAR_MINUTES and bool(early_streams)
+            if enough or far_with_result:
+                match["scan_decision"] = "http-first-complete"
+                match["rejected_streams"] = early_rejected
+                match["streams"] = early_streams
+                match["stream_urls"] = [item["url"] for item in early_streams]
+                print(
+                    f"   🚀 Dừng sớm HTTP-first: verified={verified_count}, "
+                    f"đầu ra={len(early_streams)}; không mở Chromium.",
+                    flush=True,
+                )
+                return match
+
+        delta = match.get("minutes_to_kickoff")
+        if isinstance(delta, int) and delta > DELTA_NEAR_MINUTES and not stream_map:
+            match["scan_decision"] = "http-only-far-upcoming"
+            print(
+                f"   ⏭️ Trận còn {delta} phút và HTTP chưa lộ stream; "
+                "bỏ qua Chromium, sẽ kiểm tra lại theo lịch delta.",
+                flush=True,
+            )
+            return match
+
+        match["scan_decision"] = "browser-fallback"
+        page = await context.new_page()
+        await install_route_filter(page, homepage=False)
 
         async def inspect_response_body(response: Any) -> None:
             try:
@@ -2440,33 +2660,8 @@ async def fetch_stream(
                 pass
             await page.close()
 
-        candidates, pre_rejected = shortlist_stream_candidates(stream_map, match)
-        print(
-            f"   🔎 Ứng viên sau lọc quan hệ player: {len(candidates)}/"
-            f"{len(stream_map)}; loại sớm={len(pre_rejected)}",
-            flush=True,
-        )
-        streams, validation_rejected = await validate_stream_candidates(
-            context, candidates, match
-        )
-        match["rejected_streams"] = pre_rejected + validation_rejected
-
-        variant_parents = {
-            entry.get("parent_url") for entry in streams
-            if entry.get("parent_url") and entry.get("quality")
-        }
-        if variant_parents:
-            streams = [
-                entry for entry in streams
-                if entry.get("url") not in variant_parents or entry.get("quality")
-            ]
-        match["streams"] = sorted(
-            streams,
-            key=lambda item: (
-                item.get("playability") != "verified",
-                item.get("quality") or "ZZZ",
-                item["url"],
-            ),
+        match["streams"], match["rejected_streams"] = await finalize_stream_map(
+            context, stream_map, match
         )
         match["stream_urls"] = [item["url"] for item in match["streams"]]
 
@@ -2661,6 +2856,8 @@ def write_outputs(results: list[dict[str, Any]]) -> tuple[int, int]:
     Không gắn pipe headers vào playlist mặc định vì nhiều IPTV player Android
     coi phần sau dấu | là một phần URL và báo lỗi phát kênh.
     """
+    for output_path in (OUTPUT_M3U, OUTPUT_PIPE_M3U, OUTPUT_VLC_M3U):
+        Path(output_path).parent.mkdir(parents=True, exist_ok=True)
     resolve_duplicate_logos(results)
 
     universal_lines = ["#EXTM3U"]
@@ -2859,6 +3056,7 @@ async def main() -> None:
         f"lọc trận -{SCAN_PAST_MINUTES}/+{SCAN_FUTURE_MINUTES} phút | "
         f"xác minh phát thật={'BẬT' if VERIFY_STREAMS else 'TẮT'} | "
         f"tối đa {MAX_VERIFY_CANDIDATES} ứng viên/{MAX_OUTPUT_STREAMS_PER_MATCH} link đầu ra | "
+        f"HTTP-first={'BẬT' if HYBRID_HTTP_FIRST else 'TẮT'} | delta={'BẬT' if DELTA_SCAN_ENABLED else 'TẮT'} | "
         f"miền dự phòng={','.join(HOME_URLS)}"
     )
 
@@ -2866,6 +3064,9 @@ async def main() -> None:
         arg.strip() for arg in sys.argv[1:]
         if arg.strip().startswith(("http://", "https://"))
     ]
+    delta_state = load_delta_state(STATE_PATH) if DELTA_SCAN_ENABLED and not direct_urls else {}
+    if delta_state:
+        print(f"ℹ️ Delta state: đã nạp {len(delta_state)} trận; chỉ quét lại khi đến next_scan_at.", flush=True)
     previous_streams_by_match = load_previous_playlist_streams()
     if previous_streams_by_match:
         print(
@@ -2931,6 +3132,25 @@ async def main() -> None:
             links = await collect_home_links_with_failover(context)
             links, window_stats = filter_links_by_scan_window(links)
             print_scan_window_summary(window_stats)
+            if DELTA_SCAN_ENABLED:
+                due_links: list[dict[str, Any]] = []
+                skipped_delta = 0
+                for item in links:
+                    key = match_key_from_url(item.get("url", ""))
+                    due, reason = should_scan_now(
+                        item, delta_state.get(key), near_minutes=DELTA_NEAR_MINUTES
+                    )
+                    item["delta_reason"] = reason
+                    if due:
+                        due_links.append(item)
+                    else:
+                        skipped_delta += 1
+                links = due_links
+                print(
+                    f"🧠 Delta scan: đến lượt={len(links)} | hoãn={skipped_delta} | "
+                    f"ngưỡng gần giờ={DELTA_NEAR_MINUTES} phút",
+                    flush=True,
+                )
 
         if not links:
             print("❌ Không tìm thấy link trận/phòng nào.")
@@ -2986,6 +3206,11 @@ async def main() -> None:
                 "URL M3U8/FLV; không đưa URL trang web vào M3U vì ứng dụng IPTV không phát được.",
                 flush=True,
             )
+
+        if DELTA_SCAN_ENABLED:
+            update_state_from_results(delta_state, results, match_key_from_url)
+            save_delta_state(STATE_PATH, delta_state, "luongson")
+            print(f"💾 Đã cập nhật delta state: {STATE_PATH.resolve()}", flush=True)
 
         count_matches, count_links = write_outputs(results)
 
