@@ -1,4 +1,4 @@
-name: Quet Chuoi Chien Luong Son va Ga Vang v4.4.3 - FLV Fix
+name: Quet Chuoi Chien Luong Son va Ga Vang v4.4.4 - Gà Vàng Metadata Fix
 
 on:
   workflow_dispatch:
@@ -257,5 +257,5 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Update live streams v4.4.3 (Gavang FLV fix)"
+          git commit -m "Update live streams v4.4.4 (Gavang metadata + dedupe fix)"
           git push origin "HEAD:${GITHUB_REF_NAME}"
