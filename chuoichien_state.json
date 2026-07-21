@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-22T00:01:41.948932+07:00",
+  "updated_at": "2026-07-22T00:31:28.312563+07:00",
   "matches": {
     "992361": {
       "url": "https://live04.chuoichientv.me/live/992361/pvf-cand-vs-hoang-anh-gia-lai",
@@ -160,11 +160,11 @@
     },
     "1589415": {
       "url": "https://live04.chuoichientv.me/live/1589415/ararat-armenia-vs-shamrock-rovers",
-      "match_name": "ararat armenia vs shamrock rovers",
+      "match_name": "Ararat-Armenia vs Shamrock Rovers - UEFA Champions League",
       "kickoff_iso": "2026-07-21T23:00:00+07:00",
-      "minutes_to_kickoff": -61,
-      "last_scan_at": "2026-07-22T00:01:41.948850+07:00",
-      "next_scan_at": "2026-07-22T00:06:41.948850+07:00",
+      "minutes_to_kickoff": -91,
+      "last_scan_at": "2026-07-22T00:31:28.312510+07:00",
+      "next_scan_at": "2026-07-22T00:36:28.312510+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -187,11 +187,11 @@
     },
     "1589419": {
       "url": "https://live04.chuoichientv.me/live/1589419/sabah-fa-vs-kups",
-      "match_name": "sabah fa vs kups",
+      "match_name": "Sabah FA vs KuPS - UEFA Champions League",
       "kickoff_iso": "2026-07-21T23:00:00+07:00",
-      "minutes_to_kickoff": -61,
-      "last_scan_at": "2026-07-22T00:01:41.948850+07:00",
-      "next_scan_at": "2026-07-22T00:06:41.948850+07:00",
+      "minutes_to_kickoff": -91,
+      "last_scan_at": "2026-07-22T00:31:28.312510+07:00",
+      "next_scan_at": "2026-07-22T00:36:28.312510+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
