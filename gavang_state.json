@@ -1,15 +1,15 @@
 {
   "version": 1,
   "source": "gavang",
-  "updated_at": "2026-07-21T14:04:27.040873+07:00",
+  "updated_at": "2026-07-21T14:34:31.384391+07:00",
   "matches": {
     "2451": {
       "url": "https://smorf.io/s8-live/2451/jeju-gangwon-kork1/?s8_live_fixture_id=2451&s8_live_stream_key=jeju-gangwon-kork1",
       "match_name": "jeju gangwon kork1",
       "kickoff_iso": "",
       "minutes_to_kickoff": null,
-      "last_scan_at": "2026-07-21T14:04:27.040523+07:00",
-      "next_scan_at": "2026-07-21T14:09:27.040523+07:00",
+      "last_scan_at": "2026-07-21T14:34:31.384041+07:00",
+      "next_scan_at": "2026-07-21T14:39:31.384041+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -36,8 +36,8 @@
       "match_name": "ulsan incheon kork1",
       "kickoff_iso": "",
       "minutes_to_kickoff": null,
-      "last_scan_at": "2026-07-21T14:04:27.040523+07:00",
-      "next_scan_at": "2026-07-21T14:09:27.040523+07:00",
+      "last_scan_at": "2026-07-21T14:34:31.384041+07:00",
+      "next_scan_at": "2026-07-21T14:39:31.384041+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -50,8 +50,8 @@
       "match_name": "yunnan chengdu chnfa",
       "kickoff_iso": "",
       "minutes_to_kickoff": null,
-      "last_scan_at": "2026-07-21T14:04:27.040523+07:00",
-      "next_scan_at": "2026-07-21T14:09:27.040523+07:00",
+      "last_scan_at": "2026-07-21T14:34:31.384041+07:00",
+      "next_scan_at": "2026-07-21T14:39:31.384041+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -64,8 +64,8 @@
       "match_name": "wuhan shandong chnfa",
       "kickoff_iso": "",
       "minutes_to_kickoff": null,
-      "last_scan_at": "2026-07-21T14:04:27.040523+07:00",
-      "next_scan_at": "2026-07-21T14:09:27.040523+07:00",
+      "last_scan_at": "2026-07-21T14:34:31.384041+07:00",
+      "next_scan_at": "2026-07-21T14:39:31.384041+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -78,8 +78,8 @@
       "match_name": "henan dalian chnfacup",
       "kickoff_iso": "",
       "minutes_to_kickoff": null,
-      "last_scan_at": "2026-07-21T14:04:27.040523+07:00",
-      "next_scan_at": "2026-07-21T14:09:27.040523+07:00",
+      "last_scan_at": "2026-07-21T14:34:31.384041+07:00",
+      "next_scan_at": "2026-07-21T14:39:31.384041+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -92,8 +92,8 @@
       "match_name": "tadamon racing lbnprem",
       "kickoff_iso": "",
       "minutes_to_kickoff": null,
-      "last_scan_at": "2026-07-21T14:04:27.040523+07:00",
-      "next_scan_at": "2026-07-21T14:09:27.040523+07:00",
+      "last_scan_at": "2026-07-21T14:34:31.384041+07:00",
+      "next_scan_at": "2026-07-21T14:39:31.384041+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -106,8 +106,8 @@
       "match_name": "ararat shamrock c1qual",
       "kickoff_iso": "",
       "minutes_to_kickoff": null,
-      "last_scan_at": "2026-07-21T14:04:27.040523+07:00",
-      "next_scan_at": "2026-07-21T14:09:27.040523+07:00",
+      "last_scan_at": "2026-07-21T14:34:31.384041+07:00",
+      "next_scan_at": "2026-07-21T14:39:31.384041+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -120,8 +120,8 @@
       "match_name": "pakh xorazm uzbsuper",
       "kickoff_iso": "",
       "minutes_to_kickoff": null,
-      "last_scan_at": "2026-07-21T14:04:27.040523+07:00",
-      "next_scan_at": "2026-07-21T14:09:27.040523+07:00",
+      "last_scan_at": "2026-07-21T14:34:31.384041+07:00",
+      "next_scan_at": "2026-07-21T14:39:31.384041+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -134,8 +134,8 @@
       "match_name": "aarhus lech c1qual",
       "kickoff_iso": "",
       "minutes_to_kickoff": null,
-      "last_scan_at": "2026-07-21T14:04:27.040523+07:00",
-      "next_scan_at": "2026-07-21T14:09:27.040523+07:00",
+      "last_scan_at": "2026-07-21T14:34:31.384041+07:00",
+      "next_scan_at": "2026-07-21T14:39:31.384041+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -148,8 +148,8 @@
       "match_name": "sabah kups c1qual",
       "kickoff_iso": "",
       "minutes_to_kickoff": null,
-      "last_scan_at": "2026-07-21T14:04:27.040523+07:00",
-      "next_scan_at": "2026-07-21T14:09:27.040523+07:00",
+      "last_scan_at": "2026-07-21T14:34:31.384041+07:00",
+      "next_scan_at": "2026-07-21T14:39:31.384041+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -162,8 +162,8 @@
       "match_name": "dalian beijing chnfa",
       "kickoff_iso": "",
       "minutes_to_kickoff": null,
-      "last_scan_at": "2026-07-21T14:04:27.040523+07:00",
-      "next_scan_at": "2026-07-21T14:09:27.040523+07:00",
+      "last_scan_at": "2026-07-21T14:34:31.384041+07:00",
+      "next_scan_at": "2026-07-21T14:39:31.384041+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
