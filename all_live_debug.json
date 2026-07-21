@@ -1,6 +1,6 @@
 {
   "version": "4.4.5-GAVANG-SOFT-METADATA-AUDIT",
-  "generated_at": "2026-07-21T20:33:19.503518+07:00",
+  "generated_at": "2026-07-21T21:04:23.900310+07:00",
   "policy": {
     "max_streams_per_match_blv": 2,
     "upcoming_keep_hours": 4,
@@ -12,7 +12,7 @@
       "label": "Chuối Chiên",
       "returncode": 0,
       "fresh": true,
-      "debug_rows": 3,
+      "debug_rows": 5,
       "playlist_blocks": 2,
       "included": true
     },
@@ -21,8 +21,8 @@
       "label": "Lương Sơn",
       "returncode": 0,
       "fresh": true,
-      "debug_rows": 21,
-      "playlist_blocks": 6,
+      "debug_rows": 37,
+      "playlist_blocks": 5,
       "included": true
     },
     {
@@ -35,12 +35,12 @@
       "included": true
     }
   ],
-  "input_candidates": 12,
-  "selected_count": 12,
+  "input_candidates": 11,
+  "selected_count": 11,
   "dropped_count": 0,
   "gavang_metadata": {
-    "enriched": 4,
-    "warn_only": 0,
+    "enriched": 3,
+    "warn_only": 1,
     "already_good": 0
   },
   "channels": [
@@ -75,24 +75,6 @@
       "playability": "verified",
       "score": 429,
       "kickoff_iso": "2026-07-21T19:00:00+07:00",
-      "metadata_audit": null,
-      "metadata_enriched_from": null,
-      "metadata_warning": null,
-      "stream_key_tokens": null
-    },
-    {
-      "source": "luongson",
-      "source_label": "Lương Sơn",
-      "url": "https://hls.cdnfaster-a.live/live/LIO/index.m3u8?expire=1923141900&sign=fff7ab29620de2a54fba04f5f3ca246a",
-      "match_key": "chongqing tonglianglong vs qingdao west coast|lio",
-      "display_name": "[21/07/2026 18:35] CHONGQING TONGLIANGLONG vs QINGDAO WEST COAST [BLV Lio] [M3U8]",
-      "group": "Lương Sơn",
-      "sport_group": "Bóng đá",
-      "quality": "UNKNOWN",
-      "kind": "m3u8",
-      "playability": "verified",
-      "score": 439,
-      "kickoff_iso": "2026-07-21T18:35:00+07:00",
       "metadata_audit": null,
       "metadata_enriched_from": null,
       "metadata_warning": null,
@@ -137,9 +119,9 @@
     {
       "source": "luongson",
       "source_label": "Lương Sơn",
-      "url": "https://hls.cdnfaster-a.live/live/LEO/index.m3u8?expire=1923642660&sign=58990a132e2f8d3f764c947b95b28af6",
-      "match_key": "yunnan yukun vs chengdu rongcheng fc|leo",
-      "display_name": "[21/07/2026 19:00] YUNNAN YUKUN vs CHENGDU RONGCHENG FC [BLV Leo] [M3U8]",
+      "url": "https://hls.cdnfaster-a.live/live/MASIEU/index.m3u8?expire=1788427256&sign=b91fcfc36fe72375e8f8cc813de0220b",
+      "match_key": "yunnan yukun vs chengdu rongcheng fc|ma sieu",
+      "display_name": "[21/07/2026 19:00] YUNNAN YUKUN vs CHENGDU RONGCHENG FC [BLV MÃ SIÊU] [M3U8]",
       "group": "Lương Sơn",
       "sport_group": "Bóng đá",
       "quality": "UNKNOWN",
@@ -155,9 +137,9 @@
     {
       "source": "luongson",
       "source_label": "Lương Sơn",
-      "url": "https://hls.cdnfaster-a.live/live/MASIEU/index.m3u8?expire=1788427256&sign=b91fcfc36fe72375e8f8cc813de0220b",
-      "match_key": "yunnan yukun vs chengdu rongcheng fc|ma sieu",
-      "display_name": "[21/07/2026 19:00] YUNNAN YUKUN vs CHENGDU RONGCHENG FC [BLV MÃ SIÊU] [M3U8]",
+      "url": "https://hls.cdnfaster-a.live/live/LEO/index.m3u8?expire=1923642660&sign=58990a132e2f8d3f764c947b95b28af6",
+      "match_key": "yunnan yukun vs chengdu rongcheng fc|leo",
+      "display_name": "[21/07/2026 19:00] YUNNAN YUKUN vs CHENGDU RONGCHENG FC [BLV Leo] [M3U8]",
       "group": "Lương Sơn",
       "sport_group": "Bóng đá",
       "quality": "UNKNOWN",
@@ -191,22 +173,22 @@
     {
       "source": "gavang",
       "source_label": "Gà Vàng",
-      "url": "https://flv.lauthaitv.cc/live/wuhan-shandong-chnfa.flv",
-      "match_key": "chn fa cup wuhan three towns vs shandong taishan fc|nguoi nan",
-      "display_name": "[18:35 21/07] CHN FA Cup - Wuhan Three Towns VS Shandong Taishan FC - 21-07 [BLV NGƯỜI NẶN] [FLV]",
+      "url": "https://flv.lauthaitv.cc/live/yunnan-chengdu-chnfa.flv",
+      "match_key": "chn fa cup yunnan yukun vs chengdu rongcheng fc|nguoi bac",
+      "display_name": "[19:00 21/07] CHN FA Cup - Yunnan Yukun VS Chengdu Rongcheng FC - 21-07 [BLV NGƯỜI BẠC] [FLV]",
       "group": "Gà Vàng",
       "sport_group": "Bóng đá",
       "quality": "UNKNOWN",
       "kind": "flv",
       "playability": "verified",
       "score": 418,
-      "kickoff_iso": "2026-07-21T18:35:00+07:00",
+      "kickoff_iso": "2026-07-21T19:00:00+07:00",
       "metadata_audit": "enriched-soft",
       "metadata_enriched_from": "luongson",
       "metadata_warning": null,
       "stream_key_tokens": [
-        "wuhan",
-        "shandong"
+        "yunnan",
+        "chengdu"
       ]
     },
     {
@@ -233,27 +215,6 @@
     {
       "source": "gavang",
       "source_label": "Gà Vàng",
-      "url": "https://flv.lauthaitv.cc/live/yunnan-chengdu-chnfa.flv",
-      "match_key": "yunnan yukun vs chengdu rongcheng fc|",
-      "display_name": "[19:00 21/07] YUNNAN YUKUN vs CHENGDU RONGCHENG FC [FLV]",
-      "group": "Gà Vàng",
-      "sport_group": "Bóng đá",
-      "quality": "UNKNOWN",
-      "kind": "flv",
-      "playability": "verified",
-      "score": 418,
-      "kickoff_iso": "2026-07-21T19:00:00+07:00",
-      "metadata_audit": "enriched-soft",
-      "metadata_enriched_from": "luongson",
-      "metadata_warning": null,
-      "stream_key_tokens": [
-        "yunnan",
-        "chengdu"
-      ]
-    },
-    {
-      "source": "gavang",
-      "source_label": "Gà Vàng",
       "url": "https://flv.lauthaitv.cc/live/tadamon-racing-lbnprem.flv",
       "match_key": "tadamon sour vs racing beirut|",
       "display_name": "[20:00 21/07] TADAMON SOUR vs RACING BEIRUT [FLV]",
@@ -270,6 +231,26 @@
       "stream_key_tokens": [
         "tadamon",
         "racing"
+      ]
+    },
+    {
+      "source": "gavang",
+      "source_label": "Gà Vàng",
+      "url": "https://live-bong.s3.ap-southeast-1.amazonaws.com/New+folder/hls_abr/copy_CE1198F2-AD34-4956-822A-1F66706D2422/master.m3u8",
+      "match_key": "larne vs crvena|",
+      "display_name": "Larne VS Crvena [M3U8]",
+      "group": "Gà Vàng",
+      "sport_group": "Bóng đá",
+      "quality": "UNKNOWN",
+      "kind": "m3u8",
+      "playability": "verified",
+      "score": 429,
+      "kickoff_iso": null,
+      "metadata_audit": "warn-only",
+      "metadata_enriched_from": null,
+      "metadata_warning": "Không tìm được lịch/tên đối chiếu đủ tin cậy từ nguồn khác; stream verified vẫn được giữ",
+      "stream_key_tokens": [
+        "master"
       ]
     }
   ],
