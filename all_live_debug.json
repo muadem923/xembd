@@ -1,6 +1,6 @@
 {
   "version": "4.4.8-GAVANG-PENDING-METADATA-FIRST",
-  "generated_at": "2026-07-22T04:04:49.029703+07:00",
+  "generated_at": "2026-07-22T04:35:55.387659+07:00",
   "policy": {
     "max_streams_per_match_blv": 2,
     "upcoming_keep_hours": 4,
@@ -15,7 +15,7 @@
       "returncode": 0,
       "fresh": true,
       "debug_rows": 4,
-      "playlist_blocks": 0,
+      "playlist_blocks": 2,
       "included": true
     },
     {
@@ -23,7 +23,7 @@
       "label": "Lương Sơn",
       "returncode": 0,
       "fresh": true,
-      "debug_rows": 20,
+      "debug_rows": 17,
       "playlist_blocks": 2,
       "included": true
     },
@@ -32,8 +32,8 @@
       "label": "Gà Vàng",
       "returncode": 0,
       "fresh": true,
-      "debug_rows": 36,
-      "playlist_blocks": 26,
+      "debug_rows": 35,
+      "playlist_blocks": 24,
       "included": true
     }
   ],
@@ -42,15 +42,63 @@
   "dropped_count": 0,
   "gavang_metadata": {
     "enriched": 0,
-    "warn_only": 26,
+    "warn_only": 24,
     "already_good": 0
   },
   "gavang_logo": {
     "team_logo": 0,
-    "source_fallback": 26,
+    "source_fallback": 24,
     "repaired_invalid": 0
   },
   "channels": [
+    {
+      "source": "chuoichien",
+      "source_label": "Chuối Chiên",
+      "url": "https://gckc0525.edgemaxcdn.org/live/chuoitieu.flv",
+      "match_key": "libertad vs delfin sc|chuoi tieu",
+      "display_name": "[04:30 22/07] Libertad vs Delfin SC - VĐQG Ecuador [BLV Chuối Tiêu] [FHD FLV]",
+      "group": "Chuối Chiên",
+      "sport_group": "Bóng đá",
+      "quality": "FHD",
+      "kind": "flv",
+      "playability": "verified",
+      "derived_pending": false,
+      "pending_reason": null,
+      "score": 456,
+      "kickoff_iso": "2026-07-22T04:30:00+07:00",
+      "metadata_audit": null,
+      "metadata_enriched_from": null,
+      "metadata_warning": null,
+      "stream_key_tokens": null,
+      "logo": "https://media.chuoichientv.net/media/uploads/20250623_132254_7e6c4cd8.png",
+      "logo_source": null,
+      "logo_enriched_from": null,
+      "logo_is_fallback": null
+    },
+    {
+      "source": "chuoichien",
+      "source_label": "Chuối Chiên",
+      "url": "https://gckc0525.edgemaxcdn.org/live/chuoitieu/playlist.m3u8",
+      "match_key": "libertad vs delfin sc|chuoi tieu",
+      "display_name": "[04:30 22/07] Libertad vs Delfin SC - VĐQG Ecuador [BLV Chuối Tiêu] (Luồng 2) [M3U8]",
+      "group": "Chuối Chiên",
+      "sport_group": "Bóng đá",
+      "quality": "UNKNOWN",
+      "kind": "m3u8",
+      "playability": "verified",
+      "derived_pending": false,
+      "pending_reason": null,
+      "score": 429,
+      "kickoff_iso": "2026-07-22T04:30:00+07:00",
+      "metadata_audit": null,
+      "metadata_enriched_from": null,
+      "metadata_warning": null,
+      "stream_key_tokens": null,
+      "logo": "https://media.chuoichientv.net/media/uploads/20250623_132254_7e6c4cd8.png",
+      "logo_source": null,
+      "logo_enriched_from": null,
+      "logo_is_fallback": null
+    },
     {
       "source": "luongson",
       "source_label": "Lương Sơn",
@@ -98,34 +146,6 @@
       "logo_source": null,
       "logo_enriched_from": null,
       "logo_is_fallback": null
-    },
-    {
-      "source": "gavang",
-      "source_label": "Gà Vàng",
-      "url": "https://flv.lauthaitv.cc/live/mineiro-bahia-brasa.flv",
-      "match_key": "bra serie a atletico mineiro mg vs bahia|nguoi soi",
-      "display_name": "[CHỜ PHÁT] [22/07] BRA Serie A - Atlético Mineiro - MG VS Bahia [BLV NGƯỜI SÓI] [FLV]",
-      "group": "Gà Vàng",
-      "sport_group": "Bóng đá",
-      "quality": "UNKNOWN",
-      "kind": "flv",
-      "playability": "upcoming-pending",
-      "derived_pending": true,
-      "pending_reason": "current-home-stream-key-no-time",
-      "score": 218,
-      "kickoff_iso": null,
-      "metadata_audit": "warn-only",
-      "metadata_enriched_from": null,
-      "metadata_warning": "Không tìm được lịch/tên đối chiếu đủ tin cậy từ nguồn khác; stream verified vẫn được giữ",
-      "stream_key_tokens": [
-        "mineiro",
-        "bahia",
-        "brasa"
-      ],
-      "logo": "https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",
-      "logo_source": "gavang-source-fallback",
-      "logo_enriched_from": null,
-      "logo_is_fallback": true
     },
     {
       "source": "gavang",
@@ -409,25 +429,24 @@
     {
       "source": "gavang",
       "source_label": "Gà Vàng",
-      "url": "https://flv.lauthaitv.cc/live/tot-mkdons-intcf.flv",
-      "match_key": "tot vs mkdons|",
-      "display_name": "[CHỜ PHÁT] Tot VS Mkdons [FLV]",
+      "url": "https://flv.lauthaitv.cc/live/rivadavia-laplata-argcopa.flv",
+      "match_key": "rivadavia vs laplata|",
+      "display_name": "Rivadavia VS Laplata [FLV]",
       "group": "Gà Vàng",
       "sport_group": "Bóng đá",
       "quality": "UNKNOWN",
       "kind": "flv",
-      "playability": "upcoming-pending",
-      "derived_pending": true,
-      "pending_reason": "current-home-stream-key-no-time",
-      "score": 218,
+      "playability": "verified",
+      "derived_pending": false,
+      "pending_reason": null,
+      "score": 418,
       "kickoff_iso": null,
       "metadata_audit": "warn-only",
       "metadata_enriched_from": null,
       "metadata_warning": "Không tìm được lịch/tên đối chiếu đủ tin cậy từ nguồn khác; stream verified vẫn được giữ",
       "stream_key_tokens": [
-        "tot",
-        "mkdons",
-        "intcf"
+        "rivadavia",
+        "laplata"
       ],
       "logo": "https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",
       "logo_source": "gavang-source-fallback",
@@ -541,33 +560,6 @@
       "logo_source": "gavang-source-fallback",
       "logo_enriched_from": null,
       "logo_is_fallback": true
-    },
-    {
-      "source": "gavang",
-      "source_label": "Gà Vàng",
-      "url": "https://flv.lauthaitv.cc/live/sturm-heart-c1qual.flv",
-      "match_key": "uefa champions league qual sturm graz vs heart of midlothian|nguoi cao",
-      "display_name": "[22/07] UEFA Champions League (qual) - Sturm Graz VS Heart of Midlothian [BLV NGƯỜI CÁO] [FLV]",
-      "group": "Gà Vàng",
-      "sport_group": "Bóng đá",
-      "quality": "UNKNOWN",
-      "kind": "flv",
-      "playability": "verified",
-      "derived_pending": false,
-      "pending_reason": null,
-      "score": 418,
-      "kickoff_iso": null,
-      "metadata_audit": "warn-only",
-      "metadata_enriched_from": null,
-      "metadata_warning": "Không tìm được lịch/tên đối chiếu đủ tin cậy từ nguồn khác; stream verified vẫn được giữ",
-      "stream_key_tokens": [
-        "sturm",
-        "heart"
-      ],
-      "logo": "https://smorf.io/wp-json/s8-image/75ad0aa5-5b2b-40d9-9bae-15937928b6a2",
-      "logo_source": "team",
-      "logo_enriched_from": null,
-      "logo_is_fallback": false
     },
     {
       "source": "gavang",
