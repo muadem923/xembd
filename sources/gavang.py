@@ -58,7 +58,7 @@ LEGACY_GIT_PLAYLIST_PATH = "gavang/gavang_live.m3u"
 OUTPUT_DEBUG = "gavang_debug.json"
 OUTPUT_HOME_DEBUG_HTML = "gavang_home_debug.html"
 OUTPUT_HOME_DEBUG_PNG = "gavang_home_debug.png"
-SCANNER_VERSION = "4.4.7-GAVANG-PENDING-DERIVED-FLV"
+SCANNER_VERSION = "4.4.8-GAVANG-PENDING-METADATA-FIRST"
 
 
 def read_env_bool(name: str, default: bool = True) -> bool:
@@ -666,7 +666,11 @@ def filter_links_by_scan_window(
         if not item.get("time"):
             item["time"] = derived_time
         if not item.get("date"):
-            item["date"] = extract_date(str(item.get("raw_time", ""))) or extract_date(str(item.get("card_text", "")))
+            item["date"] = (
+                extract_date(str(item.get("raw_time", "")))
+                or extract_date(str(item.get("raw_title", "")))
+                or extract_date(str(item.get("card_text", "")))
+            )
         annotate_match_timing(item, now)
         delta = item.get("minutes_to_kickoff")
         if isinstance(delta, int):
@@ -1523,6 +1527,7 @@ GAVANG_STREAM_KEY_NOISE = {
     "ausffa", "auscup", "kork1", "kork2", "chnfa", "chnfacup", "finveik",
     "argcopa", "argcup", "c1qual", "uclqual", "uefaqual", "lbnprem",
     "uzbsuper", "ligaprosa", "jpnj1", "jpnj2", "thaprem", "viecup",
+    "c3qual", "ueclqual", "intcf", "mexliga", "brasa", "affw",
 }
 
 
@@ -1945,12 +1950,18 @@ def clean_match_name(value: str, fallback_url: str) -> str:
     text = clean_text(text).strip(" -|•")
 
     if not re.search(r"\bvs\b", text, re.I):
-        slug = unquote(urlparse(fallback_url).path.rstrip("/").split("/")[-1])
-        slug = re.sub(r"-\d{2}-\d{2}-\d{4}-\d{4}$", "", slug)
-        slug = re.sub(r"-vs-", " vs ", slug, flags=re.I)
-        slug = re.sub(r"-(?:finveik|wc|live)$", "", slug, flags=re.I)
-        slug = slug.replace("-", " ")
-        text = clean_text(slug)
+        # Không xuất nguyên slug kỹ thuật kiểu ``buncheon anyang kork1``.
+        # Dùng stream_key để bỏ mã giải cuối và dựng tên hai đội dễ đọc.
+        safe_fallback = fallback_match_name_from_stream_key(fallback_url)
+        if safe_fallback:
+            text = safe_fallback
+        else:
+            slug = unquote(urlparse(fallback_url).path.rstrip("/").split("/")[-1])
+            slug = re.sub(r"-\d{2}-\d{2}-\d{4}-\d{4}$", "", slug)
+            slug = re.sub(r"-vs-", " vs ", slug, flags=re.I)
+            slug = re.sub(r"-(?:finveik|wc|live)$", "", slug, flags=re.I)
+            slug = slug.replace("-", " ")
+            text = clean_text(slug).title()
 
     return text or fallback_url
 
@@ -2971,6 +2982,40 @@ async def read_match_metadata(
                     } catch (_) {}
                 });
 
+
+                // Nhiều trang s8-live giữ lịch trong biến JS thay vì DOM/JSON-LD.
+                // Chỉ đọc script có đúng fixture_id hoặc stream_key để tránh lấy giờ trận bên cạnh.
+                const relatedScriptText = Array.from(document.scripts)
+                    .map((script) => script.textContent || "")
+                    .filter((text) => (fixtureId && text.includes(fixtureId)) || (streamKey && text.includes(streamKey)))
+                    .join("\n").slice(0, 1200000);
+                if (relatedScriptText) {
+                    const addEpoch = (rawValue, score, source) => {
+                        const digits = String(rawValue || "").replace(/[^0-9]/g, "");
+                        if (!/^\d{10,13}$/.test(digits)) return;
+                        const numeric = Number(digits);
+                        if (!Number.isFinite(numeric)) return;
+                        const millis = digits.length === 10 ? numeric * 1000 : numeric;
+                        const date = new Date(millis);
+                        if (!Number.isNaN(date.getTime())) addTime(date.toISOString(), score, source);
+                    };
+                    const keyedStringPatterns = [
+                        /["'](?:startDate|start_date|startTime|start_time|kickoff|kick_off|matchTime|match_time|eventTime|event_time|fixtureTime|fixture_time|scheduledAt|scheduled_at|startAt|start_at)["']\s*[:=]\s*["']([^"']{4,120})["']/gi,
+                        /(?:startDate|start_date|startTime|start_time|kickoff|kick_off|matchTime|match_time|eventTime|event_time|fixtureTime|fixture_time|scheduledAt|scheduled_at|startAt|start_at)\s*[:=]\s*`([^`]{4,120})`/gi,
+                    ];
+                    keyedStringPatterns.forEach((pattern) => {
+                        let found;
+                        while ((found = pattern.exec(relatedScriptText)) !== null) {
+                            addTime(found[1], 96, "fixture-script/string");
+                        }
+                    });
+                    const epochPattern = /["'](?:timestamp|start_timestamp|startTimestamp|kickoff_timestamp|kickoffTimestamp|match_timestamp|matchTimestamp|start_time|startTime)["']\s*[:=]\s*["']?(\d{10,13})["']?/gi;
+                    let epochFound;
+                    while ((epochFound = epochPattern.exec(relatedScriptText)) !== null) {
+                        addEpoch(epochFound[1], 94, "fixture-script/epoch");
+                    }
+                }
+
                 // Chỉ dùng selector toàn trang làm fallback khi khối trận không cho ra giờ nào.
                 if (!timeCandidates.length) scanTimeScope(document, 10, "document-fallback", true);
                 timeCandidates.sort((a, b) => b.score - a.score);
@@ -3125,10 +3170,22 @@ def apply_basic_match_metadata(
                 match["match_name"] = fallback
                 changes["match_name"] = fallback
         elif re.search(r"\bvs\b", better_name, re.I):
+            title_date = extract_date(better_name)
+            # Tiêu đề Gà Vàng thường kết thúc bằng ``- 22-07``. Đưa ngày vào
+            # metadata riêng để M3U hiển thị [22/07], tránh lặp ngày trong tên đội.
+            better_name = re.sub(
+                r"\s*-\s*(?:0?[1-9]|[12]\d|3[01])[-/](?:0?[1-9]|1[0-2])(?:[-/]\d{2,4})?\s*$",
+                "",
+                better_name,
+            ).strip(" -")
             old_name = clean_text(str(match.get("match_name", "")))
             if better_name != old_name:
                 match["match_name"] = better_name
                 changes["match_name"] = better_name
+            if title_date and not clean_text(str(match.get("date", ""))):
+                match["date"] = title_date
+                match["date_source"] = "detail-title"
+                changes["date"] = title_date
 
     match["detail_metadata_safe"] = metadata_title_safe
     detail_time, detail_date, detail_time_source = select_best_time_candidate(metadata)
@@ -3177,11 +3234,10 @@ async def enrich_verified_match_metadata(
     context: BrowserContext,
     match: dict[str, Any],
 ) -> None:
-    """Mở trang trận ở chế độ chỉ lấy metadata sau khi FLV đã xác minh.
+    """Mở trang trận ở chế độ chỉ lấy metadata, không chạy player.
 
-    Fast-path vẫn không chạy lại pipeline bắt stream/đổi chất lượng. Trang chỉ được
-    mở cho những fixture thực sự có FLV sống, nhờ vậy lấy tên đầy đủ, giờ và BLV
-    mà không phải mở hàng chục tab cho các stream key chưa phát.
+    Áp dụng cho cả FLV đã xác minh và FLV CHỜ PHÁT. Route filter chặn media nên
+    bước này chỉ đọc tên đội, lịch, BLV và logo đúng fixture; không tải luồng video.
     """
     page: Page | None = None
     try:
@@ -3482,6 +3538,12 @@ async def fetch_stream(
                     f"{derived_pending[0].get('url')}",
                     flush=True,
                 )
+                print(
+                    "   🧾 CHỜ PHÁT vẫn mở trang metadata nhẹ để lấy tên/giờ/BLV/logo; "
+                    "không mở player.",
+                    flush=True,
+                )
+                await enrich_verified_match_metadata(context, match)
 
             if match.get("derived_probe_only"):
                 match["scan_decision"] = (
@@ -4519,7 +4581,9 @@ def write_outputs(results: list[dict[str, Any]]) -> tuple[int, int]:
             written_streams.add(stream_url)
             playability_counts[clean_text(stream_info.get("playability") or "unknown")] += 1
 
-            display_name = display_base
+            is_pending = stream_info.get("playability") == "upcoming-pending"
+            stream_display_base = f"[CHỜ PHÁT] {display_base}" if is_pending else display_base
+            display_name = stream_display_base
             quality = normalize_quality_hint(stream_info.get("quality", ""))
             if len(unique_streams) > 1 and not quality:
                 display_name += f" (Luồng {index})"
@@ -4532,14 +4596,12 @@ def write_outputs(results: list[dict[str, Any]]) -> tuple[int, int]:
             kind = stream_kind(stream_url, stream_info.get("content_type", ""))
             if kind:
                 suffix = f"{quality} {kind.upper()}" if quality else kind.upper()
-                if stream_info.get("playability") == "upcoming-pending":
-                    suffix = f"CHỜ PHÁT {suffix}"
                 display_name += f" [{suffix}]"
 
             channel_id = channel_id_for(result, stream_url, index)
             attributes = (
                 f'tvg-id="{escape_m3u_text(channel_id)}" '
-                f'tvg-name="{escape_m3u_text(display_base)}" '
+                f'tvg-name="{escape_m3u_text(stream_display_base)}" '
                 f'group-title="{escape_m3u_text(sport_group)}"'
             )
             if logo:
