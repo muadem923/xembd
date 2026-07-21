@@ -71,19 +71,21 @@ class MergerTests(unittest.TestCase):
         self.assertNotIn("|User-Agent=", content)
         self.assertFalse((self.root / "all_live_pipe.m3u").exists())
         self.assertFalse((self.root / "all_live_vlc.m3u").exists())
+        self.assertIn('group-title="CC"', content)
+        self.assertNotIn('group-title="Bóng đá"', content)
 
-    def test_upcoming_three_hours_only(self) -> None:
+    def test_upcoming_four_hours_only(self) -> None:
         rows = [
             {"id": "a", "name": "Soon vs Team [FHD M3U8]", "url": "https://cdn/soon/playlist.m3u8"},
             {"id": "b", "name": "Far vs Team [FHD M3U8]", "url": "https://cdn/far/playlist.m3u8"},
         ]
-        soon = self.now + timedelta(hours=2)
-        far = self.now + timedelta(hours=4)
+        soon = self.now + timedelta(hours=4)
+        far = self.now + timedelta(hours=4, minutes=1)
         debug = [
             {"match_name": "Soon vs Team", "kickoff_iso": soon.isoformat(), "streams": [{"url": "https://cdn/soon/playlist.m3u8", "quality": "FHD", "playability": "upcoming-pending"}]},
             {"match_name": "Far vs Team", "kickoff_iso": far.isoformat(), "streams": [{"url": "https://cdn/far/playlist.m3u8", "quality": "FHD", "playability": "upcoming-pending"}]},
         ]
-        report = merge_sources(self.root, [self.make_source("cc", "CC", rows, debug)], now=self.now, max_per_match=2, upcoming_hours=3, preserve_on_empty=False)
+        report = merge_sources(self.root, [self.make_source("cc", "CC", rows, debug)], now=self.now, max_per_match=2, upcoming_hours=4, preserve_on_empty=False)
         self.assertEqual(report["selected_count"], 1)
         content = (self.root / "all_live.m3u").read_text(encoding="utf-8")
         self.assertIn("/soon/", content)
@@ -108,13 +110,43 @@ class MergerTests(unittest.TestCase):
         report = merge_sources(self.root, [self.make_source("cc", "CC", rows, debug)], now=self.now, max_per_match=1, preserve_on_empty=False)
         self.assertEqual(report["selected_count"], 2)
 
+    def test_all_live_groups_channels_by_source(self) -> None:
+        cc_rows = [{"id": "cc", "name": "C vs D [FHD M3U8]", "url": "https://cdn/cc/playlist.m3u8", "group": "Bóng đá"}]
+        ls_rows = [{"id": "ls", "name": "A vs B [FHD M3U8]", "url": "https://cdn/ls/playlist.m3u8", "group": "Bóng đá"}]
+        gv_rows = [{"id": "gv", "name": "E vs F [FHD M3U8]", "url": "https://cdn/gv/playlist.m3u8", "group": "Bóng đá"}]
+        cc_debug = [{"match_name": "C vs D", "streams": [{"url": "https://cdn/cc/playlist.m3u8", "quality": "FHD", "playability": "verified"}]}]
+        ls_debug = [{"match_name": "A vs B", "streams": [{"url": "https://cdn/ls/playlist.m3u8", "quality": "FHD", "playability": "verified"}]}]
+        gv_debug = [{"match_name": "E vs F", "streams": [{"url": "https://cdn/gv/playlist.m3u8", "quality": "FHD", "playability": "verified"}]}]
+        report = merge_sources(
+            self.root,
+            [
+                self.make_source("chuoichien", "Chuối Chiên", cc_rows, cc_debug),
+                self.make_source("luongson", "Lương Sơn", ls_rows, ls_debug),
+                self.make_source("gavang", "Gà Vàng", gv_rows, gv_debug),
+            ],
+            now=self.now,
+            preserve_on_empty=False,
+        )
+        content = (self.root / "all_live.m3u").read_text(encoding="utf-8")
+        self.assertEqual(content.count('group-title="Chuối Chiên"'), 1)
+        self.assertEqual(content.count('group-title="Lương Sơn"'), 1)
+        self.assertEqual(content.count('group-title="Gà Vàng"'), 1)
+        self.assertLess(content.index('group-title="Chuối Chiên"'), content.index('group-title="Lương Sơn"'))
+        self.assertLess(content.index('group-title="Lương Sơn"'), content.index('group-title="Gà Vàng"'))
+        self.assertEqual({row["group"] for row in report["channels"]}, {"Chuối Chiên", "Lương Sơn", "Gà Vàng"})
+        self.assertEqual({row["sport_group"] for row in report["channels"]}, {"Bóng đá"})
+
     def test_cleanup_leaves_only_all_live_m3u(self) -> None:
         (self.root / "all_live.m3u").write_text("#EXTM3U\n", encoding="utf-8")
         for name in ("chuoichien_live.m3u", "hygenie_live.m3u", "all_live_pipe.m3u", "all_live_vlc.m3u"):
             (self.root / name).write_text("#EXTM3U\n", encoding="utf-8")
+        legacy = self.root / "gavang" / "gavang_live.m3u"
+        legacy.parent.mkdir(parents=True)
+        legacy.write_text("#EXTM3U\n", encoding="utf-8")
         removed = cleanup_intermediate_playlists(self.root)
-        self.assertEqual(sorted(removed), sorted(["chuoichien_live.m3u", "hygenie_live.m3u", "all_live_pipe.m3u", "all_live_vlc.m3u"]))
-        self.assertEqual([path.name for path in self.root.glob("*.m3u")], ["all_live.m3u"])
+        self.assertEqual(sorted(removed), sorted(["chuoichien_live.m3u", "hygenie_live.m3u", "all_live_pipe.m3u", "all_live_vlc.m3u", "gavang/gavang_live.m3u"]))
+        self.assertEqual([path.relative_to(self.root).as_posix() for path in self.root.rglob("*.m3u")], ["all_live.m3u"])
+        self.assertFalse((self.root / "gavang").exists())
 
 
 if __name__ == "__main__":
