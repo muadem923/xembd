@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "source": "chuoichien",
+  "updated_at": "2026-07-21T12:56:00.907486+07:00",
+  "matches": {
+    "992361": {
+      "url": "https://live04.chuoichientv.me/live/992361/pvf-cand-vs-hoang-anh-gia-lai",
+      "match_name": "pvf cand vs hoang anh gia lai",
+      "kickoff_iso": "2026-07-21T15:30:00+07:00",
+      "minutes_to_kickoff": 154,
+      "last_scan_at": "2026-07-21T12:56:00.907408+07:00",
+      "next_scan_at": "2026-07-21T13:41:00.907408+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1567360": {
+      "url": "https://live04.chuoichientv.me/live/1567360/dalian-kewei-vs-beijing-guoan",
+      "match_name": "dalian kewei vs beijing guoan",
+      "kickoff_iso": "2026-07-21T15:00:00+07:00",
+      "minutes_to_kickoff": 124,
+      "last_scan_at": "2026-07-21T12:56:00.907408+07:00",
+      "next_scan_at": "2026-07-21T13:41:00.907408+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1560864": {
+      "url": "https://live04.chuoichientv.me/live/1560864/preston-lions-vs-newcastle-jets",
+      "match_name": "preston lions vs newcastle jets",
+      "kickoff_iso": "2026-07-21T16:30:00+07:00",
+      "minutes_to_kickoff": 214,
+      "last_scan_at": "2026-07-21T12:56:00.907408+07:00",
+      "next_scan_at": "2026-07-21T13:41:00.907408+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1560865": {
+      "url": "https://live04.chuoichientv.me/live/1560865/lions-vs-perth-glory",
+      "match_name": "lions vs perth glory",
+      "kickoff_iso": "2026-07-21T16:30:00+07:00",
+      "minutes_to_kickoff": 214,
+      "last_scan_at": "2026-07-21T12:56:00.907408+07:00",
+      "next_scan_at": "2026-07-21T13:41:00.907408+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    }
+  }
+}

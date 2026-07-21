@@ -1,0 +1,161 @@
+{
+  "version": 1,
+  "source": "gavang",
+  "updated_at": "2026-07-21T12:59:25.318455+07:00",
+  "matches": {
+    "2451": {
+      "url": "https://smorf.io/s8-live/2451/jeju-gangwon-kork1/?s8_live_fixture_id=2451&s8_live_stream_key=jeju-gangwon-kork1",
+      "match_name": "jeju gangwon kork1",
+      "kickoff_iso": "",
+      "minutes_to_kickoff": null,
+      "last_scan_at": "2026-07-21T12:59:25.318223+07:00",
+      "next_scan_at": "2026-07-21T13:04:25.318223+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://live-bong.s3.ap-southeast-1.amazonaws.com/New+folder/hls_abr/copy_CE1198F2-AD34-4956-822A-1F66706D2422/source/index.m3u8"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "2449": {
+      "url": "https://smorf.io/s8-live/2449/queensland-perth-ausffa/?s8_live_fixture_id=2449&s8_live_stream_key=queensland-perth-ausffa",
+      "match_name": "queensland perth ausffa",
+      "kickoff_iso": "",
+      "minutes_to_kickoff": null,
+      "last_scan_at": "2026-07-21T12:59:25.318223+07:00",
+      "next_scan_at": "2026-07-21T13:04:25.318223+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://live-bong.s3.ap-southeast-1.amazonaws.com/New+folder/hls_abr/copy_CE1198F2-AD34-4956-822A-1F66706D2422/source/index.m3u8"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "2450": {
+      "url": "https://smorf.io/s8-live/2450/ulsan-incheon-kork1/?s8_live_fixture_id=2450&s8_live_stream_key=ulsan-incheon-kork1",
+      "match_name": "ulsan incheon kork1",
+      "kickoff_iso": "",
+      "minutes_to_kickoff": null,
+      "last_scan_at": "2026-07-21T12:59:25.318223+07:00",
+      "next_scan_at": "2026-07-21T13:04:25.318223+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://live-bong.s3.ap-southeast-1.amazonaws.com/New+folder/hls_abr/copy_CE1198F2-AD34-4956-822A-1F66706D2422/source/index.m3u8"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "2453": {
+      "url": "https://smorf.io/s8-live/2453/yunnan-chengdu-chnfa/?s8_live_fixture_id=2453&s8_live_stream_key=yunnan-chengdu-chnfa",
+      "match_name": "yunnan chengdu chnfa",
+      "kickoff_iso": "",
+      "minutes_to_kickoff": null,
+      "last_scan_at": "2026-07-21T12:59:25.318223+07:00",
+      "next_scan_at": "2026-07-21T13:04:25.318223+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://live-bong.s3.ap-southeast-1.amazonaws.com/New+folder/hls_abr/copy_CE1198F2-AD34-4956-822A-1F66706D2422/source/index.m3u8"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "2452": {
+      "url": "https://smorf.io/s8-live/2452/wuhan-shandong-chnfa/?s8_live_fixture_id=2452&s8_live_stream_key=wuhan-shandong-chnfa",
+      "match_name": "wuhan shandong chnfa",
+      "kickoff_iso": "",
+      "minutes_to_kickoff": null,
+      "last_scan_at": "2026-07-21T12:59:25.318223+07:00",
+      "next_scan_at": "2026-07-21T13:04:25.318223+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://live-bong.s3.ap-southeast-1.amazonaws.com/New+folder/hls_abr/copy_CE1198F2-AD34-4956-822A-1F66706D2422/source/index.m3u8"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "2454": {
+      "url": "https://smorf.io/s8-live/2454/henan-dalian-chnfacup/?s8_live_fixture_id=2454&s8_live_stream_key=henan-dalian-chnfacup",
+      "match_name": "henan dalian chnfacup",
+      "kickoff_iso": "",
+      "minutes_to_kickoff": null,
+      "last_scan_at": "2026-07-21T12:59:25.318223+07:00",
+      "next_scan_at": "2026-07-21T13:04:25.318223+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://live-bong.s3.ap-southeast-1.amazonaws.com/New+folder/hls_abr/copy_CE1198F2-AD34-4956-822A-1F66706D2422/source/index.m3u8"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "2455": {
+      "url": "https://smorf.io/s8-live/2455/tadamon-racing-lbnprem/?s8_live_fixture_id=2455&s8_live_stream_key=tadamon-racing-lbnprem",
+      "match_name": "tadamon racing lbnprem",
+      "kickoff_iso": "",
+      "minutes_to_kickoff": null,
+      "last_scan_at": "2026-07-21T12:59:25.318223+07:00",
+      "next_scan_at": "2026-07-21T13:04:25.318223+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://live-bong.s3.ap-southeast-1.amazonaws.com/New+folder/hls_abr/copy_CE1198F2-AD34-4956-822A-1F66706D2422/source/index.m3u8"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "2457": {
+      "url": "https://smorf.io/s8-live/2457/ararat-shamrock-c1qual/?s8_live_fixture_id=2457&s8_live_stream_key=ararat-shamrock-c1qual",
+      "match_name": "ararat shamrock c1qual",
+      "kickoff_iso": "",
+      "minutes_to_kickoff": null,
+      "last_scan_at": "2026-07-21T12:59:25.318223+07:00",
+      "next_scan_at": "2026-07-21T13:04:25.318223+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://live-bong.s3.ap-southeast-1.amazonaws.com/New+folder/hls_abr/copy_CE1198F2-AD34-4956-822A-1F66706D2422/source/index.m3u8"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "2456": {
+      "url": "https://smorf.io/s8-live/2456/pakh-xorazm-uzbsuper/?s8_live_fixture_id=2456&s8_live_stream_key=pakh-xorazm-uzbsuper",
+      "match_name": "pakh xorazm uzbsuper",
+      "kickoff_iso": "",
+      "minutes_to_kickoff": null,
+      "last_scan_at": "2026-07-21T12:59:25.318223+07:00",
+      "next_scan_at": "2026-07-21T13:04:25.318223+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://live-bong.s3.ap-southeast-1.amazonaws.com/New+folder/hls_abr/copy_CE1198F2-AD34-4956-822A-1F66706D2422/source/index.m3u8"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "2459": {
+      "url": "https://smorf.io/s8-live/2459/aarhus-lech-c1qual/?s8_live_fixture_id=2459&s8_live_stream_key=aarhus-lech-c1qual",
+      "match_name": "aarhus lech c1qual",
+      "kickoff_iso": "",
+      "minutes_to_kickoff": null,
+      "last_scan_at": "2026-07-21T12:59:25.318223+07:00",
+      "next_scan_at": "2026-07-21T13:04:25.318223+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://live-bong.s3.ap-southeast-1.amazonaws.com/New+folder/hls_abr/copy_CE1198F2-AD34-4956-822A-1F66706D2422/source/index.m3u8"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "2458": {
+      "url": "https://smorf.io/s8-live/2458/sabah-kups-c1qual/?s8_live_fixture_id=2458&s8_live_stream_key=sabah-kups-c1qual",
+      "match_name": "sabah kups c1qual",
+      "kickoff_iso": "",
+      "minutes_to_kickoff": null,
+      "last_scan_at": "2026-07-21T12:59:25.318223+07:00",
+      "next_scan_at": "2026-07-21T13:04:25.318223+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://live-bong.s3.ap-southeast-1.amazonaws.com/New+folder/hls_abr/copy_CE1198F2-AD34-4956-822A-1F66706D2422/source/index.m3u8"
+      ],
+      "scan_decision": "browser-fallback"
+    }
+  }
+}
