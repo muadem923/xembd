@@ -1,175 +1,347 @@
 {
   "version": 1,
   "source": "gavang",
-  "updated_at": "2026-07-21T16:04:28.037107+07:00",
+  "updated_at": "2026-07-21T16:38:16.805462+07:00",
   "matches": {
     "2451": {
-      "url": "https://smorf.io/s8-live/2451/jeju-gangwon-kork1/?s8_live_fixture_id=2451&s8_live_stream_key=jeju-gangwon-kork1",
+      "url": "https://smorf.io/s8-live/2451/jeju-gangwon-kork1/",
       "match_name": "jeju gangwon kork1",
       "kickoff_iso": "",
       "minutes_to_kickoff": null,
-      "last_scan_at": "2026-07-21T16:04:28.036797+07:00",
-      "next_scan_at": "2026-07-21T16:09:28.036797+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://live-bong.s3.ap-southeast-1.amazonaws.com/New+folder/hls_abr/copy_CE1198F2-AD34-4956-822A-1F66706D2422/source/index.m3u8"
-      ],
-      "scan_decision": "browser-fallback"
+      "last_scan_at": "2026-07-21T16:38:16.804659+07:00",
+      "next_scan_at": "2026-07-21T16:48:16.804659+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "derived-probe-only-miss"
     },
     "2449": {
-      "url": "https://smorf.io/s8-live/2449/queensland-perth-ausffa/?s8_live_fixture_id=2449&s8_live_stream_key=queensland-perth-ausffa",
+      "url": "https://smorf.io/s8-live/2449/queensland-perth-ausffa/",
       "match_name": "queensland perth ausffa",
       "kickoff_iso": "",
       "minutes_to_kickoff": null,
-      "last_scan_at": "2026-07-21T16:04:28.036797+07:00",
-      "next_scan_at": "2026-07-21T16:09:28.036797+07:00",
+      "last_scan_at": "2026-07-21T16:38:16.804659+07:00",
+      "next_scan_at": "2026-07-21T16:43:16.804659+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
         "https://flv.lauthaitv.cc/live/queensland-perth-ausffa.flv"
       ],
-      "scan_decision": "http-first-complete"
+      "scan_decision": "derived-flv-fast-path"
     },
     "2450": {
-      "url": "https://smorf.io/s8-live/2450/ulsan-incheon-kork1/?s8_live_fixture_id=2450&s8_live_stream_key=ulsan-incheon-kork1",
+      "url": "https://smorf.io/s8-live/2450/ulsan-incheon-kork1/",
       "match_name": "ulsan incheon kork1",
       "kickoff_iso": "",
       "minutes_to_kickoff": null,
-      "last_scan_at": "2026-07-21T16:04:28.036797+07:00",
-      "next_scan_at": "2026-07-21T16:09:28.036797+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://live-bong.s3.ap-southeast-1.amazonaws.com/New+folder/hls_abr/copy_CE1198F2-AD34-4956-822A-1F66706D2422/source/index.m3u8"
-      ],
-      "scan_decision": "browser-fallback"
+      "last_scan_at": "2026-07-21T16:38:16.804659+07:00",
+      "next_scan_at": "2026-07-21T16:48:16.804659+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "derived-probe-only-miss"
     },
     "2453": {
-      "url": "https://smorf.io/s8-live/2453/yunnan-chengdu-chnfa/?s8_live_fixture_id=2453&s8_live_stream_key=yunnan-chengdu-chnfa",
+      "url": "https://smorf.io/s8-live/2453/yunnan-chengdu-chnfa/",
       "match_name": "yunnan chengdu chnfa",
       "kickoff_iso": "",
       "minutes_to_kickoff": null,
-      "last_scan_at": "2026-07-21T16:04:28.036797+07:00",
-      "next_scan_at": "2026-07-21T16:09:28.036797+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://live-bong.s3.ap-southeast-1.amazonaws.com/New+folder/hls_abr/copy_CE1198F2-AD34-4956-822A-1F66706D2422/source/index.m3u8"
-      ],
-      "scan_decision": "browser-fallback"
+      "last_scan_at": "2026-07-21T16:38:16.804659+07:00",
+      "next_scan_at": "2026-07-21T16:48:16.804659+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "derived-probe-only-miss"
     },
     "2452": {
-      "url": "https://smorf.io/s8-live/2452/wuhan-shandong-chnfa/?s8_live_fixture_id=2452&s8_live_stream_key=wuhan-shandong-chnfa",
+      "url": "https://smorf.io/s8-live/2452/wuhan-shandong-chnfa/",
       "match_name": "wuhan shandong chnfa",
       "kickoff_iso": "",
       "minutes_to_kickoff": null,
-      "last_scan_at": "2026-07-21T16:04:28.036797+07:00",
-      "next_scan_at": "2026-07-21T16:09:28.036797+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://live-bong.s3.ap-southeast-1.amazonaws.com/New+folder/hls_abr/copy_CE1198F2-AD34-4956-822A-1F66706D2422/source/index.m3u8"
-      ],
-      "scan_decision": "browser-fallback"
+      "last_scan_at": "2026-07-21T16:38:16.804659+07:00",
+      "next_scan_at": "2026-07-21T16:48:16.804659+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "derived-probe-only-miss"
     },
     "2454": {
-      "url": "https://smorf.io/s8-live/2454/henan-dalian-chnfacup/?s8_live_fixture_id=2454&s8_live_stream_key=henan-dalian-chnfacup",
+      "url": "https://smorf.io/s8-live/2454/henan-dalian-chnfacup/",
       "match_name": "henan dalian chnfacup",
       "kickoff_iso": "",
       "minutes_to_kickoff": null,
-      "last_scan_at": "2026-07-21T16:04:28.036797+07:00",
-      "next_scan_at": "2026-07-21T16:09:28.036797+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://live-bong.s3.ap-southeast-1.amazonaws.com/New+folder/hls_abr/copy_CE1198F2-AD34-4956-822A-1F66706D2422/source/index.m3u8"
-      ],
-      "scan_decision": "browser-fallback"
+      "last_scan_at": "2026-07-21T16:38:16.804659+07:00",
+      "next_scan_at": "2026-07-21T16:48:16.804659+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "derived-probe-only-miss"
     },
     "2455": {
-      "url": "https://smorf.io/s8-live/2455/tadamon-racing-lbnprem/?s8_live_fixture_id=2455&s8_live_stream_key=tadamon-racing-lbnprem",
+      "url": "https://smorf.io/s8-live/2455/tadamon-racing-lbnprem/",
       "match_name": "tadamon racing lbnprem",
       "kickoff_iso": "",
       "minutes_to_kickoff": null,
-      "last_scan_at": "2026-07-21T16:04:28.036797+07:00",
-      "next_scan_at": "2026-07-21T16:09:28.036797+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://live-bong.s3.ap-southeast-1.amazonaws.com/New+folder/hls_abr/copy_CE1198F2-AD34-4956-822A-1F66706D2422/source/index.m3u8"
-      ],
-      "scan_decision": "browser-fallback"
+      "last_scan_at": "2026-07-21T16:38:16.804659+07:00",
+      "next_scan_at": "2026-07-21T16:48:16.804659+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "derived-probe-only-miss"
     },
     "2457": {
-      "url": "https://smorf.io/s8-live/2457/ararat-shamrock-c1qual/?s8_live_fixture_id=2457&s8_live_stream_key=ararat-shamrock-c1qual",
+      "url": "https://smorf.io/s8-live/2457/ararat-shamrock-c1qual/",
       "match_name": "ararat shamrock c1qual",
       "kickoff_iso": "",
       "minutes_to_kickoff": null,
-      "last_scan_at": "2026-07-21T16:04:28.036797+07:00",
-      "next_scan_at": "2026-07-21T16:09:28.036797+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://live-bong.s3.ap-southeast-1.amazonaws.com/New+folder/hls_abr/copy_CE1198F2-AD34-4956-822A-1F66706D2422/source/index.m3u8"
-      ],
-      "scan_decision": "browser-fallback"
+      "last_scan_at": "2026-07-21T16:38:16.804659+07:00",
+      "next_scan_at": "2026-07-21T16:48:16.804659+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "derived-probe-only-miss"
     },
     "2456": {
-      "url": "https://smorf.io/s8-live/2456/pakh-xorazm-uzbsuper/?s8_live_fixture_id=2456&s8_live_stream_key=pakh-xorazm-uzbsuper",
+      "url": "https://smorf.io/s8-live/2456/pakh-xorazm-uzbsuper/",
       "match_name": "pakh xorazm uzbsuper",
       "kickoff_iso": "",
       "minutes_to_kickoff": null,
-      "last_scan_at": "2026-07-21T16:04:28.036797+07:00",
-      "next_scan_at": "2026-07-21T16:09:28.036797+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://live-bong.s3.ap-southeast-1.amazonaws.com/New+folder/hls_abr/copy_CE1198F2-AD34-4956-822A-1F66706D2422/source/index.m3u8"
-      ],
-      "scan_decision": "browser-fallback"
+      "last_scan_at": "2026-07-21T16:38:16.804659+07:00",
+      "next_scan_at": "2026-07-21T16:48:16.804659+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "derived-probe-only-miss"
     },
     "2459": {
-      "url": "https://smorf.io/s8-live/2459/aarhus-lech-c1qual/?s8_live_fixture_id=2459&s8_live_stream_key=aarhus-lech-c1qual",
+      "url": "https://smorf.io/s8-live/2459/aarhus-lech-c1qual/",
       "match_name": "aarhus lech c1qual",
       "kickoff_iso": "",
       "minutes_to_kickoff": null,
-      "last_scan_at": "2026-07-21T16:04:28.036797+07:00",
-      "next_scan_at": "2026-07-21T16:09:28.036797+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://live-bong.s3.ap-southeast-1.amazonaws.com/New+folder/hls_abr/copy_CE1198F2-AD34-4956-822A-1F66706D2422/source/index.m3u8"
-      ],
-      "scan_decision": "browser-fallback"
+      "last_scan_at": "2026-07-21T16:38:16.804659+07:00",
+      "next_scan_at": "2026-07-21T16:48:16.804659+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "derived-probe-only-miss"
     },
     "2458": {
-      "url": "https://smorf.io/s8-live/2458/sabah-kups-c1qual/?s8_live_fixture_id=2458&s8_live_stream_key=sabah-kups-c1qual",
+      "url": "https://smorf.io/s8-live/2458/sabah-kups-c1qual/",
       "match_name": "sabah kups c1qual",
       "kickoff_iso": "",
       "minutes_to_kickoff": null,
-      "last_scan_at": "2026-07-21T16:04:28.036797+07:00",
-      "next_scan_at": "2026-07-21T16:09:28.036797+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://live-bong.s3.ap-southeast-1.amazonaws.com/New+folder/hls_abr/copy_CE1198F2-AD34-4956-822A-1F66706D2422/source/index.m3u8"
-      ],
-      "scan_decision": "browser-fallback"
+      "last_scan_at": "2026-07-21T16:38:16.804659+07:00",
+      "next_scan_at": "2026-07-21T16:48:16.804659+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "derived-probe-only-miss"
     },
     "2448": {
-      "url": "https://smorf.io/s8-live/2448/dalian-beijing-chnfa/?s8_live_fixture_id=2448&s8_live_stream_key=dalian-beijing-chnfa",
+      "url": "https://smorf.io/s8-live/2448/dalian-beijing-chnfa/",
       "match_name": "dalian beijing chnfa",
       "kickoff_iso": "",
       "minutes_to_kickoff": null,
-      "last_scan_at": "2026-07-21T14:34:31.384041+07:00",
-      "next_scan_at": "2026-07-21T14:39:31.384041+07:00",
+      "last_scan_at": "2026-07-21T16:38:16.804659+07:00",
+      "next_scan_at": "2026-07-21T16:43:16.804659+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
-        "https://live-bong.s3.ap-southeast-1.amazonaws.com/New+folder/hls_abr/copy_CE1198F2-AD34-4956-822A-1F66706D2422/source/index.m3u8"
+        "https://flv.lauthaitv.cc/live/dalian-beijing-chnfa.flv"
       ],
-      "scan_decision": "browser-fallback"
+      "scan_decision": "derived-flv-fast-path"
+    },
+    "2460": {
+      "url": "https://smorf.io/s8-live/2460/fernerbahce-gornik-c1qual/",
+      "match_name": "fernerbahce gornik c1qual",
+      "kickoff_iso": "",
+      "minutes_to_kickoff": null,
+      "last_scan_at": "2026-07-21T16:38:16.804659+07:00",
+      "next_scan_at": "2026-07-21T16:48:16.804659+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "derived-probe-only-miss"
+    },
+    "2461": {
+      "url": "https://smorf.io/s8-live/2461/sturm-heart-c1qual/",
+      "match_name": "sturm heart c1qual",
+      "kickoff_iso": "",
+      "minutes_to_kickoff": null,
+      "last_scan_at": "2026-07-21T16:38:16.804659+07:00",
+      "next_scan_at": "2026-07-21T16:48:16.804659+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "derived-probe-only-miss"
+    },
+    "2463": {
+      "url": "https://smorf.io/s8-live/2463/rivadavia-laplata-argcopa/",
+      "match_name": "rivadavia laplata argcopa",
+      "kickoff_iso": "",
+      "minutes_to_kickoff": null,
+      "last_scan_at": "2026-07-21T16:38:16.804659+07:00",
+      "next_scan_at": "2026-07-21T16:48:16.804659+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "derived-probe-only-miss"
+    },
+    "2462": {
+      "url": "https://smorf.io/s8-live/2462/larne-crvena-c1qual/",
+      "match_name": "larne crvena c1qual",
+      "kickoff_iso": "",
+      "minutes_to_kickoff": null,
+      "last_scan_at": "2026-07-21T16:38:16.804659+07:00",
+      "next_scan_at": "2026-07-21T16:48:16.804659+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "derived-probe-only-miss"
+    },
+    "2464": {
+      "url": "https://smorf.io/s8-live/2464/libertad-delfin-ligaprosa/",
+      "match_name": "libertad delfin ligaprosa",
+      "kickoff_iso": "",
+      "minutes_to_kickoff": null,
+      "last_scan_at": "2026-07-21T16:38:16.804659+07:00",
+      "next_scan_at": "2026-07-21T16:48:16.804659+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "derived-probe-only-miss"
+    },
+    "2465": {
+      "url": "https://smorf.io/s8-live/2465/mineiro-bahia-brasa/",
+      "match_name": "mineiro bahia brasa",
+      "kickoff_iso": "",
+      "minutes_to_kickoff": null,
+      "last_scan_at": "2026-07-21T16:38:16.804659+07:00",
+      "next_scan_at": "2026-07-21T16:48:16.804659+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "derived-probe-only-miss"
+    },
+    "2466": {
+      "url": "https://smorf.io/s8-live/2466/cruz-puebla-mexliga/",
+      "match_name": "cruz puebla mexliga",
+      "kickoff_iso": "",
+      "minutes_to_kickoff": null,
+      "last_scan_at": "2026-07-21T16:38:16.804659+07:00",
+      "next_scan_at": "2026-07-21T16:48:16.804659+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "derived-probe-only-miss"
+    },
+    "2467": {
+      "url": "https://smorf.io/s8-live/2467/toluca-pumas-mexliga/",
+      "match_name": "toluca pumas mexliga",
+      "kickoff_iso": "",
+      "minutes_to_kickoff": null,
+      "last_scan_at": "2026-07-21T16:38:16.804659+07:00",
+      "next_scan_at": "2026-07-21T16:48:16.804659+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "derived-probe-only-miss"
+    },
+    "2469": {
+      "url": "https://smorf.io/s8-live/2469/maitland-fremantle-ausffa/",
+      "match_name": "maitland fremantle ausffa",
+      "kickoff_iso": "",
+      "minutes_to_kickoff": null,
+      "last_scan_at": "2026-07-21T16:38:16.804659+07:00",
+      "next_scan_at": "2026-07-21T16:48:16.804659+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "derived-probe-only-miss"
+    },
+    "2468": {
+      "url": "https://smorf.io/s8-live/2468/sydnet58-mariners-ausffa/",
+      "match_name": "sydnet58 mariners ausffa",
+      "kickoff_iso": "",
+      "minutes_to_kickoff": null,
+      "last_scan_at": "2026-07-21T16:38:16.804659+07:00",
+      "next_scan_at": "2026-07-21T16:48:16.804659+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "derived-probe-only-miss"
+    },
+    "2471": {
+      "url": "https://smorf.io/s8-live/2471/buncheon-anyang-kork1/",
+      "match_name": "buncheon anyang kork1",
+      "kickoff_iso": "",
+      "minutes_to_kickoff": null,
+      "last_scan_at": "2026-07-21T16:38:16.804659+07:00",
+      "next_scan_at": "2026-07-21T16:48:16.804659+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "derived-probe-only-miss"
+    },
+    "2470": {
+      "url": "https://smorf.io/s8-live/2470/seoul-pohang-kork1/",
+      "match_name": "seoul pohang kork1",
+      "kickoff_iso": "",
+      "minutes_to_kickoff": null,
+      "last_scan_at": "2026-07-21T16:38:16.804659+07:00",
+      "next_scan_at": "2026-07-21T16:48:16.804659+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "derived-probe-only-miss"
+    },
+    "2472": {
+      "url": "https://smorf.io/s8-live/2472/lanzhou-shaanxi-chnfa/",
+      "match_name": "lanzhou shaanxi chnfa",
+      "kickoff_iso": "",
+      "minutes_to_kickoff": null,
+      "last_scan_at": "2026-07-21T16:38:16.804659+07:00",
+      "next_scan_at": "2026-07-21T16:48:16.804659+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "derived-probe-only-miss"
+    },
+    "2474": {
+      "url": "https://smorf.io/s8-live/2474/tot-mkdons-intcf/",
+      "match_name": "tot mkdons intcf",
+      "kickoff_iso": "",
+      "minutes_to_kickoff": null,
+      "last_scan_at": "2026-07-21T16:38:16.804659+07:00",
+      "next_scan_at": "2026-07-21T16:48:16.804659+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "derived-probe-only-miss"
+    },
+    "2473": {
+      "url": "https://smorf.io/s8-live/2473/tashkent-andijon-uzbsuper/",
+      "match_name": "tashkent andijon uzbsuper",
+      "kickoff_iso": "",
+      "minutes_to_kickoff": null,
+      "last_scan_at": "2026-07-21T16:38:16.804659+07:00",
+      "next_scan_at": "2026-07-21T16:48:16.804659+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "derived-probe-only-miss"
+    },
+    "2475": {
+      "url": "https://smorf.io/s8-live/2475/neftci-dinamo-c3qual/",
+      "match_name": "neftci dinamo c3qual",
+      "kickoff_iso": "",
+      "minutes_to_kickoff": null,
+      "last_scan_at": "2026-07-21T16:38:16.804659+07:00",
+      "next_scan_at": "2026-07-21T16:48:16.804659+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "derived-probe-only-miss"
     }
   }
 }

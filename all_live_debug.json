@@ -1,6 +1,6 @@
 {
-  "version": "4.4.2-SINGLE-M3U-SOURCE-GROUPS",
-  "generated_at": "2026-07-21T16:04:28.334523+07:00",
+  "version": "4.4.3-GAVANG-UNKNOWN-KEY-FLV-FIX",
+  "generated_at": "2026-07-21T16:38:17.160336+07:00",
   "policy": {
     "max_streams_per_match_blv": 2,
     "upcoming_keep_hours": 4,
@@ -12,8 +12,8 @@
       "label": "Chuối Chiên",
       "returncode": 0,
       "fresh": true,
-      "debug_rows": 9,
-      "playlist_blocks": 3,
+      "debug_rows": 7,
+      "playlist_blocks": 4,
       "included": true
     },
     {
@@ -21,8 +21,8 @@
       "label": "Lương Sơn",
       "returncode": 0,
       "fresh": true,
-      "debug_rows": 44,
-      "playlist_blocks": 7,
+      "debug_rows": 27,
+      "playlist_blocks": 8,
       "included": true
     },
     {
@@ -30,49 +30,35 @@
       "label": "Gà Vàng",
       "returncode": 0,
       "fresh": true,
-      "debug_rows": 11,
+      "debug_rows": 68,
       "playlist_blocks": 2,
       "included": true
     }
   ],
-  "input_candidates": 12,
-  "selected_count": 11,
+  "input_candidates": 14,
+  "selected_count": 13,
   "dropped_count": 1,
   "channels": [
     {
       "source": "chuoichien",
       "source_label": "Chuối Chiên",
-      "url": "https://gckc0525.edgemaxcdn.org/live/chuoito.flv",
-      "match_key": "dalian kewei vs beijing guoan|chuoi to",
-      "display_name": "[15:00 21/07] Dalian Kewei vs Beijing Guoan - Cúp FA Trung Quốc [BLV Chuối To] [FHD FLV]",
+      "url": "https://gckc0525.edgemaxcdn.org/live/chuoito/playlist.m3u8",
+      "match_key": "dalian kewei vs beijing guoan|truc tiep chuoi to tran au dalian kewe",
+      "display_name": "[15:00 21/07] Dalian Kewei vs Beijing Guoan - Cúp FA Trung Quốc [BLV trực tiếp: Chuối To Trận đấu Dalian Kewe] [FHD M3U8]",
       "group": "Chuối Chiên",
       "sport_group": "Bóng đá",
       "quality": "FHD",
-      "kind": "flv",
-      "playability": "verified",
-      "score": 456,
-      "kickoff_iso": "2026-07-21T15:00:00+07:00"
-    },
-    {
-      "source": "chuoichien",
-      "source_label": "Chuối Chiên",
-      "url": "https://gckc0525.edgemaxcdn.org/live/chuoito/playlist.m3u8",
-      "match_key": "dalian kewei vs beijing guoan|chuoi to",
-      "display_name": "[15:00 21/07] Dalian Kewei vs Beijing Guoan - Cúp FA Trung Quốc [BLV Chuối To] (Luồng 2) [M3U8]",
-      "group": "Chuối Chiên",
-      "sport_group": "Bóng đá",
-      "quality": "UNKNOWN",
       "kind": "m3u8",
       "playability": "verified",
-      "score": 429,
+      "score": 459,
       "kickoff_iso": "2026-07-21T15:00:00+07:00"
     },
     {
       "source": "chuoichien",
       "source_label": "Chuối Chiên",
       "url": "https://gckc0525.edgemaxcdn.org/live/chuoitay.flv",
-      "match_key": "pvf cand vs hoang anh gia lai|chuoi tay",
-      "display_name": "[15:30 21/07] PVF-CAND vs Hoang Anh Gia Lai - U21 Quốc Gia [BLV Chuối Tây] [FHD FLV]",
+      "match_key": "pvf cand vs hoang anh gia lai|truc tiep chuoi tay tran au pvf cand v",
+      "display_name": "[15:30 21/07] PVF-CAND vs Hoang Anh Gia Lai - U21 Quốc Gia [BLV trực tiếp: Chuối Tây Trận đấu PVF-CAND v] [FHD FLV]",
       "group": "Chuối Chiên",
       "sport_group": "Bóng đá",
       "quality": "FHD",
@@ -80,6 +66,34 @@
       "playability": "verified",
       "score": 456,
       "kickoff_iso": "2026-07-21T15:30:00+07:00"
+    },
+    {
+      "source": "chuoichien",
+      "source_label": "Chuối Chiên",
+      "url": "https://gckc0525.edgemaxcdn.org/live/chuoitieu.flv",
+      "match_key": "lions vs perth glory|chuoi tieu",
+      "display_name": "[16:30 21/07] Lions vs Perth Glory - Australia Cup [BLV Chuối Tiêu] [FHD FLV]",
+      "group": "Chuối Chiên",
+      "sport_group": "Bóng đá",
+      "quality": "FHD",
+      "kind": "flv",
+      "playability": "verified",
+      "score": 456,
+      "kickoff_iso": "2026-07-21T16:30:00+07:00"
+    },
+    {
+      "source": "chuoichien",
+      "source_label": "Chuối Chiên",
+      "url": "https://gckc0525.edgemaxcdn.org/live/chuoigia.flv",
+      "match_key": "preston lions vs newcastle jets|truc tiep chuoi gia tran au preston li",
+      "display_name": "[16:30 21/07] Preston Lions vs Newcastle Jets - Australia Cup [BLV trực tiếp: Chuối Già Trận đấu Preston Li] [FHD FLV]",
+      "group": "Chuối Chiên",
+      "sport_group": "Bóng đá",
+      "quality": "FHD",
+      "kind": "flv",
+      "playability": "verified",
+      "score": 456,
+      "kickoff_iso": "2026-07-21T16:30:00+07:00"
     },
     {
       "source": "luongson",
@@ -91,8 +105,8 @@
       "sport_group": "Bóng đá",
       "quality": "UNKNOWN",
       "kind": "m3u8",
-      "playability": "browser-observed",
-      "score": 329,
+      "playability": "verified",
+      "score": 439,
       "kickoff_iso": "2026-07-21T15:00:00+07:00"
     },
     {
@@ -105,8 +119,8 @@
       "sport_group": "Bóng đá",
       "quality": "UNKNOWN",
       "kind": "m3u8",
-      "playability": "browser-observed",
-      "score": 329,
+      "playability": "verified",
+      "score": 439,
       "kickoff_iso": "2026-07-21T15:00:00+07:00"
     },
     {
@@ -119,23 +133,9 @@
       "sport_group": "Bóng đá",
       "quality": "UNKNOWN",
       "kind": "m3u8",
-      "playability": "browser-observed",
-      "score": 329,
+      "playability": "verified",
+      "score": 439,
       "kickoff_iso": "2026-07-21T15:30:00+07:00"
-    },
-    {
-      "source": "luongson",
-      "source_label": "Lương Sơn",
-      "url": "https://hls.cdnfaster-a.live/live/YENTHANH1/index.m3u8?expire=1788427256&sign=a79cc8d996707223a0011d33d04d4582",
-      "match_key": "tsirang fc vs drukpa fc|yen thanh",
-      "display_name": "[21/07/2026 16:00] TSIRANG FC vs DRUKPA FC [BLV YẾN THANH] [M3U8]",
-      "group": "Lương Sơn",
-      "sport_group": "Bóng đá",
-      "quality": "UNKNOWN",
-      "kind": "m3u8",
-      "playability": "browser-observed",
-      "score": 329,
-      "kickoff_iso": "2026-07-21T16:00:00+07:00"
     },
     {
       "source": "luongson",
@@ -147,8 +147,22 @@
       "sport_group": "Bóng đá",
       "quality": "UNKNOWN",
       "kind": "m3u8",
-      "playability": "browser-observed",
-      "score": 329,
+      "playability": "verified",
+      "score": 439,
+      "kickoff_iso": "2026-07-21T16:30:00+07:00"
+    },
+    {
+      "source": "luongson",
+      "source_label": "Lương Sơn",
+      "url": "https://hls.cdnfaster-a.live/live/FERNANDO/index.m3u8?expire=1924930980&sign=bab24fb93b0be5c98af9138659989bcb",
+      "match_key": "preston lions vs newcastle jets|fernando",
+      "display_name": "[21/07/2026 16:30] PRESTON LIONS vs NEWCASTLE JETS [BLV Fernando] [M3U8]",
+      "group": "Lương Sơn",
+      "sport_group": "Bóng đá",
+      "quality": "UNKNOWN",
+      "kind": "m3u8",
+      "playability": "verified",
+      "score": 439,
       "kickoff_iso": "2026-07-21T16:30:00+07:00"
     },
     {
@@ -161,22 +175,36 @@
       "sport_group": "Bóng đá",
       "quality": "UNKNOWN",
       "kind": "m3u8",
-      "playability": "browser-observed",
-      "score": 329,
+      "playability": "verified",
+      "score": 429,
       "kickoff_iso": "2026-07-21T16:30:00+07:00"
+    },
+    {
+      "source": "luongson",
+      "source_label": "Lương Sơn",
+      "url": "https://hls.cdnfaster-a.live/live/LAOHAC/index.m3u8?expire=2556118740&sign=d7e003f1201f61166a559ac474dc7491",
+      "match_key": "cumberland united fc vs heidelberg united|lao hac",
+      "display_name": "[21/07/2026 17:00] CUMBERLAND UNITED FC vs HEIDELBERG UNITED [BLV LÃO HẠC] [M3U8]",
+      "group": "Lương Sơn",
+      "sport_group": "Bóng đá",
+      "quality": "UNKNOWN",
+      "kind": "m3u8",
+      "playability": "verified",
+      "score": 439,
+      "kickoff_iso": "2026-07-21T17:00:00+07:00"
     },
     {
       "source": "gavang",
       "source_label": "Gà Vàng",
-      "url": "https://live-bong.s3.ap-southeast-1.amazonaws.com/New+folder/hls_abr/copy_CE1198F2-AD34-4956-822A-1F66706D2422/source/index.m3u8",
-      "match_key": "wuhan shandong chnfa|nguoi nan tran oi tran binh luan chn fa",
-      "display_name": "aarhus lech c1qual [BLV NGƯỜI THỎ TRẬN Đổi trận Bình luận CHN FA] [SD M3U8]",
+      "url": "https://flv.lauthaitv.cc/live/dalian-beijing-chnfa.flv",
+      "match_key": "dalian beijing chnfa|",
+      "display_name": "dalian beijing chnfa [FLV]",
       "group": "Gà Vàng",
       "sport_group": "Bóng đá",
-      "quality": "SD",
-      "kind": "m3u8",
+      "quality": "UNKNOWN",
+      "kind": "flv",
       "playability": "verified",
-      "score": 449,
+      "score": 418,
       "kickoff_iso": null
     },
     {

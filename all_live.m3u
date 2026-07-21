@@ -1,23 +1,29 @@
 #EXTM3U
-#EXTINF:-1 tvg-id="chuoichien-1567360-1" tvg-name="[15:00 21/07] Dalian Kewei vs Beijing Guoan - Cúp FA Trung Quốc [BLV Chuối To]" group-title="Chuối Chiên" tvg-logo="https://media.api-sports.io/football/teams/27620.png",[15:00 21/07] Dalian Kewei vs Beijing Guoan - Cúp FA Trung Quốc [BLV Chuối To] [FHD FLV]
-#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
-https://gckc0525.edgemaxcdn.org/live/chuoito.flv
-#EXTINF:-1 tvg-id="chuoichien-1567360-2" tvg-name="[15:00 21/07] Dalian Kewei vs Beijing Guoan - Cúp FA Trung Quốc [BLV Chuối To]" group-title="Chuối Chiên" tvg-logo="https://media.api-sports.io/football/teams/27620.png",[15:00 21/07] Dalian Kewei vs Beijing Guoan - Cúp FA Trung Quốc [BLV Chuối To] (Luồng 2) [M3U8]
+#EXTINF:-1 tvg-id="chuoichien-1567360-1" tvg-name="[15:00 21/07] Dalian Kewei vs Beijing Guoan - Cúp FA Trung Quốc [BLV trực tiếp: Chuối To Trận đấu Dalian Kewe]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_133504_eae218ac.png",[15:00 21/07] Dalian Kewei vs Beijing Guoan - Cúp FA Trung Quốc [BLV trực tiếp: Chuối To Trận đấu Dalian Kewe] [FHD M3U8]
 #EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
 https://gckc0525.edgemaxcdn.org/live/chuoito/playlist.m3u8
-#EXTINF:-1 tvg-id="chuoichien-992361-1" tvg-name="[15:30 21/07] PVF-CAND vs Hoang Anh Gia Lai - U21 Quốc Gia [BLV Chuối Tây]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/20250817_040457_e299eb36.png",[15:30 21/07] PVF-CAND vs Hoang Anh Gia Lai - U21 Quốc Gia [BLV Chuối Tây] [FHD FLV]
+#EXTINF:-1 tvg-id="chuoichien-992361-1" tvg-name="[15:30 21/07] PVF-CAND vs Hoang Anh Gia Lai - U21 Quốc Gia [BLV trực tiếp: Chuối Tây Trận đấu PVF-CAND v]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/20250817_040457_e299eb36.png",[15:30 21/07] PVF-CAND vs Hoang Anh Gia Lai - U21 Quốc Gia [BLV trực tiếp: Chuối Tây Trận đấu PVF-CAND v] [FHD FLV]
 #EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
 https://gckc0525.edgemaxcdn.org/live/chuoitay.flv
-#EXTINF:-1 tvg-id="hygenie-dbdf8cfe3f68-1" tvg-name="[21/07/2026 15:00] BASILAN STEEL vs SARANGANI MARLINS [BLV VÕ TÒNG]" group-title="Lương Sơn" tvg-logo="https://upload-img.cdnokvip.com/uploads/team_logo/1784568831.webp",[21/07/2026 15:00] BASILAN STEEL vs SARANGANI MARLINS [BLV VÕ TÒNG] [M3U8]
+#EXTINF:-1 tvg-id="chuoichien-1560865-1" tvg-name="[16:30 21/07] Lions vs Perth Glory - Australia Cup [BLV Chuối Tiêu]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_141412_24481446.png",[16:30 21/07] Lions vs Perth Glory - Australia Cup [BLV Chuối Tiêu] [FHD FLV]
+#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
+https://gckc0525.edgemaxcdn.org/live/chuoitieu.flv
+#EXTINF:-1 tvg-id="chuoichien-1560864-1" tvg-name="[16:30 21/07] Preston Lions vs Newcastle Jets - Australia Cup [BLV trực tiếp: Chuối Già Trận đấu Preston Li]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_141357_619109fb.png",[16:30 21/07] Preston Lions vs Newcastle Jets - Australia Cup [BLV trực tiếp: Chuối Già Trận đấu Preston Li] [FHD FLV]
+#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
+https://gckc0525.edgemaxcdn.org/live/chuoigia.flv
+#EXTINF:-1 tvg-id="hygenie-dbdf8cfe3f68-328-1" tvg-name="[21/07/2026 15:00] BASILAN STEEL vs SARANGANI MARLINS [BLV VÕ TÒNG]" group-title="Lương Sơn" tvg-logo="https://upload-img.cdnokvip.com/uploads/team_logo/1784568831.webp",[21/07/2026 15:00] BASILAN STEEL vs SARANGANI MARLINS [BLV VÕ TÒNG] [M3U8]
 #EXTVLCOPT:http-referrer=https://catbee.io/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
@@ -29,37 +35,43 @@ https://hls.cdnfaster-a.live/live/VOTONG/index.m3u8?expire=1891347600&sign=cbb47
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
 https://hls.cdnfaster-a.live/live/LEO/index.m3u8?expire=1923642660&sign=58990a132e2f8d3f764c947b95b28af6
-#EXTINF:-1 tvg-id="hygenie-d1b048643ed1-292-1" tvg-name="[21/07/2026 15:30] PVF VIETNAM U21 vs HOANG ANH GIA LAI U21 [BLV LÝ ỨNG]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/27519_1hak20p8k12p.png",[21/07/2026 15:30] PVF VIETNAM U21 vs HOANG ANH GIA LAI U21 [BLV LÝ ỨNG] [M3U8]
+#EXTINF:-1 tvg-id="hygenie-d1b048643ed1-1" tvg-name="[21/07/2026 15:30] PVF VIETNAM U21 vs HOANG ANH GIA LAI U21 [BLV LÝ ỨNG]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/27519_1hak20p8k12p.png",[21/07/2026 15:30] PVF VIETNAM U21 vs HOANG ANH GIA LAI U21 [BLV LÝ ỨNG] [M3U8]
 #EXTVLCOPT:http-referrer=https://catbee.io/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
 https://hls.cdnfaster-a.live/live/LYUNG1/index.m3u8?expire=1788427256&sign=d5c6932fefdcb98268754f4ccd4aa45d
-#EXTINF:-1 tvg-id="hygenie-53f4189e87bc-1" tvg-name="[21/07/2026 16:00] TSIRANG FC vs DRUKPA FC [BLV YẾN THANH]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/61808_1h04btppv61j.png",[21/07/2026 16:00] TSIRANG FC vs DRUKPA FC [BLV YẾN THANH] [M3U8]
-#EXTVLCOPT:http-referrer=https://catbee.io/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
-https://hls.cdnfaster-a.live/live/YENTHANH1/index.m3u8?expire=1788427256&sign=a79cc8d996707223a0011d33d04d4582
 #EXTINF:-1 tvg-id="hygenie-86cf4da57ba8-383-1" tvg-name="[21/07/2026 16:30] CANBERRA JUVENTUS vs CANBERRA FC [BLV TÀO THÁO]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/61152_1gvwgcn3p310.png",[21/07/2026 16:30] CANBERRA JUVENTUS vs CANBERRA FC [BLV TÀO THÁO] [M3U8]
 #EXTVLCOPT:http-referrer=https://catbee.io/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
 https://hls.cdnfaster-a.live/live/TAOTHAO/index.m3u8?expire=1917964380&sign=6379fc6251248341f0547089859f8ee9
+#EXTINF:-1 tvg-id="hygenie-00892ae58b7e-368-1" tvg-name="[21/07/2026 16:30] PRESTON LIONS vs NEWCASTLE JETS [BLV Fernando]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/4467_1htp6esmkg27.png",[21/07/2026 16:30] PRESTON LIONS vs NEWCASTLE JETS [BLV Fernando] [M3U8]
+#EXTVLCOPT:http-referrer=https://catbee.io/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
+https://hls.cdnfaster-a.live/live/FERNANDO/index.m3u8?expire=1924930980&sign=bab24fb93b0be5c98af9138659989bcb
 #EXTINF:-1 tvg-id="hygenie-df5704533328-269-1" tvg-name="[21/07/2026 16:30] QUEENSLAND LIONS SC vs PERTH GLORY [BLV MÃ SIÊU]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/11673_1gryyqvhkg2.png",[21/07/2026 16:30] QUEENSLAND LIONS SC vs PERTH GLORY [BLV MÃ SIÊU] [M3U8]
 #EXTVLCOPT:http-referrer=https://catbee.io/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
 https://hls.cdnfaster-a.live/live/MASIEU/index.m3u8?expire=1788427256&sign=b91fcfc36fe72375e8f8cc813de0220b
-#EXTINF:-1 tvg-id="gavang-2459-1" tvg-name="aarhus lech c1qual [BLV NGƯỜI THỎ TRẬN Đổi trận Bình luận CHN FA]" group-title="Gà Vàng" tvg-logo="https://smorf.io/wp-json/s8-image/b6e094e5-8858-4424-a429-7d06ac89209c",aarhus lech c1qual [BLV NGƯỜI THỎ TRẬN Đổi trận Bình luận CHN FA] [SD M3U8]
-#EXTVLCOPT:http-referrer=https://smorf.io/
+#EXTINF:-1 tvg-id="hygenie-76433647585c-372-1" tvg-name="[21/07/2026 17:00] CUMBERLAND UNITED FC vs HEIDELBERG UNITED [BLV LÃO HẠC]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/12207_1hx8jh5m0e5.png",[21/07/2026 17:00] CUMBERLAND UNITED FC vs HEIDELBERG UNITED [BLV LÃO HẠC] [M3U8]
+#EXTVLCOPT:http-referrer=https://catbee.io/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/","Origin":"https://smorf.io"}
-https://live-bong.s3.ap-southeast-1.amazonaws.com/New+folder/hls_abr/copy_CE1198F2-AD34-4956-822A-1F66706D2422/source/index.m3u8
-#EXTINF:-1 tvg-id="gavang-2449-1" tvg-name="queensland perth ausffa" group-title="Gà Vàng" tvg-logo="https://smorf.io/wp-json/s8-image/ebb1e2d3-4580-41b2-a381-1f21c61f32b6",queensland perth ausffa [FLV]
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
+https://hls.cdnfaster-a.live/live/LAOHAC/index.m3u8?expire=2556118740&sign=d7e003f1201f61166a559ac474dc7491
+#EXTINF:-1 tvg-id="gavang-2448-1" tvg-name="dalian beijing chnfa" group-title="Gà Vàng" tvg-logo="https://smorf.io/wp-json/s8-image/c66dbee3-44e2-4556-a17f-256446813f9b",dalian beijing chnfa [FLV]
+#EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2448/dalian-beijing-chnfa/?s8_live_fixture_id=2448&s8_live_stream_key=dalian-beijing-chnfa
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2448/dalian-beijing-chnfa/?s8_live_fixture_id=2448&s8_live_stream_key=dalian-beijing-chnfa","Origin":"https://smorf.io"}
+https://flv.lauthaitv.cc/live/dalian-beijing-chnfa.flv
+#EXTINF:-1 tvg-id="gavang-2449-1" tvg-name="queensland perth ausffa" group-title="Gà Vàng",queensland perth ausffa [FLV]
 #EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2449/queensland-perth-ausffa/?s8_live_fixture_id=2449&s8_live_stream_key=queensland-perth-ausffa
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
