@@ -91,6 +91,62 @@ class MergerTests(unittest.TestCase):
         self.assertIn("/soon/", content)
         self.assertNotIn("/far/", content)
 
+
+    def test_gavang_unknown_time_derived_pending_is_kept(self) -> None:
+        url = "https://flv.lauthaitv.cc/live/queensland-perth-ausffa.flv"
+        rows = [{"id": "gavang-2449", "name": "Queensland VS Perth [CHỜ PHÁT FLV]", "url": url, "group": "Bóng đá"}]
+        debug = [{
+            "url": "https://smorf.io/s8-live/2449/queensland-perth-ausffa/",
+            "match_name": "Queensland VS Perth",
+            "scan_window_reason": "unknown-time-derived-probe",
+            "streams": [{
+                "url": url,
+                "playability": "upcoming-pending",
+                "derived_pending": True,
+                "pending_reason": "current-home-stream-key-no-time",
+            }],
+        }]
+        report = merge_sources(
+            self.root,
+            [self.make_source("gavang", "Gà Vàng", rows, debug)],
+            now=self.now,
+            preserve_on_empty=False,
+        )
+        content = (self.root / "all_live.m3u").read_text(encoding="utf-8")
+        self.assertEqual(report["selected_count"], 1)
+        self.assertIn(url, content)
+        self.assertIn("CHỜ PHÁT FLV", content)
+
+    def test_gavang_pending_started_within_150_minutes_is_kept(self) -> None:
+        url = "https://flv.lauthaitv.cc/live/a-b-league.flv"
+        kickoff = self.now - timedelta(minutes=149)
+        rows = [{"id": "gv", "name": "A VS B [CHỜ PHÁT FLV]", "url": url, "group": "Bóng đá"}]
+        debug = [{
+            "match_name": "A VS B",
+            "kickoff_iso": kickoff.isoformat(),
+            "streams": [{"url": url, "playability": "upcoming-pending", "derived_pending": True}],
+        }]
+        report = merge_sources(
+            self.root, [self.make_source("gavang", "Gà Vàng", rows, debug)],
+            now=self.now, preserve_on_empty=False,
+        )
+        self.assertEqual(report["selected_count"], 1)
+
+    def test_gavang_pending_older_than_150_minutes_is_removed(self) -> None:
+        url = "https://flv.lauthaitv.cc/live/a-b-league.flv"
+        kickoff = self.now - timedelta(minutes=151)
+        rows = [{"id": "gv", "name": "A VS B [CHỜ PHÁT FLV]", "url": url, "group": "Bóng đá"}]
+        debug = [{
+            "match_name": "A VS B",
+            "kickoff_iso": kickoff.isoformat(),
+            "streams": [{"url": url, "playability": "upcoming-pending", "derived_pending": True}],
+        }]
+        report = merge_sources(
+            self.root, [self.make_source("gavang", "Gà Vàng", rows, debug)],
+            now=self.now, preserve_on_empty=False,
+        )
+        self.assertEqual(report["selected_count"], 0)
+
     def test_previous_fallback_is_rejected(self) -> None:
         rows = [{"id": "a", "name": "Dead vs Link [FLV]", "url": "https://cdn/dead.flv"}]
         debug = [{"match_name": "Dead vs Link", "streams": [{"url": "https://cdn/dead.flv", "playability": "previous-fallback"}]}]
@@ -194,6 +250,32 @@ class MergerTests(unittest.TestCase):
         self.assertIn(gv_url, text)
         self.assertEqual(report["selected_count"], 1)
         self.assertEqual(report["channels"][0]["metadata_audit"], "warn-only")
+
+
+    def test_gavang_fallback_logo_is_replaced_by_matching_team_logo(self):
+        from merger import M3UBlock, enrich_gavang_logos_from_other_sources
+        gavang_block = M3UBlock(
+            source_key="gavang", source_label="Gà Vàng",
+            extinf='#EXTINF:-1 tvg-logo="https://smorf.io/favicon.ico",Queensland VS Perth [FLV]',
+            lines=['#EXTINF:-1 tvg-logo="https://smorf.io/favicon.ico",Queensland VS Perth [FLV]', 'https://flv.lauthaitv.cc/live/queensland-perth-ausffa.flv'],
+            url_line='https://flv.lauthaitv.cc/live/queensland-perth-ausffa.flv',
+            canonical_url='https://flv.lauthaitv.cc/live/queensland-perth-ausffa.flv',
+            attributes={"tvg-logo": "https://smorf.io/favicon.ico"},
+            display_name="Queensland VS Perth [FLV]",
+            metadata={"logo_is_fallback": True},
+        )
+        reference = M3UBlock(
+            source_key="luongson", source_label="Lương Sơn",
+            extinf='#EXTINF:-1 tvg-logo="https://cdn.example/queensland.png",QUEENSLAND LIONS SC vs PERTH GLORY [M3U8]',
+            lines=['#EXTINF:-1 tvg-logo="https://cdn.example/queensland.png",QUEENSLAND LIONS SC vs PERTH GLORY [M3U8]', 'https://cdn.example/live.m3u8'],
+            url_line='https://cdn.example/live.m3u8', canonical_url='https://cdn.example/live.m3u8',
+            attributes={"tvg-logo": "https://cdn.example/queensland.png"},
+            display_name="QUEENSLAND LIONS SC vs PERTH GLORY [M3U8]", metadata={},
+        )
+        stats = enrich_gavang_logos_from_other_sources([gavang_block, reference])
+        self.assertEqual(gavang_block.attributes["tvg-logo"], "https://cdn.example/queensland.png")
+        self.assertIn('tvg-logo="https://cdn.example/queensland.png"', gavang_block.extinf)
+        self.assertEqual(stats["team_logo"], 1)
 
 
 if __name__ == "__main__":

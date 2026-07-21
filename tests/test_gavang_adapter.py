@@ -257,6 +257,46 @@ class GavangAdapterTests(unittest.TestCase):
         self.assertIn("[16:30 21/07] Queensland Lions SC VS Perth Glory", text)
         self.assertIn("[BLV NGƯỜI CHÈ] [FLV]", text)
 
+    def test_nested_jsonld_logo_object_is_normalized(self):
+        value = {"contentUrl": {"url": "/media/team/queensland.png"}}
+        self.assertEqual(
+            gavang.normalize_logo_url(value, QUEENSLAND_URL),
+            "https://smorf.io/media/team/queensland.png",
+        )
+        self.assertEqual(gavang.normalize_logo_url("[object Object]", QUEENSLAND_URL), "")
+
+    def test_playlist_never_writes_object_object_and_uses_source_fallback(self):
+        result = {
+            "url": QUEENSLAND_URL,
+            "match_name": "Queensland Lions SC VS Perth Glory",
+            "time": "16:30",
+            "date": "21/07",
+            "blv": "",
+            "sport_group": "Bóng đá",
+            "logo": {"url": "[object Object]"},
+            "source_logo": "https://smorf.io/favicon.ico",
+            "streams": [{
+                "url": "https://flv.lauthaitv.cc/live/queensland-perth-ausffa.flv",
+                "referer": QUEENSLAND_URL,
+                "origin": "https://smorf.io",
+                "user_agent": gavang.UA,
+                "playability": "verified",
+            }],
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            paths = [Path(tmp) / name for name in ("gavang_live.m3u", "gavang_live_pipe.m3u", "gavang_live_vlc.m3u")]
+            debug = Path(tmp) / "gavang_debug.json"
+            with patch.object(gavang, "OUTPUT_M3U", paths[0]), \
+                 patch.object(gavang, "OUTPUT_PIPE_M3U", paths[1]), \
+                 patch.object(gavang, "OUTPUT_VLC_M3U", paths[2]), \
+                 patch.object(gavang, "OUTPUT_DEBUG", debug):
+                gavang.write_outputs([result])
+            playlist = paths[0].read_text(encoding="utf-8")
+            payload = __import__("json").loads(debug.read_text(encoding="utf-8"))
+        self.assertNotIn("[object Object]", playlist)
+        self.assertIn('tvg-logo="https://smorf.io/favicon.ico"', playlist)
+        self.assertTrue(payload[0]["logo_is_fallback"])
+
     def test_playlist_headers_keep_origin(self):
         header = gavang.header_json("UA", MATCH_URL, "https://smorf.io")
         self.assertIn('"Origin":"https://smorf.io"', header)
@@ -355,7 +395,7 @@ class GavangFastPathTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(entry["origin"], "https://smorf.io")
         self.assertIn("derived/s8_live_stream_key", entry["sources"])
 
-    async def test_unknown_time_probe_miss_does_not_open_page_or_player(self):
+    async def test_unknown_time_probe_miss_is_kept_as_pending_without_browser(self):
         match = {
             "url": DALIAN_URL,
             "raw_title": "Dalian Kewei vs Beijing Guoan",
@@ -376,8 +416,53 @@ class GavangFastPathTests(unittest.IsolatedAsyncioTestCase):
             )
 
         discover.assert_not_awaited()
-        self.assertEqual(result.get("scan_decision"), "derived-probe-only-miss")
-        self.assertEqual(result.get("streams"), [])
+        self.assertEqual(result.get("scan_decision"), "derived-pending-only")
+        self.assertEqual(len(result.get("streams") or []), 1)
+        self.assertEqual(result["streams"][0]["playability"], "upcoming-pending")
+        self.assertTrue(result["streams"][0]["derived_pending"])
+        self.assertEqual(
+            result["streams"][0]["url"],
+            "https://flv.lauthaitv.cc/live/dalian-beijing-chnfa.flv",
+        )
+
+    def test_known_fixture_outside_scan_window_is_not_kept_pending(self):
+        match = {
+            "url": DALIAN_URL,
+            "minutes_to_kickoff": 300,
+            "scan_window_reason": "too-early",
+        }
+        pending = gavang.build_derived_pending_streams(
+            match, gavang.derived_gavang_stream_candidates(DALIAN_URL), []
+        )
+        self.assertEqual(pending, [])
+
+    def test_pending_playlist_is_labeled_waiting(self):
+        result = {
+            "url": QUEENSLAND_URL,
+            "match_name": "Queensland Lions SC VS Perth Glory",
+            "time": "16:30",
+            "date": "21/07",
+            "sport_group": "Bóng đá",
+            "streams": [{
+                "url": "https://flv.lauthaitv.cc/live/queensland-perth-ausffa.flv",
+                "referer": QUEENSLAND_URL,
+                "origin": "https://smorf.io",
+                "user_agent": gavang.UA,
+                "playability": "upcoming-pending",
+                "derived_pending": True,
+            }],
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            paths = [Path(tmp) / name for name in ("gavang_live.m3u", "gavang_live_pipe.m3u", "gavang_live_vlc.m3u")]
+            debug = Path(tmp) / "gavang_debug.json"
+            with patch.object(gavang, "OUTPUT_M3U", paths[0]), \
+                 patch.object(gavang, "OUTPUT_PIPE_M3U", paths[1]), \
+                 patch.object(gavang, "OUTPUT_VLC_M3U", paths[2]), \
+                 patch.object(gavang, "OUTPUT_DEBUG", debug):
+                gavang.write_outputs([result])
+            text = paths[0].read_text(encoding="utf-8")
+        self.assertIn("[CHỜ PHÁT FLV]", text)
+        self.assertIn("queensland-perth-ausffa.flv", text)
 
 
     def test_contradictory_home_title_is_downgraded_not_dropped(self):
