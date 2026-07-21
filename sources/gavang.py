@@ -54,7 +54,7 @@ LEGACY_GIT_PLAYLIST_PATH = "gavang/gavang_live.m3u"
 OUTPUT_DEBUG = "gavang_debug.json"
 OUTPUT_HOME_DEBUG_HTML = "gavang_home_debug.html"
 OUTPUT_HOME_DEBUG_PNG = "gavang_home_debug.png"
-SCANNER_VERSION = "4.4.4-GAVANG-METADATA-DEDUP-FIX"
+SCANNER_VERSION = "4.4.5-GAVANG-SOFT-METADATA-AUDIT"
 
 
 def read_env_bool(name: str, default: bool = True) -> bool:
@@ -1446,6 +1446,90 @@ def gavang_match_identity(value: str) -> str:
     return f"url:{parsed.scheme.lower()}://{parsed.netloc.lower()}{parsed.path.rstrip('/')}"
 
 
+
+GAVANG_STREAM_KEY_NOISE = {
+    "ausffa", "auscup", "kork1", "kork2", "chnfa", "chnfacup", "finveik",
+    "argcopa", "argcup", "c1qual", "uclqual", "uefaqual", "lbnprem",
+    "uzbsuper", "ligaprosa", "jpnj1", "jpnj2", "thaprem", "viecup",
+}
+
+
+def _stream_key_from_media_url(value: str) -> str:
+    key = extract_gavang_stream_key(value)
+    if key:
+        return key
+    parsed = urlparse(decode_url_repeatedly(value or ""))
+    stem = Path(parsed.path).stem
+    if stem.lower() == "index":
+        parts = [part for part in parsed.path.split("/") if part]
+        if len(parts) >= 2:
+            stem = parts[-2]
+    return clean_text(stem)
+
+
+def gavang_stream_key_tokens(value: str) -> list[str]:
+    """Tách token nhận diện trận từ stream key, chỉ dùng để chấm metadata.
+
+    Đây là kiểm tra mềm: token không khớp không bao giờ làm mất stream đã verified.
+    """
+    key = _stream_key_from_media_url(value).lower()
+    raw = [part for part in re.split(r"[^a-z0-9]+", key) if part]
+    if raw and raw[-1] in GAVANG_STREAM_KEY_NOISE:
+        raw = raw[:-1]
+    return [part for part in raw if part not in {"vs", "live", "stream"} and len(part) >= 3]
+
+
+def title_stream_key_confidence(title: str, value: str) -> dict[str, Any]:
+    key_tokens = gavang_stream_key_tokens(value)
+    title_tokens = set(re.findall(r"[a-z0-9]+", normalize_search_text(title)))
+    matched = [token for token in key_tokens if token in title_tokens]
+    coverage = len(matched) / len(key_tokens) if key_tokens else 0.0
+    contradictory = bool(re.search(r"\bvs\b", clean_text(title), re.I) and len(key_tokens) >= 2 and not matched)
+    return {
+        "key_tokens": key_tokens,
+        "matched_tokens": matched,
+        "match_count": len(matched),
+        "coverage": coverage,
+        "contradictory": contradictory,
+    }
+
+
+def fallback_match_name_from_stream_key(value: str) -> str:
+    tokens = gavang_stream_key_tokens(value)
+    if not tokens:
+        return clean_match_name("", value)
+    if len(tokens) == 1:
+        return tokens[0].replace("_", " ").title()
+    # Stream key Gà Vàng hiện thường dùng một token rút gọn cho mỗi đội, sau đó là mã giải.
+    # Fallback này chỉ dùng khi metadata DOM bị ghép chéo; merger vẫn có thể nâng cấp thành tên đầy đủ.
+    return f"{tokens[0].title()} VS {tokens[1].title()}"
+
+
+def sanitize_gavang_match_metadata(match: dict[str, Any], *, stage: str) -> dict[str, Any]:
+    """Ngăn metadata của fixture khác ghi đè, nhưng tuyệt đối không loại URL stream."""
+    title = clean_text(str(match.get("match_name") or match.get("raw_title") or ""))
+    confidence = title_stream_key_confidence(title, str(match.get("url", "")))
+    match["metadata_key_confidence"] = confidence
+    if confidence["contradictory"]:
+        warning = (
+            f"{stage}: tên metadata không liên quan stream_key "
+            f"({title!r} vs {confidence['key_tokens']!r}); giữ link, bỏ metadata nghi ghép nhầm"
+        )
+        match.setdefault("metadata_warnings", []).append(warning)
+        fallback = fallback_match_name_from_stream_key(str(match.get("url", "")))
+        if fallback:
+            match["match_name"] = fallback
+            match["raw_title"] = fallback
+        # BLV/logo từ cùng khối sai fixture cũng không đáng tin. Giờ chỉ giữ nếu đã có nguồn thuộc tính rõ.
+        match["blv"] = ""
+        match["raw_blv"] = ""
+        match["raw_time"] = ""
+        match["time"] = ""
+        match["date"] = ""
+        match["logo"] = ""
+    return confidence
+
+
 def _match_title_score(value: str) -> tuple[int, int]:
     text = clean_text(value)
     if not text:
@@ -1513,7 +1597,13 @@ def dedupe_home_links(links: list[dict[str, Any]]) -> tuple[list[dict[str, Any]]
         if not target.get("logo") and item.get("logo"):
             target["logo"] = item.get("logo")
 
-    return [merged[key] for key in order], duplicates
+    output = [merged[key] for key in order]
+    for item in output:
+        item.setdefault("match_name", clean_match_name(str(item.get("raw_title", "")), str(item.get("url", ""))))
+        sanitize_gavang_match_metadata(item, stage="home-card")
+        # fetch_stream sẽ chuẩn hóa lại match_name; giữ raw_title đã được bảo vệ ngay từ đây.
+        item["raw_title"] = clean_text(str(item.get("match_name") or item.get("raw_title") or ""))
+    return output, duplicates
 
 
 def derived_gavang_stream_candidates(match_url: str) -> list[dict[str, str]]:
@@ -2359,6 +2449,41 @@ async def read_match_metadata(
             r"""({matchName, blvSlug}) => {
                 const clean = (v) => String(v || "").replace(/\s+/g, " ").trim();
                 const norm = (v) => clean(v).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+                const fixtureId = (location.pathname.match(/\/s8-live\/(\d+)/i) || [])[1] || "";
+                const streamKey = new URLSearchParams(location.search).get("s8_live_stream_key") ||
+                    ((location.pathname.match(/\/s8-live\/\d+\/([^/?#]+)/i) || [])[1] || "");
+                const exactIdentityRoots = [];
+                const addIdentityRoot = (node) => {
+                    if (node && !exactIdentityRoots.includes(node)) exactIdentityRoots.push(node);
+                };
+                if (fixtureId) {
+                    [
+                        `[data-fixture-id="${fixtureId}"]`, `[data-match-id="${fixtureId}"]`,
+                        `[data-event-id="${fixtureId}"]`, `[data-id="${fixtureId}"]`,
+                        `a[href*="/s8-live/${fixtureId}/"]`
+                    ].forEach((selector) => document.querySelectorAll(selector).forEach((node) => addIdentityRoot(node)));
+                }
+                if (streamKey) {
+                    document.querySelectorAll(`[data-stream-key="${CSS.escape(streamKey)}"], a[href*="${CSS.escape(streamKey)}"]`)
+                        .forEach((node) => addIdentityRoot(node));
+                }
+                const expandIdentityRoot = (node) => {
+                    let current = node;
+                    let best = node;
+                    for (let depth = 0; current && depth < 8; depth += 1, current = current.parentElement) {
+                        const links = Array.from(current.querySelectorAll?.("a[href*='/s8-live/']") || []);
+                        const own = links.filter((a) => {
+                            const href = a.href || a.getAttribute("href") || "";
+                            return (fixtureId && href.includes(`/s8-live/${fixtureId}/`)) || (streamKey && href.includes(streamKey));
+                        });
+                        if (own.length && links.length <= 1) best = current;
+                        if (links.length > 1) break;
+                    }
+                    return best;
+                };
+                const exactRoot = exactIdentityRoots.length
+                    ? exactIdentityRoots.map(expandIdentityRoot).sort((a, b) => clean(a.innerText).length - clean(b.innerText).length)[0]
+                    : null;
                 const cleanTeamName = (value) => {
                     let text = clean(value);
                     if (!text || text.length > 110) return "";
@@ -2409,6 +2534,12 @@ async def read_match_metadata(
                     return names.length >= 2 ? `${names[0]} vs ${names[1]}` : "";
                 };
                 const discoverTitle = () => {
+                    const exactPair = pairFromScope(exactRoot);
+                    if (exactPair) return exactPair;
+                    const exactLines = String(exactRoot?.innerText || exactRoot?.textContent || "")
+                        .split(/[\n|•]+/).map(clean).filter(Boolean);
+                    const exactLine = exactLines.find((value) => /\bvs\b/i.test(value) && value.length <= 220);
+                    if (exactLine) return exactLine;
                     const candidates = [
                         document.querySelector("meta[property='og:title']")?.content,
                         document.querySelector("meta[name='twitter:title']")?.content,
@@ -2494,7 +2625,7 @@ async def read_match_metadata(
                         return tokenMatchCount(blob, homeTokens) > 0 && tokenMatchCount(blob, awayTokens) > 0;
                     })
                     .sort((a, b) => clean(a.innerText || a.textContent).length - clean(b.innerText || b.textContent).length);
-                const primaryRoot = rootCandidates[0] || document.querySelector("[class*='match-detail']") || null;
+                const primaryRoot = exactRoot || rootCandidates[0] || document.querySelector("[class*='match-detail']") || null;
 
                 const teamScope = primaryRoot || document;
                 const teamNodes = Array.from(teamScope.querySelectorAll(
@@ -2688,7 +2819,7 @@ async def read_match_metadata(
                     "[class*='blv-name']", "[class*='commentator-name']"
                 ];
                 for (const selector of blvSelectors) {
-                    const el = document.querySelector(selector);
+                    const el = exactRoot?.querySelector?.(selector) || document.querySelector(selector);
                     const value = clean(el?.innerText || el?.textContent || el?.getAttribute?.("data-name"));
                     if (value && value.length <= 80) { blv = value; break; }
                 }
@@ -2703,9 +2834,6 @@ async def read_match_metadata(
                     if (value && value.length <= 80) blv = value;
                 }
                 if (!blv) {
-                    const fixtureId = (location.pathname.match(/\/s8-live\/(\d+)/i) || [])[1] || "";
-                    const streamKey = new URLSearchParams(location.search).get("s8_live_stream_key") ||
-                        ((location.pathname.match(/\/s8-live\/\d+\/([^/?#]+)/i) || [])[1] || "");
                     const relatedScripts = Array.from(document.scripts)
                         .map((script) => script.textContent || "")
                         .filter((text) => (fixtureId && text.includes(fixtureId)) || (streamKey && text.includes(streamKey)))
@@ -2769,16 +2897,29 @@ def apply_basic_match_metadata(
     """Áp dụng tên, giờ và BLV từ trang trận vào record hiện tại."""
     changes: dict[str, str] = {}
 
+    metadata_title_safe = True
     if metadata.get("title"):
         better_name = clean_match_name(str(metadata["title"]), str(match.get("url", "")))
-        if re.search(r"\bvs\b", better_name, re.I):
+        title_confidence = title_stream_key_confidence(better_name, str(match.get("url", "")))
+        match["detail_title_key_confidence"] = title_confidence
+        if title_confidence["contradictory"]:
+            metadata_title_safe = False
+            match.setdefault("metadata_warnings", []).append(
+                "detail-page: tên trang không khớp stream_key; giữ stream và tên an toàn, không nhận metadata chéo"
+            )
+            fallback = fallback_match_name_from_stream_key(str(match.get("url", "")))
+            if fallback and title_stream_key_confidence(str(match.get("match_name", "")), str(match.get("url", "")))["contradictory"]:
+                match["match_name"] = fallback
+                changes["match_name"] = fallback
+        elif re.search(r"\bvs\b", better_name, re.I):
             old_name = clean_text(str(match.get("match_name", "")))
             if better_name != old_name:
                 match["match_name"] = better_name
                 changes["match_name"] = better_name
 
+    match["detail_metadata_safe"] = metadata_title_safe
     detail_time, detail_date, detail_time_source = select_best_time_candidate(metadata)
-    if detail_time:
+    if detail_time and metadata_title_safe:
         old_time = clean_text(str(match.get("time", "")))
         match["time"] = detail_time
         match["date"] = detail_date or clean_text(str(match.get("date", "")))
@@ -2789,7 +2930,8 @@ def apply_basic_match_metadata(
             changes["date"] = detail_date
 
     raw_blv = clean_text(str(metadata.get("blv", "")))
-    if raw_blv:
+    # Nếu tiêu đề trang rõ ràng thuộc fixture khác thì BLV trên cùng DOM cũng bị coi là không an toàn.
+    if raw_blv and metadata_title_safe:
         fixed_blv = normalize_blv_name(raw_blv)
         if fixed_blv and fixed_blv != clean_text(str(match.get("blv", ""))):
             match["blv"] = fixed_blv
@@ -2800,6 +2942,8 @@ def apply_basic_match_metadata(
 
 
 def merge_metadata_logos(match: dict[str, Any], metadata: dict[str, Any]) -> None:
+    if match.get("detail_metadata_safe") is False:
+        return
     logo_candidates: list[Any] = list(match.get("logo_candidates") or [])
     logo_candidates.extend(match.get("team_logos") or [])
     if match.get("logo"):
