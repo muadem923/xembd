@@ -1,5 +1,5 @@
 #EXTM3U
-#EXTINF:-1 tvg-id="chuoichien-1519419-1" tvg-name="[04:30 22/07] Libertad vs Delfin SC - VĐQG Ecuador [BLV trực tiếp: Chuối Tiêu Trận đấu Libertad]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_132248_af37ec14.png",[04:30 22/07] Libertad vs Delfin SC - VĐQG Ecuador [BLV trực tiếp: Chuối Tiêu Trận đấu Libertad] [FHD FLV]
+#EXTINF:-1 tvg-id="chuoichien-1519419-1" tvg-name="[04:30 22/07] Libertad vs Delfin SC - VĐQG Ecuador [BLV Chuối Tiêu]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_132254_7e6c4cd8.png",[04:30 22/07] Libertad vs Delfin SC - VĐQG Ecuador [BLV Chuối Tiêu] [FHD FLV]
 #EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
@@ -23,13 +23,13 @@ https://gckc0525.edgemaxcdn.org/live/chuoito/playlist.m3u8
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
 https://hls.cdnfaster-a.live/live/VUONGLUAN/index.m3u8?expire=1893165900&sign=60fcb5252d4dafeac0cb5da922c56645
-#EXTINF:-1 tvg-id="hygenie-601258f7f01e-380-1" tvg-name="[22/07/2026 04:30] LIBERTAD FC vs DELFIN SC [BLV Lio]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/54824_1j3y4rkpr51j.png",[22/07/2026 04:30] LIBERTAD FC vs DELFIN SC [BLV Lio] [M3U8]
+#EXTINF:-1 tvg-id="hygenie-601258f7f01e-1" tvg-name="[22/07/2026 04:30] LIBERTAD FC vs DELFIN SC [BLV Lio]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/54824_1j3y4rkpr51j.png",[22/07/2026 04:30] LIBERTAD FC vs DELFIN SC [BLV Lio] [M3U8]
 #EXTVLCOPT:http-referrer=https://catbee.io/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
 https://hls.cdnfaster-a.live/live/LIO/index.m3u8?expire=1923141900&sign=fff7ab29620de2a54fba04f5f3ca246a
-#EXTINF:-1 tvg-id="hygenie-48bcaeaaf9ac-1" tvg-name="[22/07/2026 05:00] NACIONAL MONTEVIDEO vs CLUB ATLETICO TIGRE [BLV LƯU BỊ]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/2353_1gzsy54rhb1g.png",[22/07/2026 05:00] NACIONAL MONTEVIDEO vs CLUB ATLETICO TIGRE [BLV LƯU BỊ] [M3U8]
+#EXTINF:-1 tvg-id="hygenie-48bcaeaaf9ac-135-1" tvg-name="[22/07/2026 05:00] NACIONAL MONTEVIDEO vs CLUB ATLETICO TIGRE [BLV LƯU BỊ]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/2353_1gzsy54rhb1g.png",[22/07/2026 05:00] NACIONAL MONTEVIDEO vs CLUB ATLETICO TIGRE [BLV LƯU BỊ] [M3U8]
 #EXTVLCOPT:http-referrer=https://catbee.io/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
@@ -41,6 +41,18 @@ https://hls.cdnfaster-a.live/live/LUUBI/index.m3u8?expire=1788427256&sign=e15f8b
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
 https://hls.cdnfaster-a.live/live/VOTONG/index.m3u8?expire=1891347600&sign=cbb47d2000b9576a7b34114624ff8299
+#EXTINF:-1 tvg-id="hygenie-339d12866c28-320-1" tvg-name="[22/07/2026 05:30] GREMIO NOVORIZONTINO vs CRICIUMA [BLV YẾN THANH]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/20053_1hvszap3cv1h.png",[22/07/2026 05:30] GREMIO NOVORIZONTINO vs CRICIUMA [BLV YẾN THANH] [M3U8]
+#EXTVLCOPT:http-referrer=https://catbee.io/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
+https://hls.cdnfaster-a.live/live/YENTHANH1/index.m3u8?expire=1788427256&sign=a79cc8d996707223a0011d33d04d4582
+#EXTINF:-1 tvg-id="hygenie-a79e0a6b6208-269-1" tvg-name="[22/07/2026 06:00] INDEPENDIENTE PETROLERO vs REAL POTOSI [BLV MÃ SIÊU]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/37027_1grj9asv2t23.png",[22/07/2026 06:00] INDEPENDIENTE PETROLERO vs REAL POTOSI [BLV MÃ SIÊU] [AUTO M3U8]
+#EXTVLCOPT:http-referrer=https://catbee.io/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
+https://auto.cdnfaster.live/live/sd-6MwdakGewnxVdxKvRa/playlist.m3u8
 #EXTINF:-1 tvg-id="gavang-2465-1" tvg-name="[05:30 22/07] ATLETICO MINEIRO vs BAHIA" group-title="Gà Vàng" tvg-logo="https://smorf.io/wp-json/s8-image/961658e9-f5b7-4fdf-93d4-689b5cce7e0c",[05:30 22/07] ATLETICO MINEIRO vs BAHIA [FLV]
 #EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2465/mineiro-bahia-brasa/?s8_live_fixture_id=2465&s8_live_stream_key=mineiro-bahia-brasa&s8_auto_sound=1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
@@ -53,18 +65,30 @@ https://flv.lauthaitv.cc/live/mineiro-bahia-brasa.flv
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2484/coritiba-palmeiras-brasa/?s8_live_fixture_id=2484&s8_live_stream_key=coritiba-palmeiras-brasa&s8_auto_sound=1","Origin":"https://smorf.io"}
 https://flv.lauthaitv.cc/live/coritiba-palmeiras-brasa.flv
-#EXTINF:-1 tvg-id="gavang-2489-1" tvg-name="[CHỜ PHÁT] [23/07] KAZ Division 1 - Akademiya Ontustik VS Astana B [BLV NGƯỜI SÓI]" group-title="Gà Vàng" tvg-logo="https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [23/07] KAZ Division 1 - Akademiya Ontustik VS Astana B [BLV NGƯỜI SÓI] [FLV]
-#EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2489/ontustik-astanab-kazdiv1/?s8_live_fixture_id=2489&s8_live_stream_key=ontustik-astanab-kazdiv1&s8_auto_sound=1
+#EXTINF:-1 tvg-id="gavang-2486-1" tvg-name="[CHỜ PHÁT] Cincinati VS Vancouver" group-title="Gà Vàng" tvg-logo="https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] Cincinati VS Vancouver [FLV]
+#EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2486/cincinati-vancouver-mls/?s8_live_fixture_id=2486&s8_live_stream_key=cincinati-vancouver-mls&s8_auto_sound=1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2489/ontustik-astanab-kazdiv1/?s8_live_fixture_id=2489&s8_live_stream_key=ontustik-astanab-kazdiv1&s8_auto_sound=1","Origin":"https://smorf.io"}
-https://flv.lauthaitv.cc/live/ontustik-astanab-kazdiv1.flv
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2486/cincinati-vancouver-mls/?s8_live_fixture_id=2486&s8_live_stream_key=cincinati-vancouver-mls&s8_auto_sound=1","Origin":"https://smorf.io"}
+https://flv.lauthaitv.cc/live/cincinati-vancouver-mls.flv
+#EXTINF:-1 tvg-id="gavang-2482-1" tvg-name="[CHỜ PHÁT] Egnatia VS Celje" group-title="Gà Vàng" tvg-logo="https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] Egnatia VS Celje [FLV]
+#EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2482/egnatia-celje-c1qual/?s8_live_fixture_id=2482&s8_live_stream_key=egnatia-celje-c1qual&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2482/egnatia-celje-c1qual/?s8_live_fixture_id=2482&s8_live_stream_key=egnatia-celje-c1qual&s8_auto_sound=1","Origin":"https://smorf.io"}
+https://flv.lauthaitv.cc/live/egnatia-celje-c1qual.flv
 #EXTINF:-1 tvg-id="gavang-2490-1" tvg-name="[CHỜ PHÁT] [23/07] KAZ Division 1 - Jaiyq FC VS Khan Tengri FC [BLV NGƯỜI BẠC]" group-title="Gà Vàng" tvg-logo="https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [23/07] KAZ Division 1 - Jaiyq FC VS Khan Tengri FC [BLV NGƯỜI BẠC] [FLV]
 #EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2490/jaiyq-khantengri-kazdiv1/?s8_live_fixture_id=2490&s8_live_stream_key=jaiyq-khantengri-kazdiv1&s8_auto_sound=1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2490/jaiyq-khantengri-kazdiv1/?s8_live_fixture_id=2490&s8_live_stream_key=jaiyq-khantengri-kazdiv1&s8_auto_sound=1","Origin":"https://smorf.io"}
 https://flv.lauthaitv.cc/live/jaiyq-khantengri-kazdiv1.flv
+#EXTINF:-1 tvg-id="gavang-2488-1" tvg-name="[CHỜ PHÁT] Lagalaxy VS Stlouis" group-title="Gà Vàng" tvg-logo="https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] Lagalaxy VS Stlouis [FLV]
+#EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2488/lagalaxy-stlouis-mls/?s8_live_fixture_id=2488&s8_live_stream_key=lagalaxy-stlouis-mls&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2488/lagalaxy-stlouis-mls/?s8_live_fixture_id=2488&s8_live_stream_key=lagalaxy-stlouis-mls&s8_auto_sound=1","Origin":"https://smorf.io"}
+https://flv.lauthaitv.cc/live/lagalaxy-stlouis-mls.flv
 #EXTINF:-1 tvg-id="gavang-2483-1" tvg-name="[CHỜ PHÁT] [23/07] Liga Pro Serie A - Independiente del Valle VS Tecnico Universitario [BLV NGƯỜI SÓI]" group-title="Gà Vàng" tvg-logo="https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [23/07] Liga Pro Serie A - Independiente del Valle VS Tecnico Universitario [BLV NGƯỜI SÓI] [FLV]
 #EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2483/valle-tecnico-ligaprosa/?s8_live_fixture_id=2483&s8_live_stream_key=valle-tecnico-ligaprosa&s8_auto_sound=1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
@@ -77,12 +101,18 @@ https://flv.lauthaitv.cc/live/valle-tecnico-ligaprosa.flv
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2464/libertad-delfin-ligaprosa/?s8_live_fixture_id=2464&s8_live_stream_key=libertad-delfin-ligaprosa&s8_auto_sound=1","Origin":"https://smorf.io"}
 https://flv.lauthaitv.cc/live/libertad-delfin-ligaprosa.flv
-#EXTINF:-1 tvg-id="gavang-2486-1" tvg-name="[CHỜ PHÁT] [23/07] MLS - FC Cincinnati VS Vancouver Whitecaps [BLV NGƯỜI CÁO]" group-title="Gà Vàng" tvg-logo="https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [23/07] MLS - FC Cincinnati VS Vancouver Whitecaps [BLV NGƯỜI CÁO] [FLV]
-#EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2486/cincinati-vancouver-mls/?s8_live_fixture_id=2486&s8_live_stream_key=cincinati-vancouver-mls&s8_auto_sound=1
+#EXTINF:-1 tvg-id="gavang-2478-1" tvg-name="[CHỜ PHÁT] Lillestrom VS Viking" group-title="Gà Vàng" tvg-logo="https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] Lillestrom VS Viking [FLV]
+#EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2478/lillestrom-viking-norelite/?s8_live_fixture_id=2478&s8_live_stream_key=lillestrom-viking-norelite&s8_auto_sound=1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2486/cincinati-vancouver-mls/?s8_live_fixture_id=2486&s8_live_stream_key=cincinati-vancouver-mls&s8_auto_sound=1","Origin":"https://smorf.io"}
-https://flv.lauthaitv.cc/live/cincinati-vancouver-mls.flv
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2478/lillestrom-viking-norelite/?s8_live_fixture_id=2478&s8_live_stream_key=lillestrom-viking-norelite&s8_auto_sound=1","Origin":"https://smorf.io"}
+https://flv.lauthaitv.cc/live/lillestrom-viking-norelite.flv
+#EXTINF:-1 tvg-id="gavang-2491-1" tvg-name="[CHỜ PHÁT] Malisheva VS Hibernian" group-title="Gà Vàng" tvg-logo="https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] Malisheva VS Hibernian [FLV]
+#EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2491/malisheva-hibernian-c3qual/?s8_live_fixture_id=2491&s8_live_stream_key=malisheva-hibernian-c3qual&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2491/malisheva-hibernian-c3qual/?s8_live_fixture_id=2491&s8_live_stream_key=malisheva-hibernian-c3qual&s8_auto_sound=1","Origin":"https://smorf.io"}
+https://flv.lauthaitv.cc/live/malisheva-hibernian-c3qual.flv
 #EXTINF:-1 tvg-id="gavang-2485-1" tvg-name="[CHỜ PHÁT] [23/07] MLS - Inter Miami CF VS Chicago Fire [BLV NGƯỜI CHÈ]" group-title="Gà Vàng" tvg-logo="https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [23/07] MLS - Inter Miami CF VS Chicago Fire [BLV NGƯỜI CHÈ] [FLV]
 #EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2485/miami-chicago-mls/?s8_live_fixture_id=2485&s8_live_stream_key=miami-chicago-mls&s8_auto_sound=1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
@@ -95,36 +125,36 @@ https://flv.lauthaitv.cc/live/miami-chicago-mls.flv
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2487/lafc-realsaltlake-mls/?s8_live_fixture_id=2487&s8_live_stream_key=lafc-realsaltlake-mls&s8_auto_sound=1","Origin":"https://smorf.io"}
 https://flv.lauthaitv.cc/live/lafc-realsaltlake-mls.flv
-#EXTINF:-1 tvg-id="gavang-2488-1" tvg-name="[CHỜ PHÁT] [23/07] MLS - Los Angeles Galaxy VS St.Louis City [BLV NGƯỜI CÁO]" group-title="Gà Vàng" tvg-logo="https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [23/07] MLS - Los Angeles Galaxy VS St.Louis City [BLV NGƯỜI CÁO] [FLV]
-#EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2488/lagalaxy-stlouis-mls/?s8_live_fixture_id=2488&s8_live_stream_key=lagalaxy-stlouis-mls&s8_auto_sound=1
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2488/lagalaxy-stlouis-mls/?s8_live_fixture_id=2488&s8_live_stream_key=lagalaxy-stlouis-mls&s8_auto_sound=1","Origin":"https://smorf.io"}
-https://flv.lauthaitv.cc/live/lagalaxy-stlouis-mls.flv
 #EXTINF:-1 tvg-id="gavang-2479-1" tvg-name="[CHỜ PHÁT] [23/07] NOR Eliteserien - Bodo Glimt VS Ham-Kam [BLV NGƯỜI TIỀN SỬ]" group-title="Gà Vàng" tvg-logo="https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [23/07] NOR Eliteserien - Bodo Glimt VS Ham-Kam [BLV NGƯỜI TIỀN SỬ] [FLV]
 #EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2479/bodo-hamkam-norelite/?s8_live_fixture_id=2479&s8_live_stream_key=bodo-hamkam-norelite&s8_auto_sound=1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2479/bodo-hamkam-norelite/?s8_live_fixture_id=2479&s8_live_stream_key=bodo-hamkam-norelite&s8_auto_sound=1","Origin":"https://smorf.io"}
 https://flv.lauthaitv.cc/live/bodo-hamkam-norelite.flv
-#EXTINF:-1 tvg-id="gavang-2478-1" tvg-name="[CHỜ PHÁT] [23/07] NOR Eliteserien - Lillestrom VS Viking [BLV NGƯỜI THỎ]" group-title="Gà Vàng" tvg-logo="https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [23/07] NOR Eliteserien - Lillestrom VS Viking [BLV NGƯỜI THỎ] [FLV]
-#EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2478/lillestrom-viking-norelite/?s8_live_fixture_id=2478&s8_live_stream_key=lillestrom-viking-norelite&s8_auto_sound=1
+#EXTINF:-1 tvg-id="gavang-2477-1" tvg-name="[CHỜ PHÁT] Omonia VS Kairat" group-title="Gà Vàng" tvg-logo="https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] Omonia VS Kairat [FLV]
+#EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2477/omonia-kairat-c1qual/?s8_live_fixture_id=2477&s8_live_stream_key=omonia-kairat-c1qual&s8_auto_sound=1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2478/lillestrom-viking-norelite/?s8_live_fixture_id=2478&s8_live_stream_key=lillestrom-viking-norelite&s8_auto_sound=1","Origin":"https://smorf.io"}
-https://flv.lauthaitv.cc/live/lillestrom-viking-norelite.flv
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2477/omonia-kairat-c1qual/?s8_live_fixture_id=2477&s8_live_stream_key=omonia-kairat-c1qual&s8_auto_sound=1","Origin":"https://smorf.io"}
+https://flv.lauthaitv.cc/live/omonia-kairat-c1qual.flv
+#EXTINF:-1 tvg-id="gavang-2489-1" tvg-name="[CHỜ PHÁT] Ontustik VS Astanab" group-title="Gà Vàng" tvg-logo="https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] Ontustik VS Astanab [FLV]
+#EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2489/ontustik-astanab-kazdiv1/?s8_live_fixture_id=2489&s8_live_stream_key=ontustik-astanab-kazdiv1&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2489/ontustik-astanab-kazdiv1/?s8_live_fixture_id=2489&s8_live_stream_key=ontustik-astanab-kazdiv1&s8_auto_sound=1","Origin":"https://smorf.io"}
+https://flv.lauthaitv.cc/live/ontustik-astanab-kazdiv1.flv
 #EXTINF:-1 tvg-id="gavang-2463-1" tvg-name="Rivadavia VS Laplata" group-title="Gà Vàng" tvg-logo="https://smorf.io/wp-json/s8-image/deff82f9-aaba-486d-b5d8-5bb7d7749bd6",Rivadavia VS Laplata [FLV]
 #EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2463/rivadavia-laplata-argcopa/?s8_live_fixture_id=2463&s8_live_stream_key=rivadavia-laplata-argcopa&s8_auto_sound=1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2463/rivadavia-laplata-argcopa/?s8_live_fixture_id=2463&s8_live_stream_key=rivadavia-laplata-argcopa&s8_auto_sound=1","Origin":"https://smorf.io"}
 https://flv.lauthaitv.cc/live/rivadavia-laplata-argcopa.flv
-#EXTINF:-1 tvg-id="gavang-2482-1" tvg-name="[CHỜ PHÁT] [23/07] UEFA Champions League (qual) - Egnatia VS NK Publikum Celje [BLV NGƯỜI CHÈ]" group-title="Gà Vàng" tvg-logo="https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [23/07] UEFA Champions League (qual) - Egnatia VS NK Publikum Celje [BLV NGƯỜI CHÈ] [FLV]
-#EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2482/egnatia-celje-c1qual/?s8_live_fixture_id=2482&s8_live_stream_key=egnatia-celje-c1qual&s8_auto_sound=1
+#EXTINF:-1 tvg-id="gavang-2474-1" tvg-name="[CHỜ PHÁT] Tot VS Mkdons" group-title="Gà Vàng" tvg-logo="https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] Tot VS Mkdons [FLV]
+#EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2474/tot-mkdons-intcf/?s8_live_fixture_id=2474&s8_live_stream_key=tot-mkdons-intcf&s8_auto_sound=1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2482/egnatia-celje-c1qual/?s8_live_fixture_id=2482&s8_live_stream_key=egnatia-celje-c1qual&s8_auto_sound=1","Origin":"https://smorf.io"}
-https://flv.lauthaitv.cc/live/egnatia-celje-c1qual.flv
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2474/tot-mkdons-intcf/?s8_live_fixture_id=2474&s8_live_stream_key=tot-mkdons-intcf&s8_auto_sound=1","Origin":"https://smorf.io"}
+https://flv.lauthaitv.cc/live/tot-mkdons-intcf.flv
 #EXTINF:-1 tvg-id="gavang-2481-1" tvg-name="[CHỜ PHÁT] [23/07] UEFA Champions League (qual) - FC Vardar Skopje VS Riga FC [BLV NGƯỜI SẮT]" group-title="Gà Vàng" tvg-logo="https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [23/07] UEFA Champions League (qual) - FC Vardar Skopje VS Riga FC [BLV NGƯỜI SẮT] [FLV]
 #EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2481/skopje-riga-c1qual/?s8_live_fixture_id=2481&s8_live_stream_key=skopje-riga-c1qual&s8_auto_sound=1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
@@ -137,12 +167,6 @@ https://flv.lauthaitv.cc/live/skopje-riga-c1qual.flv
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2480/levski-craiova-c1qual/?s8_live_fixture_id=2480&s8_live_stream_key=levski-craiova-c1qual&s8_auto_sound=1","Origin":"https://smorf.io"}
 https://flv.lauthaitv.cc/live/levski-craiova-c1qual.flv
-#EXTINF:-1 tvg-id="gavang-2477-1" tvg-name="[CHỜ PHÁT] [23/07] UEFA Champions League (qual) - Omonia Nicosia FC VS FC Kairat Almaty [BLV NGƯỜI CAT]" group-title="Gà Vàng" tvg-logo="https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [23/07] UEFA Champions League (qual) - Omonia Nicosia FC VS FC Kairat Almaty [BLV NGƯỜI CAT] [FLV]
-#EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2477/omonia-kairat-c1qual/?s8_live_fixture_id=2477&s8_live_stream_key=omonia-kairat-c1qual&s8_auto_sound=1
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2477/omonia-kairat-c1qual/?s8_live_fixture_id=2477&s8_live_stream_key=omonia-kairat-c1qual&s8_auto_sound=1","Origin":"https://smorf.io"}
-https://flv.lauthaitv.cc/live/omonia-kairat-c1qual.flv
 #EXTINF:-1 tvg-id="gavang-2493-1" tvg-name="[CHỜ PHÁT] [23/07] UEFA Conference League (qual) - Alashkert VS CFR Cluj [BLV NGƯỜI THỎ]" group-title="Gà Vàng" tvg-logo="https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [23/07] UEFA Conference League (qual) - Alashkert VS CFR Cluj [BLV NGƯỜI THỎ] [FLV]
 #EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2493/alashkert-cfrcluj-c3qual/?s8_live_fixture_id=2493&s8_live_stream_key=alashkert-cfrcluj-c3qual&s8_auto_sound=1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
@@ -167,12 +191,6 @@ https://flv.lauthaitv.cc/live/liepaja-vienna-c3qual.flv
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2495/panevezys-tobol-c3qual/?s8_live_fixture_id=2495&s8_live_stream_key=panevezys-tobol-c3qual&s8_auto_sound=1","Origin":"https://smorf.io"}
 https://flv.lauthaitv.cc/live/panevezys-tobol-c3qual.flv
-#EXTINF:-1 tvg-id="gavang-2491-1" tvg-name="[CHỜ PHÁT] [23/07] UEFA Conference League (qual) - Malisheva VS Hibernian [BLV NGƯỜI SÓI]" group-title="Gà Vàng" tvg-logo="https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [23/07] UEFA Conference League (qual) - Malisheva VS Hibernian [BLV NGƯỜI SÓI] [FLV]
-#EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2491/malisheva-hibernian-c3qual/?s8_live_fixture_id=2491&s8_live_stream_key=malisheva-hibernian-c3qual&s8_auto_sound=1
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2491/malisheva-hibernian-c3qual/?s8_live_fixture_id=2491&s8_live_stream_key=malisheva-hibernian-c3qual&s8_auto_sound=1","Origin":"https://smorf.io"}
-https://flv.lauthaitv.cc/live/malisheva-hibernian-c3qual.flv
 #EXTINF:-1 tvg-id="gavang-2497-1" tvg-name="[CHỜ PHÁT] [23/07] UEFA Europa League (qual) - Dynamo Kyiv VS PAOK Saloniki [BLV NGƯỜI CAT]" group-title="Gà Vàng" tvg-logo="https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [23/07] UEFA Europa League (qual) - Dynamo Kyiv VS PAOK Saloniki [BLV NGƯỜI CAT] [FLV]
 #EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2497/dynamokyiv-paok-c2qual/?s8_live_fixture_id=2497&s8_live_stream_key=dynamokyiv-paok-c2qual&s8_auto_sound=1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
@@ -191,9 +209,3 @@ https://flv.lauthaitv.cc/live/qarabag-cska-c2qual.flv
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2492/gazalkent-bekabad-uzbpro/?s8_live_fixture_id=2492&s8_live_stream_key=gazalkent-bekabad-uzbpro&s8_auto_sound=1","Origin":"https://smorf.io"}
 https://flv.lauthaitv.cc/live/gazalkent-bekabad-uzbpro.flv
-#EXTINF:-1 tvg-id="gavang-2473-1" tvg-name="[CHỜ PHÁT] [22/07] UZB Super League - Lokomotiv Tashkent VS FK Andijon [BLV NGƯỜI CAT]" group-title="Gà Vàng" tvg-logo="https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [22/07] UZB Super League - Lokomotiv Tashkent VS FK Andijon [BLV NGƯỜI CAT] [FLV]
-#EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2473/tashkent-andijon-uzbsuper/?s8_live_fixture_id=2473&s8_live_stream_key=tashkent-andijon-uzbsuper&s8_auto_sound=1
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2473/tashkent-andijon-uzbsuper/?s8_live_fixture_id=2473&s8_live_stream_key=tashkent-andijon-uzbsuper&s8_auto_sound=1","Origin":"https://smorf.io"}
-https://flv.lauthaitv.cc/live/tashkent-andijon-uzbsuper.flv

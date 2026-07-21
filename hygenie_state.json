@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "luongson",
-  "updated_at": "2026-07-22T05:09:11.454226+07:00",
+  "updated_at": "2026-07-22T05:33:22.028003+07:00",
   "matches": {
     "dbdf8cfe3f68": {
       "url": "https://catbee.io/truc-tiep/basilan-steel-vs-sarangani-marlins-vao-luc-1500-21-07-2026/",
@@ -524,15 +524,17 @@
       "scan_decision": "browser-fallback"
     },
     "601258f7f01e": {
-      "url": "https://catbee.io/truc-tiep/libertad-fc-vs-delfin-sc-vao-luc-0430-22-07-2026/",
+      "url": "https://catbee.io/truc-tiep/libertad-fc-vs-delfin-sc-vao-luc-0430-22-07-2026/?blv=380",
       "match_name": "LIBERTAD FC vs DELFIN SC",
       "kickoff_iso": "2026-07-22T04:30:00+07:00",
-      "minutes_to_kickoff": -38,
-      "last_scan_at": "2026-07-22T05:09:11.453654+07:00",
-      "next_scan_at": "2026-07-22T05:14:11.453654+07:00",
+      "minutes_to_kickoff": -61,
+      "last_scan_at": "2026-07-22T05:33:22.027381+07:00",
+      "next_scan_at": "2026-07-22T05:38:22.027381+07:00",
       "has_stream": true,
-      "has_verified": false,
-      "verified_urls": [],
+      "has_verified": true,
+      "verified_urls": [
+        "https://hls.cdnfaster-a.live/live/LIO/index.m3u8?expire=1923141900&sign=fff7ab29620de2a54fba04f5f3ca246a"
+      ],
       "scan_decision": "browser-fallback"
     },
     "7a90cbdade87": {
@@ -567,81 +569,89 @@
       "url": "https://catbee.io/truc-tiep/atletico-nacional-medellin-vs-tigres-zipaquira-vao-luc-0400-22-07-2026/",
       "match_name": "ATLETICO NACIONAL MEDELLIN vs TIGRES ZIPAQUIRA",
       "kickoff_iso": "2026-07-22T04:00:00+07:00",
-      "minutes_to_kickoff": -68,
-      "last_scan_at": "2026-07-22T05:09:11.453654+07:00",
-      "next_scan_at": "2026-07-22T05:14:11.453654+07:00",
+      "minutes_to_kickoff": -91,
+      "last_scan_at": "2026-07-22T05:33:22.027381+07:00",
+      "next_scan_at": "2026-07-22T05:38:22.027381+07:00",
       "has_stream": true,
-      "has_verified": false,
-      "verified_urls": [],
+      "has_verified": true,
+      "verified_urls": [
+        "https://hls.cdnfaster-a.live/live/VUONGLUAN/index.m3u8?expire=1893165900&sign=60fcb5252d4dafeac0cb5da922c56645"
+      ],
       "scan_decision": "browser-fallback"
     },
     "48bcaeaaf9ac": {
-      "url": "https://catbee.io/truc-tiep/nacional-montevideo-vs-club-atletico-tigre-vao-luc-0500-22-07-2026/?blv=135",
+      "url": "https://catbee.io/truc-tiep/nacional-montevideo-vs-club-atletico-tigre-vao-luc-0500-22-07-2026/",
       "match_name": "NACIONAL MONTEVIDEO vs CLUB ATLETICO TIGRE",
       "kickoff_iso": "2026-07-22T05:00:00+07:00",
-      "minutes_to_kickoff": -8,
-      "last_scan_at": "2026-07-22T05:09:11.453654+07:00",
-      "next_scan_at": "2026-07-22T05:14:11.453654+07:00",
+      "minutes_to_kickoff": -31,
+      "last_scan_at": "2026-07-22T05:33:22.027381+07:00",
+      "next_scan_at": "2026-07-22T05:38:22.027381+07:00",
       "has_stream": true,
-      "has_verified": false,
-      "verified_urls": [],
+      "has_verified": true,
+      "verified_urls": [
+        "https://hls.cdnfaster-a.live/live/LUUBI/index.m3u8?expire=1788427256&sign=e15f8b184dc9c61cc5dacfd962841ae1"
+      ],
       "scan_decision": "browser-fallback"
     },
     "339d12866c28": {
       "url": "https://catbee.io/truc-tiep/gremio-novorizontino-vs-criciuma-vao-luc-0530-22-07-2026/",
       "match_name": "GREMIO NOVORIZONTINO vs CRICIUMA",
       "kickoff_iso": "2026-07-22T05:30:00+07:00",
-      "minutes_to_kickoff": 22,
-      "last_scan_at": "2026-07-22T05:09:11.453654+07:00",
-      "next_scan_at": "2026-07-22T05:19:11.453654+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
+      "minutes_to_kickoff": -1,
+      "last_scan_at": "2026-07-22T05:33:22.027381+07:00",
+      "next_scan_at": "2026-07-22T05:38:22.027381+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://hls.cdnfaster-a.live/live/YENTHANH1/index.m3u8?expire=1788427256&sign=a79cc8d996707223a0011d33d04d4582"
+      ],
       "scan_decision": "browser-fallback"
     },
     "6d8f68bda1e3": {
       "url": "https://catbee.io/truc-tiep/atletico-mineiro-vs-bahia-vao-luc-0530-22-07-2026/",
       "match_name": "ATLETICO MINEIRO vs BAHIA",
       "kickoff_iso": "2026-07-22T05:30:00+07:00",
-      "minutes_to_kickoff": 22,
-      "last_scan_at": "2026-07-22T05:09:11.453654+07:00",
-      "next_scan_at": "2026-07-22T05:19:11.453654+07:00",
+      "minutes_to_kickoff": -1,
+      "last_scan_at": "2026-07-22T05:33:22.027381+07:00",
+      "next_scan_at": "2026-07-22T05:38:22.027381+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://hls.cdnfaster-a.live/live/VOTONG/index.m3u8?expire=1891347600&sign=cbb47d2000b9576a7b34114624ff8299"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "a79e0a6b6208": {
+      "url": "https://catbee.io/truc-tiep/independiente-petrolero-vs-real-potosi-vao-luc-0600-22-07-2026/",
+      "match_name": "INDEPENDIENTE PETROLERO vs REAL POTOSI",
+      "kickoff_iso": "2026-07-22T06:00:00+07:00",
+      "minutes_to_kickoff": 29,
+      "last_scan_at": "2026-07-22T05:33:22.027381+07:00",
+      "next_scan_at": "2026-07-22T05:43:22.027381+07:00",
       "has_stream": true,
       "has_verified": false,
       "verified_urls": [],
       "scan_decision": "browser-fallback"
     },
-    "a79e0a6b6208": {
-      "url": "https://catbee.io/truc-tiep/independiente-petrolero-vs-real-potosi-vao-luc-0600-22-07-2026/",
-      "match_name": "independiente petrolero vs real potosi",
-      "kickoff_iso": "2026-07-22T06:00:00+07:00",
-      "minutes_to_kickoff": 52,
-      "last_scan_at": "2026-07-22T05:09:11.453654+07:00",
-      "next_scan_at": "2026-07-22T05:29:11.453654+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
-    },
     "0fb2ba49c270": {
       "url": "https://catbee.io/truc-tiep/deportes-tolima-vs-deportes-quindio-vao-luc-0600-22-07-2026/",
-      "match_name": "deportes tolima vs deportes quindio",
+      "match_name": "DEPORTES TOLIMA vs DEPORTES QUINDIO",
       "kickoff_iso": "2026-07-22T06:00:00+07:00",
-      "minutes_to_kickoff": 52,
-      "last_scan_at": "2026-07-22T05:09:11.453654+07:00",
-      "next_scan_at": "2026-07-22T05:29:11.453654+07:00",
+      "minutes_to_kickoff": 29,
+      "last_scan_at": "2026-07-22T05:33:22.027381+07:00",
+      "next_scan_at": "2026-07-22T05:43:22.027381+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "scan_decision": "browser-fallback"
     },
     "6b950ae5415e": {
       "url": "https://catbee.io/truc-tiep/universidad-catolica-vs-barcelona-scecu-vao-luc-0700-22-07-2026/",
       "match_name": "universidad catolica vs barcelona scecu",
       "kickoff_iso": "2026-07-22T07:00:00+07:00",
-      "minutes_to_kickoff": 112,
-      "last_scan_at": "2026-07-22T05:09:11.453654+07:00",
-      "next_scan_at": "2026-07-22T05:29:11.453654+07:00",
+      "minutes_to_kickoff": 89,
+      "last_scan_at": "2026-07-22T05:33:22.027381+07:00",
+      "next_scan_at": "2026-07-22T05:53:22.027381+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
@@ -651,9 +661,9 @@
       "url": "https://catbee.io/truc-tiep/universidad-central-de-venezuela-vs-santos-vao-luc-0730-22-07-2026/?blv=218",
       "match_name": "universidad central de venezuela vs santos",
       "kickoff_iso": "2026-07-22T07:30:00+07:00",
-      "minutes_to_kickoff": 179,
-      "last_scan_at": "2026-07-22T04:32:18.182820+07:00",
-      "next_scan_at": "2026-07-22T05:17:18.182820+07:00",
+      "minutes_to_kickoff": 119,
+      "last_scan_at": "2026-07-22T05:33:22.027381+07:00",
+      "next_scan_at": "2026-07-22T05:53:22.027381+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
