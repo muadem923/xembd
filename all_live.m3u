@@ -11,45 +11,57 @@ https://gckc0525.edgemaxcdn.org/live/chuoito.flv
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
 https://gckc0525.edgemaxcdn.org/live/chuoito/playlist.m3u8
-#EXTINF:-1 tvg-id="chuoichien-992361-1" tvg-name="[15:30 21/07] PVF-CAND vs Hoang Anh Gia Lai - U21 Quốc Gia [BLV trực tiếp: Chuối Tây Trận đấu PVF-CAND v]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/20250817_040457_e299eb36.png",[15:30 21/07] PVF-CAND vs Hoang Anh Gia Lai - U21 Quốc Gia [BLV trực tiếp: Chuối Tây Trận đấu PVF-CAND v] [FHD FLV]
+#EXTINF:-1 tvg-id="chuoichien-992361-1" tvg-name="[15:30 21/07] PVF-CAND vs Hoang Anh Gia Lai - U21 Quốc Gia [BLV Chuối Tây]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/20250817_040457_e299eb36.png",[15:30 21/07] PVF-CAND vs Hoang Anh Gia Lai - U21 Quốc Gia [BLV Chuối Tây] [FHD FLV]
 #EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
 https://gckc0525.edgemaxcdn.org/live/chuoitay.flv
-#EXTINF:-1 tvg-id="hygenie-dbdf8cfe3f68-328-1" tvg-name="[21/07/2026 15:00] BASILAN STEEL vs SARANGANI MARLINS [BLV VÕ TÒNG]" group-title="Lương Sơn" tvg-logo="https://upload-img.cdnokvip.com/uploads/team_logo/1784568831.webp",[21/07/2026 15:00] BASILAN STEEL vs SARANGANI MARLINS [BLV VÕ TÒNG] [M3U8]
+#EXTINF:-1 tvg-id="hygenie-dbdf8cfe3f68-1" tvg-name="[21/07/2026 15:00] BASILAN STEEL vs SARANGANI MARLINS [BLV VÕ TÒNG]" group-title="Lương Sơn" tvg-logo="https://upload-img.cdnokvip.com/uploads/team_logo/1784568831.webp",[21/07/2026 15:00] BASILAN STEEL vs SARANGANI MARLINS [BLV VÕ TÒNG] [M3U8]
 #EXTVLCOPT:http-referrer=https://catbee.io/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
 https://hls.cdnfaster-a.live/live/VOTONG/index.m3u8?expire=1891347600&sign=cbb47d2000b9576a7b34114624ff8299
-#EXTINF:-1 tvg-id="hygenie-1a1f3e703e8f-359-1" tvg-name="[21/07/2026 15:00] DALIAN KEWEI vs BEIJING GUOAN [BLV Leo]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/69497_1jx3zzzqx6x.png",[21/07/2026 15:00] DALIAN KEWEI vs BEIJING GUOAN [BLV Leo] [M3U8]
+#EXTINF:-1 tvg-id="hygenie-1a1f3e703e8f-1" tvg-name="[21/07/2026 15:00] DALIAN KEWEI vs BEIJING GUOAN [BLV LƯU BỊ]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/69497_1jx3zzzqx6x.png",[21/07/2026 15:00] DALIAN KEWEI vs BEIJING GUOAN [BLV LƯU BỊ] [M3U8]
 #EXTVLCOPT:http-referrer=https://catbee.io/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
 https://hls.cdnfaster-a.live/live/LEO/index.m3u8?expire=1923642660&sign=58990a132e2f8d3f764c947b95b28af6
-#EXTINF:-1 tvg-id="hygenie-1a1f3e703e8f-135-1" tvg-name="[21/07/2026 15:00] DALIAN KEWEI vs BEIJING GUOAN [BLV LƯU BỊ]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/69497_1jx3zzzqx6x.png",[21/07/2026 15:00] DALIAN KEWEI vs BEIJING GUOAN [BLV LƯU BỊ] [M3U8]
-#EXTVLCOPT:http-referrer=https://catbee.io/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
-https://hls.cdnfaster-a.live/live/LUUBI/index.m3u8?expire=1788427256&sign=e15f8b184dc9c61cc5dacfd962841ae1
 #EXTINF:-1 tvg-id="hygenie-d1b048643ed1-292-1" tvg-name="[21/07/2026 15:30] PVF VIETNAM U21 vs HOANG ANH GIA LAI U21 [BLV LÝ ỨNG]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/27519_1hak20p8k12p.png",[21/07/2026 15:30] PVF VIETNAM U21 vs HOANG ANH GIA LAI U21 [BLV LÝ ỨNG] [M3U8]
 #EXTVLCOPT:http-referrer=https://catbee.io/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
 https://hls.cdnfaster-a.live/live/LYUNG1/index.m3u8?expire=1788427256&sign=d5c6932fefdcb98268754f4ccd4aa45d
-#EXTINF:-1 tvg-id="hygenie-53f4189e87bc-320-1" tvg-name="[21/07/2026 16:00] TSIRANG FC vs DRUKPA FC [BLV YẾN THANH]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/61808_1h04btppv61j.png",[21/07/2026 16:00] TSIRANG FC vs DRUKPA FC [BLV YẾN THANH] [M3U8]
+#EXTINF:-1 tvg-id="hygenie-53f4189e87bc-1" tvg-name="[21/07/2026 16:00] TSIRANG FC vs DRUKPA FC [BLV YẾN THANH]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/61808_1h04btppv61j.png",[21/07/2026 16:00] TSIRANG FC vs DRUKPA FC [BLV YẾN THANH] [M3U8]
 #EXTVLCOPT:http-referrer=https://catbee.io/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
 https://hls.cdnfaster-a.live/live/YENTHANH1/index.m3u8?expire=1788427256&sign=a79cc8d996707223a0011d33d04d4582
-#EXTINF:-1 tvg-id="gavang-2459-1" tvg-name="aarhus lech c1qual" group-title="Gà Vàng" tvg-logo="https://smorf.io/wp-json/s8-image/b6e094e5-8858-4424-a429-7d06ac89209c",aarhus lech c1qual [SD M3U8]
+#EXTINF:-1 tvg-id="hygenie-86cf4da57ba8-383-1" tvg-name="[21/07/2026 16:30] CANBERRA JUVENTUS vs CANBERRA FC [BLV TÀO THÁO]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/61152_1gvwgcn3p310.png",[21/07/2026 16:30] CANBERRA JUVENTUS vs CANBERRA FC [BLV TÀO THÁO] [M3U8]
+#EXTVLCOPT:http-referrer=https://catbee.io/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
+https://hls.cdnfaster-a.live/live/TAOTHAO/index.m3u8?expire=1917964380&sign=6379fc6251248341f0547089859f8ee9
+#EXTINF:-1 tvg-id="hygenie-df5704533328-269-1" tvg-name="[21/07/2026 16:30] QUEENSLAND LIONS SC vs PERTH GLORY [BLV MÃ SIÊU]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/11673_1gryyqvhkg2.png",[21/07/2026 16:30] QUEENSLAND LIONS SC vs PERTH GLORY [BLV MÃ SIÊU] [M3U8]
+#EXTVLCOPT:http-referrer=https://catbee.io/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
+https://hls.cdnfaster-a.live/live/MASIEU/index.m3u8?expire=1788427256&sign=b91fcfc36fe72375e8f8cc813de0220b
+#EXTINF:-1 tvg-id="gavang-2459-1" tvg-name="aarhus lech c1qual [BLV NGƯỜI THỎ TRẬN Đổi trận Bình luận CHN FA]" group-title="Gà Vàng" tvg-logo="https://smorf.io/wp-json/s8-image/b6e094e5-8858-4424-a429-7d06ac89209c",aarhus lech c1qual [BLV NGƯỜI THỎ TRẬN Đổi trận Bình luận CHN FA] [SD M3U8]
 #EXTVLCOPT:http-referrer=https://smorf.io/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/","Origin":"https://smorf.io"}
 https://live-bong.s3.ap-southeast-1.amazonaws.com/New+folder/hls_abr/copy_CE1198F2-AD34-4956-822A-1F66706D2422/source/index.m3u8
+#EXTINF:-1 tvg-id="gavang-2449-1" tvg-name="queensland perth ausffa" group-title="Gà Vàng" tvg-logo="https://smorf.io/wp-json/s8-image/ebb1e2d3-4580-41b2-a381-1f21c61f32b6",queensland perth ausffa [FLV]
+#EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2449/queensland-perth-ausffa/?s8_live_fixture_id=2449&s8_live_stream_key=queensland-perth-ausffa
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2449/queensland-perth-ausffa/?s8_live_fixture_id=2449&s8_live_stream_key=queensland-perth-ausffa","Origin":"https://smorf.io"}
+https://flv.lauthaitv.cc/live/queensland-perth-ausffa.flv
