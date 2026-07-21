@@ -1,6 +1,6 @@
 {
   "version": "4.4.3-GAVANG-UNKNOWN-KEY-FLV-FIX",
-  "generated_at": "2026-07-21T16:38:17.160336+07:00",
+  "generated_at": "2026-07-21T17:08:17.333667+07:00",
   "policy": {
     "max_streams_per_match_blv": 2,
     "upcoming_keep_hours": 4,
@@ -12,8 +12,8 @@
       "label": "Chuối Chiên",
       "returncode": 0,
       "fresh": true,
-      "debug_rows": 7,
-      "playlist_blocks": 4,
+      "debug_rows": 9,
+      "playlist_blocks": 5,
       "included": true
     },
     {
@@ -21,7 +21,7 @@
       "label": "Lương Sơn",
       "returncode": 0,
       "fresh": true,
-      "debug_rows": 27,
+      "debug_rows": 40,
       "playlist_blocks": 8,
       "included": true
     },
@@ -31,34 +31,48 @@
       "returncode": 0,
       "fresh": true,
       "debug_rows": 68,
-      "playlist_blocks": 2,
+      "playlist_blocks": 3,
       "included": true
     }
   ],
-  "input_candidates": 14,
-  "selected_count": 13,
-  "dropped_count": 1,
+  "input_candidates": 16,
+  "selected_count": 16,
+  "dropped_count": 0,
   "channels": [
+    {
+      "source": "chuoichien",
+      "source_label": "Chuối Chiên",
+      "url": "https://gckc0525.edgemaxcdn.org/live/chuoito.flv",
+      "match_key": "dalian kewei vs beijing guoan|truc tiep chuoi to tran au dalian kewe",
+      "display_name": "[15:00 21/07] Dalian Kewei vs Beijing Guoan - Cúp FA Trung Quốc [BLV trực tiếp: Chuối To Trận đấu Dalian Kewe] [FHD FLV]",
+      "group": "Chuối Chiên",
+      "sport_group": "Bóng đá",
+      "quality": "FHD",
+      "kind": "flv",
+      "playability": "verified",
+      "score": 456,
+      "kickoff_iso": "2026-07-21T15:00:00+07:00"
+    },
     {
       "source": "chuoichien",
       "source_label": "Chuối Chiên",
       "url": "https://gckc0525.edgemaxcdn.org/live/chuoito/playlist.m3u8",
       "match_key": "dalian kewei vs beijing guoan|truc tiep chuoi to tran au dalian kewe",
-      "display_name": "[15:00 21/07] Dalian Kewei vs Beijing Guoan - Cúp FA Trung Quốc [BLV trực tiếp: Chuối To Trận đấu Dalian Kewe] [FHD M3U8]",
+      "display_name": "[15:00 21/07] Dalian Kewei vs Beijing Guoan - Cúp FA Trung Quốc [BLV trực tiếp: Chuối To Trận đấu Dalian Kewe] (Luồng 2) [M3U8]",
       "group": "Chuối Chiên",
       "sport_group": "Bóng đá",
-      "quality": "FHD",
+      "quality": "UNKNOWN",
       "kind": "m3u8",
       "playability": "verified",
-      "score": 459,
+      "score": 429,
       "kickoff_iso": "2026-07-21T15:00:00+07:00"
     },
     {
       "source": "chuoichien",
       "source_label": "Chuối Chiên",
       "url": "https://gckc0525.edgemaxcdn.org/live/chuoitay.flv",
-      "match_key": "pvf cand vs hoang anh gia lai|truc tiep chuoi tay tran au pvf cand v",
-      "display_name": "[15:30 21/07] PVF-CAND vs Hoang Anh Gia Lai - U21 Quốc Gia [BLV trực tiếp: Chuối Tây Trận đấu PVF-CAND v] [FHD FLV]",
+      "match_key": "pvf cand vs hoang anh gia lai|chuoi tay",
+      "display_name": "[15:30 21/07] PVF-CAND vs Hoang Anh Gia Lai - U21 Quốc Gia [BLV Chuối Tây] [FHD FLV]",
       "group": "Chuối Chiên",
       "sport_group": "Bóng đá",
       "quality": "FHD",
@@ -71,8 +85,8 @@
       "source": "chuoichien",
       "source_label": "Chuối Chiên",
       "url": "https://gckc0525.edgemaxcdn.org/live/chuoitieu.flv",
-      "match_key": "lions vs perth glory|chuoi tieu",
-      "display_name": "[16:30 21/07] Lions vs Perth Glory - Australia Cup [BLV Chuối Tiêu] [FHD FLV]",
+      "match_key": "lions vs perth glory|",
+      "display_name": "[16:30 21/07] Lions vs Perth Glory - Australia Cup [FHD FLV]",
       "group": "Chuối Chiên",
       "sport_group": "Bóng đá",
       "quality": "FHD",
@@ -98,9 +112,9 @@
     {
       "source": "luongson",
       "source_label": "Lương Sơn",
-      "url": "https://hls.cdnfaster-a.live/live/VOTONG/index.m3u8?expire=1891347600&sign=cbb47d2000b9576a7b34114624ff8299",
-      "match_key": "basilan steel vs sarangani marlins|vo tong",
-      "display_name": "[21/07/2026 15:00] BASILAN STEEL vs SARANGANI MARLINS [BLV VÕ TÒNG] [M3U8]",
+      "url": "https://hls.cdnfaster-a.live/live/LUUBI/index.m3u8?expire=1788427256&sign=e15f8b184dc9c61cc5dacfd962841ae1",
+      "match_key": "dalian kewei vs beijing guoan|luu bi",
+      "display_name": "[21/07/2026 15:00] DALIAN KEWEI vs BEIJING GUOAN [BLV LƯU BỊ] [M3U8]",
       "group": "Lương Sơn",
       "sport_group": "Bóng đá",
       "quality": "UNKNOWN",
@@ -113,8 +127,8 @@
       "source": "luongson",
       "source_label": "Lương Sơn",
       "url": "https://hls.cdnfaster-a.live/live/LEO/index.m3u8?expire=1923642660&sign=58990a132e2f8d3f764c947b95b28af6",
-      "match_key": "dalian kewei vs beijing guoan|luu bi",
-      "display_name": "[21/07/2026 15:00] DALIAN KEWEI vs BEIJING GUOAN [BLV LƯU BỊ] [M3U8]",
+      "match_key": "dalian kewei vs beijing guoan|leo",
+      "display_name": "[21/07/2026 15:00] DALIAN KEWEI vs BEIJING GUOAN [BLV Leo] [M3U8]",
       "group": "Lương Sơn",
       "sport_group": "Bóng đá",
       "quality": "UNKNOWN",
@@ -176,7 +190,7 @@
       "quality": "UNKNOWN",
       "kind": "m3u8",
       "playability": "verified",
-      "score": 429,
+      "score": 439,
       "kickoff_iso": "2026-07-21T16:30:00+07:00"
     },
     {
@@ -194,11 +208,39 @@
       "kickoff_iso": "2026-07-21T17:00:00+07:00"
     },
     {
+      "source": "luongson",
+      "source_label": "Lương Sơn",
+      "url": "https://hls.cdnfaster-a.live/live/LUBO/index.m3u8?expire=1788427256&sign=fa2834495401eb5d1dc40ba2f3bd21c1",
+      "match_key": "ulsan hd fc vs incheon united|lu bo",
+      "display_name": "[21/07/2026 17:30] ULSAN HD FC vs INCHEON UNITED [BLV Lữ Bố] [M3U8]",
+      "group": "Lương Sơn",
+      "sport_group": "Bóng đá",
+      "quality": "HD",
+      "kind": "m3u8",
+      "playability": "verified",
+      "score": 459,
+      "kickoff_iso": "2026-07-21T17:30:00+07:00"
+    },
+    {
       "source": "gavang",
       "source_label": "Gà Vàng",
       "url": "https://flv.lauthaitv.cc/live/dalian-beijing-chnfa.flv",
       "match_key": "dalian beijing chnfa|",
       "display_name": "dalian beijing chnfa [FLV]",
+      "group": "Gà Vàng",
+      "sport_group": "Bóng đá",
+      "quality": "UNKNOWN",
+      "kind": "flv",
+      "playability": "verified",
+      "score": 418,
+      "kickoff_iso": null
+    },
+    {
+      "source": "gavang",
+      "source_label": "Gà Vàng",
+      "url": "https://flv.lauthaitv.cc/live/jeju-gangwon-kork1.flv",
+      "match_key": "jeju gangwon kork1|",
+      "display_name": "jeju gangwon kork1 [FLV]",
       "group": "Gà Vàng",
       "sport_group": "Bóng đá",
       "quality": "UNKNOWN",
@@ -222,13 +264,6 @@
       "kickoff_iso": null
     }
   ],
-  "dropped": [
-    {
-      "url": "https://hls.cdnfaster-a.live/live/LUUBI/index.m3u8?expire=1788427256&sign=e15f8b184dc9c61cc5dacfd962841ae1",
-      "reason": "duplicate-quality-UNKNOWN",
-      "source": "luongson",
-      "match_key": "dalian kewei vs beijing guoan|luu bi"
-    }
-  ],
+  "dropped": [],
   "outputs_written": true
 }
