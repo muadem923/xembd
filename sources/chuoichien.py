@@ -54,7 +54,7 @@ LEGACY_GIT_PLAYLIST_PATH = "chuoichien/chuoichien_live.m3u"
 OUTPUT_DEBUG = "chuoichien_debug.json"
 OUTPUT_HOME_DEBUG_HTML = "chuoichien_home_debug.html"
 OUTPUT_HOME_DEBUG_PNG = "chuoichien_home_debug.png"
-SCANNER_VERSION = "4.4.5-CHUOICHIEN-SOURCE-GROUP"
+SCANNER_VERSION = "4.4.7-CHUOICHIEN-SOURCE-GROUP"
 
 
 def read_env_bool(name: str, default: bool = True) -> bool:

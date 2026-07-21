@@ -46,6 +46,10 @@ DEFAULT_HOME_URLS = (
 TARGET_URL = DEFAULT_HOME_URLS[0]
 PLAYER_ORIGIN_FALLBACK = "https://smorf.io"
 GAVANG_STREAM_BASE = "https://flv.lauthaitv.cc/live/"
+DEFAULT_GAVANG_SOURCE_LOGO_URL = "https://smorf.io/favicon.ico"
+GAVANG_SOURCE_LOGO_URL = os.getenv(
+    "GAVANG_SOURCE_LOGO_URL", DEFAULT_GAVANG_SOURCE_LOGO_URL
+).strip()
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_M3U = PROJECT_ROOT / "gavang_live.m3u"
 OUTPUT_PIPE_M3U = PROJECT_ROOT / "gavang_live_pipe.m3u"
@@ -54,7 +58,7 @@ LEGACY_GIT_PLAYLIST_PATH = "gavang/gavang_live.m3u"
 OUTPUT_DEBUG = "gavang_debug.json"
 OUTPUT_HOME_DEBUG_HTML = "gavang_home_debug.html"
 OUTPUT_HOME_DEBUG_PNG = "gavang_home_debug.png"
-SCANNER_VERSION = "4.4.5-GAVANG-SOFT-METADATA-AUDIT"
+SCANNER_VERSION = "4.4.7-GAVANG-PENDING-DERIVED-FLV"
 
 
 def read_env_bool(name: str, default: bool = True) -> bool:
@@ -118,6 +122,8 @@ SCAN_PAST_MINUTES = read_env_int("GAVANG_SCAN_PAST_MINUTES", 150, minimum=0, max
 SCAN_FUTURE_MINUTES = read_env_int("GAVANG_SCAN_FUTURE_MINUTES", 240, minimum=0, maximum=1440)
 SCAN_UNKNOWN_LIVE = read_env_bool("GAVANG_SCAN_UNKNOWN_LIVE", True)
 PROBE_UNKNOWN_STREAM_KEYS = read_env_bool("GAVANG_PROBE_UNKNOWN_STREAM_KEYS", True)
+KEEP_DERIVED_PENDING = read_env_bool("GAVANG_KEEP_DERIVED_PENDING", True)
+KEEP_UNKNOWN_TIME_PENDING = read_env_bool("GAVANG_KEEP_UNKNOWN_TIME_PENDING", True)
 UPCOMING_MIN_CANDIDATE_SCORE = read_env_int("GAVANG_UPCOMING_MIN_CANDIDATE_SCORE", 150, minimum=80, maximum=300)
 ALLOW_UNVERIFIED_BROWSER_FALLBACK = read_env_bool("GAVANG_ALLOW_UNVERIFIED_BROWSER_FALLBACK", False)
 KEEP_PREVIOUS_UNVERIFIED = read_env_bool("GAVANG_KEEP_PREVIOUS_UNVERIFIED", False)
@@ -389,6 +395,72 @@ def absolute_url(value: str, base: str = TARGET_URL) -> str:
         return urljoin(base, value)
     except Exception:
         return value
+
+
+LOGO_VALUE_KEYS = (
+    "url", "contentUrl", "content_url", "src", "href", "@id", "value",
+    "image", "logo",
+)
+INVALID_LOGO_TEXT = {
+    "", "none", "null", "undefined", "[object object]", "object object",
+    "[object promise]",
+}
+
+
+def extract_logo_scalar(value: Any, depth: int = 0) -> str:
+    """Lấy URL ảnh thật từ string/list/object JSON-LD, không stringify object JS."""
+    if depth > 6 or value is None:
+        return ""
+    if isinstance(value, dict):
+        for key in LOGO_VALUE_KEYS:
+            if key in value:
+                found = extract_logo_scalar(value.get(key), depth + 1)
+                if found:
+                    return found
+        return ""
+    if isinstance(value, (list, tuple, set)):
+        for item in value:
+            found = extract_logo_scalar(item, depth + 1)
+            if found:
+                return found
+        return ""
+    raw = clean_text(str(value))
+    if not raw or raw.lower() in INVALID_LOGO_TEXT or "[object object]" in raw.lower():
+        return ""
+    if raw.startswith(("{", "[")):
+        try:
+            parsed = json.loads(raw)
+        except Exception:
+            parsed = None
+        if parsed is not None:
+            return extract_logo_scalar(parsed, depth + 1)
+    return raw
+
+
+def normalize_logo_url(value: Any, base: str = TARGET_URL) -> str:
+    raw = extract_logo_scalar(value)
+    if not raw or raw.startswith(("data:", "blob:", "javascript:")):
+        return ""
+    resolved = absolute_url(raw, base)
+    if not resolved or "[object object]" in resolved.lower():
+        return ""
+    parsed = urlparse(resolved)
+    if parsed.scheme not in {"http", "https"} or not parsed.netloc:
+        return ""
+    return resolved
+
+
+def default_gavang_source_logo(base: str = TARGET_URL) -> str:
+    configured = normalize_logo_url(GAVANG_SOURCE_LOGO_URL, base)
+    if configured:
+        return configured
+    try:
+        parsed = urlparse(base)
+        if parsed.scheme in {"http", "https"} and parsed.netloc:
+            return f"{parsed.scheme}://{parsed.netloc}/favicon.ico"
+    except Exception:
+        pass
+    return DEFAULT_GAVANG_SOURCE_LOGO_URL
 
 
 def origin_from_url(value: str) -> str:
@@ -1623,6 +1695,76 @@ def derived_gavang_stream_candidates(match_url: str) -> list[dict[str, str]]:
         "source": "derived/s8_live_stream_key",
     }]
 
+
+def derived_pending_reason(match: dict[str, Any]) -> str:
+    """Cho phép giữ FLV dựng chưa phát trong cửa sổ an toàn.
+
+    Đây là chính sách riêng của Gà Vàng: URL FLV không có token và được tạo trực tiếp
+    từ stream_key công khai. Link verified vẫn luôn được ưu tiên; pending chỉ là cầu nối
+    để đến giờ CDN mở luồng thì người dùng tải lại/mở lại kênh có thể xem ngay.
+    """
+    if not KEEP_DERIVED_PENDING or not extract_gavang_stream_key(str(match.get("url", ""))):
+        return ""
+
+    delta = match.get("minutes_to_kickoff")
+    if isinstance(delta, int):
+        if -SCAN_PAST_MINUTES <= delta <= SCAN_FUTURE_MINUTES:
+            return "started-window" if delta < 0 else "scheduled-window"
+        return ""
+
+    reason = clean_text(str(match.get("scan_window_reason", "")))
+    if reason == "unknown-time-live":
+        return "explicit-live-no-time"
+    if KEEP_UNKNOWN_TIME_PENDING and reason == "unknown-time-derived-probe":
+        # URL vẫn đang được trang chủ hiện tại quảng bá, nên giữ dạng CHỜ PHÁT.
+        # Khi URL biến mất khỏi trang chủ ở lần chạy sau, playlist tạm cũng biến mất.
+        return "current-home-stream-key-no-time"
+    return ""
+
+
+def build_derived_pending_streams(
+    match: dict[str, Any],
+    candidates: list[dict[str, str]],
+    rejected: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """Chuyển FLV dựng chưa phát thành `upcoming-pending` mà không giả là verified."""
+    reason = derived_pending_reason(match)
+    if not reason:
+        return []
+
+    rejected_by_url = {
+        canonicalize_stream_url(str(item.get("url", ""))): item
+        for item in rejected
+        if isinstance(item, dict) and item.get("url")
+    }
+    pending: list[dict[str, Any]] = []
+    for candidate in candidates:
+        url = canonicalize_stream_url(str(candidate.get("url", "")))
+        if not url or stream_kind(url) != "flv":
+            continue
+        entry = dict(rejected_by_url.get(url) or {})
+        entry.update({
+            "url": url,
+            "referer": normalize_playback_referer(candidate.get("referer") or match.get("url", "")),
+            "origin": clean_text(candidate.get("origin") or origin_from_url(str(match.get("url", "")))),
+            "user_agent": clean_text(entry.get("user_agent") or UA),
+            "content_type": clean_text(entry.get("content_type") or "video/x-flv"),
+            "quality": normalize_quality_hint(entry.get("quality") or candidate.get("quality", "")),
+            "sources": list(dict.fromkeys(list(entry.get("sources") or []) + [candidate.get("source", "derived/s8_live_stream_key")])),
+            "playability": "upcoming-pending",
+            "derived_pending": True,
+            "pending_reason": reason,
+            "candidate_score": max(int(entry.get("candidate_score") or 0), 220),
+            "high_confidence_observed": False,
+            "observed_active": False,
+        })
+        probe = dict(entry.get("probe") or {})
+        probe["pending_retained"] = True
+        probe["pending_reason"] = reason
+        entry["probe"] = probe
+        pending.append(entry)
+    return pending[:1]
+
 def _parse_previous_playlist_text(text: str, source_label: str) -> dict[str, list[dict[str, str]]]:
     mapping: dict[str, list[dict[str, str]]] = {}
     current_match_id = ""
@@ -1840,8 +1982,9 @@ def derive_match_info(
 
 
 def is_good_logo_url(value: str) -> bool:
-    lower = (value or "").lower()
-    if not value or value.startswith(("data:", "blob:")):
+    normalized = normalize_logo_url(value)
+    lower = normalized.lower()
+    if not normalized:
         return False
     bad = (
         "avatar", "banner", "advert", "doubleclick", "googleads", "emoji",
@@ -1849,6 +1992,46 @@ def is_good_logo_url(value: str) -> bool:
         "logo-white", "logo-dark", "site-logo", "loading.gif",
     )
     return not any(marker in lower for marker in bad)
+
+
+def is_good_source_logo_url(value: str) -> bool:
+    normalized = normalize_logo_url(value)
+    if not normalized:
+        return False
+    lower = normalized.lower()
+    return not any(marker in lower for marker in (
+        "avatar", "advert", "doubleclick", "googleads", "emoji",
+        "placeholder", "default-avatar", "no-image", "loading.gif",
+    ))
+
+
+def choose_source_logo(candidates: list[Any], base: str = TARGET_URL) -> str:
+    ranked: list[tuple[float, str]] = []
+    seen: set[str] = set()
+    for value in candidates:
+        item = value if isinstance(value, dict) else {"url": value}
+        url = normalize_logo_url(item, base)
+        if not url or url in seen or not is_good_source_logo_url(url):
+            continue
+        seen.add(url)
+        context = normalize_search_text(
+            f"{item.get('context', '')} {item.get('source', '')} {urlparse(url).path}"
+        )
+        try:
+            score = float(item.get("score") or 0)
+        except Exception:
+            score = 0.0
+        if any(token in context for token in (" gavang ", " ga vang ", " site logo ", " header ", " footer ")):
+            score += 80
+        if " logo " in context:
+            score += 20
+        if " favicon " in context or urlparse(url).path.lower().endswith("favicon.ico"):
+            score += 5
+        ranked.append((score, url))
+    if ranked:
+        ranked.sort(reverse=True)
+        return ranked[0][1]
+    return default_gavang_source_logo(base)
 
 
 def _team_parts(match_name: str) -> tuple[str, str]:
@@ -1860,7 +2043,6 @@ def _team_parts(match_name: str) -> tuple[str, str]:
 
 def _candidate_dict(value: Any, base: str) -> dict[str, Any]:
     if isinstance(value, dict):
-        raw_url = str(value.get("url") or value.get("value") or "")
         context = clean_text(str(value.get("context") or ""))
         source = clean_text(str(value.get("source") or ""))
         try:
@@ -1868,12 +2050,11 @@ def _candidate_dict(value: Any, base: str) -> dict[str, Any]:
         except Exception:
             score = 0.0
     else:
-        raw_url = str(value or "")
         context = ""
         source = ""
         score = 0.0
     return {
-        "url": absolute_url(raw_url, base),
+        "url": normalize_logo_url(value, base),
         "context": context,
         "source": source,
         "score": score,
@@ -2565,10 +2746,33 @@ async def read_match_metadata(
                 const logoItems = [];
                 const seen = new Set();
 
+                function logoValue(input, depth = 0) {
+                    if (depth > 6 || input == null) return "";
+                    if (typeof input === "string" || typeof input === "number") {
+                        const value = String(input).trim();
+                        return /^\[object\s+object\]$/i.test(value) ? "" : value;
+                    }
+                    if (Array.isArray(input)) {
+                        for (const item of input) {
+                            const value = logoValue(item, depth + 1);
+                            if (value) return value;
+                        }
+                        return "";
+                    }
+                    if (typeof input === "object") {
+                        for (const key of ["url", "contentUrl", "content_url", "src", "href", "@id", "value", "image", "logo"]) {
+                            if (Object.prototype.hasOwnProperty.call(input, key)) {
+                                const value = logoValue(input[key], depth + 1);
+                                if (value) return value;
+                            }
+                        }
+                    }
+                    return "";
+                }
+
                 function addLogo(v, score = 0, context = "", source = "detail-match") {
-                    if (!v) return;
-                    let value = String(v).trim();
-                    if (!value || value.startsWith("data:") || value.startsWith("blob:")) return;
+                    let value = logoValue(v);
+                    if (!value || value.startsWith("data:") || value.startsWith("blob:") || /\[object\s+object\]/i.test(value)) return;
                     try { value = new URL(value, location.href).href; } catch (_) {}
                     if (seen.has(value)) return;
                     seen.add(value);
@@ -2878,10 +3082,19 @@ async def read_match_metadata(
             }""",
             {"matchName": match_name, "blvSlug": blv_slug},
         )
-        data["logos"] = [absolute_url(str(v), match_url) for v in data.get("logos", []) if v]
+        data["logos"] = [
+            url for value in data.get("logos", [])
+            if (url := normalize_logo_url(value, match_url))
+        ]
+        cleaned_candidates = []
         for item in data.get("logo_candidates", []) or []:
-            if isinstance(item, dict):
-                item["url"] = absolute_url(str(item.get("url", "")), match_url)
+            if not isinstance(item, dict):
+                item = {"url": item}
+            fixed = dict(item)
+            fixed["url"] = normalize_logo_url(item, match_url)
+            if fixed["url"]:
+                cleaned_candidates.append(fixed)
+        data["logo_candidates"] = cleaned_candidates
         return data
     except Exception:
         return {
@@ -3257,14 +3470,42 @@ async def fetch_stream(
                 )
                 await enrich_verified_match_metadata(context, match)
                 return match
-            if match.get("derived_probe_only"):
-                match["scan_decision"] = "derived-probe-only-miss"
-                match["rejected_streams"] = derived_rejected
+
+            derived_pending = build_derived_pending_streams(
+                match, derived_candidates, derived_rejected
+            )
+            if derived_pending:
+                match["_derived_pending_streams"] = derived_pending
                 print(
-                    "   ⏭️ URL thiếu giờ/LIVE và FLV dựng chưa phát; "
-                    "dừng ở probe nhanh, không mở trang/player.",
+                    "   🟠 Giữ FLV dựng ở trạng thái CHỜ PHÁT | "
+                    f"lý do={derived_pending[0].get('pending_reason')} | "
+                    f"{derived_pending[0].get('url')}",
                     flush=True,
                 )
+
+            if match.get("derived_probe_only"):
+                match["scan_decision"] = (
+                    "derived-pending-only" if derived_pending else "derived-probe-only-miss"
+                )
+                match["rejected_streams"] = [
+                    item for item in derived_rejected
+                    if canonicalize_stream_url(str(item.get("url", "")))
+                    not in {row.get("url") for row in derived_pending}
+                ]
+                match["streams"] = derived_pending
+                match["stream_urls"] = [item["url"] for item in derived_pending]
+                if derived_pending:
+                    print(
+                        "   ⏭️ URL thiếu giờ nhưng còn trên trang chủ; "
+                        "ghi CHỜ PHÁT và dừng probe nhanh, không mở player.",
+                        flush=True,
+                    )
+                else:
+                    print(
+                        "   ⏭️ URL thiếu giờ/LIVE và FLV dựng chưa phát; "
+                        "dừng ở probe nhanh, không mở trang/player.",
+                        flush=True,
+                    )
                 return match
 
         http_reference_count = await discover_http_candidates(context, match, capture_url)
@@ -3286,6 +3527,8 @@ async def fetch_stream(
             enough = verified_count >= 1
             far_with_result = isinstance(delta, int) and delta > DELTA_NEAR_MINUTES and bool(early_streams)
             if enough or far_with_result:
+                if not verified_count and match.get("_derived_pending_streams"):
+                    early_streams = list(match["_derived_pending_streams"])
                 match["scan_decision"] = "http-first-complete"
                 match["rejected_streams"] = early_rejected
                 match["streams"] = early_streams
@@ -3298,6 +3541,20 @@ async def fetch_stream(
                 return match
 
         delta = match.get("minutes_to_kickoff")
+        if (
+            isinstance(delta, int)
+            and delta > DELTA_NEAR_MINUTES
+            and match.get("_derived_pending_streams")
+        ):
+            match["scan_decision"] = "derived-pending-far-upcoming"
+            match["streams"] = list(match["_derived_pending_streams"])
+            match["stream_urls"] = [item["url"] for item in match["streams"]]
+            print(
+                f"   ⏭️ Trận còn {delta} phút; giữ FLV CHỜ PHÁT và bỏ qua Chromium, "
+                "sẽ probe lại theo lịch delta.",
+                flush=True,
+            )
+            return match
         if isinstance(delta, int) and delta > DELTA_NEAR_MINUTES and not stream_map:
             match["scan_decision"] = "http-only-far-upcoming"
             print(
@@ -3573,6 +3830,26 @@ async def fetch_stream(
         match["streams"], match["rejected_streams"] = await finalize_stream_map(
             context, stream_map, match
         )
+        verified_after_browser = any(
+            item.get("playability") == "verified" for item in match["streams"]
+        )
+        if not verified_after_browser and match.get("_derived_pending_streams"):
+            pending_urls = {item.get("url") for item in match["_derived_pending_streams"]}
+            match["streams"] = [
+                item for item in match["streams"] if item.get("url") not in pending_urls
+            ] + list(match["_derived_pending_streams"])
+            match["streams"], pending_quality_rejected = select_best_quality_streams(
+                match["streams"], MAX_OUTPUT_STREAMS_PER_MATCH
+            )
+            match["rejected_streams"].extend(pending_quality_rejected)
+            retained = {item.get("url") for item in match["streams"]}
+            match["rejected_streams"] = [
+                item for item in match["rejected_streams"]
+                if not (
+                    item.get("url") in retained
+                    and item.get("playability") == "rejected"
+                )
+            ]
         match["stream_urls"] = [item["url"] for item in match["streams"]]
 
         if match["streams"]:
@@ -3666,9 +3943,11 @@ async def collect_home_links(context: BrowserContext, home_url: str = TARGET_URL
                             img.getAttribute("data-lazy-src")];
                         [img.getAttribute("srcset"), img.getAttribute("data-srcset")].filter(Boolean)
                             .forEach((set) => set.split(",").forEach((part) => values.push(part.trim().split(/\s+/)[0])));
-                        values.filter(Boolean).forEach((value) => {
+                        values.filter((value) => typeof value === "string" && value.trim() && !/\[object\s+object\]/i.test(value)).forEach((value) => {
                             try { value = new URL(value, location.href).href; } catch (_) {}
-                            scored.push({url: value, score, context, source: "home-card"});
+                            if (/^https?:\/\//i.test(value)) {
+                                scored.push({url: value, score, context, source: "home-card"});
+                            }
                         });
                     });
                     const out = [];
@@ -3677,6 +3956,36 @@ async def collect_home_links(context: BrowserContext, home_url: str = TARGET_URL
                         if (!unique.has(item.url)) { unique.add(item.url); out.push(item); }
                     });
                     return out.slice(0, 20);
+                }
+
+                function sourceLogoCandidates() {
+                    const scored = [];
+                    const seenSource = new Set();
+                    const add = (value, score = 0, context = "") => {
+                        if (typeof value !== "string") return;
+                        let url = value.trim();
+                        if (!url || /\[object\s+object\]/i.test(url) || url.startsWith("data:") || url.startsWith("blob:")) return;
+                        try { url = new URL(url, location.href).href; } catch (_) { return; }
+                        if (!/^https?:\/\//i.test(url) || seenSource.has(url)) return;
+                        seenSource.add(url);
+                        const lower = clean(`${context} ${url}`).toLowerCase();
+                        if (/gavang|gà vàng|site-logo|header|footer/.test(lower)) score += 80;
+                        if (/logo/.test(lower)) score += 20;
+                        if (/favicon/.test(lower)) score += 5;
+                        if (/advert|banner|avatar|blv|comment/.test(lower)) score -= 80;
+                        scored.push({url, score, context: clean(context), source: "source-logo"});
+                    };
+                    document.querySelectorAll(
+                        "header img, footer img, img[alt*='gavang' i], img[title*='gavang' i], " +
+                        "[class*='site-logo'] img, [class*='logo'] img"
+                    ).forEach((img) => {
+                        const context = clean([img.alt, img.title, img.className, img.parentElement?.className, img.parentElement?.innerText].filter(Boolean).join(" "));
+                        [img.currentSrc, img.src, img.getAttribute("src"), img.getAttribute("data-src"), img.getAttribute("data-lazy-src")].forEach((value) => add(value, 10, context));
+                    });
+                    document.querySelectorAll("link[rel~='icon'], link[rel='apple-touch-icon'], link[rel='shortcut icon']")
+                        .forEach((node) => add(node.href || node.getAttribute("href"), 5, `favicon ${node.rel || ""}`));
+                    scored.sort((a, b) => b.score - a.score);
+                    return scored.slice(0, 12);
                 }
 
                 function streamHints(scope) {
@@ -3934,6 +4243,7 @@ async def collect_home_links(context: BrowserContext, home_url: str = TARGET_URL
                 const anchors = Array.from(document.querySelectorAll("a[href]"));
                 return {
                     items,
+                    source_logo_candidates: sourceLogoCandidates(),
                     diagnostics: {
                         final_url: location.href,
                         title: document.title || "",
@@ -3947,6 +4257,11 @@ async def collect_home_links(context: BrowserContext, home_url: str = TARGET_URL
 
         raw_links = list(result.get("items") or [])
         links, duplicate_count = dedupe_home_links(raw_links)
+        source_logo_candidates = list(result.get("source_logo_candidates") or [])
+        source_logo = choose_source_logo(source_logo_candidates, home_url)
+        for item in links:
+            item["source_logo"] = source_logo
+            item["source_logo_candidates"] = source_logo_candidates
         if duplicate_count:
             print(
                 f"🧹 Gộp {duplicate_count} URL/card trùng fixture Gà Vàng: "
@@ -3979,7 +4294,8 @@ async def collect_home_links(context: BrowserContext, home_url: str = TARGET_URL
             f"title={diagnostics.get('title', '')!r} | "
             f"anchors={diagnostics.get('anchor_count', 0)} | "
             f"html={diagnostics.get('html_length', 0)} ký tự | "
-            f"match_links={len(links)}"
+            f"match_links={len(links)} | "
+            f"source_logo={'có' if source_logo else 'không'}"
         )
 
         if links:
@@ -4095,6 +4411,30 @@ def android_stream_url(
         headers.append(f"Origin={escape_pipe_header(origin)}")
     return stream_url + "|" + "&".join(headers)
 
+def ensure_output_logos(results: list[dict[str, Any]]) -> dict[str, int]:
+    """Bảo đảm mọi stream Gà Vàng có tvg-logo hợp lệ, không bao giờ ghi [object Object]."""
+    stats = {"team": 0, "source_fallback": 0, "invalid_removed": 0}
+    for result in results:
+        base = str(result.get("url") or TARGET_URL)
+        current = normalize_logo_url(result.get("logo"), base)
+        if current and is_good_logo_url(current):
+            result["logo"] = current
+            result["logo_is_fallback"] = False
+            result["logo_source"] = result.get("logo_source") or "team"
+            stats["team"] += 1
+            continue
+        if result.get("logo"):
+            stats["invalid_removed"] += 1
+        candidates = list(result.get("source_logo_candidates") or [])
+        candidates.append(result.get("source_logo"))
+        fallback = choose_source_logo(candidates, base)
+        result["logo"] = fallback
+        result["logo_is_fallback"] = True
+        result["logo_source"] = "gavang-source-fallback"
+        stats["source_fallback"] += 1
+    return stats
+
+
 def write_outputs(results: list[dict[str, Any]]) -> tuple[int, int]:
     """
     Tạo 3 playlist:
@@ -4108,6 +4448,14 @@ def write_outputs(results: list[dict[str, Any]]) -> tuple[int, int]:
     for output_path in (OUTPUT_M3U, OUTPUT_PIPE_M3U, OUTPUT_VLC_M3U):
         Path(output_path).parent.mkdir(parents=True, exist_ok=True)
     resolve_duplicate_logos(results)
+    logo_stats = ensure_output_logos(results)
+    if results:
+        print(
+            "🖼️ Logo Gà Vàng: "
+            f"logo đội={logo_stats['team']} | fallback nguồn={logo_stats['source_fallback']} | "
+            f"đã loại URL lỗi={logo_stats['invalid_removed']}",
+            flush=True,
+        )
 
     universal_lines = ["#EXTM3U"]
     pipe_lines = ["#EXTM3U"]
@@ -4116,6 +4464,7 @@ def write_outputs(results: list[dict[str, Any]]) -> tuple[int, int]:
     written_streams: set[str] = set()
     match_keys_with_streams: set[str] = set()
     count_links = 0
+    playability_counts: Counter[str] = Counter()
 
     sorted_results = sorted(
         results,
@@ -4168,6 +4517,7 @@ def write_outputs(results: list[dict[str, Any]]) -> tuple[int, int]:
             if not stream_url:
                 continue
             written_streams.add(stream_url)
+            playability_counts[clean_text(stream_info.get("playability") or "unknown")] += 1
 
             display_name = display_base
             quality = normalize_quality_hint(stream_info.get("quality", ""))
@@ -4254,6 +4604,12 @@ def write_outputs(results: list[dict[str, Any]]) -> tuple[int, int]:
             1 for line in vlc_lines if line.startswith("http") and stream_kind(line) == "flv"
         )
         print(f"📊 Playlist: M3U8={m3u8_count} | FLV={flv_count}")
+        print(
+            "📡 Trạng thái: "
+            f"verified={playability_counts.get('verified', 0)} | "
+            f"chờ phát={playability_counts.get('upcoming-pending', 0)} | "
+            f"khác={sum(value for key, value in playability_counts.items() if key not in {'verified', 'upcoming-pending'})}"
+        )
         group_summary = " | ".join(
             f"{group}={group_stream_counts[group]}"
             for group in SPORT_GROUP_ORDER if group_stream_counts[group]
@@ -4310,6 +4666,7 @@ async def main() -> None:
         f"fallback chung chưa xác minh={'BẬT' if (ALLOW_UNVERIFIED_BROWSER_FALLBACK or KEEP_PREVIOUS_UNVERIFIED) else 'TẮT'} | "
         f"HTTP-first={'BẬT' if HYBRID_HTTP_FIRST else 'TẮT'} | "
         f"probe mọi stream_key thiếu giờ={'BẬT' if PROBE_UNKNOWN_STREAM_KEYS else 'TẮT'} | "
+        f"giữ FLV dựng chờ phát={'BẬT' if KEEP_DERIVED_PENDING else 'TẮT'} | "
         f"delta={'BẬT' if DELTA_SCAN_ENABLED else 'TẮT'} | "
         f"miền dự phòng={','.join(HOME_URLS)}"
     )
@@ -4375,6 +4732,8 @@ async def main() -> None:
                     "logo": "",
                     "team_logos": [],
                     "logo_candidates": [],
+                    "source_logo": default_gavang_source_logo(url),
+                    "source_logo_candidates": [],
                     "sport_hint": "",
                     "sport_group": classify_sport(match_name, url),
                 })
