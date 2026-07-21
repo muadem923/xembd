@@ -54,7 +54,7 @@ LEGACY_GIT_PLAYLIST_PATH = "gavang/gavang_live.m3u"
 OUTPUT_DEBUG = "gavang_debug.json"
 OUTPUT_HOME_DEBUG_HTML = "gavang_home_debug.html"
 OUTPUT_HOME_DEBUG_PNG = "gavang_home_debug.png"
-SCANNER_VERSION = "4.4.3-GAVANG-UNKNOWN-KEY-PROBE-FLV-STREAMING-FIX"
+SCANNER_VERSION = "4.4.4-GAVANG-METADATA-DEDUP-FIX"
 
 
 def read_env_bool(name: str, default: bool = True) -> bool:
@@ -292,11 +292,25 @@ def decode_url_repeatedly(value: str, rounds: int = 5) -> str:
 def normalize_blv_name(value: str) -> str:
     raw = clean_text(decode_url_repeatedly(value))
     raw = re.sub(r"(?i)^\s*(?:blv|bình\s*luận\s*viên)\s*[:\-–—]?\s*", "", raw)
+
+    # DOM Gà Vàng thường trả cả nội dung của nút/chọn server, ví dụ:
+    # "NGƯỜI CHÈ TRẬN Đổi trận Bình luận Mô phỏng ...". Chỉ giữ phần
+    # tên đứng trước các nhãn điều khiển; nếu không cắt, M3U sẽ hiện cả câu rác.
+    raw = re.split(
+        r"(?i)\s+\b(?:trận|đổi\s+trận|bình\s+luận|mô\s+phỏng|server|"
+        r"chất\s+lượng|xem\s+ngay|phát\s+trực\s+tiếp)\b",
+        raw,
+        maxsplit=1,
+    )[0]
     raw = raw.strip(" -|•[]()")
     if not raw or len(raw) > 60 or re.search(r"(?i)\bvs\b", raw):
         return ""
 
-    key = normalize_search_text(raw).strip().replace(" ", "")
+    generic = normalize_search_text(raw).strip()
+    if generic in {"binh luan", "binh luan vien", "doi tran", "mo phong", "khong ro"}:
+        return ""
+
+    key = generic.replace(" ", "")
     if key in BLV_ALIASES:
         return BLV_ALIASES[key]
 
@@ -1067,9 +1081,12 @@ def probe_stream_sync(
         result = _http_read_sample(
             canonical, headers, timeout, 64, range_header="bytes=0-63"
         )
-        # Một số live server trả 204/416 khi có Range nhưng lại phát bình thường
-        # bằng GET thường (đúng trường hợp người dùng đã thử VLC). Thử lại một lần.
-        if int(result.get("status") or 0) in {204, 416} or not (result.get("data") or b""):
+        # Chỉ retry GET thường khi server phản hồi rõ 204/416. Không retry một
+        # TimeoutError status=0 vì sẽ nhân đôi thời gian quét mọi FLV chưa phát.
+        # Nếu HTTP 200 + video/x-flv nhưng body live tiếp tục stream, header đã đủ
+        # xác nhận và cũng không cần mở thêm kết nối thứ hai.
+        first_status = int(result.get("status") or 0)
+        if first_status in {204, 416}:
             retry = _http_read_sample(canonical, headers, timeout, 64)
             if int(retry.get("status") or 0) or retry.get("data"):
                 result = retry
@@ -1415,6 +1432,88 @@ def extract_gavang_stream_key(value: str) -> str:
         if re.fullmatch(r"[a-zA-Z0-9][a-zA-Z0-9._-]{1,180}", key):
             return key
     return ""
+
+
+def gavang_match_identity(value: str) -> str:
+    """Khóa ổn định để gộp các URL cùng fixture nhưng khác query/tham số."""
+    fixture_id = match_id_from_url(value)
+    stream_key = extract_gavang_stream_key(value)
+    if fixture_id:
+        return f"fixture:{fixture_id}"
+    if stream_key:
+        return f"stream:{stream_key.lower()}"
+    parsed = urlparse(decode_url_repeatedly(value or ""))
+    return f"url:{parsed.scheme.lower()}://{parsed.netloc.lower()}{parsed.path.rstrip('/')}"
+
+
+def _match_title_score(value: str) -> tuple[int, int]:
+    text = clean_text(value)
+    if not text:
+        return (0, 0)
+    explicit_vs = 1 if re.search(r"\bvs\b", text, re.I) else 0
+    slug_like = 1 if re.fullmatch(r"[a-z0-9 ._-]+", text) and not explicit_vs else 0
+    return (explicit_vs * 100 - slug_like * 25, min(len(text), 300))
+
+
+def dedupe_home_links(links: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], int]:
+    """Gộp card/anchor trùng fixture và giữ metadata giàu nhất.
+
+    smorf.io có thể lặp cùng một fixture ở nhiều tab/khối và khác query như
+    ``s8_auto_sound``. Dedupe theo fixture/stream key giúp không probe cùng FLV
+    nhiều lần và không ghi metadata nghèo đè lên metadata đúng.
+    """
+    merged: dict[str, dict[str, Any]] = {}
+    order: list[str] = []
+    duplicates = 0
+
+    def choose_text(current: str, candidate: str, *, title: bool = False) -> str:
+        current = clean_text(current)
+        candidate = clean_text(candidate)
+        if not candidate:
+            return current
+        if not current:
+            return candidate
+        if title:
+            return candidate if _match_title_score(candidate) > _match_title_score(current) else current
+        if extract_time(candidate) and not extract_time(current):
+            return candidate
+        return candidate if len(candidate) > len(current) else current
+
+    for raw in links:
+        item = dict(raw)
+        identity = gavang_match_identity(str(item.get("url", "")))
+        if identity not in merged:
+            merged[identity] = item
+            order.append(identity)
+            continue
+
+        duplicates += 1
+        target = merged[identity]
+        target["raw_title"] = choose_text(target.get("raw_title", ""), item.get("raw_title", ""), title=True)
+        target["card_text"] = choose_text(target.get("card_text", ""), item.get("card_text", ""))
+        target["raw_time"] = choose_text(target.get("raw_time", ""), item.get("raw_time", ""))
+        target["raw_blv"] = choose_text(target.get("raw_blv", ""), item.get("raw_blv", ""))
+        target["sport_hint"] = choose_text(target.get("sport_hint", ""), item.get("sport_hint", ""))
+
+        # Ưu tiên URL có đủ query công khai để Referer giống trình duyệt thật.
+        if len(str(item.get("url", ""))) > len(str(target.get("url", ""))):
+            target["url"] = item.get("url", target.get("url", ""))
+
+        for key in ("team_logos", "logo_candidates", "stream_hints"):
+            combined: list[Any] = []
+            seen: set[str] = set()
+            for value in list(target.get(key) or []) + list(item.get(key) or []):
+                marker = json.dumps(value, ensure_ascii=False, sort_keys=True) if isinstance(value, dict) else str(value)
+                if marker in seen:
+                    continue
+                seen.add(marker)
+                combined.append(value)
+            target[key] = combined
+
+        if not target.get("logo") and item.get("logo"):
+            target["logo"] = item.get("logo")
+
+    return [merged[key] for key in order], duplicates
 
 
 def derived_gavang_stream_candidates(match_url: str) -> list[dict[str, str]]:
@@ -2260,7 +2359,76 @@ async def read_match_metadata(
             r"""({matchName, blvSlug}) => {
                 const clean = (v) => String(v || "").replace(/\s+/g, " ").trim();
                 const norm = (v) => clean(v).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-                const teamParts = clean(matchName).split(/\s+vs\s+/i);
+                const cleanTeamName = (value) => {
+                    let text = clean(value);
+                    if (!text || text.length > 110) return "";
+                    text = text.replace(/^(?:home|away|đội nhà|đội khách)\s*[:\-]?\s*/i, "");
+                    if (!text || /(?:đang diễn ra|sắp diễn ra|\blive\b|trực tiếp|bình luận|tỷ số|kèo|\d{1,2}:\d{2})/i.test(text)) return "";
+                    if (/^[0-9\-: ]+$/.test(text)) return "";
+                    return text;
+                };
+                const pairFromScope = (scope) => {
+                    if (!scope) return "";
+                    const firstValue = (selectors, attrs) => {
+                        for (const selector of selectors) {
+                            const el = scope.querySelector?.(selector);
+                            if (!el) continue;
+                            for (const attr of attrs) {
+                                const value = cleanTeamName(el.getAttribute?.(attr));
+                                if (value) return value;
+                            }
+                            const value = cleanTeamName(el.innerText || el.textContent || el.getAttribute?.("alt"));
+                            if (value) return value;
+                        }
+                        return "";
+                    };
+                    const home = firstValue(
+                        ["[data-home-team]", "[data-home-name]", "[data-home]", "[class*='home-team']", "[class*='team-home']"],
+                        ["data-home-team", "data-home-name", "data-home", "data-name", "data-team-name"]
+                    );
+                    const away = firstValue(
+                        ["[data-away-team]", "[data-away-name]", "[data-away]", "[class*='away-team']", "[class*='team-away']"],
+                        ["data-away-team", "data-away-name", "data-away", "data-name", "data-team-name"]
+                    );
+                    if (home && away && norm(home) !== norm(away)) return `${home} vs ${away}`;
+
+                    const names = [];
+                    const unique = new Set();
+                    scope.querySelectorAll?.(
+                        "[data-team-name], [class*='team-name'], [class*='club-name'], " +
+                        "[class*='team'] [class*='name'], [class*='club'] [class*='name'], " +
+                        "[class*='team'] img[alt], [class*='club'] img[alt]"
+                    ).forEach((el) => {
+                        const value = cleanTeamName(
+                            el.getAttribute?.("data-team-name") || el.getAttribute?.("data-name") ||
+                            el.getAttribute?.("alt") || el.getAttribute?.("title") || el.innerText || el.textContent
+                        );
+                        const key = norm(value);
+                        if (value && !unique.has(key)) { unique.add(key); names.push(value); }
+                    });
+                    return names.length >= 2 ? `${names[0]} vs ${names[1]}` : "";
+                };
+                const discoverTitle = () => {
+                    const candidates = [
+                        document.querySelector("meta[property='og:title']")?.content,
+                        document.querySelector("meta[name='twitter:title']")?.content,
+                        document.querySelector("meta[itemprop='name']")?.content,
+                        document.querySelector("h1")?.innerText,
+                        document.querySelector("[class*='match-title']")?.innerText,
+                        document.querySelector("[class*='match-name']")?.innerText,
+                        document.querySelector("[class*='event-title']")?.innerText,
+                        document.title
+                    ].map(clean).filter(Boolean);
+                    const direct = candidates.find((value) => /\bvs\b/i.test(value) && value.length <= 240);
+                    if (direct) return direct;
+                    const bodyLines = String(document.body?.innerText || "")
+                        .split(/[\n|•]+/).map(clean).filter(Boolean);
+                    const line = bodyLines.find((value) => /\bvs\b/i.test(value) && value.length <= 220);
+                    if (line) return line;
+                    return pairFromScope(document) || clean(matchName);
+                };
+                let title = discoverTitle();
+                const teamParts = clean(title || matchName).split(/\s+vs\s+/i);
                 const homeTokens = norm(teamParts[0] || "").split(/[^a-z0-9]+/).filter((v) => v.length >= 4);
                 const awayTokens = norm((teamParts[1] || "").split(" - ")[0]).split(/[^a-z0-9]+/).filter((v) => v.length >= 4);
                 const logoItems = [];
@@ -2359,12 +2527,16 @@ async def read_match_metadata(
                     "h1", "[class*='match-title']", "[class*='match-name']",
                     "[class*='event-title']", "h2", "title"
                 ];
-                let title = "";
                 let titleNode = null;
                 for (const selector of titleSelectors) {
                     const nodes = selector === "title" ? [document.querySelector("title")] : Array.from(document.querySelectorAll(selector));
                     const found = nodes.find((el) => el && /\bvs\b/i.test(clean(el.innerText || el.textContent)));
-                    if (found) { title = clean(found.innerText || found.textContent); titleNode = found; break; }
+                    if (found) {
+                        const foundTitle = clean(found.innerText || found.textContent);
+                        if (foundTitle) title = foundTitle;
+                        titleNode = found;
+                        break;
+                    }
                 }
 
                 // Thu hẹp thêm từ tiêu đề trận để không vô tình dùng giờ của trận liên quan bên dưới.
@@ -2407,7 +2579,8 @@ async def read_match_metadata(
                 const scanTimeScope = (scope, baseScore, source, strictContext = false) => {
                     if (!scope) return;
                     scope.querySelectorAll(
-                        "time, [datetime], [data-time], [data-start], [data-date], " +
+                        "time, [datetime], [data-time], [data-start], [data-date], [data-kickoff], " +
+                        "[data-start-time], [data-match-time], [data-event-time], " +
                         "[class*='kickoff'], [class*='match-time'], [class*='event-time'], " +
                         "[class*='start-time'], [class*='match-date'], [class*='event-date']"
                     ).forEach((el) => {
@@ -2416,6 +2589,10 @@ async def read_match_metadata(
                         addTime(el.getAttribute("data-start"), baseScore + 22, `${source}/data-start`);
                         addTime(el.getAttribute("data-time"), baseScore + 20, `${source}/data-time`);
                         addTime(el.getAttribute("data-date"), baseScore + 15, `${source}/data-date`);
+                        addTime(el.getAttribute("data-kickoff"), baseScore + 24, `${source}/data-kickoff`);
+                        addTime(el.getAttribute("data-start-time"), baseScore + 23, `${source}/data-start-time`);
+                        addTime(el.getAttribute("data-match-time"), baseScore + 23, `${source}/data-match-time`);
+                        addTime(el.getAttribute("data-event-time"), baseScore + 23, `${source}/data-event-time`);
                         addTime(el.innerText || el.textContent, baseScore + 10, `${source}/visible`);
                     });
                     const matchLinks = Array.from(scope.querySelectorAll?.("a[href*='/s8-live/']") || []);
@@ -2431,13 +2608,31 @@ async def read_match_metadata(
                 document.querySelectorAll("script[type='application/ld+json']").forEach((script) => {
                     try {
                         const raw = JSON.parse(script.textContent || "null");
-                        const items = Array.isArray(raw) ? raw : [raw];
-                        items.forEach((item) => {
-                            if (item && item.startDate) addTime(String(item.startDate), 55, "json-ld/startDate");
-                            if (!title && item && item.name) title = clean(item.name);
-                            if (item && item.image) (Array.isArray(item.image) ? item.image : [item.image])
-                                .forEach((value) => addLogo(value, 2, String(item.name || "json ld")));
-                        });
+                        const visited = new Set();
+                        const walk = (item, depth = 0) => {
+                            if (!item || depth > 8 || typeof item !== "object" || visited.has(item)) return;
+                            visited.add(item);
+                            if (Array.isArray(item)) { item.forEach((value) => walk(value, depth + 1)); return; }
+                            const itemName = clean(item.name || item.headline || item.title || "");
+                            const homeName = cleanTeamName(item.homeTeam?.name || item.homeTeam || item.home?.name || item.home || "");
+                            const awayName = cleanTeamName(item.awayTeam?.name || item.awayTeam || item.away?.name || item.away || "");
+                            const eventTitle = /\bvs\b/i.test(itemName) ? itemName :
+                                (homeName && awayName ? `${homeName} vs ${awayName}` : "");
+                            if (eventTitle && (!title || !/\bvs\b/i.test(title))) title = eventTitle;
+                            const itemType = clean(item["@type"] || "");
+                            const eventMatches = eventTitle ? (
+                                !title || norm(eventTitle) === norm(title) ||
+                                (homeTokens.some((token) => norm(eventTitle).includes(token)) &&
+                                 awayTokens.some((token) => norm(eventTitle).includes(token)))
+                            ) : /(?:SportsEvent|Event)/i.test(itemType);
+                            if (item.startDate && eventMatches) addTime(String(item.startDate), 90, "json-ld/startDate");
+                            if (item.startTime && eventMatches) addTime(String(item.startTime), 88, "json-ld/startTime");
+                            if (item.date && eventMatches) addTime(String(item.date), 65, "json-ld/date");
+                            if (item.image) (Array.isArray(item.image) ? item.image : [item.image])
+                                .forEach((value) => addLogo(value?.url || value, 2, itemName || "json ld"));
+                            Object.values(item).forEach((value) => walk(value, depth + 1));
+                        };
+                        walk(raw);
                     } catch (_) {}
                 });
 
@@ -2508,8 +2703,26 @@ async def read_match_metadata(
                     if (value && value.length <= 80) blv = value;
                 }
                 if (!blv) {
-                    const bodyText = clean(document.body?.innerText || "");
-                    const match = bodyText.match(/(?:BLV|Bình luận viên)\s*[:\-–—]?\s*([^|•\n]{2,40})/i);
+                    const fixtureId = (location.pathname.match(/\/s8-live\/(\d+)/i) || [])[1] || "";
+                    const streamKey = new URLSearchParams(location.search).get("s8_live_stream_key") ||
+                        ((location.pathname.match(/\/s8-live\/\d+\/([^/?#]+)/i) || [])[1] || "");
+                    const relatedScripts = Array.from(document.scripts)
+                        .map((script) => script.textContent || "")
+                        .filter((text) => (fixtureId && text.includes(fixtureId)) || (streamKey && text.includes(streamKey)))
+                        .join("\n").slice(0, 800000);
+                    const patterns = [
+                        /["'](?:blv_name|blvName|blv|commentator_name|commentatorName|commentator)["']\s*:\s*["']([^"']{2,100})["']/i,
+                        /(?:BLV|Bình luận viên)\s*[:\-–—]?\s*([^|•\n<]{2,80})/i
+                    ];
+                    for (const pattern of patterns) {
+                        const found = relatedScripts.match(pattern);
+                        if (found) { blv = clean(found[1]); break; }
+                    }
+                }
+                if (!blv) {
+                    const bodyText = String(document.body?.innerText || "");
+                    const match = bodyText.match(/(?:BLV|Bình luận viên)\s*[:\-–—]?\s*([^|•\n]{2,80})/i) ||
+                        bodyText.match(/(NGƯỜI\s+[^\n|•]{2,50})\s+TRẬN\b/i);
                     if (match) blv = clean(match[1]);
                 }
 
@@ -2547,6 +2760,119 @@ async def read_match_metadata(
             "title": "", "time_text": "", "time_candidates": [], "logos": [], "logo_candidates": [],
             "iframe_urls": [], "quality_sources": [], "sport_text": "", "blv": "",
         }
+
+
+def apply_basic_match_metadata(
+    match: dict[str, Any],
+    metadata: dict[str, Any],
+) -> dict[str, str]:
+    """Áp dụng tên, giờ và BLV từ trang trận vào record hiện tại."""
+    changes: dict[str, str] = {}
+
+    if metadata.get("title"):
+        better_name = clean_match_name(str(metadata["title"]), str(match.get("url", "")))
+        if re.search(r"\bvs\b", better_name, re.I):
+            old_name = clean_text(str(match.get("match_name", "")))
+            if better_name != old_name:
+                match["match_name"] = better_name
+                changes["match_name"] = better_name
+
+    detail_time, detail_date, detail_time_source = select_best_time_candidate(metadata)
+    if detail_time:
+        old_time = clean_text(str(match.get("time", "")))
+        match["time"] = detail_time
+        match["date"] = detail_date or clean_text(str(match.get("date", "")))
+        match["time_source"] = detail_time_source
+        if detail_time != old_time:
+            changes["time"] = detail_time
+        if detail_date:
+            changes["date"] = detail_date
+
+    raw_blv = clean_text(str(metadata.get("blv", "")))
+    if raw_blv:
+        fixed_blv = normalize_blv_name(raw_blv)
+        if fixed_blv and fixed_blv != clean_text(str(match.get("blv", ""))):
+            match["blv"] = fixed_blv
+            changes["blv"] = fixed_blv
+
+    annotate_match_timing(match)
+    return changes
+
+
+def merge_metadata_logos(match: dict[str, Any], metadata: dict[str, Any]) -> None:
+    logo_candidates: list[Any] = list(match.get("logo_candidates") or [])
+    logo_candidates.extend(match.get("team_logos") or [])
+    if match.get("logo"):
+        logo_candidates.append(match["logo"])
+    logo_candidates.extend(metadata.get("logo_candidates") or [])
+    logo_candidates.extend(metadata.get("logos") or [])
+    match["logo_candidates"] = logo_candidates
+    match["team_logos"] = [
+        item.get("url", "") if isinstance(item, dict) else absolute_url(str(item), str(match.get("url", "")))
+        for item in logo_candidates if item
+    ]
+    match["logo"] = choose_logo(
+        logo_candidates, str(match.get("url", "")), str(match.get("match_name", ""))
+    )
+
+
+async def enrich_verified_match_metadata(
+    context: BrowserContext,
+    match: dict[str, Any],
+) -> None:
+    """Mở trang trận ở chế độ chỉ lấy metadata sau khi FLV đã xác minh.
+
+    Fast-path vẫn không chạy lại pipeline bắt stream/đổi chất lượng. Trang chỉ được
+    mở cho những fixture thực sự có FLV sống, nhờ vậy lấy tên đầy đủ, giờ và BLV
+    mà không phải mở hàng chục tab cho các stream key chưa phát.
+    """
+    page: Page | None = None
+    try:
+        page = await context.new_page()
+        # Chặn media để trang không tự tải FLV/HLS; script/DOM metadata vẫn hoạt động.
+        await install_route_filter(page, homepage=True)
+        await page.goto(str(match.get("url", "")), wait_until="domcontentloaded", timeout=30000)
+        await page.wait_for_timeout(1200)
+        blv_slug = (parse_qs(urlparse(str(match.get("url", ""))).query).get("blv") or [""])[0]
+        metadata = await read_match_metadata(
+            page, str(match.get("url", "")), str(match.get("match_name", "")), blv_slug
+        )
+        changes = apply_basic_match_metadata(match, metadata)
+        match["sport_group"] = classify_sport(
+            match.get("sport_hint", ""),
+            metadata.get("sport_text", ""),
+            match.get("card_text", ""),
+            match.get("match_name", ""),
+            match.get("url", ""),
+            default=match.get("sport_group", "Bóng đá"),
+        )
+        merge_metadata_logos(match, metadata)
+        match["metadata_enriched"] = True
+        parts = [
+            f"tên={match.get('match_name', '')}",
+            f"giờ={' '.join(v for v in (match.get('time', ''), match.get('date', '')) if v) or 'không rõ'}",
+            f"BLV={match.get('blv') or 'không rõ'}",
+        ]
+        print(f"   🧾 Bổ sung metadata Gà Vàng: {' | '.join(parts)}", flush=True)
+        if changes.get("time") and match.get("kickoff_iso"):
+            print(
+                f"   🕒 Giờ trận xác định: {match.get('time')} {match.get('date')} | "
+                f"{match.get('timing_state')}",
+                flush=True,
+            )
+    except Exception as exc:
+        match.setdefault("errors", []).append(f"metadata-only: {type(exc).__name__}: {exc}")
+        print(
+            f"   ⚠️ FLV đã xác minh nhưng chưa bổ sung được metadata: "
+            f"{type(exc).__name__}: {exc}",
+            flush=True,
+        )
+    finally:
+        if page is not None:
+            try:
+                await page.close()
+            except Exception:
+                pass
 
 
 async def _http_fetch_text(
@@ -2654,7 +2980,11 @@ async def fetch_stream(
         match["date"] = clean_text(str(match.get("date", ""))) or extract_date(match.get("raw_time", "")) or extract_date(match.get("raw_title", ""))
         match["time_source"] = match.get("time_source") or ("home-card" if match.get("time") else "")
         annotate_match_timing(match)
-        match["blv"] = blv_from_link
+        match["blv"] = (
+            normalize_blv_name(str(match.get("raw_blv", "")))
+            or blv_from_link
+            or normalize_blv_name(str(match.get("blv", "")))
+        )
         match["streams"] = []
         match["stream_urls"] = []
         match["errors"] = []
@@ -2778,9 +3108,10 @@ async def fetch_stream(
                 match["stream_urls"] = [item["url"] for item in match["streams"]]
                 print(
                     f"   🚀 FLV dựng đã xác minh={len(match['streams'])}; "
-                    "không tải trang chi tiết và không mở Chromium.",
+                    "chỉ mở trang nhẹ để lấy tên/giờ/BLV, không chạy lại scanner player.",
                     flush=True,
                 )
+                await enrich_verified_match_metadata(context, match)
                 return match
             if match.get("derived_probe_only"):
                 match["scan_decision"] = "derived-probe-only-miss"
@@ -2935,26 +3266,15 @@ async def fetch_stream(
             metadata = await read_match_metadata(
                 page, match["url"], match.get("match_name", ""), blv_slug
             )
-            if metadata.get("title"):
-                better_name = clean_match_name(metadata["title"], match["url"])
-                if re.search(r"\bvs\b", better_name, re.I):
-                    match["match_name"] = better_name
-            detail_time, detail_date, detail_time_source = select_best_time_candidate(metadata)
-            if detail_time:
-                old_time = match.get("time", "")
-                if old_time and old_time != detail_time:
-                    print(
-                        f"   🕒 Sửa giờ trận từ {old_time} thành {detail_time} "
-                        f"theo nguồn {detail_time_source}",
-                        flush=True,
-                    )
-                match["time"] = detail_time
-                match["date"] = detail_date or match.get("date", "")
-                match["time_source"] = detail_time_source
-            if metadata.get("blv"):
-                match["blv"] = normalize_blv_name(metadata.get("blv", "")) or match.get("blv", "")
+            old_time = clean_text(str(match.get("time", "")))
+            changes = apply_basic_match_metadata(match, metadata)
+            if changes.get("time") and old_time:
+                print(
+                    f"   🕒 Sửa giờ trận từ {old_time} thành {changes['time']} "
+                    f"theo nguồn {match.get('time_source', '')}",
+                    flush=True,
+                )
 
-            annotate_match_timing(match)
             if match.get("kickoff_iso"):
                 delta = match.get("minutes_to_kickoff")
                 state = match.get("timing_state")
@@ -2980,20 +3300,7 @@ async def fetch_stream(
                 default=match.get("sport_group", "Bóng đá"),
             )
 
-            logo_candidates: list[Any] = list(match.get("logo_candidates") or [])
-            logo_candidates.extend(match.get("team_logos") or [])
-            if match.get("logo"):
-                logo_candidates.append(match["logo"])
-            logo_candidates.extend(metadata.get("logo_candidates") or [])
-            logo_candidates.extend(metadata.get("logos") or [])
-            match["logo_candidates"] = logo_candidates
-            match["team_logos"] = [
-                item.get("url", "") if isinstance(item, dict) else absolute_url(str(item), match["url"])
-                for item in logo_candidates if item
-            ]
-            match["logo"] = choose_logo(
-                logo_candidates, match["url"], match.get("match_name", "")
-            )
+            merge_metadata_logos(match, metadata)
 
             for hinted_url in match.get("stream_hints") or []:
                 capture_url(
@@ -3303,6 +3610,113 @@ async def collect_home_links(context: BrowserContext, home_url: str = TARGET_URL
                     return parts.join(" | ");
                 }
 
+                function cleanTeamName(value) {
+                    let text = clean(value);
+                    if (!text || text.length > 100) return "";
+                    text = text.replace(/^(?:home|away|đội nhà|đội khách)\s*[:\-]?\s*/i, "");
+                    if (!text || /(?:đang diễn ra|sắp diễn ra|\blive\b|trực tiếp|bình luận|tỷ số|kèo|\d{1,2}:\d{2})/i.test(text)) return "";
+                    if (/^[0-9\-: ]+$/.test(text)) return "";
+                    return text;
+                }
+
+                function inferMatchTitle(container, explicitTitle = "") {
+                    const direct = clean(explicitTitle);
+                    if (/\bvs\b/i.test(direct)) return direct;
+
+                    // Nhiều card smorf.io đặt hai đội ở hai node riêng, nhưng text của
+                    // card vẫn có một dòng "Đội A VS Đội B". Lấy dòng đó trước khi
+                    // phải fallback sang slug rút gọn như queensland-perth-ausffa.
+                    const cardLines = String(container?.innerText || container?.textContent || "")
+                        .split(/[\n|•]+/).map(clean).filter(Boolean);
+                    const vsLine = cardLines.find((line) => /\bvs\b/i.test(line) && line.length <= 220);
+                    if (vsLine) return vsLine;
+
+                    const homeSelectors = [
+                        "[data-home-team]", "[data-home-name]", "[data-home]",
+                        "[class*='home-team'] [class*='name']", "[class*='home'] [class*='team-name']",
+                        "[class*='team-home'] [class*='name']"
+                    ];
+                    const awaySelectors = [
+                        "[data-away-team]", "[data-away-name]", "[data-away]",
+                        "[class*='away-team'] [class*='name']", "[class*='away'] [class*='team-name']",
+                        "[class*='team-away'] [class*='name']"
+                    ];
+                    const attrText = (el, names) => {
+                        if (!el) return "";
+                        for (const name of names) {
+                            const value = cleanTeamName(el.getAttribute?.(name));
+                            if (value) return value;
+                        }
+                        return cleanTeamName(el.innerText || el.textContent);
+                    };
+                    const firstFrom = (selectors, attrs) => {
+                        for (const selector of selectors) {
+                            const el = container?.querySelector?.(selector);
+                            const value = attrText(el, attrs);
+                            if (value) return value;
+                        }
+                        return "";
+                    };
+                    const home = firstFrom(homeSelectors, ["data-home-team", "data-home-name", "data-home", "data-name", "data-team-name"]);
+                    const away = firstFrom(awaySelectors, ["data-away-team", "data-away-name", "data-away", "data-name", "data-team-name"]);
+                    if (home && away && home.toLowerCase() !== away.toLowerCase()) return `${home} vs ${away}`;
+
+                    const names = [];
+                    const seenNames = new Set();
+                    container?.querySelectorAll?.(
+                        "[data-team-name], [class*='team-name'], [class*='club-name'], " +
+                        "[class*='team'] [class*='name'], [class*='club'] [class*='name'], " +
+                        "[class*='team'], [class*='club'], img[alt], img[title]"
+                    ).forEach((el) => {
+                        const value = cleanTeamName(
+                            el.getAttribute?.("data-team-name") || el.getAttribute?.("data-name") ||
+                            el.getAttribute?.("alt") || el.getAttribute?.("title") ||
+                            el.innerText || el.textContent
+                        );
+                        const key = value.toLowerCase();
+                        if (value && !seenNames.has(key)) { seenNames.add(key); names.push(value); }
+                    });
+                    if (names.length >= 2) return `${names[0]} vs ${names[1]}`;
+                    return direct;
+                }
+
+                function extractCardTime(container, anchor) {
+                    const values = [];
+                    const add = (value) => { const fixed = clean(value); if (fixed) values.push(fixed); };
+                    [anchor, container].filter(Boolean).forEach((node) => {
+                        ["datetime", "data-time", "data-start", "data-date", "data-kickoff",
+                         "data-start-time", "data-match-time", "data-event-time"].forEach((name) => add(node.getAttribute?.(name)));
+                    });
+                    container?.querySelectorAll?.(
+                        "time, [datetime], [data-time], [data-start], [data-date], [data-kickoff], " +
+                        "[data-start-time], [data-match-time], [data-event-time], " +
+                        "[class*='kickoff'], [class*='match-time'], [class*='event-time'], " +
+                        "[class*='start-time'], [class*='match-date'], [class*='event-date']"
+                    ).forEach((el) => {
+                        ["datetime", "data-time", "data-start", "data-date", "data-kickoff",
+                         "data-start-time", "data-match-time", "data-event-time"].forEach((name) => add(el.getAttribute?.(name)));
+                        add(el.innerText || el.textContent);
+                    });
+                    add(container?.innerText || container?.textContent);
+                    return values.find((value) => /(?:^|\D)(?:[01]?\d|2[0-3])[:h.]?[0-5]\d(?:\D|$)/i.test(value) || /\d{4}-\d{2}-\d{2}T\d{2}:\d{2}/.test(value)) || "";
+                }
+
+                function extractCardBlv(container) {
+                    const selectors = [
+                        "[data-blv].active", "[data-commentator].active", "[data-blv]", "[data-commentator]",
+                        "[class*='blv-name']", "[class*='commentator-name']", "[class*='blv']", "[class*='commentator']"
+                    ];
+                    for (const selector of selectors) {
+                        const el = container?.querySelector?.(selector);
+                        const value = clean(el?.getAttribute?.("data-name") || el?.getAttribute?.("data-blv") ||
+                            el?.getAttribute?.("data-commentator") || el?.innerText || el?.textContent);
+                        if (value && value.length <= 160) return value;
+                    }
+                    const text = clean(container?.innerText || container?.textContent || "");
+                    const match = text.match(/(?:BLV|Bình luận viên)\s*[:\-–—]?\s*([^|•\n]{2,80})/i);
+                    return match ? clean(match[1]) : "";
+                }
+
                 function addItem(
                     hrefValue,
                     titleValue = "",
@@ -3310,7 +3724,8 @@ async def collect_home_links(context: BrowserContext, home_url: str = TARGET_URL
                     timeValue = "",
                     logos = [],
                     sportHint = "",
-                    mediaHints = []
+                    mediaHints = [],
+                    rawBlv = ""
                 ) {
                     const href = normalizeHref(hrefValue);
                     if (!isMatchHref(href) || seen.has(href)) return;
@@ -3327,6 +3742,7 @@ async def collect_home_links(context: BrowserContext, home_url: str = TARGET_URL
                         team_logos: logos.slice(0, 12).map((item) => item.url),
                         logo_candidates: logos.slice(0, 20),
                         sport_hint: clean(sportHint),
+                        raw_blv: clean(rawBlv),
                         stream_hints: Array.from(new Set(mediaHints || [])).slice(0, 12),
                     });
                 }
@@ -3338,27 +3754,25 @@ async def collect_home_links(context: BrowserContext, home_url: str = TARGET_URL
                     const cardText = clean(container?.innerText || a.innerText || "");
                     const sportHint = sportContext(a, container);
 
-                    const timeEl = container?.querySelector(
-                        "time, [datetime], [data-time], [data-start], [data-date], " +
-                        "[class*='kickoff'], [class*='match-time'], [class*='event-time'], [class*='start-time']"
+                    const explicitTitle = clean(
+                        Array.from(container?.querySelectorAll(
+                            "h1, h2, h3, [class*='match-title'], [class*='match-name'], [class*='event-title']"
+                        ) || []).find((el) => /\bvs\b/i.test(clean(el.innerText || el.textContent)))?.innerText ||
+                        a.innerText || a.title || a.getAttribute("aria-label")
                     );
-                    const timeValue = clean([
-                        timeEl?.getAttribute("datetime"), timeEl?.getAttribute("data-time"),
-                        timeEl?.getAttribute("data-start"), timeEl?.innerText
-                    ].filter(Boolean).join(" "));
-
-                    const titleNode = Array.from(container?.querySelectorAll(
-                        "h1, h2, h3, [class*='match-title'], [class*='match-name'], [class*='team-name']"
-                    ) || []).find((el) => /\bvs\b/i.test(clean(el.innerText || el.textContent)));
+                    const inferredTitle = inferMatchTitle(container, explicitTitle);
+                    const timeValue = extractCardTime(container, a);
+                    const rawBlv = extractCardBlv(container);
 
                     addItem(
                         href,
-                        clean(titleNode?.innerText || titleNode?.textContent || a.innerText || a.title || a.getAttribute("aria-label")),
+                        inferredTitle,
                         cardText,
                         timeValue,
-                        imageCandidates(container, clean(titleNode?.innerText || titleNode?.textContent || cardText)),
+                        imageCandidates(container, inferredTitle || cardText),
                         sportHint,
-                        streamHints(container)
+                        streamHints(container),
+                        rawBlv
                     );
                 });
 
@@ -3387,7 +3801,14 @@ async def collect_home_links(context: BrowserContext, home_url: str = TARGET_URL
             }"""
         )
 
-        links = list(result.get("items") or [])
+        raw_links = list(result.get("items") or [])
+        links, duplicate_count = dedupe_home_links(raw_links)
+        if duplicate_count:
+            print(
+                f"🧹 Gộp {duplicate_count} URL/card trùng fixture Gà Vàng: "
+                f"{len(raw_links)} -> {len(links)} trận duy nhất.",
+                flush=True,
+            )
         for item in links:
             item["source_home_url"] = home_url
         initial_logo_usage = Counter(
