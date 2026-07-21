@@ -409,13 +409,16 @@ class GavangFastPathTests(unittest.IsolatedAsyncioTestCase):
         async def fake_finalize(_context, _stream_map, _match, **_kwargs):
             return [], [{"url": "https://flv.lauthaitv.cc/live/dalian-beijing-chnfa.flv"}]
 
+        enrich = AsyncMock(return_value=None)
         with patch.object(gavang, "discover_http_candidates", new=discover), \
-             patch.object(gavang, "finalize_stream_map", new=fake_finalize):
+             patch.object(gavang, "finalize_stream_map", new=fake_finalize), \
+             patch.object(gavang, "enrich_verified_match_metadata", new=enrich):
             result = await gavang.fetch_stream(
                 _NoPageContext(), match, asyncio.Semaphore(1)
             )
 
         discover.assert_not_awaited()
+        enrich.assert_awaited_once()
         self.assertEqual(result.get("scan_decision"), "derived-pending-only")
         self.assertEqual(len(result.get("streams") or []), 1)
         self.assertEqual(result["streams"][0]["playability"], "upcoming-pending")
@@ -461,9 +464,29 @@ class GavangFastPathTests(unittest.IsolatedAsyncioTestCase):
                  patch.object(gavang, "OUTPUT_DEBUG", debug):
                 gavang.write_outputs([result])
             text = paths[0].read_text(encoding="utf-8")
-        self.assertIn("[CHỜ PHÁT FLV]", text)
+        self.assertIn("[CHỜ PHÁT] [16:30 21/07] Queensland Lions SC VS Perth Glory [FLV]", text)
         self.assertIn("queensland-perth-ausffa.flv", text)
 
+
+
+    def test_slug_fallback_removes_league_code_and_title_cases_teams(self):
+        url = "https://smorf.io/s8-live/2471/buncheon-anyang-kork1/?s8_live_stream_key=buncheon-anyang-kork1"
+        self.assertEqual(gavang.clean_match_name("", url), "Buncheon VS Anyang")
+
+    def test_detail_title_date_is_moved_to_date_metadata(self):
+        match = {
+            "url": "https://smorf.io/s8-live/2457/ararat-shamrock-c1qual/?s8_live_stream_key=ararat-shamrock-c1qual",
+            "match_name": "Ararat VS Shamrock",
+        }
+        metadata = {
+            "title": "UEFA Champions League (qual) - Ararat-Armenia FC VS Shamrock Rovers - 22-07",
+            "time_candidates": [],
+            "time_text": "",
+            "blv": "",
+        }
+        gavang.apply_basic_match_metadata(match, metadata)
+        self.assertEqual(match["date"], "22/07")
+        self.assertNotIn("22-07", match["match_name"])
 
     def test_contradictory_home_title_is_downgraded_not_dropped(self):
         row = {

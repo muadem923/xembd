@@ -94,7 +94,7 @@ class MergerTests(unittest.TestCase):
 
     def test_gavang_unknown_time_derived_pending_is_kept(self) -> None:
         url = "https://flv.lauthaitv.cc/live/queensland-perth-ausffa.flv"
-        rows = [{"id": "gavang-2449", "name": "Queensland VS Perth [CHỜ PHÁT FLV]", "url": url, "group": "Bóng đá"}]
+        rows = [{"id": "gavang-2449", "name": "[CHỜ PHÁT] Queensland VS Perth [FLV]", "url": url, "group": "Bóng đá"}]
         debug = [{
             "url": "https://smorf.io/s8-live/2449/queensland-perth-ausffa/",
             "match_name": "Queensland VS Perth",
@@ -115,12 +115,12 @@ class MergerTests(unittest.TestCase):
         content = (self.root / "all_live.m3u").read_text(encoding="utf-8")
         self.assertEqual(report["selected_count"], 1)
         self.assertIn(url, content)
-        self.assertIn("CHỜ PHÁT FLV", content)
+        self.assertIn("[CHỜ PHÁT] Queensland VS Perth [FLV]", content)
 
     def test_gavang_pending_started_within_150_minutes_is_kept(self) -> None:
         url = "https://flv.lauthaitv.cc/live/a-b-league.flv"
         kickoff = self.now - timedelta(minutes=149)
-        rows = [{"id": "gv", "name": "A VS B [CHỜ PHÁT FLV]", "url": url, "group": "Bóng đá"}]
+        rows = [{"id": "gv", "name": "[CHỜ PHÁT] A VS B [FLV]", "url": url, "group": "Bóng đá"}]
         debug = [{
             "match_name": "A VS B",
             "kickoff_iso": kickoff.isoformat(),
@@ -135,7 +135,7 @@ class MergerTests(unittest.TestCase):
     def test_gavang_pending_older_than_150_minutes_is_removed(self) -> None:
         url = "https://flv.lauthaitv.cc/live/a-b-league.flv"
         kickoff = self.now - timedelta(minutes=151)
-        rows = [{"id": "gv", "name": "A VS B [CHỜ PHÁT FLV]", "url": url, "group": "Bóng đá"}]
+        rows = [{"id": "gv", "name": "[CHỜ PHÁT] A VS B [FLV]", "url": url, "group": "Bóng đá"}]
         debug = [{
             "match_name": "A VS B",
             "kickoff_iso": kickoff.isoformat(),
@@ -146,6 +146,37 @@ class MergerTests(unittest.TestCase):
             now=self.now, preserve_on_empty=False,
         )
         self.assertEqual(report["selected_count"], 0)
+
+
+    def test_gavang_fuzzy_key_match_enriches_buncheon_from_bucheon(self) -> None:
+        url = "https://flv.lauthaitv.cc/live/buncheon-anyang-kork1.flv"
+        gavang_rows = [{"id": "gv", "name": "[CHỜ PHÁT] Buncheon VS Anyang [FLV]", "url": url, "group": "Bóng đá"}]
+        gavang_debug = [{
+            "match_name": "Buncheon VS Anyang",
+            "date": "22/07",
+            "streams": [{"url": url, "playability": "upcoming-pending", "derived_pending": True}],
+        }]
+        kickoff = self.now + timedelta(hours=2)
+        ref_url = "https://cdn.example/bucheon-anyang.m3u8"
+        ref_rows = [{"id": "ls", "name": "Bucheon FC 1995 VS FC Anyang [FHD M3U8]", "url": ref_url, "group": "Bóng đá"}]
+        ref_debug = [{
+            "match_name": "Bucheon FC 1995 VS FC Anyang",
+            "kickoff_iso": kickoff.isoformat(),
+            "streams": [{"url": ref_url, "playability": "verified", "quality": "FHD"}],
+        }]
+        report = merge_sources(
+            self.root,
+            [
+                self.make_source("gavang", "Gà Vàng", gavang_rows, gavang_debug),
+                self.make_source("luongson", "Lương Sơn", ref_rows, ref_debug),
+            ],
+            now=self.now,
+            preserve_on_empty=False,
+        )
+        content = (self.root / "all_live.m3u").read_text(encoding="utf-8")
+        self.assertIn("[CHỜ PHÁT]", content)
+        self.assertIn(kickoff.strftime("%H:%M %d/%m"), content)
+        self.assertEqual(report["gavang_metadata"]["enriched"], 1)
 
     def test_previous_fallback_is_rejected(self) -> None:
         rows = [{"id": "a", "name": "Dead vs Link [FLV]", "url": "https://cdn/dead.flv"}]
