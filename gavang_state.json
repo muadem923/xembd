@@ -1,15 +1,15 @@
 {
   "version": 1,
   "source": "gavang",
-  "updated_at": "2026-07-21T15:05:18.962067+07:00",
+  "updated_at": "2026-07-21T15:34:27.310454+07:00",
   "matches": {
     "2451": {
       "url": "https://smorf.io/s8-live/2451/jeju-gangwon-kork1/?s8_live_fixture_id=2451&s8_live_stream_key=jeju-gangwon-kork1",
       "match_name": "jeju gangwon kork1",
       "kickoff_iso": "",
       "minutes_to_kickoff": null,
-      "last_scan_at": "2026-07-21T15:05:18.961711+07:00",
-      "next_scan_at": "2026-07-21T15:10:18.961711+07:00",
+      "last_scan_at": "2026-07-21T15:34:27.310197+07:00",
+      "next_scan_at": "2026-07-21T15:39:27.310197+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -22,8 +22,8 @@
       "match_name": "queensland perth ausffa",
       "kickoff_iso": "",
       "minutes_to_kickoff": null,
-      "last_scan_at": "2026-07-21T15:05:18.961711+07:00",
-      "next_scan_at": "2026-07-21T15:10:18.961711+07:00",
+      "last_scan_at": "2026-07-21T15:34:27.310197+07:00",
+      "next_scan_at": "2026-07-21T15:39:27.310197+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -36,8 +36,8 @@
       "match_name": "ulsan incheon kork1",
       "kickoff_iso": "",
       "minutes_to_kickoff": null,
-      "last_scan_at": "2026-07-21T15:05:18.961711+07:00",
-      "next_scan_at": "2026-07-21T15:10:18.961711+07:00",
+      "last_scan_at": "2026-07-21T15:34:27.310197+07:00",
+      "next_scan_at": "2026-07-21T15:39:27.310197+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -50,8 +50,8 @@
       "match_name": "yunnan chengdu chnfa",
       "kickoff_iso": "",
       "minutes_to_kickoff": null,
-      "last_scan_at": "2026-07-21T15:05:18.961711+07:00",
-      "next_scan_at": "2026-07-21T15:10:18.961711+07:00",
+      "last_scan_at": "2026-07-21T15:34:27.310197+07:00",
+      "next_scan_at": "2026-07-21T15:39:27.310197+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -64,8 +64,8 @@
       "match_name": "wuhan shandong chnfa",
       "kickoff_iso": "",
       "minutes_to_kickoff": null,
-      "last_scan_at": "2026-07-21T15:05:18.961711+07:00",
-      "next_scan_at": "2026-07-21T15:10:18.961711+07:00",
+      "last_scan_at": "2026-07-21T15:34:27.310197+07:00",
+      "next_scan_at": "2026-07-21T15:39:27.310197+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -78,8 +78,8 @@
       "match_name": "henan dalian chnfacup",
       "kickoff_iso": "",
       "minutes_to_kickoff": null,
-      "last_scan_at": "2026-07-21T15:05:18.961711+07:00",
-      "next_scan_at": "2026-07-21T15:10:18.961711+07:00",
+      "last_scan_at": "2026-07-21T15:34:27.310197+07:00",
+      "next_scan_at": "2026-07-21T15:39:27.310197+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -92,11 +92,13 @@
       "match_name": "tadamon racing lbnprem",
       "kickoff_iso": "",
       "minutes_to_kickoff": null,
-      "last_scan_at": "2026-07-21T15:05:18.961711+07:00",
-      "next_scan_at": "2026-07-21T15:15:18.961711+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
+      "last_scan_at": "2026-07-21T15:34:27.310197+07:00",
+      "next_scan_at": "2026-07-21T15:39:27.310197+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://live-bong.s3.ap-southeast-1.amazonaws.com/New+folder/hls_abr/copy_CE1198F2-AD34-4956-822A-1F66706D2422/source/index.m3u8"
+      ],
       "scan_decision": "browser-fallback"
     },
     "2457": {
@@ -104,11 +106,13 @@
       "match_name": "ararat shamrock c1qual",
       "kickoff_iso": "",
       "minutes_to_kickoff": null,
-      "last_scan_at": "2026-07-21T15:05:18.961711+07:00",
-      "next_scan_at": "2026-07-21T15:15:18.961711+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
+      "last_scan_at": "2026-07-21T15:34:27.310197+07:00",
+      "next_scan_at": "2026-07-21T15:39:27.310197+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://live-bong.s3.ap-southeast-1.amazonaws.com/New+folder/hls_abr/copy_CE1198F2-AD34-4956-822A-1F66706D2422/source/index.m3u8"
+      ],
       "scan_decision": "browser-fallback"
     },
     "2456": {
@@ -116,11 +120,13 @@
       "match_name": "pakh xorazm uzbsuper",
       "kickoff_iso": "",
       "minutes_to_kickoff": null,
-      "last_scan_at": "2026-07-21T15:05:18.961711+07:00",
-      "next_scan_at": "2026-07-21T15:15:18.961711+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
+      "last_scan_at": "2026-07-21T15:34:27.310197+07:00",
+      "next_scan_at": "2026-07-21T15:39:27.310197+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://live-bong.s3.ap-southeast-1.amazonaws.com/New+folder/hls_abr/copy_CE1198F2-AD34-4956-822A-1F66706D2422/source/index.m3u8"
+      ],
       "scan_decision": "browser-fallback"
     },
     "2459": {
@@ -128,11 +134,13 @@
       "match_name": "aarhus lech c1qual",
       "kickoff_iso": "",
       "minutes_to_kickoff": null,
-      "last_scan_at": "2026-07-21T15:05:18.961711+07:00",
-      "next_scan_at": "2026-07-21T15:15:18.961711+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
+      "last_scan_at": "2026-07-21T15:34:27.310197+07:00",
+      "next_scan_at": "2026-07-21T15:39:27.310197+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://live-bong.s3.ap-southeast-1.amazonaws.com/New+folder/hls_abr/copy_CE1198F2-AD34-4956-822A-1F66706D2422/source/index.m3u8"
+      ],
       "scan_decision": "browser-fallback"
     },
     "2458": {
@@ -140,11 +148,13 @@
       "match_name": "sabah kups c1qual",
       "kickoff_iso": "",
       "minutes_to_kickoff": null,
-      "last_scan_at": "2026-07-21T15:05:18.961711+07:00",
-      "next_scan_at": "2026-07-21T15:15:18.961711+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
+      "last_scan_at": "2026-07-21T15:34:27.310197+07:00",
+      "next_scan_at": "2026-07-21T15:39:27.310197+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://live-bong.s3.ap-southeast-1.amazonaws.com/New+folder/hls_abr/copy_CE1198F2-AD34-4956-822A-1F66706D2422/source/index.m3u8"
+      ],
       "scan_decision": "browser-fallback"
     },
     "2448": {
