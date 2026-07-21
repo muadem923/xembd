@@ -11,7 +11,7 @@ from typing import Any, Iterable
 from urllib.parse import unquote, urlparse
 from zoneinfo import ZoneInfo
 
-VERSION = "4.4.2-SINGLE-M3U-SOURCE-GROUPS"
+VERSION = "4.4.3-GAVANG-UNKNOWN-KEY-FLV-FIX"
 TZ_VIETNAM = ZoneInfo("Asia/Ho_Chi_Minh")
 ALLOWED_GROUPS = {"Bóng đá", "Bóng rổ", "Bóng chuyền", "Tennis", "Esports", "Khác"}
 SOURCE_ORDER = {"chuoichien": 0, "luongson": 1, "gavang": 2}

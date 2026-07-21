@@ -15,7 +15,7 @@ from urllib.parse import urlparse
 from merger import SourceFiles, cleanup_intermediate_playlists, merge_sources
 
 ROOT = Path(__file__).resolve().parent
-VERSION = "4.4.2-SINGLE-M3U-SOURCE-GROUPS"
+VERSION = "4.4.3-GAVANG-UNKNOWN-KEY-FLV-FIX"
 
 
 @dataclass(slots=True)
