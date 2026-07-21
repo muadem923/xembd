@@ -11,7 +11,7 @@ from typing import Any, Iterable
 from urllib.parse import unquote, urlparse
 from zoneinfo import ZoneInfo
 
-VERSION = "4.4.4-GAVANG-METADATA-DEDUP-FIX"
+VERSION = "4.4.5-GAVANG-SOFT-METADATA-AUDIT"
 TZ_VIETNAM = ZoneInfo("Asia/Ho_Chi_Minh")
 ALLOWED_GROUPS = {"Bóng đá", "Bóng rổ", "Bóng chuyền", "Tennis", "Esports", "Khác"}
 SOURCE_ORDER = {"chuoichien": 0, "luongson": 1, "gavang": 2}
@@ -184,6 +184,163 @@ def normalize_match_name(value: str) -> str:
     if match:
         return f"{normalize_ascii(match.group(1))} vs {normalize_ascii(match.group(2))}"
     return normalize_ascii(text)
+
+
+
+GAVANG_KEY_NOISE = {
+    "ausffa", "auscup", "kork1", "kork2", "chnfa", "chnfacup", "finveik",
+    "argcopa", "argcup", "c1qual", "uclqual", "uefaqual", "lbnprem",
+    "uzbsuper", "ligaprosa", "jpnj1", "jpnj2", "thaprem", "viecup",
+}
+
+
+def gavang_key_tokens_from_stream(url: str) -> list[str]:
+    parsed = urlparse(canonical_stream_url(url))
+    parts = [part for part in parsed.path.split("/") if part]
+    stem = Path(parsed.path).stem.lower()
+    if stem == "index" and len(parts) >= 2:
+        stem = parts[-2].lower()
+    tokens = [token for token in re.split(r"[^a-z0-9]+", stem) if token]
+    if tokens and tokens[-1] in GAVANG_KEY_NOISE:
+        tokens = tokens[:-1]
+    return [token for token in tokens if token not in {"vs", "live", "stream"} and len(token) >= 3]
+
+
+def _metadata_name(row: dict[str, Any], display_name: str = "") -> str:
+    return clean_text(row.get("match_name") or row.get("raw_title") or display_name)
+
+
+def _candidate_key_score(key_tokens: list[str], candidate_name: str) -> tuple[int, int, float]:
+    candidate_tokens = set(normalize_ascii(candidate_name).split())
+    matched = sum(1 for token in key_tokens if token in candidate_tokens)
+    coverage = matched / len(key_tokens) if key_tokens else 0.0
+    # Hai token đội cùng khớp là tín hiệu mạnh; tên dài/full được ưu tiên nhẹ.
+    score = matched * 100 + int(coverage * 50) + min(len(candidate_name), 160) // 10
+    return score, matched, coverage
+
+
+def _replace_extinf_display(extinf: str, display_base: str, display_full: str) -> str:
+    safe_base = clean_text(display_base).replace('"', "'")
+    safe_full = clean_text(display_full).replace("\r", " ").replace("\n", " ")
+    if re.search(r'(?<![\w-])tvg-name="[^"]*"', extinf):
+        extinf = re.sub(r'(?<![\w-])tvg-name="[^"]*"', f'tvg-name="{safe_base}"', extinf, count=1)
+    head, sep, _old_display = extinf.partition(",")
+    return f"{head},{safe_full}" if sep else f"{extinf},{safe_full}"
+
+
+def _apply_block_display_metadata(
+    block: M3UBlock,
+    *,
+    match_name: str,
+    kickoff: datetime | None,
+    date_text: str = "",
+    time_text: str = "",
+) -> None:
+    own_blv = clean_text(block.metadata.get("blv"))
+    if kickoff:
+        time_text = kickoff.strftime("%H:%M")
+        date_text = kickoff.strftime("%d/%m")
+    kickoff_label = " ".join(part for part in (time_text, date_text) if part)
+    display_base = f"[{kickoff_label}] {match_name}" if kickoff_label else match_name
+    if own_blv and own_blv.lower() not in display_base.lower():
+        display_base += f" [BLV {own_blv}]"
+    suffix_match = re.search(
+        r"(\s*\[(?:CHỜ PHÁT\s+)?(?:(?:4K|FHD|HD|SD)\s+)?(?:M3U8|FLV)\])\s*$",
+        block.display_name,
+        flags=re.I,
+    )
+    suffix = suffix_match.group(1).strip() if suffix_match else (f"[{block.quality} {block.kind.upper()}]" if block.quality != "UNKNOWN" else f"[{block.kind.upper()}]")
+    display_full = f"{display_base} {suffix}".strip()
+    block.display_name = display_full
+    block.extinf = _replace_extinf_display(block.extinf, display_base, display_full)
+    for index, line in enumerate(block.lines):
+        if line.strip().startswith("#EXTINF:"):
+            block.lines[index] = block.extinf
+            break
+
+
+def enrich_gavang_metadata_from_other_sources(blocks: list[M3UBlock]) -> dict[str, int]:
+    """Best-effort metadata bridge cho Gà Vàng; không bao giờ loại stream.
+
+    Stream key chỉ được dùng để tìm tên/giờ tương ứng ở Chuối Chiên/Lương Sơn.
+    Nếu không đủ chắc chắn, giữ nguyên link và metadata hiện có, đồng thời ghi warning.
+    """
+    reference = [
+        item for item in blocks
+        if item.source_key != "gavang" and _metadata_name(item.metadata, item.display_name)
+    ]
+    stats = {"enriched": 0, "warn_only": 0, "already_good": 0}
+    for block in blocks:
+        if block.source_key != "gavang":
+            continue
+        key_tokens = gavang_key_tokens_from_stream(block.canonical_url)
+        current_name = _metadata_name(block.metadata, block.display_name)
+        current_score, current_matches, _ = _candidate_key_score(key_tokens, current_name)
+        has_time = bool(block.kickoff or (clean_text(block.metadata.get("time")) and clean_text(block.metadata.get("date"))))
+        if current_matches >= min(2, len(key_tokens)) and has_time:
+            block.metadata["metadata_audit"] = "ok"
+            stats["already_good"] += 1
+            continue
+
+        candidates: list[tuple[int, M3UBlock, int, float]] = []
+        for candidate in reference:
+            candidate_name = _metadata_name(candidate.metadata, candidate.display_name)
+            score, matched, coverage = _candidate_key_score(key_tokens, candidate_name)
+            if candidate.kickoff:
+                score += 35
+            if candidate.source_key == "luongson":
+                score += 3
+            candidates.append((score, candidate, matched, coverage))
+        candidates.sort(key=lambda row: row[0], reverse=True)
+        best = candidates[0] if candidates else None
+        second = candidates[1] if len(candidates) > 1 else None
+        required = min(2, len(key_tokens)) if key_tokens else 99
+        confident = bool(
+            best and best[2] >= required and best[3] >= 0.5 and
+            (not second or best[0] - second[0] >= 5 or normalize_match_name(_metadata_name(best[1].metadata, best[1].display_name)) == normalize_match_name(_metadata_name(second[1].metadata, second[1].display_name)))
+        )
+        if not confident:
+            block.metadata["metadata_audit"] = "warn-only"
+            block.metadata["metadata_warning"] = (
+                "Không tìm được lịch/tên đối chiếu đủ tin cậy từ nguồn khác; stream verified vẫn được giữ"
+            )
+            block.metadata["stream_key_tokens"] = key_tokens
+            stats["warn_only"] += 1
+            continue
+
+        candidate = best[1]
+        candidate_name = _metadata_name(candidate.metadata, candidate.display_name)
+        kickoff = candidate.kickoff
+        date_text = clean_text(candidate.metadata.get("date"))
+        time_text = clean_text(candidate.metadata.get("time"))
+        # Chỉ nâng cấp tên nếu tên hiện tại thiếu hoặc trái hẳn stream key; không lấy BLV nguồn khác.
+        chosen_name = current_name
+        if current_matches < required or len(candidate_name) > len(current_name):
+            chosen_name = candidate_name
+        block.metadata["match_name"] = chosen_name
+        if kickoff:
+            block.metadata["kickoff_iso"] = kickoff.isoformat()
+            block.metadata["time"] = kickoff.strftime("%H:%M")
+            block.metadata["date"] = kickoff.strftime("%d/%m")
+            block.kickoff = kickoff
+        elif time_text:
+            block.metadata["time"] = time_text
+            block.metadata["date"] = date_text
+        block.metadata["metadata_audit"] = "enriched-soft"
+        block.metadata["metadata_enriched_from"] = candidate.source_key
+        block.metadata["metadata_key_matches"] = best[2]
+        block.metadata["stream_key_tokens"] = key_tokens
+        _apply_block_display_metadata(
+            block,
+            match_name=chosen_name,
+            kickoff=kickoff,
+            date_text=date_text,
+            time_text=time_text,
+        )
+        own_blv = extract_blv(block.metadata, block.display_name)
+        block.match_key = f"{normalize_match_name(chosen_name)}|{own_blv}"
+        stats["enriched"] += 1
+    return stats
 
 
 def extract_blv(row: dict[str, Any], display_name: str) -> str:
@@ -395,6 +552,7 @@ def merge_sources(
             "included": source.returncode == 0 and debug_rows > 0,
         })
 
+    gavang_metadata_stats = enrich_gavang_metadata_from_other_sources(all_blocks)
     selected, dropped = choose_candidates(all_blocks, now, max_per_match, upcoming_hours)
     outputs = {
         "playlist": root / "all_live.m3u",
@@ -421,6 +579,10 @@ def merge_sources(
             "playability": item.playability,
             "score": item.score,
             "kickoff_iso": item.kickoff.isoformat() if item.kickoff else None,
+            "metadata_audit": item.metadata.get("metadata_audit"),
+            "metadata_enriched_from": item.metadata.get("metadata_enriched_from"),
+            "metadata_warning": item.metadata.get("metadata_warning"),
+            "stream_key_tokens": item.metadata.get("stream_key_tokens"),
         })
 
     report = {
@@ -435,6 +597,7 @@ def merge_sources(
         "input_candidates": len(all_blocks),
         "selected_count": len(selected),
         "dropped_count": len(dropped),
+        "gavang_metadata": gavang_metadata_stats,
         "channels": channels,
         "dropped": dropped,
         "outputs_written": bool(selected),
