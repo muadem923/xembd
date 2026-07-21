@@ -54,7 +54,7 @@ LEGACY_GIT_PLAYLIST_PATH = "luongson/hygenie_live.m3u"
 OUTPUT_DEBUG = "hygenie_debug.json"
 OUTPUT_HOME_DEBUG_HTML = "hygenie_home_debug.html"
 OUTPUT_HOME_DEBUG_PNG = "hygenie_home_debug.png"
-SCANNER_VERSION = "4.4.2-LUONGSON-SOURCE-GROUP"
+SCANNER_VERSION = "4.4.3-LUONGSON-SOURCE-GROUP"
 
 
 def read_env_bool(name: str, default: bool = True) -> bool:

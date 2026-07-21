@@ -54,7 +54,7 @@ LEGACY_GIT_PLAYLIST_PATH = "gavang/gavang_live.m3u"
 OUTPUT_DEBUG = "gavang_debug.json"
 OUTPUT_HOME_DEBUG_HTML = "gavang_home_debug.html"
 OUTPUT_HOME_DEBUG_PNG = "gavang_home_debug.png"
-SCANNER_VERSION = "4.4.2-GAVANG-DERIVED-FLV-SOURCE-GROUP"
+SCANNER_VERSION = "4.4.3-GAVANG-UNKNOWN-KEY-PROBE-FLV-STREAMING-FIX"
 
 
 def read_env_bool(name: str, default: bool = True) -> bool:
@@ -117,6 +117,7 @@ UPCOMING_KEEP_HOURS = read_env_int("GAVANG_UPCOMING_KEEP_HOURS", 4, minimum=1, m
 SCAN_PAST_MINUTES = read_env_int("GAVANG_SCAN_PAST_MINUTES", 150, minimum=0, maximum=1440)
 SCAN_FUTURE_MINUTES = read_env_int("GAVANG_SCAN_FUTURE_MINUTES", 240, minimum=0, maximum=1440)
 SCAN_UNKNOWN_LIVE = read_env_bool("GAVANG_SCAN_UNKNOWN_LIVE", True)
+PROBE_UNKNOWN_STREAM_KEYS = read_env_bool("GAVANG_PROBE_UNKNOWN_STREAM_KEYS", True)
 UPCOMING_MIN_CANDIDATE_SCORE = read_env_int("GAVANG_UPCOMING_MIN_CANDIDATE_SCORE", 150, minimum=80, maximum=300)
 ALLOW_UNVERIFIED_BROWSER_FALLBACK = read_env_bool("GAVANG_ALLOW_UNVERIFIED_BROWSER_FALLBACK", False)
 KEEP_PREVIOUS_UNVERIFIED = read_env_bool("GAVANG_KEEP_PREVIOUS_UNVERIFIED", False)
@@ -568,7 +569,7 @@ def filter_links_by_scan_window(
     kept: list[dict[str, Any]] = []
     stats = {
         "total": len(links), "window": 0, "unknown_live": 0,
-        "past": 0, "future": 0, "unknown": 0,
+        "unknown_key_probe": 0, "past": 0, "future": 0, "unknown": 0,
     }
     for item in links:
         _name, derived_time, _blv = derive_match_info(
@@ -599,6 +600,15 @@ def filter_links_by_scan_window(
             item["scan_window_reason"] = "unknown-time-live"
             kept.append(item)
             stats["unknown_live"] += 1
+        elif PROBE_UNKNOWN_STREAM_KEYS and extract_gavang_stream_key(str(item.get("url", ""))):
+            # Trang chủ Gà Vàng thường không gắn giờ hoặc nhãn LIVE cho mọi trận đang phát.
+            # Với URL /s8-live/<fixture>/<stream_key>/ ta vẫn có thể probe trực tiếp FLV
+            # mà không cần mở Chromium. Giữ các URL này ở chế độ probe-only để không bỏ
+            # sót trận như fixture 2448 dalian-beijing-chnfa.
+            item["scan_window_reason"] = "unknown-time-derived-probe"
+            item["derived_probe_only"] = True
+            kept.append(item)
+            stats["unknown_key_probe"] += 1
         else:
             item["scan_window_reason"] = "unknown-time"
             stats["unknown"] += 1
@@ -609,8 +619,9 @@ def print_scan_window_summary(stats: dict[str, int]) -> None:
     print(
         "🕒 Lọc cửa sổ quét "
         f"[-{SCAN_PAST_MINUTES}, +{SCAN_FUTURE_MINUTES}] phút: "
-        f"tổng={stats.get('total', 0)} | giữ={stats.get('window', 0) + stats.get('unknown_live', 0)} "
-        f"(đúng giờ={stats.get('window', 0)}, LIVE thiếu giờ={stats.get('unknown_live', 0)}) | "
+        f"tổng={stats.get('total', 0)} | giữ={stats.get('window', 0) + stats.get('unknown_live', 0) + stats.get('unknown_key_probe', 0)} "
+        f"(đúng giờ={stats.get('window', 0)}, LIVE thiếu giờ={stats.get('unknown_live', 0)}, "
+        f"probe khóa FLV={stats.get('unknown_key_probe', 0)}) | "
         f"loại quá cũ={stats.get('past', 0)} | quá sớm={stats.get('future', 0)} | "
         f"không rõ giờ={stats.get('unknown', 0)}",
         flush=True,
@@ -966,13 +977,25 @@ def _http_read_sample(
     try:
         with urllib.request.urlopen(request, timeout=timeout) as response:
             status = int(getattr(response, "status", response.getcode()) or 0)
-            data = response.read(max_bytes)
+            content_type = response.headers.get("Content-Type", "")
+            response_headers = {str(k).lower(): str(v) for k, v in response.headers.items()}
+            data = b""
+            read_error = ""
+            try:
+                # HTTPResponse.read(n) có thể chờ đủ n byte trên live chunked và ném
+                # timeout dù server đã trả HTTP 200 + video/x-flv. read1() trả chunk
+                # hiện có sớm hơn; nếu body vẫn timeout thì vẫn giữ status/header.
+                reader = getattr(response, "read1", None)
+                data = reader(max_bytes) if callable(reader) else response.read(max_bytes)
+            except Exception as exc:
+                read_error = f"{type(exc).__name__}: {exc}"
             return {
                 "status": status,
                 "data": data,
-                "content_type": response.headers.get("Content-Type", ""),
+                "content_type": content_type,
+                "response_headers": response_headers,
                 "final_url": response.geturl(),
-                "error": "",
+                "error": read_error,
             }
     except urllib.error.HTTPError as exc:
         sample = b""
@@ -984,6 +1007,7 @@ def _http_read_sample(
             "status": int(exc.code or 0),
             "data": sample,
             "content_type": exc.headers.get("Content-Type", "") if exc.headers else "",
+            "response_headers": {str(k).lower(): str(v) for k, v in exc.headers.items()} if exc.headers else {},
             "final_url": exc.geturl() or url,
             "error": f"HTTP {exc.code}",
         }
@@ -992,6 +1016,7 @@ def _http_read_sample(
             "status": 0,
             "data": b"",
             "content_type": "",
+            "response_headers": {},
             "final_url": url,
             "error": f"{type(exc).__name__}: {exc}",
         }
@@ -1040,19 +1065,20 @@ def probe_stream_sync(
 
     if kind == "flv":
         result = _http_read_sample(
-            canonical, headers, timeout, 4096, range_header="bytes=0-4095"
+            canonical, headers, timeout, 64, range_header="bytes=0-63"
         )
         # Một số live server trả 204/416 khi có Range nhưng lại phát bình thường
         # bằng GET thường (đúng trường hợp người dùng đã thử VLC). Thử lại một lần.
         if int(result.get("status") or 0) in {204, 416} or not (result.get("data") or b""):
-            retry = _http_read_sample(canonical, headers, timeout, 4096)
+            retry = _http_read_sample(canonical, headers, timeout, 64)
             if int(retry.get("status") or 0) or retry.get("data"):
                 result = retry
         status = int(result.get("status") or 0)
         data = result.get("data") or b""
         ctype = str(result.get("content_type") or "").lower()
+        header_confirms_flv = "flv" in ctype
         playable = status in {200, 206} and (
-            data.startswith(b"FLV") or ("flv" in ctype and len(data) >= 3)
+            data.startswith(b"FLV") or header_confirms_flv
         )
         state = "verified" if playable else (
             "blocked" if status in {401, 403, 429} else
@@ -1065,7 +1091,11 @@ def probe_stream_sync(
             "playable": playable,
             "state": state,
             "kind": kind,
-            "detail": "FLV signature/content-type OK" if playable else result.get("error") or "không có chữ ký FLV",
+            "detail": (
+                "FLV signature OK" if data.startswith(b"FLV") else
+                "HTTP 200/206 + Content-Type FLV OK (live chunked)" if playable else
+                result.get("error") or "không có chữ ký/content-type FLV"
+            ),
         }
 
     if kind == "m3u8":
@@ -2620,9 +2650,10 @@ async def fetch_stream(
             match["url"], match.get("raw_title", ""), match.get("raw_time", "")
         )
         match["match_name"] = match_name
-        match["time"] = time_str
-        match["date"] = extract_date(match.get("raw_time", "")) or extract_date(match.get("raw_title", ""))
-        match["time_source"] = "home-card" if time_str else ""
+        match["time"] = clean_text(str(match.get("time", ""))) or time_str
+        match["date"] = clean_text(str(match.get("date", ""))) or extract_date(match.get("raw_time", "")) or extract_date(match.get("raw_title", ""))
+        match["time_source"] = match.get("time_source") or ("home-card" if match.get("time") else "")
+        annotate_match_timing(match)
         match["blv"] = blv_from_link
         match["streams"] = []
         match["stream_urls"] = []
@@ -2730,9 +2761,36 @@ async def fetch_stream(
         if derived_candidates:
             print(
                 f"   ⚡ Dựng {len(derived_candidates)} FLV từ s8_live_stream_key; "
-                "vẫn probe trước khi xuất.",
+                "probe ngay trước khi tải trang/player.",
                 flush=True,
             )
+            derived_streams, derived_rejected = await finalize_stream_map(
+                context, stream_map, match, log_prefix="FLV dựng: "
+            )
+            derived_verified = [
+                entry for entry in derived_streams
+                if entry.get("playability") == "verified"
+            ]
+            if derived_verified:
+                match["scan_decision"] = "derived-flv-fast-path"
+                match["rejected_streams"] = derived_rejected
+                match["streams"] = derived_verified[:MAX_OUTPUT_STREAMS_PER_MATCH]
+                match["stream_urls"] = [item["url"] for item in match["streams"]]
+                print(
+                    f"   🚀 FLV dựng đã xác minh={len(match['streams'])}; "
+                    "không tải trang chi tiết và không mở Chromium.",
+                    flush=True,
+                )
+                return match
+            if match.get("derived_probe_only"):
+                match["scan_decision"] = "derived-probe-only-miss"
+                match["rejected_streams"] = derived_rejected
+                print(
+                    "   ⏭️ URL thiếu giờ/LIVE và FLV dựng chưa phát; "
+                    "dừng ở probe nhanh, không mở trang/player.",
+                    flush=True,
+                )
+                return match
 
         http_reference_count = await discover_http_candidates(context, match, capture_url)
         if http_reference_count:
@@ -3396,6 +3454,51 @@ async def collect_home_links_with_failover(context: BrowserContext) -> list[dict
     return []
 
 
+def remove_cross_match_shared_streams(results: list[dict[str, Any]]) -> int:
+    """Loại URL player chung bị gán cho nhiều fixture Gà Vàng khác nhau.
+
+    Log thực tế cho thấy một HLS S3 placeholder giống hệt bị bắt ở nhiều trang trận.
+    Một URL phát không thể đại diện đồng thời cho nhiều fixture khác nhau; giữ nó sẽ
+    làm all_live.m3u có một trận ngẫu nhiên nhưng phát sai nội dung.
+    """
+    usage: dict[str, set[str]] = {}
+    for row in results:
+        fixture = match_id_from_url(str(row.get("url", ""))) or normalize_search_text(
+            str(row.get("match_name") or row.get("raw_title") or "")
+        )
+        for stream in row.get("streams") or []:
+            url = canonicalize_stream_url(str(stream.get("url", "")))
+            if url and fixture:
+                usage.setdefault(url, set()).add(fixture)
+
+    shared = {url for url, fixtures in usage.items() if len(fixtures) > 1}
+    if not shared:
+        return 0
+
+    removed = 0
+    for row in results:
+        kept = []
+        for stream in row.get("streams") or []:
+            url = canonicalize_stream_url(str(stream.get("url", "")))
+            if url not in shared:
+                kept.append(stream)
+                continue
+            removed += 1
+            rejected = dict(stream)
+            rejected["playability"] = "rejected"
+            rejected["reject_reason"] = "URL player chung xuất hiện ở nhiều fixture Gà Vàng"
+            row.setdefault("rejected_streams", []).append(rejected)
+        row["streams"] = kept
+        row["stream_urls"] = [item.get("url", "") for item in kept if item.get("url")]
+
+    print(
+        f"⚠️ Loại {removed} lượt gán stream dùng chung giữa nhiều fixture "
+        f"({len(shared)} URL); tránh ghi nhầm player placeholder vào M3U.",
+        flush=True,
+    )
+    return removed
+
+
 def escape_m3u_text(value: str) -> str:
     return re.sub(r"[\r\n]+", " ", value or "").replace('"', "'").strip()
 
@@ -3640,7 +3743,9 @@ async def main() -> None:
         f"lọc trận -{SCAN_PAST_MINUTES}/+{SCAN_FUTURE_MINUTES} phút | "
         f"giữ link chờ phát trong {UPCOMING_KEEP_HOURS} giờ tới | "
         f"fallback chung chưa xác minh={'BẬT' if (ALLOW_UNVERIFIED_BROWSER_FALLBACK or KEEP_PREVIOUS_UNVERIFIED) else 'TẮT'} | "
-        f"HTTP-first={'BẬT' if HYBRID_HTTP_FIRST else 'TẮT'} | delta={'BẬT' if DELTA_SCAN_ENABLED else 'TẮT'} | "
+        f"HTTP-first={'BẬT' if HYBRID_HTTP_FIRST else 'TẮT'} | "
+        f"probe mọi stream_key thiếu giờ={'BẬT' if PROBE_UNKNOWN_STREAM_KEYS else 'TẮT'} | "
+        f"delta={'BẬT' if DELTA_SCAN_ENABLED else 'TẮT'} | "
         f"miền dự phòng={','.join(HOME_URLS)}"
     )
 
@@ -3774,6 +3879,8 @@ async def main() -> None:
         finally:
             heartbeat.cancel()
             await asyncio.gather(heartbeat, return_exceptions=True)
+
+        remove_cross_match_shared_streams(results)
 
         pending_without_media = [
             row for row in results
