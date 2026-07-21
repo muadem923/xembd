@@ -1,4 +1,4 @@
-name: Quet Chuoi Chien Luong Son va Ga Vang v4.4.7 - Gà Vàng Chờ Phát FLV
+name: Quet Chuoi Chien Luong Son va Ga Vang v4.4.8 - Gà Vàng Metadata Chờ Phát
 
 on:
   workflow_dispatch:
@@ -195,6 +195,11 @@ jobs:
                           failures.append(f"Gà Vàng pending không phải FLV dựng: {url}")
                       if not url.lower().split("?", 1)[0].endswith(".flv"):
                           failures.append(f"Gà Vàng pending không phải FLV: {url}")
+                  display_name = str(channel.get("display_name") or "")
+                  if channel.get("playability") == "upcoming-pending" and not channel.get("kickoff_iso"):
+                      warnings.append(f"Gà Vàng pending chưa lấy được giờ; giữ link và sẽ thử lại: {url}")
+                  if re.search(r"\b(?:kork1|kork2|chnfa|ausffa|c1qual|c3qual|uzbsuper|intcf)\b", display_name, re.I):
+                      warnings.append(f"Gà Vàng tên còn dấu hiệu slug kỹ thuật: {display_name} | {url}")
                   metadata_audit = channel.get("metadata_audit")
                   if metadata_audit == "warn-only":
                       warnings.append(
@@ -223,8 +228,9 @@ jobs:
                   if not match or match.group(1) not in {"Chuối Chiên", "Lương Sơn", "Gà Vàng"}:
                       failures.append(f"group-title khong hop le: {line}")
               elif line.startswith(("http://", "https://")) and line in pending_urls:
-                  if "CHỜ PHÁT" not in pending_extinf:
-                      failures.append(f"Gà Vàng pending thiếu nhãn CHỜ PHÁT: {line}")
+                  display = pending_extinf.split(",", 1)[1].strip() if "," in pending_extinf else ""
+                  if not display.startswith("[CHỜ PHÁT]"):
+                      failures.append(f"Gà Vàng pending phải đặt [CHỜ PHÁT] ở đầu tên: {line} | EXTINF={pending_extinf}")
 
           for item in warnings:
               print(f"::warning::{item}")
@@ -294,5 +300,5 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Update live streams v4.4.7 (Gavang pending FLV)"
+          git commit -m "Update live streams v4.4.8 (Gavang pending metadata)"
           git push origin "HEAD:${GITHUB_REF_NAME}"
