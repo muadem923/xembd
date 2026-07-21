@@ -4,6 +4,7 @@ import json
 import os
 import re
 import unicodedata
+from difflib import SequenceMatcher
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -11,7 +12,7 @@ from typing import Any, Iterable
 from urllib.parse import unquote, urljoin, urlparse
 from zoneinfo import ZoneInfo
 
-VERSION = "4.4.7-GAVANG-PENDING-DERIVED-FLV"
+VERSION = "4.4.8-GAVANG-PENDING-METADATA-FIRST"
 TZ_VIETNAM = ZoneInfo("Asia/Ho_Chi_Minh")
 ALLOWED_GROUPS = {"Bóng đá", "Bóng rổ", "Bóng chuyền", "Tennis", "Esports", "Khác"}
 SOURCE_ORDER = {"chuoichien": 0, "luongson": 1, "gavang": 2}
@@ -177,7 +178,8 @@ def normalize_quality(value: Any, display_name: str, url: str) -> str:
 
 def normalize_match_name(value: str) -> str:
     text = clean_text(value)
-    text = re.sub(r"^\[[^\]]+\]\s*", "", text)
+    # Có thể có đồng thời [CHỜ PHÁT] và [HH:MM DD/MM] ở đầu.
+    text = re.sub(r"^(?:\[[^\]]+\]\s*)+", "", text)
     text = re.sub(r"\s*\[(?:CHỜ PHÁT\s+)?(?:4K|FHD|HD|SD)?\s*(?:M3U8|FLV)\]\s*$", "", text, flags=re.I)
     text = re.sub(r"\s*\[BLV\s+[^\]]+\]", "", text, flags=re.I)
     match = re.search(r"(.+?)\s+vs\s+(.+?)(?:\s+-\s+|$)", text, flags=re.I)
@@ -210,12 +212,34 @@ def _metadata_name(row: dict[str, Any], display_name: str = "") -> str:
     return clean_text(row.get("match_name") or row.get("raw_title") or display_name)
 
 
+def _token_similarity(left: str, right: str) -> float:
+    if left == right:
+        return 1.0
+    if min(len(left), len(right)) >= 5 and (left.startswith(right) or right.startswith(left)):
+        return 0.94
+    return SequenceMatcher(None, left, right).ratio()
+
+
 def _candidate_key_score(key_tokens: list[str], candidate_name: str) -> tuple[int, int, float]:
-    candidate_tokens = set(normalize_ascii(candidate_name).split())
-    matched = sum(1 for token in key_tokens if token in candidate_tokens)
+    candidate_tokens = [token for token in normalize_ascii(candidate_name).split() if len(token) >= 3]
+    unused = set(range(len(candidate_tokens)))
+    matched = 0
+    similarity_total = 0.0
+    for key_token in key_tokens:
+        ranked = sorted(
+            (( _token_similarity(key_token, candidate_tokens[index]), index) for index in unused),
+            reverse=True,
+        )
+        if not ranked or ranked[0][0] < 0.82:
+            continue
+        similarity, index = ranked[0]
+        unused.remove(index)
+        matched += 1
+        similarity_total += similarity
     coverage = matched / len(key_tokens) if key_tokens else 0.0
-    # Hai token đội cùng khớp là tín hiệu mạnh; tên dài/full được ưu tiên nhẹ.
-    score = matched * 100 + int(coverage * 50) + min(len(candidate_name), 160) // 10
+    average_similarity = similarity_total / matched if matched else 0.0
+    # Cho phép lỗi chính tả nhẹ như buncheon/bucheon nhưng vẫn yêu cầu hai phía đội khớp.
+    score = matched * 100 + int(coverage * 50) + int(average_similarity * 25) + min(len(candidate_name), 160) // 10
     return score, matched, coverage
 
 
@@ -279,12 +303,20 @@ def _apply_block_display_metadata(
     display_base = f"[{kickoff_label}] {match_name}" if kickoff_label else match_name
     if own_blv and own_blv.lower() not in display_base.lower():
         display_base += f" [BLV {own_blv}]"
+    is_pending = (
+        block.playability == "upcoming-pending"
+        or bool(block.metadata.get("derived_pending"))
+        or bool(re.search(r"\[CHỜ PHÁT(?:\s+[^\]]+)?\]", block.display_name, re.I))
+    )
+    if is_pending:
+        display_base = f"[CHỜ PHÁT] {display_base}"
     suffix_match = re.search(
         r"(\s*\[(?:CHỜ PHÁT\s+)?(?:(?:4K|FHD|HD|SD)\s+)?(?:M3U8|FLV)\])\s*$",
         block.display_name,
         flags=re.I,
     )
     suffix = suffix_match.group(1).strip() if suffix_match else (f"[{block.quality} {block.kind.upper()}]" if block.quality != "UNKNOWN" else f"[{block.kind.upper()}]")
+    suffix = re.sub(r"^\[CHỜ PHÁT\s+", "[", suffix, flags=re.I)
     display_full = f"{display_base} {suffix}".strip()
     block.display_name = display_full
     block.extinf = _replace_extinf_display(block.extinf, display_base, display_full)

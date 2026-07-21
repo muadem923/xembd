@@ -15,7 +15,7 @@ from urllib.parse import urlparse
 from merger import SourceFiles, cleanup_intermediate_playlists, merge_sources
 
 ROOT = Path(__file__).resolve().parent
-VERSION = "4.4.7-GAVANG-PENDING-DERIVED-FLV"
+VERSION = "4.4.8-GAVANG-PENDING-METADATA-FIRST"
 
 
 @dataclass(slots=True)
