@@ -1,4 +1,4 @@
-name: Quet Chuoi Chien Luong Son va Ga Vang v4.4.4 - Gà Vàng Metadata Fix
+name: Quet Chuoi Chien Luong Son va Ga Vang v4.4.5 - Gà Vàng Metadata Soft Audit
 
 on:
   workflow_dispatch:
@@ -151,6 +151,7 @@ jobs:
 
           report = json.loads(Path("all_live_debug.json").read_text(encoding="utf-8"))
           failures = []
+          warnings = []
           urls = []
           per_match_quality = Counter()
 
@@ -180,6 +181,13 @@ jobs:
                   failures.append(f"Trang thai khong hop le: {url}")
               key = (channel.get("match_key"), channel.get("quality"))
               per_match_quality[key] += 1
+              if channel.get("source") == "gavang":
+                  metadata_audit = channel.get("metadata_audit")
+                  if metadata_audit == "warn-only":
+                      warnings.append(
+                          f"Gà Vàng metadata chưa đủ chắc chắn nhưng stream vẫn giữ: "
+                          f"{url} | {channel.get('metadata_warning') or 'không có đối chiếu phù hợp'}"
+                      )
 
           if len(urls) != len(set(urls)):
               failures.append("Playlist chung co URL trung lap")
@@ -195,12 +203,18 @@ jobs:
                   if not match or match.group(1) not in {"Chuối Chiên", "Lương Sơn", "Gà Vàng"}:
                       failures.append(f"group-title khong hop le: {line}")
 
+          for item in warnings:
+              print(f"::warning::{item}")
+
           if failures:
               for item in failures:
                   print(f"::error::{item}")
               raise SystemExit(1)
 
-          print(f"Audit OK: {len(urls)} stream chung; nguon={report.get('sources')}")
+          print(
+              f"Audit OK: {len(urls)} stream chung; nguon={report.get('sources')} | "
+              f"gavang_metadata={report.get('gavang_metadata')} | warnings={len(warnings)}"
+          )
           PY_AUDIT
 
           echo "--- Playlist chung ---"
@@ -257,5 +271,5 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Update live streams v4.4.4 (Gavang metadata + dedupe fix)"
+          git commit -m "Update live streams v4.4.5 (Gavang soft metadata audit)"
           git push origin "HEAD:${GITHUB_REF_NAME}"
