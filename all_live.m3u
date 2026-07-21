@@ -5,13 +5,7 @@
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
 https://gckc0525.edgemaxcdn.org/live/chuoitieu.flv
-#EXTINF:-1 tvg-id="chuoichien-1516065-2" tvg-name="[22:00 21/07] Buxoro vs Bunyodkor - VĐQG Uzbekistan [BLV Chuối Tiêu]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_131729_49908059.png",[22:00 21/07] Buxoro vs Bunyodkor - VĐQG Uzbekistan [BLV Chuối Tiêu] (Luồng 2) [M3U8]
-#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
-https://gckc0525.edgemaxcdn.org/live/chuoitieu/playlist.m3u8
-#EXTINF:-1 tvg-id="chuoichien-1516071-1" tvg-name="[22:00 21/07] Sogdiana vs Neftchi - VĐQG Uzbekistan" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_131728_47b17649.png",[22:00 21/07] Sogdiana vs Neftchi - VĐQG Uzbekistan [FHD FLV]
+#EXTINF:-1 tvg-id="chuoichien-1516071-1" tvg-name="[22:00 21/07] Sogdiana vs Neftchi - VĐQG Uzbekistan [BLV Chuối Bơ]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_131728_47b17649.png",[22:00 21/07] Sogdiana vs Neftchi - VĐQG Uzbekistan [BLV Chuối Bơ] [FHD FLV]
 #EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
@@ -35,12 +29,6 @@ https://gckc0525.edgemaxcdn.org/live/chuoichao/playlist.m3u8
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
 https://gckc0525.edgemaxcdn.org/live/chuoinho.flv
-#EXTINF:-1 tvg-id="chuoichien-1589419-2" tvg-name="[23:00 21/07] Sabah FA vs KuPS - UEFA Champions League [BLV Chuối Nhỏ]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_130531_4e687848.png",[23:00 21/07] Sabah FA vs KuPS - UEFA Champions League [BLV Chuối Nhỏ] (Luồng 2) [M3U8]
-#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
-https://gckc0525.edgemaxcdn.org/live/chuoinho/playlist.m3u8
 #EXTINF:-1 tvg-id="hygenie-566f90b4cec4-368-1" tvg-name="[21/07/2026 22:00] BUXORO FK vs KURUVCHI BUNYODKOR [BLV Fernando]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/8762_1gygr37zx410.png",[21/07/2026 22:00] BUXORO FK vs KURUVCHI BUNYODKOR [BLV Fernando] [M3U8]
 #EXTVLCOPT:http-referrer=https://catbee.io/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
@@ -65,7 +53,7 @@ https://hls.cdnfaster-a.live/live/VUONGLUAN/index.m3u8?expire=1893165900&sign=60
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
 https://hls.cdnfaster-a.live/live/KAKA/index.m3u8?expire=1788427256&sign=c34e1c9b22c9ced94eca7e7bf7a81ae6
-#EXTINF:-1 tvg-id="hygenie-a79d98aaa051-1" tvg-name="[21/07/2026 23:00] FC IBERIA 1999 TBILISI vs SLOVAN BRATISLAVA [BLV TÔN LẬP]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/19599_1j1e9frnyg16.png",[21/07/2026 23:00] FC IBERIA 1999 TBILISI vs SLOVAN BRATISLAVA [BLV TÔN LẬP] [M3U8]
+#EXTINF:-1 tvg-id="hygenie-a79d98aaa051-300-1" tvg-name="[21/07/2026 23:00] FC IBERIA 1999 TBILISI vs SLOVAN BRATISLAVA [BLV TÔN LẬP]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/19599_1j1e9frnyg16.png",[21/07/2026 23:00] FC IBERIA 1999 TBILISI vs SLOVAN BRATISLAVA [BLV TÔN LẬP] [M3U8]
 #EXTVLCOPT:http-referrer=https://catbee.io/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
@@ -77,19 +65,19 @@ https://hls.cdnfaster-a.live/live/TONLAP/index.m3u8?expire=1788427256&sign=72cc5
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
 https://hls.cdnfaster-a.live/live/HEINEKEN/index.m3u8?expire=2530639860&sign=03a2e74c3447f79f8c6e80a8fa2ee0b6
+#EXTINF:-1 tvg-id="hygenie-03b0023fa4c5-377-1" tvg-name="[21/07/2026 23:00] MJALLBY AIF vs LINCOLN RED IMPS FC [BLV PHI HỔ]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/1740_1h8fzp9swxp.png",[21/07/2026 23:00] MJALLBY AIF vs LINCOLN RED IMPS FC [BLV PHI HỔ] [M3U8]
+#EXTVLCOPT:http-referrer=https://catbee.io/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
+https://hls.cdnfaster-a.live/live/PHIHO/index.m3u8?expire=2556118740&sign=ebc20a588b7a62eb65d12f7372d39a3f
 #EXTINF:-1 tvg-id="hygenie-03b0023fa4c5-372-1" tvg-name="[21/07/2026 23:00] MJALLBY AIF vs LINCOLN RED IMPS FC [BLV LÃO HẠC]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/1740_1h8fzp9swxp.png",[21/07/2026 23:00] MJALLBY AIF vs LINCOLN RED IMPS FC [BLV LÃO HẠC] [M3U8]
 #EXTVLCOPT:http-referrer=https://catbee.io/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
 https://hls.cdnfaster-a.live/live/LAOHAC/index.m3u8?expire=2556118740&sign=d7e003f1201f61166a559ac474dc7491
-#EXTINF:-1 tvg-id="hygenie-03b0023fa4c5-1" tvg-name="[21/07/2026 23:00] MJALLBY AIF vs LINCOLN RED IMPS FC [BLV PHI HỔ]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/1740_1h8fzp9swxp.png",[21/07/2026 23:00] MJALLBY AIF vs LINCOLN RED IMPS FC [BLV PHI HỔ] [M3U8]
-#EXTVLCOPT:http-referrer=https://catbee.io/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
-https://hls.cdnfaster-a.live/live/PHIHO/index.m3u8?expire=2556118740&sign=ebc20a588b7a62eb65d12f7372d39a3f
-#EXTINF:-1 tvg-id="hygenie-f0295a7effe3-1" tvg-name="[21/07/2026 23:00] SABAH FK BAKU vs KUPS [BLV NGƯỜI THÉP]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/32202_1k2txq9s2r12.png",[21/07/2026 23:00] SABAH FK BAKU vs KUPS [BLV NGƯỜI THÉP] [M3U8]
+#EXTINF:-1 tvg-id="hygenie-f0295a7effe3-374-1" tvg-name="[21/07/2026 23:00] SABAH FK BAKU vs KUPS [BLV NGƯỜI THÉP]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/32202_1k2txq9s2r12.png",[21/07/2026 23:00] SABAH FK BAKU vs KUPS [BLV NGƯỜI THÉP] [M3U8]
 #EXTVLCOPT:http-referrer=https://catbee.io/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
@@ -101,15 +89,15 @@ https://hls.cdnfaster-a.live/live/NGUOITHEP/index.m3u8?expire=2556118740&sign=6d
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2456/pakh-xorazm-uzbsuper/?s8_live_fixture_id=2456&s8_live_stream_key=pakh-xorazm-uzbsuper&s8_auto_sound=1","Origin":"https://smorf.io"}
 https://flv.lauthaitv.cc/live/pakh-xorazm-uzbsuper.flv
-#EXTINF:-1 tvg-id="gavang-2458-1" tvg-name="Sabah VS Kups" group-title="Gà Vàng" tvg-logo="https://smorf.io/s8-live/2458/sabah-kups-c1qual/[object Object]",Sabah VS Kups [FLV]
-#EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2458/sabah-kups-c1qual/?s8_live_fixture_id=2458&s8_live_stream_key=sabah-kups-c1qual&s8_auto_sound=1
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2458/sabah-kups-c1qual/?s8_live_fixture_id=2458&s8_live_stream_key=sabah-kups-c1qual&s8_auto_sound=1","Origin":"https://smorf.io"}
-https://flv.lauthaitv.cc/live/sabah-kups-c1qual.flv
 #EXTINF:-1 tvg-id="gavang-2457-1" tvg-name="UEFA Champions League (qual) - Ararat-Armenia FC VS Shamrock Rovers - 21-07 [BLV NGƯỜI PHÁO]" group-title="Gà Vàng" tvg-logo="https://smorf.io/s8-live/2457/ararat-shamrock-c1qual/[object Object]",UEFA Champions League (qual) - Ararat-Armenia FC VS Shamrock Rovers - 21-07 [BLV NGƯỜI PHÁO] [FLV]
 #EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2457/ararat-shamrock-c1qual/?s8_live_fixture_id=2457&s8_live_stream_key=ararat-shamrock-c1qual&s8_auto_sound=1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2457/ararat-shamrock-c1qual/?s8_live_fixture_id=2457&s8_live_stream_key=ararat-shamrock-c1qual&s8_auto_sound=1","Origin":"https://smorf.io"}
 https://flv.lauthaitv.cc/live/ararat-shamrock-c1qual.flv
+#EXTINF:-1 tvg-id="gavang-2458-1" tvg-name="UEFA Champions League (qual) - Sabah Baku VS KuPs - 21-07 [BLV NGƯỜI NẶN]" group-title="Gà Vàng" tvg-logo="https://smorf.io/s8-live/2458/sabah-kups-c1qual/[object Object]",UEFA Champions League (qual) - Sabah Baku VS KuPs - 21-07 [BLV NGƯỜI NẶN] [FLV]
+#EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2458/sabah-kups-c1qual/?s8_live_fixture_id=2458&s8_live_stream_key=sabah-kups-c1qual&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2458/sabah-kups-c1qual/?s8_live_fixture_id=2458&s8_live_stream_key=sabah-kups-c1qual&s8_auto_sound=1","Origin":"https://smorf.io"}
+https://flv.lauthaitv.cc/live/sabah-kups-c1qual.flv
