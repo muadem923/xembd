@@ -1,4 +1,4 @@
-name: Quet Chuoi Chien Luong Son va Ga Vang v4.4.2 - Source Groups
+name: Quet Chuoi Chien Luong Son va Ga Vang v4.4.3 - FLV Fix
 
 on:
   workflow_dispatch:
@@ -109,6 +109,7 @@ jobs:
           GAVANG_DELTA_NEAR_MINUTES: "45"
           GAVANG_STATE_PATH: "gavang_state.json"
           GAVANG_SCAN_UNKNOWN_LIVE: "1"
+          GAVANG_PROBE_UNKNOWN_STREAM_KEYS: "1"
           GAVANG_FULL_SCAN: "1"
           GAVANG_VERIFY_STREAMS: "1"
           GAVANG_VERIFY_TIMEOUT_SECONDS: "7"
@@ -165,7 +166,7 @@ jobs:
                   reason = row.get("scan_window_reason", "")
                   if isinstance(delta, int) and not (-150 <= delta <= 240):
                       failures.append(f"{debug_name}: quét ngoài cửa sổ {delta} phút: {row.get('url')}")
-                  if delta is None and reason not in {"unknown-time-live", ""}:
+                  if delta is None and reason not in {"unknown-time-live", "unknown-time-derived-probe", ""}:
                       failures.append(f"{debug_name}: lý do giờ không hợp lệ {reason}: {row.get('url')}")
 
           expected_groups = {"chuoichien": "Chuối Chiên", "luongson": "Lương Sơn", "gavang": "Gà Vàng"}
@@ -256,5 +257,5 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Update live streams v4.4.2 (source groups)"
+          git commit -m "Update live streams v4.4.3 (Gavang FLV fix)"
           git push origin "HEAD:${GITHUB_REF_NAME}"
