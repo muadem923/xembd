@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-21T12:56:00.907486+07:00",
+  "updated_at": "2026-07-21T13:31:02.174855+07:00",
   "matches": {
     "992361": {
       "url": "https://live04.chuoichientv.me/live/992361/pvf-cand-vs-hoang-anh-gia-lai",
@@ -46,6 +46,30 @@
       "minutes_to_kickoff": 214,
       "last_scan_at": "2026-07-21T12:56:00.907408+07:00",
       "next_scan_at": "2026-07-21T13:41:00.907408+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1507005": {
+      "url": "https://live04.chuoichientv.me/live/1507005/jeonbuk-motors-vs-daejeon-citizen",
+      "match_name": "jeonbuk motors vs daejeon citizen",
+      "kickoff_iso": "2026-07-21T17:30:00+07:00",
+      "minutes_to_kickoff": 239,
+      "last_scan_at": "2026-07-21T13:31:02.174801+07:00",
+      "next_scan_at": "2026-07-21T14:16:02.174801+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1507004": {
+      "url": "https://live04.chuoichientv.me/live/1507004/jeju-united-fc-vs-gangwon-fc",
+      "match_name": "jeju united fc vs gangwon fc",
+      "kickoff_iso": "2026-07-21T17:30:00+07:00",
+      "minutes_to_kickoff": 239,
+      "last_scan_at": "2026-07-21T13:31:02.174801+07:00",
+      "next_scan_at": "2026-07-21T14:16:02.174801+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],

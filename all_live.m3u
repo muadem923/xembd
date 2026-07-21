@@ -1,13 +1,7 @@
 #EXTM3U
-#EXTINF:-1 tvg-id="hygenie-3e746cfc1d8c-1" tvg-name="[21/07/2026 12:00] PHÁP vs MAROC [BLV Leo]" group-title="Lương Sơn" tvg-logo="https://upload-img.cdnokvip.com/uploads/team_logo/1784613277.png",[21/07/2026 12:00] PHÁP vs MAROC [BLV Leo] [M3U8]
+#EXTINF:-1 tvg-id="hygenie-3e746cfc1d8c-359-1" tvg-name="[21/07/2026 12:00] PHÁP vs MAROC [BLV Leo]" group-title="Lương Sơn" tvg-logo="https://upload-img.cdnokvip.com/uploads/team_logo/1784613277.png",[21/07/2026 12:00] PHÁP vs MAROC [BLV Leo] [M3U8]
 #EXTVLCOPT:http-referrer=https://catbee.io/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
 https://hls.cdnfaster-a.live/live/TEST/index.m3u8?expire=1788427256&sign=47963ed63da3360fd84dccfb53a2c83c
-#EXTINF:-1 tvg-id="gavang-2459-1" tvg-name="aarhus lech c1qual [BLV NGƯỜI THỎ TRẬN Đổi trận Bình luận CHN FA]" group-title="Gà Vàng" tvg-logo="https://smorf.io/wp-json/s8-image/b6e094e5-8858-4424-a429-7d06ac89209c",aarhus lech c1qual [BLV NGƯỜI THỎ TRẬN Đổi trận Bình luận CHN FA] [SD M3U8]
-#EXTVLCOPT:http-referrer=https://smorf.io/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/","Origin":"https://smorf.io"}
-https://live-bong.s3.ap-southeast-1.amazonaws.com/New+folder/hls_abr/copy_CE1198F2-AD34-4956-822A-1F66706D2422/source/index.m3u8

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "luongson",
-  "updated_at": "2026-07-21T13:01:30.232589+07:00",
+  "updated_at": "2026-07-21T13:31:27.976014+07:00",
   "matches": {
     "dbdf8cfe3f68": {
       "url": "https://catbee.io/truc-tiep/basilan-steel-vs-sarangani-marlins-vao-luc-1500-21-07-2026/?blv=328",
@@ -100,16 +100,66 @@
       "scan_decision": "http-only-far-upcoming"
     },
     "3e746cfc1d8c": {
-      "url": "https://catbee.io/truc-tiep/phap-vs-maroc-vao-luc-1200-21-07-2026/?blv=359",
+      "url": "https://catbee.io/truc-tiep/phap-vs-maroc-vao-luc-1200-21-07-2026/",
       "match_name": "PHÁP vs MAROC",
       "kickoff_iso": "2026-07-21T12:00:00+07:00",
-      "minutes_to_kickoff": -61,
-      "last_scan_at": "2026-07-21T13:01:30.232451+07:00",
-      "next_scan_at": "2026-07-21T13:06:30.232451+07:00",
+      "minutes_to_kickoff": -91,
+      "last_scan_at": "2026-07-21T13:31:27.975748+07:00",
+      "next_scan_at": "2026-07-21T13:36:27.975748+07:00",
       "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://hls.cdnfaster-a.live/live/TEST/index.m3u8?expire=1788427256&sign=47963ed63da3360fd84dccfb53a2c83c"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "bdea0c3a3220": {
+      "url": "https://catbee.io/truc-tiep/bayswater-city-vs-sydney-fc-vao-luc-1730-21-07-2026/",
+      "match_name": "bayswater city vs sydney fc",
+      "kickoff_iso": "2026-07-21T17:30:00+07:00",
+      "minutes_to_kickoff": 239,
+      "last_scan_at": "2026-07-21T13:31:27.975748+07:00",
+      "next_scan_at": "2026-07-21T14:16:27.975748+07:00",
+      "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
-      "scan_decision": "browser-fallback"
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "6c59b0d065ef": {
+      "url": "https://catbee.io/truc-tiep/jeju-sk-fc-vs-gangwon-fc-vao-luc-1730-21-07-2026/",
+      "match_name": "jeju sk fc vs gangwon fc",
+      "kickoff_iso": "2026-07-21T17:30:00+07:00",
+      "minutes_to_kickoff": 239,
+      "last_scan_at": "2026-07-21T13:31:27.975748+07:00",
+      "next_scan_at": "2026-07-21T14:16:27.975748+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "ae2f2c379acd": {
+      "url": "https://catbee.io/truc-tiep/jeonbuk-hyundai-motors-vs-daejeon-citizen-vao-luc-1730-21-07-2026/",
+      "match_name": "jeonbuk hyundai motors vs daejeon citizen",
+      "kickoff_iso": "2026-07-21T17:30:00+07:00",
+      "minutes_to_kickoff": 239,
+      "last_scan_at": "2026-07-21T13:31:27.975748+07:00",
+      "next_scan_at": "2026-07-21T14:16:27.975748+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "6a904f55b701": {
+      "url": "https://catbee.io/truc-tiep/ulsan-hd-fc-vs-incheon-united-vao-luc-1730-21-07-2026/?blv=246",
+      "match_name": "ulsan hd fc vs incheon united",
+      "kickoff_iso": "2026-07-21T17:30:00+07:00",
+      "minutes_to_kickoff": 239,
+      "last_scan_at": "2026-07-21T13:31:27.975748+07:00",
+      "next_scan_at": "2026-07-21T14:16:27.975748+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
     }
   }
 }
