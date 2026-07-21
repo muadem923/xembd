@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import asyncio
+import tempfile
 import unittest
+from pathlib import Path
 from unittest.mock import AsyncMock, patch
 
 import main as orchestrator
@@ -19,6 +21,13 @@ DALIAN_URL = (
     "https://smorf.io/s8-live/2448/dalian-beijing-chnfa/"
     "?s8_live_fixture_id=2448&"
     "s8_live_stream_key=dalian-beijing-chnfa&"
+    "s8_auto_sound=1"
+)
+
+QUEENSLAND_URL = (
+    "https://smorf.io/s8-live/2449/queensland-perth-ausffa/"
+    "?s8_live_fixture_id=2449&"
+    "s8_live_stream_key=queensland-perth-ausffa&"
     "s8_auto_sound=1"
 )
 
@@ -109,7 +118,7 @@ class GavangAdapterTests(unittest.TestCase):
             def read1(self, _size):
                 raise TimeoutError("live body keeps streaming")
 
-        with patch.object(gavang.urllib.request, "urlopen", side_effect=lambda *_a, **_k: FakeResponse()):
+        with patch.object(gavang.urllib.request, "urlopen", side_effect=lambda *_a, **_k: FakeResponse()) as urlopen:
             result = gavang.probe_stream_sync(
                 "https://flv.lauthaitv.cc/live/dalian-beijing-chnfa.flv",
                 gavang.UA,
@@ -117,10 +126,28 @@ class GavangAdapterTests(unittest.TestCase):
                 "https://smorf.io",
                 timeout=3,
             )
+        self.assertEqual(urlopen.call_count, 1)
         self.assertTrue(result["playable"])
         self.assertEqual(result["status"], 200)
         self.assertEqual(result["content_type"], "video/x-flv")
         self.assertIn("live chunked", result["detail"])
+
+    def test_dead_flv_timeout_is_not_retried_twice(self):
+        with patch.object(
+            gavang.urllib.request,
+            "urlopen",
+            side_effect=TimeoutError("inactive live socket"),
+        ) as urlopen:
+            result = gavang.probe_stream_sync(
+                "https://flv.lauthaitv.cc/live/not-started.flv",
+                gavang.UA,
+                QUEENSLAND_URL,
+                "https://smorf.io",
+                timeout=3,
+            )
+        self.assertEqual(urlopen.call_count, 1)
+        self.assertFalse(result["playable"])
+        self.assertEqual(result["status"], 0)
 
     def test_shared_player_url_is_removed_across_distinct_fixtures(self):
         shared = "https://live-bong.s3.ap-southeast-1.amazonaws.com/player/master.m3u8"
@@ -134,6 +161,101 @@ class GavangAdapterTests(unittest.TestCase):
         self.assertEqual([item["url"] for item in rows[0]["streams"]], [unique])
         self.assertEqual(rows[1]["streams"], [])
         self.assertIn("nhiều fixture", rows[1]["rejected_streams"][0]["reject_reason"])
+
+    def test_blv_control_text_is_trimmed(self):
+        self.assertEqual(
+            gavang.normalize_blv_name(
+                "NGƯỜI CHÈ TRẬN Đổi trận Bình luận Mô phỏng server 1"
+            ),
+            "NGƯỜI CHÈ",
+        )
+
+    def test_home_fixture_dedupe_keeps_rich_metadata(self):
+        rows = [
+            {
+                "url": QUEENSLAND_URL,
+                "raw_title": "queensland perth ausffa",
+                "raw_time": "",
+                "raw_blv": "",
+                "card_text": "",
+            },
+            {
+                "url": QUEENSLAND_URL.replace("&s8_auto_sound=1", ""),
+                "raw_title": "Queensland Lions SC VS Perth Glory",
+                "raw_time": "21/07/2026 16:30",
+                "raw_blv": "NGƯỜI CHÈ TRẬN Đổi trận Bình luận Mô phỏng",
+                "card_text": "Queensland Lions SC VS Perth Glory 16:30",
+            },
+            {
+                "url": "https://smorf.io/s8-live/2449/queensland-perth-ausffa/",
+                "raw_title": "Queensland Lions SC vs Perth Glory",
+                "raw_time": "16:30",
+                "raw_blv": "",
+                "card_text": "",
+            },
+        ]
+        merged, duplicates = gavang.dedupe_home_links(rows)
+        self.assertEqual(duplicates, 2)
+        self.assertEqual(len(merged), 1)
+        self.assertEqual(merged[0]["raw_title"], "Queensland Lions SC VS Perth Glory")
+        self.assertEqual(merged[0]["raw_time"], "21/07/2026 16:30")
+        self.assertIn("NGƯỜI CHÈ", merged[0]["raw_blv"])
+        self.assertIn("s8_live_stream_key", merged[0]["url"])
+
+    def test_apply_detail_metadata_fixes_title_time_and_blv(self):
+        match = {
+            "url": QUEENSLAND_URL,
+            "match_name": "queensland perth ausffa",
+            "time": "",
+            "date": "",
+            "blv": "",
+        }
+        metadata = {
+            "title": "Queensland Lions SC VS Perth Glory",
+            "time_candidates": [
+                {
+                    "value": "2026-07-21T09:30:00Z",
+                    "score": 100,
+                    "source": "json-ld/startDate",
+                }
+            ],
+            "blv": "NGƯỜI CHÈ TRẬN Đổi trận Bình luận Mô phỏng",
+        }
+        changes = gavang.apply_basic_match_metadata(match, metadata)
+        self.assertEqual(match["match_name"], "Queensland Lions SC VS Perth Glory")
+        self.assertEqual(match["time"], "16:30")
+        self.assertEqual(match["date"], "21/07")
+        self.assertEqual(match["blv"], "NGƯỜI CHÈ")
+        self.assertEqual(changes["time"], "16:30")
+
+    def test_playlist_display_uses_enriched_gavang_metadata(self):
+        result = {
+            "url": QUEENSLAND_URL,
+            "match_name": "Queensland Lions SC VS Perth Glory",
+            "time": "16:30",
+            "date": "21/07",
+            "blv": "NGƯỜI CHÈ",
+            "sport_group": "Bóng đá",
+            "streams": [{
+                "url": "https://flv.lauthaitv.cc/live/queensland-perth-ausffa.flv",
+                "referer": QUEENSLAND_URL,
+                "origin": "https://smorf.io",
+                "user_agent": gavang.UA,
+                "playability": "verified",
+            }],
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            paths = [Path(tmp) / name for name in ("gavang_live.m3u", "gavang_live_pipe.m3u", "gavang_live_vlc.m3u")]
+            debug = Path(tmp) / "gavang_debug.json"
+            with patch.object(gavang, "OUTPUT_M3U", paths[0]), \
+                 patch.object(gavang, "OUTPUT_PIPE_M3U", paths[1]), \
+                 patch.object(gavang, "OUTPUT_VLC_M3U", paths[2]), \
+                 patch.object(gavang, "OUTPUT_DEBUG", debug):
+                count_links, count_matches = gavang.write_outputs([result])
+            text = paths[0].read_text(encoding="utf-8")
+        self.assertEqual((count_links, count_matches), (1, 1))
+        self.assertIn("[16:30 21/07] Queensland Lions SC VS Perth Glory", text)
+        self.assertIn("[BLV NGƯỜI CHÈ] [FLV]", text)
 
     def test_playlist_headers_keep_origin(self):
         header = gavang.header_json("UA", MATCH_URL, "https://smorf.io")
@@ -183,12 +305,15 @@ class GavangFastPathTests(unittest.IsolatedAsyncioTestCase):
             def read1(self, _size): raise TimeoutError("live stream")
 
         discover = AsyncMock(return_value=0)
+        enrich = AsyncMock(return_value=None)
         with patch.object(gavang.urllib.request, "urlopen", side_effect=lambda *_a, **_k: FakeResponse()), \
-             patch.object(gavang, "discover_http_candidates", new=discover):
+             patch.object(gavang, "discover_http_candidates", new=discover), \
+             patch.object(gavang, "enrich_verified_match_metadata", new=enrich):
             gavang.PROBE_CACHE.clear()
             result = await gavang.fetch_stream(_ProbeContext(), match, asyncio.Semaphore(1))
 
         discover.assert_not_awaited()
+        enrich.assert_awaited_once()
         self.assertEqual(result.get("scan_decision"), "derived-flv-fast-path")
         self.assertEqual(
             result["streams"][0]["url"],
@@ -213,13 +338,16 @@ class GavangFastPathTests(unittest.IsolatedAsyncioTestCase):
             return [entry], []
 
         discover = AsyncMock(return_value=0)
+        enrich = AsyncMock(return_value=None)
         with patch.object(gavang, "discover_http_candidates", new=discover), \
-             patch.object(gavang, "finalize_stream_map", new=fake_finalize):
+             patch.object(gavang, "finalize_stream_map", new=fake_finalize), \
+             patch.object(gavang, "enrich_verified_match_metadata", new=enrich):
             result = await gavang.fetch_stream(
                 _NoPageContext(), match, asyncio.Semaphore(1)
             )
 
         discover.assert_not_awaited()
+        enrich.assert_awaited_once()
         self.assertEqual(result.get("scan_decision"), "derived-flv-fast-path")
         self.assertEqual(len(result.get("streams") or []), 1)
         entry = next(iter(observed.values()))
