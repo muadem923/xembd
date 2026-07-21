@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-22T02:01:52.314170+07:00",
+  "updated_at": "2026-07-22T02:31:34.586671+07:00",
   "matches": {
     "992361": {
       "url": "https://live04.chuoichientv.me/live/992361/pvf-cand-vs-hoang-anh-gia-lai",
@@ -203,13 +203,14 @@
       "url": "https://live04.chuoichientv.me/live/1556503/sturm-graz-vs-heart-of-midlothian",
       "match_name": "Sturm Graz vs Heart Of Midlothian - UEFA Champions League",
       "kickoff_iso": "2026-07-22T01:30:00+07:00",
-      "minutes_to_kickoff": -31,
-      "last_scan_at": "2026-07-22T02:01:52.314091+07:00",
-      "next_scan_at": "2026-07-22T02:06:52.314091+07:00",
+      "minutes_to_kickoff": -61,
+      "last_scan_at": "2026-07-22T02:31:34.586579+07:00",
+      "next_scan_at": "2026-07-22T02:36:34.586579+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoinho.flv"
+        "https://gckc0525.edgemaxcdn.org/live/chuoinho.flv",
+        "https://gckc0525.edgemaxcdn.org/live/chuoinho/playlist.m3u8"
       ],
       "scan_decision": "browser-fallback"
     },
@@ -253,13 +254,14 @@
       "url": "https://live04.chuoichientv.me/live/1556502/fenerbahce-vs-gornik-zabrze",
       "match_name": "Fenerbahce vs Gornik Zabrze - UEFA Champions League",
       "kickoff_iso": "2026-07-22T01:00:00+07:00",
-      "minutes_to_kickoff": -61,
-      "last_scan_at": "2026-07-22T02:01:52.314091+07:00",
-      "next_scan_at": "2026-07-22T02:06:52.314091+07:00",
+      "minutes_to_kickoff": -91,
+      "last_scan_at": "2026-07-22T02:31:34.586579+07:00",
+      "next_scan_at": "2026-07-22T02:36:34.586579+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoibo.flv"
+        "https://gckc0525.edgemaxcdn.org/live/chuoibo.flv",
+        "https://gckc0525.edgemaxcdn.org/live/chuoibo/playlist.m3u8"
       ],
       "scan_decision": "browser-fallback"
     },
@@ -281,9 +283,9 @@
       "url": "https://live04.chuoichientv.me/live/1492290/atletico-mg-vs-bahia",
       "match_name": "atletico mg vs bahia",
       "kickoff_iso": "2026-07-22T05:30:00+07:00",
-      "minutes_to_kickoff": 239,
-      "last_scan_at": "2026-07-22T01:32:01.812270+07:00",
-      "next_scan_at": "2026-07-22T02:17:01.812270+07:00",
+      "minutes_to_kickoff": 179,
+      "last_scan_at": "2026-07-22T02:31:34.586579+07:00",
+      "next_scan_at": "2026-07-22T03:16:34.586579+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
