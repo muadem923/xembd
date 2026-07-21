@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-21T22:31:39.012089+07:00",
+  "updated_at": "2026-07-21T23:02:15.888457+07:00",
   "matches": {
     "992361": {
       "url": "https://live04.chuoichientv.me/live/992361/pvf-cand-vs-hoang-anh-gia-lai",
@@ -134,9 +134,9 @@
       "url": "https://live04.chuoichientv.me/live/1516065/buxoro-vs-bunyodkor",
       "match_name": "Buxoro vs Bunyodkor - VĐQG Uzbekistan",
       "kickoff_iso": "2026-07-21T22:00:00+07:00",
-      "minutes_to_kickoff": -31,
-      "last_scan_at": "2026-07-21T22:31:39.011991+07:00",
-      "next_scan_at": "2026-07-21T22:36:39.011991+07:00",
+      "minutes_to_kickoff": -61,
+      "last_scan_at": "2026-07-21T23:02:15.888336+07:00",
+      "next_scan_at": "2026-07-21T23:07:15.888336+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -149,9 +149,9 @@
       "url": "https://live04.chuoichientv.me/live/1516071/sogdiana-vs-neftchi",
       "match_name": "Sogdiana vs Neftchi - VĐQG Uzbekistan",
       "kickoff_iso": "2026-07-21T22:00:00+07:00",
-      "minutes_to_kickoff": -31,
-      "last_scan_at": "2026-07-21T22:31:39.011991+07:00",
-      "next_scan_at": "2026-07-21T22:36:39.011991+07:00",
+      "minutes_to_kickoff": -61,
+      "last_scan_at": "2026-07-21T23:02:15.888336+07:00",
+      "next_scan_at": "2026-07-21T23:07:15.888336+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -163,12 +163,15 @@
       "url": "https://live04.chuoichientv.me/live/1589415/ararat-armenia-vs-shamrock-rovers",
       "match_name": "Ararat-Armenia vs Shamrock Rovers - UEFA Champions League",
       "kickoff_iso": "2026-07-21T23:00:00+07:00",
-      "minutes_to_kickoff": 29,
-      "last_scan_at": "2026-07-21T22:31:39.011991+07:00",
-      "next_scan_at": "2026-07-21T22:41:39.011991+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
+      "minutes_to_kickoff": -1,
+      "last_scan_at": "2026-07-21T23:02:15.888336+07:00",
+      "next_scan_at": "2026-07-21T23:07:15.888336+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoichao.flv",
+        "https://gckc0525.edgemaxcdn.org/live/chuoichao/playlist.m3u8"
+      ],
       "scan_decision": "browser-fallback"
     },
     "1589416": {
@@ -181,6 +184,21 @@
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
+      "scan_decision": "browser-fallback"
+    },
+    "1589419": {
+      "url": "https://live04.chuoichientv.me/live/1589419/sabah-fa-vs-kups",
+      "match_name": "Sabah FA vs KuPS - UEFA Champions League",
+      "kickoff_iso": "2026-07-21T23:00:00+07:00",
+      "minutes_to_kickoff": -2,
+      "last_scan_at": "2026-07-21T23:02:15.888336+07:00",
+      "next_scan_at": "2026-07-21T23:07:15.888336+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoinho.flv",
+        "https://gckc0525.edgemaxcdn.org/live/chuoinho/playlist.m3u8"
+      ],
       "scan_decision": "browser-fallback"
     }
   }
