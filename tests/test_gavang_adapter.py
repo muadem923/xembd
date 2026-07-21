@@ -380,6 +380,40 @@ class GavangFastPathTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(result.get("streams"), [])
 
 
+    def test_contradictory_home_title_is_downgraded_not_dropped(self):
+        row = {
+            "url": QUEENSLAND_URL,
+            "raw_title": "Jeju SK FC vs Gangwon Football Club",
+            "match_name": "Jeju SK FC vs Gangwon Football Club",
+            "raw_blv": "NGƯỜI TIỀN SỬ",
+            "logo": "https://example.test/jeju.png",
+            "streams": [{"url": "https://flv.lauthaitv.cc/live/queensland-perth-ausffa.flv", "playability": "verified"}],
+        }
+        confidence = gavang.sanitize_gavang_match_metadata(row, stage="test")
+        self.assertTrue(confidence["contradictory"])
+        self.assertEqual(row["match_name"], "Queensland VS Perth")
+        self.assertEqual(len(row["streams"]), 1)
+        self.assertEqual(row["raw_blv"], "")
+        self.assertTrue(row["metadata_warnings"])
+
+    def test_unrelated_detail_metadata_does_not_overwrite_or_remove_stream(self):
+        match = {
+            "url": QUEENSLAND_URL,
+            "match_name": "Queensland VS Perth",
+            "time": "", "date": "", "blv": "",
+            "streams": [{"url": "https://flv.lauthaitv.cc/live/queensland-perth-ausffa.flv", "playability": "verified"}],
+        }
+        metadata = {
+            "title": "Jeju SK FC vs Gangwon Football Club",
+            "time_candidates": [],
+            "blv": "NGƯỜI TIỀN SỬ",
+        }
+        gavang.apply_basic_match_metadata(match, metadata)
+        self.assertEqual(match["match_name"], "Queensland VS Perth")
+        self.assertEqual(match["blv"], "")
+        self.assertEqual(len(match["streams"]), 1)
+        self.assertTrue(match["metadata_warnings"])
+
 
 if __name__ == "__main__":
     unittest.main()

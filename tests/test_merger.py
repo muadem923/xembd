@@ -148,6 +148,53 @@ class MergerTests(unittest.TestCase):
         self.assertEqual([path.relative_to(self.root).as_posix() for path in self.root.rglob("*.m3u")], ["all_live.m3u"])
         self.assertFalse((self.root / "gavang").exists())
 
+    def test_gavang_metadata_is_soft_enriched_from_matching_source(self) -> None:
+        gv_url = "https://flv.lauthaitv.cc/live/queensland-perth-ausffa.flv"
+        gv_rows = [{"id": "gavang-2449", "name": "Queensland VS Perth [FLV]", "url": gv_url, "group": "Bóng đá"}]
+        gv_debug = [{
+            "url": "https://smorf.io/s8-live/2449/queensland-perth-ausffa/",
+            "match_name": "Queensland VS Perth", "blv": "NGƯỜI CHÈ",
+            "streams": [{"url": gv_url, "quality": "", "playability": "verified", "http_status": 200}],
+        }]
+        ls_url = "https://cdn.example/queensland/index.m3u8"
+        ls_rows = [{"id": "ls-qld", "name": "[21/07/2026 16:30] QUEENSLAND LIONS SC vs PERTH GLORY [M3U8]", "url": ls_url, "group": "Bóng đá"}]
+        ls_debug = [{
+            "match_name": "QUEENSLAND LIONS SC vs PERTH GLORY",
+            "date": "21/07/2026", "time": "16:30",
+            "streams": [{"url": ls_url, "quality": "", "playability": "verified", "http_status": 200}],
+        }]
+        report = merge_sources(
+            self.root,
+            [
+                self.make_source("luongson", "Lương Sơn", ls_rows, ls_debug),
+                self.make_source("gavang", "Gà Vàng", gv_rows, gv_debug),
+            ],
+            now=datetime(2026, 7, 21, 15, 0, tzinfo=TZ),
+            max_per_match=2, preserve_on_empty=False,
+        )
+        text = (self.root / "all_live.m3u").read_text(encoding="utf-8")
+        self.assertIn(gv_url, text)
+        self.assertIn('[16:30 21/07] QUEENSLAND LIONS SC vs PERTH GLORY [BLV NGƯỜI CHÈ] [FLV]', text)
+        gv_channel = next(row for row in report["channels"] if row["source"] == "gavang")
+        self.assertEqual(gv_channel["metadata_audit"], "enriched-soft")
+        self.assertEqual(gv_channel["metadata_enriched_from"], "luongson")
+
+    def test_gavang_metadata_mismatch_warns_but_keeps_verified_link(self) -> None:
+        gv_url = "https://flv.lauthaitv.cc/live/unknown-alpha-beta.flv"
+        gv_rows = [{"id": "gv", "name": "Unknown VS Alpha [FLV]", "url": gv_url, "group": "Bóng đá"}]
+        gv_debug = [{
+            "match_name": "Unknown VS Alpha",
+            "streams": [{"url": gv_url, "playability": "verified", "http_status": 200}],
+        }]
+        report = merge_sources(
+            self.root, [self.make_source("gavang", "Gà Vàng", gv_rows, gv_debug)],
+            now=self.now, preserve_on_empty=False,
+        )
+        text = (self.root / "all_live.m3u").read_text(encoding="utf-8")
+        self.assertIn(gv_url, text)
+        self.assertEqual(report["selected_count"], 1)
+        self.assertEqual(report["channels"][0]["metadata_audit"], "warn-only")
+
 
 if __name__ == "__main__":
     unittest.main()
