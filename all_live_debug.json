@@ -1,6 +1,6 @@
 {
-  "version": "4.4.4-GAVANG-METADATA-DEDUP-FIX",
-  "generated_at": "2026-07-21T18:05:46.204092+07:00",
+  "version": "4.4.5-GAVANG-SOFT-METADATA-AUDIT",
+  "generated_at": "2026-07-21T18:35:18.027786+07:00",
   "policy": {
     "max_streams_per_match_blv": 2,
     "upcoming_keep_hours": 4,
@@ -12,8 +12,8 @@
       "label": "Chuối Chiên",
       "returncode": 0,
       "fresh": true,
-      "debug_rows": 9,
-      "playlist_blocks": 7,
+      "debug_rows": 6,
+      "playlist_blocks": 4,
       "included": true
     },
     {
@@ -21,8 +21,8 @@
       "label": "Lương Sơn",
       "returncode": 0,
       "fresh": true,
-      "debug_rows": 43,
-      "playlist_blocks": 14,
+      "debug_rows": 31,
+      "playlist_blocks": 16,
       "included": true
     },
     {
@@ -31,42 +31,19 @@
       "returncode": 0,
       "fresh": true,
       "debug_rows": 27,
-      "playlist_blocks": 3,
+      "playlist_blocks": 5,
       "included": true
     }
   ],
-  "input_candidates": 24,
-  "selected_count": 22,
+  "input_candidates": 25,
+  "selected_count": 23,
   "dropped_count": 2,
+  "gavang_metadata": {
+    "enriched": 4,
+    "warn_only": 1,
+    "already_good": 0
+  },
   "channels": [
-    {
-      "source": "chuoichien",
-      "source_label": "Chuối Chiên",
-      "url": "https://gckc0525.edgemaxcdn.org/live/chuoitieu.flv",
-      "match_key": "lions vs perth glory|chuoi tieu",
-      "display_name": "[16:30 21/07] Lions vs Perth Glory - Australia Cup [BLV Chuối Tiêu] [FHD FLV]",
-      "group": "Chuối Chiên",
-      "sport_group": "Bóng đá",
-      "quality": "FHD",
-      "kind": "flv",
-      "playability": "verified",
-      "score": 456,
-      "kickoff_iso": "2026-07-21T16:30:00+07:00"
-    },
-    {
-      "source": "chuoichien",
-      "source_label": "Chuối Chiên",
-      "url": "https://gckc0525.edgemaxcdn.org/live/chuoigia.flv",
-      "match_key": "preston lions vs newcastle jets|truc tiep chuoi gia tran au preston li",
-      "display_name": "[16:30 21/07] Preston Lions vs Newcastle Jets - Australia Cup [BLV trực tiếp: Chuối Già Trận đấu Preston Li] [FHD FLV]",
-      "group": "Chuối Chiên",
-      "sport_group": "Bóng đá",
-      "quality": "FHD",
-      "kind": "flv",
-      "playability": "verified",
-      "score": 456,
-      "kickoff_iso": "2026-07-21T16:30:00+07:00"
-    },
     {
       "source": "chuoichien",
       "source_label": "Chuối Chiên",
@@ -79,21 +56,11 @@
       "kind": "flv",
       "playability": "verified",
       "score": 456,
-      "kickoff_iso": "2026-07-21T17:30:00+07:00"
-    },
-    {
-      "source": "chuoichien",
-      "source_label": "Chuối Chiên",
-      "url": "https://gckc0525.edgemaxcdn.org/live/chuoichao/playlist.m3u8",
-      "match_key": "jeju united fc vs gangwon fc|chuoi chao",
-      "display_name": "[17:30 21/07] Jeju United FC vs Gangwon FC - K League 1 [BLV Chuối Chao] (Luồng 2) [M3U8]",
-      "group": "Chuối Chiên",
-      "sport_group": "Bóng đá",
-      "quality": "UNKNOWN",
-      "kind": "m3u8",
-      "playability": "verified",
-      "score": 429,
-      "kickoff_iso": "2026-07-21T17:30:00+07:00"
+      "kickoff_iso": "2026-07-21T17:30:00+07:00",
+      "metadata_audit": null,
+      "metadata_enriched_from": null,
+      "metadata_warning": null,
+      "stream_key_tokens": null
     },
     {
       "source": "chuoichien",
@@ -107,63 +74,47 @@
       "kind": "flv",
       "playability": "verified",
       "score": 456,
-      "kickoff_iso": "2026-07-21T17:30:00+07:00"
-    },
-    {
-      "source": "chuoichien",
-      "source_label": "Chuối Chiên",
-      "url": "https://gckc0525.edgemaxcdn.org/live/troctru/playlist.m3u8",
-      "match_key": "jeonbuk motors vs daejeon citizen|troc tru",
-      "display_name": "[17:30 21/07] Jeonbuk Motors vs Daejeon Citizen - K League 1 [BLV Trốc Tru] (Luồng 2) [M3U8]",
-      "group": "Chuối Chiên",
-      "sport_group": "Bóng đá",
-      "quality": "UNKNOWN",
-      "kind": "m3u8",
-      "playability": "verified",
-      "score": 429,
-      "kickoff_iso": "2026-07-21T17:30:00+07:00"
+      "kickoff_iso": "2026-07-21T17:30:00+07:00",
+      "metadata_audit": null,
+      "metadata_enriched_from": null,
+      "metadata_warning": null,
+      "stream_key_tokens": null
     },
     {
       "source": "chuoichien",
       "source_label": "Chuối Chiên",
       "url": "https://gckc0525.edgemaxcdn.org/live/chuoinho.flv",
-      "match_key": "shanghai sipg vs sichuan jiuniu|chuoi nho",
-      "display_name": "[18:00 21/07] SHANGHAI SIPG vs Sichuan Jiuniu - Cúp FA Trung Quốc [BLV Chuối Nhỏ] [FHD FLV]",
+      "match_key": "shanghai sipg vs sichuan jiuniu|truc tiep chuoi nho tran au shanghai s",
+      "display_name": "[18:00 21/07] SHANGHAI SIPG vs Sichuan Jiuniu - Cúp FA Trung Quốc [BLV trực tiếp: Chuối Nhỏ Trận đấu SHANGHAI S] [FHD FLV]",
       "group": "Chuối Chiên",
       "sport_group": "Bóng đá",
       "quality": "FHD",
       "kind": "flv",
       "playability": "verified",
       "score": 456,
-      "kickoff_iso": "2026-07-21T18:00:00+07:00"
+      "kickoff_iso": "2026-07-21T18:00:00+07:00",
+      "metadata_audit": null,
+      "metadata_enriched_from": null,
+      "metadata_warning": null,
+      "stream_key_tokens": null
     },
     {
-      "source": "luongson",
-      "source_label": "Lương Sơn",
-      "url": "https://hls.cdnfaster-a.live/live/TAOTHAO/index.m3u8?expire=1917964380&sign=6379fc6251248341f0547089859f8ee9",
-      "match_key": "canberra juventus vs canberra fc|tao thao",
-      "display_name": "[21/07/2026 16:30] CANBERRA JUVENTUS vs CANBERRA FC [BLV TÀO THÁO] [M3U8]",
-      "group": "Lương Sơn",
+      "source": "chuoichien",
+      "source_label": "Chuối Chiên",
+      "url": "https://gckc0525.edgemaxcdn.org/live/chuoito.flv",
+      "match_key": "shanghai shenhua vs qingdao jonoon|truc tiep chuoi to tran au shanghai sh",
+      "display_name": "[18:35 21/07] Shanghai Shenhua vs Qingdao Jonoon - Cúp FA Trung Quốc [BLV trực tiếp: Chuối To Trận đấu Shanghai Sh] [FHD FLV]",
+      "group": "Chuối Chiên",
       "sport_group": "Bóng đá",
-      "quality": "UNKNOWN",
-      "kind": "m3u8",
+      "quality": "FHD",
+      "kind": "flv",
       "playability": "verified",
-      "score": 439,
-      "kickoff_iso": "2026-07-21T16:30:00+07:00"
-    },
-    {
-      "source": "luongson",
-      "source_label": "Lương Sơn",
-      "url": "https://hls.cdnfaster-a.live/live/FERNANDO/index.m3u8?expire=1924930980&sign=bab24fb93b0be5c98af9138659989bcb",
-      "match_key": "preston lions vs newcastle jets|fernando",
-      "display_name": "[21/07/2026 16:30] PRESTON LIONS vs NEWCASTLE JETS [BLV Fernando] [M3U8]",
-      "group": "Lương Sơn",
-      "sport_group": "Bóng đá",
-      "quality": "UNKNOWN",
-      "kind": "m3u8",
-      "playability": "verified",
-      "score": 439,
-      "kickoff_iso": "2026-07-21T16:30:00+07:00"
+      "score": 456,
+      "kickoff_iso": "2026-07-21T18:35:00+07:00",
+      "metadata_audit": null,
+      "metadata_enriched_from": null,
+      "metadata_warning": null,
+      "stream_key_tokens": null
     },
     {
       "source": "luongson",
@@ -177,7 +128,11 @@
       "kind": "m3u8",
       "playability": "verified",
       "score": 439,
-      "kickoff_iso": "2026-07-21T16:30:00+07:00"
+      "kickoff_iso": "2026-07-21T16:30:00+07:00",
+      "metadata_audit": null,
+      "metadata_enriched_from": null,
+      "metadata_warning": null,
+      "stream_key_tokens": null
     },
     {
       "source": "luongson",
@@ -191,7 +146,11 @@
       "kind": "m3u8",
       "playability": "verified",
       "score": 439,
-      "kickoff_iso": "2026-07-21T17:00:00+07:00"
+      "kickoff_iso": "2026-07-21T17:00:00+07:00",
+      "metadata_audit": null,
+      "metadata_enriched_from": null,
+      "metadata_warning": null,
+      "stream_key_tokens": null
     },
     {
       "source": "luongson",
@@ -205,7 +164,11 @@
       "kind": "m3u8",
       "playability": "verified",
       "score": 439,
-      "kickoff_iso": "2026-07-21T17:30:00+07:00"
+      "kickoff_iso": "2026-07-21T17:30:00+07:00",
+      "metadata_audit": null,
+      "metadata_enriched_from": null,
+      "metadata_warning": null,
+      "stream_key_tokens": null
     },
     {
       "source": "luongson",
@@ -219,7 +182,11 @@
       "kind": "m3u8",
       "playability": "verified",
       "score": 439,
-      "kickoff_iso": "2026-07-21T17:30:00+07:00"
+      "kickoff_iso": "2026-07-21T17:30:00+07:00",
+      "metadata_audit": null,
+      "metadata_enriched_from": null,
+      "metadata_warning": null,
+      "stream_key_tokens": null
     },
     {
       "source": "luongson",
@@ -233,7 +200,11 @@
       "kind": "m3u8",
       "playability": "verified",
       "score": 439,
-      "kickoff_iso": "2026-07-21T17:30:00+07:00"
+      "kickoff_iso": "2026-07-21T17:30:00+07:00",
+      "metadata_audit": null,
+      "metadata_enriched_from": null,
+      "metadata_warning": null,
+      "stream_key_tokens": null
     },
     {
       "source": "luongson",
@@ -247,7 +218,11 @@
       "kind": "m3u8",
       "playability": "verified",
       "score": 459,
-      "kickoff_iso": "2026-07-21T17:30:00+07:00"
+      "kickoff_iso": "2026-07-21T17:30:00+07:00",
+      "metadata_audit": null,
+      "metadata_enriched_from": null,
+      "metadata_warning": null,
+      "stream_key_tokens": null
     },
     {
       "source": "luongson",
@@ -261,7 +236,11 @@
       "kind": "m3u8",
       "playability": "verified",
       "score": 439,
-      "kickoff_iso": "2026-07-21T18:00:00+07:00"
+      "kickoff_iso": "2026-07-21T18:00:00+07:00",
+      "metadata_audit": null,
+      "metadata_enriched_from": null,
+      "metadata_warning": null,
+      "stream_key_tokens": null
     },
     {
       "source": "luongson",
@@ -275,7 +254,11 @@
       "kind": "m3u8",
       "playability": "verified",
       "score": 439,
-      "kickoff_iso": "2026-07-21T18:00:00+07:00"
+      "kickoff_iso": "2026-07-21T18:00:00+07:00",
+      "metadata_audit": null,
+      "metadata_enriched_from": null,
+      "metadata_warning": null,
+      "stream_key_tokens": null
     },
     {
       "source": "luongson",
@@ -289,21 +272,11 @@
       "kind": "m3u8",
       "playability": "verified",
       "score": 439,
-      "kickoff_iso": "2026-07-21T18:35:00+07:00"
-    },
-    {
-      "source": "luongson",
-      "source_label": "Lương Sơn",
-      "url": "https://hls.cdnfaster-a.live/live/LYUNG1/index.m3u8?expire=1788427256&sign=d5c6932fefdcb98268754f4ccd4aa45d",
-      "match_key": "shanghai shenhua vs qingdao manatee|ly ung",
-      "display_name": "[21/07/2026 18:35] SHANGHAI SHENHUA vs QINGDAO MANATEE [BLV LÝ ỨNG] [M3U8]",
-      "group": "Lương Sơn",
-      "sport_group": "Bóng đá",
-      "quality": "UNKNOWN",
-      "kind": "m3u8",
-      "playability": "verified",
-      "score": 439,
-      "kickoff_iso": "2026-07-21T18:35:00+07:00"
+      "kickoff_iso": "2026-07-21T18:35:00+07:00",
+      "metadata_audit": null,
+      "metadata_enriched_from": null,
+      "metadata_warning": null,
+      "stream_key_tokens": null
     },
     {
       "source": "luongson",
@@ -317,35 +290,188 @@
       "kind": "m3u8",
       "playability": "verified",
       "score": 439,
-      "kickoff_iso": "2026-07-21T18:35:00+07:00"
+      "kickoff_iso": "2026-07-21T18:35:00+07:00",
+      "metadata_audit": null,
+      "metadata_enriched_from": null,
+      "metadata_warning": null,
+      "stream_key_tokens": null
+    },
+    {
+      "source": "luongson",
+      "source_label": "Lương Sơn",
+      "url": "https://hls.cdnfaster-a.live/live/LYUNG1/index.m3u8?expire=1788427256&sign=d5c6932fefdcb98268754f4ccd4aa45d",
+      "match_key": "shanghai shenhua vs qingdao manatee|ly ung",
+      "display_name": "[21/07/2026 18:35] SHANGHAI SHENHUA vs QINGDAO MANATEE [BLV LÝ ỨNG] [M3U8]",
+      "group": "Lương Sơn",
+      "sport_group": "Bóng đá",
+      "quality": "UNKNOWN",
+      "kind": "m3u8",
+      "playability": "verified",
+      "score": 439,
+      "kickoff_iso": "2026-07-21T18:35:00+07:00",
+      "metadata_audit": null,
+      "metadata_enriched_from": null,
+      "metadata_warning": null,
+      "stream_key_tokens": null
+    },
+    {
+      "source": "luongson",
+      "source_label": "Lương Sơn",
+      "url": "https://hls.cdnfaster-a.live/live/VOTONG/index.m3u8?expire=1891347600&sign=cbb47d2000b9576a7b34114624ff8299",
+      "match_key": "wuhan three towns vs shandong taishan|vo tong",
+      "display_name": "[21/07/2026 18:35] WUHAN THREE TOWNS vs SHANDONG TAISHAN [BLV VÕ TÒNG] [M3U8]",
+      "group": "Lương Sơn",
+      "sport_group": "Bóng đá",
+      "quality": "UNKNOWN",
+      "kind": "m3u8",
+      "playability": "verified",
+      "score": 439,
+      "kickoff_iso": "2026-07-21T18:35:00+07:00",
+      "metadata_audit": null,
+      "metadata_enriched_from": null,
+      "metadata_warning": null,
+      "stream_key_tokens": null
+    },
+    {
+      "source": "luongson",
+      "source_label": "Lương Sơn",
+      "url": "https://hls.cdnfaster-a.live/live/TAOTHAO/index.m3u8?expire=1917964380&sign=6379fc6251248341f0547089859f8ee9",
+      "match_key": "henan football club vs dalian zhixing|tao thao",
+      "display_name": "[21/07/2026 19:00] HENAN FOOTBALL CLUB vs DALIAN ZHIXING [BLV TÀO THÁO] [M3U8]",
+      "group": "Lương Sơn",
+      "sport_group": "Bóng đá",
+      "quality": "UNKNOWN",
+      "kind": "m3u8",
+      "playability": "verified",
+      "score": 439,
+      "kickoff_iso": "2026-07-21T19:00:00+07:00",
+      "metadata_audit": null,
+      "metadata_enriched_from": null,
+      "metadata_warning": null,
+      "stream_key_tokens": null
+    },
+    {
+      "source": "luongson",
+      "source_label": "Lương Sơn",
+      "url": "https://hls.cdnfaster-a.live/live/LEO/index.m3u8?expire=1923642660&sign=58990a132e2f8d3f764c947b95b28af6",
+      "match_key": "yunnan yukun vs chengdu rongcheng fc|ma sieu",
+      "display_name": "[21/07/2026 19:00] YUNNAN YUKUN vs CHENGDU RONGCHENG FC [BLV MÃ SIÊU] [M3U8]",
+      "group": "Lương Sơn",
+      "sport_group": "Bóng đá",
+      "quality": "UNKNOWN",
+      "kind": "m3u8",
+      "playability": "verified",
+      "score": 439,
+      "kickoff_iso": "2026-07-21T19:00:00+07:00",
+      "metadata_audit": null,
+      "metadata_enriched_from": null,
+      "metadata_warning": null,
+      "stream_key_tokens": null
+    },
+    {
+      "source": "gavang",
+      "source_label": "Gà Vàng",
+      "url": "https://flv.lauthaitv.cc/live/ulsan-incheon-kork1.flv",
+      "match_key": "kor k1 ulsan hd fc vs incheon united|nguoi che",
+      "display_name": "[17:30 21/07] KOR K1 - Ulsan HD FC VS Incheon United - 21-07 [BLV NGƯỜI CHÈ] [FLV]",
+      "group": "Gà Vàng",
+      "sport_group": "Bóng đá",
+      "quality": "HD",
+      "kind": "flv",
+      "playability": "verified",
+      "score": 438,
+      "kickoff_iso": "2026-07-21T17:30:00+07:00",
+      "metadata_audit": "enriched-soft",
+      "metadata_enriched_from": "luongson",
+      "metadata_warning": null,
+      "stream_key_tokens": [
+        "ulsan",
+        "incheon"
+      ]
+    },
+    {
+      "source": "gavang",
+      "source_label": "Gà Vàng",
+      "url": "https://flv.lauthaitv.cc/live/wuhan-shandong-chnfa.flv",
+      "match_key": "chn fa cup wuhan three towns vs shandong taishan fc|nguoi nan",
+      "display_name": "[18:35 21/07] CHN FA Cup - Wuhan Three Towns VS Shandong Taishan FC - 21-07 [BLV NGƯỜI NẶN] [FLV]",
+      "group": "Gà Vàng",
+      "sport_group": "Bóng đá",
+      "quality": "UNKNOWN",
+      "kind": "flv",
+      "playability": "verified",
+      "score": 418,
+      "kickoff_iso": "2026-07-21T18:35:00+07:00",
+      "metadata_audit": "enriched-soft",
+      "metadata_enriched_from": "luongson",
+      "metadata_warning": null,
+      "stream_key_tokens": [
+        "wuhan",
+        "shandong"
+      ]
+    },
+    {
+      "source": "gavang",
+      "source_label": "Gà Vàng",
+      "url": "https://flv.lauthaitv.cc/live/henan-dalian-chnfacup.flv",
+      "match_key": "henan football club vs dalian zhixing|",
+      "display_name": "[19:00 21/07] HENAN FOOTBALL CLUB vs DALIAN ZHIXING [FLV]",
+      "group": "Gà Vàng",
+      "sport_group": "Bóng đá",
+      "quality": "UNKNOWN",
+      "kind": "flv",
+      "playability": "verified",
+      "score": 418,
+      "kickoff_iso": "2026-07-21T19:00:00+07:00",
+      "metadata_audit": "enriched-soft",
+      "metadata_enriched_from": "luongson",
+      "metadata_warning": null,
+      "stream_key_tokens": [
+        "henan",
+        "dalian"
+      ]
+    },
+    {
+      "source": "gavang",
+      "source_label": "Gà Vàng",
+      "url": "https://flv.lauthaitv.cc/live/yunnan-chengdu-chnfa.flv",
+      "match_key": "yunnan yukun vs chengdu rongcheng fc|",
+      "display_name": "[19:00 21/07] YUNNAN YUKUN vs CHENGDU RONGCHENG FC [FLV]",
+      "group": "Gà Vàng",
+      "sport_group": "Bóng đá",
+      "quality": "UNKNOWN",
+      "kind": "flv",
+      "playability": "verified",
+      "score": 418,
+      "kickoff_iso": "2026-07-21T19:00:00+07:00",
+      "metadata_audit": "enriched-soft",
+      "metadata_enriched_from": "luongson",
+      "metadata_warning": null,
+      "stream_key_tokens": [
+        "yunnan",
+        "chengdu"
+      ]
     },
     {
       "source": "gavang",
       "source_label": "Gà Vàng",
       "url": "https://flv.lauthaitv.cc/live/jeju-gangwon-kork1.flv",
-      "match_key": "jeju gangwon kork1|",
-      "display_name": "jeju gangwon kork1 [FLV]",
+      "match_key": "kor k1 jeju sk fc vs gangwon football club|nguoi tien su",
+      "display_name": "KOR K1 - Jeju SK FC VS Gangwon Football Club - 21-07 [BLV NGƯỜI TIỀN SỬ] [FLV]",
       "group": "Gà Vàng",
       "sport_group": "Bóng đá",
       "quality": "UNKNOWN",
       "kind": "flv",
       "playability": "verified",
       "score": 418,
-      "kickoff_iso": null
-    },
-    {
-      "source": "gavang",
-      "source_label": "Gà Vàng",
-      "url": "https://flv.lauthaitv.cc/live/queensland-perth-ausffa.flv",
-      "match_key": "jeju sk fc vs gangwon football club|",
-      "display_name": "Jeju SK FC vs Gangwon Football Club [FLV]",
-      "group": "Gà Vàng",
-      "sport_group": "Bóng đá",
-      "quality": "UNKNOWN",
-      "kind": "flv",
-      "playability": "verified",
-      "score": 418,
-      "kickoff_iso": null
+      "kickoff_iso": null,
+      "metadata_audit": "warn-only",
+      "metadata_enriched_from": null,
+      "metadata_warning": "Không tìm được lịch/tên đối chiếu đủ tin cậy từ nguồn khác; stream verified vẫn được giữ",
+      "stream_key_tokens": [
+        "jeju",
+        "gangwon"
+      ]
     }
   ],
   "dropped": [
@@ -356,10 +482,10 @@
       "match_key": "ulsan hd fc vs incheon united|lu bo"
     },
     {
-      "url": "https://flv.lauthaitv.cc/live/ulsan-incheon-kork1.flv",
+      "url": "https://tvc.cdnfaster-a.live/playlist.m3u8",
       "reason": "duplicate-quality-UNKNOWN",
-      "source": "gavang",
-      "match_key": "jeju sk fc vs gangwon football club|"
+      "source": "luongson",
+      "match_key": "yunnan yukun vs chengdu rongcheng fc|ma sieu"
     }
   ],
   "outputs_written": true

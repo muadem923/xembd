@@ -1,58 +1,28 @@
 #EXTM3U
-#EXTINF:-1 tvg-id="chuoichien-1560865-1" tvg-name="[16:30 21/07] Lions vs Perth Glory - Australia Cup [BLV Chuối Tiêu]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_141412_24481446.png",[16:30 21/07] Lions vs Perth Glory - Australia Cup [BLV Chuối Tiêu] [FHD FLV]
-#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
-https://gckc0525.edgemaxcdn.org/live/chuoitieu.flv
-#EXTINF:-1 tvg-id="chuoichien-1560864-1" tvg-name="[16:30 21/07] Preston Lions vs Newcastle Jets - Australia Cup [BLV trực tiếp: Chuối Già Trận đấu Preston Li]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_130441_f1a2632a.png",[16:30 21/07] Preston Lions vs Newcastle Jets - Australia Cup [BLV trực tiếp: Chuối Già Trận đấu Preston Li] [FHD FLV]
-#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
-https://gckc0525.edgemaxcdn.org/live/chuoigia.flv
 #EXTINF:-1 tvg-id="chuoichien-1507004-1" tvg-name="[17:30 21/07] Jeju United FC vs Gangwon FC - K League 1 [BLV Chuối Chao]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_133955_dbd7e40e.png",[17:30 21/07] Jeju United FC vs Gangwon FC - K League 1 [BLV Chuối Chao] [FHD FLV]
 #EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
 https://gckc0525.edgemaxcdn.org/live/chuoichao.flv
-#EXTINF:-1 tvg-id="chuoichien-1507004-2" tvg-name="[17:30 21/07] Jeju United FC vs Gangwon FC - K League 1 [BLV Chuối Chao]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_133955_dbd7e40e.png",[17:30 21/07] Jeju United FC vs Gangwon FC - K League 1 [BLV Chuối Chao] (Luồng 2) [M3U8]
-#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
-https://gckc0525.edgemaxcdn.org/live/chuoichao/playlist.m3u8
 #EXTINF:-1 tvg-id="chuoichien-1507005-1" tvg-name="[17:30 21/07] Jeonbuk Motors vs Daejeon Citizen - K League 1 [BLV Trốc Tru]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_133955_c8eda616.png",[17:30 21/07] Jeonbuk Motors vs Daejeon Citizen - K League 1 [BLV Trốc Tru] [FHD FLV]
 #EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
 https://gckc0525.edgemaxcdn.org/live/troctru.flv
-#EXTINF:-1 tvg-id="chuoichien-1507005-2" tvg-name="[17:30 21/07] Jeonbuk Motors vs Daejeon Citizen - K League 1 [BLV Trốc Tru]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_133955_c8eda616.png",[17:30 21/07] Jeonbuk Motors vs Daejeon Citizen - K League 1 [BLV Trốc Tru] (Luồng 2) [M3U8]
-#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
-https://gckc0525.edgemaxcdn.org/live/troctru/playlist.m3u8
-#EXTINF:-1 tvg-id="chuoichien-1567362-1" tvg-name="[18:00 21/07] SHANGHAI SIPG vs Sichuan Jiuniu - Cúp FA Trung Quốc [BLV Chuối Nhỏ]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_133411_6f730c26.png",[18:00 21/07] SHANGHAI SIPG vs Sichuan Jiuniu - Cúp FA Trung Quốc [BLV Chuối Nhỏ] [FHD FLV]
+#EXTINF:-1 tvg-id="chuoichien-1567362-1" tvg-name="[18:00 21/07] SHANGHAI SIPG vs Sichuan Jiuniu - Cúp FA Trung Quốc [BLV trực tiếp: Chuối Nhỏ Trận đấu SHANGHAI S]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_133411_6f730c26.png",[18:00 21/07] SHANGHAI SIPG vs Sichuan Jiuniu - Cúp FA Trung Quốc [BLV trực tiếp: Chuối Nhỏ Trận đấu SHANGHAI S] [FHD FLV]
 #EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
 https://gckc0525.edgemaxcdn.org/live/chuoinho.flv
-#EXTINF:-1 tvg-id="hygenie-86cf4da57ba8-383-1" tvg-name="[21/07/2026 16:30] CANBERRA JUVENTUS vs CANBERRA FC [BLV TÀO THÁO]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/61152_1gvwgcn3p310.png",[21/07/2026 16:30] CANBERRA JUVENTUS vs CANBERRA FC [BLV TÀO THÁO] [M3U8]
-#EXTVLCOPT:http-referrer=https://catbee.io/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTINF:-1 tvg-id="chuoichien-1567358-1" tvg-name="[18:35 21/07] Shanghai Shenhua vs Qingdao Jonoon - Cúp FA Trung Quốc [BLV trực tiếp: Chuối To Trận đấu Shanghai Sh]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_133410_6ecad300.png",[18:35 21/07] Shanghai Shenhua vs Qingdao Jonoon - Cúp FA Trung Quốc [BLV trực tiếp: Chuối To Trận đấu Shanghai Sh] [FHD FLV]
+#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
-https://hls.cdnfaster-a.live/live/TAOTHAO/index.m3u8?expire=1917964380&sign=6379fc6251248341f0547089859f8ee9
-#EXTINF:-1 tvg-id="hygenie-00892ae58b7e-368-1" tvg-name="[21/07/2026 16:30] PRESTON LIONS vs NEWCASTLE JETS [BLV Fernando]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/4467_1htp6esmkg27.png",[21/07/2026 16:30] PRESTON LIONS vs NEWCASTLE JETS [BLV Fernando] [M3U8]
-#EXTVLCOPT:http-referrer=https://catbee.io/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
-https://hls.cdnfaster-a.live/live/FERNANDO/index.m3u8?expire=1924930980&sign=bab24fb93b0be5c98af9138659989bcb
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
+https://gckc0525.edgemaxcdn.org/live/chuoito.flv
 #EXTINF:-1 tvg-id="hygenie-df5704533328-269-1" tvg-name="[21/07/2026 16:30] QUEENSLAND LIONS SC vs PERTH GLORY [BLV MÃ SIÊU]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/11673_1gryyqvhkg2.png",[21/07/2026 16:30] QUEENSLAND LIONS SC vs PERTH GLORY [BLV MÃ SIÊU] [M3U8]
 #EXTVLCOPT:http-referrer=https://catbee.io/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
@@ -107,27 +77,63 @@ https://hls.cdnfaster-a.live/live/LUUBI/index.m3u8?expire=1788427256&sign=e15f8b
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
 https://hls.cdnfaster-a.live/live/LIO/index.m3u8?expire=1923141900&sign=fff7ab29620de2a54fba04f5f3ca246a
+#EXTINF:-1 tvg-id="hygenie-813fe14f8111-320-1" tvg-name="[21/07/2026 18:35] SHANGHAI SHENHUA vs QINGDAO MANATEE [BLV YẾN THANH]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/33_1gy3vjsrhn1p.png",[21/07/2026 18:35] SHANGHAI SHENHUA vs QINGDAO MANATEE [BLV YẾN THANH] [M3U8]
+#EXTVLCOPT:http-referrer=https://catbee.io/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
+https://hls.cdnfaster-a.live/live/YENTHANH1/index.m3u8?expire=1788427256&sign=a79cc8d996707223a0011d33d04d4582
 #EXTINF:-1 tvg-id="hygenie-813fe14f8111-292-1" tvg-name="[21/07/2026 18:35] SHANGHAI SHENHUA vs QINGDAO MANATEE [BLV LÝ ỨNG]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/33_1gy3vjsrhn1p.png",[21/07/2026 18:35] SHANGHAI SHENHUA vs QINGDAO MANATEE [BLV LÝ ỨNG] [M3U8]
 #EXTVLCOPT:http-referrer=https://catbee.io/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
 https://hls.cdnfaster-a.live/live/LYUNG1/index.m3u8?expire=1788427256&sign=d5c6932fefdcb98268754f4ccd4aa45d
-#EXTINF:-1 tvg-id="hygenie-813fe14f8111-1" tvg-name="[21/07/2026 18:35] SHANGHAI SHENHUA vs QINGDAO MANATEE [BLV YẾN THANH]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/33_1gy3vjsrhn1p.png",[21/07/2026 18:35] SHANGHAI SHENHUA vs QINGDAO MANATEE [BLV YẾN THANH] [M3U8]
+#EXTINF:-1 tvg-id="hygenie-92b91d3b57ca-328-1" tvg-name="[21/07/2026 18:35] WUHAN THREE TOWNS vs SHANDONG TAISHAN [BLV VÕ TÒNG]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/38904_1hd5at5b6g1y.png",[21/07/2026 18:35] WUHAN THREE TOWNS vs SHANDONG TAISHAN [BLV VÕ TÒNG] [M3U8]
 #EXTVLCOPT:http-referrer=https://catbee.io/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
-https://hls.cdnfaster-a.live/live/YENTHANH1/index.m3u8?expire=1788427256&sign=a79cc8d996707223a0011d33d04d4582
-#EXTINF:-1 tvg-id="gavang-2451-1" tvg-name="jeju gangwon kork1" group-title="Gà Vàng" tvg-logo="https://smorf.io/s8-live/2451/jeju-gangwon-kork1/[object Object]",jeju gangwon kork1 [FLV]
+https://hls.cdnfaster-a.live/live/VOTONG/index.m3u8?expire=1891347600&sign=cbb47d2000b9576a7b34114624ff8299
+#EXTINF:-1 tvg-id="hygenie-6533ab710971-383-1" tvg-name="[21/07/2026 19:00] HENAN FOOTBALL CLUB vs DALIAN ZHIXING [BLV TÀO THÁO]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/495_1j39p5ccv415.png",[21/07/2026 19:00] HENAN FOOTBALL CLUB vs DALIAN ZHIXING [BLV TÀO THÁO] [M3U8]
+#EXTVLCOPT:http-referrer=https://catbee.io/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
+https://hls.cdnfaster-a.live/live/TAOTHAO/index.m3u8?expire=1917964380&sign=6379fc6251248341f0547089859f8ee9
+#EXTINF:-1 tvg-id="hygenie-b13863a9e1ab-1" tvg-name="[21/07/2026 19:00] YUNNAN YUKUN vs CHENGDU RONGCHENG FC [BLV MÃ SIÊU]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/61513_1k0qw9nssh1n.png",[21/07/2026 19:00] YUNNAN YUKUN vs CHENGDU RONGCHENG FC [BLV MÃ SIÊU] [M3U8]
+#EXTVLCOPT:http-referrer=https://catbee.io/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
+https://hls.cdnfaster-a.live/live/LEO/index.m3u8?expire=1923642660&sign=58990a132e2f8d3f764c947b95b28af6
+#EXTINF:-1 tvg-id="gavang-2450-1" tvg-name="[17:30 21/07] KOR K1 - Ulsan HD FC VS Incheon United - 21-07 [BLV NGƯỜI CHÈ]" group-title="Gà Vàng" tvg-logo="https://smorf.io/s8-live/2450/ulsan-incheon-kork1/[object Object]",[17:30 21/07] KOR K1 - Ulsan HD FC VS Incheon United - 21-07 [BLV NGƯỜI CHÈ] [FLV]
+#EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2450/ulsan-incheon-kork1/?s8_live_fixture_id=2450&s8_live_stream_key=ulsan-incheon-kork1&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2450/ulsan-incheon-kork1/?s8_live_fixture_id=2450&s8_live_stream_key=ulsan-incheon-kork1&s8_auto_sound=1","Origin":"https://smorf.io"}
+https://flv.lauthaitv.cc/live/ulsan-incheon-kork1.flv
+#EXTINF:-1 tvg-id="gavang-2452-1" tvg-name="[18:35 21/07] CHN FA Cup - Wuhan Three Towns VS Shandong Taishan FC - 21-07 [BLV NGƯỜI NẶN]" group-title="Gà Vàng" tvg-logo="https://smorf.io/s8-live/2452/wuhan-shandong-chnfa/[object Object]",[18:35 21/07] CHN FA Cup - Wuhan Three Towns VS Shandong Taishan FC - 21-07 [BLV NGƯỜI NẶN] [FLV]
+#EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2452/wuhan-shandong-chnfa/?s8_live_fixture_id=2452&s8_live_stream_key=wuhan-shandong-chnfa&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2452/wuhan-shandong-chnfa/?s8_live_fixture_id=2452&s8_live_stream_key=wuhan-shandong-chnfa&s8_auto_sound=1","Origin":"https://smorf.io"}
+https://flv.lauthaitv.cc/live/wuhan-shandong-chnfa.flv
+#EXTINF:-1 tvg-id="gavang-2454-1" tvg-name="[19:00 21/07] HENAN FOOTBALL CLUB vs DALIAN ZHIXING" group-title="Gà Vàng" tvg-logo="https://smorf.io/s8-live/2454/henan-dalian-chnfacup/[object Object]",[19:00 21/07] HENAN FOOTBALL CLUB vs DALIAN ZHIXING [FLV]
+#EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2454/henan-dalian-chnfacup/?s8_live_fixture_id=2454&s8_live_stream_key=henan-dalian-chnfacup&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2454/henan-dalian-chnfacup/?s8_live_fixture_id=2454&s8_live_stream_key=henan-dalian-chnfacup&s8_auto_sound=1","Origin":"https://smorf.io"}
+https://flv.lauthaitv.cc/live/henan-dalian-chnfacup.flv
+#EXTINF:-1 tvg-id="gavang-2453-1" tvg-name="[19:00 21/07] YUNNAN YUKUN vs CHENGDU RONGCHENG FC" group-title="Gà Vàng" tvg-logo="https://smorf.io/s8-live/2453/yunnan-chengdu-chnfa/[object Object]",[19:00 21/07] YUNNAN YUKUN vs CHENGDU RONGCHENG FC [FLV]
+#EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2453/yunnan-chengdu-chnfa/?s8_live_fixture_id=2453&s8_live_stream_key=yunnan-chengdu-chnfa&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2453/yunnan-chengdu-chnfa/?s8_live_fixture_id=2453&s8_live_stream_key=yunnan-chengdu-chnfa&s8_auto_sound=1","Origin":"https://smorf.io"}
+https://flv.lauthaitv.cc/live/yunnan-chengdu-chnfa.flv
+#EXTINF:-1 tvg-id="gavang-2451-1" tvg-name="KOR K1 - Jeju SK FC VS Gangwon Football Club - 21-07 [BLV NGƯỜI TIỀN SỬ]" group-title="Gà Vàng" tvg-logo="https://smorf.io/s8-live/2451/jeju-gangwon-kork1/[object Object]",KOR K1 - Jeju SK FC VS Gangwon Football Club - 21-07 [BLV NGƯỜI TIỀN SỬ] [FLV]
 #EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2451/jeju-gangwon-kork1/?s8_live_fixture_id=2451&s8_live_stream_key=jeju-gangwon-kork1&s8_auto_sound=1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2451/jeju-gangwon-kork1/?s8_live_fixture_id=2451&s8_live_stream_key=jeju-gangwon-kork1&s8_auto_sound=1","Origin":"https://smorf.io"}
 https://flv.lauthaitv.cc/live/jeju-gangwon-kork1.flv
-#EXTINF:-1 tvg-id="gavang-2449-1" tvg-name="Jeju SK FC vs Gangwon Football Club" group-title="Gà Vàng" tvg-logo="https://smorf.io/wp-json/s8-image/62e8fe8a-2663-45b1-be76-fa524209fa95",Jeju SK FC vs Gangwon Football Club [FLV]
-#EXTVLCOPT:http-referrer=https://smorf.io/s8-live/2449/queensland-perth-ausffa/?s8_live_fixture_id=2449&s8_live_stream_key=queensland-perth-ausffa&s8_auto_sound=1
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://smorf.io/s8-live/2449/queensland-perth-ausffa/?s8_live_fixture_id=2449&s8_live_stream_key=queensland-perth-ausffa&s8_auto_sound=1","Origin":"https://smorf.io"}
-https://flv.lauthaitv.cc/live/queensland-perth-ausffa.flv
