@@ -1,46 +1,22 @@
 #EXTM3U
-#EXTINF:-1 tvg-id="chuoichien-1567362-1" tvg-name="[18:00 21/07] SHANGHAI SIPG vs Sichuan Jiuniu - Cúp FA Trung Quốc [BLV Chuối Nhỏ]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_133411_6f730c26.png",[18:00 21/07] SHANGHAI SIPG vs Sichuan Jiuniu - Cúp FA Trung Quốc [BLV Chuối Nhỏ] [FHD FLV]
-#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
-https://gckc0525.edgemaxcdn.org/live/chuoinho.flv
-#EXTINF:-1 tvg-id="chuoichien-1567362-2" tvg-name="[18:00 21/07] SHANGHAI SIPG vs Sichuan Jiuniu - Cúp FA Trung Quốc [BLV Chuối Nhỏ]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_133411_6f730c26.png",[18:00 21/07] SHANGHAI SIPG vs Sichuan Jiuniu - Cúp FA Trung Quốc [BLV Chuối Nhỏ] (Luồng 2) [M3U8]
-#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
-https://gckc0525.edgemaxcdn.org/live/chuoinho/playlist.m3u8
-#EXTINF:-1 tvg-id="chuoichien-1567358-1" tvg-name="[18:35 21/07] Shanghai Shenhua vs Qingdao Jonoon - Cúp FA Trung Quốc [BLV Chuối To]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_133410_6ecad300.png",[18:35 21/07] Shanghai Shenhua vs Qingdao Jonoon - Cúp FA Trung Quốc [BLV Chuối To] [FHD FLV]
-#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
-https://gckc0525.edgemaxcdn.org/live/chuoito.flv
 #EXTINF:-1 tvg-id="chuoichien-1567359-1" tvg-name="[19:00 21/07] Yunnan Yukun vs Chengdu Better City - Cúp FA Trung Quốc [BLV Chuối Già]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_133510_453543a3.png",[19:00 21/07] Yunnan Yukun vs Chengdu Better City - Cúp FA Trung Quốc [BLV Chuối Già] [FHD FLV]
 #EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
 https://gckc0525.edgemaxcdn.org/live/chuoigia.flv
+#EXTINF:-1 tvg-id="chuoichien-1567359-2" tvg-name="[19:00 21/07] Yunnan Yukun vs Chengdu Better City - Cúp FA Trung Quốc [BLV Chuối Già]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_133510_453543a3.png",[19:00 21/07] Yunnan Yukun vs Chengdu Better City - Cúp FA Trung Quốc [BLV Chuối Già] (Luồng 2) [M3U8]
+#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
+https://gckc0525.edgemaxcdn.org/live/chuoigia/playlist.m3u8
 #EXTINF:-1 tvg-id="hygenie-d2782136c132-380-1" tvg-name="[21/07/2026 18:35] CHONGQING TONGLIANGLONG vs QINGDAO WEST COAST [BLV Lio]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/61524_1hysdzw5hv1f.png",[21/07/2026 18:35] CHONGQING TONGLIANGLONG vs QINGDAO WEST COAST [BLV Lio] [M3U8]
 #EXTVLCOPT:http-referrer=https://catbee.io/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
 https://hls.cdnfaster-a.live/live/LIO/index.m3u8?expire=1923141900&sign=fff7ab29620de2a54fba04f5f3ca246a
-#EXTINF:-1 tvg-id="hygenie-813fe14f8111-320-1" tvg-name="[21/07/2026 18:35] SHANGHAI SHENHUA vs QINGDAO MANATEE [BLV YẾN THANH]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/33_1gy3vjsrhn1p.png",[21/07/2026 18:35] SHANGHAI SHENHUA vs QINGDAO MANATEE [BLV YẾN THANH] [M3U8]
-#EXTVLCOPT:http-referrer=https://catbee.io/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
-https://hls.cdnfaster-a.live/live/YENTHANH1/index.m3u8?expire=1788427256&sign=a79cc8d996707223a0011d33d04d4582
-#EXTINF:-1 tvg-id="hygenie-813fe14f8111-292-1" tvg-name="[21/07/2026 18:35] SHANGHAI SHENHUA vs QINGDAO MANATEE [BLV LÝ ỨNG]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/33_1gy3vjsrhn1p.png",[21/07/2026 18:35] SHANGHAI SHENHUA vs QINGDAO MANATEE [BLV LÝ ỨNG] [M3U8]
-#EXTVLCOPT:http-referrer=https://catbee.io/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://catbee.io/","Origin":"https://catbee.io"}
-https://hls.cdnfaster-a.live/live/LYUNG1/index.m3u8?expire=1788427256&sign=d5c6932fefdcb98268754f4ccd4aa45d
 #EXTINF:-1 tvg-id="hygenie-92b91d3b57ca-328-1" tvg-name="[21/07/2026 18:35] WUHAN THREE TOWNS vs SHANDONG TAISHAN [BLV VÕ TÒNG]" group-title="Lương Sơn" tvg-logo="https://cdn-img.cdnokvip.com/logos/38904_1hd5at5b6g1y.png",[21/07/2026 18:35] WUHAN THREE TOWNS vs SHANDONG TAISHAN [BLV VÕ TÒNG] [M3U8]
 #EXTVLCOPT:http-referrer=https://catbee.io/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
