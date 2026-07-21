@@ -1,4 +1,4 @@
-name: Quet Chuoi Chien Luong Son va Ga Vang v4.4.5 - Gà Vàng Metadata Soft Audit
+name: Quet Chuoi Chien Luong Son va Ga Vang v4.4.7 - Gà Vàng Chờ Phát FLV
 
 on:
   workflow_dispatch:
@@ -48,6 +48,8 @@ jobs:
           MULTI_RUN_SOURCES_PARALLEL: "1"
           MULTI_MAX_STREAMS_PER_MATCH: "2"
           MULTI_UPCOMING_KEEP_HOURS: "4"
+          MULTI_PENDING_PAST_MINUTES: "150"
+          MULTI_KEEP_GAVANG_UNKNOWN_PENDING: "1"
 
           SOCOLIVE_HOME_URLS: "https://live04.chuoichientv.me/,https://live03.chuoichientv.me/"
           SOCOLIVE_MATCH_CONCURRENCY: "3"
@@ -97,6 +99,7 @@ jobs:
           HYGENIE_UPCOMING_NEAR_WAIT_SECONDS: "12"
 
           GAVANG_HOME_URLS: "https://smorf.io/"
+          GAVANG_SOURCE_LOGO_URL: "https://smorf.io/favicon.ico"
           GAVANG_MATCH_CONCURRENCY: "3"
           GAVANG_HOME_WAIT_MS: "6000"
           GAVANG_ROOM_WAIT_SECONDS: "16"
@@ -110,6 +113,8 @@ jobs:
           GAVANG_STATE_PATH: "gavang_state.json"
           GAVANG_SCAN_UNKNOWN_LIVE: "1"
           GAVANG_PROBE_UNKNOWN_STREAM_KEYS: "1"
+          GAVANG_KEEP_DERIVED_PENDING: "1"
+          GAVANG_KEEP_UNKNOWN_TIME_PENDING: "1"
           GAVANG_FULL_SCAN: "1"
           GAVANG_VERIFY_STREAMS: "1"
           GAVANG_VERIFY_TIMEOUT_SECONDS: "7"
@@ -182,6 +187,14 @@ jobs:
               key = (channel.get("match_key"), channel.get("quality"))
               per_match_quality[key] += 1
               if channel.get("source") == "gavang":
+                  logo = str(channel.get("logo") or "")
+                  if not re.match(r"^https?://", logo) or "[object object]" in logo.lower():
+                      warnings.append(f"Gà Vàng logo không hợp lệ nhưng stream vẫn giữ: {url} | logo={logo!r}")
+                  if channel.get("playability") == "upcoming-pending":
+                      if not channel.get("derived_pending"):
+                          failures.append(f"Gà Vàng pending không phải FLV dựng: {url}")
+                      if not url.lower().split("?", 1)[0].endswith(".flv"):
+                          failures.append(f"Gà Vàng pending không phải FLV: {url}")
                   metadata_audit = channel.get("metadata_audit")
                   if metadata_audit == "warn-only":
                       warnings.append(
@@ -197,11 +210,21 @@ jobs:
                   failures.append(f"Trung chat luong {quality} trong {match_key}: {count}")
 
           text = Path("all_live.m3u").read_text(encoding="utf-8")
+          pending_urls = {
+              channel.get("url") for channel in report.get("channels", [])
+              if channel.get("source") == "gavang"
+              and channel.get("playability") == "upcoming-pending"
+          }
+          pending_extinf = ""
           for line in text.splitlines():
               if line.startswith("#EXTINF"):
+                  pending_extinf = line
                   match = re.search(r'group-title="([^"]+)"', line)
                   if not match or match.group(1) not in {"Chuối Chiên", "Lương Sơn", "Gà Vàng"}:
                       failures.append(f"group-title khong hop le: {line}")
+              elif line.startswith(("http://", "https://")) and line in pending_urls:
+                  if "CHỜ PHÁT" not in pending_extinf:
+                      failures.append(f"Gà Vàng pending thiếu nhãn CHỜ PHÁT: {line}")
 
           for item in warnings:
               print(f"::warning::{item}")
@@ -213,7 +236,7 @@ jobs:
 
           print(
               f"Audit OK: {len(urls)} stream chung; nguon={report.get('sources')} | "
-              f"gavang_metadata={report.get('gavang_metadata')} | warnings={len(warnings)}"
+              f"gavang_metadata={report.get('gavang_metadata')} | gavang_logo={report.get('gavang_logo')} | warnings={len(warnings)}"
           )
           PY_AUDIT
 
@@ -271,5 +294,5 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Update live streams v4.4.5 (Gavang soft metadata audit)"
+          git commit -m "Update live streams v4.4.7 (Gavang pending FLV)"
           git push origin "HEAD:${GITHUB_REF_NAME}"
