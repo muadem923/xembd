@@ -1,6 +1,6 @@
 {
   "version": "4.4.2-SINGLE-M3U-SOURCE-GROUPS",
-  "generated_at": "2026-07-21T14:34:31.594953+07:00",
+  "generated_at": "2026-07-21T15:05:19.183362+07:00",
   "policy": {
     "max_streams_per_match_blv": 2,
     "upcoming_keep_hours": 4,
@@ -12,8 +12,8 @@
       "label": "Chuối Chiên",
       "returncode": 0,
       "fresh": true,
-      "debug_rows": 4,
-      "playlist_blocks": 0,
+      "debug_rows": 7,
+      "playlist_blocks": 2,
       "included": true
     },
     {
@@ -21,8 +21,8 @@
       "label": "Lương Sơn",
       "returncode": 0,
       "fresh": true,
-      "debug_rows": 18,
-      "playlist_blocks": 0,
+      "debug_rows": 32,
+      "playlist_blocks": 3,
       "included": true
     },
     {
@@ -35,16 +35,86 @@
       "included": true
     }
   ],
-  "input_candidates": 1,
-  "selected_count": 1,
+  "input_candidates": 6,
+  "selected_count": 6,
   "dropped_count": 0,
   "channels": [
+    {
+      "source": "chuoichien",
+      "source_label": "Chuối Chiên",
+      "url": "https://gckc0525.edgemaxcdn.org/live/chuoito.flv",
+      "match_key": "dalian kewei vs beijing guoan|chuoi to",
+      "display_name": "[15:00 21/07] Dalian Kewei vs Beijing Guoan - Cúp FA Trung Quốc [BLV Chuối To] [FHD FLV]",
+      "group": "Chuối Chiên",
+      "sport_group": "Bóng đá",
+      "quality": "FHD",
+      "kind": "flv",
+      "playability": "verified",
+      "score": 456,
+      "kickoff_iso": "2026-07-21T15:00:00+07:00"
+    },
+    {
+      "source": "chuoichien",
+      "source_label": "Chuối Chiên",
+      "url": "https://gckc0525.edgemaxcdn.org/live/chuoito/playlist.m3u8",
+      "match_key": "dalian kewei vs beijing guoan|chuoi to",
+      "display_name": "[15:00 21/07] Dalian Kewei vs Beijing Guoan - Cúp FA Trung Quốc [BLV Chuối To] (Luồng 2) [M3U8]",
+      "group": "Chuối Chiên",
+      "sport_group": "Bóng đá",
+      "quality": "UNKNOWN",
+      "kind": "m3u8",
+      "playability": "verified",
+      "score": 429,
+      "kickoff_iso": "2026-07-21T15:00:00+07:00"
+    },
+    {
+      "source": "luongson",
+      "source_label": "Lương Sơn",
+      "url": "https://hls.cdnfaster-a.live/live/VOTONG/index.m3u8?expire=1891347600&sign=cbb47d2000b9576a7b34114624ff8299",
+      "match_key": "basilan steel vs sarangani marlins|vo tong",
+      "display_name": "[21/07/2026 15:00] BASILAN STEEL vs SARANGANI MARLINS [BLV VÕ TÒNG] [M3U8]",
+      "group": "Lương Sơn",
+      "sport_group": "Bóng đá",
+      "quality": "UNKNOWN",
+      "kind": "m3u8",
+      "playability": "verified",
+      "score": 439,
+      "kickoff_iso": "2026-07-21T15:00:00+07:00"
+    },
+    {
+      "source": "luongson",
+      "source_label": "Lương Sơn",
+      "url": "https://hls.cdnfaster-a.live/live/LEO/index.m3u8?expire=1923642660&sign=58990a132e2f8d3f764c947b95b28af6",
+      "match_key": "dalian kewei vs beijing guoan|leo",
+      "display_name": "[21/07/2026 15:00] DALIAN KEWEI vs BEIJING GUOAN [BLV Leo] [M3U8]",
+      "group": "Lương Sơn",
+      "sport_group": "Bóng đá",
+      "quality": "UNKNOWN",
+      "kind": "m3u8",
+      "playability": "verified",
+      "score": 439,
+      "kickoff_iso": "2026-07-21T15:00:00+07:00"
+    },
+    {
+      "source": "luongson",
+      "source_label": "Lương Sơn",
+      "url": "https://hls.cdnfaster-a.live/live/LUUBI/index.m3u8?expire=1788427256&sign=e15f8b184dc9c61cc5dacfd962841ae1",
+      "match_key": "dalian kewei vs beijing guoan|luu bi",
+      "display_name": "[21/07/2026 15:00] DALIAN KEWEI vs BEIJING GUOAN [BLV LƯU BỊ] [M3U8]",
+      "group": "Lương Sơn",
+      "sport_group": "Bóng đá",
+      "quality": "UNKNOWN",
+      "kind": "m3u8",
+      "playability": "verified",
+      "score": 439,
+      "kickoff_iso": "2026-07-21T15:00:00+07:00"
+    },
     {
       "source": "gavang",
       "source_label": "Gà Vàng",
       "url": "https://live-bong.s3.ap-southeast-1.amazonaws.com/New+folder/hls_abr/copy_CE1198F2-AD34-4956-822A-1F66706D2422/source/index.m3u8",
-      "match_key": "jeju gangwon kork1|",
-      "display_name": "aarhus lech c1qual [SD M3U8]",
+      "match_key": "queensland perth ausffa|",
+      "display_name": "henan dalian chnfacup [SD M3U8]",
       "group": "Gà Vàng",
       "sport_group": "Bóng đá",
       "quality": "SD",
