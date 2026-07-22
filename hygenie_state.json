@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "luongson",
-  "updated_at": "2026-07-22T23:02:43.601240+07:00",
+  "updated_at": "2026-07-22T23:13:43.138340+07:00",
   "matches": {
     "dbdf8cfe3f68": {
       "url": "https://catbee.io/truc-tiep/basilan-steel-vs-sarangani-marlins-vao-luc-1500-21-07-2026/",
@@ -1103,28 +1103,24 @@
       "url": "https://laservision.io/truc-tiep/lokomotiv-tashkent-vs-fk-andijon-vao-luc-2200-22-07-2026/?blv=372",
       "match_name": "LOKOMOTIV TASHKENT vs FK ANDIJON",
       "kickoff_iso": "2026-07-22T22:00:00+07:00",
-      "minutes_to_kickoff": -61,
-      "last_scan_at": "2026-07-22T23:02:43.600902+07:00",
-      "next_scan_at": "2026-07-22T23:07:43.600902+07:00",
+      "minutes_to_kickoff": -72,
+      "last_scan_at": "2026-07-22T23:13:43.138041+07:00",
+      "next_scan_at": "2026-07-22T23:18:43.138041+07:00",
       "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/LAOHAC/index.m3u8?expire=2556118740&sign=d7e003f1201f61166a559ac474dc7491"
-      ],
+      "has_verified": false,
+      "verified_urls": [],
       "scan_decision": "browser-fallback"
     },
     "271fb65c8c25": {
       "url": "https://laservision.io/truc-tiep/mashal-muborak-vs-nasaf-qarshi-vao-luc-2200-22-07-2026/?blv=359",
       "match_name": "MASHAL MUBORAK vs NASAF QARSHI",
       "kickoff_iso": "2026-07-22T22:00:00+07:00",
-      "minutes_to_kickoff": -61,
-      "last_scan_at": "2026-07-22T23:02:43.600902+07:00",
-      "next_scan_at": "2026-07-22T23:07:43.600902+07:00",
+      "minutes_to_kickoff": -72,
+      "last_scan_at": "2026-07-22T23:13:43.138041+07:00",
+      "next_scan_at": "2026-07-22T23:18:43.138041+07:00",
       "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/LEO/index.m3u8?expire=1923642660&sign=58990a132e2f8d3f764c947b95b28af6"
-      ],
+      "has_verified": false,
+      "verified_urls": [],
       "scan_decision": "browser-fallback"
     },
     "90ddcbb1e000": {
@@ -1143,14 +1139,12 @@
       "url": "https://laservision.io/truc-tiep/kuruvchi-kokand-qoqon-vs-otmk-olmaliq-vao-luc-2200-22-07-2026/?blv=383",
       "match_name": "KURUVCHI KOKAND QOQON vs OTMK OLMALIQ",
       "kickoff_iso": "2026-07-22T22:00:00+07:00",
-      "minutes_to_kickoff": -61,
-      "last_scan_at": "2026-07-22T23:02:43.600902+07:00",
-      "next_scan_at": "2026-07-22T23:07:43.600902+07:00",
+      "minutes_to_kickoff": -72,
+      "last_scan_at": "2026-07-22T23:13:43.138041+07:00",
+      "next_scan_at": "2026-07-22T23:18:43.138041+07:00",
       "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/TAOTHAO/index.m3u8?expire=1917964380&sign=6379fc6251248341f0547089859f8ee9"
-      ],
+      "has_verified": false,
+      "verified_urls": [],
       "scan_decision": "browser-fallback"
     },
     "af8020bdab84": {
@@ -1171,42 +1165,36 @@
       "url": "https://laservision.io/truc-tiep/fc-neftci-baku-vs-dinamo-minsk-vao-luc-2300-22-07-2026/?blv=328",
       "match_name": "FC NEFTCI BAKU vs DINAMO MINSK",
       "kickoff_iso": "2026-07-22T23:00:00+07:00",
-      "minutes_to_kickoff": -1,
-      "last_scan_at": "2026-07-22T23:02:43.600902+07:00",
-      "next_scan_at": "2026-07-22T23:07:43.600902+07:00",
+      "minutes_to_kickoff": -12,
+      "last_scan_at": "2026-07-22T23:13:43.138041+07:00",
+      "next_scan_at": "2026-07-22T23:18:43.138041+07:00",
       "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/VOTONG/index.m3u8?expire=1891347600&sign=cbb47d2000b9576a7b34114624ff8299"
-      ],
+      "has_verified": false,
+      "verified_urls": [],
       "scan_decision": "browser-fallback"
     },
     "6fc7205c1e21": {
       "url": "https://laservision.io/truc-tiep/napoli-vs-arezzo-vao-luc-2300-22-07-2026/?blv=300",
       "match_name": "NAPOLI vs AREZZO",
       "kickoff_iso": "2026-07-22T23:00:00+07:00",
-      "minutes_to_kickoff": -1,
-      "last_scan_at": "2026-07-22T23:02:43.600902+07:00",
-      "next_scan_at": "2026-07-22T23:07:43.600902+07:00",
+      "minutes_to_kickoff": -12,
+      "last_scan_at": "2026-07-22T23:13:43.138041+07:00",
+      "next_scan_at": "2026-07-22T23:18:43.138041+07:00",
       "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/TONLAP/index.m3u8?expire=1788427256&sign=72cc58a29d787d621b0832b54e1a78df"
-      ],
+      "has_verified": false,
+      "verified_urls": [],
       "scan_decision": "browser-fallback"
     },
     "e19b87da0a55": {
       "url": "https://laservision.io/truc-tiep/az-alkmaar-vs-racing-genk-vao-luc-2330-22-07-2026/?blv=298",
       "match_name": "AZ ALKMAAR vs RACING GENK",
       "kickoff_iso": "2026-07-22T23:30:00+07:00",
-      "minutes_to_kickoff": 29,
-      "last_scan_at": "2026-07-22T23:02:43.600902+07:00",
-      "next_scan_at": "2026-07-22T23:07:43.600902+07:00",
+      "minutes_to_kickoff": 18,
+      "last_scan_at": "2026-07-22T23:13:43.138041+07:00",
+      "next_scan_at": "2026-07-22T23:23:43.138041+07:00",
       "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/TAYMONKHANH/index.m3u8?expire=1788427256&sign=b79b5be508185d24f76a0b1effca53da"
-      ],
+      "has_verified": false,
+      "verified_urls": [],
       "scan_decision": "browser-fallback"
     },
     "3c242b51a571": {
@@ -1359,28 +1347,24 @@
       "url": "https://laservision.io/truc-tiep/lecce-vs-fc-politehnica-timisoara-vao-luc-2230-22-07-2026/?blv=315",
       "match_name": "LECCE vs FC POLITEHNICA TIMISOARA",
       "kickoff_iso": "2026-07-22T22:30:00+07:00",
-      "minutes_to_kickoff": -31,
-      "last_scan_at": "2026-07-22T23:02:43.600902+07:00",
-      "next_scan_at": "2026-07-22T23:07:43.600902+07:00",
+      "minutes_to_kickoff": -42,
+      "last_scan_at": "2026-07-22T23:13:43.138041+07:00",
+      "next_scan_at": "2026-07-22T23:18:43.138041+07:00",
       "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/VUONGLUAN/index.m3u8?expire=1893165900&sign=60fcb5252d4dafeac0cb5da922c56645"
-      ],
+      "has_verified": false,
+      "verified_urls": [],
       "scan_decision": "browser-fallback"
     },
     "5e9134938c64": {
       "url": "https://laservision.io/truc-tiep/tottenham-hotspur-vs-mk-dons-vao-luc-2300-22-07-2026/?blv=218",
       "match_name": "TOTTENHAM HOTSPUR vs MK DONS",
       "kickoff_iso": "2026-07-22T23:00:00+07:00",
-      "minutes_to_kickoff": -1,
-      "last_scan_at": "2026-07-22T23:02:43.600902+07:00",
-      "next_scan_at": "2026-07-22T23:07:43.600902+07:00",
+      "minutes_to_kickoff": -12,
+      "last_scan_at": "2026-07-22T23:13:43.138041+07:00",
+      "next_scan_at": "2026-07-22T23:18:43.138041+07:00",
       "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/KAKA/index.m3u8?expire=1788427256&sign=c34e1c9b22c9ced94eca7e7bf7a81ae6"
-      ],
+      "has_verified": false,
+      "verified_urls": [],
       "scan_decision": "browser-fallback"
     }
   }
