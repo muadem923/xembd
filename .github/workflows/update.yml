@@ -2,8 +2,6 @@ name: Quet 4 nguon v4.4.11 - Luong Son stream failover
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "*/30 * * * *"
 
 permissions:
   contents: write
