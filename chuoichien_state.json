@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-23T04:34:46.364747+07:00",
+  "updated_at": "2026-07-23T05:49:51.292890+07:00",
   "matches": {
     "992361": {
       "url": "https://live04.chuoichientv.me/live/992361/pvf-cand-vs-hoang-anh-gia-lai",
@@ -558,9 +558,9 @@
       "url": "https://live04.chuoichientv.me/live/1519417/independiente-del-valle-vs-tecnico-universitario",
       "match_name": "Independiente del Valle vs Tecnico Universitario - VĐQG Ecuador",
       "kickoff_iso": "2026-07-23T04:30:00+07:00",
-      "minutes_to_kickoff": -4,
-      "last_scan_at": "2026-07-23T04:34:46.364648+07:00",
-      "next_scan_at": "2026-07-23T04:39:46.364648+07:00",
+      "minutes_to_kickoff": -79,
+      "last_scan_at": "2026-07-23T05:49:51.292783+07:00",
+      "next_scan_at": "2026-07-23T05:54:51.292783+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -587,33 +587,47 @@
       "url": "https://live04.chuoichientv.me/live/1547775/independiente-medellin-vs-vasco-da-gama",
       "match_name": "Independiente Medellin vs Vasco DA Gama - CONMEBOL Sudamericana",
       "kickoff_iso": "2026-07-23T05:00:00+07:00",
-      "minutes_to_kickoff": 26,
-      "last_scan_at": "2026-07-23T04:34:46.364648+07:00",
-      "next_scan_at": "2026-07-23T04:44:46.364648+07:00",
+      "minutes_to_kickoff": -49,
+      "last_scan_at": "2026-07-23T05:49:51.292783+07:00",
+      "next_scan_at": "2026-07-23T05:54:51.292783+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoito.flv"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "1490331": {
+      "url": "https://live04.chuoichientv.me/live/1490331/inter-miami-vs-chicago-fire",
+      "match_name": "Inter Miami vs Chicago Fire - Major League Soccer",
+      "kickoff_iso": "2026-07-23T06:30:00+07:00",
+      "minutes_to_kickoff": 41,
+      "last_scan_at": "2026-07-23T05:49:51.292783+07:00",
+      "next_scan_at": "2026-07-23T05:59:51.292783+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
       "scan_decision": "browser-fallback"
     },
-    "1490331": {
-      "url": "https://live04.chuoichientv.me/live/1490331/inter-miami-vs-chicago-fire",
-      "match_name": "inter miami vs chicago fire",
-      "kickoff_iso": "2026-07-23T06:30:00+07:00",
-      "minutes_to_kickoff": 116,
-      "last_scan_at": "2026-07-23T04:34:46.364648+07:00",
-      "next_scan_at": "2026-07-23T04:54:46.364648+07:00",
+    "1547779": {
+      "url": "https://live04.chuoichientv.me/live/1547779/sporting-cristal-vs-rb-bragantino",
+      "match_name": "sporting cristal vs rb bragantino",
+      "kickoff_iso": "2026-07-23T07:30:00+07:00",
+      "minutes_to_kickoff": 101,
+      "last_scan_at": "2026-07-23T05:49:51.292783+07:00",
+      "next_scan_at": "2026-07-23T06:09:51.292783+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
       "scan_decision": "http-only-far-upcoming"
     },
-    "1547779": {
-      "url": "https://live04.chuoichientv.me/live/1547779/sporting-cristal-vs-rb-bragantino",
-      "match_name": "sporting cristal vs rb bragantino",
-      "kickoff_iso": "2026-07-23T07:30:00+07:00",
-      "minutes_to_kickoff": 176,
-      "last_scan_at": "2026-07-23T04:34:46.364648+07:00",
-      "next_scan_at": "2026-07-23T05:19:46.364648+07:00",
+    "1490342": {
+      "url": "https://live04.chuoichientv.me/live/1490342/los-angeles-fc-vs-real-salt-lake",
+      "match_name": "los angeles fc vs real salt lake",
+      "kickoff_iso": "2026-07-23T09:30:00+07:00",
+      "minutes_to_kickoff": 221,
+      "last_scan_at": "2026-07-23T05:49:51.292783+07:00",
+      "next_scan_at": "2026-07-23T06:34:51.292783+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
