@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-23T01:54:10.683302+07:00",
+  "updated_at": "2026-07-23T03:05:54.669181+07:00",
   "matches": {
     "992361": {
       "url": "https://live04.chuoichientv.me/live/992361/pvf-cand-vs-hoang-anh-gia-lai",
@@ -543,13 +543,14 @@
       "url": "https://live04.chuoichientv.me/live/1591933/egnatia-rrogozhin-vs-celje",
       "match_name": "Egnatia Rrogozhinë vs Celje - UEFA Champions League",
       "kickoff_iso": "2026-07-23T02:00:00+07:00",
-      "minutes_to_kickoff": 6,
-      "last_scan_at": "2026-07-23T01:54:10.683154+07:00",
-      "next_scan_at": "2026-07-23T01:59:10.683154+07:00",
+      "minutes_to_kickoff": -66,
+      "last_scan_at": "2026-07-23T03:05:54.669103+07:00",
+      "next_scan_at": "2026-07-23T03:10:54.669103+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoinho.flv"
+        "https://gckc0525.edgemaxcdn.org/live/chuoinho.flv",
+        "https://gckc0525.edgemaxcdn.org/live/chuoinho/playlist.m3u8"
       ],
       "scan_decision": "browser-fallback"
     },
@@ -557,9 +558,9 @@
       "url": "https://live04.chuoichientv.me/live/1519417/independiente-del-valle-vs-tecnico-universitario",
       "match_name": "independiente del valle vs tecnico universitario",
       "kickoff_iso": "2026-07-23T04:30:00+07:00",
-      "minutes_to_kickoff": 157,
-      "last_scan_at": "2026-07-23T01:54:10.683154+07:00",
-      "next_scan_at": "2026-07-23T02:39:10.683154+07:00",
+      "minutes_to_kickoff": 85,
+      "last_scan_at": "2026-07-23T03:05:54.669103+07:00",
+      "next_scan_at": "2026-07-23T03:25:54.669103+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
@@ -583,9 +584,21 @@
       "url": "https://live04.chuoichientv.me/live/1547775/independiente-medellin-vs-vasco-da-gama",
       "match_name": "independiente medellin vs vasco da gama",
       "kickoff_iso": "2026-07-23T05:00:00+07:00",
-      "minutes_to_kickoff": 187,
-      "last_scan_at": "2026-07-23T01:54:10.683154+07:00",
-      "next_scan_at": "2026-07-23T02:39:10.683154+07:00",
+      "minutes_to_kickoff": 115,
+      "last_scan_at": "2026-07-23T03:05:54.669103+07:00",
+      "next_scan_at": "2026-07-23T03:25:54.669103+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1490331": {
+      "url": "https://live04.chuoichientv.me/live/1490331/inter-miami-vs-chicago-fire",
+      "match_name": "inter miami vs chicago fire",
+      "kickoff_iso": "2026-07-23T06:30:00+07:00",
+      "minutes_to_kickoff": 205,
+      "last_scan_at": "2026-07-23T03:05:54.669103+07:00",
+      "next_scan_at": "2026-07-23T03:50:54.669103+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
