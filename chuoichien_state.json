@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-22T16:31:42.630513+07:00",
+  "updated_at": "2026-07-22T17:02:17.924993+07:00",
   "matches": {
     "992361": {
       "url": "https://live04.chuoichientv.me/live/992361/pvf-cand-vs-hoang-anh-gia-lai",
@@ -351,9 +351,9 @@
       "url": "https://live04.chuoichientv.me/live/1560869/sydney-united-vs-central-coast-mariners",
       "match_name": "Sydney United vs Central Coast Mariners - Australia Cup",
       "kickoff_iso": "2026-07-22T16:30:00+07:00",
-      "minutes_to_kickoff": -1,
-      "last_scan_at": "2026-07-22T16:31:42.630413+07:00",
-      "next_scan_at": "2026-07-22T16:36:42.630413+07:00",
+      "minutes_to_kickoff": -31,
+      "last_scan_at": "2026-07-22T17:02:17.924869+07:00",
+      "next_scan_at": "2026-07-22T17:07:17.924869+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -364,51 +364,53 @@
     },
     "1560872": {
       "url": "https://live04.chuoichientv.me/live/1560872/uni-azzurri-vs-macarthur",
-      "match_name": "Uni Azzurri vs Macarthur - Australia Cup",
+      "match_name": "uni azzurri vs macarthur",
       "kickoff_iso": "2026-07-22T17:00:00+07:00",
+      "minutes_to_kickoff": -1,
+      "last_scan_at": "2026-07-22T17:02:17.924869+07:00",
+      "next_scan_at": "2026-07-22T17:07:17.924869+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoichao.flv"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "1507008": {
+      "url": "https://live04.chuoichientv.me/live/1507008/gwangju-fc-vs-gimcheon-sangmu-fc",
+      "match_name": "Gwangju FC vs Gimcheon Sangmu FC - K League 1",
+      "kickoff_iso": "2026-07-22T17:30:00+07:00",
       "minutes_to_kickoff": 29,
-      "last_scan_at": "2026-07-22T16:31:42.630413+07:00",
-      "next_scan_at": "2026-07-22T16:41:42.630413+07:00",
+      "last_scan_at": "2026-07-22T17:02:17.924869+07:00",
+      "next_scan_at": "2026-07-22T17:12:17.924869+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
       "scan_decision": "browser-fallback"
     },
-    "1507008": {
-      "url": "https://live04.chuoichientv.me/live/1507008/gwangju-fc-vs-gimcheon-sangmu-fc",
-      "match_name": "gwangju fc vs gimcheon sangmu fc",
-      "kickoff_iso": "2026-07-22T17:30:00+07:00",
-      "minutes_to_kickoff": 67,
-      "last_scan_at": "2026-07-22T16:23:08.015515+07:00",
-      "next_scan_at": "2026-07-22T16:43:08.015515+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
-    },
     "1507007": {
       "url": "https://live04.chuoichientv.me/live/1507007/bucheon-fc-1995-vs-fc-anyang",
-      "match_name": "bucheon fc 1995 vs fc anyang",
+      "match_name": "Bucheon FC 1995 vs FC Anyang - K League 1",
       "kickoff_iso": "2026-07-22T17:30:00+07:00",
-      "minutes_to_kickoff": 67,
-      "last_scan_at": "2026-07-22T16:23:08.015515+07:00",
-      "next_scan_at": "2026-07-22T16:43:08.015515+07:00",
+      "minutes_to_kickoff": 28,
+      "last_scan_at": "2026-07-22T17:02:17.924869+07:00",
+      "next_scan_at": "2026-07-22T17:12:17.924869+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "scan_decision": "browser-fallback"
     },
     "1507009": {
       "url": "https://live04.chuoichientv.me/live/1507009/fc-seoul-vs-pohang-steelers",
-      "match_name": "fc seoul vs pohang steelers",
+      "match_name": "FC Seoul vs Pohang Steelers - K League 1",
       "kickoff_iso": "2026-07-22T17:30:00+07:00",
-      "minutes_to_kickoff": 67,
-      "last_scan_at": "2026-07-22T16:23:08.015515+07:00",
-      "next_scan_at": "2026-07-22T16:43:08.015515+07:00",
+      "minutes_to_kickoff": 28,
+      "last_scan_at": "2026-07-22T17:02:17.924869+07:00",
+      "next_scan_at": "2026-07-22T17:12:17.924869+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "scan_decision": "browser-fallback"
     },
     "209779": {
       "url": "https://live04.chuoichientv.me/live/209779/brazil-w-vs-japan-w",
@@ -426,9 +428,21 @@
       "url": "https://live04.chuoichientv.me/live/1567361/rizhao-yuqi-vs-shaanxi-union",
       "match_name": "rizhao yuqi vs shaanxi union",
       "kickoff_iso": "2026-07-22T19:00:00+07:00",
-      "minutes_to_kickoff": 179,
-      "last_scan_at": "2026-07-22T16:01:37.308980+07:00",
-      "next_scan_at": "2026-07-22T16:46:37.308980+07:00",
+      "minutes_to_kickoff": 119,
+      "last_scan_at": "2026-07-22T17:02:17.924869+07:00",
+      "next_scan_at": "2026-07-22T17:22:17.924869+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1560778": {
+      "url": "https://live04.chuoichientv.me/live/1560778/bologna-vs-1-fc-heidenheim",
+      "match_name": "bologna vs 1 fc heidenheim",
+      "kickoff_iso": "2026-07-22T21:00:00+07:00",
+      "minutes_to_kickoff": 239,
+      "last_scan_at": "2026-07-22T17:02:17.924869+07:00",
+      "next_scan_at": "2026-07-22T17:47:17.924869+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
