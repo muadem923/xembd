@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-22T12:31:09.822289+07:00",
+  "updated_at": "2026-07-22T13:01:13.505254+07:00",
   "matches": {
     "992361": {
       "url": "https://live04.chuoichientv.me/live/992361/pvf-cand-vs-hoang-anh-gia-lai",
@@ -354,6 +354,18 @@
       "minutes_to_kickoff": 239,
       "last_scan_at": "2026-07-22T12:31:09.822224+07:00",
       "next_scan_at": "2026-07-22T13:16:09.822224+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1560872": {
+      "url": "https://live04.chuoichientv.me/live/1560872/uni-azzurri-vs-macarthur",
+      "match_name": "uni azzurri vs macarthur",
+      "kickoff_iso": "2026-07-22T17:00:00+07:00",
+      "minutes_to_kickoff": 239,
+      "last_scan_at": "2026-07-22T13:01:13.505208+07:00",
+      "next_scan_at": "2026-07-22T13:46:13.505208+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
