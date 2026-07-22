@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-22T09:01:45.644207+07:00",
+  "updated_at": "2026-07-22T09:31:33.843881+07:00",
   "matches": {
     "992361": {
       "url": "https://live04.chuoichientv.me/live/992361/pvf-cand-vs-hoang-anh-gia-lai",
@@ -309,27 +309,30 @@
       "url": "https://live04.chuoichientv.me/live/1550903/cruz-azul-vs-puebla",
       "match_name": "Cruz Azul vs Puebla - VĐQG Mexico",
       "kickoff_iso": "2026-07-22T08:00:00+07:00",
-      "minutes_to_kickoff": -61,
-      "last_scan_at": "2026-07-22T09:01:45.644110+07:00",
-      "next_scan_at": "2026-07-22T09:06:45.644110+07:00",
+      "minutes_to_kickoff": -91,
+      "last_scan_at": "2026-07-22T09:31:33.843816+07:00",
+      "next_scan_at": "2026-07-22T09:36:33.843816+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoibo.flv"
+        "https://gckc0525.edgemaxcdn.org/live/chuoibo.flv",
+        "https://gckc0525.edgemaxcdn.org/live/chuoibo/playlist.m3u8"
       ],
       "scan_decision": "browser-fallback"
     },
     "1550904": {
       "url": "https://live04.chuoichientv.me/live/1550904/toluca-vs-unam-pumas",
-      "match_name": "toluca vs unam pumas",
+      "match_name": "Toluca vs U.N.A.M. - Pumas - VĐQG Mexico",
       "kickoff_iso": "2026-07-22T10:05:00+07:00",
-      "minutes_to_kickoff": 64,
-      "last_scan_at": "2026-07-22T09:01:45.644110+07:00",
-      "next_scan_at": "2026-07-22T09:21:45.644110+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": 34,
+      "last_scan_at": "2026-07-22T09:31:33.843816+07:00",
+      "next_scan_at": "2026-07-22T09:41:33.843816+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoitay.flv"
+      ],
+      "scan_decision": "browser-fallback"
     }
   }
 }

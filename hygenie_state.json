@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "luongson",
-  "updated_at": "2026-07-22T09:02:43.621936+07:00",
+  "updated_at": "2026-07-22T09:31:55.116199+07:00",
   "matches": {
     "dbdf8cfe3f68": {
       "url": "https://catbee.io/truc-tiep/basilan-steel-vs-sarangani-marlins-vao-luc-1500-21-07-2026/",
@@ -695,9 +695,9 @@
       "url": "https://catbee.io/truc-tiep/cdsyc-cruz-azul-vs-puebla-vao-luc-0800-22-07-2026/",
       "match_name": "CDSYC CRUZ AZUL vs PUEBLA",
       "kickoff_iso": "2026-07-22T08:00:00+07:00",
-      "minutes_to_kickoff": -61,
-      "last_scan_at": "2026-07-22T09:02:43.621472+07:00",
-      "next_scan_at": "2026-07-22T09:07:43.621472+07:00",
+      "minutes_to_kickoff": -91,
+      "last_scan_at": "2026-07-22T09:31:55.116057+07:00",
+      "next_scan_at": "2026-07-22T09:36:55.116057+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -709,13 +709,13 @@
       "url": "https://catbee.io/truc-tiep/toluca-vs-pumas-unam-vao-luc-1000-22-07-2026/?blv=135",
       "match_name": "toluca vs pumas unam",
       "kickoff_iso": "2026-07-22T10:00:00+07:00",
-      "minutes_to_kickoff": 59,
-      "last_scan_at": "2026-07-22T09:02:43.621472+07:00",
-      "next_scan_at": "2026-07-22T09:22:43.621472+07:00",
+      "minutes_to_kickoff": 29,
+      "last_scan_at": "2026-07-22T09:31:55.116057+07:00",
+      "next_scan_at": "2026-07-22T09:41:55.116057+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "scan_decision": "browser-fallback"
     },
     "f009d44ab576": {
       "url": "https://catbee.io/truc-tiep/deportivo-pasto-vs-bogota-fc-vao-luc-0700-22-07-2026/",
