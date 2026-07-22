@@ -15,7 +15,7 @@ from urllib.parse import urlparse
 from merger import SourceFiles, cleanup_intermediate_playlists, merge_sources
 
 ROOT = Path(__file__).resolve().parent
-VERSION = "4.4.8-GAVANG-PENDING-METADATA-FIRST"
+VERSION = "4.4.10-DETERMINISTIC-DELTA-STATE-AUDIT"
 
 
 @dataclass(slots=True)
@@ -61,6 +61,16 @@ SOURCES = {
         debug=ROOT / "gavang_debug.json",
         host_markers=("smorf.io",),
     ),
+    "xoilac": SourceConfig(
+        key="xoilac",
+        label="Xôi Lạc",
+        script=ROOT / "sources" / "xoilac.py",
+        universal=ROOT / "xoilac_live.m3u",
+        pipe=ROOT / "xoilac_live_pipe.m3u",
+        vlc=ROOT / "xoilac_live_vlc.m3u",
+        debug=ROOT / "xoilac_debug.json",
+        host_markers=("xoilacz.io", "malaysiandigest.com", "altenergystocks.com"),
+    ),
 }
 
 
@@ -86,9 +96,9 @@ def ensure_source_playlists(config: SourceConfig, force_empty: bool = False) -> 
             path.write_text("#EXTM3U\n", encoding="utf-8")
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Quét Chuối Chiên + Lương Sơn + Gà Vàng trong một lần chạy")
+    parser = argparse.ArgumentParser(description="Quét Chuối Chiên + Lương Sơn + Gà Vàng + Xôi Lạc trong một lần chạy")
     parser.add_argument("urls", nargs="*", help="URL trận để test riêng; tự định tuyến theo tên miền")
-    parser.add_argument("--source", choices=("all", "chuoichien", "luongson", "gavang"), default="all")
+    parser.add_argument("--source", choices=("all", "chuoichien", "luongson", "gavang", "xoilac"), default="all")
     parser.add_argument("--merge-only", action="store_true", help="Không quét web, chỉ gộp các kết quả hiện có")
     return parser.parse_args()
 
@@ -186,7 +196,7 @@ def main() -> int:
     print(f"🥷 KHỞI ĐỘNG MULTI-SOURCE SCANNER {VERSION}", flush=True)
     parallel_enabled = os.getenv("MULTI_RUN_SOURCES_PARALLEL", "1").strip().lower() not in {"0", "false", "no", "off"}
     mode = "song song có giới hạn" if parallel_enabled else "tuần tự"
-    print(f"ℹ️ Một lần chạy quét Chuối Chiên + Lương Sơn + Gà Vàng theo chế độ {mode}, rồi gộp thành all_live.m3u.", flush=True)
+    print(f"ℹ️ Một lần chạy quét Chuối Chiên + Lương Sơn + Gà Vàng + Xôi Lạc theo chế độ {mode}, rồi gộp thành all_live.m3u.", flush=True)
 
     try:
         routed = route_urls(args.urls)
@@ -195,7 +205,7 @@ def main() -> int:
         return 2
 
     if args.source == "all":
-        selected_keys = [key for key in ("chuoichien", "luongson", "gavang") if not args.urls or routed[key]]
+        selected_keys = [key for key in ("chuoichien", "luongson", "gavang", "xoilac") if not args.urls or routed[key]]
     else:
         selected_keys = [args.source]
         if args.urls and not routed[args.source]:
@@ -207,8 +217,18 @@ def main() -> int:
         for key in selected_keys:
             statuses[key] = (0, True, 0.0)
     elif parallel_enabled and len(selected_keys) > 1:
-        print(f"⚡ Chạy song song {len(selected_keys)} nguồn; mỗi nguồn vẫn tự giới hạn số tab.", flush=True)
-        with ThreadPoolExecutor(max_workers=len(selected_keys), thread_name_prefix="source-scan") as executor:
+        raw_workers = os.getenv("MULTI_SOURCE_MAX_WORKERS", "3").strip()
+        try:
+            requested_workers = int(raw_workers)
+        except ValueError:
+            requested_workers = 3
+        max_workers = max(1, min(requested_workers, len(selected_keys), 4))
+        print(
+            f"⚡ Chạy song song tối đa {max_workers}/{len(selected_keys)} nguồn; "
+            "giới hạn số Chromium để tránh quá tải runner.",
+            flush=True,
+        )
+        with ThreadPoolExecutor(max_workers=max_workers, thread_name_prefix="source-scan") as executor:
             future_to_key = {
                 executor.submit(run_source, SOURCES[key], routed[key]): key
                 for key in selected_keys

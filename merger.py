@@ -12,10 +12,10 @@ from typing import Any, Iterable
 from urllib.parse import unquote, urljoin, urlparse
 from zoneinfo import ZoneInfo
 
-VERSION = "4.4.8-GAVANG-PENDING-METADATA-FIRST"
+VERSION = "4.4.10-DETERMINISTIC-DELTA-STATE-AUDIT"
 TZ_VIETNAM = ZoneInfo("Asia/Ho_Chi_Minh")
 ALLOWED_GROUPS = {"Bóng đá", "Bóng rổ", "Bóng chuyền", "Tennis", "Esports", "Khác"}
-SOURCE_ORDER = {"chuoichien": 0, "luongson": 1, "gavang": 2}
+SOURCE_ORDER = {"chuoichien": 0, "luongson": 1, "gavang": 2, "xoilac": 3}
 PLAYABILITY_RANK = {
     "verified": 4,
     "browser-observed": 3,
@@ -636,7 +636,7 @@ def cleanup_intermediate_playlists(root: Path) -> list[str]:
             path.unlink()
         except FileNotFoundError:
             pass
-    for folder_name in ("chuoichien", "luongson", "gavang"):
+    for folder_name in ("chuoichien", "luongson", "gavang", "xoilac"):
         folder = root / folder_name
         try:
             folder.rmdir()
@@ -704,6 +704,10 @@ def merge_sources(
             "quality": item.quality,
             "kind": item.kind,
             "playability": item.playability,
+            "classification": item.metadata.get("classification"),
+            "classification_reason": item.metadata.get("classification_reason"),
+            "has_secret": bool(item.metadata.get("has_secret")),
+            "expiry": item.metadata.get("expiry"),
             "derived_pending": bool(item.metadata.get("derived_pending")),
             "pending_reason": item.metadata.get("pending_reason"),
             "score": item.score,
