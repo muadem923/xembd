@@ -12,7 +12,7 @@ from typing import Any, Iterable
 from urllib.parse import unquote, urljoin, urlparse
 from zoneinfo import ZoneInfo
 
-VERSION = "4.4.10-DETERMINISTIC-DELTA-STATE-AUDIT"
+VERSION = "4.4.11-LUONGSON-DOMAIN-STREAM-FAILOVER"
 TZ_VIETNAM = ZoneInfo("Asia/Ho_Chi_Minh")
 ALLOWED_GROUPS = {"Bóng đá", "Bóng rổ", "Bóng chuyền", "Tennis", "Esports", "Khác"}
 SOURCE_ORDER = {"chuoichien": 0, "luongson": 1, "gavang": 2, "xoilac": 3}

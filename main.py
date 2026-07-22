@@ -15,7 +15,7 @@ from urllib.parse import urlparse
 from merger import SourceFiles, cleanup_intermediate_playlists, merge_sources
 
 ROOT = Path(__file__).resolve().parent
-VERSION = "4.4.10-DETERMINISTIC-DELTA-STATE-AUDIT"
+VERSION = "4.4.11-LUONGSON-DOMAIN-STREAM-FAILOVER"
 
 
 @dataclass(slots=True)
