@@ -1,4 +1,4 @@
-name: Quet 4 nguon v4.4.10 - Fix delta state audit
+name: Quet 4 nguon v4.4.11 - Luong Son stream failover
 
 on:
   workflow_dispatch:
@@ -90,6 +90,9 @@ jobs:
           HYGENIE_HTTP_DISCOVERY_MAX_FOLLOWS: "4"
           HYGENIE_DELTA_SCAN_ENABLED: "1"
           HYGENIE_DELTA_NEAR_MINUTES: "45"
+          HYGENIE_DOMAIN_STREAM_FAILOVER: "1"
+          HYGENIE_DOMAIN_FAILOVER_NEAR_MINUTES: "45"
+          HYGENIE_MATCH_VARIANT_FALLBACKS: "2"
           HYGENIE_STATE_PATH: "hygenie_state.json"
           HYGENIE_SCAN_UNKNOWN_LIVE: "1"
           HYGENIE_FULL_SCAN: "1"
@@ -334,5 +337,5 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Update live streams v4.4.10 (fix deterministic delta state audit)"
+          git commit -m "Update live streams v4.4.11 (Luong Son domain stream failover)"
           git push origin "HEAD:${GITHUB_REF_NAME}"
