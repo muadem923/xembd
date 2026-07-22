@@ -201,15 +201,18 @@ class MergerTests(unittest.TestCase):
         cc_rows = [{"id": "cc", "name": "C vs D [FHD M3U8]", "url": "https://cdn/cc/playlist.m3u8", "group": "Bóng đá"}]
         ls_rows = [{"id": "ls", "name": "A vs B [FHD M3U8]", "url": "https://cdn/ls/playlist.m3u8", "group": "Bóng đá"}]
         gv_rows = [{"id": "gv", "name": "E vs F [FHD M3U8]", "url": "https://cdn/gv/playlist.m3u8", "group": "Bóng đá"}]
+        xl_rows = [{"id": "xl", "name": "G vs H [FHD FLV]", "url": "https://cdn/xl/live.flv?wsSecret=ok", "group": "Bóng đá"}]
         cc_debug = [{"match_name": "C vs D", "streams": [{"url": "https://cdn/cc/playlist.m3u8", "quality": "FHD", "playability": "verified"}]}]
         ls_debug = [{"match_name": "A vs B", "streams": [{"url": "https://cdn/ls/playlist.m3u8", "quality": "FHD", "playability": "verified"}]}]
         gv_debug = [{"match_name": "E vs F", "streams": [{"url": "https://cdn/gv/playlist.m3u8", "quality": "FHD", "playability": "verified"}]}]
+        xl_debug = [{"match_name": "G vs H", "streams": [{"url": "https://cdn/xl/live.flv?wsSecret=ok", "quality": "FHD", "playability": "verified"}]}]
         report = merge_sources(
             self.root,
             [
                 self.make_source("chuoichien", "Chuối Chiên", cc_rows, cc_debug),
                 self.make_source("luongson", "Lương Sơn", ls_rows, ls_debug),
                 self.make_source("gavang", "Gà Vàng", gv_rows, gv_debug),
+                self.make_source("xoilac", "Xôi Lạc", xl_rows, xl_debug),
             ],
             now=self.now,
             preserve_on_empty=False,
@@ -218,20 +221,22 @@ class MergerTests(unittest.TestCase):
         self.assertEqual(content.count('group-title="Chuối Chiên"'), 1)
         self.assertEqual(content.count('group-title="Lương Sơn"'), 1)
         self.assertEqual(content.count('group-title="Gà Vàng"'), 1)
+        self.assertEqual(content.count('group-title="Xôi Lạc"'), 1)
         self.assertLess(content.index('group-title="Chuối Chiên"'), content.index('group-title="Lương Sơn"'))
         self.assertLess(content.index('group-title="Lương Sơn"'), content.index('group-title="Gà Vàng"'))
-        self.assertEqual({row["group"] for row in report["channels"]}, {"Chuối Chiên", "Lương Sơn", "Gà Vàng"})
+        self.assertLess(content.index('group-title="Gà Vàng"'), content.index('group-title="Xôi Lạc"'))
+        self.assertEqual({row["group"] for row in report["channels"]}, {"Chuối Chiên", "Lương Sơn", "Gà Vàng", "Xôi Lạc"})
         self.assertEqual({row["sport_group"] for row in report["channels"]}, {"Bóng đá"})
 
     def test_cleanup_leaves_only_all_live_m3u(self) -> None:
         (self.root / "all_live.m3u").write_text("#EXTM3U\n", encoding="utf-8")
-        for name in ("chuoichien_live.m3u", "hygenie_live.m3u", "all_live_pipe.m3u", "all_live_vlc.m3u"):
+        for name in ("chuoichien_live.m3u", "hygenie_live.m3u", "xoilac_live.m3u", "all_live_pipe.m3u", "all_live_vlc.m3u"):
             (self.root / name).write_text("#EXTM3U\n", encoding="utf-8")
         legacy = self.root / "gavang" / "gavang_live.m3u"
         legacy.parent.mkdir(parents=True)
         legacy.write_text("#EXTM3U\n", encoding="utf-8")
         removed = cleanup_intermediate_playlists(self.root)
-        self.assertEqual(sorted(removed), sorted(["chuoichien_live.m3u", "hygenie_live.m3u", "all_live_pipe.m3u", "all_live_vlc.m3u", "gavang/gavang_live.m3u"]))
+        self.assertEqual(sorted(removed), sorted(["chuoichien_live.m3u", "hygenie_live.m3u", "xoilac_live.m3u", "all_live_pipe.m3u", "all_live_vlc.m3u", "gavang/gavang_live.m3u"]))
         self.assertEqual([path.relative_to(self.root).as_posix() for path in self.root.rglob("*.m3u")], ["all_live.m3u"])
         self.assertFalse((self.root / "gavang").exists())
 
@@ -307,6 +312,46 @@ class MergerTests(unittest.TestCase):
         self.assertEqual(gavang_block.attributes["tvg-logo"], "https://cdn.example/queensland.png")
         self.assertIn('tvg-logo="https://cdn.example/queensland.png"', gavang_block.extinf)
         self.assertEqual(stats["team_logo"], 1)
+
+    def test_xoilac_headers_survive_merge(self) -> None:
+        url = "https://live.example/channel.flv?wsSecret=abc&wsABSTime=1893456000"
+        source = self.make_source(
+            "xoilac",
+            "Xôi Lạc",
+            [{
+                "id": "xl-a",
+                "name": "[20:30 22/07] A vs B [BLV Một] [FLV]",
+                "url": url,
+                "group": "Bóng đá",
+            }],
+            [{
+                "match_name": "A vs B",
+                "time": "20:30",
+                "date": "22/07/2026",
+                "streams": [{
+                    "url": url,
+                    "playability": "verified",
+                    "classification": "signed",
+                    "has_secret": True,
+                }],
+            }],
+        )
+        source.universal.write_text(
+            "#EXTM3U\n"
+            '#EXTINF:-1 tvg-id="xl-a" group-title="Bóng đá",[20:30 22/07] A vs B [BLV Một] [FLV]\n'
+            "#EXTVLCOPT:http-referrer=https://malaysiandigest.com/truc-tiep/a/\n"
+            '#EXTHTTP:{"User-Agent":"UA","Referer":"https://malaysiandigest.com/truc-tiep/a/"}\n'
+            f"{url}\n",
+            encoding="utf-8",
+        )
+        report = merge_sources(self.root, [source], now=self.now, preserve_on_empty=False)
+        text = (self.root / "all_live.m3u").read_text(encoding="utf-8")
+        self.assertIn('group-title="Xôi Lạc"', text)
+        self.assertIn("#EXTVLCOPT:http-referrer=https://malaysiandigest.com/truc-tiep/a/", text)
+        self.assertIn("#EXTHTTP:{", text)
+        self.assertIn(url, text)
+        self.assertEqual(report["channels"][0]["classification"], "signed")
+        self.assertTrue(report["channels"][0]["has_secret"])
 
 
 if __name__ == "__main__":

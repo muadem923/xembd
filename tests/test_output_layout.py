@@ -6,7 +6,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 import main as orchestrator
-from sources import chuoichien, gavang, luongson
+from sources import chuoichien, gavang, luongson, xoilac
 
 
 class OutputLayoutTests(unittest.TestCase):
@@ -15,6 +15,7 @@ class OutputLayoutTests(unittest.TestCase):
             "chuoichien": ("chuoichien_live.m3u", "chuoichien_live_pipe.m3u", "chuoichien_live_vlc.m3u"),
             "luongson": ("hygenie_live.m3u", "hygenie_live_pipe.m3u", "hygenie_live_vlc.m3u"),
             "gavang": ("gavang_live.m3u", "gavang_live_pipe.m3u", "gavang_live_vlc.m3u"),
+            "xoilac": ("xoilac_live.m3u", "xoilac_live_pipe.m3u", "xoilac_live_vlc.m3u"),
         }
         for key, (universal, pipe, vlc) in expected.items():
             config = orchestrator.SOURCES[key]
@@ -59,7 +60,7 @@ class OutputLayoutTests(unittest.TestCase):
             self.assertEqual(config.universal.read_text(encoding="utf-8"), "#EXTM3U\n")
 
     def test_source_writers_create_configured_temporary_files(self) -> None:
-        modules = (chuoichien, luongson, gavang)
+        modules = (chuoichien, luongson, gavang, xoilac)
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             for module in modules:
