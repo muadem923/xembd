@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "luongson",
-  "updated_at": "2026-07-22T10:01:36.800985+07:00",
+  "updated_at": "2026-07-22T10:31:30.311412+07:00",
   "matches": {
     "dbdf8cfe3f68": {
       "url": "https://catbee.io/truc-tiep/basilan-steel-vs-sarangani-marlins-vao-luc-1500-21-07-2026/",
@@ -707,11 +707,11 @@
     },
     "6200b64298a6": {
       "url": "https://catbee.io/truc-tiep/toluca-vs-pumas-unam-vao-luc-1000-22-07-2026/?blv=135",
-      "match_name": "Trực tiếp trận đấu Toluca vs Pumas U.N.A.M.",
+      "match_name": "toluca vs pumas unam",
       "kickoff_iso": "2026-07-22T10:00:00+07:00",
-      "minutes_to_kickoff": -1,
-      "last_scan_at": "2026-07-22T10:01:36.800873+07:00",
-      "next_scan_at": "2026-07-22T10:06:36.800873+07:00",
+      "minutes_to_kickoff": -31,
+      "last_scan_at": "2026-07-22T10:31:30.311248+07:00",
+      "next_scan_at": "2026-07-22T10:36:30.311248+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
@@ -738,6 +738,18 @@
       "minutes_to_kickoff": 239,
       "last_scan_at": "2026-07-22T10:01:36.800873+07:00",
       "next_scan_at": "2026-07-22T10:46:36.800873+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "8dfcf0c1a994": {
+      "url": "https://catbee.io/truc-tiep/east-coast-bays-vs-auckland-city-vao-luc-1430-22-07-2026/",
+      "match_name": "east coast bays vs auckland city",
+      "kickoff_iso": "2026-07-22T14:30:00+07:00",
+      "minutes_to_kickoff": 239,
+      "last_scan_at": "2026-07-22T10:31:30.311248+07:00",
+      "next_scan_at": "2026-07-22T11:16:30.311248+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],

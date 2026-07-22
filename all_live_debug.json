@@ -1,6 +1,6 @@
 {
   "version": "4.4.8-GAVANG-PENDING-METADATA-FIRST",
-  "generated_at": "2026-07-22T10:04:29.878180+07:00",
+  "generated_at": "2026-07-22T10:34:38.245797+07:00",
   "policy": {
     "max_streams_per_match_blv": 2,
     "upcoming_keep_hours": 4,
@@ -32,22 +32,22 @@
       "label": "Gà Vàng",
       "returncode": 0,
       "fresh": true,
-      "debug_rows": 32,
-      "playlist_blocks": 22,
+      "debug_rows": 31,
+      "playlist_blocks": 20,
       "included": true
     }
   ],
-  "input_candidates": 24,
-  "selected_count": 24,
+  "input_candidates": 22,
+  "selected_count": 22,
   "dropped_count": 0,
   "gavang_metadata": {
     "enriched": 1,
-    "warn_only": 21,
+    "warn_only": 19,
     "already_good": 0
   },
   "gavang_logo": {
-    "team_logo": 0,
-    "source_fallback": 22,
+    "team_logo": 1,
+    "source_fallback": 19,
     "repaired_invalid": 0
   },
   "channels": [
@@ -122,17 +122,17 @@
         "pumas",
         "mexliga"
       ],
-      "logo": "https://smorf.io/wp-json/s8-image/3ac51242-5cd9-4f8c-b342-50352bfbb26e",
-      "logo_source": "team",
-      "logo_enriched_from": null,
+      "logo": "https://media.chuoichientv.net/media/20250921_010707_d23dff4c.png",
+      "logo_source": "team-from-chuoichien",
+      "logo_enriched_from": "chuoichien",
       "logo_is_fallback": false
     },
     {
       "source": "gavang",
       "source_label": "Gà Vàng",
       "url": "https://flv.lauthaitv.cc/live/coritiba-palmeiras-brasa.flv",
-      "match_key": "bra serie a coritiba saf pr vs palmeiras|nguoi sat",
-      "display_name": "[CHỜ PHÁT] [23/07] BRA Serie A - Coritiba SAF - PR VS Palmeiras [BLV NGƯỜI SẮT] [FLV]",
+      "match_key": "coritiba vs palmeiras|",
+      "display_name": "[CHỜ PHÁT] Coritiba VS Palmeiras [FLV]",
       "group": "Gà Vàng",
       "sport_group": "Bóng đá",
       "quality": "UNKNOWN",
@@ -158,9 +158,9 @@
     {
       "source": "gavang",
       "source_label": "Gà Vàng",
-      "url": "https://flv.lauthaitv.cc/live/cincinati-vancouver-mls.flv",
-      "match_key": "cincinati vs vancouver|",
-      "display_name": "[CHỜ PHÁT] Cincinati VS Vancouver [FLV]",
+      "url": "https://flv.lauthaitv.cc/live/dynamokyiv-paok-c2qual.flv",
+      "match_key": "dynamokyiv vs paok|",
+      "display_name": "[CHỜ PHÁT] Dynamokyiv VS Paok [FLV]",
       "group": "Gà Vàng",
       "sport_group": "Bóng đá",
       "quality": "UNKNOWN",
@@ -174,9 +174,9 @@
       "metadata_enriched_from": null,
       "metadata_warning": "Không tìm được lịch/tên đối chiếu đủ tin cậy từ nguồn khác; stream verified vẫn được giữ",
       "stream_key_tokens": [
-        "cincinati",
-        "vancouver",
-        "mls"
+        "dynamokyiv",
+        "paok",
+        "c2qual"
       ],
       "logo": "https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",
       "logo_source": "gavang-source-fallback",
@@ -204,34 +204,6 @@
       "stream_key_tokens": [
         "egnatia",
         "celje"
-      ],
-      "logo": "https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",
-      "logo_source": "gavang-source-fallback",
-      "logo_enriched_from": null,
-      "logo_is_fallback": true
-    },
-    {
-      "source": "gavang",
-      "source_label": "Gà Vàng",
-      "url": "https://flv.lauthaitv.cc/live/gazalkent-bekabad-uzbpro.flv",
-      "match_key": "gazalkent vs bekabad|",
-      "display_name": "[CHỜ PHÁT] Gazalkent VS Bekabad [FLV]",
-      "group": "Gà Vàng",
-      "sport_group": "Bóng đá",
-      "quality": "UNKNOWN",
-      "kind": "flv",
-      "playability": "upcoming-pending",
-      "derived_pending": true,
-      "pending_reason": "current-home-stream-key-no-time",
-      "score": 218,
-      "kickoff_iso": null,
-      "metadata_audit": "warn-only",
-      "metadata_enriched_from": null,
-      "metadata_warning": "Không tìm được lịch/tên đối chiếu đủ tin cậy từ nguồn khác; stream verified vẫn được giữ",
-      "stream_key_tokens": [
-        "gazalkent",
-        "bekabad",
-        "uzbpro"
       ],
       "logo": "https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",
       "logo_source": "gavang-source-fallback",
@@ -297,9 +269,9 @@
     {
       "source": "gavang",
       "source_label": "Gà Vàng",
-      "url": "https://flv.lauthaitv.cc/live/levski-craiova-c1qual.flv",
-      "match_key": "levski vs craiova|",
-      "display_name": "[CHỜ PHÁT] Levski VS Craiova [FLV]",
+      "url": "https://flv.lauthaitv.cc/live/lafc-realsaltlake-mls.flv",
+      "match_key": "lafc vs realsaltlake|",
+      "display_name": "[CHỜ PHÁT] Lafc VS Realsaltlake [FLV]",
       "group": "Gà Vàng",
       "sport_group": "Bóng đá",
       "quality": "UNKNOWN",
@@ -313,8 +285,37 @@
       "metadata_enriched_from": null,
       "metadata_warning": "Không tìm được lịch/tên đối chiếu đủ tin cậy từ nguồn khác; stream verified vẫn được giữ",
       "stream_key_tokens": [
-        "levski",
-        "craiova"
+        "lafc",
+        "realsaltlake",
+        "mls"
+      ],
+      "logo": "https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",
+      "logo_source": "gavang-source-fallback",
+      "logo_enriched_from": null,
+      "logo_is_fallback": true
+    },
+    {
+      "source": "gavang",
+      "source_label": "Gà Vàng",
+      "url": "https://flv.lauthaitv.cc/live/lagalaxy-stlouis-mls.flv",
+      "match_key": "lagalaxy vs stlouis|",
+      "display_name": "[CHỜ PHÁT] Lagalaxy VS Stlouis [FLV]",
+      "group": "Gà Vàng",
+      "sport_group": "Bóng đá",
+      "quality": "UNKNOWN",
+      "kind": "flv",
+      "playability": "upcoming-pending",
+      "derived_pending": true,
+      "pending_reason": "current-home-stream-key-no-time",
+      "score": 218,
+      "kickoff_iso": null,
+      "metadata_audit": "warn-only",
+      "metadata_enriched_from": null,
+      "metadata_warning": "Không tìm được lịch/tên đối chiếu đủ tin cậy từ nguồn khác; stream verified vẫn được giữ",
+      "stream_key_tokens": [
+        "lagalaxy",
+        "stlouis",
+        "mls"
       ],
       "logo": "https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",
       "logo_source": "gavang-source-fallback",
@@ -351,9 +352,9 @@
     {
       "source": "gavang",
       "source_label": "Gà Vàng",
-      "url": "https://flv.lauthaitv.cc/live/lillestrom-viking-norelite.flv",
-      "match_key": "lillestrom vs viking|",
-      "display_name": "[CHỜ PHÁT] Lillestrom VS Viking [FLV]",
+      "url": "https://flv.lauthaitv.cc/live/cincinati-vancouver-mls.flv",
+      "match_key": "mls fc cincinnati vs vancouver whitecaps|nguoi cao",
+      "display_name": "[CHỜ PHÁT] [23/07] MLS - FC Cincinnati VS Vancouver Whitecaps [BLV NGƯỜI CÁO] [FLV]",
       "group": "Gà Vàng",
       "sport_group": "Bóng đá",
       "quality": "UNKNOWN",
@@ -367,37 +368,9 @@
       "metadata_enriched_from": null,
       "metadata_warning": "Không tìm được lịch/tên đối chiếu đủ tin cậy từ nguồn khác; stream verified vẫn được giữ",
       "stream_key_tokens": [
-        "lillestrom",
-        "viking",
-        "norelite"
-      ],
-      "logo": "https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",
-      "logo_source": "gavang-source-fallback",
-      "logo_enriched_from": null,
-      "logo_is_fallback": true
-    },
-    {
-      "source": "gavang",
-      "source_label": "Gà Vàng",
-      "url": "https://flv.lauthaitv.cc/live/cruz-puebla-mexliga.flv",
-      "match_key": "mex liga mx cruz azul vs puebla|nguoi sat",
-      "display_name": "[22/07] MEX Liga MX - Cruz Azul VS Puebla [BLV NGƯỜI SẮT] [FLV]",
-      "group": "Gà Vàng",
-      "sport_group": "Bóng đá",
-      "quality": "UNKNOWN",
-      "kind": "flv",
-      "playability": "verified",
-      "derived_pending": false,
-      "pending_reason": null,
-      "score": 418,
-      "kickoff_iso": null,
-      "metadata_audit": "warn-only",
-      "metadata_enriched_from": null,
-      "metadata_warning": "Không tìm được lịch/tên đối chiếu đủ tin cậy từ nguồn khác; stream verified vẫn được giữ",
-      "stream_key_tokens": [
-        "cruz",
-        "puebla",
-        "mexliga"
+        "cincinati",
+        "vancouver",
+        "mls"
       ],
       "logo": "https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",
       "logo_source": "gavang-source-fallback",
@@ -425,62 +398,6 @@
       "stream_key_tokens": [
         "miami",
         "chicago",
-        "mls"
-      ],
-      "logo": "https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",
-      "logo_source": "gavang-source-fallback",
-      "logo_enriched_from": null,
-      "logo_is_fallback": true
-    },
-    {
-      "source": "gavang",
-      "source_label": "Gà Vàng",
-      "url": "https://flv.lauthaitv.cc/live/lafc-realsaltlake-mls.flv",
-      "match_key": "mls los angeles fc vs real salt lake|nguoi nan",
-      "display_name": "[CHỜ PHÁT] [23/07] MLS - Los Angeles FC VS Real Salt Lake [BLV NGƯỜI NẶN] [FLV]",
-      "group": "Gà Vàng",
-      "sport_group": "Bóng đá",
-      "quality": "UNKNOWN",
-      "kind": "flv",
-      "playability": "upcoming-pending",
-      "derived_pending": true,
-      "pending_reason": "current-home-stream-key-no-time",
-      "score": 218,
-      "kickoff_iso": null,
-      "metadata_audit": "warn-only",
-      "metadata_enriched_from": null,
-      "metadata_warning": "Không tìm được lịch/tên đối chiếu đủ tin cậy từ nguồn khác; stream verified vẫn được giữ",
-      "stream_key_tokens": [
-        "lafc",
-        "realsaltlake",
-        "mls"
-      ],
-      "logo": "https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",
-      "logo_source": "gavang-source-fallback",
-      "logo_enriched_from": null,
-      "logo_is_fallback": true
-    },
-    {
-      "source": "gavang",
-      "source_label": "Gà Vàng",
-      "url": "https://flv.lauthaitv.cc/live/lagalaxy-stlouis-mls.flv",
-      "match_key": "mls los angeles galaxy vs st louis city|nguoi cao",
-      "display_name": "[CHỜ PHÁT] [23/07] MLS - Los Angeles Galaxy VS St.Louis City [BLV NGƯỜI CÁO] [FLV]",
-      "group": "Gà Vàng",
-      "sport_group": "Bóng đá",
-      "quality": "UNKNOWN",
-      "kind": "flv",
-      "playability": "upcoming-pending",
-      "derived_pending": true,
-      "pending_reason": "current-home-stream-key-no-time",
-      "score": 218,
-      "kickoff_iso": null,
-      "metadata_audit": "warn-only",
-      "metadata_enriched_from": null,
-      "metadata_warning": "Không tìm được lịch/tên đối chiếu đủ tin cậy từ nguồn khác; stream verified vẫn được giữ",
-      "stream_key_tokens": [
-        "lagalaxy",
-        "stlouis",
         "mls"
       ],
       "logo": "https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",
@@ -519,9 +436,9 @@
     {
       "source": "gavang",
       "source_label": "Gà Vàng",
-      "url": "https://flv.lauthaitv.cc/live/omonia-kairat-c1qual.flv",
-      "match_key": "omonia vs kairat|",
-      "display_name": "[CHỜ PHÁT] Omonia VS Kairat [FLV]",
+      "url": "https://flv.lauthaitv.cc/live/panevezys-tobol-c3qual.flv",
+      "match_key": "panevezys vs tobol|",
+      "display_name": "[CHỜ PHÁT] Panevezys VS Tobol [FLV]",
       "group": "Gà Vàng",
       "sport_group": "Bóng đá",
       "quality": "UNKNOWN",
@@ -535,8 +452,9 @@
       "metadata_enriched_from": null,
       "metadata_warning": "Không tìm được lịch/tên đối chiếu đủ tin cậy từ nguồn khác; stream verified vẫn được giữ",
       "stream_key_tokens": [
-        "omonia",
-        "kairat"
+        "panevezys",
+        "tobol",
+        "c3qual"
       ],
       "logo": "https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",
       "logo_source": "gavang-source-fallback",
@@ -564,6 +482,33 @@
       "stream_key_tokens": [
         "skopje",
         "riga"
+      ],
+      "logo": "https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",
+      "logo_source": "gavang-source-fallback",
+      "logo_enriched_from": null,
+      "logo_is_fallback": true
+    },
+    {
+      "source": "gavang",
+      "source_label": "Gà Vàng",
+      "url": "https://flv.lauthaitv.cc/live/levski-craiova-c1qual.flv",
+      "match_key": "uefa champions league qual levski sofia vs cs universitatea craiova|nguoi soi",
+      "display_name": "[CHỜ PHÁT] [23/07] UEFA Champions League (qual) - Levski Sofia VS CS Universitatea Craiova [BLV NGƯỜI SÓI] [FLV]",
+      "group": "Gà Vàng",
+      "sport_group": "Bóng đá",
+      "quality": "UNKNOWN",
+      "kind": "flv",
+      "playability": "upcoming-pending",
+      "derived_pending": true,
+      "pending_reason": "current-home-stream-key-no-time",
+      "score": 218,
+      "kickoff_iso": null,
+      "metadata_audit": "warn-only",
+      "metadata_enriched_from": null,
+      "metadata_warning": "Không tìm được lịch/tên đối chiếu đủ tin cậy từ nguồn khác; stream verified vẫn được giữ",
+      "stream_key_tokens": [
+        "levski",
+        "craiova"
       ],
       "logo": "https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",
       "logo_source": "gavang-source-fallback",
@@ -629,34 +574,6 @@
     {
       "source": "gavang",
       "source_label": "Gà Vàng",
-      "url": "https://flv.lauthaitv.cc/live/panevezys-tobol-c3qual.flv",
-      "match_key": "uefa conference league qual fk panevezys vs tobol kostanai|nguoi cao",
-      "display_name": "[CHỜ PHÁT] [23/07] UEFA Conference League (qual) - FK Panevezys VS Tobol Kostanai [BLV NGƯỜI CÁO] [FLV]",
-      "group": "Gà Vàng",
-      "sport_group": "Bóng đá",
-      "quality": "UNKNOWN",
-      "kind": "flv",
-      "playability": "upcoming-pending",
-      "derived_pending": true,
-      "pending_reason": "current-home-stream-key-no-time",
-      "score": 218,
-      "kickoff_iso": null,
-      "metadata_audit": "warn-only",
-      "metadata_enriched_from": null,
-      "metadata_warning": "Không tìm được lịch/tên đối chiếu đủ tin cậy từ nguồn khác; stream verified vẫn được giữ",
-      "stream_key_tokens": [
-        "panevezys",
-        "tobol",
-        "c3qual"
-      ],
-      "logo": "https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",
-      "logo_source": "gavang-source-fallback",
-      "logo_enriched_from": null,
-      "logo_is_fallback": true
-    },
-    {
-      "source": "gavang",
-      "source_label": "Gà Vàng",
       "url": "https://flv.lauthaitv.cc/live/malisheva-hibernian-c3qual.flv",
       "match_key": "uefa conference league qual malisheva vs hibernian|nguoi soi",
       "display_name": "[CHỜ PHÁT] [23/07] UEFA Conference League (qual) - Malisheva VS Hibernian [BLV NGƯỜI SÓI] [FLV]",
@@ -704,6 +621,34 @@
         "qarabag",
         "cska",
         "c2qual"
+      ],
+      "logo": "https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",
+      "logo_source": "gavang-source-fallback",
+      "logo_enriched_from": null,
+      "logo_is_fallback": true
+    },
+    {
+      "source": "gavang",
+      "source_label": "Gà Vàng",
+      "url": "https://flv.lauthaitv.cc/live/gazalkent-bekabad-uzbpro.flv",
+      "match_key": "uzb pro league fk gazalkent vs metallurg bekobod|nguoi phao",
+      "display_name": "[CHỜ PHÁT] [23/07] UZB Pro League - FK Gazalkent VS Metallurg Bekobod [BLV NGƯỜI PHÁO] [FLV]",
+      "group": "Gà Vàng",
+      "sport_group": "Bóng đá",
+      "quality": "UNKNOWN",
+      "kind": "flv",
+      "playability": "upcoming-pending",
+      "derived_pending": true,
+      "pending_reason": "current-home-stream-key-no-time",
+      "score": 218,
+      "kickoff_iso": null,
+      "metadata_audit": "warn-only",
+      "metadata_enriched_from": null,
+      "metadata_warning": "Không tìm được lịch/tên đối chiếu đủ tin cậy từ nguồn khác; stream verified vẫn được giữ",
+      "stream_key_tokens": [
+        "gazalkent",
+        "bekabad",
+        "uzbpro"
       ],
       "logo": "https://smorf.io/wp-content/uploads/2026/04/logo-gavangtv.png",
       "logo_source": "gavang-source-fallback",

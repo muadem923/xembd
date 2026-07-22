@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-22T10:01:28.998380+07:00",
+  "updated_at": "2026-07-22T10:31:25.710494+07:00",
   "matches": {
     "992361": {
       "url": "https://live04.chuoichientv.me/live/992361/pvf-cand-vs-hoang-anh-gia-lai",
@@ -324,9 +324,9 @@
       "url": "https://live04.chuoichientv.me/live/1550904/toluca-vs-unam-pumas",
       "match_name": "Toluca vs U.N.A.M. - Pumas - VĐQG Mexico",
       "kickoff_iso": "2026-07-22T10:05:00+07:00",
-      "minutes_to_kickoff": 4,
-      "last_scan_at": "2026-07-22T10:01:28.998342+07:00",
-      "next_scan_at": "2026-07-22T10:06:28.998342+07:00",
+      "minutes_to_kickoff": -26,
+      "last_scan_at": "2026-07-22T10:31:25.710437+07:00",
+      "next_scan_at": "2026-07-22T10:36:25.710437+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
