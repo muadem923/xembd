@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-22T06:31:47.998907+07:00",
+  "updated_at": "2026-07-22T07:01:27.072232+07:00",
   "matches": {
     "992361": {
       "url": "https://live04.chuoichientv.me/live/992361/pvf-cand-vs-hoang-anh-gia-lai",
@@ -244,15 +244,12 @@
       "url": "https://live04.chuoichientv.me/live/1547777/nacional-vs-tigre",
       "match_name": "Nacional vs Tigre - CONMEBOL Sudamericana",
       "kickoff_iso": "2026-07-22T05:00:00+07:00",
-      "minutes_to_kickoff": -91,
-      "last_scan_at": "2026-07-22T06:31:47.998826+07:00",
-      "next_scan_at": "2026-07-22T06:36:47.998826+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoito.flv",
-        "https://gckc0525.edgemaxcdn.org/live/chuoito/playlist.m3u8"
-      ],
+      "minutes_to_kickoff": -121,
+      "last_scan_at": "2026-07-22T07:01:27.072148+07:00",
+      "next_scan_at": "2026-07-22T07:06:27.072148+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
       "scan_decision": "browser-fallback"
     },
     "1556502": {
@@ -295,23 +292,23 @@
     },
     "1547780": {
       "url": "https://live04.chuoichientv.me/live/1547780/ucv-vs-santos",
-      "match_name": "ucv vs santos",
+      "match_name": "UCV vs Santos - CONMEBOL Sudamericana",
       "kickoff_iso": "2026-07-22T07:30:00+07:00",
-      "minutes_to_kickoff": 59,
-      "last_scan_at": "2026-07-22T06:31:47.998826+07:00",
-      "next_scan_at": "2026-07-22T06:51:47.998826+07:00",
+      "minutes_to_kickoff": 29,
+      "last_scan_at": "2026-07-22T07:01:27.072148+07:00",
+      "next_scan_at": "2026-07-22T07:11:27.072148+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "scan_decision": "browser-fallback"
     },
     "1550903": {
       "url": "https://live04.chuoichientv.me/live/1550903/cruz-azul-vs-puebla",
       "match_name": "cruz azul vs puebla",
       "kickoff_iso": "2026-07-22T08:00:00+07:00",
-      "minutes_to_kickoff": 89,
-      "last_scan_at": "2026-07-22T06:31:47.998826+07:00",
-      "next_scan_at": "2026-07-22T06:51:47.998826+07:00",
+      "minutes_to_kickoff": 59,
+      "last_scan_at": "2026-07-22T07:01:27.072148+07:00",
+      "next_scan_at": "2026-07-22T07:21:27.072148+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
