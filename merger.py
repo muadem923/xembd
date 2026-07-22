@@ -12,7 +12,7 @@ from typing import Any, Iterable
 from urllib.parse import unquote, urljoin, urlparse
 from zoneinfo import ZoneInfo
 
-VERSION = "4.4.11-LUONGSON-DOMAIN-STREAM-FAILOVER"
+VERSION = "4.4.12-GAVANG-EXACT-FIXTURE-METADATA"
 TZ_VIETNAM = ZoneInfo("Asia/Ho_Chi_Minh")
 ALLOWED_GROUPS = {"Bóng đá", "Bóng rổ", "Bóng chuyền", "Tennis", "Esports", "Khác"}
 SOURCE_ORDER = {"chuoichien": 0, "luongson": 1, "gavang": 2, "xoilac": 3}
@@ -191,8 +191,24 @@ def normalize_match_name(value: str) -> str:
 
 GAVANG_KEY_NOISE = {
     "ausffa", "auscup", "kork1", "kork2", "chnfa", "chnfacup", "finveik",
-    "argcopa", "argcup", "c1qual", "uclqual", "uefaqual", "lbnprem",
-    "uzbsuper", "ligaprosa", "jpnj1", "jpnj2", "thaprem", "viecup",
+    "argcopa", "argcup", "c1qual", "c2qual", "c3qual", "uclqual", "uefaqual",
+    "lbnprem", "uzbsuper", "uzbpro", "ligaprosa", "jpnj1", "jpnj2",
+    "thaprem", "viecup", "affw", "mls", "kazdiv1", "norelite",
+}
+
+GAVANG_KEY_ALIASES = {
+    "camw": ["cambodia"],
+    "sinw": ["singapore"],
+    "sydnet58": ["sydney"],
+    "mariners": ["mariners"],
+    "buncheon": ["bucheon"],
+    "cincinati": ["cincinnati"],
+    "lagalaxy": ["galaxy"],
+    "stlouis": ["louis"],
+    "tot": ["tottenham"],
+    "mkdons": ["dons"],
+    "bodo": ["bodo"],
+    "hamkam": ["ham", "kam"],
 }
 
 
@@ -203,9 +219,15 @@ def gavang_key_tokens_from_stream(url: str) -> list[str]:
     if stem == "index" and len(parts) >= 2:
         stem = parts[-2].lower()
     tokens = [token for token in re.split(r"[^a-z0-9]+", stem) if token]
-    if tokens and tokens[-1] in GAVANG_KEY_NOISE:
+    while tokens and tokens[-1] in GAVANG_KEY_NOISE:
         tokens = tokens[:-1]
-    return [token for token in tokens if token not in {"vs", "live", "stream"} and len(token) >= 3]
+    expanded: list[str] = []
+    for token in tokens:
+        if token in {"vs", "live", "stream"}:
+            continue
+        values = GAVANG_KEY_ALIASES.get(token, [token])
+        expanded.extend(value for value in values if len(value) >= 3)
+    return expanded
 
 
 def _metadata_name(row: dict[str, Any], display_name: str = "") -> str:
@@ -299,15 +321,24 @@ def _apply_block_display_metadata(
     if kickoff:
         time_text = kickoff.strftime("%H:%M")
         date_text = kickoff.strftime("%d/%m")
-    kickoff_label = " ".join(part for part in (time_text, date_text) if part)
-    display_base = f"[{kickoff_label}] {match_name}" if kickoff_label else match_name
-    if own_blv and own_blv.lower() not in display_base.lower():
-        display_base += f" [BLV {own_blv}]"
     is_pending = (
         block.playability == "upcoming-pending"
         or bool(block.metadata.get("derived_pending"))
         or bool(re.search(r"\[CHỜ PHÁT(?:\s+[^\]]+)?\]", block.display_name, re.I))
     )
+    if time_text and date_text:
+        schedule_label = f"{time_text} {date_text}"
+    elif date_text:
+        schedule_label = f"CHƯA CÓ GIỜ {date_text}"
+    elif time_text:
+        schedule_label = f"{time_text} CHƯA RÕ NGÀY"
+    elif is_pending:
+        schedule_label = "CHƯA CÓ LỊCH"
+    else:
+        schedule_label = ""
+    display_base = f"[{schedule_label}] {match_name}" if schedule_label else match_name
+    if own_blv and own_blv.lower() not in display_base.lower():
+        display_base += f" [BLV {own_blv}]"
     if is_pending:
         display_base = f"[CHỜ PHÁT] {display_base}"
     suffix_match = re.search(
@@ -326,14 +357,86 @@ def _apply_block_display_metadata(
             break
 
 
-def enrich_gavang_metadata_from_other_sources(blocks: list[M3UBlock]) -> dict[str, int]:
+
+def _first_valid_logo_from_row(row: dict[str, Any]) -> str:
+    values: list[Any] = [
+        row.get("logo"), row.get("home_logo"), row.get("away_logo"),
+        row.get("source_logo"), row.get("gavang_logo"),
+    ]
+    values.extend(row.get("team_logos") or [])
+    values.extend(row.get("logo_candidates") or [])
+    for value in values:
+        if isinstance(value, dict):
+            value = value.get("url") or value.get("src") or value.get("contentUrl")
+        fixed = clean_text(value)
+        if valid_logo_url(fixed):
+            return fixed
+    return ""
+
+
+def load_debug_metadata_references(source: SourceFiles, now: datetime) -> list[M3UBlock]:
+    """Tạo record tham chiếu từ toàn bộ debug row, kể cả trận chưa có stream.
+
+    Trước đây merger chỉ đối chiếu Gà Vàng với các block đã vào playlist nguồn.
+    Một trận sắp đá thường có tên/giờ/logo trong debug Chuối Chiên/Lương Sơn nhưng
+    chưa có media nên bị bỏ khỏi tập tham chiếu. Đây là nguyên nhân audit ghi
+    ``enriched=0`` dù nguồn khác đã nhìn thấy lịch trận.
+    """
+    if source.key == "gavang" or not source.debug.exists():
+        return []
+    try:
+        payload = json.loads(source.debug.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return []
+    rows = payload if isinstance(payload, list) else payload.get("results", []) if isinstance(payload, dict) else []
+    output: list[M3UBlock] = []
+    seen: set[tuple[str, str]] = set()
+    for index, row in enumerate(rows):
+        if not isinstance(row, dict):
+            continue
+        name = _metadata_name(row)
+        if not re.search(r"\bvs\b", name, re.I):
+            continue
+        kickoff = resolve_kickoff(row, now)
+        date_text = clean_text(row.get("date"))
+        time_text = clean_text(row.get("time"))
+        key = (normalize_match_name(name), kickoff.isoformat() if kickoff else f"{date_text}|{time_text}")
+        if key in seen:
+            continue
+        seen.add(key)
+        logo = _first_valid_logo_from_row(row)
+        metadata = dict(row)
+        if kickoff:
+            metadata["kickoff_iso"] = kickoff.isoformat()
+        attrs = {"tvg-logo": logo} if logo else {}
+        output.append(M3UBlock(
+            source_key=source.key,
+            source_label=source.label,
+            extinf="",
+            lines=[],
+            url_line="",
+            canonical_url=f"debug://{source.key}/{index}",
+            attributes=attrs,
+            display_name=name,
+            metadata=metadata,
+            kickoff=kickoff,
+            kind="",
+            playability="metadata-only",
+        ))
+    return output
+
+def enrich_gavang_metadata_from_other_sources(
+    blocks: list[M3UBlock],
+    metadata_references: list[M3UBlock] | None = None,
+) -> dict[str, int]:
     """Best-effort metadata bridge cho Gà Vàng; không bao giờ loại stream.
 
     Stream key chỉ được dùng để tìm tên/giờ tương ứng ở Chuối Chiên/Lương Sơn.
     Nếu không đủ chắc chắn, giữ nguyên link và metadata hiện có, đồng thời ghi warning.
     """
+    reference_pool = list(blocks) + list(metadata_references or [])
     reference = [
-        item for item in blocks
+        item for item in reference_pool
         if item.source_key != "gavang" and _metadata_name(item.metadata, item.display_name)
     ]
     stats = {"enriched": 0, "warn_only": 0, "already_good": 0}
@@ -369,9 +472,18 @@ def enrich_gavang_metadata_from_other_sources(blocks: list[M3UBlock]) -> dict[st
         if not confident:
             block.metadata["metadata_audit"] = "warn-only"
             block.metadata["metadata_warning"] = (
-                "Không tìm được lịch/tên đối chiếu đủ tin cậy từ nguồn khác; stream verified vẫn được giữ"
+                "Không tìm được lịch/tên đối chiếu đủ tin cậy từ nguồn khác; stream verified/pending vẫn được giữ"
             )
             block.metadata["stream_key_tokens"] = key_tokens
+            # Chuẩn hóa tên hiển thị kể cả khi chưa làm giàu được metadata:
+            # CHỜ PHÁT luôn ở đầu và lịch thiếu được ghi rõ, không giả vờ là lịch hoàn chỉnh.
+            _apply_block_display_metadata(
+                block,
+                match_name=current_name,
+                kickoff=block.kickoff,
+                date_text=clean_text(block.metadata.get("date")),
+                time_text=clean_text(block.metadata.get("time")),
+            )
             stats["warn_only"] += 1
             continue
 
@@ -410,10 +522,14 @@ def enrich_gavang_metadata_from_other_sources(blocks: list[M3UBlock]) -> dict[st
     return stats
 
 
-def enrich_gavang_logos_from_other_sources(blocks: list[M3UBlock]) -> dict[str, int]:
+def enrich_gavang_logos_from_other_sources(
+    blocks: list[M3UBlock],
+    metadata_references: list[M3UBlock] | None = None,
+) -> dict[str, int]:
     """Ưu tiên logo đội từ nguồn khác khi khớp đủ chắc; nếu không có, giữ logo nguồn."""
+    reference_pool = list(blocks) + list(metadata_references or [])
     reference = [
-        item for item in blocks
+        item for item in reference_pool
         if item.source_key != "gavang" and valid_logo_url(item.attributes.get("tvg-logo"))
     ]
     stats = {"team_logo": 0, "source_fallback": 0, "repaired_invalid": 0}
@@ -659,12 +775,15 @@ def merge_sources(
     upcoming_hours = upcoming_hours or max(1, min(int(os.getenv("MULTI_UPCOMING_KEEP_HOURS", "4")), 24))
 
     all_blocks: list[M3UBlock] = []
+    metadata_references: list[M3UBlock] = []
     universal_maps: dict[str, dict[str, M3UBlock]] = {}
     source_stats: list[dict[str, Any]] = []
 
     for source in sources:
         blocks = parse_m3u(source.universal, source.key, source.label)
         blocks, debug_rows = enrich_blocks(source, blocks, now)
+        source_references = load_debug_metadata_references(source, now)
+        metadata_references.extend(source_references)
         universal_maps[source.key] = {item.canonical_url: item for item in blocks}
         if source.returncode == 0 and debug_rows > 0:
             all_blocks.extend(blocks)
@@ -675,11 +794,12 @@ def merge_sources(
             "fresh": source.fresh,
             "debug_rows": debug_rows,
             "playlist_blocks": len(blocks),
+            "metadata_references": len(source_references),
             "included": source.returncode == 0 and debug_rows > 0,
         })
 
-    gavang_metadata_stats = enrich_gavang_metadata_from_other_sources(all_blocks)
-    gavang_logo_stats = enrich_gavang_logos_from_other_sources(all_blocks)
+    gavang_metadata_stats = enrich_gavang_metadata_from_other_sources(all_blocks, metadata_references)
+    gavang_logo_stats = enrich_gavang_logos_from_other_sources(all_blocks, metadata_references)
     selected, dropped = choose_candidates(all_blocks, now, max_per_match, upcoming_hours)
     outputs = {
         "playlist": root / "all_live.m3u",
@@ -734,6 +854,7 @@ def merge_sources(
         },
         "sources": source_stats,
         "input_candidates": len(all_blocks),
+        "metadata_reference_count": len(metadata_references),
         "selected_count": len(selected),
         "dropped_count": len(dropped),
         "gavang_metadata": gavang_metadata_stats,
