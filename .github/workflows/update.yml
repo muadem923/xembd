@@ -1,7 +1,9 @@
-name: Quet 4 nguon v4.4.11 - Luong Son stream failover
+name: Quet 4 nguon v4.4.12 - Ga Vang exact fixture metadata
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "*/30 * * * *"
 
 permissions:
   contents: write
@@ -216,7 +218,9 @@ jobs:
                           failures.append(f"Gà Vàng pending không phải FLV: {url}")
                   display_name = str(channel.get("display_name") or "")
                   if channel.get("playability") == "upcoming-pending" and not channel.get("kickoff_iso"):
-                      warnings.append(f"Gà Vàng pending chưa lấy được giờ; giữ link và sẽ thử lại: {url}")
+                      if not re.match(r"^\[CHỜ PHÁT\] \[(?:CHƯA CÓ GIỜ|CHƯA CÓ LỊCH|(?:[01]\d|2[0-3]):[0-5]\d CHƯA RÕ NGÀY)", display_name):
+                          failures.append(f"Gà Vàng pending thiếu lịch phải ghi rõ trạng thái lịch: {display_name} | {url}")
+                      warnings.append(f"Gà Vàng pending chưa lấy được đủ giờ; giữ link và sẽ thử lại: {url}")
                   if re.search(r"\b(?:kork1|kork2|chnfa|ausffa|c1qual|c3qual|uzbsuper|intcf)\b", display_name, re.I):
                       warnings.append(f"Gà Vàng tên còn dấu hiệu slug kỹ thuật: {display_name} | {url}")
                   metadata_audit = channel.get("metadata_audit")
@@ -273,7 +277,7 @@ jobs:
 
           print(
               f"Audit OK: {len(urls)} stream chung; nguon={report.get('sources')} | "
-              f"gavang_metadata={report.get('gavang_metadata')} | gavang_logo={report.get('gavang_logo')} | warnings={len(warnings)}"
+              f"gavang_metadata={report.get('gavang_metadata')} | gavang_logo={report.get('gavang_logo')} | metadata_refs={report.get('metadata_reference_count')} | warnings={len(warnings)}"
           )
           PY_AUDIT
 
@@ -335,5 +339,5 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Update live streams v4.4.11 (Luong Son domain stream failover)"
+          git commit -m "Update live streams v4.4.12 (Ga Vang exact fixture metadata)"
           git push origin "HEAD:${GITHUB_REF_NAME}"
