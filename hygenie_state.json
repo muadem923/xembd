@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "luongson",
-  "updated_at": "2026-07-22T22:04:21.863276+07:00",
+  "updated_at": "2026-07-22T22:33:03.216164+07:00",
   "matches": {
     "dbdf8cfe3f68": {
       "url": "https://catbee.io/truc-tiep/basilan-steel-vs-sarangani-marlins-vao-luc-1500-21-07-2026/",
@@ -1089,9 +1089,9 @@
       "url": "https://laservision.io/truc-tiep/bologna-vs-heidenheimer-vao-luc-2100-22-07-2026/?blv=292",
       "match_name": "BOLOGNA vs HEIDENHEIMER",
       "kickoff_iso": "2026-07-22T21:00:00+07:00",
-      "minutes_to_kickoff": -61,
-      "last_scan_at": "2026-07-22T22:04:21.862836+07:00",
-      "next_scan_at": "2026-07-22T22:09:21.862836+07:00",
+      "minutes_to_kickoff": -91,
+      "last_scan_at": "2026-07-22T22:33:03.215772+07:00",
+      "next_scan_at": "2026-07-22T22:38:03.215772+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -1103,9 +1103,9 @@
       "url": "https://laservision.io/truc-tiep/lokomotiv-tashkent-vs-fk-andijon-vao-luc-2200-22-07-2026/?blv=372",
       "match_name": "LOKOMOTIV TASHKENT vs FK ANDIJON",
       "kickoff_iso": "2026-07-22T22:00:00+07:00",
-      "minutes_to_kickoff": -1,
-      "last_scan_at": "2026-07-22T22:04:21.862836+07:00",
-      "next_scan_at": "2026-07-22T22:09:21.862836+07:00",
+      "minutes_to_kickoff": -31,
+      "last_scan_at": "2026-07-22T22:33:03.215772+07:00",
+      "next_scan_at": "2026-07-22T22:38:03.215772+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -1117,9 +1117,9 @@
       "url": "https://laservision.io/truc-tiep/mashal-muborak-vs-nasaf-qarshi-vao-luc-2200-22-07-2026/?blv=359",
       "match_name": "MASHAL MUBORAK vs NASAF QARSHI",
       "kickoff_iso": "2026-07-22T22:00:00+07:00",
-      "minutes_to_kickoff": -1,
-      "last_scan_at": "2026-07-22T22:04:21.862836+07:00",
-      "next_scan_at": "2026-07-22T22:09:21.862836+07:00",
+      "minutes_to_kickoff": -31,
+      "last_scan_at": "2026-07-22T22:33:03.215772+07:00",
+      "next_scan_at": "2026-07-22T22:38:03.215772+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -1143,9 +1143,9 @@
       "url": "https://laservision.io/truc-tiep/kuruvchi-kokand-qoqon-vs-otmk-olmaliq-vao-luc-2200-22-07-2026/?blv=383",
       "match_name": "KURUVCHI KOKAND QOQON vs OTMK OLMALIQ",
       "kickoff_iso": "2026-07-22T22:00:00+07:00",
-      "minutes_to_kickoff": -1,
-      "last_scan_at": "2026-07-22T22:04:21.862836+07:00",
-      "next_scan_at": "2026-07-22T22:09:21.862836+07:00",
+      "minutes_to_kickoff": -31,
+      "last_scan_at": "2026-07-22T22:33:03.215772+07:00",
+      "next_scan_at": "2026-07-22T22:38:03.215772+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -1169,35 +1169,39 @@
     },
     "8a9dacdcd5a7": {
       "url": "https://laservision.io/truc-tiep/fc-neftci-baku-vs-dinamo-minsk-vao-luc-2300-22-07-2026/?blv=328",
-      "match_name": "Trực tiếp trận đấu FC Neftci Baku vs Dinamo Minsk",
+      "match_name": "FC NEFTCI BAKU vs DINAMO MINSK",
       "kickoff_iso": "2026-07-22T23:00:00+07:00",
-      "minutes_to_kickoff": 59,
-      "last_scan_at": "2026-07-22T22:04:21.862836+07:00",
-      "next_scan_at": "2026-07-22T22:24:21.862836+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": 29,
+      "last_scan_at": "2026-07-22T22:33:03.215772+07:00",
+      "next_scan_at": "2026-07-22T22:38:03.215772+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://hls.cdnfaster-a.live/live/VOTONG/index.m3u8?expire=1891347600&sign=cbb47d2000b9576a7b34114624ff8299"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "6fc7205c1e21": {
       "url": "https://laservision.io/truc-tiep/napoli-vs-arezzo-vao-luc-2300-22-07-2026/?blv=300",
-      "match_name": "Trực tiếp trận đấu Napoli vs Arezzo",
+      "match_name": "NAPOLI vs AREZZO",
       "kickoff_iso": "2026-07-22T23:00:00+07:00",
-      "minutes_to_kickoff": 59,
-      "last_scan_at": "2026-07-22T22:04:21.862836+07:00",
-      "next_scan_at": "2026-07-22T22:24:21.862836+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": 29,
+      "last_scan_at": "2026-07-22T22:33:03.215772+07:00",
+      "next_scan_at": "2026-07-22T22:38:03.215772+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://hls.cdnfaster-a.live/live/TONLAP/index.m3u8?expire=1788427256&sign=72cc58a29d787d621b0832b54e1a78df"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "e19b87da0a55": {
       "url": "https://laservision.io/truc-tiep/az-alkmaar-vs-racing-genk-vao-luc-2330-22-07-2026/?blv=298",
       "match_name": "Trực tiếp trận đấu AZ Alkmaar vs Racing Genk",
       "kickoff_iso": "2026-07-22T23:30:00+07:00",
-      "minutes_to_kickoff": 89,
-      "last_scan_at": "2026-07-22T22:04:21.862836+07:00",
-      "next_scan_at": "2026-07-22T22:24:21.862836+07:00",
+      "minutes_to_kickoff": 59,
+      "last_scan_at": "2026-07-22T22:33:03.215772+07:00",
+      "next_scan_at": "2026-07-22T22:53:03.215772+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
@@ -1267,9 +1271,9 @@
       "url": "https://laservision.io/truc-tiep/levski-sofia-vs-cs-universitatea-craiova-vao-luc-0030-23-07-2026/?blv=374",
       "match_name": "Trực tiếp trận đấu Levski Sofia vs CS Universitatea Craiova",
       "kickoff_iso": "2026-07-23T00:30:00+07:00",
-      "minutes_to_kickoff": 179,
-      "last_scan_at": "2026-07-22T21:33:34.955146+07:00",
-      "next_scan_at": "2026-07-22T22:18:34.955146+07:00",
+      "minutes_to_kickoff": 119,
+      "last_scan_at": "2026-07-22T22:33:03.215772+07:00",
+      "next_scan_at": "2026-07-22T22:53:03.215772+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
@@ -1303,9 +1307,9 @@
       "url": "https://laservision.io/truc-tiep/fc-kharkiv-vs-schalke-04-vao-luc-2100-22-07-2026/?blv=377",
       "match_name": "FC KHARKIV vs SCHALKE 04",
       "kickoff_iso": "2026-07-22T21:00:00+07:00",
-      "minutes_to_kickoff": -61,
-      "last_scan_at": "2026-07-22T22:04:21.862836+07:00",
-      "next_scan_at": "2026-07-22T22:09:21.862836+07:00",
+      "minutes_to_kickoff": -91,
+      "last_scan_at": "2026-07-22T22:33:03.215772+07:00",
+      "next_scan_at": "2026-07-22T22:38:03.215772+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -1317,9 +1321,9 @@
       "url": "https://laservision.io/truc-tiep/spartak-trnava-vs-cska-1948-sofia-vao-luc-0130-23-07-2026/?blv=372",
       "match_name": "Trực tiếp trận đấu Spartak Trnava vs CSKA 1948 Sofia",
       "kickoff_iso": "2026-07-23T01:30:00+07:00",
-      "minutes_to_kickoff": 239,
-      "last_scan_at": "2026-07-22T21:33:34.955146+07:00",
-      "next_scan_at": "2026-07-22T22:18:34.955146+07:00",
+      "minutes_to_kickoff": 179,
+      "last_scan_at": "2026-07-22T22:33:03.215772+07:00",
+      "next_scan_at": "2026-07-22T23:18:03.215772+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
@@ -1348,6 +1352,20 @@
       "has_verified": false,
       "verified_urls": [],
       "scan_decision": "http-only-far-upcoming"
+    },
+    "f04840ccb6f4": {
+      "url": "https://laservision.io/truc-tiep/lecce-vs-fc-politehnica-timisoara-vao-luc-2230-22-07-2026/?blv=315",
+      "match_name": "LECCE vs FC POLITEHNICA TIMISOARA",
+      "kickoff_iso": "2026-07-22T22:30:00+07:00",
+      "minutes_to_kickoff": -1,
+      "last_scan_at": "2026-07-22T22:33:03.215772+07:00",
+      "next_scan_at": "2026-07-22T22:38:03.215772+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://hls.cdnfaster-a.live/live/VUONGLUAN/index.m3u8?expire=1893165900&sign=60fcb5252d4dafeac0cb5da922c56645"
+      ],
+      "scan_decision": "browser-fallback"
     }
   }
 }
