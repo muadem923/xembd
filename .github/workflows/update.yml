@@ -1,7 +1,9 @@
-name: Quet Chuoi Chien Luong Son va Ga Vang v4.4.8 - Gà Vàng Metadata Chờ Phát
+name: Quet 4 nguon v4.4.10 - Fix delta state audit
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "*/30 * * * *"
 
 permissions:
   contents: write
@@ -38,14 +40,15 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          python -m py_compile main.py merger.py sources/hybrid_support.py sources/chuoichien.py sources/luongson.py sources/gavang.py
+          python -m py_compile main.py merger.py sources/hybrid_support.py sources/chuoichien.py sources/luongson.py sources/gavang.py sources/xoilac.py
           python -m unittest discover -s tests -v
 
-      - name: 5. Quet ba nguon va hien log realtime
+      - name: 5. Quet bon nguon va hien log realtime
         shell: bash
         env:
           PYTHONUNBUFFERED: "1"
           MULTI_RUN_SOURCES_PARALLEL: "1"
+          MULTI_SOURCE_MAX_WORKERS: "3"
           MULTI_MAX_STREAMS_PER_MATCH: "2"
           MULTI_UPCOMING_KEEP_HOURS: "4"
           MULTI_PENDING_PAST_MINUTES: "150"
@@ -126,6 +129,21 @@ jobs:
           GAVANG_UPCOMING_NEAR_WAIT_SECONDS: "10"
           GAVANG_KEEP_PREVIOUS_UNVERIFIED: "0"
           GAVANG_ALLOW_UNVERIFIED_BROWSER_FALLBACK: "0"
+
+          XOILAC_HOME_URLS: "https://xoilacz.io/,https://malaysiandigest.com/,https://altenergystocks.com/"
+          XOILAC_SOURCE_WAIT_SECONDS: "12"
+          XOILAC_HOME_WAIT_SECONDS: "5"
+          XOILAC_AFTER_FIRST_WAIT: "2"
+          XOILAC_NAVIGATION_TIMEOUT: "35"
+          XOILAC_VERIFY_STREAMS: "1"
+          XOILAC_VERIFY_TIMEOUT: "8"
+          XOILAC_MAX_MATCHES: "5"
+          XOILAC_MAX_SOURCES_PER_MATCH: "4"
+          XOILAC_TOKEN_REFRESH_ATTEMPTS: "2"
+          XOILAC_MIN_TOKEN_SECONDS: "600"
+          XOILAC_SCAN_PAST_MINUTES: "150"
+          XOILAC_SCAN_FUTURE_MINUTES: "240"
+          XOILAC_WRITE_AUDIT_M3U: "0"
         run: |
           set -o pipefail
           python -u main.py 2>&1 | tee multi_source_scan.log
@@ -161,7 +179,7 @@ jobs:
           per_match_quality = Counter()
 
           # Scanner phải lọc TRƯỚC khi mở trang trận: -150 phút đến +240 phút.
-          for debug_name in ("chuoichien_debug.json", "hygenie_debug.json", "gavang_debug.json"):
+          for debug_name in ("chuoichien_debug.json", "hygenie_debug.json", "gavang_debug.json", "xoilac_debug.json"):
               debug_path = Path(debug_name)
               if not debug_path.exists():
                   continue
@@ -175,7 +193,7 @@ jobs:
                   if delta is None and reason not in {"unknown-time-live", "unknown-time-derived-probe", ""}:
                       failures.append(f"{debug_name}: lý do giờ không hợp lệ {reason}: {row.get('url')}")
 
-          expected_groups = {"chuoichien": "Chuối Chiên", "luongson": "Lương Sơn", "gavang": "Gà Vàng"}
+          expected_groups = {"chuoichien": "Chuối Chiên", "luongson": "Lương Sơn", "gavang": "Gà Vàng", "xoilac": "Xôi Lạc"}
           for channel in report.get("channels", []):
               url = channel.get("url", "")
               urls.append(url)
@@ -207,6 +225,18 @@ jobs:
                           f"{url} | {channel.get('metadata_warning') or 'không có đối chiếu phù hợp'}"
                       )
 
+              if channel.get("source") == "xoilac":
+                  classification = str(channel.get("classification") or "")
+                  signed = bool(channel.get("has_secret"))
+                  if classification in {"placeholder_or_ad", "dead", "expired", "unverified"}:
+                      failures.append(f"Xôi Lạc lọt stream bị loại vào playlist: {classification} | {url}")
+                  if "live2.streambylivepulse.com" in url.lower() and not signed:
+                      failures.append(f"Xôi Lạc lọt player quảng cáo live2 không wsSecret: {url}")
+                  expiry = channel.get("expiry") or {}
+                  seconds_left = expiry.get("seconds_left") if isinstance(expiry, dict) else None
+                  if signed and isinstance(seconds_left, int) and seconds_left <= 60:
+                      failures.append(f"Xôi Lạc lọt token hết hạn/sắp hết hạn: còn {seconds_left}s | {url}")
+
           if len(urls) != len(set(urls)):
               failures.append("Playlist chung co URL trung lap")
 
@@ -225,7 +255,7 @@ jobs:
               if line.startswith("#EXTINF"):
                   pending_extinf = line
                   match = re.search(r'group-title="([^"]+)"', line)
-                  if not match or match.group(1) not in {"Chuối Chiên", "Lương Sơn", "Gà Vàng"}:
+                  if not match or match.group(1) not in {"Chuối Chiên", "Lương Sơn", "Gà Vàng", "Xôi Lạc"}:
                       failures.append(f"group-title khong hop le: {line}")
               elif line.startswith(("http://", "https://")) and line in pending_urls:
                   display = pending_extinf.split(",", 1)[1].strip() if "," in pending_extinf else ""
@@ -260,6 +290,7 @@ jobs:
             chuoichien_debug.json
             hygenie_debug.json
             gavang_debug.json
+            xoilac_debug.json
             *_home_debug.html
             *_home_debug.png
             multi_source_scan.log
@@ -284,10 +315,13 @@ jobs:
             chuoichien_live.m3u chuoichien_live_pipe.m3u chuoichien_live_vlc.m3u
             hygenie_live.m3u hygenie_live_pipe.m3u hygenie_live_vlc.m3u
             gavang_live.m3u gavang_live_pipe.m3u gavang_live_vlc.m3u
+            xoilac_live.m3u xoilac_live_pipe.m3u xoilac_live_vlc.m3u
+            xoilac_runner_verified.m3u xoilac_all_candidates.m3u xoilac_rejected.m3u
             luongson_live.m3u luongson_live_pipe.m3u luongson_live_vlc.m3u
             chuoichien/chuoichien_live.m3u chuoichien/chuoichien_live_pipe.m3u chuoichien/chuoichien_live_vlc.m3u
             luongson/hygenie_live.m3u luongson/hygenie_live_pipe.m3u luongson/hygenie_live_vlc.m3u
             gavang/gavang_live.m3u gavang/gavang_live_pipe.m3u gavang/gavang_live_vlc.m3u
+            xoilac/xoilac_live.m3u xoilac/xoilac_live_pipe.m3u xoilac/xoilac_live_vlc.m3u
           )
           git rm -f --ignore-unmatch -- "${old_playlists[@]}"
           files_to_add=(all_live.m3u all_live_debug.json)
@@ -300,5 +334,5 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Update live streams v4.4.8 (Gavang pending metadata)"
+          git commit -m "Update live streams v4.4.10 (fix deterministic delta state audit)"
           git push origin "HEAD:${GITHUB_REF_NAME}"
