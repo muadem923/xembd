@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-22T21:01:36.305157+07:00",
+  "updated_at": "2026-07-22T21:31:37.689474+07:00",
   "matches": {
     "992361": {
       "url": "https://live04.chuoichientv.me/live/992361/pvf-cand-vs-hoang-anh-gia-lai",
@@ -446,14 +446,13 @@
       "url": "https://live04.chuoichientv.me/live/1560778/bologna-vs-1-fc-heidenheim",
       "match_name": "Bologna vs 1. FC Heidenheim - Giao Hữu Câu Lạc Bộ",
       "kickoff_iso": "2026-07-22T21:00:00+07:00",
-      "minutes_to_kickoff": -1,
-      "last_scan_at": "2026-07-22T21:01:36.305066+07:00",
-      "next_scan_at": "2026-07-22T21:06:36.305066+07:00",
+      "minutes_to_kickoff": -31,
+      "last_scan_at": "2026-07-22T21:31:37.689385+07:00",
+      "next_scan_at": "2026-07-22T21:36:37.689385+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/troctru.flv",
-        "https://gckc0525.edgemaxcdn.org/live/troctru/playlist.m3u8"
+        "https://gckc0525.edgemaxcdn.org/live/troctru.flv"
       ],
       "scan_decision": "browser-fallback"
     },
@@ -471,23 +470,23 @@
     },
     "1516068": {
       "url": "https://live04.chuoichientv.me/live/1516068/mashal-vs-nasaf",
-      "match_name": "mashal vs nasaf",
+      "match_name": "Mash'al vs Nasaf - VĐQG Uzbekistan",
       "kickoff_iso": "2026-07-22T22:00:00+07:00",
-      "minutes_to_kickoff": 59,
-      "last_scan_at": "2026-07-22T21:01:36.305066+07:00",
-      "next_scan_at": "2026-07-22T21:21:36.305066+07:00",
+      "minutes_to_kickoff": 29,
+      "last_scan_at": "2026-07-22T21:31:37.689385+07:00",
+      "next_scan_at": "2026-07-22T21:41:37.689385+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "scan_decision": "browser-fallback"
     },
     "1517220": {
       "url": "https://live04.chuoichientv.me/live/1517220/pkku-vs-vjs",
       "match_name": "pkku vs vjs",
       "kickoff_iso": "2026-07-22T23:00:00+07:00",
-      "minutes_to_kickoff": 119,
-      "last_scan_at": "2026-07-22T21:01:36.305066+07:00",
-      "next_scan_at": "2026-07-22T21:21:36.305066+07:00",
+      "minutes_to_kickoff": 89,
+      "last_scan_at": "2026-07-22T21:31:37.689385+07:00",
+      "next_scan_at": "2026-07-22T21:51:37.689385+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
