@@ -58,7 +58,7 @@ LEGACY_GIT_PLAYLIST_PATH = "gavang/gavang_live.m3u"
 OUTPUT_DEBUG = "gavang_debug.json"
 OUTPUT_HOME_DEBUG_HTML = "gavang_home_debug.html"
 OUTPUT_HOME_DEBUG_PNG = "gavang_home_debug.png"
-SCANNER_VERSION = "4.4.8-GAVANG-PENDING-METADATA-FIRST"
+SCANNER_VERSION = "4.4.12-GAVANG-EXACT-FIXTURE-SCHEDULE-METADATA"
 
 
 def read_env_bool(name: str, default: bool = True) -> bool:
@@ -1527,7 +1527,47 @@ GAVANG_STREAM_KEY_NOISE = {
     "ausffa", "auscup", "kork1", "kork2", "chnfa", "chnfacup", "finveik",
     "argcopa", "argcup", "c1qual", "uclqual", "uefaqual", "lbnprem",
     "uzbsuper", "ligaprosa", "jpnj1", "jpnj2", "thaprem", "viecup",
-    "c3qual", "ueclqual", "intcf", "mexliga", "brasa", "affw",
+    "c3qual", "ueclqual", "intcf", "mexliga", "brasa", "affw", "mls",
+    "kazdiv1", "uzbpro", "norelite", "braa", "brasera", "fraw",
+}
+
+# Chỉ mở rộng các token viết tắt đã quan sát rõ trong log Gà Vàng. Đây là
+# fallback hiển thị; metadata exact-fixture/script và đối chiếu liên nguồn vẫn
+# luôn được ưu tiên trước.
+GAVANG_TEAM_TOKEN_ALIASES = {
+    "camw": "Cambodia Women",
+    "sinw": "Singapore Women",
+    "sydnet58": "Sydney United 58 FC",
+    "mariners": "Central Coast Mariners",
+    "buncheon": "Bucheon FC 1995",
+    "anyang": "FC Anyang",
+    "cincinati": "FC Cincinnati",
+    "vancouver": "Vancouver Whitecaps",
+    "lagalaxy": "LA Galaxy",
+    "stlouis": "St. Louis City SC",
+    "tot": "Tottenham Hotspur",
+    "mkdons": "MK Dons",
+    "bodo": "Bodø/Glimt",
+    "hamkam": "HamKam",
+    "lillestrom": "Lillestrøm SK",
+    "neftci": "Neftçi PFK",
+}
+
+# Token dùng riêng cho đối chiếu mềm. Các mã gộp như ``lagalaxy`` phải
+# quy về token có thể gặp trong tên đầy đủ, nếu không metadata đúng lại bị
+# đánh dấu trái stream key.
+GAVANG_TOKEN_MATCH_ALIASES = {
+    "camw": ["cambodia"],
+    "sinw": ["singapore"],
+    "sydnet58": ["sydney"],
+    "buncheon": ["bucheon"],
+    "cincinati": ["cincinnati"],
+    "lagalaxy": ["galaxy"],
+    "stlouis": ["louis"],
+    "tot": ["tottenham"],
+    "mkdons": ["dons"],
+    "bodo": ["bodo"],
+    "hamkam": ["hamkam"],
 }
 
 
@@ -1551,9 +1591,14 @@ def gavang_stream_key_tokens(value: str) -> list[str]:
     """
     key = _stream_key_from_media_url(value).lower()
     raw = [part for part in re.split(r"[^a-z0-9]+", key) if part]
-    if raw and raw[-1] in GAVANG_STREAM_KEY_NOISE:
+    while raw and raw[-1] in GAVANG_STREAM_KEY_NOISE:
         raw = raw[:-1]
-    return [part for part in raw if part not in {"vs", "live", "stream"} and len(part) >= 3]
+    expanded: list[str] = []
+    for part in raw:
+        if part in {"vs", "live", "stream"}:
+            continue
+        expanded.extend(GAVANG_TOKEN_MATCH_ALIASES.get(part, [part]))
+    return [part for part in expanded if len(part) >= 3]
 
 
 def title_stream_key_confidence(title: str, value: str) -> dict[str, Any]:
@@ -1571,15 +1616,41 @@ def title_stream_key_confidence(title: str, value: str) -> dict[str, Any]:
     }
 
 
+def _pretty_gavang_team_token(value: str) -> str:
+    token = clean_text(value).lower()
+    if token in GAVANG_TEAM_TOKEN_ALIASES:
+        return GAVANG_TEAM_TOKEN_ALIASES[token]
+    # Tách chữ-số để ``sydnet58`` không biến thành một chuỗi khó đọc nếu chưa
+    # có alias; giữ các acronym phổ biến ở dạng in hoa.
+    token = re.sub(r"(?<=[a-z])(?=\d)|(?<=\d)(?=[a-z])", " ", token)
+    words = [part for part in re.split(r"[_\s]+", token) if part]
+    rendered = []
+    for word in words:
+        if word in {"fc", "sc", "cf", "afc", "fk", "sk", "la", "mk"}:
+            rendered.append(word.upper())
+        else:
+            rendered.append(word.title())
+    return " ".join(rendered)
+
+
+def gavang_display_key_tokens(value: str) -> list[str]:
+    """Token nguyên bản cho tên fallback; không thay alias thành token đối chiếu."""
+    key = _stream_key_from_media_url(value).lower()
+    raw = [part for part in re.split(r"[^a-z0-9]+", key) if part]
+    while raw and raw[-1] in GAVANG_STREAM_KEY_NOISE:
+        raw = raw[:-1]
+    return [part for part in raw if part not in {"vs", "live", "stream"} and len(part) >= 2]
+
+
 def fallback_match_name_from_stream_key(value: str) -> str:
-    tokens = gavang_stream_key_tokens(value)
+    tokens = gavang_display_key_tokens(value)
     if not tokens:
         return clean_match_name("", value)
     if len(tokens) == 1:
-        return tokens[0].replace("_", " ").title()
+        return _pretty_gavang_team_token(tokens[0])
     # Stream key Gà Vàng hiện thường dùng một token rút gọn cho mỗi đội, sau đó là mã giải.
-    # Fallback này chỉ dùng khi metadata DOM bị ghép chéo; merger vẫn có thể nâng cấp thành tên đầy đủ.
-    return f"{tokens[0].title()} VS {tokens[1].title()}"
+    # Fallback này chỉ dùng khi metadata exact-fixture không có; không bao giờ dùng để loại stream.
+    return f"{_pretty_gavang_team_token(tokens[0])} VS {_pretty_gavang_team_token(tokens[1])}"
 
 
 def sanitize_gavang_match_metadata(match: dict[str, Any], *, stage: str) -> dict[str, Any]:
@@ -3148,6 +3219,227 @@ async def read_match_metadata(
         }
 
 
+
+async def read_exact_fixture_script_metadata(
+    page: Page,
+    matches: list[dict[str, Any]],
+) -> dict[str, dict[str, Any]]:
+    """Đọc metadata từ cửa sổ script gắn đúng fixture_id/stream_key.
+
+    Trang s8-live có thể nhúng toàn bộ lịch vào một script chung. Quét regex trên
+    cả script dễ lấy giờ/tên của trận bên cạnh; hàm này chỉ xét các cửa sổ nhỏ
+    quanh đúng fixture hoặc stream key rồi trả metadata theo identity ổn định.
+    """
+    targets = []
+    for match in matches:
+        url = clean_text(str(match.get("url", "")))
+        if not url:
+            continue
+        targets.append({
+            "identity": gavang_match_identity(url),
+            "fixture_id": match_id_from_url(url),
+            "stream_key": extract_gavang_stream_key(url),
+            "url": url,
+        })
+    if not targets:
+        return {}
+    try:
+        payload = await page.evaluate(
+            r"""({targets}) => {
+                const clean = (v) => String(v || "").replace(/\s+/g, " ").trim();
+                const scripts = Array.from(document.scripts)
+                    .map((script) => script.textContent || "")
+                    .filter(Boolean);
+                const unescapeValue = (value) => {
+                    let text = clean(value);
+                    if (!text) return "";
+                    try {
+                        const escaped = text.replace(/\\/g, "\\\\").replace(/"/g, '\\"');
+                        text = JSON.parse(`"${escaped}"`);
+                    } catch (_) {}
+                    return clean(String(text).replace(/\\\//g, "/"));
+                };
+                const allMatches = (text, patterns, limit = 12) => {
+                    const out = [];
+                    for (const pattern of patterns) {
+                        pattern.lastIndex = 0;
+                        let found;
+                        while ((found = pattern.exec(text)) !== null && out.length < limit) {
+                            const value = unescapeValue(found[1] || found[2] || "");
+                            if (value && !out.includes(value)) out.push(value);
+                        }
+                    }
+                    return out;
+                };
+                const identityWindows = (target) => {
+                    const windows = [];
+                    const seen = new Set();
+                    for (const script of scripts) {
+                        const needles = [target.stream_key, target.fixture_id].filter(Boolean);
+                        for (const needle of needles) {
+                            let from = 0;
+                            let hits = 0;
+                            while (hits < 10) {
+                                const index = script.indexOf(needle, from);
+                                if (index < 0) break;
+                                from = index + needle.length;
+                                hits += 1;
+                                // Cửa sổ nhỏ quanh đúng identity để tránh lấy lịch của fixture kế bên.
+                                const start = Math.max(0, index - 3500);
+                                const end = Math.min(script.length, index + needle.length + 3500);
+                                const windowText = script.slice(start, end);
+                                const center = index - start;
+                                const marker = `${start}:${end}:${needle}:${windowText.slice(Math.max(0, center - 40), center + 80)}`;
+                                if (!seen.has(marker)) {
+                                    seen.add(marker);
+                                    windows.push({text: windowText, center, needle});
+                                }
+                            }
+                        }
+                    }
+                    return windows.slice(0, 20);
+                };
+                const nearestValues = (windows, patterns, limit = 12) => {
+                    const ranked = [];
+                    for (const window of windows) {
+                        for (const pattern of patterns) {
+                            pattern.lastIndex = 0;
+                            let found;
+                            while ((found = pattern.exec(window.text)) !== null) {
+                                const value = unescapeValue(found[1] || found[2] || found[0] || "");
+                                if (!value) continue;
+                                ranked.push({value, distance: Math.abs(found.index - window.center)});
+                                if (found[0] === "") pattern.lastIndex += 1;
+                            }
+                        }
+                    }
+                    ranked.sort((a, b) => a.distance - b.distance || b.value.length - a.value.length);
+                    const output = [];
+                    for (const item of ranked) {
+                        if (!output.includes(item.value)) output.push(item.value);
+                        if (output.length >= limit) break;
+                    }
+                    return output;
+                };
+                const result = {};
+                for (const target of targets) {
+                    const windows = identityWindows(target);
+                    const combined = windows.map((item) => item.text).join("\n");
+                    const row = {title: "", home: "", away: "", league: "", blv: "", time_candidates: [], logos: [], source: "exact-fixture-script"};
+                    if (!combined) { result[target.identity] = row; continue; }
+
+                    const homePatterns = [
+                        /["'](?:home_name|homeName|home_team_name|homeTeamName|team_home|homeTeam|home)["']\s*[:=]\s*["']([^"']{2,140})["']/gi,
+                    ];
+                    const awayPatterns = [
+                        /["'](?:away_name|awayName|away_team_name|awayTeamName|team_away|awayTeam|away)["']\s*[:=]\s*["']([^"']{2,140})["']/gi,
+                    ];
+                    const titlePatterns = [
+                        /["'](?:match_name|matchName|event_name|eventName|fixture_name|fixtureName|title)["']\s*[:=]\s*["']([^"']{4,240})["']/gi,
+                    ];
+                    const leaguePatterns = [
+                        /["'](?:league_name|leagueName|competition_name|competitionName|tournament_name|tournamentName)["']\s*[:=]\s*["']([^"']{2,140})["']/gi,
+                    ];
+                    const blvPatterns = [
+                        /["'](?:blv_name|blvName|blv|commentator_name|commentatorName|commentator)["']\s*[:=]\s*["']([^"']{2,100})["']/gi,
+                    ];
+                    row.home = nearestValues(windows, homePatterns, 1)[0] || "";
+                    row.away = nearestValues(windows, awayPatterns, 1)[0] || "";
+                    row.league = nearestValues(windows, leaguePatterns, 1)[0] || "";
+                    row.blv = nearestValues(windows, blvPatterns, 1)[0] || "";
+                    const titleCandidates = nearestValues(windows, titlePatterns, 8)
+                        .filter((value) => /\bvs\b/i.test(value) && value.length <= 240);
+                    if (row.home && row.away && row.home.toLowerCase() !== row.away.toLowerCase()) {
+                        row.title = `${row.league ? `${row.league} - ` : ""}${row.home} VS ${row.away}`;
+                    } else {
+                        row.title = titleCandidates[0] || "";
+                    }
+
+                    const timePatterns = [
+                        /["'](?:startDate|start_date|startTime|start_time|kickoff|kick_off|matchTime|match_time|eventTime|event_time|fixtureTime|fixture_time|fixture_start|fixtureStart|scheduledAt|scheduled_at|startAt|start_at|datetime|date_time|dateTime|s8_live_time|s8LiveTime|s8_live_start|s8LiveStart)["']\s*[:=]\s*["']([^"']{4,120})["']/gi,
+                        /["'](?:start_timestamp|startTimestamp|kickoff_timestamp|kickoffTimestamp|fixture_timestamp|fixtureTimestamp|event_timestamp|eventTimestamp|s8_live_timestamp|s8LiveTimestamp)["']\s*[:=]\s*["']?(\d{10,13})["']?/gi,
+                    ];
+                    const datePatterns = [
+                        /["'](?:match_date|matchDate|event_date|eventDate|fixture_date|fixtureDate|start_date|startDateOnly|s8_live_date|s8LiveDate|date)["']\s*[:=]\s*["']([^"']{4,40})["']/gi,
+                    ];
+                    const clockPatterns = [
+                        /["'](?:match_clock|matchClock|kickoff_time|kickoffTime|fixture_clock|fixtureClock|start_clock|startClock|s8_live_clock|s8LiveClock|time)["']\s*[:=]\s*["']((?:[01]?\d|2[0-3]):[0-5]\d)["']/gi,
+                    ];
+                    const values = nearestValues(windows, timePatterns, 18);
+                    const dates = nearestValues(windows, datePatterns, 6);
+                    const clocks = nearestValues(windows, clockPatterns, 6);
+                    for (const value of values) row.time_candidates.push({value, score: 132, source: "exact-fixture-script/keyed"});
+                    if (dates.length && clocks.length) {
+                        row.time_candidates.push({value: `${dates[0]} ${clocks[0]}`, score: 134, source: "exact-fixture-script/date+time"});
+                    }
+                    const iso = combined.match(/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?(?:Z|[+-]\d{2}:?\d{2})?/g) || [];
+                    iso.slice(0, 8).forEach((value) => row.time_candidates.push({value, score: 112, source: "exact-fixture-script/iso"}));
+                    const epochPattern = /["'](?:timestamp|start_timestamp|startTimestamp|kickoff_timestamp|kickoffTimestamp|match_timestamp|matchTimestamp)["']\s*[:=]\s*["']?(\d{10,13})["']?/gi;
+                    let epoch;
+                    while ((epoch = epochPattern.exec(combined)) !== null && row.time_candidates.length < 28) {
+                        const raw = epoch[1];
+                        const number = Number(raw);
+                        const millis = raw.length === 10 ? number * 1000 : number;
+                        const date = new Date(millis);
+                        if (!Number.isNaN(date.getTime())) row.time_candidates.push({value: date.toISOString(), score: 130, source: "exact-fixture-script/epoch"});
+                    }
+
+                    const logoPatterns = [
+                        /["'](?:home_logo|homeLogo|away_logo|awayLogo|team_logo|teamLogo|logo|image|image_url|imageUrl)["']\s*[:=]\s*["']([^"']{4,500})["']/gi,
+                    ];
+                    const logoValues = nearestValues(windows, logoPatterns, 16);
+                    const logoSeen = new Set();
+                    for (const value of logoValues) {
+                        try {
+                            const url = new URL(value, location.href).href;
+                            if (/^https?:\/\//i.test(url) && !logoSeen.has(url)) { logoSeen.add(url); row.logos.push(url); }
+                        } catch (_) {}
+                    }
+                    result[target.identity] = row;
+                }
+                return result;
+            }""",
+            {"targets": targets},
+        )
+        return payload if isinstance(payload, dict) else {}
+    except Exception:
+        return {}
+
+
+def merge_exact_fixture_script_metadata(
+    metadata: dict[str, Any],
+    exact: dict[str, Any] | None,
+    match_url: str,
+) -> dict[str, Any]:
+    """Gộp metadata exact-fixture vào kết quả DOM mà không nhận dữ liệu chéo."""
+    if not isinstance(exact, dict):
+        return metadata
+    merged = dict(metadata)
+    exact_title = clean_text(str(exact.get("title", "")))
+    if exact_title:
+        fixed = clean_match_name(exact_title, match_url)
+        confidence = title_stream_key_confidence(fixed, match_url)
+        if not confidence["contradictory"] and re.search(r"\bvs\b", fixed, re.I):
+            current = clean_text(str(merged.get("title", "")))
+            if not current or _match_title_score(fixed) > _match_title_score(current):
+                merged["title"] = fixed
+    exact_times = [item for item in exact.get("time_candidates", []) or [] if isinstance(item, dict)]
+    if exact_times:
+        current_times = [item for item in merged.get("time_candidates", []) or []]
+        merged["time_candidates"] = exact_times + current_times
+        merged["time_text"] = clean_text(str(exact_times[0].get("value", ""))) or clean_text(str(merged.get("time_text", "")))
+    exact_blv = normalize_blv_name(clean_text(str(exact.get("blv", ""))))
+    if exact_blv:
+        merged["blv"] = exact_blv
+    logos = [normalize_logo_url(value, match_url) for value in exact.get("logos", []) or []]
+    logos = [value for value in logos if value]
+    if logos:
+        merged["logos"] = logos + [value for value in merged.get("logos", []) or [] if value not in logos]
+        exact_candidates = [{"url": value, "score": 140, "context": "exact fixture script", "source": "exact-fixture-script"} for value in logos]
+        merged["logo_candidates"] = exact_candidates + list(merged.get("logo_candidates", []) or [])
+    merged["exact_fixture_script_found"] = bool(exact_title or exact_times or exact_blv or logos)
+    return merged
+
 def apply_basic_match_metadata(
     match: dict[str, Any],
     metadata: dict[str, Any],
@@ -3249,6 +3541,12 @@ async def enrich_verified_match_metadata(
         blv_slug = (parse_qs(urlparse(str(match.get("url", ""))).query).get("blv") or [""])[0]
         metadata = await read_match_metadata(
             page, str(match.get("url", "")), str(match.get("match_name", "")), blv_slug
+        )
+        exact_map = await read_exact_fixture_script_metadata(page, [match])
+        metadata = merge_exact_fixture_script_metadata(
+            metadata,
+            exact_map.get(gavang_match_identity(str(match.get("url", "")))),
+            str(match.get("url", "")),
         )
         changes = apply_basic_match_metadata(match, metadata)
         match["sport_group"] = classify_sport(
@@ -4318,6 +4616,39 @@ async def collect_home_links(context: BrowserContext, home_url: str = TARGET_URL
         )
 
         raw_links = list(result.get("items") or [])
+        exact_home_map = await read_exact_fixture_script_metadata(page, raw_links)
+        exact_home_count = 0
+        for item in raw_links:
+            exact = exact_home_map.get(gavang_match_identity(str(item.get("url", ""))))
+            if not isinstance(exact, dict):
+                continue
+            exact_title = clean_text(str(exact.get("title", "")))
+            if exact_title and not title_stream_key_confidence(exact_title, str(item.get("url", "")))["contradictory"]:
+                if _match_title_score(exact_title) > _match_title_score(str(item.get("raw_title", ""))):
+                    item["raw_title"] = exact_title
+            exact_times = list(exact.get("time_candidates") or [])
+            if exact_times:
+                best_exact_time = max(exact_times, key=lambda row: int(row.get("score") or 0))
+                if extract_time(str(best_exact_time.get("value", ""))):
+                    item["raw_time"] = str(best_exact_time.get("value", ""))
+                    item["time_source"] = str(best_exact_time.get("source", "exact-fixture-script"))
+            exact_blv = normalize_blv_name(clean_text(str(exact.get("blv", ""))))
+            if exact_blv:
+                item["raw_blv"] = exact_blv
+            exact_logos = [normalize_logo_url(value, str(item.get("url", ""))) for value in exact.get("logos", []) or []]
+            exact_logos = [value for value in exact_logos if value]
+            if exact_logos:
+                item.setdefault("team_logos", [])[:0] = exact_logos
+                item.setdefault("logo_candidates", [])[:0] = [
+                    {"url": value, "score": 140, "context": "exact fixture script", "source": "exact-fixture-script"}
+                    for value in exact_logos
+                ]
+                item["logo"] = exact_logos[0]
+            if exact_title or exact_times or exact_blv or exact_logos:
+                item["exact_fixture_script_found"] = True
+                exact_home_count += 1
+        if exact_home_count:
+            print(f"🧩 Exact-fixture script bổ sung metadata cho {exact_home_count}/{len(raw_links)} card Gà Vàng.", flush=True)
         links, duplicate_count = dedupe_home_links(raw_links)
         source_logo_candidates = list(result.get("source_logo_candidates") or [])
         source_logo = choose_source_logo(source_logo_candidates, home_url)
@@ -4562,11 +4893,11 @@ def write_outputs(results: list[dict[str, Any]]) -> tuple[int, int]:
         # cho nhiều trận. Không chấm lại ở đây vì có thể vô tình chọn lại logo lỗi.
         logo = result.get("logo", "")
 
-        kickoff_label = " ".join(part for part in (time_str, date_str) if part)
-        display_base = f"[{kickoff_label}] {match_name}" if kickoff_label else match_name
-        if blv and blv.lower() not in display_base.lower():
-            display_base += f" [BLV {blv}]"
-        display_base = escape_m3u_text(display_base)
+        # Lịch sẽ được dựng riêng theo trạng thái từng stream ở dưới. Không để
+        # ngày đơn lẻ trông như một lịch đã đầy đủ.
+        display_name_core = match_name
+        if blv and blv.lower() not in display_name_core.lower():
+            display_name_core += f" [BLV {blv}]"
         logo = escape_m3u_text(logo)
 
         unique_streams = [item for item in streams if item.get("url") not in written_streams]
@@ -4582,7 +4913,20 @@ def write_outputs(results: list[dict[str, Any]]) -> tuple[int, int]:
             playability_counts[clean_text(stream_info.get("playability") or "unknown")] += 1
 
             is_pending = stream_info.get("playability") == "upcoming-pending"
-            stream_display_base = f"[CHỜ PHÁT] {display_base}" if is_pending else display_base
+            if time_str and date_str:
+                schedule_label = f"{time_str} {date_str}"
+            elif date_str:
+                schedule_label = f"CHƯA CÓ GIỜ {date_str}"
+            elif time_str:
+                schedule_label = f"{time_str} CHƯA RÕ NGÀY"
+            elif is_pending:
+                schedule_label = "CHƯA CÓ LỊCH"
+            else:
+                schedule_label = ""
+            raw_display_base = f"[{schedule_label}] {display_name_core}" if schedule_label else display_name_core
+            if is_pending:
+                raw_display_base = f"[CHỜ PHÁT] {raw_display_base}"
+            stream_display_base = escape_m3u_text(raw_display_base)
             display_name = stream_display_base
             quality = normalize_quality_hint(stream_info.get("quality", ""))
             if len(unique_streams) > 1 and not quality:
