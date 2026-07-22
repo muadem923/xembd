@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "luongson",
-  "updated_at": "2026-07-22T20:02:23.756162+07:00",
+  "updated_at": "2026-07-22T20:33:09.810600+07:00",
   "matches": {
     "dbdf8cfe3f68": {
       "url": "https://catbee.io/truc-tiep/basilan-steel-vs-sarangani-marlins-vao-luc-1500-21-07-2026/",
@@ -1033,9 +1033,9 @@
       "url": "https://laservision.io/truc-tiep/glentoran-w-vs-riga-fc-w-vao-luc-1900-22-07-2026/?blv=380",
       "match_name": "GLENTORAN (W) vs RIGA FC (W)",
       "kickoff_iso": "2026-07-22T19:00:00+07:00",
-      "minutes_to_kickoff": -62,
-      "last_scan_at": "2026-07-22T20:02:23.756003+07:00",
-      "next_scan_at": "2026-07-22T20:07:23.756003+07:00",
+      "minutes_to_kickoff": -91,
+      "last_scan_at": "2026-07-22T20:33:09.810298+07:00",
+      "next_scan_at": "2026-07-22T20:38:09.810298+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -1047,9 +1047,9 @@
       "url": "https://laservision.io/truc-tiep/lanzhou-longyuan-athletics-vs-shanxi-union-vao-luc-1900-22-07-2026/?blv=253",
       "match_name": "LANZHOU LONGYUAN ATHLETICS vs SHANXI UNION",
       "kickoff_iso": "2026-07-22T19:00:00+07:00",
-      "minutes_to_kickoff": -62,
-      "last_scan_at": "2026-07-22T20:02:23.756003+07:00",
-      "next_scan_at": "2026-07-22T20:07:23.756003+07:00",
+      "minutes_to_kickoff": -91,
+      "last_scan_at": "2026-07-22T20:33:09.810298+07:00",
+      "next_scan_at": "2026-07-22T20:38:09.810298+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -1061,9 +1061,9 @@
       "url": "https://laservision.io/truc-tiep/laos-w-vs-indonesia-w-vao-luc-1945-22-07-2026/?blv=300",
       "match_name": "LAOS (W) vs INDONESIA (W)",
       "kickoff_iso": "2026-07-22T19:45:00+07:00",
-      "minutes_to_kickoff": -17,
-      "last_scan_at": "2026-07-22T20:02:23.756003+07:00",
-      "next_scan_at": "2026-07-22T20:07:23.756003+07:00",
+      "minutes_to_kickoff": -46,
+      "last_scan_at": "2026-07-22T20:33:09.810298+07:00",
+      "next_scan_at": "2026-07-22T20:38:09.810298+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -1073,27 +1073,29 @@
     },
     "f150f2c657b2": {
       "url": "https://laservision.io/truc-tiep/risaleh-toura-vs-trables-sports-club-vao-luc-2100-22-07-2026/?blv=377",
-      "match_name": "Trực tiếp trận đấu Risaleh Toura vs Trables Sports Club",
+      "match_name": "RISALEH TOURA vs TRABLES SPORTS CLUB",
       "kickoff_iso": "2026-07-22T21:00:00+07:00",
-      "minutes_to_kickoff": 66,
-      "last_scan_at": "2026-07-22T19:54:53.952998+07:00",
-      "next_scan_at": "2026-07-22T20:14:53.952998+07:00",
+      "minutes_to_kickoff": 29,
+      "last_scan_at": "2026-07-22T20:33:09.810298+07:00",
+      "next_scan_at": "2026-07-22T20:43:09.810298+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "scan_decision": "browser-fallback"
     },
     "24a82404e950": {
       "url": "https://laservision.io/truc-tiep/bologna-vs-heidenheimer-vao-luc-2100-22-07-2026/?blv=292",
-      "match_name": "Trực tiếp trận đấu Bologna vs Heidenheimer",
+      "match_name": "BOLOGNA vs HEIDENHEIMER",
       "kickoff_iso": "2026-07-22T21:00:00+07:00",
-      "minutes_to_kickoff": 66,
-      "last_scan_at": "2026-07-22T19:54:53.952998+07:00",
-      "next_scan_at": "2026-07-22T20:14:53.952998+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": 29,
+      "last_scan_at": "2026-07-22T20:33:09.810298+07:00",
+      "next_scan_at": "2026-07-22T20:38:09.810298+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://hls.cdnfaster-a.live/live/LYUNG1/index.m3u8?expire=1788427256&sign=d5c6932fefdcb98268754f4ccd4aa45d"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "f38dacb78f0f": {
       "url": "https://laservision.io/truc-tiep/lokomotiv-tashkent-vs-fk-andijon-vao-luc-2200-22-07-2026/?blv=372",
@@ -1183,9 +1185,9 @@
       "url": "https://laservision.io/truc-tiep/az-alkmaar-vs-racing-genk-vao-luc-2330-22-07-2026/?blv=298",
       "match_name": "Trực tiếp trận đấu AZ Alkmaar vs Racing Genk",
       "kickoff_iso": "2026-07-22T23:30:00+07:00",
-      "minutes_to_kickoff": 239,
-      "last_scan_at": "2026-07-22T19:31:32.493283+07:00",
-      "next_scan_at": "2026-07-22T20:16:32.493283+07:00",
+      "minutes_to_kickoff": 179,
+      "last_scan_at": "2026-07-22T20:33:09.810298+07:00",
+      "next_scan_at": "2026-07-22T21:18:09.810298+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
@@ -1246,6 +1248,18 @@
       "minutes_to_kickoff": 238,
       "last_scan_at": "2026-07-22T20:02:23.756003+07:00",
       "next_scan_at": "2026-07-22T20:47:23.756003+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "797113c3065c": {
+      "url": "https://laservision.io/truc-tiep/levski-sofia-vs-cs-universitatea-craiova-vao-luc-0030-23-07-2026/?blv=374",
+      "match_name": "Trực tiếp trận đấu Levski Sofia vs CS Universitatea Craiova",
+      "kickoff_iso": "2026-07-23T00:30:00+07:00",
+      "minutes_to_kickoff": 239,
+      "last_scan_at": "2026-07-22T20:33:09.810298+07:00",
+      "next_scan_at": "2026-07-22T21:18:09.810298+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
