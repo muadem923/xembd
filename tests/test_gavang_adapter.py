@@ -471,7 +471,83 @@ class GavangFastPathTests(unittest.IsolatedAsyncioTestCase):
 
     def test_slug_fallback_removes_league_code_and_title_cases_teams(self):
         url = "https://smorf.io/s8-live/2471/buncheon-anyang-kork1/?s8_live_stream_key=buncheon-anyang-kork1"
-        self.assertEqual(gavang.clean_match_name("", url), "Buncheon VS Anyang")
+        self.assertEqual(gavang.clean_match_name("", url), "Bucheon FC 1995 VS FC Anyang")
+
+
+    def test_slug_aliases_repair_observed_bad_team_names(self):
+        cases = {
+            "camw-sinw-affw": "Cambodia Women VS Singapore Women",
+            "cincinati-vancouver-mls": "FC Cincinnati VS Vancouver Whitecaps",
+            "lagalaxy-stlouis-mls": "LA Galaxy VS St. Louis City SC",
+            "tot-mkdons-friendly": "Tottenham Hotspur VS MK Dons",
+        }
+        for stream_key, expected in cases.items():
+            with self.subTest(stream_key=stream_key):
+                url = f"https://smorf.io/s8-live/999/{stream_key}/?s8_live_stream_key={stream_key}"
+                self.assertEqual(gavang.clean_match_name("", url), expected)
+
+
+    def test_abbreviated_stream_key_accepts_correct_full_title(self):
+        cases = [
+            ("camw-sinw-affw", "Cambodia Women VS Singapore Women"),
+            ("lagalaxy-stlouis-mls", "LA Galaxy VS St. Louis City SC"),
+            ("tot-mkdons-friendly", "Tottenham Hotspur VS MK Dons"),
+        ]
+        for stream_key, title in cases:
+            with self.subTest(stream_key=stream_key):
+                url = f"https://smorf.io/s8-live/999/{stream_key}/?s8_live_stream_key={stream_key}"
+                confidence = gavang.title_stream_key_confidence(title, url)
+                self.assertFalse(confidence["contradictory"])
+                self.assertGreaterEqual(confidence["match_count"], 2)
+
+    def test_exact_fixture_metadata_precedes_weak_dom_metadata(self):
+        url = "https://smorf.io/s8-live/2449/queensland-perth-ausffa/?s8_live_stream_key=queensland-perth-ausffa"
+        metadata = {
+            "title": "Queensland VS Perth",
+            "time_text": "",
+            "time_candidates": [],
+            "blv": "",
+            "logos": [],
+            "logo_candidates": [],
+        }
+        exact = {
+            "title": "AUS FFA Cup - Queensland Lions SC VS Perth Glory",
+            "time_candidates": [{"value": "2026-07-22T16:30:00+07:00", "score": 134, "source": "exact-fixture-script/date+time"}],
+            "blv": "NGƯỜI CHÈ",
+            "logos": ["https://cdn.example/queensland.png"],
+        }
+        merged = gavang.merge_exact_fixture_script_metadata(metadata, exact, url)
+        self.assertIn("Queensland Lions SC VS Perth Glory", merged["title"])
+        self.assertEqual(merged["time_candidates"][0]["value"], "2026-07-22T16:30:00+07:00")
+        self.assertEqual(merged["blv"], "NGƯỜI CHÈ")
+        self.assertEqual(merged["logos"][0], "https://cdn.example/queensland.png")
+
+    def test_pending_playlist_date_only_marks_missing_time_explicitly(self):
+        result = {
+            "url": QUEENSLAND_URL,
+            "match_name": "Queensland Lions SC VS Perth Glory",
+            "time": "",
+            "date": "22/07",
+            "sport_group": "Bóng đá",
+            "streams": [{
+                "url": "https://flv.lauthaitv.cc/live/queensland-perth-ausffa.flv",
+                "referer": QUEENSLAND_URL,
+                "origin": "https://smorf.io",
+                "user_agent": gavang.UA,
+                "playability": "upcoming-pending",
+                "derived_pending": True,
+            }],
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            paths = [Path(tmp) / name for name in ("gavang_live.m3u", "gavang_live_pipe.m3u", "gavang_live_vlc.m3u")]
+            debug = Path(tmp) / "gavang_debug.json"
+            with patch.object(gavang, "OUTPUT_M3U", paths[0]), \
+                 patch.object(gavang, "OUTPUT_PIPE_M3U", paths[1]), \
+                 patch.object(gavang, "OUTPUT_VLC_M3U", paths[2]), \
+                 patch.object(gavang, "OUTPUT_DEBUG", debug):
+                gavang.write_outputs([result])
+            text = paths[0].read_text(encoding="utf-8")
+        self.assertIn("[CHỜ PHÁT] [CHƯA CÓ GIỜ 22/07] Queensland Lions SC VS Perth Glory [FLV]", text)
 
     def test_detail_title_date_is_moved_to_date_metadata(self):
         match = {

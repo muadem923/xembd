@@ -115,7 +115,61 @@ class MergerTests(unittest.TestCase):
         content = (self.root / "all_live.m3u").read_text(encoding="utf-8")
         self.assertEqual(report["selected_count"], 1)
         self.assertIn(url, content)
-        self.assertIn("[CHỜ PHÁT] Queensland VS Perth [FLV]", content)
+        self.assertIn("[CHỜ PHÁT] [CHƯA CÓ LỊCH] Queensland VS Perth [FLV]", content)
+
+
+    def test_gavang_uses_metadata_only_debug_row_from_other_source(self) -> None:
+        gv_url = "https://flv.lauthaitv.cc/live/cincinati-vancouver-mls.flv"
+        gv_rows = [{"id": "gv", "name": "[CHỜ PHÁT] Cincinati VS Vancouver [FLV]", "url": gv_url, "group": "Bóng đá"}]
+        gv_debug = [{
+            "url": "https://smorf.io/s8-live/3000/cincinati-vancouver-mls/",
+            "match_name": "Cincinati VS Vancouver",
+            "streams": [{
+                "url": gv_url, "playability": "upcoming-pending",
+                "derived_pending": True, "pending_reason": "current-home-stream-key-no-time",
+            }],
+        }]
+        # Nguồn đối chiếu chưa có player nên playlist rỗng, nhưng debug đã có lịch/logo.
+        ls_debug = [{
+            "match_name": "FC Cincinnati VS Vancouver Whitecaps",
+            "date": "23/07/2026", "time": "07:30",
+            "logo": "https://cdn.example/cincinnati.png",
+            "streams": [],
+        }]
+        report = merge_sources(
+            self.root,
+            [
+                self.make_source("luongson", "Lương Sơn", [], ls_debug),
+                self.make_source("gavang", "Gà Vàng", gv_rows, gv_debug),
+            ],
+            now=datetime(2026, 7, 23, 6, 0, tzinfo=TZ),
+            preserve_on_empty=False,
+        )
+        text = (self.root / "all_live.m3u").read_text(encoding="utf-8")
+        self.assertIn("[CHỜ PHÁT] [07:30 23/07] FC Cincinnati VS Vancouver Whitecaps [FLV]", text)
+        self.assertIn('tvg-logo="https://cdn.example/cincinnati.png"', text)
+        channel = next(row for row in report["channels"] if row["source"] == "gavang")
+        self.assertEqual(channel["metadata_audit"], "enriched-soft")
+        self.assertEqual(channel["metadata_enriched_from"], "luongson")
+        self.assertGreaterEqual(report["metadata_reference_count"], 1)
+
+    def test_gavang_pending_date_only_is_not_presented_as_complete_schedule(self) -> None:
+        url = "https://flv.lauthaitv.cc/live/maitland-fremantle-ausffa.flv"
+        rows = [{"id": "gv", "name": "[CHỜ PHÁT] [22/07] Maitland VS Fremantle [FLV]", "url": url, "group": "Bóng đá"}]
+        debug = [{
+            "match_name": "Maitland VS Fremantle", "date": "22/07", "time": "",
+            "scan_window_reason": "unknown-time-derived-probe",
+            "streams": [{
+                "url": url, "playability": "upcoming-pending", "derived_pending": True,
+                "pending_reason": "current-home-stream-key-no-time",
+            }],
+        }]
+        merge_sources(
+            self.root, [self.make_source("gavang", "Gà Vàng", rows, debug)],
+            now=datetime(2026, 7, 22, 12, 0, tzinfo=TZ), preserve_on_empty=False,
+        )
+        text = (self.root / "all_live.m3u").read_text(encoding="utf-8")
+        self.assertIn("[CHỜ PHÁT] [CHƯA CÓ GIỜ 22/07] Maitland VS Fremantle [FLV]", text)
 
     def test_gavang_pending_started_within_150_minutes_is_kept(self) -> None:
         url = "https://flv.lauthaitv.cc/live/a-b-league.flv"
