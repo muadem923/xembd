@@ -86,10 +86,24 @@ class DeltaStateTests(unittest.TestCase):
         update_state_from_results(rows, results, chuoichien.match_id_from_url, NOW)
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "state.json"
-            save_state(path, rows, "test")
+            save_state(path, rows, "test", now=NOW)
             loaded = load_state(path)
         self.assertIn("123", loaded)
         self.assertTrue(loaded["123"]["has_verified"])
+
+    def test_save_state_prunes_rows_relative_to_injected_now(self):
+        rows = {
+            "old": {"kickoff_iso": (NOW - timedelta(days=2, minutes=1)).isoformat()},
+            "edge": {"kickoff_iso": (NOW - timedelta(days=2)).isoformat()},
+            "new": {"kickoff_iso": (NOW + timedelta(minutes=1)).isoformat()},
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "state.json"
+            save_state(path, rows, "test", now=NOW)
+            loaded = load_state(path)
+        self.assertNotIn("old", loaded)
+        self.assertIn("edge", loaded)
+        self.assertIn("new", loaded)
 
 
 class _FakeResponse:
