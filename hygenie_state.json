@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "luongson",
-  "updated_at": "2026-07-22T11:31:55.352791+07:00",
+  "updated_at": "2026-07-22T12:01:41.531992+07:00",
   "matches": {
     "dbdf8cfe3f68": {
       "url": "https://catbee.io/truc-tiep/basilan-steel-vs-sarangani-marlins-vao-luc-1500-21-07-2026/",
@@ -706,12 +706,12 @@
       "scan_decision": "browser-fallback"
     },
     "6200b64298a6": {
-      "url": "https://catbee.io/truc-tiep/toluca-vs-pumas-unam-vao-luc-1000-22-07-2026/?blv=135",
+      "url": "https://laservision.io/truc-tiep/toluca-vs-pumas-unam-vao-luc-1000-22-07-2026/",
       "match_name": "toluca vs pumas unam",
       "kickoff_iso": "2026-07-22T10:00:00+07:00",
-      "minutes_to_kickoff": -91,
-      "last_scan_at": "2026-07-22T11:31:55.351619+07:00",
-      "next_scan_at": "2026-07-22T11:36:55.351619+07:00",
+      "minutes_to_kickoff": -121,
+      "last_scan_at": "2026-07-22T12:01:41.531804+07:00",
+      "next_scan_at": "2026-07-22T12:06:41.531804+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
@@ -750,6 +750,30 @@
       "minutes_to_kickoff": 179,
       "last_scan_at": "2026-07-22T11:31:55.351619+07:00",
       "next_scan_at": "2026-07-22T12:16:55.351619+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "c0febaf19029": {
+      "url": "https://laservision.io/truc-tiep/cambodia-w-vs-singapore-w-vao-luc-1545-22-07-2026/",
+      "match_name": "cambodia w vs singapore w",
+      "kickoff_iso": "2026-07-22T15:45:00+07:00",
+      "minutes_to_kickoff": 224,
+      "last_scan_at": "2026-07-22T12:01:41.531804+07:00",
+      "next_scan_at": "2026-07-22T12:46:41.531804+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "ef17c28bef81": {
+      "url": "https://laservision.io/truc-tiep/shan-utd-w-vs-zwekapin-fc-w-vao-luc-1600-22-07-2026/",
+      "match_name": "shan utd w vs zwekapin fc w",
+      "kickoff_iso": "2026-07-22T16:00:00+07:00",
+      "minutes_to_kickoff": 239,
+      "last_scan_at": "2026-07-22T12:01:41.531804+07:00",
+      "next_scan_at": "2026-07-22T12:46:41.531804+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
