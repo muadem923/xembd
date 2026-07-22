@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-22T21:52:27.634114+07:00",
+  "updated_at": "2026-07-22T22:01:58.534683+07:00",
   "matches": {
     "992361": {
       "url": "https://live04.chuoichientv.me/live/992361/pvf-cand-vs-hoang-anh-gia-lai",
@@ -446,14 +446,13 @@
       "url": "https://live04.chuoichientv.me/live/1560778/bologna-vs-1-fc-heidenheim",
       "match_name": "Bologna vs 1. FC Heidenheim - Giao Hữu Câu Lạc Bộ",
       "kickoff_iso": "2026-07-22T21:00:00+07:00",
-      "minutes_to_kickoff": -52,
-      "last_scan_at": "2026-07-22T21:52:27.633985+07:00",
-      "next_scan_at": "2026-07-22T21:57:27.633985+07:00",
+      "minutes_to_kickoff": -61,
+      "last_scan_at": "2026-07-22T22:01:58.534614+07:00",
+      "next_scan_at": "2026-07-22T22:06:58.534614+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/troctru.flv",
-        "https://gckc0525.edgemaxcdn.org/live/troctru/playlist.m3u8"
+        "https://gckc0525.edgemaxcdn.org/live/troctru.flv"
       ],
       "scan_decision": "browser-fallback"
     },
@@ -473,9 +472,9 @@
       "url": "https://live04.chuoichientv.me/live/1516068/mashal-vs-nasaf",
       "match_name": "Mash'al vs Nasaf - VĐQG Uzbekistan",
       "kickoff_iso": "2026-07-22T22:00:00+07:00",
-      "minutes_to_kickoff": 8,
-      "last_scan_at": "2026-07-22T21:52:27.633985+07:00",
-      "next_scan_at": "2026-07-22T21:57:27.633985+07:00",
+      "minutes_to_kickoff": -1,
+      "last_scan_at": "2026-07-22T22:01:58.534614+07:00",
+      "next_scan_at": "2026-07-22T22:06:58.534614+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
