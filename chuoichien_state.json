@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-22T22:31:39.884062+07:00",
+  "updated_at": "2026-07-22T23:01:50.058546+07:00",
   "matches": {
     "992361": {
       "url": "https://live04.chuoichientv.me/live/992361/pvf-cand-vs-hoang-anh-gia-lai",
@@ -473,9 +473,9 @@
       "url": "https://live04.chuoichientv.me/live/1516068/mashal-vs-nasaf",
       "match_name": "Mash'al vs Nasaf - VĐQG Uzbekistan",
       "kickoff_iso": "2026-07-22T22:00:00+07:00",
-      "minutes_to_kickoff": -31,
-      "last_scan_at": "2026-07-22T22:31:39.883938+07:00",
-      "next_scan_at": "2026-07-22T22:36:39.883938+07:00",
+      "minutes_to_kickoff": -61,
+      "last_scan_at": "2026-07-22T23:01:50.058476+07:00",
+      "next_scan_at": "2026-07-22T23:06:50.058476+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -499,12 +499,14 @@
       "url": "https://live04.chuoichientv.me/live/1560777/tottenham-vs-milton-keynes-dons",
       "match_name": "Tottenham vs Milton Keynes Dons - Giao Hữu Câu Lạc Bộ",
       "kickoff_iso": "2026-07-22T23:00:00+07:00",
-      "minutes_to_kickoff": 29,
-      "last_scan_at": "2026-07-22T22:31:39.883938+07:00",
-      "next_scan_at": "2026-07-22T22:41:39.883938+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
+      "minutes_to_kickoff": -1,
+      "last_scan_at": "2026-07-22T23:01:50.058476+07:00",
+      "next_scan_at": "2026-07-22T23:06:50.058476+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/troctru.flv"
+      ],
       "scan_decision": "browser-fallback"
     }
   }
