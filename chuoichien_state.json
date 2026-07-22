@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-22T16:23:08.015676+07:00",
+  "updated_at": "2026-07-22T16:31:42.630513+07:00",
   "matches": {
     "992361": {
       "url": "https://live04.chuoichientv.me/live/992361/pvf-cand-vs-hoang-anh-gia-lai",
@@ -339,38 +339,36 @@
       "url": "https://live04.chuoichientv.me/live/209780/italy-w-vs-netherlands-w",
       "match_name": "Italy W vs Netherlands W - Nations League Women",
       "kickoff_iso": "2026-07-22T15:00:00+07:00",
-      "minutes_to_kickoff": -83,
-      "last_scan_at": "2026-07-22T16:23:08.015515+07:00",
-      "next_scan_at": "2026-07-22T16:28:08.015515+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoibo.flv",
-        "https://gckc0525.edgemaxcdn.org/live/chuoibo/playlist.m3u8"
-      ],
+      "minutes_to_kickoff": -91,
+      "last_scan_at": "2026-07-22T16:31:42.630413+07:00",
+      "next_scan_at": "2026-07-22T16:36:42.630413+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
       "scan_decision": "browser-fallback"
     },
     "1560869": {
       "url": "https://live04.chuoichientv.me/live/1560869/sydney-united-vs-central-coast-mariners",
-      "match_name": "sydney united vs central coast mariners",
+      "match_name": "Sydney United vs Central Coast Mariners - Australia Cup",
       "kickoff_iso": "2026-07-22T16:30:00+07:00",
-      "minutes_to_kickoff": 7,
-      "last_scan_at": "2026-07-22T16:23:08.015515+07:00",
-      "next_scan_at": "2026-07-22T16:28:08.015515+07:00",
+      "minutes_to_kickoff": -1,
+      "last_scan_at": "2026-07-22T16:31:42.630413+07:00",
+      "next_scan_at": "2026-07-22T16:36:42.630413+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoitay.flv"
+        "https://gckc0525.edgemaxcdn.org/live/chuoitay.flv",
+        "https://gckc0525.edgemaxcdn.org/live/chuoitay/playlist.m3u8"
       ],
       "scan_decision": "browser-fallback"
     },
     "1560872": {
       "url": "https://live04.chuoichientv.me/live/1560872/uni-azzurri-vs-macarthur",
-      "match_name": "uni azzurri vs macarthur",
+      "match_name": "Uni Azzurri vs Macarthur - Australia Cup",
       "kickoff_iso": "2026-07-22T17:00:00+07:00",
-      "minutes_to_kickoff": 37,
-      "last_scan_at": "2026-07-22T16:23:08.015515+07:00",
-      "next_scan_at": "2026-07-22T16:33:08.015515+07:00",
+      "minutes_to_kickoff": 29,
+      "last_scan_at": "2026-07-22T16:31:42.630413+07:00",
+      "next_scan_at": "2026-07-22T16:41:42.630413+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
