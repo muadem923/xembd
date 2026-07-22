@@ -78,8 +78,22 @@ def load_state(path: Path) -> dict[str, dict[str, Any]]:
     return rows if isinstance(rows, dict) else {}
 
 
-def save_state(path: Path, rows: dict[str, dict[str, Any]], source: str) -> None:
-    now = datetime.now(TZ_VIETNAM)
+def save_state(
+    path: Path,
+    rows: dict[str, dict[str, Any]],
+    source: str,
+    now: datetime | None = None,
+) -> None:
+    """Lưu delta state và dọn bản ghi cũ theo một mốc thời gian có thể kiểm thử.
+
+    Tham số ``now`` là tùy chọn, giữ nguyên tương thích với toàn bộ lời gọi cũ.
+    Unit test truyền mốc cố định để không tự hỏng sau khi ngày thực tế thay đổi.
+    """
+    now = now or datetime.now(TZ_VIETNAM)
+    if now.tzinfo is None:
+        now = now.replace(tzinfo=TZ_VIETNAM)
+    else:
+        now = now.astimezone(TZ_VIETNAM)
     cutoff = now - timedelta(days=2)
     cleaned: dict[str, dict[str, Any]] = {}
     for key, row in rows.items():
