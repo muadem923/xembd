@@ -17,7 +17,7 @@ from zoneinfo import ZoneInfo
 
 from playwright.async_api import Browser, BrowserContext, Page, Request, Response, async_playwright
 
-VERSION = "4.4.10-XOILAC-MULTISOURCE-ADAPTER"
+VERSION = "4.4.11-XOILAC-MULTISOURCE-ADAPTER"
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_START_URL = "https://xoilacz.io/"
 DEFAULT_HOME_URLS = ("https://xoilacz.io/", "https://malaysiandigest.com/", "https://altenergystocks.com/")

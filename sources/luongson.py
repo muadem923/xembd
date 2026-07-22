@@ -54,7 +54,7 @@ LEGACY_GIT_PLAYLIST_PATH = "luongson/hygenie_live.m3u"
 OUTPUT_DEBUG = "hygenie_debug.json"
 OUTPUT_HOME_DEBUG_HTML = "hygenie_home_debug.html"
 OUTPUT_HOME_DEBUG_PNG = "hygenie_home_debug.png"
-SCANNER_VERSION = "4.4.8-LUONGSON-SOURCE-GROUP"
+SCANNER_VERSION = "4.4.11-LUONGSON-DOMAIN-STREAM-FAILOVER"
 
 
 def read_env_bool(name: str, default: bool = True) -> bool:
@@ -125,6 +125,13 @@ HTTP_DISCOVERY_TIMEOUT_SECONDS = read_env_int("HYGENIE_HTTP_DISCOVERY_TIMEOUT_SE
 HTTP_DISCOVERY_MAX_FOLLOWS = read_env_int("HYGENIE_HTTP_DISCOVERY_MAX_FOLLOWS", 4, minimum=1, maximum=10)
 DELTA_SCAN_ENABLED = read_env_bool("HYGENIE_DELTA_SCAN_ENABLED", True)
 DELTA_NEAR_MINUTES = read_env_int("HYGENIE_DELTA_NEAR_MINUTES", 45, minimum=5, maximum=180)
+DOMAIN_STREAM_FAILOVER_ENABLED = read_env_bool("HYGENIE_DOMAIN_STREAM_FAILOVER", True)
+DOMAIN_FAILOVER_NEAR_MINUTES = read_env_int(
+    "HYGENIE_DOMAIN_FAILOVER_NEAR_MINUTES", 45, minimum=0, maximum=240
+)
+MATCH_VARIANT_FALLBACKS = read_env_int(
+    "HYGENIE_MATCH_VARIANT_FALLBACKS", 2, minimum=0, maximum=5
+)
 STATE_PATH = Path(os.getenv("HYGENIE_STATE_PATH", "hygenie_state.json"))
 HEADLESS = True
 PROBE_CACHE: dict[tuple[str, str, str, str], dict[str, Any]] = {}
@@ -2806,11 +2813,414 @@ async def collect_home_links_with_failover(context: BrowserContext) -> list[dict
         links = await collect_home_links(context, home_url)
         attempts.append((home_url, len(links)))
         if links:
-            print(f"✅ Chọn miền Lương Sơn: {home_url} | trận={len(links)}", flush=True)
-            return links
+            deduped = dedupe_home_matches(links)
+            print(
+                f"✅ Chọn miền Lương Sơn: {home_url} | card={len(links)} | "
+                f"trận duy nhất={len(deduped)}",
+                flush=True,
+            )
+            return deduped
         print(f"⚠️ Miền Lương Sơn không có card trận, thử miền tiếp theo: {home_url}", flush=True)
     print("❌ Không miền Lương Sơn nào trả được card trận: " + ", ".join(f"{url}={count}" for url, count in attempts), flush=True)
     return []
+
+
+def _normalized_team_identity(value: str) -> str:
+    text = normalize_search_text(value).strip()
+    words = [
+        word for word in text.split()
+        if word not in {
+            "truc", "tiep", "tran", "dau", "match", "live", "vs",
+        }
+    ]
+    collapsed: list[str] = []
+    acronym: list[str] = []
+    for word in words:
+        if len(word) == 1 and word.isalpha():
+            acronym.append(word)
+            continue
+        if acronym:
+            collapsed.append("".join(acronym))
+            acronym = []
+        collapsed.append(word)
+    if acronym:
+        collapsed.append("".join(acronym))
+    return " ".join(collapsed)
+
+
+def semantic_match_key(item: dict[str, Any]) -> str:
+    """Khóa trận theo hai đội, không phụ thuộc miền, URL SEO hay dấu chấm trong tên đội."""
+    url = clean_text(str(item.get("url", "")))
+    raw_name = clean_text(str(item.get("match_name") or item.get("raw_title") or ""))
+    match_name = clean_match_name(raw_name, url)
+    home, away = _team_parts(match_name)
+    home_key = _normalized_team_identity(home)
+    away_key = _normalized_team_identity(away)
+    if home_key and away_key:
+        pair = sorted((home_key, away_key))
+        return f"{pair[0]}|{pair[1]}"
+
+    slug = unquote(urlparse(url).path.rstrip("/").split("/")[-1])
+    slug = re.sub(r"-vao-luc-\d{4}-\d{2}-\d{2}-\d{4}.*$", "", slug, flags=re.I)
+    slug = re.sub(r"[^a-zA-Z0-9]+", " ", slug)
+    fallback = _normalized_team_identity(slug or raw_name)
+    return fallback if fallback else match_key_from_url(url)
+
+
+def _dedupe_schedule_key(item: dict[str, Any]) -> str:
+    url_date, url_time = extract_hygenie_datetime_from_url(str(item.get("url", "")))
+    time_value = extract_time(str(item.get("time") or item.get("raw_time") or url_time))
+    date_value = clean_text(str(item.get("date") or url_date))
+    return f"{date_value}|{time_value}" if date_value or time_value else ""
+
+
+def _home_record_score(item: dict[str, Any]) -> int:
+    score = 0
+    if item.get("stream_hints"):
+        score += 500 + 20 * len(item.get("stream_hints") or [])
+    if _has_explicit_live_hint(item):
+        score += 180
+    if item.get("home_name") and item.get("away_name"):
+        score += 120
+    if item.get("home_logo") and item.get("away_logo"):
+        score += 80
+    elif item.get("logo"):
+        score += 30
+    if item.get("time") or item.get("raw_time"):
+        score += 35
+    if item.get("date"):
+        score += 25
+    raw_title = clean_text(str(item.get("raw_title", "")))
+    if raw_title and not re.match(r"(?i)^trực\s+tiếp\s+trận\s+đấu", raw_title):
+        score += 15
+    query = parse_qs(urlparse(str(item.get("url", ""))).query)
+    if (query.get("blv") or query.get("blvName") or query.get("commentator")):
+        score += 10
+    return score
+
+
+def _merge_home_record_metadata(primary: dict[str, Any], variants: list[dict[str, Any]]) -> None:
+    scalar_fields = (
+        "home_name", "away_name", "home_logo", "away_logo", "logo",
+        "date", "time", "raw_time", "card_text", "sport_hint", "status_text",
+    )
+    for field in scalar_fields:
+        if primary.get(field):
+            continue
+        for row in variants:
+            if row.get(field):
+                primary[field] = row[field]
+                break
+
+    for field in ("stream_hints", "team_logos", "logo_candidates"):
+        merged: list[Any] = []
+        seen: set[str] = set()
+        for row in [primary, *variants]:
+            for value in row.get(field) or []:
+                marker = json.dumps(value, ensure_ascii=False, sort_keys=True) if isinstance(value, dict) else str(value)
+                if marker not in seen:
+                    seen.add(marker)
+                    merged.append(value)
+        if merged:
+            primary[field] = merged
+
+
+def dedupe_home_matches(links: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Gộp card/URL SEO trùng trận nhưng giữ URL thay thế và không gộp lượt tái đấu khác lịch."""
+    semantic_groups: dict[str, list[dict[str, Any]]] = {}
+    for raw in links:
+        item = dict(raw)
+        semantic_key = semantic_match_key(item)
+        item["_semantic_match_key"] = semantic_key
+        semantic_groups.setdefault(semantic_key, []).append(item)
+
+    clusters: list[tuple[str, list[dict[str, Any]]]] = []
+    for semantic_key, rows in semantic_groups.items():
+        scheduled: dict[str, list[dict[str, Any]]] = {}
+        unknown: list[dict[str, Any]] = []
+        for row in rows:
+            schedule_key = _dedupe_schedule_key(row)
+            if schedule_key:
+                scheduled.setdefault(schedule_key, []).append(row)
+            else:
+                unknown.append(row)
+        if len(scheduled) <= 1:
+            combined = [row for values in scheduled.values() for row in values] + unknown
+            clusters.append((semantic_key, combined))
+        else:
+            for schedule_key, values in scheduled.items():
+                clusters.append((f"{semantic_key}|{schedule_key}", values))
+            if unknown:
+                # Không đoán card thiếu lịch thuộc lượt tái đấu nào; giữ thành một cụm riêng để tránh mất link.
+                clusters.append((f"{semantic_key}|unknown", unknown))
+
+    deduped: list[dict[str, Any]] = []
+    duplicate_count = 0
+    for _group_key, rows in clusters:
+        unique_by_url: dict[str, dict[str, Any]] = {}
+        for row in rows:
+            url = clean_text(str(row.get("url", "")))
+            previous = unique_by_url.get(url)
+            if previous is None or _home_record_score(row) > _home_record_score(previous):
+                unique_by_url[url] = row
+        variants = sorted(unique_by_url.values(), key=_home_record_score, reverse=True)
+        primary = dict(variants[0])
+        alternatives = [dict(row) for row in variants[1:]]
+        primary["_same_match_variants"] = alternatives
+        primary["_duplicate_card_count"] = len(rows)
+        primary["_semantic_match_key"] = semantic_match_key(primary)
+        _merge_home_record_metadata(primary, alternatives)
+        duplicate_count += max(0, len(rows) - 1)
+        deduped.append(primary)
+
+    if duplicate_count:
+        print(
+            f"🧹 Gộp {duplicate_count} card/URL trùng Lương Sơn: "
+            f"{len(links)} -> {len(deduped)} trận duy nhất; vẫn giữ URL thay thế để fallback.",
+            flush=True,
+        )
+    return deduped
+
+
+def stream_failover_eligible(match: dict[str, Any]) -> bool:
+    if match.get("streams"):
+        return False
+    delta = match.get("minutes_to_kickoff")
+    if isinstance(delta, int):
+        return -SCAN_PAST_MINUTES <= delta <= DOMAIN_FAILOVER_NEAR_MINUTES
+    return match.get("scan_window_reason") == "unknown-time-live" or _has_explicit_live_hint(match)
+
+
+def _kickoff_for_match(item: dict[str, Any]) -> datetime | None:
+    raw = clean_text(str(item.get("kickoff_iso", "")))
+    if raw:
+        try:
+            parsed = datetime.fromisoformat(raw)
+            return parsed.astimezone(VN_TZ) if parsed.tzinfo else parsed.replace(tzinfo=VN_TZ)
+        except ValueError:
+            pass
+    url_date, url_time = extract_hygenie_datetime_from_url(str(item.get("url", "")))
+    return resolve_scan_kickoff(
+        clean_text(str(item.get("time") or item.get("raw_time") or url_time)),
+        clean_text(str(item.get("date") or url_date)),
+    )
+
+
+def find_matching_fallback(
+    failed: dict[str, Any],
+    candidates: list[dict[str, Any]],
+    used_urls: set[str] | None = None,
+) -> dict[str, Any] | None:
+    key = semantic_match_key(failed)
+    failed_kickoff = _kickoff_for_match(failed)
+    usable: list[tuple[float, int, dict[str, Any]]] = []
+    for candidate in candidates:
+        url = clean_text(str(candidate.get("url", "")))
+        if used_urls and url in used_urls:
+            continue
+        if semantic_match_key(candidate) != key:
+            continue
+        candidate_kickoff = _kickoff_for_match(candidate)
+        gap = 0.0
+        if failed_kickoff and candidate_kickoff:
+            gap = abs((candidate_kickoff - failed_kickoff).total_seconds())
+            if gap > 6 * 3600:
+                continue
+        usable.append((gap, -_home_record_score(candidate), candidate))
+    if not usable:
+        return None
+    usable.sort(key=lambda row: (row[0], row[1]))
+    return dict(usable[0][2])
+
+
+def _inherit_scan_context(target: dict[str, Any], source: dict[str, Any]) -> None:
+    for key in (
+        "minutes_to_kickoff", "kickoff_iso", "scan_time_iso", "scan_window_reason",
+        "delta_reason", "_previous_streams", "sport_group",
+        "_fallback_target_index", "_fallback_primary_url",
+    ):
+        if key in source and key not in target:
+            target[key] = source[key]
+
+
+async def fetch_stream_with_variants(
+    context: BrowserContext,
+    match: dict[str, Any],
+    sem: asyncio.Semaphore,
+) -> dict[str, Any]:
+    alternatives = [dict(row) for row in match.get("_same_match_variants") or []]
+    result = await fetch_stream(context, match, sem)
+    if result.get("streams") or not stream_failover_eligible(result) or MATCH_VARIANT_FALLBACKS <= 0:
+        return result
+
+    attempts: list[dict[str, Any]] = []
+    for position, alternative in enumerate(alternatives[:MATCH_VARIANT_FALLBACKS], start=1):
+        _inherit_scan_context(alternative, result)
+        alternative["_scan_index"] = result.get("_scan_index", 0)
+        alternative["_scan_total"] = result.get("_scan_total", 0)
+        print(
+            f"   🔁 URL/card cùng trận không có stream; thử biến thể {position}/{min(len(alternatives), MATCH_VARIANT_FALLBACKS)}: "
+            f"{alternative.get('url', '')}",
+            flush=True,
+        )
+        alternative_result = await fetch_stream(context, alternative, sem)
+        attempts.append({
+            "url": alternative_result.get("url", ""),
+            "streams": len(alternative_result.get("streams") or []),
+        })
+        if alternative_result.get("streams"):
+            selected_url = alternative_result.get("url", "")
+            alternative_result["selected_page_url"] = selected_url
+            alternative_result["url"] = result.get("url", selected_url)
+            alternative_result["variant_failover"] = {
+                "from": result.get("url", ""),
+                "to": selected_url,
+                "attempts": attempts,
+            }
+            print(
+                f"   ✅ Biến thể cùng trận bắt được {len(alternative_result.get('streams') or [])} stream.",
+                flush=True,
+            )
+            return alternative_result
+
+    result["variant_failover_attempts"] = attempts
+    return result
+
+
+async def scan_match_batch(
+    context: BrowserContext,
+    links: list[dict[str, Any]],
+    *,
+    phase_label: str = "",
+) -> list[dict[str, Any]]:
+    if not links:
+        return []
+    if phase_label:
+        print(f"\n🔄 {phase_label}", flush=True)
+    semaphore = asyncio.Semaphore(CONCURRENCY_LIMIT)
+    total_links = len(links)
+    tasks: list[asyncio.Task[dict[str, Any]]] = []
+    for index, match in enumerate(links, start=1):
+        match["_scan_index"] = index
+        match["_scan_total"] = total_links
+        tasks.append(asyncio.create_task(fetch_stream_with_variants(context, match, semaphore)))
+
+    heartbeat = asyncio.create_task(progress_heartbeat(tasks, total_links))
+    results: list[dict[str, Any]] = []
+    completed = 0
+    try:
+        for future in asyncio.as_completed(tasks):
+            result = await future
+            results.append(result)
+            completed += 1
+            found = len(result.get("streams") or [])
+            print(
+                f"📈 Hoàn thành {completed}/{total_links}: "
+                f"[{result.get('sport_group', 'Khác')}] "
+                f"{result.get('match_name', '')[:70]} | stream={found}",
+                flush=True,
+            )
+    finally:
+        heartbeat.cancel()
+        await asyncio.gather(heartbeat, return_exceptions=True)
+    return results
+
+
+async def retry_failed_matches_on_fallback_domains(
+    context: BrowserContext,
+    results: list[dict[str, Any]],
+    primary_home_url: str,
+) -> list[dict[str, Any]]:
+    if not DOMAIN_STREAM_FAILOVER_ENABLED:
+        return results
+
+    unresolved = [index for index, row in enumerate(results) if stream_failover_eligible(row)]
+    if not unresolved:
+        return results
+
+    print(
+        f"⚠️ Miền {primary_home_url or 'đầu tiên'} có {len(unresolved)} trận gần/live nhưng 0 stream; "
+        "bắt đầu đối chiếu miền Lương Sơn dự phòng.",
+        flush=True,
+    )
+
+    for fallback_home in HOME_URLS:
+        if fallback_home.rstrip("/") == (primary_home_url or "").rstrip("/"):
+            continue
+        raw_links = await collect_home_links(context, fallback_home)
+        if not raw_links:
+            print(f"⚠️ Miền dự phòng {fallback_home} không có card trận.", flush=True)
+            continue
+        fallback_links = dedupe_home_matches(raw_links)
+        fallback_links, stats = filter_links_by_scan_window(fallback_links)
+        print(
+            f"🔁 Miền dự phòng {fallback_home}: card={len(raw_links)} | "
+            f"trận duy nhất trong cửa sổ={len(fallback_links)}",
+            flush=True,
+        )
+        used_urls: set[str] = set()
+        retry_links: list[dict[str, Any]] = []
+        for index in list(unresolved):
+            failed = results[index]
+            candidate = find_matching_fallback(failed, fallback_links, used_urls)
+            if candidate is None:
+                continue
+            used_urls.add(clean_text(str(candidate.get("url", ""))))
+            _inherit_scan_context(candidate, failed)
+            candidate["_fallback_target_index"] = index
+            candidate["_fallback_primary_url"] = failed.get("url", "")
+            retry_links.append(candidate)
+
+        if not retry_links:
+            print(f"ℹ️ Miền dự phòng {fallback_home} không có trận tương ứng để thử.", flush=True)
+            continue
+
+        retry_results = await scan_match_batch(
+            context,
+            retry_links,
+            phase_label=f"FAILOVER LƯƠNG SƠN → {fallback_home} ({len(retry_links)} trận)",
+        )
+        for candidate_result in retry_results:
+            target_index = int(candidate_result.get("_fallback_target_index", -1))
+            if target_index < 0 or target_index >= len(results):
+                continue
+            original = results[target_index]
+            attempt = {
+                "domain": fallback_home,
+                "page_url": candidate_result.get("selected_page_url") or candidate_result.get("url", ""),
+                "streams": len(candidate_result.get("streams") or []),
+            }
+            if candidate_result.get("streams"):
+                selected_url = candidate_result.get("selected_page_url") or candidate_result.get("url", "")
+                candidate_result["selected_page_url"] = selected_url
+                candidate_result["url"] = original.get("url", selected_url)
+                candidate_result["domain_failover"] = {
+                    "from_domain": primary_home_url,
+                    "to_domain": fallback_home,
+                    "primary_page_url": original.get("url", ""),
+                    "selected_page_url": selected_url,
+                    "reason": "primary-near-live-zero-stream",
+                }
+                results[target_index] = candidate_result
+                if target_index in unresolved:
+                    unresolved.remove(target_index)
+                print(
+                    f"✅ Failover Lương Sơn thành công: {candidate_result.get('match_name', '')} | "
+                    f"stream={len(candidate_result.get('streams') or [])} | miền={fallback_home}",
+                    flush=True,
+                )
+            else:
+                original.setdefault("domain_failover_attempts", []).append(attempt)
+
+        if not unresolved:
+            break
+
+    if unresolved:
+        print(
+            f"⚠️ Failover Lương Sơn kết thúc: còn {len(unresolved)} trận gần/live chưa lộ stream ở mọi miền.",
+            flush=True,
+        )
+    return results
 
 
 def escape_m3u_text(value: str) -> str:
@@ -3057,6 +3467,8 @@ async def main() -> None:
         f"xác minh phát thật={'BẬT' if VERIFY_STREAMS else 'TẮT'} | "
         f"tối đa {MAX_VERIFY_CANDIDATES} ứng viên/{MAX_OUTPUT_STREAMS_PER_MATCH} link đầu ra | "
         f"HTTP-first={'BẬT' if HYBRID_HTTP_FIRST else 'TẮT'} | delta={'BẬT' if DELTA_SCAN_ENABLED else 'TẮT'} | "
+        f"failover stream={'BẬT' if DOMAIN_STREAM_FAILOVER_ENABLED else 'TẮT'} "
+        f"(gần/live ≤{DOMAIN_FAILOVER_NEAR_MINUTES}p, biến thể={MATCH_VARIANT_FALLBACKS}) | "
         f"miền dự phòng={','.join(HOME_URLS)}"
     )
 
@@ -3162,37 +3574,24 @@ async def main() -> None:
         for match in links:
             match_id = match_key_from_url(match.get("url", ""))
             match["_previous_streams"] = list(previous_streams_by_match.get(match_id, []))
+            for alternative in match.get("_same_match_variants") or []:
+                alternative_id = match_key_from_url(alternative.get("url", ""))
+                alternative["_previous_streams"] = list(
+                    previous_streams_by_match.get(alternative_id, [])
+                )
 
+        primary_home_url = "" if direct_urls else clean_text(
+            str((links[0] if links else {}).get("source_home_url", ""))
+        )
         print(
-            f"✅ Tìm thấy {len(links)} link trận/phòng. "
+            f"✅ Tìm thấy {len(links)} trận duy nhất trong lượt quét. "
             f"Bắt đầu quét tối đa {CONCURRENCY_LIMIT} trang cùng lúc..."
         )
-        semaphore = asyncio.Semaphore(CONCURRENCY_LIMIT)
-        total_links = len(links)
-        tasks: list[asyncio.Task[dict[str, Any]]] = []
-        for index, match in enumerate(links, start=1):
-            match["_scan_index"] = index
-            match["_scan_total"] = total_links
-            tasks.append(asyncio.create_task(fetch_stream(context, match, semaphore)))
-
-        heartbeat = asyncio.create_task(progress_heartbeat(tasks, total_links))
-        results: list[dict[str, Any]] = []
-        completed = 0
-        try:
-            for future in asyncio.as_completed(tasks):
-                result = await future
-                results.append(result)
-                completed += 1
-                found = len(result.get("streams") or [])
-                print(
-                    f"📈 Hoàn thành {completed}/{total_links}: "
-                    f"[{result.get('sport_group', 'Khác')}] "
-                    f"{result.get('match_name', '')[:70]} | stream={found}",
-                    flush=True,
-                )
-        finally:
-            heartbeat.cancel()
-            await asyncio.gather(heartbeat, return_exceptions=True)
+        results = await scan_match_batch(context, links)
+        if not direct_urls:
+            results = await retry_failed_matches_on_fallback_domains(
+                context, results, primary_home_url
+            )
 
         pending_without_media = [
             row for row in results
