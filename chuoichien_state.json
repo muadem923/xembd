@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-23T08:24:21.668393+07:00",
+  "updated_at": "2026-07-23T11:43:59.486981+07:00",
   "matches": {
     "992361": {
       "url": "https://live04.chuoichientv.me/live/992361/pvf-cand-vs-hoang-anh-gia-lai",
@@ -649,6 +649,30 @@
         "https://gckc0525.edgemaxcdn.org/live/chuoito.flv"
       ],
       "scan_decision": "browser-fallback"
+    },
+    "991281": {
+      "url": "https://live04.chuoichientv.me/live/991281/vit-nam-vs-thailand",
+      "match_name": "vit nam vs thailand",
+      "kickoff_iso": "2026-07-23T15:30:00+07:00",
+      "minutes_to_kickoff": 226,
+      "last_scan_at": "2026-07-23T11:43:59.486914+07:00",
+      "next_scan_at": "2026-07-23T12:28:59.486914+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "209781": {
+      "url": "https://live04.chuoichientv.me/live/209781/turkey-w-vs-canada-w",
+      "match_name": "turkey w vs canada w",
+      "kickoff_iso": "2026-07-23T15:00:00+07:00",
+      "minutes_to_kickoff": 196,
+      "last_scan_at": "2026-07-23T11:43:59.486914+07:00",
+      "next_scan_at": "2026-07-23T12:28:59.486914+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
     }
   }
 }

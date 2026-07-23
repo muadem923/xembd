@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "luongson",
-  "updated_at": "2026-07-23T08:25:23.195257+07:00",
+  "updated_at": "2026-07-23T11:44:08.228513+07:00",
   "matches": {
     "dbdf8cfe3f68": {
       "url": "https://catbee.io/truc-tiep/basilan-steel-vs-sarangani-marlins-vao-luc-1500-21-07-2026/",
@@ -1676,6 +1676,54 @@
         "https://hls.cdnfaster-a.live/live/NGUOITHEP/index.m3u8?expire=2556118740&sign=6d80f4e33c3761371f29a8ca0645fee5"
       ],
       "scan_decision": "browser-fallback"
+    },
+    "642cc5217d9f": {
+      "url": "https://laservision.io/truc-tiep/t-t-hanoi-u21-vs-song-lan-yi-u21-vao-luc-1530-23-07-2026/?blv=135",
+      "match_name": "Trực tiếp trận đấu T T Hanoi U21 vs Song Lan vs yi U21",
+      "kickoff_iso": "2026-07-23T15:30:00+07:00",
+      "minutes_to_kickoff": 226,
+      "last_scan_at": "2026-07-23T11:44:08.228333+07:00",
+      "next_scan_at": "2026-07-23T12:29:08.228333+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "c211d2ac5d63": {
+      "url": "https://laservision.io/truc-tiep/zhejiang-hangzhou-b-w-vs-zhanjiang-yuezhan-w-vao-luc-1300-23-07-2026/?blv=253",
+      "match_name": "Trực tiếp trận đấu Zhejiang Hangzhou B (W) vs Zhanjiang Yuezhan (W)",
+      "kickoff_iso": "2026-07-23T13:00:00+07:00",
+      "minutes_to_kickoff": 76,
+      "last_scan_at": "2026-07-23T11:44:08.228333+07:00",
+      "next_scan_at": "2026-07-23T12:04:08.228333+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "44b604484107": {
+      "url": "https://laservision.io/truc-tiep/bay-hawks-vs-wellington-saints-vao-luc-1400-23-07-2026/?blv=328",
+      "match_name": "Trực tiếp trận đấu Bay Hawks vs Wellington Saints",
+      "kickoff_iso": "2026-07-23T14:00:00+07:00",
+      "minutes_to_kickoff": 136,
+      "last_scan_at": "2026-07-23T11:44:08.228333+07:00",
+      "next_scan_at": "2026-07-23T12:29:08.228333+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "6398f5c2816b": {
+      "url": "https://laservision.io/truc-tiep/wuhan-three-towns-martial-arts-w-vs-shandong-jinghua-ii-w-vao-luc-1530-23-07-2026/?blv=300",
+      "match_name": "Trực tiếp trận đấu Wuhan Three Towns Martial Arts (W) vs Shandong Jinghua II W",
+      "kickoff_iso": "2026-07-23T15:30:00+07:00",
+      "minutes_to_kickoff": 226,
+      "last_scan_at": "2026-07-23T11:44:08.228333+07:00",
+      "next_scan_at": "2026-07-23T12:29:08.228333+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
     }
   }
 }
