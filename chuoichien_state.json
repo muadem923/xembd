@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-23T11:43:59.486981+07:00",
+  "updated_at": "2026-07-23T14:26:11.198686+07:00",
   "matches": {
     "992361": {
       "url": "https://live04.chuoichientv.me/live/992361/pvf-cand-vs-hoang-anh-gia-lai",
@@ -654,9 +654,9 @@
       "url": "https://live04.chuoichientv.me/live/991281/vit-nam-vs-thailand",
       "match_name": "vit nam vs thailand",
       "kickoff_iso": "2026-07-23T15:30:00+07:00",
-      "minutes_to_kickoff": 226,
-      "last_scan_at": "2026-07-23T11:43:59.486914+07:00",
-      "next_scan_at": "2026-07-23T12:28:59.486914+07:00",
+      "minutes_to_kickoff": 64,
+      "last_scan_at": "2026-07-23T14:26:11.198623+07:00",
+      "next_scan_at": "2026-07-23T14:46:11.198623+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
@@ -669,6 +669,18 @@
       "minutes_to_kickoff": 196,
       "last_scan_at": "2026-07-23T11:43:59.486914+07:00",
       "next_scan_at": "2026-07-23T12:28:59.486914+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1598631": {
+      "url": "https://live04.chuoichientv.me/live/1598631/tensung-vs-paro",
+      "match_name": "tensung vs paro",
+      "kickoff_iso": "2026-07-23T16:00:00+07:00",
+      "minutes_to_kickoff": 94,
+      "last_scan_at": "2026-07-23T14:26:11.198623+07:00",
+      "next_scan_at": "2026-07-23T14:46:11.198623+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],

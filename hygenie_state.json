@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "luongson",
-  "updated_at": "2026-07-23T11:44:08.228513+07:00",
+  "updated_at": "2026-07-23T14:26:40.821090+07:00",
   "matches": {
     "dbdf8cfe3f68": {
       "url": "https://catbee.io/truc-tiep/basilan-steel-vs-sarangani-marlins-vao-luc-1500-21-07-2026/",
@@ -111,18 +111,6 @@
       "verified_urls": [
         "https://hls.cdnfaster-a.live/live/LAOHAC/index.m3u8?expire=2556118740&sign=d7e003f1201f61166a559ac474dc7491"
       ],
-      "scan_decision": "browser-fallback"
-    },
-    "3e746cfc1d8c": {
-      "url": "https://catbee.io/truc-tiep/phap-vs-maroc-vao-luc-1200-21-07-2026/",
-      "match_name": "PHÁP vs MAROC",
-      "kickoff_iso": "2026-07-21T12:00:00+07:00",
-      "minutes_to_kickoff": -121,
-      "last_scan_at": "2026-07-21T14:01:45.495412+07:00",
-      "next_scan_at": "2026-07-21T14:06:45.495412+07:00",
-      "has_stream": true,
-      "has_verified": false,
-      "verified_urls": [],
       "scan_decision": "browser-fallback"
     },
     "bdea0c3a3220": {
@@ -1681,9 +1669,9 @@
       "url": "https://laservision.io/truc-tiep/t-t-hanoi-u21-vs-song-lan-yi-u21-vao-luc-1530-23-07-2026/?blv=135",
       "match_name": "Trực tiếp trận đấu T T Hanoi U21 vs Song Lan vs yi U21",
       "kickoff_iso": "2026-07-23T15:30:00+07:00",
-      "minutes_to_kickoff": 226,
-      "last_scan_at": "2026-07-23T11:44:08.228333+07:00",
-      "next_scan_at": "2026-07-23T12:29:08.228333+07:00",
+      "minutes_to_kickoff": 64,
+      "last_scan_at": "2026-07-23T14:26:40.820779+07:00",
+      "next_scan_at": "2026-07-23T14:46:40.820779+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
@@ -1691,27 +1679,31 @@
     },
     "c211d2ac5d63": {
       "url": "https://laservision.io/truc-tiep/zhejiang-hangzhou-b-w-vs-zhanjiang-yuezhan-w-vao-luc-1300-23-07-2026/?blv=253",
-      "match_name": "Trực tiếp trận đấu Zhejiang Hangzhou B (W) vs Zhanjiang Yuezhan (W)",
+      "match_name": "ZHEJIANG HANGZHOU B (W) vs ZHANJIANG YUEZHAN (W)",
       "kickoff_iso": "2026-07-23T13:00:00+07:00",
-      "minutes_to_kickoff": 76,
-      "last_scan_at": "2026-07-23T11:44:08.228333+07:00",
-      "next_scan_at": "2026-07-23T12:04:08.228333+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -86,
+      "last_scan_at": "2026-07-23T14:26:40.820779+07:00",
+      "next_scan_at": "2026-07-23T14:31:40.820779+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://hls.cdnfaster-a.live/live/NGUCA/index.m3u8?expire=1788427256&sign=abf9c93edd0de1c833f9ffc14381d526"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "44b604484107": {
       "url": "https://laservision.io/truc-tiep/bay-hawks-vs-wellington-saints-vao-luc-1400-23-07-2026/?blv=328",
-      "match_name": "Trực tiếp trận đấu Bay Hawks vs Wellington Saints",
+      "match_name": "BAY HAWKS vs WELLINGTON SAINTS",
       "kickoff_iso": "2026-07-23T14:00:00+07:00",
-      "minutes_to_kickoff": 136,
-      "last_scan_at": "2026-07-23T11:44:08.228333+07:00",
-      "next_scan_at": "2026-07-23T12:29:08.228333+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -26,
+      "last_scan_at": "2026-07-23T14:26:40.820779+07:00",
+      "next_scan_at": "2026-07-23T14:31:40.820779+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://hls.cdnfaster-a.live/live/VOTONG/index.m3u8?expire=1891347600&sign=cbb47d2000b9576a7b34114624ff8299"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "6398f5c2816b": {
       "url": "https://laservision.io/truc-tiep/wuhan-three-towns-martial-arts-w-vs-shandong-jinghua-ii-w-vao-luc-1530-23-07-2026/?blv=300",
@@ -1720,6 +1712,66 @@
       "minutes_to_kickoff": 226,
       "last_scan_at": "2026-07-23T11:44:08.228333+07:00",
       "next_scan_at": "2026-07-23T12:29:08.228333+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "6caf4583465b": {
+      "url": "https://laservision.io/truc-tiep/chongqing-olympic-w-vs-henan-wanxianshan-w-vao-luc-1530-23-07-2026/?blv=300",
+      "match_name": "Trực tiếp trận đấu Chongqing Olympic (W) vs Henan Wanxianshan (W)",
+      "kickoff_iso": "2026-07-23T15:30:00+07:00",
+      "minutes_to_kickoff": 64,
+      "last_scan_at": "2026-07-23T14:26:40.820779+07:00",
+      "next_scan_at": "2026-07-23T14:46:40.820779+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "3bf76274e30c": {
+      "url": "https://laservision.io/truc-tiep/hellenic-ac-vs-palmerston-vao-luc-1600-23-07-2026/?blv=383",
+      "match_name": "Trực tiếp trận đấu Hellenic AC vs Palmerston",
+      "kickoff_iso": "2026-07-23T16:00:00+07:00",
+      "minutes_to_kickoff": 94,
+      "last_scan_at": "2026-07-23T14:26:40.820779+07:00",
+      "next_scan_at": "2026-07-23T14:46:40.820779+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "137e2b7a50b9": {
+      "url": "https://laservision.io/truc-tiep/tensung-fc-vs-paro-fc-vao-luc-1700-23-07-2026/?blv=253",
+      "match_name": "Trực tiếp trận đấu Tensung FC vs Paro FC",
+      "kickoff_iso": "2026-07-23T17:00:00+07:00",
+      "minutes_to_kickoff": 154,
+      "last_scan_at": "2026-07-23T14:26:40.820779+07:00",
+      "next_scan_at": "2026-07-23T15:11:40.820779+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "16f414a28c7d": {
+      "url": "https://laservision.io/truc-tiep/viettel-fc-u21-vs-hoang-anh-gia-lai-u21-vao-luc-1800-23-07-2026/?blv=218",
+      "match_name": "Trực tiếp trận đấu Viettel FC U21 vs Hoang Anh Gia Lai U21",
+      "kickoff_iso": "2026-07-23T18:00:00+07:00",
+      "minutes_to_kickoff": 214,
+      "last_scan_at": "2026-07-23T14:26:40.820779+07:00",
+      "next_scan_at": "2026-07-23T15:11:40.820779+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "4c86fd50bbb2": {
+      "url": "https://laservision.io/truc-tiep/garuda-fc-vs-darwin-hearts-vao-luc-1800-23-07-2026/?blv=292",
+      "match_name": "Trực tiếp trận đấu Garuda FC vs Darwin Hearts",
+      "kickoff_iso": "2026-07-23T18:00:00+07:00",
+      "minutes_to_kickoff": 214,
+      "last_scan_at": "2026-07-23T14:26:40.820779+07:00",
+      "next_scan_at": "2026-07-23T15:11:40.820779+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
