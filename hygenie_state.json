@@ -1,76 +1,8 @@
 {
   "version": 1,
   "source": "luongson",
-  "updated_at": "2026-07-24T01:16:23.274854+07:00",
+  "updated_at": "2026-07-24T02:55:05.693269+07:00",
   "matches": {
-    "dcaba9ce140d": {
-      "url": "https://catbee.io/truc-tiep/walsall-vs-aston-villa-vao-luc-0130-22-07-2026/",
-      "match_name": "WALSALL vs ASTON VILLA",
-      "kickoff_iso": "2026-07-22T01:30:00+07:00",
-      "minutes_to_kickoff": -91,
-      "last_scan_at": "2026-07-22T03:03:52.267142+07:00",
-      "next_scan_at": "2026-07-22T03:08:52.267142+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/TONLAP/index.m3u8?expire=1788427256&sign=72cc58a29d787d621b0832b54e1a78df"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "e636d49797ba": {
-      "url": "https://catbee.io/truc-tiep/ki-klaksvik-vs-kauno-zalgiris-vao-luc-0145-22-07-2026/",
-      "match_name": "KI KLAKSVIK vs KAUNO ZALGIRIS",
-      "kickoff_iso": "2026-07-22T01:45:00+07:00",
-      "minutes_to_kickoff": -106,
-      "last_scan_at": "2026-07-22T03:32:36.801909+07:00",
-      "next_scan_at": "2026-07-22T03:37:36.801909+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/PHIHO/index.m3u8?expire=2556118740&sign=ebc20a588b7a62eb65d12f7372d39a3f"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "ad6fd009677d": {
-      "url": "https://catbee.io/truc-tiep/kelty-hearts-vs-brora-rangers-vao-luc-0145-22-07-2026/",
-      "match_name": "kelty hearts vs brora rangers",
-      "kickoff_iso": "2026-07-22T01:45:00+07:00",
-      "minutes_to_kickoff": 74,
-      "last_scan_at": "2026-07-22T00:34:20.498096+07:00",
-      "next_scan_at": "2026-07-22T00:54:20.498096+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
-    },
-    "9c29767a9306": {
-      "url": "https://catbee.io/truc-tiep/larne-fc-vs-crvena-zvezda-vao-luc-0200-22-07-2026/?blv=379",
-      "match_name": "LARNE FC vs CRVENA ZVEZDA",
-      "kickoff_iso": "2026-07-22T02:00:00+07:00",
-      "minutes_to_kickoff": -91,
-      "last_scan_at": "2026-07-22T03:32:36.801909+07:00",
-      "next_scan_at": "2026-07-22T03:37:36.801909+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/HEINEKEN/index.m3u8?expire=2530639860&sign=03a2e74c3447f79f8c6e80a8fa2ee0b6"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "ead0d2d26f70": {
-      "url": "https://catbee.io/truc-tiep/vikingur-reykjavik-vs-hapoel-beer-sheva-vao-luc-0200-22-07-2026/",
-      "match_name": "VIKINGUR REYKJAVIK vs HAPOEL BEER SHEVA",
-      "kickoff_iso": "2026-07-22T02:00:00+07:00",
-      "minutes_to_kickoff": -91,
-      "last_scan_at": "2026-07-22T03:32:36.801909+07:00",
-      "next_scan_at": "2026-07-22T03:37:36.801909+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/LAOHAC/index.m3u8?expire=2556118740&sign=d7e003f1201f61166a559ac474dc7491"
-      ],
-      "scan_decision": "browser-fallback"
-    },
     "601258f7f01e": {
       "url": "https://catbee.io/truc-tiep/libertad-fc-vs-delfin-sc-vao-luc-0430-22-07-2026/",
       "match_name": "LIBERTAD FC vs DELFIN SC",
@@ -82,34 +14,6 @@
       "has_verified": true,
       "verified_urls": [
         "https://hls.cdnfaster-a.live/live/LIO/index.m3u8?expire=1923141900&sign=fff7ab29620de2a54fba04f5f3ca246a"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "7a90cbdade87": {
-      "url": "https://catbee.io/truc-tiep/botev-plovdiv-vs-lokomotiv-sofia-vao-luc-0130-22-07-2026/",
-      "match_name": "BOTEV PLOVDIV vs LOKOMOTIV SOFIA",
-      "kickoff_iso": "2026-07-22T01:30:00+07:00",
-      "minutes_to_kickoff": -91,
-      "last_scan_at": "2026-07-22T03:03:52.267142+07:00",
-      "next_scan_at": "2026-07-22T03:08:52.267142+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/NGUOITHEP/index.m3u8?expire=2556118740&sign=6d80f4e33c3761371f29a8ca0645fee5"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "bd8597c300e8": {
-      "url": "https://catbee.io/truc-tiep/sturm-graz-vs-heart-of-midlothian-vao-luc-0130-22-07-2026/",
-      "match_name": "STURM GRAZ vs HEART OF MIDLOTHIAN",
-      "kickoff_iso": "2026-07-22T01:30:00+07:00",
-      "minutes_to_kickoff": -91,
-      "last_scan_at": "2026-07-22T03:03:52.267142+07:00",
-      "next_scan_at": "2026-07-22T03:08:52.267142+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/LUBO/index.m3u8?expire=1788427256&sign=fa2834495401eb5d1dc40ba2f3bd21c1"
       ],
       "scan_decision": "browser-fallback"
     },
@@ -1709,9 +1613,9 @@
       "url": "https://bobertoken.io/truc-tiep/besiktas-jk-vs-midtjylland-vao-luc-0100-24-07-2026/?blv=379",
       "match_name": "BESIKTAS JK vs MIDTJYLLAND",
       "kickoff_iso": "2026-07-24T01:00:00+07:00",
-      "minutes_to_kickoff": -13,
-      "last_scan_at": "2026-07-24T01:16:23.274097+07:00",
-      "next_scan_at": "2026-07-24T01:21:23.274097+07:00",
+      "minutes_to_kickoff": -113,
+      "last_scan_at": "2026-07-24T02:55:05.692835+07:00",
+      "next_scan_at": "2026-07-24T03:00:05.692835+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -1737,9 +1641,9 @@
       "url": "https://bobertoken.io/truc-tiep/vojvodina-novi-sad-vs-afc-ajax-vao-luc-0100-24-07-2026/?blv=315",
       "match_name": "VOJVODINA NOVI SAD vs AFC AJAX",
       "kickoff_iso": "2026-07-24T01:00:00+07:00",
-      "minutes_to_kickoff": -13,
-      "last_scan_at": "2026-07-24T01:16:23.274097+07:00",
-      "next_scan_at": "2026-07-24T01:21:23.274097+07:00",
+      "minutes_to_kickoff": -113,
+      "last_scan_at": "2026-07-24T02:55:05.692835+07:00",
+      "next_scan_at": "2026-07-24T03:00:05.692835+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -1751,9 +1655,9 @@
       "url": "https://bobertoken.io/truc-tiep/polissya-zhytomyr-vs-fc-copenhagen-vao-luc-0100-24-07-2026/?blv=298",
       "match_name": "POLISSYA ZHYTOMYR vs FC COPENHAGEN",
       "kickoff_iso": "2026-07-24T01:00:00+07:00",
-      "minutes_to_kickoff": -13,
-      "last_scan_at": "2026-07-24T01:16:23.274097+07:00",
-      "next_scan_at": "2026-07-24T01:21:23.274097+07:00",
+      "minutes_to_kickoff": -113,
+      "last_scan_at": "2026-07-24T02:55:05.692835+07:00",
+      "next_scan_at": "2026-07-24T03:00:05.692835+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -1791,9 +1695,9 @@
       "url": "https://bobertoken.io/truc-tiep/hapoel-tel-aviv-vs-ludogorets-razgrad-vao-luc-0130-24-07-2026/?blv=372",
       "match_name": "HAPOEL TEL AVIV vs LUDOGORETS RAZGRAD",
       "kickoff_iso": "2026-07-24T01:30:00+07:00",
-      "minutes_to_kickoff": 17,
-      "last_scan_at": "2026-07-24T01:16:23.274097+07:00",
-      "next_scan_at": "2026-07-24T01:21:23.274097+07:00",
+      "minutes_to_kickoff": -83,
+      "last_scan_at": "2026-07-24T02:55:05.692835+07:00",
+      "next_scan_at": "2026-07-24T03:00:05.692835+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -1805,21 +1709,23 @@
       "url": "https://bobertoken.io/truc-tiep/rijeka-vs-derry-city-vao-luc-0145-24-07-2026/?blv=377",
       "match_name": "RIJEKA vs DERRY CITY",
       "kickoff_iso": "2026-07-24T01:45:00+07:00",
-      "minutes_to_kickoff": 32,
-      "last_scan_at": "2026-07-24T01:16:23.274097+07:00",
-      "next_scan_at": "2026-07-24T01:26:23.274097+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
+      "minutes_to_kickoff": -68,
+      "last_scan_at": "2026-07-24T02:55:05.692835+07:00",
+      "next_scan_at": "2026-07-24T03:00:05.692835+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://hls.cdnfaster-a.live/live/PHIHO/index.m3u8?expire=2556118740&sign=ebc20a588b7a62eb65d12f7372d39a3f"
+      ],
       "scan_decision": "browser-fallback"
     },
     "7cd30cba6cc0": {
       "url": "https://bobertoken.io/truc-tiep/nk-bravo-vs-fk-shkendija-79-vao-luc-0145-24-07-2026/?blv=292",
       "match_name": "NK BRAVO vs FK SHKENDIJA 79",
       "kickoff_iso": "2026-07-24T01:45:00+07:00",
-      "minutes_to_kickoff": 29,
-      "last_scan_at": "2026-07-24T01:16:23.274097+07:00",
-      "next_scan_at": "2026-07-24T01:21:23.274097+07:00",
+      "minutes_to_kickoff": -68,
+      "last_scan_at": "2026-07-24T02:55:05.692835+07:00",
+      "next_scan_at": "2026-07-24T03:00:05.692835+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -1829,59 +1735,67 @@
     },
     "1e36d2cd22b5": {
       "url": "https://bobertoken.io/truc-tiep/partizan-belgrade-vs-una-strassen-vao-luc-0200-24-07-2026/?blv=380",
-      "match_name": "Trực tiếp trận đấu Partizan Belgrade vs UNA Strassen",
+      "match_name": "PARTIZAN BELGRADE vs UNA STRASSEN",
       "kickoff_iso": "2026-07-24T02:00:00+07:00",
-      "minutes_to_kickoff": 47,
-      "last_scan_at": "2026-07-24T01:16:23.274097+07:00",
-      "next_scan_at": "2026-07-24T01:36:23.274097+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -53,
+      "last_scan_at": "2026-07-24T02:55:05.692835+07:00",
+      "next_scan_at": "2026-07-24T03:00:05.692835+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://hls.cdnfaster-a.live/live/LIO/index.m3u8?expire=1923141900&sign=fff7ab29620de2a54fba04f5f3ca246a"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "582df1c5a3aa": {
       "url": "https://bobertoken.io/truc-tiep/stjarnan-gardabaer-vs-ilves-tampere-vao-luc-0200-24-07-2026/?blv=324",
-      "match_name": "Trực tiếp trận đấu Stjarnan Gardabaer vs Ilves Tampere",
+      "match_name": "STJARNAN GARDABAER vs ILVES TAMPERE",
       "kickoff_iso": "2026-07-24T02:00:00+07:00",
-      "minutes_to_kickoff": 47,
-      "last_scan_at": "2026-07-24T01:16:23.274097+07:00",
-      "next_scan_at": "2026-07-24T01:36:23.274097+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -53,
+      "last_scan_at": "2026-07-24T02:55:05.692835+07:00",
+      "next_scan_at": "2026-07-24T03:00:05.692835+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://hls.cdnfaster-a.live/live/LYQUY/index.m3u8?expire=1891408380&sign=4eb9451ad0178fa8207d583db7d469e3"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "376893c6b17d": {
       "url": "https://bobertoken.io/truc-tiep/hajduk-split-vs-pafos-fc-vao-luc-0200-24-07-2026/?blv=359",
-      "match_name": "Trực tiếp trận đấu Hajduk Split vs Pafos FC",
+      "match_name": "HAJDUK SPLIT vs PAFOS FC",
       "kickoff_iso": "2026-07-24T02:00:00+07:00",
-      "minutes_to_kickoff": 47,
-      "last_scan_at": "2026-07-24T01:16:23.274097+07:00",
-      "next_scan_at": "2026-07-24T01:36:23.274097+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -53,
+      "last_scan_at": "2026-07-24T02:55:05.692835+07:00",
+      "next_scan_at": "2026-07-24T03:00:05.692835+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://hls.cdnfaster-a.live/live/LEO/index.m3u8?expire=1923642660&sign=58990a132e2f8d3f764c947b95b28af6"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "4a9445b23d12": {
       "url": "https://bobertoken.io/truc-tiep/valur-reykjavik-vs-hsk-zrinjski-mostar-vao-luc-0215-24-07-2026/?blv=300",
-      "match_name": "Trực tiếp trận đấu Valur Reykjavik vs HSK Zrinjski Mostar",
+      "match_name": "VALUR REYKJAVIK vs HSK ZRINJSKI MOSTAR",
       "kickoff_iso": "2026-07-24T02:15:00+07:00",
-      "minutes_to_kickoff": 62,
-      "last_scan_at": "2026-07-24T01:16:23.274097+07:00",
-      "next_scan_at": "2026-07-24T01:36:23.274097+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -38,
+      "last_scan_at": "2026-07-24T02:55:05.692835+07:00",
+      "next_scan_at": "2026-07-24T03:00:05.692835+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://hls.cdnfaster-a.live/live/TONLAP/index.m3u8?expire=1788427256&sign=72cc58a29d787d621b0832b54e1a78df"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "bc19f040c114": {
       "url": "https://bobertoken.io/truc-tiep/msk-zilina-vs-gks-katowice-vao-luc-0130-24-07-2026/?blv=368",
       "match_name": "MSK ZILINA vs GKS KATOWICE",
       "kickoff_iso": "2026-07-24T01:30:00+07:00",
-      "minutes_to_kickoff": 17,
-      "last_scan_at": "2026-07-24T01:16:23.274097+07:00",
-      "next_scan_at": "2026-07-24T01:21:23.274097+07:00",
+      "minutes_to_kickoff": -83,
+      "last_scan_at": "2026-07-24T02:55:05.692835+07:00",
+      "next_scan_at": "2026-07-24T03:00:05.692835+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -1893,9 +1807,9 @@
       "url": "https://bobertoken.io/truc-tiep/leones-del-norte-vs-guayaquil-city-vao-luc-0430-24-07-2026/?blv=315",
       "match_name": "Trực tiếp trận đấu Leones del Norte vs Guayaquil City",
       "kickoff_iso": "2026-07-24T04:30:00+07:00",
-      "minutes_to_kickoff": 197,
-      "last_scan_at": "2026-07-24T01:16:23.274097+07:00",
-      "next_scan_at": "2026-07-24T02:01:23.274097+07:00",
+      "minutes_to_kickoff": 97,
+      "last_scan_at": "2026-07-24T02:55:05.692835+07:00",
+      "next_scan_at": "2026-07-24T03:15:05.692835+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
@@ -1905,9 +1819,9 @@
       "url": "https://bobertoken.io/truc-tiep/orense-sc-vs-sociedad-deportiva-aucas-vao-luc-0430-24-07-2026/?blv=379",
       "match_name": "Trực tiếp trận đấu Orense SC vs Sociedad Deportiva Aucas",
       "kickoff_iso": "2026-07-24T04:30:00+07:00",
-      "minutes_to_kickoff": 197,
-      "last_scan_at": "2026-07-24T01:16:23.274097+07:00",
-      "next_scan_at": "2026-07-24T02:01:23.274097+07:00",
+      "minutes_to_kickoff": 97,
+      "last_scan_at": "2026-07-24T02:55:05.692835+07:00",
+      "next_scan_at": "2026-07-24T03:15:05.692835+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
