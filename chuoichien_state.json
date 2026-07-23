@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-24T05:44:33.852881+07:00",
+  "updated_at": "2026-07-24T06:46:47.956126+07:00",
   "matches": {
     "1547780": {
       "url": "https://live04.chuoichientv.me/live/1547780/ucv-vs-santos",
@@ -533,9 +533,9 @@
       "url": "https://live04.chuoichientv.me/live/1547774/bolvar-vs-gremio",
       "match_name": "Bolívar vs Gremio - CONMEBOL Sudamericana",
       "kickoff_iso": "2026-07-24T05:00:00+07:00",
-      "minutes_to_kickoff": -44,
-      "last_scan_at": "2026-07-24T05:44:33.852791+07:00",
-      "next_scan_at": "2026-07-24T05:49:33.852791+07:00",
+      "minutes_to_kickoff": -106,
+      "last_scan_at": "2026-07-24T06:46:47.956030+07:00",
+      "next_scan_at": "2026-07-24T06:51:47.956030+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -574,27 +574,27 @@
     },
     "1547778": {
       "url": "https://live04.chuoichientv.me/live/1547778/santa-fe-vs-caracas-fc",
-      "match_name": "santa fe vs caracas fc",
+      "match_name": "Santa Fe vs Caracas FC - CONMEBOL Sudamericana",
       "kickoff_iso": "2026-07-24T07:30:00+07:00",
-      "minutes_to_kickoff": 106,
-      "last_scan_at": "2026-07-24T05:44:33.852791+07:00",
-      "next_scan_at": "2026-07-24T06:04:33.852791+07:00",
+      "minutes_to_kickoff": 44,
+      "last_scan_at": "2026-07-24T06:46:47.956030+07:00",
+      "next_scan_at": "2026-07-24T06:56:47.956030+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "scan_decision": "browser-fallback"
     },
     "1547773": {
       "url": "https://live04.chuoichientv.me/live/1547773/boca-juniors-vs-ohiggins",
-      "match_name": "boca juniors vs ohiggins",
+      "match_name": "Boca Juniors vs O'Higgins - CONMEBOL Sudamericana",
       "kickoff_iso": "2026-07-24T07:30:00+07:00",
-      "minutes_to_kickoff": 106,
-      "last_scan_at": "2026-07-24T05:44:33.852791+07:00",
-      "next_scan_at": "2026-07-24T06:04:33.852791+07:00",
+      "minutes_to_kickoff": 44,
+      "last_scan_at": "2026-07-24T06:46:47.956030+07:00",
+      "next_scan_at": "2026-07-24T06:56:47.956030+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "scan_decision": "browser-fallback"
     }
   }
 }
