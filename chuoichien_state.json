@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-24T02:53:41.873690+07:00",
+  "updated_at": "2026-07-24T03:48:30.202064+07:00",
   "matches": {
     "1519419": {
       "url": "https://live04.chuoichientv.me/live/1519419/libertad-vs-delfin-sc",
@@ -571,9 +571,9 @@
       "url": "https://live04.chuoichientv.me/live/1547774/bolvar-vs-gremio",
       "match_name": "bolvar vs gremio",
       "kickoff_iso": "2026-07-24T05:00:00+07:00",
-      "minutes_to_kickoff": 127,
-      "last_scan_at": "2026-07-24T02:53:41.873588+07:00",
-      "next_scan_at": "2026-07-24T03:38:41.873588+07:00",
+      "minutes_to_kickoff": 72,
+      "last_scan_at": "2026-07-24T03:48:30.201986+07:00",
+      "next_scan_at": "2026-07-24T04:08:30.201986+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
@@ -606,6 +606,30 @@
         "https://gckc0525.edgemaxcdn.org/live/troctru/playlist.m3u8"
       ],
       "scan_decision": "browser-fallback"
+    },
+    "1547778": {
+      "url": "https://live04.chuoichientv.me/live/1547778/santa-fe-vs-caracas-fc",
+      "match_name": "santa fe vs caracas fc",
+      "kickoff_iso": "2026-07-24T07:30:00+07:00",
+      "minutes_to_kickoff": 222,
+      "last_scan_at": "2026-07-24T03:48:30.201986+07:00",
+      "next_scan_at": "2026-07-24T04:33:30.201986+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1547773": {
+      "url": "https://live04.chuoichientv.me/live/1547773/boca-juniors-vs-ohiggins",
+      "match_name": "boca juniors vs ohiggins",
+      "kickoff_iso": "2026-07-24T07:30:00+07:00",
+      "minutes_to_kickoff": 222,
+      "last_scan_at": "2026-07-24T03:48:30.201986+07:00",
+      "next_scan_at": "2026-07-24T04:33:30.201986+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
     }
   }
 }
