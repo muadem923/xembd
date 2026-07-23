@@ -1,36 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-23T20:19:00.149718+07:00",
+  "updated_at": "2026-07-23T22:35:14.225040+07:00",
   "matches": {
-    "1516065": {
-      "url": "https://live04.chuoichientv.me/live/1516065/buxoro-vs-bunyodkor",
-      "match_name": "Buxoro vs Bunyodkor - VĐQG Uzbekistan",
-      "kickoff_iso": "2026-07-21T22:00:00+07:00",
-      "minutes_to_kickoff": -91,
-      "last_scan_at": "2026-07-21T23:32:12.257514+07:00",
-      "next_scan_at": "2026-07-21T23:37:12.257514+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoitieu.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "1516071": {
-      "url": "https://live04.chuoichientv.me/live/1516071/sogdiana-vs-neftchi",
-      "match_name": "Sogdiana vs Neftchi - VĐQG Uzbekistan",
-      "kickoff_iso": "2026-07-21T22:00:00+07:00",
-      "minutes_to_kickoff": -91,
-      "last_scan_at": "2026-07-21T23:32:12.257514+07:00",
-      "next_scan_at": "2026-07-21T23:37:12.257514+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoibo.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
     "1589415": {
       "url": "https://live04.chuoichientv.me/live/1589415/ararat-armenia-vs-shamrock-rovers",
       "match_name": "Ararat-Armenia vs Shamrock Rovers - UEFA Champions League",
@@ -609,13 +581,16 @@
       "url": "https://live04.chuoichientv.me/live/1591944/malisheva-vs-hibernian",
       "match_name": "malisheva vs hibernian",
       "kickoff_iso": "2026-07-23T21:30:00+07:00",
-      "minutes_to_kickoff": 72,
-      "last_scan_at": "2026-07-23T20:19:00.149507+07:00",
-      "next_scan_at": "2026-07-23T20:39:00.149507+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -65,
+      "last_scan_at": "2026-07-23T22:35:14.224964+07:00",
+      "next_scan_at": "2026-07-23T22:40:14.224964+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/troctru.flv",
+        "https://gckc0525.edgemaxcdn.org/live/troctru/playlist.m3u8"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "1516069": {
       "url": "https://live04.chuoichientv.me/live/1516069/navbahor-vs-qizilqum",
@@ -633,25 +608,27 @@
       "url": "https://live04.chuoichientv.me/live/1593475/alashkert-vs-cfr-cluj",
       "match_name": "alashkert vs cfr cluj",
       "kickoff_iso": "2026-07-23T22:00:00+07:00",
-      "minutes_to_kickoff": 196,
-      "last_scan_at": "2026-07-23T18:44:55.361788+07:00",
-      "next_scan_at": "2026-07-23T19:29:55.361788+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -35,
+      "last_scan_at": "2026-07-23T22:35:14.224964+07:00",
+      "next_scan_at": "2026-07-23T22:40:14.224964+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoichao.flv"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "1593521": {
       "url": "https://live04.chuoichientv.me/live/1593521/qarabag-vs-cska-sofia",
       "match_name": "qarabag vs cska sofia",
       "kickoff_iso": "2026-07-23T23:00:00+07:00",
-      "minutes_to_kickoff": 162,
-      "last_scan_at": "2026-07-23T20:19:00.149507+07:00",
-      "next_scan_at": "2026-07-23T21:04:00.149507+07:00",
+      "minutes_to_kickoff": 25,
+      "last_scan_at": "2026-07-23T22:35:14.224964+07:00",
+      "next_scan_at": "2026-07-23T22:45:14.224964+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "scan_decision": "browser-fallback"
     }
   }
 }
