@@ -1,65 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-23T16:44:48.708696+07:00",
+  "updated_at": "2026-07-23T18:44:55.361930+07:00",
   "matches": {
-    "1507005": {
-      "url": "https://live04.chuoichientv.me/live/1507005/jeonbuk-motors-vs-daejeon-citizen",
-      "match_name": "Jeonbuk Motors vs Daejeon Citizen - K League 1",
-      "kickoff_iso": "2026-07-21T17:30:00+07:00",
-      "minutes_to_kickoff": -92,
-      "last_scan_at": "2026-07-21T19:02:41.410508+07:00",
-      "next_scan_at": "2026-07-21T19:07:41.410508+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/troctru.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "1507004": {
-      "url": "https://live04.chuoichientv.me/live/1507004/jeju-united-fc-vs-gangwon-fc",
-      "match_name": "Jeju United FC vs Gangwon FC - K League 1",
-      "kickoff_iso": "2026-07-21T17:30:00+07:00",
-      "minutes_to_kickoff": -121,
-      "last_scan_at": "2026-07-21T19:32:13.165976+07:00",
-      "next_scan_at": "2026-07-21T19:37:13.165976+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoichao.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "1567362": {
-      "url": "https://live04.chuoichientv.me/live/1567362/shanghai-sipg-vs-sichuan-jiuniu",
-      "match_name": "SHANGHAI SIPG vs Sichuan Jiuniu - Cúp FA Trung Quốc",
-      "kickoff_iso": "2026-07-21T18:00:00+07:00",
-      "minutes_to_kickoff": -121,
-      "last_scan_at": "2026-07-21T20:01:51.898926+07:00",
-      "next_scan_at": "2026-07-21T20:06:51.898926+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoinho.flv",
-        "https://gckc0525.edgemaxcdn.org/live/chuoinho/playlist.m3u8"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "1567358": {
-      "url": "https://live04.chuoichientv.me/live/1567358/shanghai-shenhua-vs-qingdao-jonoon",
-      "match_name": "Shanghai Shenhua vs Qingdao Jonoon - Cúp FA Trung Quốc",
-      "kickoff_iso": "2026-07-21T18:35:00+07:00",
-      "minutes_to_kickoff": -86,
-      "last_scan_at": "2026-07-21T20:01:51.898926+07:00",
-      "next_scan_at": "2026-07-21T20:06:51.898926+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoito.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
     "1567359": {
       "url": "https://live04.chuoichientv.me/live/1567359/yunnan-yukun-vs-chengdu-better-city",
       "match_name": "Yunnan Yukun vs Chengdu Better City - Cúp FA Trung Quốc",
@@ -626,9 +569,9 @@
       "url": "https://live04.chuoichientv.me/live/1598631/tensung-vs-paro",
       "match_name": "Tensung vs Paro - Premier League",
       "kickoff_iso": "2026-07-23T17:00:00+07:00",
-      "minutes_to_kickoff": 16,
-      "last_scan_at": "2026-07-23T16:44:48.708574+07:00",
-      "next_scan_at": "2026-07-23T16:49:48.708574+07:00",
+      "minutes_to_kickoff": -104,
+      "last_scan_at": "2026-07-23T18:44:55.361788+07:00",
+      "next_scan_at": "2026-07-23T18:49:55.361788+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -638,15 +581,18 @@
     },
     "209782": {
       "url": "https://live04.chuoichientv.me/live/209782/usa-w-vs-china-w",
-      "match_name": "usa w vs china w",
+      "match_name": "USA W vs China W - Nations League Women",
       "kickoff_iso": "2026-07-23T18:30:00+07:00",
-      "minutes_to_kickoff": 106,
-      "last_scan_at": "2026-07-23T16:44:48.708574+07:00",
-      "next_scan_at": "2026-07-23T17:04:48.708574+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -14,
+      "last_scan_at": "2026-07-23T18:44:55.361788+07:00",
+      "next_scan_at": "2026-07-23T18:49:55.361788+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoitay.flv",
+        "https://gckc0525.edgemaxcdn.org/live/chuoitay/playlist.m3u8"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "997418": {
       "url": "https://live04.chuoichientv.me/live/997418/cambodia-vs-philippines",
@@ -655,6 +601,56 @@
       "minutes_to_kickoff": 136,
       "last_scan_at": "2026-07-23T16:44:48.708574+07:00",
       "next_scan_at": "2026-07-23T17:29:48.708574+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1534800": {
+      "url": "https://live04.chuoichientv.me/live/1534800/akademiya-ontustik-vs-astana-ii",
+      "match_name": "Akademiya Ontustik vs Astana II - Hạng Nhất Kazakhstan",
+      "kickoff_iso": "2026-07-23T19:00:00+07:00",
+      "minutes_to_kickoff": 16,
+      "last_scan_at": "2026-07-23T18:44:55.361788+07:00",
+      "next_scan_at": "2026-07-23T18:49:55.361788+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoigia.flv"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "1591944": {
+      "url": "https://live04.chuoichientv.me/live/1591944/malisheva-vs-hibernian",
+      "match_name": "malisheva vs hibernian",
+      "kickoff_iso": "2026-07-23T21:30:00+07:00",
+      "minutes_to_kickoff": 166,
+      "last_scan_at": "2026-07-23T18:44:55.361788+07:00",
+      "next_scan_at": "2026-07-23T19:29:55.361788+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1516069": {
+      "url": "https://live04.chuoichientv.me/live/1516069/navbahor-vs-qizilqum",
+      "match_name": "navbahor vs qizilqum",
+      "kickoff_iso": "2026-07-23T22:00:00+07:00",
+      "minutes_to_kickoff": 196,
+      "last_scan_at": "2026-07-23T18:44:55.361788+07:00",
+      "next_scan_at": "2026-07-23T19:29:55.361788+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1593475": {
+      "url": "https://live04.chuoichientv.me/live/1593475/alashkert-vs-cfr-cluj",
+      "match_name": "alashkert vs cfr cluj",
+      "kickoff_iso": "2026-07-23T22:00:00+07:00",
+      "minutes_to_kickoff": 196,
+      "last_scan_at": "2026-07-23T18:44:55.361788+07:00",
+      "next_scan_at": "2026-07-23T19:29:55.361788+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
