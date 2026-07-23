@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-23T06:52:29.865117+07:00",
+  "updated_at": "2026-07-23T08:24:21.668393+07:00",
   "matches": {
     "992361": {
       "url": "https://live04.chuoichientv.me/live/992361/pvf-cand-vs-hoang-anh-gia-lai",
@@ -601,9 +601,9 @@
       "url": "https://live04.chuoichientv.me/live/1490331/inter-miami-vs-chicago-fire",
       "match_name": "Inter Miami vs Chicago Fire - Major League Soccer",
       "kickoff_iso": "2026-07-23T06:30:00+07:00",
-      "minutes_to_kickoff": -22,
-      "last_scan_at": "2026-07-23T06:52:29.865022+07:00",
-      "next_scan_at": "2026-07-23T06:57:29.865022+07:00",
+      "minutes_to_kickoff": -114,
+      "last_scan_at": "2026-07-23T08:24:21.668308+07:00",
+      "next_scan_at": "2026-07-23T08:29:21.668308+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -628,9 +628,9 @@
       "url": "https://live04.chuoichientv.me/live/1490342/los-angeles-fc-vs-real-salt-lake",
       "match_name": "los angeles fc vs real salt lake",
       "kickoff_iso": "2026-07-23T09:30:00+07:00",
-      "minutes_to_kickoff": 158,
-      "last_scan_at": "2026-07-23T06:52:29.865022+07:00",
-      "next_scan_at": "2026-07-23T07:37:29.865022+07:00",
+      "minutes_to_kickoff": 66,
+      "last_scan_at": "2026-07-23T08:24:21.668308+07:00",
+      "next_scan_at": "2026-07-23T08:44:21.668308+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
@@ -640,12 +640,14 @@
       "url": "https://live04.chuoichientv.me/live/1492298/sao-paulo-vs-atletico-paranaense",
       "match_name": "Sao Paulo vs Atletico Paranaense - VĐQG Brazil",
       "kickoff_iso": "2026-07-23T07:30:00+07:00",
-      "minutes_to_kickoff": 38,
-      "last_scan_at": "2026-07-23T06:52:29.865022+07:00",
-      "next_scan_at": "2026-07-23T07:02:29.865022+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
+      "minutes_to_kickoff": -54,
+      "last_scan_at": "2026-07-23T08:24:21.668308+07:00",
+      "next_scan_at": "2026-07-23T08:29:21.668308+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoito.flv"
+      ],
       "scan_decision": "browser-fallback"
     }
   }
