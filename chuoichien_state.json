@@ -1,63 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-23T14:26:11.198686+07:00",
+  "updated_at": "2026-07-23T16:44:48.708696+07:00",
   "matches": {
-    "992361": {
-      "url": "https://live04.chuoichientv.me/live/992361/pvf-cand-vs-hoang-anh-gia-lai",
-      "match_name": "PVF-CAND vs Hoang Anh Gia Lai - U21 Quốc Gia",
-      "kickoff_iso": "2026-07-21T15:30:00+07:00",
-      "minutes_to_kickoff": -121,
-      "last_scan_at": "2026-07-21T17:32:17.849781+07:00",
-      "next_scan_at": "2026-07-21T17:37:17.849781+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoitay.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "1567360": {
-      "url": "https://live04.chuoichientv.me/live/1567360/dalian-kewei-vs-beijing-guoan",
-      "match_name": "Dalian Kewei vs Beijing Guoan - Cúp FA Trung Quốc",
-      "kickoff_iso": "2026-07-21T15:00:00+07:00",
-      "minutes_to_kickoff": -121,
-      "last_scan_at": "2026-07-21T17:02:11.736279+07:00",
-      "next_scan_at": "2026-07-21T17:07:11.736279+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoito.flv",
-        "https://gckc0525.edgemaxcdn.org/live/chuoito/playlist.m3u8"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "1560864": {
-      "url": "https://live04.chuoichientv.me/live/1560864/preston-lions-vs-newcastle-jets",
-      "match_name": "Preston Lions vs Newcastle Jets - Australia Cup",
-      "kickoff_iso": "2026-07-21T16:30:00+07:00",
-      "minutes_to_kickoff": -91,
-      "last_scan_at": "2026-07-21T18:02:22.584773+07:00",
-      "next_scan_at": "2026-07-21T18:07:22.584773+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoigia.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "1560865": {
-      "url": "https://live04.chuoichientv.me/live/1560865/lions-vs-perth-glory",
-      "match_name": "Lions vs Perth Glory - Australia Cup",
-      "kickoff_iso": "2026-07-21T16:30:00+07:00",
-      "minutes_to_kickoff": -121,
-      "last_scan_at": "2026-07-21T18:32:07.269200+07:00",
-      "next_scan_at": "2026-07-21T18:37:07.269200+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "browser-fallback"
-    },
     "1507005": {
       "url": "https://live04.chuoichientv.me/live/1507005/jeonbuk-motors-vs-daejeon-citizen",
       "match_name": "Jeonbuk Motors vs Daejeon Citizen - K League 1",
@@ -652,15 +597,18 @@
     },
     "991281": {
       "url": "https://live04.chuoichientv.me/live/991281/vit-nam-vs-thailand",
-      "match_name": "vit nam vs thailand",
+      "match_name": "Việt Nam vs Thailand - SEA V CUP 2026",
       "kickoff_iso": "2026-07-23T15:30:00+07:00",
-      "minutes_to_kickoff": 64,
-      "last_scan_at": "2026-07-23T14:26:11.198623+07:00",
-      "next_scan_at": "2026-07-23T14:46:11.198623+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -74,
+      "last_scan_at": "2026-07-23T16:44:48.708574+07:00",
+      "next_scan_at": "2026-07-23T16:49:48.708574+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoitay.flv",
+        "https://gckc0525.edgemaxcdn.org/live/chuoitay/playlist.m3u8"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "209781": {
       "url": "https://live04.chuoichientv.me/live/209781/turkey-w-vs-canada-w",
@@ -676,11 +624,37 @@
     },
     "1598631": {
       "url": "https://live04.chuoichientv.me/live/1598631/tensung-vs-paro",
-      "match_name": "tensung vs paro",
-      "kickoff_iso": "2026-07-23T16:00:00+07:00",
-      "minutes_to_kickoff": 94,
-      "last_scan_at": "2026-07-23T14:26:11.198623+07:00",
-      "next_scan_at": "2026-07-23T14:46:11.198623+07:00",
+      "match_name": "Tensung vs Paro - Premier League",
+      "kickoff_iso": "2026-07-23T17:00:00+07:00",
+      "minutes_to_kickoff": 16,
+      "last_scan_at": "2026-07-23T16:44:48.708574+07:00",
+      "next_scan_at": "2026-07-23T16:49:48.708574+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/angao.flv"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "209782": {
+      "url": "https://live04.chuoichientv.me/live/209782/usa-w-vs-china-w",
+      "match_name": "usa w vs china w",
+      "kickoff_iso": "2026-07-23T18:30:00+07:00",
+      "minutes_to_kickoff": 106,
+      "last_scan_at": "2026-07-23T16:44:48.708574+07:00",
+      "next_scan_at": "2026-07-23T17:04:48.708574+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "997418": {
+      "url": "https://live04.chuoichientv.me/live/997418/cambodia-vs-philippines",
+      "match_name": "cambodia vs philippines",
+      "kickoff_iso": "2026-07-23T19:00:00+07:00",
+      "minutes_to_kickoff": 136,
+      "last_scan_at": "2026-07-23T16:44:48.708574+07:00",
+      "next_scan_at": "2026-07-23T17:29:48.708574+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
