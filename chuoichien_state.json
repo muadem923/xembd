@@ -1,34 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-24T14:24:18.364762+07:00",
+  "updated_at": "2026-07-24T16:42:00.655351+07:00",
   "matches": {
-    "209780": {
-      "url": "https://live04.chuoichientv.me/live/209780/italy-w-vs-netherlands-w",
-      "match_name": "Italy W vs Netherlands W - Nations League Women",
-      "kickoff_iso": "2026-07-22T15:00:00+07:00",
-      "minutes_to_kickoff": -91,
-      "last_scan_at": "2026-07-22T16:31:42.630413+07:00",
-      "next_scan_at": "2026-07-22T16:36:42.630413+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "browser-fallback"
-    },
-    "1560869": {
-      "url": "https://live04.chuoichientv.me/live/1560869/sydney-united-vs-central-coast-mariners",
-      "match_name": "Sydney United vs Central Coast Mariners - Australia Cup",
-      "kickoff_iso": "2026-07-22T16:30:00+07:00",
-      "minutes_to_kickoff": -121,
-      "last_scan_at": "2026-07-22T18:32:26.240209+07:00",
-      "next_scan_at": "2026-07-22T18:37:26.240209+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoitay.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
     "1560872": {
       "url": "https://live04.chuoichientv.me/live/1560872/uni-azzurri-vs-macarthur",
       "match_name": "Uni Azzurri vs Macarthur - Australia Cup",
@@ -559,15 +533,17 @@
     },
     "991023": {
       "url": "https://live04.chuoichientv.me/live/991023/vit-nam-vs-myanmar",
-      "match_name": "vit nam vs myanmar",
+      "match_name": "Việt Nam vs Myanmar - SEA V CUP 2026",
       "kickoff_iso": "2026-07-24T15:30:00+07:00",
-      "minutes_to_kickoff": 66,
-      "last_scan_at": "2026-07-24T14:24:18.364716+07:00",
-      "next_scan_at": "2026-07-24T14:44:18.364716+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -72,
+      "last_scan_at": "2026-07-24T16:42:00.655238+07:00",
+      "next_scan_at": "2026-07-24T16:47:00.655238+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoitay.flv"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "994933": {
       "url": "https://live04.chuoichientv.me/live/994933/phong-ph-h-nam-n-vs-thi-nguyn-n",
@@ -597,9 +573,57 @@
       "url": "https://live04.chuoichientv.me/live/1510388/seoul-e-land-fc-vs-cheonan-city",
       "match_name": "seoul e land fc vs cheonan city",
       "kickoff_iso": "2026-07-24T17:30:00+07:00",
-      "minutes_to_kickoff": 186,
-      "last_scan_at": "2026-07-24T14:24:18.364716+07:00",
-      "next_scan_at": "2026-07-24T15:09:18.364716+07:00",
+      "minutes_to_kickoff": 49,
+      "last_scan_at": "2026-07-24T16:42:00.655238+07:00",
+      "next_scan_at": "2026-07-24T17:02:00.655238+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1548088": {
+      "url": "https://live04.chuoichientv.me/live/1548088/cambodia-vs-singapore",
+      "match_name": "cambodia vs singapore",
+      "kickoff_iso": "2026-07-24T19:00:00+07:00",
+      "minutes_to_kickoff": 139,
+      "last_scan_at": "2026-07-24T16:42:00.655238+07:00",
+      "next_scan_at": "2026-07-24T17:27:00.655238+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1583415": {
+      "url": "https://live04.chuoichientv.me/live/1583415/barcelona-vs-europa-fc",
+      "match_name": "barcelona vs europa fc",
+      "kickoff_iso": "2026-07-24T19:00:00+07:00",
+      "minutes_to_kickoff": 139,
+      "last_scan_at": "2026-07-24T16:42:00.655238+07:00",
+      "next_scan_at": "2026-07-24T17:27:00.655238+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "993908": {
+      "url": "https://live04.chuoichientv.me/live/993908/philippines-vs-indonesia",
+      "match_name": "philippines vs indonesia",
+      "kickoff_iso": "2026-07-24T19:00:00+07:00",
+      "minutes_to_kickoff": 139,
+      "last_scan_at": "2026-07-24T16:42:00.655238+07:00",
+      "next_scan_at": "2026-07-24T17:27:00.655238+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1567780": {
+      "url": "https://live04.chuoichientv.me/live/1567780/timor-leste-vs-vit-nam",
+      "match_name": "timor leste vs vit nam",
+      "kickoff_iso": "2026-07-24T20:30:00+07:00",
+      "minutes_to_kickoff": 229,
+      "last_scan_at": "2026-07-24T16:42:00.655238+07:00",
+      "next_scan_at": "2026-07-24T17:27:00.655238+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
