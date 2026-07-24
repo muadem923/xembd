@@ -1,20 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-24T18:30:12.230331+07:00",
+  "updated_at": "2026-07-24T19:56:29.056011+07:00",
   "matches": {
-    "1567361": {
-      "url": "https://live04.chuoichientv.me/live/1567361/rizhao-yuqi-vs-shaanxi-union",
-      "match_name": "rizhao yuqi vs shaanxi union",
-      "kickoff_iso": "2026-07-22T19:00:00+07:00",
-      "minutes_to_kickoff": 89,
-      "last_scan_at": "2026-07-22T17:32:28.377389+07:00",
-      "next_scan_at": "2026-07-22T17:52:28.377389+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
-    },
     "1560778": {
       "url": "https://live04.chuoichientv.me/live/1560778/bologna-vs-1-fc-heidenheim",
       "match_name": "Bologna vs 1. FC Heidenheim - Giao Hữu Câu Lạc Bộ",
@@ -28,18 +16,6 @@
         "https://gckc0525.edgemaxcdn.org/live/troctru.flv",
         "https://gckc0525.edgemaxcdn.org/live/troctru/playlist.m3u8"
       ],
-      "scan_decision": "browser-fallback"
-    },
-    "995694": {
-      "url": "https://live04.chuoichientv.me/live/995694/campuchia-w-vs-indonesia",
-      "match_name": "Campuchia W vs Indonesia - Bóng chuyền Nam SEA Games",
-      "kickoff_iso": "2026-07-22T19:00:00+07:00",
-      "minutes_to_kickoff": -91,
-      "last_scan_at": "2026-07-22T20:31:51.130514+07:00",
-      "next_scan_at": "2026-07-22T20:36:51.130514+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
       "scan_decision": "browser-fallback"
     },
     "1516068": {
@@ -521,12 +497,15 @@
       "url": "https://live04.chuoichientv.me/live/1548088/cambodia-vs-singapore",
       "match_name": "Cambodia vs Singapore - AFF Championship",
       "kickoff_iso": "2026-07-24T19:00:00+07:00",
-      "minutes_to_kickoff": 31,
-      "last_scan_at": "2026-07-24T18:30:12.230196+07:00",
-      "next_scan_at": "2026-07-24T18:40:12.230196+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
+      "minutes_to_kickoff": -56,
+      "last_scan_at": "2026-07-24T19:56:29.055908+07:00",
+      "next_scan_at": "2026-07-24T20:01:29.055908+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoichao.flv",
+        "https://gckc0525.edgemaxcdn.org/live/chuoichao/playlist.m3u8"
+      ],
       "scan_decision": "browser-fallback"
     },
     "1583415": {
@@ -545,21 +524,36 @@
       "url": "https://live04.chuoichientv.me/live/993908/philippines-vs-indonesia",
       "match_name": "Philippines vs Indonesia - SEA V CUP 2026",
       "kickoff_iso": "2026-07-24T19:00:00+07:00",
-      "minutes_to_kickoff": 30,
-      "last_scan_at": "2026-07-24T18:30:12.230196+07:00",
-      "next_scan_at": "2026-07-24T18:40:12.230196+07:00",
+      "minutes_to_kickoff": -56,
+      "last_scan_at": "2026-07-24T19:56:29.055908+07:00",
+      "next_scan_at": "2026-07-24T20:01:29.055908+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoitay.flv",
+        "https://gckc0525.edgemaxcdn.org/live/chuoitay/playlist.m3u8"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "1567780": {
+      "url": "https://live04.chuoichientv.me/live/1567780/timor-leste-vs-vit-nam",
+      "match_name": "Timor-Leste vs Việt Nam - AFF Championship",
+      "kickoff_iso": "2026-07-24T20:30:00+07:00",
+      "minutes_to_kickoff": 34,
+      "last_scan_at": "2026-07-24T19:56:29.055908+07:00",
+      "next_scan_at": "2026-07-24T20:06:29.055908+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
       "scan_decision": "browser-fallback"
     },
-    "1567780": {
-      "url": "https://live04.chuoichientv.me/live/1567780/timor-leste-vs-vit-nam",
-      "match_name": "timor leste vs vit nam",
-      "kickoff_iso": "2026-07-24T20:30:00+07:00",
-      "minutes_to_kickoff": 121,
-      "last_scan_at": "2026-07-24T18:30:12.230196+07:00",
-      "next_scan_at": "2026-07-24T19:15:12.230196+07:00",
+    "1542339": {
+      "url": "https://live04.chuoichientv.me/live/1542339/rosenborg-vs-manchester-united",
+      "match_name": "rosenborg vs manchester united",
+      "kickoff_iso": "2026-07-24T23:00:00+07:00",
+      "minutes_to_kickoff": 184,
+      "last_scan_at": "2026-07-24T19:56:29.055908+07:00",
+      "next_scan_at": "2026-07-24T20:41:29.055908+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
