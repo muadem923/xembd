@@ -1,64 +1,8 @@
 {
   "version": 1,
   "source": "luongson",
-  "updated_at": "2026-07-24T06:48:47.862912+07:00",
+  "updated_at": "2026-07-24T08:22:41.584337+07:00",
   "matches": {
-    "6b950ae5415e": {
-      "url": "https://catbee.io/truc-tiep/universidad-catolica-vs-barcelona-scecu-vao-luc-0700-22-07-2026/",
-      "match_name": "UNIVERSIDAD CATOLICA vs BARCELONA SC(ECU)",
-      "kickoff_iso": "2026-07-22T07:00:00+07:00",
-      "minutes_to_kickoff": -1,
-      "last_scan_at": "2026-07-22T07:03:19.537892+07:00",
-      "next_scan_at": "2026-07-22T07:08:19.537892+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/TAYMONKHANH/index.m3u8?expire=1788427256&sign=b79b5be508185d24f76a0b1effca53da"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "50ae8fc328c0": {
-      "url": "https://catbee.io/truc-tiep/universidad-central-de-venezuela-vs-santos-vao-luc-0730-22-07-2026/?blv=135",
-      "match_name": "UNIVERSIDAD CENTRAL DE VENEZUELA vs SANTOS",
-      "kickoff_iso": "2026-07-22T07:30:00+07:00",
-      "minutes_to_kickoff": -91,
-      "last_scan_at": "2026-07-22T09:02:43.621472+07:00",
-      "next_scan_at": "2026-07-22T09:07:43.621472+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/LUUBI/index.m3u8?expire=1788427256&sign=e15f8b184dc9c61cc5dacfd962841ae1"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "1cc84b192cad": {
-      "url": "https://catbee.io/truc-tiep/vila-nova-vs-fortaleza-vao-luc-0735-22-07-2026/",
-      "match_name": "VILA NOVA vs FORTALEZA",
-      "kickoff_iso": "2026-07-22T07:35:00+07:00",
-      "minutes_to_kickoff": -86,
-      "last_scan_at": "2026-07-22T09:02:43.621472+07:00",
-      "next_scan_at": "2026-07-22T09:07:43.621472+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/NGUOITHEP/index.m3u8?expire=2556118740&sign=6d80f4e33c3761371f29a8ca0645fee5"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "49cda75b87c2": {
-      "url": "https://catbee.io/truc-tiep/cdsyc-cruz-azul-vs-puebla-vao-luc-0800-22-07-2026/",
-      "match_name": "CDSYC CRUZ AZUL vs PUEBLA",
-      "kickoff_iso": "2026-07-22T08:00:00+07:00",
-      "minutes_to_kickoff": -91,
-      "last_scan_at": "2026-07-22T09:31:55.116057+07:00",
-      "next_scan_at": "2026-07-22T09:36:55.116057+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/YENTHANH1/index.m3u8?expire=1788427256&sign=a79cc8d996707223a0011d33d04d4582"
-      ],
-      "scan_decision": "browser-fallback"
-    },
     "6200b64298a6": {
       "url": "https://laservision.io/truc-tiep/toluca-vs-pumas-unam-vao-luc-1000-22-07-2026/",
       "match_name": "toluca vs pumas unam",
@@ -69,20 +13,6 @@
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
-      "scan_decision": "browser-fallback"
-    },
-    "f009d44ab576": {
-      "url": "https://catbee.io/truc-tiep/deportivo-pasto-vs-bogota-fc-vao-luc-0700-22-07-2026/",
-      "match_name": "DEPORTIVO PASTO vs BOGOTA FC",
-      "kickoff_iso": "2026-07-22T07:00:00+07:00",
-      "minutes_to_kickoff": -91,
-      "last_scan_at": "2026-07-22T08:32:32.566201+07:00",
-      "next_scan_at": "2026-07-22T08:37:32.566201+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/TAYMONKHANH/index.m3u8?expire=1788427256&sign=b79b5be508185d24f76a0b1effca53da"
-      ],
       "scan_decision": "browser-fallback"
     },
     "dc57dda573f6": {
@@ -1791,9 +1721,9 @@
       "url": "https://bobertoken.io/truc-tiep/cuiaba-vs-atletico-clube-goianiense-vao-luc-0630-24-07-2026/?blv=269",
       "match_name": "CUIABA vs ATLETICO CLUBE GOIANIENSE",
       "kickoff_iso": "2026-07-24T06:30:00+07:00",
-      "minutes_to_kickoff": -16,
-      "last_scan_at": "2026-07-24T06:48:47.862406+07:00",
-      "next_scan_at": "2026-07-24T06:53:47.862406+07:00",
+      "minutes_to_kickoff": -110,
+      "last_scan_at": "2026-07-24T08:22:41.583999+07:00",
+      "next_scan_at": "2026-07-24T08:27:41.583999+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -1805,9 +1735,9 @@
       "url": "https://bobertoken.io/truc-tiep/club-sport-emelec-vs-mushuc-runa-vao-luc-0700-24-07-2026/?blv=379",
       "match_name": "CLUB SPORT EMELEC vs MUSHUC RUNA",
       "kickoff_iso": "2026-07-24T07:00:00+07:00",
-      "minutes_to_kickoff": 14,
-      "last_scan_at": "2026-07-24T06:48:47.862406+07:00",
-      "next_scan_at": "2026-07-24T06:53:47.862406+07:00",
+      "minutes_to_kickoff": -80,
+      "last_scan_at": "2026-07-24T08:22:41.583999+07:00",
+      "next_scan_at": "2026-07-24T08:27:41.583999+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -1819,9 +1749,9 @@
       "url": "https://bobertoken.io/truc-tiep/boca-juniors-vs-ohiggins-vao-luc-0730-24-07-2026/",
       "match_name": "boca juniors vs ohiggins",
       "kickoff_iso": "2026-07-24T07:30:00+07:00",
-      "minutes_to_kickoff": 44,
-      "last_scan_at": "2026-07-24T06:48:47.862406+07:00",
-      "next_scan_at": "2026-07-24T06:58:47.862406+07:00",
+      "minutes_to_kickoff": -50,
+      "last_scan_at": "2026-07-24T08:22:41.583999+07:00",
+      "next_scan_at": "2026-07-24T08:27:41.583999+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
@@ -1831,61 +1761,65 @@
       "url": "https://bobertoken.io/truc-tiep/independiente-santa-fe-vs-caracas-fc-vao-luc-0730-24-07-2026/?blv=328",
       "match_name": "INDEPENDIENTE SANTA FE vs CARACAS FC",
       "kickoff_iso": "2026-07-24T07:30:00+07:00",
-      "minutes_to_kickoff": 44,
-      "last_scan_at": "2026-07-24T06:48:47.862406+07:00",
-      "next_scan_at": "2026-07-24T06:58:47.862406+07:00",
+      "minutes_to_kickoff": -50,
+      "last_scan_at": "2026-07-24T08:22:41.583999+07:00",
+      "next_scan_at": "2026-07-24T08:27:41.583999+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://hls.cdnfaster-a.live/live/VOTONG/index.m3u8?expire=1891347600&sign=cbb47d2000b9576a7b34114624ff8299"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "da9186013899": {
+      "url": "https://bobertoken.io/truc-tiep/defensa-y-justicia-vs-aldosivi-mar-del-plata-vao-luc-0745-24-07-2026/?blv=374",
+      "match_name": "DEFENSA Y JUSTICIA vs ALDOSIVI MAR DEL PLATA",
+      "kickoff_iso": "2026-07-24T07:45:00+07:00",
+      "minutes_to_kickoff": -35,
+      "last_scan_at": "2026-07-24T08:22:41.583999+07:00",
+      "next_scan_at": "2026-07-24T08:27:41.583999+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://hls.cdnfaster-a.live/live/NGUOITHEP/index.m3u8?expire=2556118740&sign=6d80f4e33c3761371f29a8ca0645fee5"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "6b1c5c769d4d": {
+      "url": "https://bobertoken.io/truc-tiep/herediano-vs-puntarenas-vao-luc-0900-24-07-2026/?blv=218",
+      "match_name": "HEREDIANO vs PUNTARENAS",
+      "kickoff_iso": "2026-07-24T09:00:00+07:00",
+      "minutes_to_kickoff": 40,
+      "last_scan_at": "2026-07-24T08:22:41.583999+07:00",
+      "next_scan_at": "2026-07-24T08:32:41.583999+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
       "scan_decision": "browser-fallback"
     },
-    "da9186013899": {
-      "url": "https://bobertoken.io/truc-tiep/defensa-y-justicia-vs-aldosivi-mar-del-plata-vao-luc-0745-24-07-2026/?blv=374",
-      "match_name": "Trực tiếp trận đấu Defensa Y Justicia vs Aldosivi Mar del Plata",
-      "kickoff_iso": "2026-07-24T07:45:00+07:00",
-      "minutes_to_kickoff": 59,
-      "last_scan_at": "2026-07-24T06:48:47.862406+07:00",
-      "next_scan_at": "2026-07-24T07:08:47.862406+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
-    },
-    "6b1c5c769d4d": {
-      "url": "https://bobertoken.io/truc-tiep/herediano-vs-puntarenas-vao-luc-0900-24-07-2026/?blv=218",
-      "match_name": "Trực tiếp trận đấu Herediano vs Puntarenas",
-      "kickoff_iso": "2026-07-24T09:00:00+07:00",
-      "minutes_to_kickoff": 134,
-      "last_scan_at": "2026-07-24T06:48:47.862406+07:00",
-      "next_scan_at": "2026-07-24T07:33:47.862406+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
-    },
     "a0c19ae59cf1": {
       "url": "https://bobertoken.io/truc-tiep/santos-vs-mineros-vao-luc-0900-24-07-2026/?blv=320",
-      "match_name": "Trực tiếp trận đấu Santos vs Mineros",
+      "match_name": "SANTOS vs MINEROS",
       "kickoff_iso": "2026-07-24T09:00:00+07:00",
-      "minutes_to_kickoff": 134,
-      "last_scan_at": "2026-07-24T06:48:47.862406+07:00",
-      "next_scan_at": "2026-07-24T07:33:47.862406+07:00",
+      "minutes_to_kickoff": 40,
+      "last_scan_at": "2026-07-24T08:22:41.583999+07:00",
+      "next_scan_at": "2026-07-24T08:32:41.583999+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "scan_decision": "browser-fallback"
     },
     "45475ec5dc09": {
       "url": "https://bobertoken.io/truc-tiep/abejas-vs-correcaminos-vao-luc-0900-24-07-2026/?blv=324",
-      "match_name": "Trực tiếp trận đấu Abejas vs Correcaminos",
+      "match_name": "ABEJAS vs CORRECAMINOS",
       "kickoff_iso": "2026-07-24T09:00:00+07:00",
-      "minutes_to_kickoff": 134,
-      "last_scan_at": "2026-07-24T06:48:47.862406+07:00",
-      "next_scan_at": "2026-07-24T07:33:47.862406+07:00",
+      "minutes_to_kickoff": 40,
+      "last_scan_at": "2026-07-24T08:22:41.583999+07:00",
+      "next_scan_at": "2026-07-24T08:32:41.583999+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "scan_decision": "browser-fallback"
     }
   }
 }

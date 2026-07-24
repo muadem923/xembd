@@ -1,38 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-24T06:46:47.956126+07:00",
+  "updated_at": "2026-07-24T08:20:23.991626+07:00",
   "matches": {
-    "1547780": {
-      "url": "https://live04.chuoichientv.me/live/1547780/ucv-vs-santos",
-      "match_name": "UCV vs Santos - CONMEBOL Sudamericana",
-      "kickoff_iso": "2026-07-22T07:30:00+07:00",
-      "minutes_to_kickoff": -91,
-      "last_scan_at": "2026-07-22T09:01:45.644110+07:00",
-      "next_scan_at": "2026-07-22T09:06:45.644110+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoitay.flv",
-        "https://gckc0525.edgemaxcdn.org/live/chuoitay/playlist.m3u8"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "1550903": {
-      "url": "https://live04.chuoichientv.me/live/1550903/cruz-azul-vs-puebla",
-      "match_name": "Cruz Azul vs Puebla - VĐQG Mexico",
-      "kickoff_iso": "2026-07-22T08:00:00+07:00",
-      "minutes_to_kickoff": -91,
-      "last_scan_at": "2026-07-22T09:31:33.843816+07:00",
-      "next_scan_at": "2026-07-22T09:36:33.843816+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoibo.flv",
-        "https://gckc0525.edgemaxcdn.org/live/chuoibo/playlist.m3u8"
-      ],
-      "scan_decision": "browser-fallback"
-    },
     "1550904": {
       "url": "https://live04.chuoichientv.me/live/1550904/toluca-vs-unam-pumas",
       "match_name": "Toluca vs U.N.A.M. - Pumas - VĐQG Mexico",
@@ -576,24 +546,30 @@
       "url": "https://live04.chuoichientv.me/live/1547778/santa-fe-vs-caracas-fc",
       "match_name": "Santa Fe vs Caracas FC - CONMEBOL Sudamericana",
       "kickoff_iso": "2026-07-24T07:30:00+07:00",
-      "minutes_to_kickoff": 44,
-      "last_scan_at": "2026-07-24T06:46:47.956030+07:00",
-      "next_scan_at": "2026-07-24T06:56:47.956030+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
+      "minutes_to_kickoff": -50,
+      "last_scan_at": "2026-07-24T08:20:23.991576+07:00",
+      "next_scan_at": "2026-07-24T08:25:23.991576+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoito.flv",
+        "https://gckc0525.edgemaxcdn.org/live/chuoito/playlist.m3u8"
+      ],
       "scan_decision": "browser-fallback"
     },
     "1547773": {
       "url": "https://live04.chuoichientv.me/live/1547773/boca-juniors-vs-ohiggins",
       "match_name": "Boca Juniors vs O'Higgins - CONMEBOL Sudamericana",
       "kickoff_iso": "2026-07-24T07:30:00+07:00",
-      "minutes_to_kickoff": 44,
-      "last_scan_at": "2026-07-24T06:46:47.956030+07:00",
-      "next_scan_at": "2026-07-24T06:56:47.956030+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
+      "minutes_to_kickoff": -50,
+      "last_scan_at": "2026-07-24T08:20:23.991576+07:00",
+      "next_scan_at": "2026-07-24T08:25:23.991576+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoichao.flv",
+        "https://gckc0525.edgemaxcdn.org/live/chuoichao/playlist.m3u8"
+      ],
       "scan_decision": "browser-fallback"
     }
   }
