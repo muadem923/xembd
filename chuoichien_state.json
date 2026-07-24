@@ -1,23 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-24T08:20:23.991626+07:00",
+  "updated_at": "2026-07-24T11:41:26.746568+07:00",
   "matches": {
-    "1550904": {
-      "url": "https://live04.chuoichientv.me/live/1550904/toluca-vs-unam-pumas",
-      "match_name": "Toluca vs U.N.A.M. - Pumas - VĐQG Mexico",
-      "kickoff_iso": "2026-07-22T10:05:00+07:00",
-      "minutes_to_kickoff": -116,
-      "last_scan_at": "2026-07-22T12:01:34.434609+07:00",
-      "next_scan_at": "2026-07-22T12:06:34.434609+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoitay.flv",
-        "https://gckc0525.edgemaxcdn.org/live/chuoitay/playlist.m3u8"
-      ],
-      "scan_decision": "browser-fallback"
-    },
     "209780": {
       "url": "https://live04.chuoichientv.me/live/209780/italy-w-vs-netherlands-w",
       "match_name": "Italy W vs Netherlands W - Nations League Women",
@@ -571,6 +556,18 @@
         "https://gckc0525.edgemaxcdn.org/live/chuoichao/playlist.m3u8"
       ],
       "scan_decision": "browser-fallback"
+    },
+    "991023": {
+      "url": "https://live04.chuoichientv.me/live/991023/vit-nam-vs-myanmar",
+      "match_name": "vit nam vs myanmar",
+      "kickoff_iso": "2026-07-24T15:30:00+07:00",
+      "minutes_to_kickoff": 229,
+      "last_scan_at": "2026-07-24T11:41:26.746522+07:00",
+      "next_scan_at": "2026-07-24T12:26:26.746522+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
     }
   }
 }

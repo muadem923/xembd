@@ -1,20 +1,8 @@
 {
   "version": 1,
   "source": "luongson",
-  "updated_at": "2026-07-24T08:22:41.584337+07:00",
+  "updated_at": "2026-07-24T11:41:59.964182+07:00",
   "matches": {
-    "6200b64298a6": {
-      "url": "https://laservision.io/truc-tiep/toluca-vs-pumas-unam-vao-luc-1000-22-07-2026/",
-      "match_name": "toluca vs pumas unam",
-      "kickoff_iso": "2026-07-22T10:00:00+07:00",
-      "minutes_to_kickoff": -121,
-      "last_scan_at": "2026-07-22T12:01:41.531804+07:00",
-      "next_scan_at": "2026-07-22T12:06:41.531804+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "browser-fallback"
-    },
     "dc57dda573f6": {
       "url": "https://laservision.io/truc-tiep/tauranga-whai-vs-otago-nuggets-vao-luc-1400-22-07-2026/?blv=320",
       "match_name": "TAURANGA WHAI vs OTAGO NUGGETS",
@@ -1819,6 +1807,56 @@
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
+      "scan_decision": "browser-fallback"
+    },
+    "10842a9a37de": {
+      "url": "https://bobertoken.io/truc-tiep/manawatu-jets-vs-franklin-bulls-vao-luc-1430-24-07-2026/?blv=328",
+      "match_name": "Trực tiếp trận đấu Manawatu Jets vs Franklin Bulls",
+      "kickoff_iso": "2026-07-24T14:30:00+07:00",
+      "minutes_to_kickoff": 169,
+      "last_scan_at": "2026-07-24T11:41:59.964029+07:00",
+      "next_scan_at": "2026-07-24T12:26:59.964029+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "89211164cdfc": {
+      "url": "https://bobertoken.io/truc-tiep/preston-lions-w-vs-keilor-park-w-vao-luc-1515-24-07-2026/?blv=374",
+      "match_name": "Trực tiếp trận đấu Preston Lions (W) vs Keilor Park (W)",
+      "kickoff_iso": "2026-07-24T15:15:00+07:00",
+      "minutes_to_kickoff": 214,
+      "last_scan_at": "2026-07-24T11:41:59.964029+07:00",
+      "next_scan_at": "2026-07-24T12:26:59.964029+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "51f1ed995732": {
+      "url": "https://bobertoken.io/truc-tiep/como-vs-paris-fc-vao-luc-1530-24-07-2026/?blv=331",
+      "match_name": "Trực tiếp trận đấu Como vs Paris FC",
+      "kickoff_iso": "2026-07-24T15:30:00+07:00",
+      "minutes_to_kickoff": 229,
+      "last_scan_at": "2026-07-24T11:41:59.964029+07:00",
+      "next_scan_at": "2026-07-24T12:26:59.964029+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "331876b36af1": {
+      "url": "https://bobertoken.io/truc-tiep/phap-vs-maroc-vao-luc-1100-24-07-2026/?blv=359",
+      "match_name": "PHÁP vs MAROC",
+      "kickoff_iso": "2026-07-24T11:00:00+07:00",
+      "minutes_to_kickoff": -41,
+      "last_scan_at": "2026-07-24T11:41:59.964029+07:00",
+      "next_scan_at": "2026-07-24T11:46:59.964029+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://hls.cdnfaster-a.live/live/TEST/index.m3u8?expire=1788427256&sign=47963ed63da3360fd84dccfb53a2c83c"
+      ],
       "scan_decision": "browser-fallback"
     }
   }
