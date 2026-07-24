@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-24T11:41:26.746568+07:00",
+  "updated_at": "2026-07-24T14:24:18.364762+07:00",
   "matches": {
     "209780": {
       "url": "https://live04.chuoichientv.me/live/209780/italy-w-vs-netherlands-w",
@@ -561,9 +561,45 @@
       "url": "https://live04.chuoichientv.me/live/991023/vit-nam-vs-myanmar",
       "match_name": "vit nam vs myanmar",
       "kickoff_iso": "2026-07-24T15:30:00+07:00",
-      "minutes_to_kickoff": 229,
-      "last_scan_at": "2026-07-24T11:41:26.746522+07:00",
-      "next_scan_at": "2026-07-24T12:26:26.746522+07:00",
+      "minutes_to_kickoff": 66,
+      "last_scan_at": "2026-07-24T14:24:18.364716+07:00",
+      "next_scan_at": "2026-07-24T14:44:18.364716+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "994933": {
+      "url": "https://live04.chuoichientv.me/live/994933/phong-ph-h-nam-n-vs-thi-nguyn-n",
+      "match_name": "phong ph h nam n vs thi nguyn n",
+      "kickoff_iso": "2026-07-24T16:00:00+07:00",
+      "minutes_to_kickoff": 96,
+      "last_scan_at": "2026-07-24T14:24:18.364716+07:00",
+      "next_scan_at": "2026-07-24T14:44:18.364716+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1521989": {
+      "url": "https://live04.chuoichientv.me/live/1521989/oakleigh-cannons-vs-south-melbourne",
+      "match_name": "oakleigh cannons vs south melbourne",
+      "kickoff_iso": "2026-07-24T17:15:00+07:00",
+      "minutes_to_kickoff": 171,
+      "last_scan_at": "2026-07-24T14:24:18.364716+07:00",
+      "next_scan_at": "2026-07-24T15:09:18.364716+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1510388": {
+      "url": "https://live04.chuoichientv.me/live/1510388/seoul-e-land-fc-vs-cheonan-city",
+      "match_name": "seoul e land fc vs cheonan city",
+      "kickoff_iso": "2026-07-24T17:30:00+07:00",
+      "minutes_to_kickoff": 186,
+      "last_scan_at": "2026-07-24T14:24:18.364716+07:00",
+      "next_scan_at": "2026-07-24T15:09:18.364716+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
