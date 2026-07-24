@@ -1,78 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-24T21:41:57.084459+07:00",
+  "updated_at": "2026-07-25T00:57:42.571324+07:00",
   "matches": {
-    "1516068": {
-      "url": "https://live04.chuoichientv.me/live/1516068/mashal-vs-nasaf",
-      "match_name": "Mash'al vs Nasaf - VĐQG Uzbekistan",
-      "kickoff_iso": "2026-07-22T22:00:00+07:00",
-      "minutes_to_kickoff": -91,
-      "last_scan_at": "2026-07-22T23:31:32.531263+07:00",
-      "next_scan_at": "2026-07-22T23:36:32.531263+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoinho.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "1517220": {
-      "url": "https://live04.chuoichientv.me/live/1517220/pkku-vs-vjs",
-      "match_name": "pkku vs vjs",
-      "kickoff_iso": "2026-07-22T23:00:00+07:00",
-      "minutes_to_kickoff": 68,
-      "last_scan_at": "2026-07-22T21:52:27.633985+07:00",
-      "next_scan_at": "2026-07-22T22:12:27.633985+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
-    },
-    "1560777": {
-      "url": "https://live04.chuoichientv.me/live/1560777/tottenham-vs-milton-keynes-dons",
-      "match_name": "Tottenham vs Milton Keynes Dons - Giao Hữu Câu Lạc Bộ",
-      "kickoff_iso": "2026-07-22T23:00:00+07:00",
-      "minutes_to_kickoff": -61,
-      "last_scan_at": "2026-07-23T00:01:43.128043+07:00",
-      "next_scan_at": "2026-07-23T00:06:43.128043+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/troctru.flv",
-        "https://gckc0525.edgemaxcdn.org/live/troctru/playlist.m3u8"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "1591936": {
-      "url": "https://live04.chuoichientv.me/live/1591936/omonia-nicosia-vs-kairat-almaty",
-      "match_name": "Omonia Nicosia vs Kairat Almaty - UEFA Champions League",
-      "kickoff_iso": "2026-07-23T00:00:00+07:00",
-      "minutes_to_kickoff": -113,
-      "last_scan_at": "2026-07-23T01:54:10.683154+07:00",
-      "next_scan_at": "2026-07-23T01:59:10.683154+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoichao.flv",
-        "https://gckc0525.edgemaxcdn.org/live/chuoichao/playlist.m3u8"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "1591935": {
-      "url": "https://live04.chuoichientv.me/live/1591935/levski-sofia-vs-universitatea-craiova",
-      "match_name": "Levski Sofia vs Universitatea Craiova - UEFA Champions League",
-      "kickoff_iso": "2026-07-23T00:30:00+07:00",
-      "minutes_to_kickoff": -83,
-      "last_scan_at": "2026-07-23T01:54:10.683154+07:00",
-      "next_scan_at": "2026-07-23T01:59:10.683154+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoibo.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
     "1591933": {
       "url": "https://live04.chuoichientv.me/live/1591933/egnatia-rrogozhin-vs-celje",
       "match_name": "Egnatia Rrogozhinë vs Celje - UEFA Champions League",
@@ -100,20 +30,6 @@
       "verified_urls": [
         "https://gckc0525.edgemaxcdn.org/live/troctru.flv",
         "https://gckc0525.edgemaxcdn.org/live/troctru/playlist.m3u8"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "1494611": {
-      "url": "https://live04.chuoichientv.me/live/1494611/bodoglimt-vs-ham-kam",
-      "match_name": "Bodo/Glimt vs Ham-Kam - Eliteserien",
-      "kickoff_iso": "2026-07-23T00:00:00+07:00",
-      "minutes_to_kickoff": -113,
-      "last_scan_at": "2026-07-23T01:54:10.683154+07:00",
-      "next_scan_at": "2026-07-23T01:59:10.683154+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoigia.flv"
       ],
       "scan_decision": "browser-fallback"
     },
@@ -546,6 +462,61 @@
       "has_verified": false,
       "verified_urls": [],
       "scan_decision": "http-only-far-upcoming"
+    },
+    "1553104": {
+      "url": "https://live04.chuoichientv.me/live/1553104/pogon-szczecin-vs-legia-warszawa",
+      "match_name": "pogon szczecin vs legia warszawa",
+      "kickoff_iso": "2026-07-25T01:30:00+07:00",
+      "minutes_to_kickoff": 33,
+      "last_scan_at": "2026-07-25T00:57:42.571222+07:00",
+      "next_scan_at": "2026-07-25T01:07:42.571222+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoinho.flv",
+        "https://gckc0525.edgemaxcdn.org/live/chuoinho/playlist.m3u8"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "1493008": {
+      "url": "https://live04.chuoichientv.me/live/1493008/gimnasia-m-vs-central-cordoba-de-santiago",
+      "match_name": "gimnasia m vs central cordoba de santiago",
+      "kickoff_iso": "2026-07-25T02:45:00+07:00",
+      "minutes_to_kickoff": 108,
+      "last_scan_at": "2026-07-25T00:57:42.571222+07:00",
+      "next_scan_at": "2026-07-25T01:17:42.571222+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1548974": {
+      "url": "https://live04.chuoichientv.me/live/1548974/viborg-vs-odense",
+      "match_name": "Viborg vs Odense - Ngoại Hạng Đan Mạch",
+      "kickoff_iso": "2026-07-25T00:00:00+07:00",
+      "minutes_to_kickoff": -57,
+      "last_scan_at": "2026-07-25T00:57:42.571222+07:00",
+      "next_scan_at": "2026-07-25T01:02:42.571222+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoichao.flv"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "1561332": {
+      "url": "https://live04.chuoichientv.me/live/1561332/cska-moscow-vs-baltika",
+      "match_name": "CSKA Moscow vs Baltika - Ngoại Hạng Nga",
+      "kickoff_iso": "2026-07-25T00:00:00+07:00",
+      "minutes_to_kickoff": -57,
+      "last_scan_at": "2026-07-25T00:57:42.571222+07:00",
+      "next_scan_at": "2026-07-25T01:02:42.571222+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/angao.flv"
+      ],
+      "scan_decision": "browser-fallback"
     }
   }
 }
