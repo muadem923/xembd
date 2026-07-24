@@ -1,23 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-25T00:57:42.571324+07:00",
+  "updated_at": "2026-07-25T02:14:05.012028+07:00",
   "matches": {
-    "1591933": {
-      "url": "https://live04.chuoichientv.me/live/1591933/egnatia-rrogozhin-vs-celje",
-      "match_name": "Egnatia Rrogozhinë vs Celje - UEFA Champions League",
-      "kickoff_iso": "2026-07-23T02:00:00+07:00",
-      "minutes_to_kickoff": -66,
-      "last_scan_at": "2026-07-23T03:05:54.669103+07:00",
-      "next_scan_at": "2026-07-23T03:10:54.669103+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoinho.flv",
-        "https://gckc0525.edgemaxcdn.org/live/chuoinho/playlist.m3u8"
-      ],
-      "scan_decision": "browser-fallback"
-    },
     "1519417": {
       "url": "https://live04.chuoichientv.me/live/1519417/independiente-del-valle-vs-tecnico-universitario",
       "match_name": "Independiente del Valle vs Tecnico Universitario - VĐQG Ecuador",
@@ -465,30 +450,29 @@
     },
     "1553104": {
       "url": "https://live04.chuoichientv.me/live/1553104/pogon-szczecin-vs-legia-warszawa",
-      "match_name": "pogon szczecin vs legia warszawa",
+      "match_name": "Pogon Szczecin vs Legia Warszawa - VĐQG Ba Lan",
       "kickoff_iso": "2026-07-25T01:30:00+07:00",
-      "minutes_to_kickoff": 33,
-      "last_scan_at": "2026-07-25T00:57:42.571222+07:00",
-      "next_scan_at": "2026-07-25T01:07:42.571222+07:00",
+      "minutes_to_kickoff": -44,
+      "last_scan_at": "2026-07-25T02:14:05.011917+07:00",
+      "next_scan_at": "2026-07-25T02:19:05.011917+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoinho.flv",
-        "https://gckc0525.edgemaxcdn.org/live/chuoinho/playlist.m3u8"
+        "https://gckc0525.edgemaxcdn.org/live/chuoinho.flv"
       ],
       "scan_decision": "browser-fallback"
     },
     "1493008": {
       "url": "https://live04.chuoichientv.me/live/1493008/gimnasia-m-vs-central-cordoba-de-santiago",
-      "match_name": "gimnasia m vs central cordoba de santiago",
+      "match_name": "Gimnasia M. vs Central Cordoba de Santiago - VĐQG Argentina",
       "kickoff_iso": "2026-07-25T02:45:00+07:00",
-      "minutes_to_kickoff": 108,
-      "last_scan_at": "2026-07-25T00:57:42.571222+07:00",
-      "next_scan_at": "2026-07-25T01:17:42.571222+07:00",
+      "minutes_to_kickoff": 32,
+      "last_scan_at": "2026-07-25T02:14:05.011917+07:00",
+      "next_scan_at": "2026-07-25T02:24:05.011917+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "scan_decision": "browser-fallback"
     },
     "1548974": {
       "url": "https://live04.chuoichientv.me/live/1548974/viborg-vs-odense",
@@ -517,6 +501,42 @@
         "https://gckc0525.edgemaxcdn.org/live/angao.flv"
       ],
       "scan_decision": "browser-fallback"
+    },
+    "1493013": {
+      "url": "https://live04.chuoichientv.me/live/1493013/racing-club-vs-gimnasia-lp",
+      "match_name": "racing club vs gimnasia lp",
+      "kickoff_iso": "2026-07-25T05:00:00+07:00",
+      "minutes_to_kickoff": 167,
+      "last_scan_at": "2026-07-25T02:14:05.011917+07:00",
+      "next_scan_at": "2026-07-25T02:59:05.011917+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1493016": {
+      "url": "https://live04.chuoichientv.me/live/1493016/velez-sarsfield-vs-instituto-cordoba",
+      "match_name": "velez sarsfield vs instituto cordoba",
+      "kickoff_iso": "2026-07-25T05:00:00+07:00",
+      "minutes_to_kickoff": 167,
+      "last_scan_at": "2026-07-25T02:14:05.011917+07:00",
+      "next_scan_at": "2026-07-25T02:59:05.011917+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1549690": {
+      "url": "https://live04.chuoichientv.me/live/1549690/llaneros-vs-deportivo-pereira",
+      "match_name": "llaneros vs deportivo pereira",
+      "kickoff_iso": "2026-07-25T06:10:00+07:00",
+      "minutes_to_kickoff": 237,
+      "last_scan_at": "2026-07-25T02:14:05.011917+07:00",
+      "next_scan_at": "2026-07-25T02:59:05.011917+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
     }
   }
 }
