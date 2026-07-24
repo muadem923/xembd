@@ -1,23 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-24T19:56:29.056011+07:00",
+  "updated_at": "2026-07-24T21:41:57.084459+07:00",
   "matches": {
-    "1560778": {
-      "url": "https://live04.chuoichientv.me/live/1560778/bologna-vs-1-fc-heidenheim",
-      "match_name": "Bologna vs 1. FC Heidenheim - Giao Hữu Câu Lạc Bộ",
-      "kickoff_iso": "2026-07-22T21:00:00+07:00",
-      "minutes_to_kickoff": -91,
-      "last_scan_at": "2026-07-22T22:31:39.883938+07:00",
-      "next_scan_at": "2026-07-22T22:36:39.883938+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/troctru.flv",
-        "https://gckc0525.edgemaxcdn.org/live/troctru/playlist.m3u8"
-      ],
-      "scan_decision": "browser-fallback"
-    },
     "1516068": {
       "url": "https://live04.chuoichientv.me/live/1516068/mashal-vs-nasaf",
       "match_name": "Mash'al vs Nasaf - VĐQG Uzbekistan",
@@ -539,21 +524,24 @@
       "url": "https://live04.chuoichientv.me/live/1567780/timor-leste-vs-vit-nam",
       "match_name": "Timor-Leste vs Việt Nam - AFF Championship",
       "kickoff_iso": "2026-07-24T20:30:00+07:00",
-      "minutes_to_kickoff": 34,
-      "last_scan_at": "2026-07-24T19:56:29.055908+07:00",
-      "next_scan_at": "2026-07-24T20:06:29.055908+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
+      "minutes_to_kickoff": -72,
+      "last_scan_at": "2026-07-24T21:41:57.084403+07:00",
+      "next_scan_at": "2026-07-24T21:46:57.084403+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/angao.flv",
+        "https://gckc0525.edgemaxcdn.org/live/angao/playlist.m3u8"
+      ],
       "scan_decision": "browser-fallback"
     },
     "1542339": {
       "url": "https://live04.chuoichientv.me/live/1542339/rosenborg-vs-manchester-united",
       "match_name": "rosenborg vs manchester united",
       "kickoff_iso": "2026-07-24T23:00:00+07:00",
-      "minutes_to_kickoff": 184,
-      "last_scan_at": "2026-07-24T19:56:29.055908+07:00",
-      "next_scan_at": "2026-07-24T20:41:29.055908+07:00",
+      "minutes_to_kickoff": 78,
+      "last_scan_at": "2026-07-24T21:41:57.084403+07:00",
+      "next_scan_at": "2026-07-24T22:01:57.084403+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
