@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-25T19:55:19.632869+07:00",
+  "updated_at": "2026-07-25T21:25:31.173395+07:00",
   "matches": {
     "1591944": {
       "url": "https://live04.chuoichientv.me/live/1591944/malisheva-vs-hibernian",
@@ -562,36 +562,37 @@
       "url": "https://live04.chuoichientv.me/live/1548090/laos-vs-thailand",
       "match_name": "Laos vs Thailand - AFF Championship",
       "kickoff_iso": "2026-07-25T20:00:00+07:00",
-      "minutes_to_kickoff": 5,
-      "last_scan_at": "2026-07-25T19:55:19.632736+07:00",
-      "next_scan_at": "2026-07-25T20:00:19.632736+07:00",
+      "minutes_to_kickoff": -85,
+      "last_scan_at": "2026-07-25T21:25:31.173303+07:00",
+      "next_scan_at": "2026-07-25T21:30:31.173303+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/angao.flv",
         "https://gckc0525.edgemaxcdn.org/live/angao/playlist.m3u8"
       ],
       "scan_decision": "browser-fallback"
     },
     "1546722": {
       "url": "https://live04.chuoichientv.me/live/1546722/sv-wehen-vs-bayern-mnchen",
-      "match_name": "sv wehen vs bayern mnchen",
+      "match_name": "SV Wehen vs Bayern München - Giao Hữu Câu Lạc Bộ",
       "kickoff_iso": "2026-07-25T20:30:00+07:00",
-      "minutes_to_kickoff": 35,
-      "last_scan_at": "2026-07-25T19:55:19.632736+07:00",
-      "next_scan_at": "2026-07-25T20:05:19.632736+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
+      "minutes_to_kickoff": -55,
+      "last_scan_at": "2026-07-25T21:25:31.173303+07:00",
+      "next_scan_at": "2026-07-25T21:30:31.173303+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoito.flv"
+      ],
       "scan_decision": "browser-fallback"
     },
     "1561334": {
       "url": "https://live04.chuoichientv.me/live/1561334/fakel-vs-makhachkala",
       "match_name": "fakel vs makhachkala",
       "kickoff_iso": "2026-07-25T22:30:00+07:00",
-      "minutes_to_kickoff": 156,
-      "last_scan_at": "2026-07-25T19:55:19.632736+07:00",
-      "next_scan_at": "2026-07-25T20:40:19.632736+07:00",
+      "minutes_to_kickoff": 65,
+      "last_scan_at": "2026-07-25T21:25:31.173303+07:00",
+      "next_scan_at": "2026-07-25T21:45:31.173303+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
