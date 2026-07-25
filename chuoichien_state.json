@@ -1,34 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-25T18:56:42.530335+07:00",
+  "updated_at": "2026-07-25T19:55:19.632869+07:00",
   "matches": {
-    "997418": {
-      "url": "https://live04.chuoichientv.me/live/997418/cambodia-vs-philippines",
-      "match_name": "cambodia vs philippines",
-      "kickoff_iso": "2026-07-23T19:00:00+07:00",
-      "minutes_to_kickoff": 136,
-      "last_scan_at": "2026-07-23T16:44:48.708574+07:00",
-      "next_scan_at": "2026-07-23T17:29:48.708574+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
-    },
-    "1534800": {
-      "url": "https://live04.chuoichientv.me/live/1534800/akademiya-ontustik-vs-astana-ii",
-      "match_name": "Akademiya Ontustik vs Astana II - Hạng Nhất Kazakhstan",
-      "kickoff_iso": "2026-07-23T19:00:00+07:00",
-      "minutes_to_kickoff": -78,
-      "last_scan_at": "2026-07-23T20:19:00.149507+07:00",
-      "next_scan_at": "2026-07-23T20:24:00.149507+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoigia.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
     "1591944": {
       "url": "https://live04.chuoichientv.me/live/1591944/malisheva-vs-hibernian",
       "match_name": "malisheva vs hibernian",
@@ -545,13 +519,14 @@
       "url": "https://live04.chuoichientv.me/live/210899/china-w-vs-turkey-w",
       "match_name": "China W vs Turkey W - Nations League Women",
       "kickoff_iso": "2026-07-25T18:30:00+07:00",
-      "minutes_to_kickoff": -26,
-      "last_scan_at": "2026-07-25T18:56:42.530170+07:00",
-      "next_scan_at": "2026-07-25T19:01:42.530170+07:00",
+      "minutes_to_kickoff": -84,
+      "last_scan_at": "2026-07-25T19:55:19.632736+07:00",
+      "next_scan_at": "2026-07-25T20:00:19.632736+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoitay.flv"
+        "https://gckc0525.edgemaxcdn.org/live/chuoitay.flv",
+        "https://gckc0525.edgemaxcdn.org/live/chuoitay/playlist.m3u8"
       ],
       "scan_decision": "browser-fallback"
     },
@@ -559,9 +534,9 @@
       "url": "https://live04.chuoichientv.me/live/1523213/shanghai-sipg-vs-shanghai-shenhua",
       "match_name": "SHANGHAI SIPG vs Shanghai Shenhua - Ngoại Hạng Trung Quốc",
       "kickoff_iso": "2026-07-25T18:35:00+07:00",
-      "minutes_to_kickoff": -21,
-      "last_scan_at": "2026-07-25T18:56:42.530170+07:00",
-      "next_scan_at": "2026-07-25T19:01:42.530170+07:00",
+      "minutes_to_kickoff": -79,
+      "last_scan_at": "2026-07-25T19:55:19.632736+07:00",
+      "next_scan_at": "2026-07-25T20:00:19.632736+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -573,9 +548,9 @@
       "url": "https://live04.chuoichientv.me/live/1523214/wuhan-three-towns-vs-chongqing-tongliang-long",
       "match_name": "Wuhan Three Towns vs Chongqing Tongliang Long - Ngoại Hạng Trung Quốc",
       "kickoff_iso": "2026-07-25T19:00:00+07:00",
-      "minutes_to_kickoff": 4,
-      "last_scan_at": "2026-07-25T18:56:42.530170+07:00",
-      "next_scan_at": "2026-07-25T19:01:42.530170+07:00",
+      "minutes_to_kickoff": -54,
+      "last_scan_at": "2026-07-25T19:55:19.632736+07:00",
+      "next_scan_at": "2026-07-25T20:00:19.632736+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -585,35 +560,38 @@
     },
     "1548090": {
       "url": "https://live04.chuoichientv.me/live/1548090/laos-vs-thailand",
-      "match_name": "laos vs thailand",
+      "match_name": "Laos vs Thailand - AFF Championship",
       "kickoff_iso": "2026-07-25T20:00:00+07:00",
-      "minutes_to_kickoff": 64,
-      "last_scan_at": "2026-07-25T18:56:42.530170+07:00",
-      "next_scan_at": "2026-07-25T19:16:42.530170+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": 5,
+      "last_scan_at": "2026-07-25T19:55:19.632736+07:00",
+      "next_scan_at": "2026-07-25T20:00:19.632736+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/angao.flv",
+        "https://gckc0525.edgemaxcdn.org/live/angao/playlist.m3u8"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "1546722": {
       "url": "https://live04.chuoichientv.me/live/1546722/sv-wehen-vs-bayern-mnchen",
       "match_name": "sv wehen vs bayern mnchen",
       "kickoff_iso": "2026-07-25T20:30:00+07:00",
-      "minutes_to_kickoff": 94,
-      "last_scan_at": "2026-07-25T18:56:42.530170+07:00",
-      "next_scan_at": "2026-07-25T19:16:42.530170+07:00",
+      "minutes_to_kickoff": 35,
+      "last_scan_at": "2026-07-25T19:55:19.632736+07:00",
+      "next_scan_at": "2026-07-25T20:05:19.632736+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "scan_decision": "browser-fallback"
     },
     "1561334": {
       "url": "https://live04.chuoichientv.me/live/1561334/fakel-vs-makhachkala",
       "match_name": "fakel vs makhachkala",
       "kickoff_iso": "2026-07-25T22:30:00+07:00",
-      "minutes_to_kickoff": 214,
-      "last_scan_at": "2026-07-25T18:56:42.530170+07:00",
-      "next_scan_at": "2026-07-25T19:41:42.530170+07:00",
+      "minutes_to_kickoff": 156,
+      "last_scan_at": "2026-07-25T19:55:19.632736+07:00",
+      "next_scan_at": "2026-07-25T20:40:19.632736+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
