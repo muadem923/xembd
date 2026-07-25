@@ -1,22 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-25T22:35:12.175032+07:00",
+  "updated_at": "2026-07-25T23:42:44.214829+07:00",
   "matches": {
-    "1593521": {
-      "url": "https://live04.chuoichientv.me/live/1593521/qarabag-vs-cska-sofia",
-      "match_name": "Qarabag vs CSKA Sofia - UEFA Europa League",
-      "kickoff_iso": "2026-07-23T23:00:00+07:00",
-      "minutes_to_kickoff": -60,
-      "last_scan_at": "2026-07-24T00:00:30.635424+07:00",
-      "next_scan_at": "2026-07-24T00:05:30.635424+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoito.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
     "1556543": {
       "url": "https://live04.chuoichientv.me/live/1556543/besiktas-vs-fc-midtjylland",
       "match_name": "Besiktas vs FC Midtjylland - UEFA Europa League",
@@ -549,14 +535,13 @@
       "url": "https://live04.chuoichientv.me/live/1561334/fakel-vs-makhachkala",
       "match_name": "Fakel vs Makhachkala - Ngoại Hạng Nga",
       "kickoff_iso": "2026-07-25T22:30:00+07:00",
-      "minutes_to_kickoff": -5,
-      "last_scan_at": "2026-07-25T22:35:12.174978+07:00",
-      "next_scan_at": "2026-07-25T22:40:12.174978+07:00",
+      "minutes_to_kickoff": -72,
+      "last_scan_at": "2026-07-25T23:42:44.214779+07:00",
+      "next_scan_at": "2026-07-25T23:47:44.214779+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoichao.flv",
-        "https://gckc0525.edgemaxcdn.org/live/chuoichao/playlist.m3u8"
+        "https://gckc0525.edgemaxcdn.org/live/chuoichao.flv"
       ],
       "scan_decision": "browser-fallback"
     }
