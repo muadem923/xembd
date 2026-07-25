@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-26T01:46:09.692350+07:00",
+  "updated_at": "2026-07-26T03:04:03.672353+07:00",
   "matches": {
     "1547774": {
       "url": "https://live04.chuoichientv.me/live/1547774/bolvar-vs-gremio",
@@ -492,13 +492,14 @@
       "url": "https://live04.chuoichientv.me/live/1589304/fc-porto-vs-aston-villa",
       "match_name": "FC Porto vs Aston Villa - Giao Hữu Câu Lạc Bộ",
       "kickoff_iso": "2026-07-26T02:00:00+07:00",
-      "minutes_to_kickoff": 14,
-      "last_scan_at": "2026-07-26T01:46:09.692251+07:00",
-      "next_scan_at": "2026-07-26T01:51:09.692251+07:00",
+      "minutes_to_kickoff": -64,
+      "last_scan_at": "2026-07-26T03:04:03.672246+07:00",
+      "next_scan_at": "2026-07-26T03:09:03.672246+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/troctru.flv"
+        "https://gckc0525.edgemaxcdn.org/live/troctru.flv",
+        "https://gckc0525.edgemaxcdn.org/live/troctru/playlist.m3u8"
       ],
       "scan_decision": "browser-fallback"
     },
@@ -532,9 +533,33 @@
       "url": "https://live04.chuoichientv.me/live/1589332/liverpool-vs-sunderland",
       "match_name": "liverpool vs sunderland",
       "kickoff_iso": "2026-07-26T05:00:00+07:00",
-      "minutes_to_kickoff": 195,
-      "last_scan_at": "2026-07-26T01:46:09.692251+07:00",
-      "next_scan_at": "2026-07-26T02:31:09.692251+07:00",
+      "minutes_to_kickoff": 116,
+      "last_scan_at": "2026-07-26T03:04:03.672246+07:00",
+      "next_scan_at": "2026-07-26T03:24:03.672246+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1550908": {
+      "url": "https://live04.chuoichientv.me/live/1550908/guadalajara-chivas-vs-fc-juarez",
+      "match_name": "guadalajara chivas vs fc juarez",
+      "kickoff_iso": "2026-07-26T06:07:00+07:00",
+      "minutes_to_kickoff": 183,
+      "last_scan_at": "2026-07-26T03:04:03.672246+07:00",
+      "next_scan_at": "2026-07-26T03:49:03.672246+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1490347": {
+      "url": "https://live04.chuoichientv.me/live/1490347/cf-montreal-vs-inter-miami",
+      "match_name": "cf montreal vs inter miami",
+      "kickoff_iso": "2026-07-26T06:30:00+07:00",
+      "minutes_to_kickoff": 206,
+      "last_scan_at": "2026-07-26T03:04:03.672246+07:00",
+      "next_scan_at": "2026-07-26T03:49:03.672246+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
