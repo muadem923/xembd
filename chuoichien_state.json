@@ -1,49 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-25T21:25:31.173395+07:00",
+  "updated_at": "2026-07-25T22:35:12.175032+07:00",
   "matches": {
-    "1591944": {
-      "url": "https://live04.chuoichientv.me/live/1591944/malisheva-vs-hibernian",
-      "match_name": "malisheva vs hibernian",
-      "kickoff_iso": "2026-07-23T21:30:00+07:00",
-      "minutes_to_kickoff": -65,
-      "last_scan_at": "2026-07-23T22:35:14.224964+07:00",
-      "next_scan_at": "2026-07-23T22:40:14.224964+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/troctru.flv",
-        "https://gckc0525.edgemaxcdn.org/live/troctru/playlist.m3u8"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "1516069": {
-      "url": "https://live04.chuoichientv.me/live/1516069/navbahor-vs-qizilqum",
-      "match_name": "navbahor vs qizilqum",
-      "kickoff_iso": "2026-07-23T22:00:00+07:00",
-      "minutes_to_kickoff": 102,
-      "last_scan_at": "2026-07-23T20:19:00.149507+07:00",
-      "next_scan_at": "2026-07-23T20:39:00.149507+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
-    },
-    "1593475": {
-      "url": "https://live04.chuoichientv.me/live/1593475/alashkert-vs-cfr-cluj",
-      "match_name": "Alashkert vs CFR Cluj - UEFA Europa Conference League",
-      "kickoff_iso": "2026-07-23T22:00:00+07:00",
-      "minutes_to_kickoff": -120,
-      "last_scan_at": "2026-07-24T00:00:30.635424+07:00",
-      "next_scan_at": "2026-07-24T00:05:30.635424+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoichao.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
     "1593521": {
       "url": "https://live04.chuoichientv.me/live/1593521/qarabag-vs-cska-sofia",
       "match_name": "Qarabag vs CSKA Sofia - UEFA Europa League",
@@ -588,15 +547,18 @@
     },
     "1561334": {
       "url": "https://live04.chuoichientv.me/live/1561334/fakel-vs-makhachkala",
-      "match_name": "fakel vs makhachkala",
+      "match_name": "Fakel vs Makhachkala - Ngoại Hạng Nga",
       "kickoff_iso": "2026-07-25T22:30:00+07:00",
-      "minutes_to_kickoff": 65,
-      "last_scan_at": "2026-07-25T21:25:31.173303+07:00",
-      "next_scan_at": "2026-07-25T21:45:31.173303+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -5,
+      "last_scan_at": "2026-07-25T22:35:12.174978+07:00",
+      "next_scan_at": "2026-07-25T22:40:12.174978+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoichao.flv",
+        "https://gckc0525.edgemaxcdn.org/live/chuoichao/playlist.m3u8"
+      ],
+      "scan_decision": "browser-fallback"
     }
   }
 }
