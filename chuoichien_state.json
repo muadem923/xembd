@@ -1,20 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-25T08:21:34.851849+07:00",
+  "updated_at": "2026-07-25T11:37:18.668175+07:00",
   "matches": {
-    "1490342": {
-      "url": "https://live04.chuoichientv.me/live/1490342/los-angeles-fc-vs-real-salt-lake",
-      "match_name": "los angeles fc vs real salt lake",
-      "kickoff_iso": "2026-07-23T09:30:00+07:00",
-      "minutes_to_kickoff": 66,
-      "last_scan_at": "2026-07-23T08:24:21.668308+07:00",
-      "next_scan_at": "2026-07-23T08:44:21.668308+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
-    },
     "991281": {
       "url": "https://live04.chuoichientv.me/live/991281/vit-nam-vs-thailand",
       "match_name": "Việt Nam vs Thailand - SEA V CUP 2026",
@@ -529,15 +517,17 @@
     },
     "1550907": {
       "url": "https://live04.chuoichientv.me/live/1550907/atlante-fc-vs-club-america",
-      "match_name": "atlante fc vs club america",
+      "match_name": "Atlante FC vs Club America - VĐQG Mexico",
       "kickoff_iso": "2026-07-25T10:00:00+07:00",
-      "minutes_to_kickoff": 99,
-      "last_scan_at": "2026-07-25T08:21:34.851716+07:00",
-      "next_scan_at": "2026-07-25T08:41:34.851716+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -97,
+      "last_scan_at": "2026-07-25T11:37:18.668105+07:00",
+      "next_scan_at": "2026-07-25T11:42:18.668105+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/angao.flv"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "1493012": {
       "url": "https://live04.chuoichientv.me/live/1493012/platense-vs-union-santa-fe",
@@ -552,6 +542,18 @@
         "https://gckc0525.edgemaxcdn.org/live/chuoitay.flv"
       ],
       "scan_decision": "browser-fallback"
+    },
+    "210898": {
+      "url": "https://live04.chuoichientv.me/live/210898/brazil-w-vs-italy-w",
+      "match_name": "brazil w vs italy w",
+      "kickoff_iso": "2026-07-25T15:00:00+07:00",
+      "minutes_to_kickoff": 203,
+      "last_scan_at": "2026-07-25T11:37:18.668105+07:00",
+      "next_scan_at": "2026-07-25T12:22:18.668105+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
     }
   }
 }

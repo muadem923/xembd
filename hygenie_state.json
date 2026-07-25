@@ -1,84 +1,8 @@
 {
   "version": 1,
   "source": "luongson",
-  "updated_at": "2026-07-25T08:22:42.453983+07:00",
+  "updated_at": "2026-07-25T11:37:41.325445+07:00",
   "matches": {
-    "5c12a1d0a649": {
-      "url": "https://laservision.io/truc-tiep/colorado-rapids-vs-san-diego-fc-vao-luc-0830-23-07-2026/?blv=253",
-      "match_name": "COLORADO RAPIDS vs SAN DIEGO FC",
-      "kickoff_iso": "2026-07-23T08:30:00+07:00",
-      "minutes_to_kickoff": 6,
-      "last_scan_at": "2026-07-23T08:25:23.194855+07:00",
-      "next_scan_at": "2026-07-23T08:30:23.194855+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/NGUCA/index.m3u8?expire=1788427256&sign=abf9c93edd0de1c833f9ffc14381d526"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "a797f495c709": {
-      "url": "https://laservision.io/truc-tiep/dallas-wings-w-vs-portland-fire-w-vao-luc-0900-23-07-2026/?blv=320",
-      "match_name": "DALLAS WINGS W vs PORTLAND FIRE W",
-      "kickoff_iso": "2026-07-23T09:00:00+07:00",
-      "minutes_to_kickoff": 36,
-      "last_scan_at": "2026-07-23T08:25:23.194855+07:00",
-      "next_scan_at": "2026-07-23T08:35:23.194855+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/YENTHANH1/index.m3u8?expire=1788427256&sign=a79cc8d996707223a0011d33d04d4582"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "2cd056c2cbcf": {
-      "url": "https://laservision.io/truc-tiep/los-angeles-galaxy-vs-st-louis-city-vao-luc-0930-23-07-2026/?blv=135",
-      "match_name": "Trực tiếp trận đấu Los Angeles Galaxy vs St. Louis City",
-      "kickoff_iso": "2026-07-23T09:30:00+07:00",
-      "minutes_to_kickoff": 66,
-      "last_scan_at": "2026-07-23T08:25:23.194855+07:00",
-      "next_scan_at": "2026-07-23T08:45:23.194855+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
-    },
-    "24e7b55cb8a1": {
-      "url": "https://laservision.io/truc-tiep/portland-timbers-vs-fc-dallas-vao-luc-0930-23-07-2026/?blv=298",
-      "match_name": "Trực tiếp trận đấu Portland Timbers vs FC Dallas",
-      "kickoff_iso": "2026-07-23T09:30:00+07:00",
-      "minutes_to_kickoff": 66,
-      "last_scan_at": "2026-07-23T08:25:23.194855+07:00",
-      "next_scan_at": "2026-07-23T08:45:23.194855+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
-    },
-    "1eac84b9fd20": {
-      "url": "https://laservision.io/truc-tiep/los-angeles-fc-vs-real-salt-lake-vao-luc-0930-23-07-2026/?blv=218",
-      "match_name": "Trực tiếp trận đấu Los Angeles FC vs Real Salt Lake",
-      "kickoff_iso": "2026-07-23T09:30:00+07:00",
-      "minutes_to_kickoff": 66,
-      "last_scan_at": "2026-07-23T08:25:23.194855+07:00",
-      "next_scan_at": "2026-07-23T08:45:23.194855+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
-    },
-    "01ebaa030130": {
-      "url": "https://laservision.io/truc-tiep/san-jose-earthquakes-vs-orlando-city-vao-luc-0930-23-07-2026/?blv=269",
-      "match_name": "Trực tiếp trận đấu San Jose Earthquakes vs Orlando City",
-      "kickoff_iso": "2026-07-23T09:30:00+07:00",
-      "minutes_to_kickoff": 66,
-      "last_scan_at": "2026-07-23T08:25:23.194855+07:00",
-      "next_scan_at": "2026-07-23T08:45:23.194855+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
-    },
     "642cc5217d9f": {
       "url": "https://bobertoken.io/truc-tiep/t-t-hanoi-u21-vs-song-lan-yi-u21-vao-luc-1530-23-07-2026/?blv=135",
       "match_name": "T T HANOI U21 vs SONG LAN – YI U21",
@@ -2065,27 +1989,31 @@
     },
     "014617a3b03b": {
       "url": "https://faceswaponline.io/truc-tiep/cf-atlante-vs-club-america-vao-luc-1000-25-07-2026/?blv=135",
-      "match_name": "Trực tiếp trận đấu CF Atlante vs Club America",
+      "match_name": "CF ATLANTE vs CLUB AMERICA",
       "kickoff_iso": "2026-07-25T10:00:00+07:00",
-      "minutes_to_kickoff": 99,
-      "last_scan_at": "2026-07-25T08:22:42.453639+07:00",
-      "next_scan_at": "2026-07-25T08:42:42.453639+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -97,
+      "last_scan_at": "2026-07-25T11:37:41.325016+07:00",
+      "next_scan_at": "2026-07-25T11:42:41.325016+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://hls.cdnfaster-a.live/live/LUUBI/index.m3u8?expire=1788427256&sign=e15f8b184dc9c61cc5dacfd962841ae1"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "e58cbc250f8f": {
       "url": "https://faceswaponline.io/truc-tiep/club-tijuana-vs-club-leon-vao-luc-1000-25-07-2026/?blv=218",
-      "match_name": "Trực tiếp trận đấu Club Tijuana vs Club Leon",
+      "match_name": "CLUB TIJUANA vs CLUB LEON",
       "kickoff_iso": "2026-07-25T10:00:00+07:00",
-      "minutes_to_kickoff": 99,
-      "last_scan_at": "2026-07-25T08:22:42.453639+07:00",
-      "next_scan_at": "2026-07-25T08:42:42.453639+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -97,
+      "last_scan_at": "2026-07-25T11:37:41.325016+07:00",
+      "next_scan_at": "2026-07-25T11:42:41.325016+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://hls.cdnfaster-a.live/live/KAKA/index.m3u8?expire=1788427256&sign=c34e1c9b22c9ced94eca7e7bf7a81ae6"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "f272a6d88e4a": {
       "url": "https://faceswaponline.io/truc-tiep/antigua-gfc-vs-marquense-vao-luc-0700-25-07-2026/?blv=379",
@@ -2103,23 +2031,123 @@
     },
     "8becbc03cc67": {
       "url": "https://faceswaponline.io/truc-tiep/wellington-saints-vs-southland-sharks-vao-luc-1100-25-07-2026/?blv=320",
-      "match_name": "Trực tiếp trận đấu Wellington Saints vs Southland Sharks",
+      "match_name": "WELLINGTON SAINTS vs SOUTHLAND SHARKS",
       "kickoff_iso": "2026-07-25T11:00:00+07:00",
-      "minutes_to_kickoff": 159,
-      "last_scan_at": "2026-07-25T08:22:42.453639+07:00",
-      "next_scan_at": "2026-07-25T09:07:42.453639+07:00",
+      "minutes_to_kickoff": -37,
+      "last_scan_at": "2026-07-25T11:37:41.325016+07:00",
+      "next_scan_at": "2026-07-25T11:42:41.325016+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://hls.cdnfaster-a.live/live/YENTHANH1/index.m3u8?expire=1788427256&sign=a79cc8d996707223a0011d33d04d4582"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "92542311f294": {
+      "url": "https://faceswaponline.io/truc-tiep/melbourne-heart-youth-vs-avondale-fc-vao-luc-1200-25-07-2026/?blv=253",
+      "match_name": "MELBOURNE HEART (YOUTH) vs AVONDALE FC",
+      "kickoff_iso": "2026-07-25T12:00:00+07:00",
+      "minutes_to_kickoff": 23,
+      "last_scan_at": "2026-07-25T11:37:41.325016+07:00",
+      "next_scan_at": "2026-07-25T11:42:41.325016+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://hls.cdnfaster-a.live/live/NGUCA/index.m3u8?expire=1788427256&sign=abf9c93edd0de1c833f9ffc14381d526"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "25bb1b7005cd": {
+      "url": "https://faceswaponline.io/truc-tiep/maitland-vs-broadmeadow-magic-vao-luc-1330-25-07-2026/?blv=298",
+      "match_name": "Trực tiếp trận đấu Maitland vs Broadmeadow Magic",
+      "kickoff_iso": "2026-07-25T13:30:00+07:00",
+      "minutes_to_kickoff": 113,
+      "last_scan_at": "2026-07-25T11:37:41.325016+07:00",
+      "next_scan_at": "2026-07-25T11:57:41.325016+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
       "scan_decision": "http-only-far-upcoming"
     },
-    "92542311f294": {
-      "url": "https://faceswaponline.io/truc-tiep/melbourne-heart-youth-vs-avondale-fc-vao-luc-1200-25-07-2026/?blv=253",
-      "match_name": "Trực tiếp trận đấu Melbourne Heart (Youth) vs Avondale FC",
-      "kickoff_iso": "2026-07-25T12:00:00+07:00",
-      "minutes_to_kickoff": 219,
-      "last_scan_at": "2026-07-25T08:22:42.453639+07:00",
-      "next_scan_at": "2026-07-25T09:07:42.453639+07:00",
+    "ffc886b7112d": {
+      "url": "https://faceswaponline.io/truc-tiep/sd-raiders-fc-vs-marconi-stallions-vao-luc-1400-25-07-2026/?blv=269",
+      "match_name": "Trực tiếp trận đấu SD Raiders FC vs Marconi Stallions",
+      "kickoff_iso": "2026-07-25T14:00:00+07:00",
+      "minutes_to_kickoff": 143,
+      "last_scan_at": "2026-07-25T11:37:41.325016+07:00",
+      "next_scan_at": "2026-07-25T12:22:41.325016+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "71730b143ac8": {
+      "url": "https://faceswaponline.io/truc-tiep/spirit-fc-vs-western-sydney-wanderers-am-vao-luc-1430-25-07-2026/?blv=253",
+      "match_name": "Trực tiếp trận đấu Spirit FC vs Western Sydney Wanderers AM",
+      "kickoff_iso": "2026-07-25T14:30:00+07:00",
+      "minutes_to_kickoff": 173,
+      "last_scan_at": "2026-07-25T11:37:41.325016+07:00",
+      "next_scan_at": "2026-07-25T12:22:41.325016+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "de33293cc24f": {
+      "url": "https://faceswaponline.io/truc-tiep/nelson-giants-vs-tauranga-whai-vao-luc-1430-25-07-2026/?blv=328",
+      "match_name": "Trực tiếp trận đấu Nelson Giants vs Tauranga Whai",
+      "kickoff_iso": "2026-07-25T14:30:00+07:00",
+      "minutes_to_kickoff": 173,
+      "last_scan_at": "2026-07-25T11:37:41.325016+07:00",
+      "next_scan_at": "2026-07-25T12:22:41.325016+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "6ec77e88d71f": {
+      "url": "https://faceswaponline.io/truc-tiep/apia-leichhardt-tigers-vs-university-nsw-vao-luc-1500-25-07-2026/?blv=359",
+      "match_name": "Trực tiếp trận đấu A.P.I.A. Leichhardt Tigers vs University NSW",
+      "kickoff_iso": "2026-07-25T15:00:00+07:00",
+      "minutes_to_kickoff": 203,
+      "last_scan_at": "2026-07-25T11:37:41.325016+07:00",
+      "next_scan_at": "2026-07-25T12:22:41.325016+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "4f154c60d825": {
+      "url": "https://faceswaponline.io/truc-tiep/gold-coast-knights-vs-gold-coast-united-vao-luc-1515-25-07-2026/?blv=300",
+      "match_name": "Trực tiếp trận đấu Gold Coast Knights vs Gold Coast United",
+      "kickoff_iso": "2026-07-25T15:15:00+07:00",
+      "minutes_to_kickoff": 218,
+      "last_scan_at": "2026-07-25T11:37:41.325016+07:00",
+      "next_scan_at": "2026-07-25T12:22:41.325016+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "9ed71450d9bf": {
+      "url": "https://faceswaponline.io/truc-tiep/st-george-saints-vs-sydney-fc-youth-vao-luc-1530-25-07-2026/?blv=383",
+      "match_name": "Trực tiếp trận đấu St George Saints vs Sydney FC (Youth)",
+      "kickoff_iso": "2026-07-25T15:30:00+07:00",
+      "minutes_to_kickoff": 233,
+      "last_scan_at": "2026-07-25T11:37:41.325016+07:00",
+      "next_scan_at": "2026-07-25T12:22:41.325016+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "0df91869c302": {
+      "url": "https://faceswaponline.io/truc-tiep/dpmm-fc-vs-tampines-rovers-fc-vao-luc-1530-25-07-2026/?blv=218",
+      "match_name": "Trực tiếp trận đấu DPMM FC vs Tampines Rovers FC",
+      "kickoff_iso": "2026-07-25T15:30:00+07:00",
+      "minutes_to_kickoff": 233,
+      "last_scan_at": "2026-07-25T11:37:41.325016+07:00",
+      "next_scan_at": "2026-07-25T12:22:41.325016+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
