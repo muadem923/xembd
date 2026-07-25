@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-25T11:37:18.668175+07:00",
+  "updated_at": "2026-07-25T14:07:54.220530+07:00",
   "matches": {
     "991281": {
       "url": "https://live04.chuoichientv.me/live/991281/vit-nam-vs-thailand",
@@ -547,9 +547,45 @@
       "url": "https://live04.chuoichientv.me/live/210898/brazil-w-vs-italy-w",
       "match_name": "brazil w vs italy w",
       "kickoff_iso": "2026-07-25T15:00:00+07:00",
-      "minutes_to_kickoff": 203,
-      "last_scan_at": "2026-07-25T11:37:18.668105+07:00",
-      "next_scan_at": "2026-07-25T12:22:18.668105+07:00",
+      "minutes_to_kickoff": 52,
+      "last_scan_at": "2026-07-25T14:07:54.220442+07:00",
+      "next_scan_at": "2026-07-25T14:27:54.220442+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1523211": {
+      "url": "https://live04.chuoichientv.me/live/1523211/qingdao-jonoon-vs-tianjin-teda",
+      "match_name": "qingdao jonoon vs tianjin teda",
+      "kickoff_iso": "2026-07-25T16:30:00+07:00",
+      "minutes_to_kickoff": 142,
+      "last_scan_at": "2026-07-25T14:07:54.220442+07:00",
+      "next_scan_at": "2026-07-25T14:52:54.220442+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1548089": {
+      "url": "https://live04.chuoichientv.me/live/1548089/myanmar-vs-malaysia",
+      "match_name": "myanmar vs malaysia",
+      "kickoff_iso": "2026-07-25T17:00:00+07:00",
+      "minutes_to_kickoff": 172,
+      "last_scan_at": "2026-07-25T14:07:54.220442+07:00",
+      "next_scan_at": "2026-07-25T14:52:54.220442+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1584954": {
+      "url": "https://live04.chuoichientv.me/live/1584954/fortuna-dsseldorf-vs-borussia-dortmund",
+      "match_name": "fortuna dsseldorf vs borussia dortmund",
+      "kickoff_iso": "2026-07-25T18:00:00+07:00",
+      "minutes_to_kickoff": 232,
+      "last_scan_at": "2026-07-25T14:07:54.220442+07:00",
+      "next_scan_at": "2026-07-25T14:52:54.220442+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
