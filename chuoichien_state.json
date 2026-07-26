@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-26T23:43:39.311328+07:00",
+  "updated_at": "2026-07-27T00:51:57.648992+07:00",
   "matches": {
     "1553104": {
       "url": "https://live04.chuoichientv.me/live/1553104/pogon-szczecin-vs-legia-warszawa",
@@ -27,34 +27,6 @@
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
-      "scan_decision": "browser-fallback"
-    },
-    "1548974": {
-      "url": "https://live04.chuoichientv.me/live/1548974/viborg-vs-odense",
-      "match_name": "Viborg vs Odense - Ngoại Hạng Đan Mạch",
-      "kickoff_iso": "2026-07-25T00:00:00+07:00",
-      "minutes_to_kickoff": -57,
-      "last_scan_at": "2026-07-25T00:57:42.571222+07:00",
-      "next_scan_at": "2026-07-25T01:02:42.571222+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoichao.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "1561332": {
-      "url": "https://live04.chuoichientv.me/live/1561332/cska-moscow-vs-baltika",
-      "match_name": "CSKA Moscow vs Baltika - Ngoại Hạng Nga",
-      "kickoff_iso": "2026-07-25T00:00:00+07:00",
-      "minutes_to_kickoff": -57,
-      "last_scan_at": "2026-07-25T00:57:42.571222+07:00",
-      "next_scan_at": "2026-07-25T01:02:42.571222+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/angao.flv"
-      ],
       "scan_decision": "browser-fallback"
     },
     "1493013": {
@@ -600,14 +572,13 @@
       "url": "https://live04.chuoichientv.me/live/1548978/ac-horsens-vs-fc-nordsjaelland",
       "match_name": "AC Horsens vs FC Nordsjaelland - Ngoại Hạng Đan Mạch",
       "kickoff_iso": "2026-07-26T23:00:00+07:00",
-      "minutes_to_kickoff": -43,
-      "last_scan_at": "2026-07-26T23:43:39.311255+07:00",
-      "next_scan_at": "2026-07-26T23:48:39.311255+07:00",
+      "minutes_to_kickoff": -111,
+      "last_scan_at": "2026-07-27T00:51:57.648921+07:00",
+      "next_scan_at": "2026-07-27T00:56:57.648921+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoito.flv",
-        "https://gckc0525.edgemaxcdn.org/live/chuoito/playlist.m3u8"
+        "https://gckc0525.edgemaxcdn.org/live/chuoito.flv"
       ],
       "scan_decision": "browser-fallback"
     },
@@ -615,9 +586,9 @@
       "url": "https://live04.chuoichientv.me/live/1561337/rubin-vs-fc-krasnodar",
       "match_name": "Rubin vs FC Krasnodar - Ngoại Hạng Nga",
       "kickoff_iso": "2026-07-26T23:30:00+07:00",
-      "minutes_to_kickoff": -13,
-      "last_scan_at": "2026-07-26T23:43:39.311255+07:00",
-      "next_scan_at": "2026-07-26T23:48:39.311255+07:00",
+      "minutes_to_kickoff": -81,
+      "last_scan_at": "2026-07-27T00:51:57.648921+07:00",
+      "next_scan_at": "2026-07-27T00:56:57.648921+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
