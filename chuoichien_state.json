@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-26T08:04:20.890795+07:00",
+  "updated_at": "2026-07-26T11:50:25.021954+07:00",
   "matches": {
     "991023": {
       "url": "https://live04.chuoichientv.me/live/991023/vit-nam-vs-myanmar",
@@ -554,23 +554,52 @@
     },
     "1542342": {
       "url": "https://live04.chuoichientv.me/live/1542342/auckland-vs-tottenham",
-      "match_name": "auckland vs tottenham",
+      "match_name": "Auckland vs Tottenham - Giao Hữu Câu Lạc Bộ",
       "kickoff_iso": "2026-07-26T10:00:00+07:00",
-      "minutes_to_kickoff": 116,
-      "last_scan_at": "2026-07-26T08:04:20.890671+07:00",
-      "next_scan_at": "2026-07-26T08:24:20.890671+07:00",
+      "minutes_to_kickoff": -110,
+      "last_scan_at": "2026-07-26T11:50:25.021857+07:00",
+      "next_scan_at": "2026-07-26T11:55:25.021857+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoitay.flv",
+        "https://gckc0525.edgemaxcdn.org/live/chuoitay/playlist.m3u8"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "1550905": {
+      "url": "https://live04.chuoichientv.me/live/1550905/tigres-uanl-vs-atletico-san-luis",
+      "match_name": "Tigres UANL vs Atletico San Luis - VĐQG Mexico",
+      "kickoff_iso": "2026-07-26T10:00:00+07:00",
+      "minutes_to_kickoff": -110,
+      "last_scan_at": "2026-07-26T11:50:25.021857+07:00",
+      "next_scan_at": "2026-07-26T11:55:25.021857+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoito.flv"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "1560861": {
+      "url": "https://live04.chuoichientv.me/live/1560861/kingborough-lions-vs-melbourne-victory",
+      "match_name": "kingborough lions vs melbourne victory",
+      "kickoff_iso": "2026-07-26T14:00:00+07:00",
+      "minutes_to_kickoff": 130,
+      "last_scan_at": "2026-07-26T11:50:25.021857+07:00",
+      "next_scan_at": "2026-07-26T12:35:25.021857+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
       "scan_decision": "http-only-far-upcoming"
     },
-    "1550905": {
-      "url": "https://live04.chuoichientv.me/live/1550905/tigres-uanl-vs-atletico-san-luis",
-      "match_name": "tigres uanl vs atletico san luis",
-      "kickoff_iso": "2026-07-26T10:00:00+07:00",
-      "minutes_to_kickoff": 116,
-      "last_scan_at": "2026-07-26T08:04:20.890671+07:00",
-      "next_scan_at": "2026-07-26T08:24:20.890671+07:00",
+    "997728": {
+      "url": "https://live04.chuoichientv.me/live/997728/china-w-vs-italy-w",
+      "match_name": "china w vs italy w",
+      "kickoff_iso": "2026-07-26T14:30:00+07:00",
+      "minutes_to_kickoff": 160,
+      "last_scan_at": "2026-07-26T11:50:25.021857+07:00",
+      "next_scan_at": "2026-07-26T12:35:25.021857+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
