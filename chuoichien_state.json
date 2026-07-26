@@ -1,20 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-26T22:36:36.632249+07:00",
+  "updated_at": "2026-07-26T23:43:39.311328+07:00",
   "matches": {
-    "1542339": {
-      "url": "https://live04.chuoichientv.me/live/1542339/rosenborg-vs-manchester-united",
-      "match_name": "rosenborg vs manchester united",
-      "kickoff_iso": "2026-07-24T23:00:00+07:00",
-      "minutes_to_kickoff": 78,
-      "last_scan_at": "2026-07-24T21:41:57.084403+07:00",
-      "next_scan_at": "2026-07-24T22:01:57.084403+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
-    },
     "1553104": {
       "url": "https://live04.chuoichientv.me/live/1553104/pogon-szczecin-vs-legia-warszawa",
       "match_name": "Pogon Szczecin vs Legia Warszawa - VĐQG Ba Lan",
@@ -612,25 +600,30 @@
       "url": "https://live04.chuoichientv.me/live/1548978/ac-horsens-vs-fc-nordsjaelland",
       "match_name": "AC Horsens vs FC Nordsjaelland - Ngoại Hạng Đan Mạch",
       "kickoff_iso": "2026-07-26T23:00:00+07:00",
-      "minutes_to_kickoff": 24,
-      "last_scan_at": "2026-07-26T22:36:36.632161+07:00",
-      "next_scan_at": "2026-07-26T22:46:36.632161+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
+      "minutes_to_kickoff": -43,
+      "last_scan_at": "2026-07-26T23:43:39.311255+07:00",
+      "next_scan_at": "2026-07-26T23:48:39.311255+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoito.flv",
+        "https://gckc0525.edgemaxcdn.org/live/chuoito/playlist.m3u8"
+      ],
       "scan_decision": "browser-fallback"
     },
     "1561337": {
       "url": "https://live04.chuoichientv.me/live/1561337/rubin-vs-fc-krasnodar",
-      "match_name": "rubin vs fc krasnodar",
+      "match_name": "Rubin vs FC Krasnodar - Ngoại Hạng Nga",
       "kickoff_iso": "2026-07-26T23:30:00+07:00",
-      "minutes_to_kickoff": 54,
-      "last_scan_at": "2026-07-26T22:36:36.632161+07:00",
-      "next_scan_at": "2026-07-26T22:56:36.632161+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -13,
+      "last_scan_at": "2026-07-26T23:43:39.311255+07:00",
+      "next_scan_at": "2026-07-26T23:48:39.311255+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/angao.flv"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "1494710": {
       "url": "https://live04.chuoichientv.me/live/1494710/brann-vs-valerenga",
