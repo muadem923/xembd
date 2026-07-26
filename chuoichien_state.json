@@ -1,23 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-26T19:36:49.783545+07:00",
+  "updated_at": "2026-07-26T21:22:29.806737+07:00",
   "matches": {
-    "1567780": {
-      "url": "https://live04.chuoichientv.me/live/1567780/timor-leste-vs-vit-nam",
-      "match_name": "Timor-Leste vs Việt Nam - AFF Championship",
-      "kickoff_iso": "2026-07-24T20:30:00+07:00",
-      "minutes_to_kickoff": -72,
-      "last_scan_at": "2026-07-24T21:41:57.084403+07:00",
-      "next_scan_at": "2026-07-24T21:46:57.084403+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/angao.flv",
-        "https://gckc0525.edgemaxcdn.org/live/angao/playlist.m3u8"
-      ],
-      "scan_decision": "browser-fallback"
-    },
     "1542339": {
       "url": "https://live04.chuoichientv.me/live/1542339/rosenborg-vs-manchester-united",
       "match_name": "rosenborg vs manchester united",
@@ -611,27 +596,55 @@
     },
     "1561335": {
       "url": "https://live04.chuoichientv.me/live/1561335/lokomotiv-vs-akhmat",
-      "match_name": "lokomotiv vs akhmat",
+      "match_name": "Lokomotiv vs Akhmat - Ngoại Hạng Nga",
       "kickoff_iso": "2026-07-26T21:00:00+07:00",
-      "minutes_to_kickoff": 85,
-      "last_scan_at": "2026-07-26T19:36:49.783332+07:00",
-      "next_scan_at": "2026-07-26T19:56:49.783332+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -22,
+      "last_scan_at": "2026-07-26T21:22:29.806658+07:00",
+      "next_scan_at": "2026-07-26T21:27:29.806658+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoichao.flv"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "1548978": {
       "url": "https://live04.chuoichientv.me/live/1548978/ac-horsens-vs-fc-nordsjaelland",
       "match_name": "ac horsens vs fc nordsjaelland",
       "kickoff_iso": "2026-07-26T23:00:00+07:00",
-      "minutes_to_kickoff": 205,
-      "last_scan_at": "2026-07-26T19:36:49.783332+07:00",
-      "next_scan_at": "2026-07-26T20:21:49.783332+07:00",
+      "minutes_to_kickoff": 98,
+      "last_scan_at": "2026-07-26T21:22:29.806658+07:00",
+      "next_scan_at": "2026-07-26T21:42:29.806658+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
       "scan_decision": "http-only-far-upcoming"
+    },
+    "1561337": {
+      "url": "https://live04.chuoichientv.me/live/1561337/rubin-vs-fc-krasnodar",
+      "match_name": "rubin vs fc krasnodar",
+      "kickoff_iso": "2026-07-26T23:30:00+07:00",
+      "minutes_to_kickoff": 128,
+      "last_scan_at": "2026-07-26T21:22:29.806658+07:00",
+      "next_scan_at": "2026-07-26T22:07:29.806658+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1494710": {
+      "url": "https://live04.chuoichientv.me/live/1494710/brann-vs-valerenga",
+      "match_name": "Brann vs Valerenga - Eliteserien",
+      "kickoff_iso": "2026-07-26T19:30:00+07:00",
+      "minutes_to_kickoff": -112,
+      "last_scan_at": "2026-07-26T21:22:29.806658+07:00",
+      "next_scan_at": "2026-07-26T21:27:29.806658+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoitieu.flv"
+      ],
+      "scan_decision": "browser-fallback"
     }
   }
 }
