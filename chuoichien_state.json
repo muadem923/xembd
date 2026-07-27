@@ -1,62 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-27T08:06:53.461794+07:00",
+  "updated_at": "2026-07-27T15:29:59.837514+07:00",
   "matches": {
-    "1549686": {
-      "url": "https://live04.chuoichientv.me/live/1549686/deportivo-cali-vs-jaguares",
-      "match_name": "Deportivo Cali vs Jaguares - VĐQG Colombia",
-      "kickoff_iso": "2026-07-25T08:15:00+07:00",
-      "minutes_to_kickoff": -6,
-      "last_scan_at": "2026-07-25T08:21:34.851716+07:00",
-      "next_scan_at": "2026-07-25T08:26:34.851716+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoito.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "1550906": {
-      "url": "https://live04.chuoichientv.me/live/1550906/club-tijuana-vs-leon",
-      "match_name": "club tijuana vs leon",
-      "kickoff_iso": "2026-07-25T10:00:00+07:00",
-      "minutes_to_kickoff": 99,
-      "last_scan_at": "2026-07-25T08:21:34.851716+07:00",
-      "next_scan_at": "2026-07-25T08:41:34.851716+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
-    },
-    "1550907": {
-      "url": "https://live04.chuoichientv.me/live/1550907/atlante-fc-vs-club-america",
-      "match_name": "Atlante FC vs Club America - VĐQG Mexico",
-      "kickoff_iso": "2026-07-25T10:00:00+07:00",
-      "minutes_to_kickoff": -97,
-      "last_scan_at": "2026-07-25T11:37:18.668105+07:00",
-      "next_scan_at": "2026-07-25T11:42:18.668105+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/angao.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "210898": {
-      "url": "https://live04.chuoichientv.me/live/210898/brazil-w-vs-italy-w",
-      "match_name": "Brazil W vs Italy W - Nations League Women",
-      "kickoff_iso": "2026-07-25T15:00:00+07:00",
-      "minutes_to_kickoff": -77,
-      "last_scan_at": "2026-07-25T16:17:04.568010+07:00",
-      "next_scan_at": "2026-07-25T16:22:04.568010+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoitay.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
     "1523211": {
       "url": "https://live04.chuoichientv.me/live/1523211/qingdao-jonoon-vs-tianjin-teda",
       "match_name": "Qingdao Jonoon vs Tianjin Teda - Ngoại Hạng Trung Quốc",
@@ -582,6 +528,30 @@
         "https://gckc0525.edgemaxcdn.org/live/chuoitay.flv"
       ],
       "scan_decision": "browser-fallback"
+    },
+    "1567781": {
+      "url": "https://live04.chuoichientv.me/live/1567781/singapore-vs-timor-leste",
+      "match_name": "singapore vs timor leste",
+      "kickoff_iso": "2026-07-27T18:00:00+07:00",
+      "minutes_to_kickoff": 150,
+      "last_scan_at": "2026-07-27T15:29:59.837450+07:00",
+      "next_scan_at": "2026-07-27T16:14:59.837450+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1532840": {
+      "url": "https://live04.chuoichientv.me/live/1532840/qingdao-red-lions-vs-bit",
+      "match_name": "qingdao red lions vs bit",
+      "kickoff_iso": "2026-07-27T17:30:00+07:00",
+      "minutes_to_kickoff": 120,
+      "last_scan_at": "2026-07-27T15:29:59.837450+07:00",
+      "next_scan_at": "2026-07-27T15:49:59.837450+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
     }
   }
 }

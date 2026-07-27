@@ -1,16 +1,22 @@
 #EXTM3U
-#EXTINF:-1 tvg-id="hygenie-6f9490e7b0b6-359-1" tvg-name="[27/07/2026 11:00] PHÁP vs MACROC [BLV Leo]" group-title="Lương Sơn" tvg-logo="https://upload-img.cdnokvip.com/uploads/team_logo/1785125407.png",[27/07/2026 11:00] PHÁP vs MACROC [BLV Leo] [M3U8]
-#EXTVLCOPT:http-referrer=https://beastkingdom.io/
+#EXTINF:-1 tvg-id="hygenie-92312e2ac6d0-328-1" tvg-name="[27/07/2026 14:00] BINAN TATAK GEL vs VALENZUELA CITY DARKHORSE [BLV VÕ TÒNG]" group-title="Lương Sơn" tvg-logo="https://upload-img.cdnokvip.com/uploads/team_logo/1785087658.png",[27/07/2026 14:00] BINAN TATAK GEL vs VALENZUELA CITY DARKHORSE [BLV VÕ TÒNG] [M3U8]
+#EXTVLCOPT:http-referrer=https://magicbeast.io/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://beastkingdom.io/","Origin":"https://beastkingdom.io"}
-https://hls.cdnfaster-a.live/live/TEST/index.m3u8?expire=1788427256&sign=47963ed63da3360fd84dccfb53a2c83c
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://magicbeast.io/","Origin":"https://magicbeast.io"}
+https://hls.cdnfaster-a.live/live/VOTONG/index.m3u8?expire=1891347600&sign=cbb47d2000b9576a7b34114624ff8299
 #EXTINF:-1 tvg-id="gavang-2606-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ GIỜ 28/07] ASEAN Championship - Malaysia VS Laos [BLV NGƯỜI CAT]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ GIỜ 28/07] ASEAN Championship - Malaysia VS Laos [BLV NGƯỜI CAT] [FLV]
 #EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2606/malay-lao-asean/?s8_live_fixture_id=2606&s8_live_stream_key=malay-lao-asean&s8_auto_sound=1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2606/malay-lao-asean/?s8_live_fixture_id=2606&s8_live_stream_key=malay-lao-asean&s8_auto_sound=1","Origin":"https://profecta.io"}
 https://flv.lauthaitv.cc/live/malay-lao-asean.flv
+#EXTINF:-1 tvg-id="gavang-2604-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ GIỜ 28/07] ASEAN Championship - Philippines VS Myanmar [BLV NGƯỜI BẠC]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ GIỜ 28/07] ASEAN Championship - Philippines VS Myanmar [BLV NGƯỜI BẠC] [FLV]
+#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2604/phi-myan-asean/?s8_live_fixture_id=2604&s8_live_stream_key=phi-myan-asean&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2604/phi-myan-asean/?s8_live_fixture_id=2604&s8_live_stream_key=phi-myan-asean&s8_auto_sound=1","Origin":"https://profecta.io"}
+https://flv.lauthaitv.cc/live/phi-myan-asean.flv
 #EXTINF:-1 tvg-id="gavang-2599-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ GIỜ 28/07] BRA Serie B - CRB AL VS Vila Nova [BLV NGƯỜI SẮT]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ GIỜ 28/07] BRA Serie B - CRB AL VS Vila Nova [BLV NGƯỜI SẮT] [FLV]
 #EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2599/crb-vila-brasb/?s8_live_fixture_id=2599&s8_live_stream_key=crb-vila-brasb&s8_auto_sound=1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
@@ -29,12 +35,24 @@ https://flv.lauthaitv.cc/live/donau-ludo-bul1st.flv
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2603/chel-westsyd-intcf/?s8_live_fixture_id=2603&s8_live_stream_key=chel-westsyd-intcf&s8_auto_sound=1","Origin":"https://profecta.io"}
 https://flv.lauthaitv.cc/live/chel-westsyd-intcf.flv
+#EXTINF:-1 tvg-id="gavang-2601-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ LỊCH] Cuenca VS Emelec" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ LỊCH] Cuenca VS Emelec [FLV]
+#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2601/cuenca-emelec-ligapro/?s8_live_fixture_id=2601&s8_live_stream_key=cuenca-emelec-ligapro&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2601/cuenca-emelec-ligapro/?s8_live_fixture_id=2601&s8_live_stream_key=cuenca-emelec-ligapro&s8_auto_sound=1","Origin":"https://profecta.io"}
+https://flv.lauthaitv.cc/live/cuenca-emelec-ligapro.flv
 #EXTINF:-1 tvg-id="gavang-2598-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ LỊCH] Guaya VS Ucatolica" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ LỊCH] Guaya VS Ucatolica [FLV]
 #EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2598/guaya-ucatolica-ligapro/?s8_live_fixture_id=2598&s8_live_stream_key=guaya-ucatolica-ligapro&s8_auto_sound=1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2598/guaya-ucatolica-ligapro/?s8_live_fixture_id=2598&s8_live_stream_key=guaya-ucatolica-ligapro&s8_auto_sound=1","Origin":"https://profecta.io"}
 https://flv.lauthaitv.cc/live/guaya-ucatolica-ligapro.flv
+#EXTINF:-1 tvg-id="gavang-2605-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ GIỜ 28/07] IDN President Cup - DPMM FC VS Persib Bandung [BLV NGƯỜI PHÁO]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ GIỜ 28/07] IDN President Cup - DPMM FC VS Persib Bandung [BLV NGƯỜI PHÁO] [FLV]
+#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2605/pdmm-bandung-idncup/?s8_live_fixture_id=2605&s8_live_stream_key=pdmm-bandung-idncup&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2605/pdmm-bandung-idncup/?s8_live_fixture_id=2605&s8_live_stream_key=pdmm-bandung-idncup&s8_auto_sound=1","Origin":"https://profecta.io"}
+https://flv.lauthaitv.cc/live/pdmm-bandung-idncup.flv
 #EXTINF:-1 tvg-id="gavang-2602-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ GIỜ 28/07] IDN President Cup - Tampines Rovers FC VS Arema FC [BLV NGƯỜI SÓI]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ GIỜ 28/07] IDN President Cup - Tampines Rovers FC VS Arema FC [BLV NGƯỜI SÓI] [FLV]
 #EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2602/tampines-arema-idncup/?s8_live_fixture_id=2602&s8_live_stream_key=tampines-arema-idncup&s8_auto_sound=1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
@@ -47,42 +65,18 @@ https://flv.lauthaitv.cc/live/tampines-arema-idncup.flv
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2610/real-leganes-intcf/?s8_live_fixture_id=2610&s8_live_stream_key=real-leganes-intcf&s8_auto_sound=1","Origin":"https://profecta.io"}
 https://flv.lauthaitv.cc/live/real-leganes-intcf.flv
-#EXTINF:-1 tvg-id="gavang-2601-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ GIỜ 28/07] Liga Pro Serie A - Deportivo Cuenca VS Club Sport Emelec [BLV NGƯỜI THỎ]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ GIỜ 28/07] Liga Pro Serie A - Deportivo Cuenca VS Club Sport Emelec [BLV NGƯỜI THỎ] [FLV]
-#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2601/cuenca-emelec-ligapro/?s8_live_fixture_id=2601&s8_live_stream_key=cuenca-emelec-ligapro&s8_auto_sound=1
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2601/cuenca-emelec-ligapro/?s8_live_fixture_id=2601&s8_live_stream_key=cuenca-emelec-ligapro&s8_auto_sound=1","Origin":"https://profecta.io"}
-https://flv.lauthaitv.cc/live/cuenca-emelec-ligapro.flv
-#EXTINF:-1 tvg-id="gavang-2584-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ LỊCH] Melbourne VS Northsun" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ LỊCH] Melbourne VS Northsun [FLV]
-#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2584/melbourne-northsun-nplvic2/?s8_live_fixture_id=2584&s8_live_stream_key=melbourne-northsun-nplvic2&s8_auto_sound=1
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2584/melbourne-northsun-nplvic2/?s8_live_fixture_id=2584&s8_live_stream_key=melbourne-northsun-nplvic2&s8_auto_sound=1","Origin":"https://profecta.io"}
-https://flv.lauthaitv.cc/live/melbourne-northsun-nplvic2.flv
 #EXTINF:-1 tvg-id="gavang-2597-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ LỊCH] Mushuc VS Libertad" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ LỊCH] Mushuc VS Libertad [FLV]
 #EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2597/mushuc-libertad-ligapro/?s8_live_fixture_id=2597&s8_live_stream_key=mushuc-libertad-ligapro&s8_auto_sound=1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2597/mushuc-libertad-ligapro/?s8_live_fixture_id=2597&s8_live_stream_key=mushuc-libertad-ligapro&s8_auto_sound=1","Origin":"https://profecta.io"}
 https://flv.lauthaitv.cc/live/mushuc-libertad-ligapro.flv
-#EXTINF:-1 tvg-id="gavang-2608-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ LỊCH] Neftchi VS Navbahor" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ LỊCH] Neftchi VS Navbahor [FLV]
-#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2608/neftchi-navbahor-uzbsup/?s8_live_fixture_id=2608&s8_live_stream_key=neftchi-navbahor-uzbsup&s8_auto_sound=1
+#EXTINF:-1 tvg-id="gavang-2584-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ GIỜ 27/07] NPL Victoria 2 - Melbourne Victory FC Youth VS North Sunshine Eagles [BLV NGƯỜI SẮT]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ GIỜ 27/07] NPL Victoria 2 - Melbourne Victory FC Youth VS North Sunshine Eagles [BLV NGƯỜI SẮT] [FLV]
+#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2584/melbourne-northsun-nplvic2/?s8_live_fixture_id=2584&s8_live_stream_key=melbourne-northsun-nplvic2&s8_auto_sound=1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2608/neftchi-navbahor-uzbsup/?s8_live_fixture_id=2608&s8_live_stream_key=neftchi-navbahor-uzbsup&s8_auto_sound=1","Origin":"https://profecta.io"}
-https://flv.lauthaitv.cc/live/neftchi-navbahor-uzbsup.flv
-#EXTINF:-1 tvg-id="gavang-2605-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ LỊCH] Pdmm VS Bandung" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ LỊCH] Pdmm VS Bandung [FLV]
-#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2605/pdmm-bandung-idncup/?s8_live_fixture_id=2605&s8_live_stream_key=pdmm-bandung-idncup&s8_auto_sound=1
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2605/pdmm-bandung-idncup/?s8_live_fixture_id=2605&s8_live_stream_key=pdmm-bandung-idncup&s8_auto_sound=1","Origin":"https://profecta.io"}
-https://flv.lauthaitv.cc/live/pdmm-bandung-idncup.flv
-#EXTINF:-1 tvg-id="gavang-2604-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ LỊCH] Phi VS Myan" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ LỊCH] Phi VS Myan [FLV]
-#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2604/phi-myan-asean/?s8_live_fixture_id=2604&s8_live_stream_key=phi-myan-asean&s8_auto_sound=1
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2604/phi-myan-asean/?s8_live_fixture_id=2604&s8_live_stream_key=phi-myan-asean&s8_auto_sound=1","Origin":"https://profecta.io"}
-https://flv.lauthaitv.cc/live/phi-myan-asean.flv
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2584/melbourne-northsun-nplvic2/?s8_live_fixture_id=2584&s8_live_stream_key=melbourne-northsun-nplvic2&s8_auto_sound=1","Origin":"https://profecta.io"}
+https://flv.lauthaitv.cc/live/melbourne-northsun-nplvic2.flv
 #EXTINF:-1 tvg-id="gavang-2607-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ GIỜ 28/07] UEFA Champions League (qual) - KuPs VS Sabah Baku [BLV NGƯỜI TIỀN SỬ]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ GIỜ 28/07] UEFA Champions League (qual) - KuPs VS Sabah Baku [BLV NGƯỜI TIỀN SỬ] [FLV]
 #EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2607/kups-sabah-c1qual/?s8_live_fixture_id=2607&s8_live_stream_key=kups-sabah-c1qual&s8_auto_sound=1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
@@ -101,38 +95,44 @@ https://flv.lauthaitv.cc/live/lincoln-mjallby-c1qual.flv
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2600/ulacalera-evertoncd-chiliga/?s8_live_fixture_id=2600&s8_live_stream_key=ulacalera-evertoncd-chiliga&s8_auto_sound=1","Origin":"https://profecta.io"}
 https://flv.lauthaitv.cc/live/ulacalera-evertoncd-chiliga.flv
-#EXTINF:-1 tvg-id="xoilac-truc-tiep-carstensz-esports-vs-kicked-luc-1200-ngay-27-07-2026-s0-1" tvg-name="[12:00 27/07/2026] Carstensz Esports vs Kicked [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/dota2/team/4wyrnxki864nm86/image/small",[12:00 27/07/2026] Carstensz Esports vs Kicked [FLV]
-#EXTVLCOPT:http-referrer=https://xlz.livepingscorex.com/ajax/chanel/type/7/link/channel73/off-tvc
-#EXTVLCOPT:http-origin=https://xlz.livepingscorex.com
+#EXTINF:-1 tvg-id="gavang-2608-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ GIỜ 28/07] UZB Super League - Neftchi Fergana VS Navbahor Namangan [BLV NGƯỜI PHÁO]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ GIỜ 28/07] UZB Super League - Neftchi Fergana VS Navbahor Namangan [BLV NGƯỜI PHÁO] [FLV]
+#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2608/neftchi-navbahor-uzbsup/?s8_live_fixture_id=2608&s8_live_stream_key=neftchi-navbahor-uzbsup&s8_auto_sound=1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.livepingscorex.com/ajax/chanel/type/7/link/channel73/off-tvc","Origin":"https://xlz.livepingscorex.com"}
-https://live1.streambylivepulse.com/live/channel73.flv?wsSecret=3d06a4b94c021b9cef3563ea5423242f&wsABSTime=1785171593
-#EXTINF:-1 tvg-id="xoilac-truc-tiep-chanmari-fc-vs-dinthar-fc-luc-1230-ngay-27-07-2026-s0-3" tvg-name="[12:30 27/07/2026] Chanmari Fc vs Dinthar Fc [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/football/team/318q66h01wzqo9j/image/small",[12:30 27/07/2026] Chanmari Fc vs Dinthar Fc [FLV]
-#EXTVLCOPT:http-referrer=https://xlz.livepingscorex.com/ajax/chanel/type/7/link/channel21/off-tvc
-#EXTVLCOPT:http-origin=https://xlz.livepingscorex.com
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.livepingscorex.com/ajax/chanel/type/7/link/channel21/off-tvc","Origin":"https://xlz.livepingscorex.com"}
-https://live1.streambylivepulse.com/live/channel21.flv?wsSecret=d37ab4cb95266b923769a5e4f097f7a5&wsABSTime=1785171609
-#EXTINF:-1 tvg-id="xoilac-uc-tiep-sikkim-police-vs-northerners-fc-luc-1230-ngay-27-07-2026-s0-2" tvg-name="[12:30 27/07/2026] Sikkim Police vs Northerners Fc [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/football/team/23xmvkhoyy2qg8n/image/small",[12:30 27/07/2026] Sikkim Police vs Northerners Fc [FLV]
-#EXTVLCOPT:http-referrer=https://xlz.livepingscorex.com/ajax/chanel/type/7/link/channel20/off-tvc
-#EXTVLCOPT:http-origin=https://xlz.livepingscorex.com
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.livepingscorex.com/ajax/chanel/type/7/link/channel20/off-tvc","Origin":"https://xlz.livepingscorex.com"}
-https://live1.streambylivepulse.com/live/channel20.flv?wsSecret=b48b52f959f65bd5f1df1628e2fafc43&wsABSTime=1785171601
-#EXTINF:-1 tvg-id="xoilac-truc-tiep-bnk-fearx-vs-gen-g-esports-luc-1300-ngay-27-07-2026-s1-5" tvg-name="[13:00 27/07/2026] Bnk Fearx vs Gen G Esports [BLV HD MARTY] [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/lol/team/965mk6zt7jezq1g/image/small",[13:00 27/07/2026] Bnk Fearx vs Gen G Esports [BLV HD MARTY] [FLV]
-#EXTVLCOPT:http-referrer=https://xlz.livepingscorex.com/ajax/chanel/type/5/link/channel30/off-tvc
-#EXTVLCOPT:http-origin=https://xlz.livepingscorex.com
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.livepingscorex.com/ajax/chanel/type/5/link/channel30/off-tvc","Origin":"https://xlz.livepingscorex.com"}
-https://live3.procdnlive.com/livecdn/channel30.flv?auth_key=3000001785128423-0-0-4ca2bc35459afff28e39be2384258195
-#EXTINF:-1 tvg-id="xoilac-truc-tiep-nu-kairat-almaty-vs-nu-ulytau-luc-1300-ngay-27-07-2026-s0-4" tvg-name="[13:00 27/07/2026] Nu Kairat Almaty vs Nu Ulytau [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/football/team/6ypq3nh1n0jmd7o/image/small",[13:00 27/07/2026] Nu Kairat Almaty vs Nu Ulytau [FLV]
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2608/neftchi-navbahor-uzbsup/?s8_live_fixture_id=2608&s8_live_stream_key=neftchi-navbahor-uzbsup&s8_auto_sound=1","Origin":"https://profecta.io"}
+https://flv.lauthaitv.cc/live/neftchi-navbahor-uzbsup.flv
+#EXTINF:-1 tvg-id="xoilac-iep-bulleen-lions-u23-vs-langwarrin-u23-luc-1515-ngay-27-07-2026-s0-1" tvg-name="[15:15 27/07/2026] Bulleen Lions U23 vs Langwarrin U23 [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/football/team/2y8m4zhzox5ql07/image/small",[15:15 27/07/2026] Bulleen Lions U23 vs Langwarrin U23 [FLV]
 #EXTVLCOPT:http-referrer=https://xlz.livepingscorex.com/ajax/chanel/type/7/link/channel30/off-tvc
 #EXTVLCOPT:http-origin=https://xlz.livepingscorex.com
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.livepingscorex.com/ajax/chanel/type/7/link/channel30/off-tvc","Origin":"https://xlz.livepingscorex.com"}
-https://live1.streambylivepulse.com/live/channel30.flv?wsSecret=075e10213b73bd5f964374189ebd66a8&wsABSTime=1785171616
+https://live1.streambylivepulse.com/live/channel30.flv?wsSecret=efdd6e0b781e516e323adf24e93e6b1b&wsABSTime=1785184212
+#EXTINF:-1 tvg-id="xoilac-truc-tiep-dplus-vs-t1-luc-1515-ngay-27-07-2026-s0-2" tvg-name="[15:15 27/07/2026] Dplus vs T1 [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/lol/team/23xmvxjt3nj2rg8/image/small",[15:15 27/07/2026] Dplus vs T1 [FLV]
+#EXTVLCOPT:http-referrer=https://xlz.livepingscorex.com/ajax/chanel/type/7/link/channel71/off-tvc
+#EXTVLCOPT:http-origin=https://xlz.livepingscorex.com
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.livepingscorex.com/ajax/chanel/type/7/link/channel71/off-tvc","Origin":"https://xlz.livepingscorex.com"}
+https://live1.streambylivepulse.com/live/channel71.flv?wsSecret=96e522f239de4e6ee1dbe475ea7b46c4&wsABSTime=1785184222
+#EXTINF:-1 tvg-id="xoilac-ruc-tiep-meycauayan-vs-mindoro-tamaraws-luc-1600-ngay-27-07-2026-s1-5" tvg-name="[16:00 27/07/2026] Meycauayan vs Mindoro Tamaraws [BLV HD ALAN] [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/basketball/team/3glrwytjz0vqdyj/image/small",[16:00 27/07/2026] Meycauayan vs Mindoro Tamaraws [BLV HD ALAN] [FLV]
+#EXTVLCOPT:http-referrer=https://xlz.livepingscorex.com/ajax/chanel/type/5/link/channel25/off-tvc
+#EXTVLCOPT:http-origin=https://xlz.livepingscorex.com
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.livepingscorex.com/ajax/chanel/type/5/link/channel25/off-tvc","Origin":"https://xlz.livepingscorex.com"}
+https://live3.procdnlive.com/livecdn/channel25.flv?auth_key=3000001785141047-0-0-75cf162a32266f9a2e9575a45714ab18
+#EXTINF:-1 tvg-id="xoilac-uc-tiep-nu-shan-utd-vs-nu-yangon-united-luc-1600-ngay-27-07-2026-s0-3" tvg-name="[16:00 27/07/2026] Nu Shan Utd vs Nu Yangon United [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/football/team/3glrw7hokj1qdyj/image/small",[16:00 27/07/2026] Nu Shan Utd vs Nu Yangon United [FLV]
+#EXTVLCOPT:http-referrer=https://xlz.livepingscorex.com/ajax/chanel/type/7/link/channel24/off-tvc
+#EXTVLCOPT:http-origin=https://xlz.livepingscorex.com
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.livepingscorex.com/ajax/chanel/type/7/link/channel24/off-tvc","Origin":"https://xlz.livepingscorex.com"}
+https://live1.streambylivepulse.com/live/channel24.flv?wsSecret=17dcdecd6f4cd2596a3cfe93175e51e0&wsABSTime=1785184231
+#EXTINF:-1 tvg-id="xoilac-truc-tiep-nu-son-la-vs-nu-ho-chi-minh-luc-1600-ngay-27-07-2026-s0-4" tvg-name="[16:00 27/07/2026] Nu Son La vs Nu Ho Chi Minh [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/football/team/y39mp1h5zy7mojx/image/small",[16:00 27/07/2026] Nu Son La vs Nu Ho Chi Minh [FLV]
+#EXTVLCOPT:http-referrer=https://xlz.livepingscorex.com/ajax/chanel/type/7/link/channel10/off-tvc
+#EXTVLCOPT:http-origin=https://xlz.livepingscorex.com
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.livepingscorex.com/ajax/chanel/type/7/link/channel10/off-tvc","Origin":"https://xlz.livepingscorex.com"}
+https://live1.streambylivepulse.com/live/channel10.flv?wsSecret=1272fec935eeb33046f08179acb7c2c2&wsABSTime=1785184240
