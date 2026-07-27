@@ -1,90 +1,8 @@
 {
   "version": 1,
   "source": "luongson",
-  "updated_at": "2026-07-28T01:21:14.377853+07:00",
+  "updated_at": "2026-07-28T03:02:38.904035+07:00",
   "matches": {
-    "46bd9a3f285a": {
-      "url": "https://faceswaponline.io/truc-tiep/luzern-vs-thun-vao-luc-0130-26-07-2026/?blv=359",
-      "match_name": "LUZERN vs THUN",
-      "kickoff_iso": "2026-07-26T01:30:00+07:00",
-      "minutes_to_kickoff": -94,
-      "last_scan_at": "2026-07-26T03:05:18.436260+07:00",
-      "next_scan_at": "2026-07-26T03:10:18.436260+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/LEO/index.m3u8?expire=1923642660&sign=58990a132e2f8d3f764c947b95b28af6"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "31f5326b4606": {
-      "url": "https://faceswaponline.io/truc-tiep/dinamo-bucuresti-vs-cs-universitatea-craiova-vao-luc-0130-26-07-2026/?blv=246",
-      "match_name": "Trực tiếp trận đấu Dinamo Bucuresti vs CS Universitatea Craiova",
-      "kickoff_iso": "2026-07-26T01:30:00+07:00",
-      "minutes_to_kickoff": 108,
-      "last_scan_at": "2026-07-25T23:43:56.246085+07:00",
-      "next_scan_at": "2026-07-26T00:03:56.246085+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
-    },
-    "4e14fd679175": {
-      "url": "https://faceswaponline.io/truc-tiep/sligo-rovers-vs-drogheda-united-vao-luc-0145-26-07-2026/?blv=324",
-      "match_name": "SLIGO ROVERS vs DROGHEDA UNITED",
-      "kickoff_iso": "2026-07-26T01:45:00+07:00",
-      "minutes_to_kickoff": -79,
-      "last_scan_at": "2026-07-26T03:05:18.436260+07:00",
-      "next_scan_at": "2026-07-26T03:10:18.436260+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/LYQUY/index.m3u8?expire=1891408380&sign=4eb9451ad0178fa8207d583db7d469e3"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "bfada524eaed": {
-      "url": "https://faceswaponline.io/truc-tiep/fc-porto-vs-aston-villa-vao-luc-0200-26-07-2026/?blv=374",
-      "match_name": "FC PORTO vs ASTON VILLA",
-      "kickoff_iso": "2026-07-26T02:00:00+07:00",
-      "minutes_to_kickoff": -64,
-      "last_scan_at": "2026-07-26T03:05:18.436260+07:00",
-      "next_scan_at": "2026-07-26T03:10:18.436260+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/NGUOITHEP/index.m3u8?expire=2556118740&sign=6d80f4e33c3761371f29a8ca0645fee5"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "e882fb9cbc5c": {
-      "url": "https://faceswaponline.io/truc-tiep/always-ready-vs-san-antonio-bulo-bulo-vao-luc-0200-26-07-2026/?blv=372",
-      "match_name": "ALWAYS READY vs SAN ANTONIO BULO BULO",
-      "kickoff_iso": "2026-07-26T02:00:00+07:00",
-      "minutes_to_kickoff": -64,
-      "last_scan_at": "2026-07-26T03:05:18.436260+07:00",
-      "next_scan_at": "2026-07-26T03:10:18.436260+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/LAOHAC/index.m3u8?expire=2556118740&sign=d7e003f1201f61166a559ac474dc7491"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "ee2fbbb2c393": {
-      "url": "https://faceswaponline.io/truc-tiep/newells-old-boys-vs-talleres-cordoba-vao-luc-0300-26-07-2026/?blv=292",
-      "match_name": "NEWELLS OLD BOYS vs TALLERES CORDOBA",
-      "kickoff_iso": "2026-07-26T03:00:00+07:00",
-      "minutes_to_kickoff": -74,
-      "last_scan_at": "2026-07-26T04:14:31.686585+07:00",
-      "next_scan_at": "2026-07-26T04:19:31.686585+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/LYUNG1/index.m3u8?expire=1788427256&sign=d5c6932fefdcb98268754f4ccd4aa45d"
-      ],
-      "scan_decision": "browser-fallback"
-    },
     "54fb15731c4f": {
       "url": "https://faceswaponline.io/truc-tiep/santos-vs-chapecoense-sc-vao-luc-0430-26-07-2026/?blv=379",
       "match_name": "SANTOS vs CHAPECOENSE SC",
@@ -1775,85 +1693,95 @@
       "url": "https://magicbeast.io/truc-tiep/cska-sofia-vs-botev-plovdiv-vao-luc-0115-28-07-2026/?blv=246",
       "match_name": "CSKA SOFIA vs BOTEV PLOVDIV",
       "kickoff_iso": "2026-07-28T01:15:00+07:00",
-      "minutes_to_kickoff": -3,
-      "last_scan_at": "2026-07-28T01:21:14.377271+07:00",
-      "next_scan_at": "2026-07-28T01:26:14.377271+07:00",
+      "minutes_to_kickoff": -106,
+      "last_scan_at": "2026-07-28T03:02:38.903673+07:00",
+      "next_scan_at": "2026-07-28T03:07:38.903673+07:00",
       "has_stream": true,
-      "has_verified": false,
-      "verified_urls": [],
+      "has_verified": true,
+      "verified_urls": [
+        "https://hls.cdnfaster-a.live/live/LUBO/index.m3u8?expire=1788427256&sign=fa2834495401eb5d1dc40ba2f3bd21c1"
+      ],
       "scan_decision": "browser-fallback"
     },
     "c3828e3743de": {
       "url": "https://magicbeast.io/truc-tiep/fc-botosani-vs-rapid-bucuresti-vao-luc-0130-28-07-2026/?blv=359",
       "match_name": "FC BOTOSANI vs RAPID BUCURESTI",
       "kickoff_iso": "2026-07-28T01:30:00+07:00",
-      "minutes_to_kickoff": 12,
-      "last_scan_at": "2026-07-28T01:21:14.377271+07:00",
-      "next_scan_at": "2026-07-28T01:26:14.377271+07:00",
+      "minutes_to_kickoff": -91,
+      "last_scan_at": "2026-07-28T03:02:38.903673+07:00",
+      "next_scan_at": "2026-07-28T03:07:38.903673+07:00",
       "has_stream": true,
-      "has_verified": false,
-      "verified_urls": [],
+      "has_verified": true,
+      "verified_urls": [
+        "https://hls.cdnfaster-a.live/live/LEO/index.m3u8?expire=1923642660&sign=58990a132e2f8d3f764c947b95b28af6"
+      ],
       "scan_decision": "browser-fallback"
     },
     "b0a61eb3c986": {
       "url": "https://magicbeast.io/truc-tiep/mushuc-runa-vs-libertad-fc-vao-luc-0200-28-07-2026/?blv=300",
       "match_name": "MUSHUC RUNA vs LIBERTAD FC",
       "kickoff_iso": "2026-07-28T02:00:00+07:00",
-      "minutes_to_kickoff": 42,
-      "last_scan_at": "2026-07-28T01:21:14.377271+07:00",
-      "next_scan_at": "2026-07-28T01:31:14.377271+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
+      "minutes_to_kickoff": -61,
+      "last_scan_at": "2026-07-28T03:02:38.903673+07:00",
+      "next_scan_at": "2026-07-28T03:07:38.903673+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://hls.cdnfaster-a.live/live/TONLAP/index.m3u8?expire=1788427256&sign=72cc58a29d787d621b0832b54e1a78df"
+      ],
       "scan_decision": "browser-fallback"
     },
     "f2205de2f1e0": {
       "url": "https://magicbeast.io/truc-tiep/san-jose-de-oruro-vs-universitario-de-vinto-vao-luc-0200-28-07-2026/?blv=379",
       "match_name": "SAN JOSE DE ORURO vs UNIVERSITARIO DE VINTO",
       "kickoff_iso": "2026-07-28T02:00:00+07:00",
-      "minutes_to_kickoff": 42,
-      "last_scan_at": "2026-07-28T01:21:14.377271+07:00",
-      "next_scan_at": "2026-07-28T01:31:14.377271+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
+      "minutes_to_kickoff": -61,
+      "last_scan_at": "2026-07-28T03:02:38.903673+07:00",
+      "next_scan_at": "2026-07-28T03:07:38.903673+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://hls.cdnfaster-a.live/live/HEINEKEN/index.m3u8?expire=2530639860&sign=03a2e74c3447f79f8c6e80a8fa2ee0b6"
+      ],
       "scan_decision": "browser-fallback"
     },
     "8417e4c2faef": {
       "url": "https://magicbeast.io/truc-tiep/ka-akureyri-vs-thor-akureyri-vao-luc-0215-28-07-2026/?blv=374",
-      "match_name": "Trực tiếp trận đấu KA Akureyri vs Thor Akureyri",
+      "match_name": "KA AKUREYRI vs THOR AKUREYRI",
       "kickoff_iso": "2026-07-28T02:15:00+07:00",
-      "minutes_to_kickoff": 57,
-      "last_scan_at": "2026-07-28T01:21:14.377271+07:00",
-      "next_scan_at": "2026-07-28T01:41:14.377271+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -46,
+      "last_scan_at": "2026-07-28T03:02:38.903673+07:00",
+      "next_scan_at": "2026-07-28T03:07:38.903673+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://hls.cdnfaster-a.live/live/NGUOITHEP/index.m3u8?expire=2556118740&sign=6d80f4e33c3761371f29a8ca0645fee5"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "8164d2d6cf94": {
       "url": "https://magicbeast.io/truc-tiep/ivory-coast-w-vs-burkina-faso-w-vao-luc-0300-28-07-2026/?blv=292",
-      "match_name": "Trực tiếp trận đấu Ivory Coast (W) vs Burkina Faso (W)",
+      "match_name": "IVORY COAST (W) vs BURKINA FASO (W)",
       "kickoff_iso": "2026-07-28T03:00:00+07:00",
-      "minutes_to_kickoff": 102,
-      "last_scan_at": "2026-07-28T01:21:14.377271+07:00",
-      "next_scan_at": "2026-07-28T01:41:14.377271+07:00",
-      "has_stream": false,
+      "minutes_to_kickoff": -1,
+      "last_scan_at": "2026-07-28T03:02:38.903673+07:00",
+      "next_scan_at": "2026-07-28T03:07:38.903673+07:00",
+      "has_stream": true,
       "has_verified": false,
       "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "scan_decision": "browser-fallback"
     },
     "080f61c54cf9": {
       "url": "https://magicbeast.io/truc-tiep/envigado-fc-vs-real-soacha-cundinamarca-vao-luc-0330-28-07-2026/?blv=324",
-      "match_name": "Trực tiếp trận đấu Envigado FC vs Real Soacha Cundinamarca",
+      "match_name": "ENVIGADO FC vs REAL SOACHA CUNDINAMARCA",
       "kickoff_iso": "2026-07-28T03:30:00+07:00",
-      "minutes_to_kickoff": 132,
-      "last_scan_at": "2026-07-28T01:21:14.377271+07:00",
-      "next_scan_at": "2026-07-28T02:06:14.377271+07:00",
-      "has_stream": false,
+      "minutes_to_kickoff": 29,
+      "last_scan_at": "2026-07-28T03:02:38.903673+07:00",
+      "next_scan_at": "2026-07-28T03:12:38.903673+07:00",
+      "has_stream": true,
       "has_verified": false,
       "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "scan_decision": "browser-fallback"
     },
     "d704f2780f05": {
       "url": "https://magicbeast.io/truc-tiep/boca-juniors-w-vs-san-lorenzo-w-vao-luc-0100-28-07-2026/?blv=380",
@@ -1873,9 +1801,105 @@
       "url": "https://magicbeast.io/truc-tiep/guayaquil-city-vs-universidad-catolica-vao-luc-0430-28-07-2026/?blv=379",
       "match_name": "Trực tiếp trận đấu Guayaquil City vs Universidad Catolica",
       "kickoff_iso": "2026-07-28T04:30:00+07:00",
-      "minutes_to_kickoff": 192,
-      "last_scan_at": "2026-07-28T01:21:14.377271+07:00",
-      "next_scan_at": "2026-07-28T02:06:14.377271+07:00",
+      "minutes_to_kickoff": 89,
+      "last_scan_at": "2026-07-28T03:02:38.903673+07:00",
+      "next_scan_at": "2026-07-28T03:22:38.903673+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "032c3c4f9a8c": {
+      "url": "https://magicbeast.io/truc-tiep/atletico-clube-goianiense-vs-operario-ferroviario-pr-vao-luc-0530-28-07-2026/?blv=374",
+      "match_name": "Trực tiếp trận đấu Atletico Clube Goianiense vs Operario Ferroviario PR",
+      "kickoff_iso": "2026-07-28T05:30:00+07:00",
+      "minutes_to_kickoff": 149,
+      "last_scan_at": "2026-07-28T03:02:38.903673+07:00",
+      "next_scan_at": "2026-07-28T03:47:38.903673+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "cf28ac0220f1": {
+      "url": "https://magicbeast.io/truc-tiep/crb-al-vs-vila-nova-vao-luc-0530-28-07-2026/?blv=253",
+      "match_name": "Trực tiếp trận đấu CRB AL vs Vila Nova",
+      "kickoff_iso": "2026-07-28T05:30:00+07:00",
+      "minutes_to_kickoff": 149,
+      "last_scan_at": "2026-07-28T03:02:38.903673+07:00",
+      "next_scan_at": "2026-07-28T03:47:38.903673+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "c3fe15b0c26b": {
+      "url": "https://magicbeast.io/truc-tiep/sport-club-do-recife-vs-cuiaba-vao-luc-0530-28-07-2026/?blv=324",
+      "match_name": "Trực tiếp trận đấu Sport Club do Recife vs Cuiaba",
+      "kickoff_iso": "2026-07-28T05:30:00+07:00",
+      "minutes_to_kickoff": 149,
+      "last_scan_at": "2026-07-28T03:02:38.903673+07:00",
+      "next_scan_at": "2026-07-28T03:47:38.903673+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "a24a7c0cefa0": {
+      "url": "https://magicbeast.io/truc-tiep/guarani-sp-vs-inter-de-limeira-vao-luc-0600-28-07-2026/?blv=298",
+      "match_name": "Trực tiếp trận đấu Guarani SP vs Inter de Limeira",
+      "kickoff_iso": "2026-07-28T06:00:00+07:00",
+      "minutes_to_kickoff": 179,
+      "last_scan_at": "2026-07-28T03:02:38.903673+07:00",
+      "next_scan_at": "2026-07-28T03:47:38.903673+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "ccb1e8514e0c": {
+      "url": "https://magicbeast.io/truc-tiep/antigua-barbuda-u20-vs-guatemala-u20-vao-luc-0600-28-07-2026/?blv=269",
+      "match_name": "Trực tiếp trận đấu Antigua Barbuda U20 vs Guatemala U20",
+      "kickoff_iso": "2026-07-28T06:00:00+07:00",
+      "minutes_to_kickoff": 179,
+      "last_scan_at": "2026-07-28T03:02:38.903673+07:00",
+      "next_scan_at": "2026-07-28T03:47:38.903673+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "8cc29a2aaade": {
+      "url": "https://magicbeast.io/truc-tiep/union-la-calera-vs-everton-cd-vao-luc-0600-28-07-2026/?blv=218",
+      "match_name": "Trực tiếp trận đấu Union La Calera vs Everton CD",
+      "kickoff_iso": "2026-07-28T06:00:00+07:00",
+      "minutes_to_kickoff": 179,
+      "last_scan_at": "2026-07-28T03:02:38.903673+07:00",
+      "next_scan_at": "2026-07-28T03:47:38.903673+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "7a989cd36bdc": {
+      "url": "https://magicbeast.io/truc-tiep/atletico-atlanta-vs-almagro-vao-luc-0600-28-07-2026/?blv=320",
+      "match_name": "Trực tiếp trận đấu Atletico Atlanta vs Almagro",
+      "kickoff_iso": "2026-07-28T06:00:00+07:00",
+      "minutes_to_kickoff": 179,
+      "last_scan_at": "2026-07-28T03:02:38.903673+07:00",
+      "next_scan_at": "2026-07-28T03:47:38.903673+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "0336960124b2": {
+      "url": "https://magicbeast.io/truc-tiep/leones-de-ponce-vs-aguada-santeros-vao-luc-0700-28-07-2026/?blv=328",
+      "match_name": "Trực tiếp trận đấu Leones De Ponce vs Aguada Santeros",
+      "kickoff_iso": "2026-07-28T07:00:00+07:00",
+      "minutes_to_kickoff": 239,
+      "last_scan_at": "2026-07-28T03:02:38.903673+07:00",
+      "next_scan_at": "2026-07-28T03:47:38.903673+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
