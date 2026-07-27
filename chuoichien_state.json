@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-27T23:38:34.707274+07:00",
+  "updated_at": "2026-07-28T01:18:16.676174+07:00",
   "matches": {
     "1589304": {
       "url": "https://live04.chuoichientv.me/live/1589304/fc-porto-vs-aston-villa",
@@ -29,20 +29,6 @@
       "has_verified": false,
       "verified_urls": [],
       "scan_decision": "http-only-far-upcoming"
-    },
-    "1561338": {
-      "url": "https://live04.chuoichientv.me/live/1561338/spartak-moscow-vs-rodina-moskva",
-      "match_name": "Spartak Moscow vs Rodina Moskva - Ngoại Hạng Nga",
-      "kickoff_iso": "2026-07-26T00:45:00+07:00",
-      "minutes_to_kickoff": -61,
-      "last_scan_at": "2026-07-26T01:46:09.692251+07:00",
-      "next_scan_at": "2026-07-26T01:51:09.692251+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoinho.flv"
-      ],
-      "scan_decision": "browser-fallback"
     },
     "1589332": {
       "url": "https://live04.chuoichientv.me/live/1589332/liverpool-vs-sunderland",
@@ -492,14 +478,12 @@
       "url": "https://live04.chuoichientv.me/live/1551058/dunav-ruse-vs-ludogorets",
       "match_name": "Dunav Ruse vs Ludogorets - VĐQG Bulgaria",
       "kickoff_iso": "2026-07-27T23:00:00+07:00",
-      "minutes_to_kickoff": -38,
-      "last_scan_at": "2026-07-27T23:38:34.707197+07:00",
-      "next_scan_at": "2026-07-27T23:43:34.707197+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoichao.flv"
-      ],
+      "minutes_to_kickoff": -138,
+      "last_scan_at": "2026-07-28T01:18:16.676111+07:00",
+      "next_scan_at": "2026-07-28T01:23:16.676111+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
       "scan_decision": "browser-fallback"
     }
   }
