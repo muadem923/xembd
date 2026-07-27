@@ -1,22 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-27T21:05:47.114070+07:00",
+  "updated_at": "2026-07-27T23:38:34.707274+07:00",
   "matches": {
-    "1561334": {
-      "url": "https://live04.chuoichientv.me/live/1561334/fakel-vs-makhachkala",
-      "match_name": "Fakel vs Makhachkala - Ngoại Hạng Nga",
-      "kickoff_iso": "2026-07-25T22:30:00+07:00",
-      "minutes_to_kickoff": -72,
-      "last_scan_at": "2026-07-25T23:42:44.214779+07:00",
-      "next_scan_at": "2026-07-25T23:47:44.214779+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoichao.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
     "1589304": {
       "url": "https://live04.chuoichientv.me/live/1589304/fc-porto-vs-aston-villa",
       "match_name": "FC Porto vs Aston Villa - Giao Hữu Câu Lạc Bộ",
@@ -462,51 +448,59 @@
     },
     "1516073": {
       "url": "https://live04.chuoichientv.me/live/1516073/andijan-vs-buxoro",
-      "match_name": "andijan vs buxoro",
+      "match_name": "Andijan vs Buxoro - VĐQG Uzbekistan",
       "kickoff_iso": "2026-07-27T22:00:00+07:00",
-      "minutes_to_kickoff": 55,
-      "last_scan_at": "2026-07-27T21:05:47.113945+07:00",
-      "next_scan_at": "2026-07-27T21:25:47.113945+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -98,
+      "last_scan_at": "2026-07-27T23:38:34.707197+07:00",
+      "next_scan_at": "2026-07-27T23:43:34.707197+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoito.flv"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "1516076": {
       "url": "https://live04.chuoichientv.me/live/1516076/lokomotiv-vs-sogdiana",
-      "match_name": "lokomotiv vs sogdiana",
+      "match_name": "Lokomotiv vs Sogdiana - VĐQG Uzbekistan",
       "kickoff_iso": "2026-07-27T22:00:00+07:00",
-      "minutes_to_kickoff": 55,
-      "last_scan_at": "2026-07-27T21:05:47.113945+07:00",
-      "next_scan_at": "2026-07-27T21:25:47.113945+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -98,
+      "last_scan_at": "2026-07-27T23:38:34.707197+07:00",
+      "next_scan_at": "2026-07-27T23:43:34.707197+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoinho.flv"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "1565191": {
       "url": "https://live04.chuoichientv.me/live/1565191/cfr-cluj-vs-fc-voluntari",
-      "match_name": "cfr cluj vs fc voluntari",
+      "match_name": "CFR Cluj vs FC Voluntari - VĐQG Roma",
       "kickoff_iso": "2026-07-27T22:30:00+07:00",
-      "minutes_to_kickoff": 85,
-      "last_scan_at": "2026-07-27T21:05:47.113945+07:00",
-      "next_scan_at": "2026-07-27T21:25:47.113945+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -68,
+      "last_scan_at": "2026-07-27T23:38:34.707197+07:00",
+      "next_scan_at": "2026-07-27T23:43:34.707197+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/angao/playlist.m3u8"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "1551058": {
       "url": "https://live04.chuoichientv.me/live/1551058/dunav-ruse-vs-ludogorets",
-      "match_name": "dunav ruse vs ludogorets",
+      "match_name": "Dunav Ruse vs Ludogorets - VĐQG Bulgaria",
       "kickoff_iso": "2026-07-27T23:00:00+07:00",
-      "minutes_to_kickoff": 115,
-      "last_scan_at": "2026-07-27T21:05:47.113945+07:00",
-      "next_scan_at": "2026-07-27T21:25:47.113945+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -38,
+      "last_scan_at": "2026-07-27T23:38:34.707197+07:00",
+      "next_scan_at": "2026-07-27T23:43:34.707197+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoichao.flv"
+      ],
+      "scan_decision": "browser-fallback"
     }
   }
 }
