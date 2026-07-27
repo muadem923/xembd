@@ -1,112 +1,8 @@
 {
   "version": 1,
   "source": "luongson",
-  "updated_at": "2026-07-27T15:31:42.447335+07:00",
+  "updated_at": "2026-07-27T18:52:17.919744+07:00",
   "matches": {
-    "80eceb103228": {
-      "url": "https://faceswaponline.io/truc-tiep/qingdao-manatee-vs-tianjin-tigers-vao-luc-1630-25-07-2026/?blv=135",
-      "match_name": "QINGDAO MANATEE vs TIANJIN TIGERS",
-      "kickoff_iso": "2026-07-25T16:30:00+07:00",
-      "minutes_to_kickoff": -80,
-      "last_scan_at": "2026-07-25T17:53:00.741872+07:00",
-      "next_scan_at": "2026-07-25T17:58:00.741872+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/LUUBI/index.m3u8?expire=1788427256&sign=e15f8b184dc9c61cc5dacfd962841ae1"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "b095ce8dcc7e": {
-      "url": "https://faceswaponline.io/truc-tiep/myanmar-vs-malaysia-vao-luc-1700-25-07-2026/?blv=320",
-      "match_name": "MYANMAR vs MALAYSIA",
-      "kickoff_iso": "2026-07-25T17:00:00+07:00",
-      "minutes_to_kickoff": -116,
-      "last_scan_at": "2026-07-25T18:58:49.794783+07:00",
-      "next_scan_at": "2026-07-25T19:03:49.794783+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/YENTHANH1/index.m3u8?expire=1788427256&sign=a79cc8d996707223a0011d33d04d4582"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "4378829aae6f": {
-      "url": "https://faceswaponline.io/truc-tiep/pohang-steelers-vs-jeonbuk-hyundai-motors-vao-luc-1730-25-07-2026/?blv=246",
-      "match_name": "POHANG STEELERS vs JEONBUK HYUNDAI MOTORS",
-      "kickoff_iso": "2026-07-25T17:30:00+07:00",
-      "minutes_to_kickoff": -86,
-      "last_scan_at": "2026-07-25T18:58:49.794783+07:00",
-      "next_scan_at": "2026-07-25T19:03:49.794783+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/LUBO/index.m3u8?expire=1788427256&sign=fa2834495401eb5d1dc40ba2f3bd21c1"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "8c78b2ad6229": {
-      "url": "https://faceswaponline.io/truc-tiep/gimcheon-sangmu-fc-vs-daejeon-citizen-vao-luc-1730-25-07-2026/?blv=380",
-      "match_name": "GIMCHEON SANGMU FC vs DAEJEON CITIZEN",
-      "kickoff_iso": "2026-07-25T17:30:00+07:00",
-      "minutes_to_kickoff": -86,
-      "last_scan_at": "2026-07-25T18:58:49.794783+07:00",
-      "next_scan_at": "2026-07-25T19:03:49.794783+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/LIO/index.m3u8?expire=1923141900&sign=fff7ab29620de2a54fba04f5f3ca246a"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "d67319606c9e": {
-      "url": "https://faceswaponline.io/truc-tiep/fortuna-dusseldorf-vs-borussia-dortmund-vao-luc-1800-25-07-2026/?blv=383",
-      "match_name": "FORTUNA DUSSELDORF vs BORUSSIA DORTMUND",
-      "kickoff_iso": "2026-07-25T18:00:00+07:00",
-      "minutes_to_kickoff": -114,
-      "last_scan_at": "2026-07-25T19:57:20.522470+07:00",
-      "next_scan_at": "2026-07-25T20:02:20.522470+07:00",
-      "has_stream": true,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "browser-fallback"
-    },
-    "2341a1890e7f": {
-      "url": "https://faceswaponline.io/truc-tiep/gateshead-vs-newcastle-united-vao-luc-1830-25-07-2026/?blv=328",
-      "match_name": "GATESHEAD vs NEWCASTLE UNITED",
-      "kickoff_iso": "2026-07-25T18:30:00+07:00",
-      "minutes_to_kickoff": 40,
-      "last_scan_at": "2026-07-25T17:53:00.741872+07:00",
-      "next_scan_at": "2026-07-25T18:03:00.741872+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "browser-fallback"
-    },
-    "d3d70587fa17": {
-      "url": "https://faceswaponline.io/truc-tiep/shanghai-port-vs-shanghai-shenhua-vao-luc-1835-25-07-2026/?blv=269",
-      "match_name": "SHANGHAI PORT vs SHANGHAI SHENHUA",
-      "kickoff_iso": "2026-07-25T18:35:00+07:00",
-      "minutes_to_kickoff": -79,
-      "last_scan_at": "2026-07-25T19:57:20.522470+07:00",
-      "next_scan_at": "2026-07-25T20:02:20.522470+07:00",
-      "has_stream": true,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "browser-fallback"
-    },
-    "8ed9dbcda34d": {
-      "url": "https://faceswaponline.io/truc-tiep/liaoning-tieren-vs-qingdao-west-coast-vao-luc-1835-25-07-2026/?blv=292",
-      "match_name": "LIAONING TIEREN vs QINGDAO WEST COAST",
-      "kickoff_iso": "2026-07-25T18:35:00+07:00",
-      "minutes_to_kickoff": -79,
-      "last_scan_at": "2026-07-25T19:57:20.522470+07:00",
-      "next_scan_at": "2026-07-25T20:02:20.522470+07:00",
-      "has_stream": true,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "browser-fallback"
-    },
     "8ddeac69b905": {
       "url": "https://faceswaponline.io/truc-tiep/wuhan-three-towns-vs-chongqing-tonglianglong-vao-luc-1900-25-07-2026/?blv=300",
       "match_name": "WUHAN THREE TOWNS vs CHONGQING TONGLIANGLONG",
@@ -168,20 +64,6 @@
       "has_verified": true,
       "verified_urls": [
         "https://hls.cdnfaster-a.live/live/TAYMONKHANH/index.m3u8?expire=1788427256&sign=b79b5be508185d24f76a0b1effca53da"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "22159384fc5c": {
-      "url": "https://faceswaponline.io/truc-tiep/dynamo-moscow-vs-krylya-sovetov-vao-luc-1800-25-07-2026/?blv=372",
-      "match_name": "DYNAMO MOSCOW vs KRYLYA SOVETOV",
-      "kickoff_iso": "2026-07-25T18:00:00+07:00",
-      "minutes_to_kickoff": -56,
-      "last_scan_at": "2026-07-25T18:58:49.794783+07:00",
-      "next_scan_at": "2026-07-25T19:03:49.794783+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/LAOHAC/index.m3u8?expire=2556118740&sign=d7e003f1201f61166a559ac474dc7491"
       ],
       "scan_decision": "browser-fallback"
     },
@@ -265,18 +147,6 @@
       "verified_urls": [
         "https://hls.cdnfaster-a.live/live/TAOTHAO/index.m3u8?expire=1917964380&sign=6379fc6251248341f0547089859f8ee9"
       ],
-      "scan_decision": "browser-fallback"
-    },
-    "fb4575495ae2": {
-      "url": "https://faceswaponline.io/truc-tiep/heidenheimer-vs-hamburger-sv-vao-luc-1830-25-07-2026/?blv=328",
-      "match_name": "HEIDENHEIMER vs HAMBURGER SV",
-      "kickoff_iso": "2026-07-25T18:30:00+07:00",
-      "minutes_to_kickoff": -84,
-      "last_scan_at": "2026-07-25T19:57:20.522470+07:00",
-      "next_scan_at": "2026-07-25T20:02:20.522470+07:00",
-      "has_stream": true,
-      "has_verified": false,
-      "verified_urls": [],
       "scan_decision": "browser-fallback"
     },
     "361c87b5474d": {
@@ -1907,39 +1777,39 @@
     },
     "68148d7cb28e": {
       "url": "https://magicbeast.io/truc-tiep/qingdao-red-lions-vs-bei-li-gong-vao-luc-1730-27-07-2026/?blv=246",
-      "match_name": "Trực tiếp trận đấu Qingdao Red Lions vs Bei Li Gong",
+      "match_name": "QINGDAO RED LIONS vs BEI LI GONG",
       "kickoff_iso": "2026-07-27T17:30:00+07:00",
-      "minutes_to_kickoff": 120,
-      "last_scan_at": "2026-07-27T15:31:42.446229+07:00",
-      "next_scan_at": "2026-07-27T15:51:42.446229+07:00",
-      "has_stream": false,
+      "minutes_to_kickoff": -82,
+      "last_scan_at": "2026-07-27T18:52:17.919460+07:00",
+      "next_scan_at": "2026-07-27T18:57:17.919460+07:00",
+      "has_stream": true,
       "has_verified": false,
       "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "scan_decision": "browser-fallback"
     },
     "e1ee6ffaf380": {
       "url": "https://magicbeast.io/truc-tiep/zhejiang-greentown-u21-vs-guangdong-guangzhou-power-u21-vao-luc-1800-27-07-2026/?blv=380",
-      "match_name": "Trực tiếp trận đấu Zhejiang Greentown U21 vs Guangdong Guangzhou Power U21",
+      "match_name": "ZHEJIANG GREENTOWN U21 vs GUANGDONG GUANGZHOU POWER U21",
       "kickoff_iso": "2026-07-27T18:00:00+07:00",
-      "minutes_to_kickoff": 150,
-      "last_scan_at": "2026-07-27T15:31:42.446229+07:00",
-      "next_scan_at": "2026-07-27T16:16:42.446229+07:00",
-      "has_stream": false,
+      "minutes_to_kickoff": -52,
+      "last_scan_at": "2026-07-27T18:52:17.919460+07:00",
+      "next_scan_at": "2026-07-27T18:57:17.919460+07:00",
+      "has_stream": true,
       "has_verified": false,
       "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "scan_decision": "browser-fallback"
     },
     "44d9e32ad5ea": {
-      "url": "https://magicbeast.io/truc-tiep/singapore-vs-timor-leste-vao-luc-1800-27-07-2026/?blv=315",
-      "match_name": "Trực tiếp trận đấu Singapore vs Timor Leste",
+      "url": "https://magicbeast.io/truc-tiep/singapore-vs-timor-leste-vao-luc-1800-27-07-2026/?blv=298",
+      "match_name": "SINGAPORE vs TIMOR LESTE",
       "kickoff_iso": "2026-07-27T18:00:00+07:00",
-      "minutes_to_kickoff": 150,
-      "last_scan_at": "2026-07-27T15:31:42.446229+07:00",
-      "next_scan_at": "2026-07-27T16:16:42.446229+07:00",
-      "has_stream": false,
+      "minutes_to_kickoff": -52,
+      "last_scan_at": "2026-07-27T18:52:17.919460+07:00",
+      "next_scan_at": "2026-07-27T18:57:17.919460+07:00",
+      "has_stream": true,
       "has_verified": false,
       "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "scan_decision": "browser-fallback"
     },
     "92312e2ac6d0": {
       "url": "https://magicbeast.io/truc-tiep/binan-tatak-gel-vs-valenzuela-city-darkhorse-vao-luc-1400-27-07-2026/?blv=328",
@@ -1976,6 +1846,126 @@
       "has_verified": false,
       "verified_urls": [],
       "scan_decision": "browser-fallback"
+    },
+    "1af7f99cf1c1": {
+      "url": "https://magicbeast.io/truc-tiep/ordabasy-shymkent-w-vs-kaisar-kyzylorda-w-vao-luc-2000-27-07-2026/?blv=368",
+      "match_name": "Trực tiếp trận đấu Ordabasy Shymkent (W) vs Kaisar Kyzylorda (W)",
+      "kickoff_iso": "2026-07-27T20:00:00+07:00",
+      "minutes_to_kickoff": 68,
+      "last_scan_at": "2026-07-27T18:52:17.919460+07:00",
+      "next_scan_at": "2026-07-27T19:12:17.919460+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "41f905a2b6f1": {
+      "url": "https://magicbeast.io/truc-tiep/tukums-2000-vs-fk-rigas-futbola-skola-vao-luc-2200-27-07-2026/?blv=368",
+      "match_name": "Trực tiếp trận đấu Tukums-2000 vs FK Rigas Futbola skola",
+      "kickoff_iso": "2026-07-27T22:00:00+07:00",
+      "minutes_to_kickoff": 188,
+      "last_scan_at": "2026-07-27T18:52:17.919460+07:00",
+      "next_scan_at": "2026-07-27T19:37:17.919460+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "42d179af0961": {
+      "url": "https://magicbeast.io/truc-tiep/indonesia-vs-cambodia-vao-luc-2030-27-07-2026/?blv=383",
+      "match_name": "Trực tiếp trận đấu Indonesia vs Cambodia",
+      "kickoff_iso": "2026-07-27T20:30:00+07:00",
+      "minutes_to_kickoff": 98,
+      "last_scan_at": "2026-07-27T18:52:17.919460+07:00",
+      "next_scan_at": "2026-07-27T19:12:17.919460+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "f178745f5ce3": {
+      "url": "https://magicbeast.io/truc-tiep/fk-valmiera-vs-riga-fc-ii-vao-luc-2200-27-07-2026/?blv=269",
+      "match_name": "Trực tiếp trận đấu FK Valmiera vs Riga FC II",
+      "kickoff_iso": "2026-07-27T22:00:00+07:00",
+      "minutes_to_kickoff": 188,
+      "last_scan_at": "2026-07-27T18:52:17.919460+07:00",
+      "next_scan_at": "2026-07-27T19:37:17.919460+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "510b470454e8": {
+      "url": "https://magicbeast.io/truc-tiep/fk-zhenys-w-vs-yelimay-semey-w-vao-luc-2200-27-07-2026/?blv=380",
+      "match_name": "Trực tiếp trận đấu FK Zhenys (W) vs Yelimay Semey W",
+      "kickoff_iso": "2026-07-27T22:00:00+07:00",
+      "minutes_to_kickoff": 188,
+      "last_scan_at": "2026-07-27T18:52:17.919460+07:00",
+      "next_scan_at": "2026-07-27T19:37:17.919460+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "78d15039ee77": {
+      "url": "https://magicbeast.io/truc-tiep/lokomotiv-tashkent-vs-sogdiana-jizak-vao-luc-2200-27-07-2026/?blv=320",
+      "match_name": "Trực tiếp trận đấu Lokomotiv Tashkent vs Sogdiana Jizak",
+      "kickoff_iso": "2026-07-27T22:00:00+07:00",
+      "minutes_to_kickoff": 188,
+      "last_scan_at": "2026-07-27T18:52:17.919460+07:00",
+      "next_scan_at": "2026-07-27T19:37:17.919460+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "028f6a8ae8dd": {
+      "url": "https://magicbeast.io/truc-tiep/fk-andijon-vs-buxoro-fk-vao-luc-2200-27-07-2026/?blv=315",
+      "match_name": "Trực tiếp trận đấu FK Andijon vs Buxoro FK",
+      "kickoff_iso": "2026-07-27T22:00:00+07:00",
+      "minutes_to_kickoff": 188,
+      "last_scan_at": "2026-07-27T18:52:17.919460+07:00",
+      "next_scan_at": "2026-07-27T19:37:17.919460+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "152497ddfc60": {
+      "url": "https://magicbeast.io/truc-tiep/otmk-olmaliq-vs-mashal-muborak-vao-luc-2200-27-07-2026/?blv=359",
+      "match_name": "Trực tiếp trận đấu OTMK Olmaliq vs Mashal Muborak",
+      "kickoff_iso": "2026-07-27T22:00:00+07:00",
+      "minutes_to_kickoff": 188,
+      "last_scan_at": "2026-07-27T18:52:17.919460+07:00",
+      "next_scan_at": "2026-07-27T19:37:17.919460+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "d3670087ce89": {
+      "url": "https://magicbeast.io/truc-tiep/cfr-cluj-vs-fc-voluntari-vao-luc-2230-27-07-2026/?blv=218",
+      "match_name": "Trực tiếp trận đấu CFR Cluj vs FC Voluntari",
+      "kickoff_iso": "2026-07-27T22:30:00+07:00",
+      "minutes_to_kickoff": 218,
+      "last_scan_at": "2026-07-27T18:52:17.919460+07:00",
+      "next_scan_at": "2026-07-27T19:37:17.919460+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "b3e9a4c65807": {
+      "url": "https://magicbeast.io/truc-tiep/hegelmann-litauen-vs-fk-zalgiris-vilnius-vao-luc-2245-27-07-2026/?blv=372",
+      "match_name": "Trực tiếp trận đấu Hegelmann Litauen vs FK Zalgiris Vilnius",
+      "kickoff_iso": "2026-07-27T22:45:00+07:00",
+      "minutes_to_kickoff": 233,
+      "last_scan_at": "2026-07-27T18:52:17.919460+07:00",
+      "next_scan_at": "2026-07-27T19:37:17.919460+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
     }
   }
 }
