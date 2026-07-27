@@ -1,92 +1,8 @@
 {
   "version": 1,
   "source": "luongson",
-  "updated_at": "2026-07-27T08:09:00.649598+07:00",
+  "updated_at": "2026-07-27T12:00:16.483279+07:00",
   "matches": {
-    "20ef7f02a782": {
-      "url": "https://faceswaponline.io/truc-tiep/deportivo-cali-vs-jaguares-de-cordoba-vao-luc-0815-25-07-2026/?blv=269",
-      "match_name": "DEPORTIVO CALI vs JAGUARES DE CORDOBA",
-      "kickoff_iso": "2026-07-25T08:15:00+07:00",
-      "minutes_to_kickoff": -6,
-      "last_scan_at": "2026-07-25T08:22:42.453639+07:00",
-      "next_scan_at": "2026-07-25T08:27:42.453639+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/MASIEU/index.m3u8?expire=1788427256&sign=b91fcfc36fe72375e8f8cc813de0220b"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "e6fd1bfec096": {
-      "url": "https://faceswaponline.io/truc-tiep/vancouver-fc-vs-cavalry-fc-vao-luc-0900-25-07-2026/?blv=253",
-      "match_name": "VANCOUVER FC vs CAVALRY FC",
-      "kickoff_iso": "2026-07-25T09:00:00+07:00",
-      "minutes_to_kickoff": 39,
-      "last_scan_at": "2026-07-25T08:22:42.453639+07:00",
-      "next_scan_at": "2026-07-25T08:32:42.453639+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/NGUCA/index.m3u8?expire=1788427256&sign=abf9c93edd0de1c833f9ffc14381d526"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "014617a3b03b": {
-      "url": "https://faceswaponline.io/truc-tiep/cf-atlante-vs-club-america-vao-luc-1000-25-07-2026/?blv=135",
-      "match_name": "CF ATLANTE vs CLUB AMERICA",
-      "kickoff_iso": "2026-07-25T10:00:00+07:00",
-      "minutes_to_kickoff": -97,
-      "last_scan_at": "2026-07-25T11:37:41.325016+07:00",
-      "next_scan_at": "2026-07-25T11:42:41.325016+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/LUUBI/index.m3u8?expire=1788427256&sign=e15f8b184dc9c61cc5dacfd962841ae1"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "e58cbc250f8f": {
-      "url": "https://faceswaponline.io/truc-tiep/club-tijuana-vs-club-leon-vao-luc-1000-25-07-2026/?blv=218",
-      "match_name": "CLUB TIJUANA vs CLUB LEON",
-      "kickoff_iso": "2026-07-25T10:00:00+07:00",
-      "minutes_to_kickoff": -97,
-      "last_scan_at": "2026-07-25T11:37:41.325016+07:00",
-      "next_scan_at": "2026-07-25T11:42:41.325016+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/KAKA/index.m3u8?expire=1788427256&sign=c34e1c9b22c9ced94eca7e7bf7a81ae6"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "8becbc03cc67": {
-      "url": "https://faceswaponline.io/truc-tiep/wellington-saints-vs-southland-sharks-vao-luc-1100-25-07-2026/?blv=320",
-      "match_name": "WELLINGTON SAINTS vs SOUTHLAND SHARKS",
-      "kickoff_iso": "2026-07-25T11:00:00+07:00",
-      "minutes_to_kickoff": -37,
-      "last_scan_at": "2026-07-25T11:37:41.325016+07:00",
-      "next_scan_at": "2026-07-25T11:42:41.325016+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/YENTHANH1/index.m3u8?expire=1788427256&sign=a79cc8d996707223a0011d33d04d4582"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "92542311f294": {
-      "url": "https://faceswaponline.io/truc-tiep/melbourne-heart-youth-vs-avondale-fc-vao-luc-1200-25-07-2026/?blv=253",
-      "match_name": "MELBOURNE HEART (YOUTH) vs AVONDALE FC",
-      "kickoff_iso": "2026-07-25T12:00:00+07:00",
-      "minutes_to_kickoff": 23,
-      "last_scan_at": "2026-07-25T11:37:41.325016+07:00",
-      "next_scan_at": "2026-07-25T11:42:41.325016+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://hls.cdnfaster-a.live/live/NGUCA/index.m3u8?expire=1788427256&sign=abf9c93edd0de1c833f9ffc14381d526"
-      ],
-      "scan_decision": "browser-fallback"
-    },
     "25bb1b7005cd": {
       "url": "https://faceswaponline.io/truc-tiep/maitland-vs-broadmeadow-magic-vao-luc-1330-25-07-2026/?blv=298",
       "match_name": "MAITLAND vs BROADMEADOW MAGIC",
@@ -2084,6 +2000,18 @@
       "has_verified": false,
       "verified_urls": [],
       "scan_decision": "http-only-far-upcoming"
+    },
+    "6f9490e7b0b6": {
+      "url": "https://beastkingdom.io/truc-tiep/phap-vs-macroc-vao-luc-1100-27-07-2026/?blv=359",
+      "match_name": "PHÁP vs MACROC",
+      "kickoff_iso": "2026-07-27T11:00:00+07:00",
+      "minutes_to_kickoff": -60,
+      "last_scan_at": "2026-07-27T12:00:16.483201+07:00",
+      "next_scan_at": "2026-07-27T12:05:16.483201+07:00",
+      "has_stream": true,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "browser-fallback"
     }
   }
 }
