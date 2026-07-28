@@ -1,20 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-29T05:48:27.300425+07:00",
+  "updated_at": "2026-07-29T06:48:03.949006+07:00",
   "matches": {
-    "1550910": {
-      "url": "https://live04.chuoichientv.me/live/1550910/necaxa-vs-monterrey",
-      "match_name": "Necaxa vs Monterrey - VĐQG Mexico",
-      "kickoff_iso": "2026-07-27T06:00:00+07:00",
-      "minutes_to_kickoff": -126,
-      "last_scan_at": "2026-07-27T08:06:53.461733+07:00",
-      "next_scan_at": "2026-07-27T08:11:53.461733+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "browser-fallback"
-    },
     "1550911": {
       "url": "https://live04.chuoichientv.me/live/1550911/pachuca-vs-club-queretaro",
       "match_name": "Pachuca vs Club Queretaro - VĐQG Mexico",
@@ -328,13 +316,14 @@
       "url": "https://live04.chuoichientv.me/live/1547787/tigre-vs-nacional",
       "match_name": "Tigre vs Nacional - CONMEBOL Sudamericana",
       "kickoff_iso": "2026-07-29T05:00:00+07:00",
-      "minutes_to_kickoff": -48,
-      "last_scan_at": "2026-07-29T05:48:27.300313+07:00",
-      "next_scan_at": "2026-07-29T05:53:27.300313+07:00",
+      "minutes_to_kickoff": -107,
+      "last_scan_at": "2026-07-29T06:48:03.948914+07:00",
+      "next_scan_at": "2026-07-29T06:53:03.948914+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/troctru.flv"
+        "https://gckc0525.edgemaxcdn.org/live/troctru.flv",
+        "https://gckc0525.edgemaxcdn.org/live/troctru/playlist.m3u8"
       ],
       "scan_decision": "browser-fallback"
     },
@@ -342,9 +331,9 @@
       "url": "https://live04.chuoichientv.me/live/1493028/san-lorenzo-vs-gimnasia-m",
       "match_name": "San Lorenzo vs Gimnasia M. - VĐQG Argentina",
       "kickoff_iso": "2026-07-29T05:00:00+07:00",
-      "minutes_to_kickoff": -48,
-      "last_scan_at": "2026-07-29T05:48:27.300313+07:00",
-      "next_scan_at": "2026-07-29T05:53:27.300313+07:00",
+      "minutes_to_kickoff": -107,
+      "last_scan_at": "2026-07-29T06:48:03.948914+07:00",
+      "next_scan_at": "2026-07-29T06:53:03.948914+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -382,15 +371,15 @@
     },
     "1547786": {
       "url": "https://live04.chuoichientv.me/live/1547786/santos-vs-ucv",
-      "match_name": "santos vs ucv",
+      "match_name": "Santos vs UCV - CONMEBOL Sudamericana",
       "kickoff_iso": "2026-07-29T07:30:00+07:00",
-      "minutes_to_kickoff": 102,
-      "last_scan_at": "2026-07-29T05:48:27.300313+07:00",
-      "next_scan_at": "2026-07-29T06:08:27.300313+07:00",
+      "minutes_to_kickoff": 43,
+      "last_scan_at": "2026-07-29T06:48:03.948914+07:00",
+      "next_scan_at": "2026-07-29T06:58:03.948914+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "scan_decision": "browser-fallback"
     }
   }
 }
