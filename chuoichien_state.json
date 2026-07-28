@@ -1,22 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-28T23:28:08.631653+07:00",
+  "updated_at": "2026-07-29T00:50:50.937745+07:00",
   "matches": {
-    "1561337": {
-      "url": "https://live04.chuoichientv.me/live/1561337/rubin-vs-fc-krasnodar",
-      "match_name": "Rubin vs FC Krasnodar - Ngoại Hạng Nga",
-      "kickoff_iso": "2026-07-26T23:30:00+07:00",
-      "minutes_to_kickoff": -81,
-      "last_scan_at": "2026-07-27T00:51:57.648921+07:00",
-      "next_scan_at": "2026-07-27T00:56:57.648921+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/angao.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
     "1492305": {
       "url": "https://live04.chuoichientv.me/live/1492305/gremio-vs-fluminense",
       "match_name": "Gremio vs Fluminense - VĐQG Brazil",
@@ -348,6 +334,21 @@
       "has_verified": true,
       "verified_urls": [
         "https://gckc0525.edgemaxcdn.org/live/angao.flv"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "1589424": {
+      "url": "https://live04.chuoichientv.me/live/1589424/lincoln-red-imps-fc-vs-mjallby",
+      "match_name": "Lincoln Red Imps FC vs Mjallby - UEFA Champions League",
+      "kickoff_iso": "2026-07-28T23:00:00+07:00",
+      "minutes_to_kickoff": -110,
+      "last_scan_at": "2026-07-29T00:50:50.937708+07:00",
+      "next_scan_at": "2026-07-29T00:55:50.937708+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/angao.flv",
+        "https://gckc0525.edgemaxcdn.org/live/angao/playlist.m3u8"
       ],
       "scan_decision": "browser-fallback"
     }
