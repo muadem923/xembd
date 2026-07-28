@@ -1,36 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-28T19:19:25.439779+07:00",
+  "updated_at": "2026-07-28T21:56:39.514097+07:00",
   "matches": {
-    "1602956": {
-      "url": "https://live04.chuoichientv.me/live/1602956/persebaya-surabaya-vs-persija",
-      "match_name": "Persebaya Surabaya vs Persija - Piala Presiden",
-      "kickoff_iso": "2026-07-26T19:30:00+07:00",
-      "minutes_to_kickoff": -6,
-      "last_scan_at": "2026-07-26T19:36:49.783332+07:00",
-      "next_scan_at": "2026-07-26T19:41:49.783332+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoitieu.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "1561335": {
-      "url": "https://live04.chuoichientv.me/live/1561335/lokomotiv-vs-akhmat",
-      "match_name": "Lokomotiv vs Akhmat - Ngoại Hạng Nga",
-      "kickoff_iso": "2026-07-26T21:00:00+07:00",
-      "minutes_to_kickoff": -96,
-      "last_scan_at": "2026-07-26T22:36:36.632161+07:00",
-      "next_scan_at": "2026-07-26T22:41:36.632161+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoichao.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
     "1548978": {
       "url": "https://live04.chuoichientv.me/live/1548978/ac-horsens-vs-fc-nordsjaelland",
       "match_name": "AC Horsens vs FC Nordsjaelland - Ngoại Hạng Đan Mạch",
@@ -56,20 +28,6 @@
       "has_verified": true,
       "verified_urls": [
         "https://gckc0525.edgemaxcdn.org/live/angao.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "1494710": {
-      "url": "https://live04.chuoichientv.me/live/1494710/brann-vs-valerenga",
-      "match_name": "Brann vs Valerenga - Eliteserien",
-      "kickoff_iso": "2026-07-26T19:30:00+07:00",
-      "minutes_to_kickoff": -112,
-      "last_scan_at": "2026-07-26T21:22:29.806658+07:00",
-      "next_scan_at": "2026-07-26T21:27:29.806658+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoitieu.flv"
       ],
       "scan_decision": "browser-fallback"
     },
@@ -340,57 +298,66 @@
       "url": "https://live04.chuoichientv.me/live/1548092/malaysia-vs-laos",
       "match_name": "Malaysia vs Laos - AFF Championship",
       "kickoff_iso": "2026-07-28T20:00:00+07:00",
-      "minutes_to_kickoff": 41,
-      "last_scan_at": "2026-07-28T19:19:25.439505+07:00",
-      "next_scan_at": "2026-07-28T19:29:25.439505+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
+      "minutes_to_kickoff": -116,
+      "last_scan_at": "2026-07-28T21:56:39.513997+07:00",
+      "next_scan_at": "2026-07-28T22:01:39.513997+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoitay.flv",
+        "https://gckc0525.edgemaxcdn.org/live/chuoitay/playlist.m3u8"
+      ],
       "scan_decision": "browser-fallback"
     },
     "995444": {
       "url": "https://live04.chuoichientv.me/live/995444/south-united-vs-cisf-protectors",
-      "match_name": "south united vs cisf protectors",
+      "match_name": "South United vs CISF Protectors - Durand Cup",
       "kickoff_iso": "2026-07-28T21:00:00+07:00",
-      "minutes_to_kickoff": 101,
-      "last_scan_at": "2026-07-28T19:19:25.439505+07:00",
-      "next_scan_at": "2026-07-28T19:39:25.439505+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -56,
+      "last_scan_at": "2026-07-28T21:56:39.513997+07:00",
+      "next_scan_at": "2026-07-28T22:01:39.513997+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoichao.flv"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "1589423": {
       "url": "https://live04.chuoichientv.me/live/1589423/kups-vs-sabah-fa",
-      "match_name": "kups vs sabah fa",
+      "match_name": "KuPS vs Sabah FA - UEFA Champions League",
       "kickoff_iso": "2026-07-28T22:00:00+07:00",
-      "minutes_to_kickoff": 161,
-      "last_scan_at": "2026-07-28T19:19:25.439505+07:00",
-      "next_scan_at": "2026-07-28T20:04:25.439505+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": 4,
+      "last_scan_at": "2026-07-28T21:56:39.513997+07:00",
+      "next_scan_at": "2026-07-28T22:01:39.513997+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoinho.flv"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "1516077": {
       "url": "https://live04.chuoichientv.me/live/1516077/nasaf-vs-qizilqum",
-      "match_name": "nasaf vs qizilqum",
+      "match_name": "Nasaf vs Qizilqum - VĐQG Uzbekistan",
       "kickoff_iso": "2026-07-28T22:00:00+07:00",
-      "minutes_to_kickoff": 161,
-      "last_scan_at": "2026-07-28T19:19:25.439505+07:00",
-      "next_scan_at": "2026-07-28T20:04:25.439505+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": 4,
+      "last_scan_at": "2026-07-28T21:56:39.513997+07:00",
+      "next_scan_at": "2026-07-28T22:01:39.513997+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoito.flv"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "992172": {
       "url": "https://live04.chuoichientv.me/live/992172/real-madrid-vs-leganes",
       "match_name": "real madrid vs leganes",
       "kickoff_iso": "2026-07-28T23:00:00+07:00",
-      "minutes_to_kickoff": 221,
-      "last_scan_at": "2026-07-28T19:19:25.439505+07:00",
-      "next_scan_at": "2026-07-28T20:04:25.439505+07:00",
+      "minutes_to_kickoff": 64,
+      "last_scan_at": "2026-07-28T21:56:39.513997+07:00",
+      "next_scan_at": "2026-07-28T22:16:39.513997+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
