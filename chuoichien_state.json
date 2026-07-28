@@ -1,22 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-28T21:56:39.514097+07:00",
+  "updated_at": "2026-07-28T23:28:08.631653+07:00",
   "matches": {
-    "1548978": {
-      "url": "https://live04.chuoichientv.me/live/1548978/ac-horsens-vs-fc-nordsjaelland",
-      "match_name": "AC Horsens vs FC Nordsjaelland - Ngoại Hạng Đan Mạch",
-      "kickoff_iso": "2026-07-26T23:00:00+07:00",
-      "minutes_to_kickoff": -111,
-      "last_scan_at": "2026-07-27T00:51:57.648921+07:00",
-      "next_scan_at": "2026-07-27T00:56:57.648921+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoito.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
     "1561337": {
       "url": "https://live04.chuoichientv.me/live/1561337/rubin-vs-fc-krasnodar",
       "match_name": "Rubin vs FC Krasnodar - Ngoại Hạng Nga",
@@ -327,9 +313,9 @@
       "url": "https://live04.chuoichientv.me/live/1589423/kups-vs-sabah-fa",
       "match_name": "KuPS vs Sabah FA - UEFA Champions League",
       "kickoff_iso": "2026-07-28T22:00:00+07:00",
-      "minutes_to_kickoff": 4,
-      "last_scan_at": "2026-07-28T21:56:39.513997+07:00",
-      "next_scan_at": "2026-07-28T22:01:39.513997+07:00",
+      "minutes_to_kickoff": -88,
+      "last_scan_at": "2026-07-28T23:28:08.631565+07:00",
+      "next_scan_at": "2026-07-28T23:33:08.631565+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -341,9 +327,9 @@
       "url": "https://live04.chuoichientv.me/live/1516077/nasaf-vs-qizilqum",
       "match_name": "Nasaf vs Qizilqum - VĐQG Uzbekistan",
       "kickoff_iso": "2026-07-28T22:00:00+07:00",
-      "minutes_to_kickoff": 4,
-      "last_scan_at": "2026-07-28T21:56:39.513997+07:00",
-      "next_scan_at": "2026-07-28T22:01:39.513997+07:00",
+      "minutes_to_kickoff": -87,
+      "last_scan_at": "2026-07-28T23:28:08.631565+07:00",
+      "next_scan_at": "2026-07-28T23:33:08.631565+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -353,15 +339,17 @@
     },
     "992172": {
       "url": "https://live04.chuoichientv.me/live/992172/real-madrid-vs-leganes",
-      "match_name": "real madrid vs leganes",
+      "match_name": "Real Madrid vs Leganes - Giao Hữu Quốc Tế",
       "kickoff_iso": "2026-07-28T23:00:00+07:00",
-      "minutes_to_kickoff": 64,
-      "last_scan_at": "2026-07-28T21:56:39.513997+07:00",
-      "next_scan_at": "2026-07-28T22:16:39.513997+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -28,
+      "last_scan_at": "2026-07-28T23:28:08.631565+07:00",
+      "next_scan_at": "2026-07-28T23:33:08.631565+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/angao.flv"
+      ],
+      "scan_decision": "browser-fallback"
     }
   }
 }
