@@ -1,63 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-28T06:52:14.296633+07:00",
+  "updated_at": "2026-07-28T11:33:09.864809+07:00",
   "matches": {
-    "1490354": {
-      "url": "https://live04.chuoichientv.me/live/1490354/minnesota-united-fc-vs-vancouver-whitecaps",
-      "match_name": "Minnesota United FC vs Vancouver Whitecaps - Major League Soccer",
-      "kickoff_iso": "2026-07-26T07:30:00+07:00",
-      "minutes_to_kickoff": -34,
-      "last_scan_at": "2026-07-26T08:04:20.890671+07:00",
-      "next_scan_at": "2026-07-26T08:09:20.890671+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoitay.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "1490358": {
-      "url": "https://live04.chuoichientv.me/live/1490358/los-angeles-fc-vs-sporting-kansas-city",
-      "match_name": "los angeles fc vs sporting kansas city",
-      "kickoff_iso": "2026-07-26T09:30:00+07:00",
-      "minutes_to_kickoff": 86,
-      "last_scan_at": "2026-07-26T08:04:20.890671+07:00",
-      "next_scan_at": "2026-07-26T08:24:20.890671+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
-    },
-    "1542342": {
-      "url": "https://live04.chuoichientv.me/live/1542342/auckland-vs-tottenham",
-      "match_name": "Auckland vs Tottenham - Giao Hữu Câu Lạc Bộ",
-      "kickoff_iso": "2026-07-26T10:00:00+07:00",
-      "minutes_to_kickoff": -110,
-      "last_scan_at": "2026-07-26T11:50:25.021857+07:00",
-      "next_scan_at": "2026-07-26T11:55:25.021857+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoitay.flv",
-        "https://gckc0525.edgemaxcdn.org/live/chuoitay/playlist.m3u8"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "1550905": {
-      "url": "https://live04.chuoichientv.me/live/1550905/tigres-uanl-vs-atletico-san-luis",
-      "match_name": "Tigres UANL vs Atletico San Luis - VĐQG Mexico",
-      "kickoff_iso": "2026-07-26T10:00:00+07:00",
-      "minutes_to_kickoff": -110,
-      "last_scan_at": "2026-07-26T11:50:25.021857+07:00",
-      "next_scan_at": "2026-07-26T11:55:25.021857+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoito.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
     "1560861": {
       "url": "https://live04.chuoichientv.me/live/1560861/kingborough-lions-vs-melbourne-victory",
       "match_name": "Kingborough Lions vs Melbourne Victory - Australia Cup",
@@ -431,6 +376,18 @@
         "https://gckc0525.edgemaxcdn.org/live/angao/playlist.m3u8"
       ],
       "scan_decision": "browser-fallback"
+    },
+    "1602957": {
+      "url": "https://live04.chuoichientv.me/live/1602957/tampines-rovers-vs-arema-fc",
+      "match_name": "tampines rovers vs arema fc",
+      "kickoff_iso": "2026-07-28T15:30:00+07:00",
+      "minutes_to_kickoff": 237,
+      "last_scan_at": "2026-07-28T11:33:09.864763+07:00",
+      "next_scan_at": "2026-07-28T12:18:09.864763+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
     }
   }
 }
