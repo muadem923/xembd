@@ -1,38 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-28T11:33:09.864809+07:00",
+  "updated_at": "2026-07-28T14:30:00.529301+07:00",
   "matches": {
-    "1560861": {
-      "url": "https://live04.chuoichientv.me/live/1560861/kingborough-lions-vs-melbourne-victory",
-      "match_name": "Kingborough Lions vs Melbourne Victory - Australia Cup",
-      "kickoff_iso": "2026-07-26T14:00:00+07:00",
-      "minutes_to_kickoff": -30,
-      "last_scan_at": "2026-07-26T14:30:16.905185+07:00",
-      "next_scan_at": "2026-07-26T14:35:16.905185+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoichao.flv",
-        "https://gckc0525.edgemaxcdn.org/live/chuoichao/playlist.m3u8"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "997728": {
-      "url": "https://live04.chuoichientv.me/live/997728/china-w-vs-italy-w",
-      "match_name": "China W vs Italy W - Nations League Women",
-      "kickoff_iso": "2026-07-26T14:30:00+07:00",
-      "minutes_to_kickoff": -123,
-      "last_scan_at": "2026-07-26T16:33:08.977081+07:00",
-      "next_scan_at": "2026-07-26T16:38:08.977081+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoitay.flv",
-        "https://gckc0525.edgemaxcdn.org/live/chuoitay/playlist.m3u8"
-      ],
-      "scan_decision": "browser-fallback"
-    },
     "1507013": {
       "url": "https://live04.chuoichientv.me/live/1507013/gwangju-fc-vs-jeju-united-fc",
       "match_name": "Gwangju FC vs Jeju United FC - K League 1",
@@ -381,9 +351,45 @@
       "url": "https://live04.chuoichientv.me/live/1602957/tampines-rovers-vs-arema-fc",
       "match_name": "tampines rovers vs arema fc",
       "kickoff_iso": "2026-07-28T15:30:00+07:00",
-      "minutes_to_kickoff": 237,
-      "last_scan_at": "2026-07-28T11:33:09.864763+07:00",
-      "next_scan_at": "2026-07-28T12:18:09.864763+07:00",
+      "minutes_to_kickoff": 60,
+      "last_scan_at": "2026-07-28T14:30:00.529232+07:00",
+      "next_scan_at": "2026-07-28T14:50:00.529232+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1502103": {
+      "url": "https://live04.chuoichientv.me/live/1502103/chelsea-vs-western-sydney-wanderers",
+      "match_name": "chelsea vs western sydney wanderers",
+      "kickoff_iso": "2026-07-28T16:45:00+07:00",
+      "minutes_to_kickoff": 135,
+      "last_scan_at": "2026-07-28T14:30:00.529232+07:00",
+      "next_scan_at": "2026-07-28T15:15:00.529232+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1548093": {
+      "url": "https://live04.chuoichientv.me/live/1548093/philippines-vs-myanmar",
+      "match_name": "philippines vs myanmar",
+      "kickoff_iso": "2026-07-28T17:00:00+07:00",
+      "minutes_to_kickoff": 150,
+      "last_scan_at": "2026-07-28T14:30:00.529232+07:00",
+      "next_scan_at": "2026-07-28T15:15:00.529232+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "996253": {
+      "url": "https://live04.chuoichientv.me/live/996253/trau-vs-neroca",
+      "match_name": "trau vs neroca",
+      "kickoff_iso": "2026-07-28T18:30:00+07:00",
+      "minutes_to_kickoff": 240,
+      "last_scan_at": "2026-07-28T14:30:00.529232+07:00",
+      "next_scan_at": "2026-07-28T15:15:00.529232+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
