@@ -1,36 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-29T17:25:54.645441+07:00",
+  "updated_at": "2026-07-29T19:27:30.959705+07:00",
   "matches": {
-    "1567781": {
-      "url": "https://live04.chuoichientv.me/live/1567781/singapore-vs-timor-leste",
-      "match_name": "Singapore vs Timor-Leste - AFF Championship",
-      "kickoff_iso": "2026-07-27T18:00:00+07:00",
-      "minutes_to_kickoff": -52,
-      "last_scan_at": "2026-07-27T18:52:06.015453+07:00",
-      "next_scan_at": "2026-07-27T18:57:06.015453+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoitay.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "1532840": {
-      "url": "https://live04.chuoichientv.me/live/1532840/qingdao-red-lions-vs-bit",
-      "match_name": "Qingdao Red Lions vs BIT - League Two",
-      "kickoff_iso": "2026-07-27T17:30:00+07:00",
-      "minutes_to_kickoff": -82,
-      "last_scan_at": "2026-07-27T18:52:06.015453+07:00",
-      "next_scan_at": "2026-07-27T18:57:06.015453+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoitieu.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
     "1548091": {
       "url": "https://live04.chuoichientv.me/live/1548091/indonesia-vs-cambodia",
       "match_name": "Indonesia vs Cambodia - AFF Championship",
@@ -442,35 +414,64 @@
     },
     "210763": {
       "url": "https://live04.chuoichientv.me/live/210763/japan-vs-china",
-      "match_name": "japan vs china",
+      "match_name": "Japan vs China - Nations League",
       "kickoff_iso": "2026-07-29T18:30:00+07:00",
-      "minutes_to_kickoff": 65,
-      "last_scan_at": "2026-07-29T17:25:54.645322+07:00",
-      "next_scan_at": "2026-07-29T17:45:54.645322+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -57,
+      "last_scan_at": "2026-07-29T19:27:30.959614+07:00",
+      "next_scan_at": "2026-07-29T19:32:30.959614+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoitay.flv",
+        "https://gckc0525.edgemaxcdn.org/live/chuoitay/playlist.m3u8"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "1602960": {
       "url": "https://live04.chuoichientv.me/live/1602960/persebaya-surabaya-vs-psms-medan",
-      "match_name": "persebaya surabaya vs psms medan",
+      "match_name": "Persebaya Surabaya vs PSMS Medan - Piala Presiden",
       "kickoff_iso": "2026-07-29T19:30:00+07:00",
-      "minutes_to_kickoff": 125,
-      "last_scan_at": "2026-07-29T17:25:54.645322+07:00",
-      "next_scan_at": "2026-07-29T18:10:54.645322+07:00",
+      "minutes_to_kickoff": 3,
+      "last_scan_at": "2026-07-29T19:27:30.959614+07:00",
+      "next_scan_at": "2026-07-29T19:32:30.959614+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoito.flv"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "1604679": {
+      "url": "https://live04.chuoichientv.me/live/1604679/bayer-leverkusen-vs-genk",
+      "match_name": "Bayer Leverkusen vs Genk - Giao Hữu Câu Lạc Bộ",
+      "kickoff_iso": "2026-07-29T20:00:00+07:00",
+      "minutes_to_kickoff": 33,
+      "last_scan_at": "2026-07-29T19:27:30.959614+07:00",
+      "next_scan_at": "2026-07-29T19:37:30.959614+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "browser-fallback"
+    },
+    "1556531": {
+      "url": "https://live04.chuoichientv.me/live/1556531/dukagjini-vs-fc-lugano",
+      "match_name": "dukagjini vs fc lugano",
+      "kickoff_iso": "2026-07-29T21:30:00+07:00",
+      "minutes_to_kickoff": 123,
+      "last_scan_at": "2026-07-29T19:27:30.959614+07:00",
+      "next_scan_at": "2026-07-29T20:12:30.959614+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
       "scan_decision": "http-only-far-upcoming"
     },
-    "1604679": {
-      "url": "https://live04.chuoichientv.me/live/1604679/bayer-leverkusen-vs-genk",
-      "match_name": "bayer leverkusen vs genk",
-      "kickoff_iso": "2026-07-29T20:00:00+07:00",
-      "minutes_to_kickoff": 155,
-      "last_scan_at": "2026-07-29T17:25:54.645322+07:00",
-      "next_scan_at": "2026-07-29T18:10:54.645322+07:00",
+    "1591938": {
+      "url": "https://live04.chuoichientv.me/live/1591938/kairat-almaty-vs-omonia-nicosia",
+      "match_name": "kairat almaty vs omonia nicosia",
+      "kickoff_iso": "2026-07-29T22:00:00+07:00",
+      "minutes_to_kickoff": 153,
+      "last_scan_at": "2026-07-29T19:27:30.959614+07:00",
+      "next_scan_at": "2026-07-29T20:12:30.959614+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
