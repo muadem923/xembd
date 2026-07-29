@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-30T04:25:02.506171+07:00",
+  "updated_at": "2026-07-30T05:26:16.688391+07:00",
   "matches": {
     "1505474": {
       "url": "https://live04.chuoichientv.me/live/1505474/union-la-calera-vs-everton",
@@ -477,15 +477,15 @@
     },
     "1589333": {
       "url": "https://live04.chuoichientv.me/live/1589333/liverpool-vs-wrexham",
-      "match_name": "liverpool vs wrexham",
+      "match_name": "Liverpool vs Wrexham - Premier League - Summer Series",
       "kickoff_iso": "2026-07-30T06:30:00+07:00",
-      "minutes_to_kickoff": 125,
-      "last_scan_at": "2026-07-30T04:25:02.506106+07:00",
-      "next_scan_at": "2026-07-30T05:10:02.506106+07:00",
+      "minutes_to_kickoff": 64,
+      "last_scan_at": "2026-07-30T05:26:16.688324+07:00",
+      "next_scan_at": "2026-07-30T05:46:16.688324+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "scan_decision": "browser-fallback"
     }
   }
 }
