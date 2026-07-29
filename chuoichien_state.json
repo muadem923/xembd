@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-29T11:39:34.712310+07:00",
+  "updated_at": "2026-07-29T14:36:37.702885+07:00",
   "matches": {
     "1567781": {
       "url": "https://live04.chuoichientv.me/live/1567781/singapore-vs-timor-leste",
@@ -373,9 +373,9 @@
       "url": "https://live04.chuoichientv.me/live/1602959/port-fc-vs-persija",
       "match_name": "port fc vs persija",
       "kickoff_iso": "2026-07-29T15:30:00+07:00",
-      "minutes_to_kickoff": 230,
-      "last_scan_at": "2026-07-29T11:39:34.712249+07:00",
-      "next_scan_at": "2026-07-29T12:24:34.712249+07:00",
+      "minutes_to_kickoff": 54,
+      "last_scan_at": "2026-07-29T14:36:37.702798+07:00",
+      "next_scan_at": "2026-07-29T14:56:37.702798+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
@@ -383,11 +383,61 @@
     },
     "210762": {
       "url": "https://live04.chuoichientv.me/live/210762/slovenia-vs-turkey",
-      "match_name": "slovenia vs turkey",
+      "match_name": "Slovenia vs Turkey - Nations League",
       "kickoff_iso": "2026-07-29T14:00:00+07:00",
-      "minutes_to_kickoff": 140,
-      "last_scan_at": "2026-07-29T11:39:34.712249+07:00",
-      "next_scan_at": "2026-07-29T12:24:34.712249+07:00",
+      "minutes_to_kickoff": -36,
+      "last_scan_at": "2026-07-29T14:36:37.702798+07:00",
+      "next_scan_at": "2026-07-29T14:41:37.702798+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoitay.flv"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "1502104": {
+      "url": "https://live04.chuoichientv.me/live/1502104/tottenham-vs-sydney",
+      "match_name": "tottenham vs sydney",
+      "kickoff_iso": "2026-07-29T16:45:00+07:00",
+      "minutes_to_kickoff": 129,
+      "last_scan_at": "2026-07-29T14:36:37.702798+07:00",
+      "next_scan_at": "2026-07-29T15:21:37.702798+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1591953": {
+      "url": "https://live04.chuoichientv.me/live/1591953/busan-i-park-vs-fc-seoul",
+      "match_name": "busan i park vs fc seoul",
+      "kickoff_iso": "2026-07-29T17:00:00+07:00",
+      "minutes_to_kickoff": 144,
+      "last_scan_at": "2026-07-29T14:36:37.702798+07:00",
+      "next_scan_at": "2026-07-29T15:21:37.702798+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1546736": {
+      "url": "https://live04.chuoichientv.me/live/1546736/cerezo-osaka-vs-borussia-dortmund",
+      "match_name": "cerezo osaka vs borussia dortmund",
+      "kickoff_iso": "2026-07-29T17:00:00+07:00",
+      "minutes_to_kickoff": 144,
+      "last_scan_at": "2026-07-29T14:36:37.702798+07:00",
+      "next_scan_at": "2026-07-29T15:21:37.702798+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "210763": {
+      "url": "https://live04.chuoichientv.me/live/210763/japan-vs-china",
+      "match_name": "japan vs china",
+      "kickoff_iso": "2026-07-29T18:30:00+07:00",
+      "minutes_to_kickoff": 234,
+      "last_scan_at": "2026-07-29T14:36:37.702798+07:00",
+      "next_scan_at": "2026-07-29T15:21:37.702798+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
