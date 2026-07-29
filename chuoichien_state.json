@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-29T23:15:11.689021+07:00",
+  "updated_at": "2026-07-30T01:58:18.936870+07:00",
   "matches": {
     "1505474": {
       "url": "https://live04.chuoichientv.me/live/1505474/union-la-calera-vs-everton",
@@ -414,6 +414,61 @@
       "verified_urls": [
         "https://gckc0525.edgemaxcdn.org/live/chuoito.flv",
         "https://gckc0525.edgemaxcdn.org/live/chuoito/playlist.m3u8"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "1583487": {
+      "url": "https://live04.chuoichientv.me/live/1583487/real-betis-vs-lyon",
+      "match_name": "Real Betis vs Lyon - Giao Hữu Câu Lạc Bộ",
+      "kickoff_iso": "2026-07-30T01:00:00+07:00",
+      "minutes_to_kickoff": -58,
+      "last_scan_at": "2026-07-30T01:58:18.936775+07:00",
+      "next_scan_at": "2026-07-30T02:03:18.936775+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoinho.flv",
+        "https://gckc0525.edgemaxcdn.org/live/chuoinho/playlist.m3u8"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "1493022": {
+      "url": "https://live04.chuoichientv.me/live/1493022/defensa-y-justicia-vs-deportivo-riestra",
+      "match_name": "defensa y justicia vs deportivo riestra",
+      "kickoff_iso": "2026-07-30T03:00:00+07:00",
+      "minutes_to_kickoff": 62,
+      "last_scan_at": "2026-07-30T01:58:18.936775+07:00",
+      "next_scan_at": "2026-07-30T02:18:18.936775+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1556508": {
+      "url": "https://live04.chuoichientv.me/live/1556508/lech-poznan-vs-aarhus",
+      "match_name": "Lech Poznan vs Aarhus - UEFA Champions League",
+      "kickoff_iso": "2026-07-30T00:00:00+07:00",
+      "minutes_to_kickoff": -118,
+      "last_scan_at": "2026-07-30T01:58:18.936775+07:00",
+      "next_scan_at": "2026-07-30T02:03:18.936775+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/angao.flv"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "1583490": {
+      "url": "https://live04.chuoichientv.me/live/1583490/bristol-city-vs-newcastle",
+      "match_name": "Bristol City vs Newcastle - Giao Hữu Câu Lạc Bộ",
+      "kickoff_iso": "2026-07-30T01:30:00+07:00",
+      "minutes_to_kickoff": -28,
+      "last_scan_at": "2026-07-30T01:58:18.936775+07:00",
+      "next_scan_at": "2026-07-30T02:03:18.936775+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoichao.flv"
       ],
       "scan_decision": "browser-fallback"
     }
