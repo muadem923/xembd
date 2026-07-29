@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-30T03:06:29.356222+07:00",
+  "updated_at": "2026-07-30T04:25:02.506171+07:00",
   "matches": {
     "1505474": {
       "url": "https://live04.chuoichientv.me/live/1505474/union-la-calera-vs-everton",
@@ -436,9 +436,9 @@
       "url": "https://live04.chuoichientv.me/live/1493022/defensa-y-justicia-vs-deportivo-riestra",
       "match_name": "Defensa Y Justicia vs Deportivo Riestra - VĐQG Argentina",
       "kickoff_iso": "2026-07-30T03:00:00+07:00",
-      "minutes_to_kickoff": -6,
-      "last_scan_at": "2026-07-30T03:06:29.356122+07:00",
-      "next_scan_at": "2026-07-30T03:11:29.356122+07:00",
+      "minutes_to_kickoff": -85,
+      "last_scan_at": "2026-07-30T04:25:02.506106+07:00",
+      "next_scan_at": "2026-07-30T04:30:02.506106+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -479,9 +479,9 @@
       "url": "https://live04.chuoichientv.me/live/1589333/liverpool-vs-wrexham",
       "match_name": "liverpool vs wrexham",
       "kickoff_iso": "2026-07-30T06:30:00+07:00",
-      "minutes_to_kickoff": 204,
-      "last_scan_at": "2026-07-30T03:06:29.356122+07:00",
-      "next_scan_at": "2026-07-30T03:51:29.356122+07:00",
+      "minutes_to_kickoff": 125,
+      "last_scan_at": "2026-07-30T04:25:02.506106+07:00",
+      "next_scan_at": "2026-07-30T05:10:02.506106+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
