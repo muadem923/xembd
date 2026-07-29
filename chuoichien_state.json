@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-29T08:19:02.352094+07:00",
+  "updated_at": "2026-07-29T11:39:34.712310+07:00",
   "matches": {
     "1567781": {
       "url": "https://live04.chuoichientv.me/live/1567781/singapore-vs-timor-leste",
@@ -368,6 +368,30 @@
         "https://gckc0525.edgemaxcdn.org/live/chuoitay.flv"
       ],
       "scan_decision": "browser-fallback"
+    },
+    "1602959": {
+      "url": "https://live04.chuoichientv.me/live/1602959/port-fc-vs-persija",
+      "match_name": "port fc vs persija",
+      "kickoff_iso": "2026-07-29T15:30:00+07:00",
+      "minutes_to_kickoff": 230,
+      "last_scan_at": "2026-07-29T11:39:34.712249+07:00",
+      "next_scan_at": "2026-07-29T12:24:34.712249+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "210762": {
+      "url": "https://live04.chuoichientv.me/live/210762/slovenia-vs-turkey",
+      "match_name": "slovenia vs turkey",
+      "kickoff_iso": "2026-07-29T14:00:00+07:00",
+      "minutes_to_kickoff": 140,
+      "last_scan_at": "2026-07-29T11:39:34.712249+07:00",
+      "next_scan_at": "2026-07-29T12:24:34.712249+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
     }
   }
 }
