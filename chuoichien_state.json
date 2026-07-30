@@ -1,50 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-30T20:01:38.362280+07:00",
+  "updated_at": "2026-07-30T22:29:41.859966+07:00",
   "matches": {
-    "995444": {
-      "url": "https://live04.chuoichientv.me/live/995444/south-united-vs-cisf-protectors",
-      "match_name": "South United vs CISF Protectors - Durand Cup",
-      "kickoff_iso": "2026-07-28T21:00:00+07:00",
-      "minutes_to_kickoff": -56,
-      "last_scan_at": "2026-07-28T21:56:39.513997+07:00",
-      "next_scan_at": "2026-07-28T22:01:39.513997+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoichao.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "1589423": {
-      "url": "https://live04.chuoichientv.me/live/1589423/kups-vs-sabah-fa",
-      "match_name": "KuPS vs Sabah FA - UEFA Champions League",
-      "kickoff_iso": "2026-07-28T22:00:00+07:00",
-      "minutes_to_kickoff": -88,
-      "last_scan_at": "2026-07-28T23:28:08.631565+07:00",
-      "next_scan_at": "2026-07-28T23:33:08.631565+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoinho.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "1516077": {
-      "url": "https://live04.chuoichientv.me/live/1516077/nasaf-vs-qizilqum",
-      "match_name": "Nasaf vs Qizilqum - VĐQG Uzbekistan",
-      "kickoff_iso": "2026-07-28T22:00:00+07:00",
-      "minutes_to_kickoff": -87,
-      "last_scan_at": "2026-07-28T23:28:08.631565+07:00",
-      "next_scan_at": "2026-07-28T23:33:08.631565+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoito.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
     "992172": {
       "url": "https://live04.chuoichientv.me/live/992172/real-madrid-vs-leganes",
       "match_name": "Real Madrid vs Leganes - Giao Hữu Quốc Tế",
@@ -445,15 +403,17 @@
     },
     "1556540": {
       "url": "https://live04.chuoichientv.me/live/1556540/fk-tobol-kostanay-vs-panevys",
-      "match_name": "fk tobol kostanay vs panevys",
+      "match_name": "FK Tobol Kostanay vs Panevėžys - UEFA Europa Conference League",
       "kickoff_iso": "2026-07-30T21:00:00+07:00",
-      "minutes_to_kickoff": 153,
-      "last_scan_at": "2026-07-30T18:27:25.576064+07:00",
-      "next_scan_at": "2026-07-30T19:12:25.576064+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -89,
+      "last_scan_at": "2026-07-30T22:29:41.859867+07:00",
+      "next_scan_at": "2026-07-30T22:34:41.859867+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/troctru.flv"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "1583494": {
       "url": "https://live04.chuoichientv.me/live/1583494/fc-augsburg-vs-bournemouth",
@@ -469,27 +429,27 @@
     },
     "1593507": {
       "url": "https://live04.chuoichientv.me/live/1593507/inter-turku-vs-istanbul-basaksehir",
-      "match_name": "inter turku vs istanbul basaksehir",
+      "match_name": "Inter Turku vs Istanbul Basaksehir - UEFA Europa Conference League",
       "kickoff_iso": "2026-07-30T23:00:00+07:00",
-      "minutes_to_kickoff": 179,
-      "last_scan_at": "2026-07-30T20:01:38.362158+07:00",
-      "next_scan_at": "2026-07-30T20:46:38.362158+07:00",
+      "minutes_to_kickoff": 31,
+      "last_scan_at": "2026-07-30T22:29:41.859867+07:00",
+      "next_scan_at": "2026-07-30T22:39:41.859867+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "scan_decision": "browser-fallback"
     },
     "1593526": {
       "url": "https://live04.chuoichientv.me/live/1593526/maccabi-tel-aviv-vs-sheriff-tiraspol",
-      "match_name": "maccabi tel aviv vs sheriff tiraspol",
+      "match_name": "Maccabi Tel Aviv vs Sheriff Tiraspol - UEFA Europa League",
       "kickoff_iso": "2026-07-30T23:00:00+07:00",
-      "minutes_to_kickoff": 179,
-      "last_scan_at": "2026-07-30T20:01:38.362158+07:00",
-      "next_scan_at": "2026-07-30T20:46:38.362158+07:00",
+      "minutes_to_kickoff": 31,
+      "last_scan_at": "2026-07-30T22:29:41.859867+07:00",
+      "next_scan_at": "2026-07-30T22:39:41.859867+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "scan_decision": "browser-fallback"
     }
   }
 }
