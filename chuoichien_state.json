@@ -1,37 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-30T22:29:41.859966+07:00",
+  "updated_at": "2026-07-30T23:59:39.017506+07:00",
   "matches": {
-    "992172": {
-      "url": "https://live04.chuoichientv.me/live/992172/real-madrid-vs-leganes",
-      "match_name": "Real Madrid vs Leganes - Giao Hữu Quốc Tế",
-      "kickoff_iso": "2026-07-28T23:00:00+07:00",
-      "minutes_to_kickoff": -28,
-      "last_scan_at": "2026-07-28T23:28:08.631565+07:00",
-      "next_scan_at": "2026-07-28T23:33:08.631565+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/angao.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "1589424": {
-      "url": "https://live04.chuoichientv.me/live/1589424/lincoln-red-imps-fc-vs-mjallby",
-      "match_name": "Lincoln Red Imps FC vs Mjallby - UEFA Champions League",
-      "kickoff_iso": "2026-07-28T23:00:00+07:00",
-      "minutes_to_kickoff": -110,
-      "last_scan_at": "2026-07-29T00:50:50.937708+07:00",
-      "next_scan_at": "2026-07-29T00:55:50.937708+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/angao.flv",
-        "https://gckc0525.edgemaxcdn.org/live/angao/playlist.m3u8"
-      ],
-      "scan_decision": "browser-fallback"
-    },
     "1591937": {
       "url": "https://live04.chuoichientv.me/live/1591937/celje-vs-egnatia-rrogozhin",
       "match_name": "Celje vs Egnatia Rrogozhinë - UEFA Champions League",
@@ -431,24 +402,28 @@
       "url": "https://live04.chuoichientv.me/live/1593507/inter-turku-vs-istanbul-basaksehir",
       "match_name": "Inter Turku vs Istanbul Basaksehir - UEFA Europa Conference League",
       "kickoff_iso": "2026-07-30T23:00:00+07:00",
-      "minutes_to_kickoff": 31,
-      "last_scan_at": "2026-07-30T22:29:41.859867+07:00",
-      "next_scan_at": "2026-07-30T22:39:41.859867+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
+      "minutes_to_kickoff": -59,
+      "last_scan_at": "2026-07-30T23:59:39.017409+07:00",
+      "next_scan_at": "2026-07-31T00:04:39.017409+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoichao.flv"
+      ],
       "scan_decision": "browser-fallback"
     },
     "1593526": {
       "url": "https://live04.chuoichientv.me/live/1593526/maccabi-tel-aviv-vs-sheriff-tiraspol",
       "match_name": "Maccabi Tel Aviv vs Sheriff Tiraspol - UEFA Europa League",
       "kickoff_iso": "2026-07-30T23:00:00+07:00",
-      "minutes_to_kickoff": 31,
-      "last_scan_at": "2026-07-30T22:29:41.859867+07:00",
-      "next_scan_at": "2026-07-30T22:39:41.859867+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
+      "minutes_to_kickoff": -59,
+      "last_scan_at": "2026-07-30T23:59:39.017409+07:00",
+      "next_scan_at": "2026-07-31T00:04:39.017409+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoinho.flv"
+      ],
       "scan_decision": "browser-fallback"
     }
   }
