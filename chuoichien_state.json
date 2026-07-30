@@ -1,35 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-30T16:09:38.324549+07:00",
+  "updated_at": "2026-07-30T18:27:25.576161+07:00",
   "matches": {
-    "1502103": {
-      "url": "https://live04.chuoichientv.me/live/1502103/chelsea-vs-western-sydney-wanderers",
-      "match_name": "Chelsea vs Western Sydney Wanderers - Giao Hữu Câu Lạc Bộ",
-      "kickoff_iso": "2026-07-28T16:45:00+07:00",
-      "minutes_to_kickoff": -20,
-      "last_scan_at": "2026-07-28T17:06:06.294614+07:00",
-      "next_scan_at": "2026-07-28T17:11:06.294614+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/troctru.flv",
-        "https://gckc0525.edgemaxcdn.org/live/troctru/playlist.m3u8"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "1548093": {
-      "url": "https://live04.chuoichientv.me/live/1548093/philippines-vs-myanmar",
-      "match_name": "philippines vs myanmar",
-      "kickoff_iso": "2026-07-28T17:00:00+07:00",
-      "minutes_to_kickoff": -5,
-      "last_scan_at": "2026-07-28T17:06:06.294614+07:00",
-      "next_scan_at": "2026-07-28T17:11:06.294614+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "browser-fallback"
-    },
     "996253": {
       "url": "https://live04.chuoichientv.me/live/996253/trau-vs-neroca",
       "match_name": "TRAU vs NEROCA - Durand Cup",
@@ -477,9 +450,9 @@
       "url": "https://live04.chuoichientv.me/live/1560868/sydney-olympic-vs-brisbane-roar",
       "match_name": "Sydney Olympic vs Brisbane Roar - Australia Cup",
       "kickoff_iso": "2026-07-30T16:30:00+07:00",
-      "minutes_to_kickoff": 21,
-      "last_scan_at": "2026-07-30T16:09:38.324461+07:00",
-      "next_scan_at": "2026-07-30T16:19:38.324461+07:00",
+      "minutes_to_kickoff": -117,
+      "last_scan_at": "2026-07-30T18:27:25.576064+07:00",
+      "next_scan_at": "2026-07-30T18:32:25.576064+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
@@ -487,23 +460,38 @@
     },
     "999289": {
       "url": "https://live04.chuoichientv.me/live/999289/poland-vs-ukraine",
-      "match_name": "poland vs ukraine",
+      "match_name": "Poland vs Ukraine - Nations League",
       "kickoff_iso": "2026-07-30T18:30:00+07:00",
-      "minutes_to_kickoff": 141,
-      "last_scan_at": "2026-07-30T16:09:38.324461+07:00",
-      "next_scan_at": "2026-07-30T16:54:38.324461+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": 3,
+      "last_scan_at": "2026-07-30T18:27:25.576064+07:00",
+      "next_scan_at": "2026-07-30T18:32:25.576064+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoitay.flv",
+        "https://gckc0525.edgemaxcdn.org/live/chuoitay/playlist.m3u8"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "1534810": {
       "url": "https://live04.chuoichientv.me/live/1534810/kaspij-aktau-2-vs-aktobe-jas",
       "match_name": "kaspij aktau 2 vs aktobe jas",
       "kickoff_iso": "2026-07-30T20:00:00+07:00",
-      "minutes_to_kickoff": 231,
-      "last_scan_at": "2026-07-30T16:09:38.324461+07:00",
-      "next_scan_at": "2026-07-30T16:54:38.324461+07:00",
+      "minutes_to_kickoff": 93,
+      "last_scan_at": "2026-07-30T18:27:25.576064+07:00",
+      "next_scan_at": "2026-07-30T18:47:25.576064+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1556540": {
+      "url": "https://live04.chuoichientv.me/live/1556540/fk-tobol-kostanay-vs-panevys",
+      "match_name": "fk tobol kostanay vs panevys",
+      "kickoff_iso": "2026-07-30T21:00:00+07:00",
+      "minutes_to_kickoff": 153,
+      "last_scan_at": "2026-07-30T18:27:25.576064+07:00",
+      "next_scan_at": "2026-07-30T19:12:25.576064+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
