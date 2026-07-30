@@ -1,22 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-30T13:16:17.235801+07:00",
+  "updated_at": "2026-07-30T16:09:38.324549+07:00",
   "matches": {
-    "1602957": {
-      "url": "https://live04.chuoichientv.me/live/1602957/tampines-rovers-vs-arema-fc",
-      "match_name": "Tampines Rovers vs Arema FC - Piala Presiden",
-      "kickoff_iso": "2026-07-28T15:30:00+07:00",
-      "minutes_to_kickoff": -96,
-      "last_scan_at": "2026-07-28T17:06:06.294614+07:00",
-      "next_scan_at": "2026-07-28T17:11:06.294614+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoito.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
     "1502103": {
       "url": "https://live04.chuoichientv.me/live/1502103/chelsea-vs-western-sydney-wanderers",
       "match_name": "Chelsea vs Western Sydney Wanderers - Giao Hữu Câu Lạc Bộ",
@@ -489,11 +475,35 @@
     },
     "1560868": {
       "url": "https://live04.chuoichientv.me/live/1560868/sydney-olympic-vs-brisbane-roar",
-      "match_name": "sydney olympic vs brisbane roar",
+      "match_name": "Sydney Olympic vs Brisbane Roar - Australia Cup",
       "kickoff_iso": "2026-07-30T16:30:00+07:00",
-      "minutes_to_kickoff": 194,
-      "last_scan_at": "2026-07-30T13:16:17.233824+07:00",
-      "next_scan_at": "2026-07-30T14:01:17.233824+07:00",
+      "minutes_to_kickoff": 21,
+      "last_scan_at": "2026-07-30T16:09:38.324461+07:00",
+      "next_scan_at": "2026-07-30T16:19:38.324461+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "browser-fallback"
+    },
+    "999289": {
+      "url": "https://live04.chuoichientv.me/live/999289/poland-vs-ukraine",
+      "match_name": "poland vs ukraine",
+      "kickoff_iso": "2026-07-30T18:30:00+07:00",
+      "minutes_to_kickoff": 141,
+      "last_scan_at": "2026-07-30T16:09:38.324461+07:00",
+      "next_scan_at": "2026-07-30T16:54:38.324461+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1534810": {
+      "url": "https://live04.chuoichientv.me/live/1534810/kaspij-aktau-2-vs-aktobe-jas",
+      "match_name": "kaspij aktau 2 vs aktobe jas",
+      "kickoff_iso": "2026-07-30T20:00:00+07:00",
+      "minutes_to_kickoff": 231,
+      "last_scan_at": "2026-07-30T16:09:38.324461+07:00",
+      "next_scan_at": "2026-07-30T16:54:38.324461+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
