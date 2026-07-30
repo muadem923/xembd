@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-30T06:29:40.454158+07:00",
+  "updated_at": "2026-07-30T07:53:48.703836+07:00",
   "matches": {
     "1602957": {
       "url": "https://live04.chuoichientv.me/live/1602957/tampines-rovers-vs-arema-fc",
@@ -464,9 +464,9 @@
       "url": "https://live04.chuoichientv.me/live/1589333/liverpool-vs-wrexham",
       "match_name": "Liverpool vs Wrexham - Premier League - Summer Series",
       "kickoff_iso": "2026-07-30T06:30:00+07:00",
-      "minutes_to_kickoff": 1,
-      "last_scan_at": "2026-07-30T06:29:40.454109+07:00",
-      "next_scan_at": "2026-07-30T06:34:40.454109+07:00",
+      "minutes_to_kickoff": -83,
+      "last_scan_at": "2026-07-30T07:53:48.703781+07:00",
+      "next_scan_at": "2026-07-30T07:58:48.703781+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
