@@ -1,16 +1,28 @@
 #EXTM3U
-#EXTINF:-1 tvg-id="chuoichien-999289-1" tvg-name="[18:30 30/07] Poland vs Ukraine - Nations League" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_125454_fc9cbefe.png",[18:30 30/07] Poland vs Ukraine - Nations League [FHD FLV]
+#EXTINF:-1 tvg-id="chuoichien-999289-1" tvg-name="[18:30 30/07] Poland vs Ukraine - Nations League" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_125459_fd6a0e94.png",[18:30 30/07] Poland vs Ukraine - Nations League [FHD FLV]
 #EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
 https://gckc0525.edgemaxcdn.org/live/chuoitay.flv
-#EXTINF:-1 tvg-id="chuoichien-999289-2" tvg-name="[18:30 30/07] Poland vs Ukraine - Nations League" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_125454_fc9cbefe.png",[18:30 30/07] Poland vs Ukraine - Nations League (Luồng 2) [M3U8]
+#EXTINF:-1 tvg-id="chuoichien-999289-2" tvg-name="[18:30 30/07] Poland vs Ukraine - Nations League" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_125459_fd6a0e94.png",[18:30 30/07] Poland vs Ukraine - Nations League (Luồng 2) [M3U8]
 #EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
 https://gckc0525.edgemaxcdn.org/live/chuoitay/playlist.m3u8
+#EXTINF:-1 tvg-id="chuoichien-1534810-1" tvg-name="[20:00 30/07] Kaspij Aktau 2 vs Aktobe Jas - Hạng Nhất Kazakhstan [BLV Chuối Nhỏ]" group-title="Chuối Chiên" tvg-logo="https://media.api-sports.io/football/teams/27633.png",[20:00 30/07] Kaspij Aktau 2 vs Aktobe Jas - Hạng Nhất Kazakhstan [BLV Chuối Nhỏ] [FHD FLV]
+#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
+https://gckc0525.edgemaxcdn.org/live/chuoinho.flv
+#EXTINF:-1 tvg-id="gavang-2643-1" tvg-name="[20:00 30/07] Fk Taraz vs Akademiya Ontustik" group-title="Gà Vàng" tvg-logo="https://imgts.sportpulseapiz.com/football/team/jw2r09hl17yrz84/image/small",[20:00 30/07] Fk Taraz vs Akademiya Ontustik [FLV]
+#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2643/taraz-ontustik-kazdiv1/?s8_live_fixture_id=2643&s8_live_stream_key=taraz-ontustik-kazdiv1&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2643/taraz-ontustik-kazdiv1/?s8_live_fixture_id=2643&s8_live_stream_key=taraz-ontustik-kazdiv1&s8_auto_sound=1","Origin":"https://profecta.io"}
+https://flv.lauthaitv.cc/live/taraz-ontustik-kazdiv1.flv
 #EXTINF:-1 tvg-id="gavang-2654-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ LỊCH] Ander VS Hammer" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ LỊCH] Ander VS Hammer [FLV]
 #EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2654/ander-hammer-c2qual/?s8_live_fixture_id=2654&s8_live_stream_key=ander-hammer-c2qual&s8_auto_sound=1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
@@ -35,18 +47,6 @@ https://flv.lauthaitv.cc/live/benfica-gallen-c2qual.flv
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2660/cai-newell-argdiv1/?s8_live_fixture_id=2660&s8_live_stream_key=cai-newell-argdiv1&s8_auto_sound=1","Origin":"https://profecta.io"}
 https://flv.lauthaitv.cc/live/cai-newell-argdiv1.flv
-#EXTINF:-1 tvg-id="gavang-2656-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ GIỜ 31/07] Copa Ecuador - Liga Dep Universitaria Quito VS Club Leones del Norte [BLV NGƯỜI NẶN]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ GIỜ 31/07] Copa Ecuador - Liga Dep Universitaria Quito VS Club Leones del Norte [BLV NGƯỜI NẶN] [FLV]
-#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2656/quito-norte-copaecu/?s8_live_fixture_id=2656&s8_live_stream_key=quito-norte-copaecu&s8_auto_sound=1
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2656/quito-norte-copaecu/?s8_live_fixture_id=2656&s8_live_stream_key=quito-norte-copaecu&s8_auto_sound=1","Origin":"https://profecta.io"}
-https://flv.lauthaitv.cc/live/quito-norte-copaecu.flv
-#EXTINF:-1 tvg-id="gavang-2661-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ GIỜ 31/07] Copa Sudamericana - O.Higgins VS Boca Juniors [BLV NGƯỜI CÁO]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ GIỜ 31/07] Copa Sudamericana - O.Higgins VS Boca Juniors [BLV NGƯỜI CÁO] [FLV]
-#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2661/higgin-boca-copasuda/?s8_live_fixture_id=2661&s8_live_stream_key=higgin-boca-copasuda&s8_auto_sound=1
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2661/higgin-boca-copasuda/?s8_live_fixture_id=2661&s8_live_stream_key=higgin-boca-copasuda&s8_auto_sound=1","Origin":"https://profecta.io"}
-https://flv.lauthaitv.cc/live/higgin-boca-copasuda.flv
 #EXTINF:-1 tvg-id="gavang-2658-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ LỊCH] Corin VS Parana" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ LỊCH] Corin VS Parana [FLV]
 #EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2658/corin-parana-brasa/?s8_live_fixture_id=2658&s8_live_stream_key=corin-parana-brasa&s8_auto_sound=1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
@@ -59,44 +59,56 @@ https://flv.lauthaitv.cc/live/corin-parana-brasa.flv
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2657/gemio-bolivar-copasuda/?s8_live_fixture_id=2657&s8_live_stream_key=gemio-bolivar-copasuda&s8_auto_sound=1","Origin":"https://profecta.io"}
 https://flv.lauthaitv.cc/live/gemio-bolivar-copasuda.flv
+#EXTINF:-1 tvg-id="gavang-2661-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ LỊCH] Higgin VS Boca" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ LỊCH] Higgin VS Boca [FLV]
+#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2661/higgin-boca-copasuda/?s8_live_fixture_id=2661&s8_live_stream_key=higgin-boca-copasuda&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2661/higgin-boca-copasuda/?s8_live_fixture_id=2661&s8_live_stream_key=higgin-boca-copasuda&s8_auto_sound=1","Origin":"https://profecta.io"}
+https://flv.lauthaitv.cc/live/higgin-boca-copasuda.flv
+#EXTINF:-1 tvg-id="gavang-2656-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ LỊCH] Quito VS Norte" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ LỊCH] Quito VS Norte [FLV]
+#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2656/quito-norte-copaecu/?s8_live_fixture_id=2656&s8_live_stream_key=quito-norte-copaecu&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2656/quito-norte-copaecu/?s8_live_fixture_id=2656&s8_live_stream_key=quito-norte-copaecu&s8_auto_sound=1","Origin":"https://profecta.io"}
+https://flv.lauthaitv.cc/live/quito-norte-copaecu.flv
 #EXTINF:-1 tvg-id="gavang-2659-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ LỊCH] Sun VS Leed" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ LỊCH] Sun VS Leed [FLV]
 #EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2659/sun-leed-intcf/?s8_live_fixture_id=2659&s8_live_stream_key=sun-leed-intcf&s8_auto_sound=1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2659/sun-leed-intcf/?s8_live_fixture_id=2659&s8_live_stream_key=sun-leed-intcf&s8_auto_sound=1","Origin":"https://profecta.io"}
 https://flv.lauthaitv.cc/live/sun-leed-intcf.flv
-#EXTINF:-1 tvg-id="xoilac-r-marvino-vs-lee-jhe-huei-yang-po-hsuan-luc-1830-ngay-30-07-2026-s0-5" tvg-name="[18:30 30/07/2026] Muhammad Rian Ardianto Daniel Edgar Marvino vs Lee Jhe Huei Yang Po Hsuan [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/badminton/team/318q66ksxw41qo9/image/small",[18:30 30/07/2026] Muhammad Rian Ardianto Daniel Edgar Marvino vs Lee Jhe Huei Yang Po Hsuan [FLV]
-#EXTVLCOPT:http-referrer=https://xlz.livepingscorex.com/ajax/chanel/type/7/link/channel61/off-tvc?is_off_add=false
+#EXTINF:-1 tvg-id="xoilac--tiep-fk-kaspiy-aktau-b-vs-fk-aktobe-ii-luc-2000-ngay-30-07-2026-s1-2" tvg-name="[20:00 30/07/2026] Fk Kaspiy Aktau B vs Fk Aktobe Ii [BLV HD OLER] [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/football/team/l5ergphpj2yr8k0/image/small",[20:00 30/07/2026] Fk Kaspiy Aktau B vs Fk Aktobe Ii [BLV HD OLER] [FLV]
+#EXTVLCOPT:http-referrer=https://xlz.livepingscorex.com/ajax/chanel/type/5/link/channel28/off-tvc?is_off_add=false
 #EXTVLCOPT:http-origin=https://xlz.livepingscorex.com
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.livepingscorex.com/ajax/chanel/type/7/link/channel61/off-tvc?is_off_add=false","Origin":"https://xlz.livepingscorex.com"}
-https://live1.streambylivepulse.com/live/channel61.flv?wsSecret=bd5d350f2534fa0f70fde1e30817a363&wsABSTime=1785454056
-#EXTINF:-1 tvg-id="xoilac-ey-smith-vs-lin-chia-yen-yong-sheng-lin-luc-1830-ngay-30-07-2026-s0-3" tvg-name="[18:30 30/07/2026] Chen Zhiyi Presley Smith vs Lin Chia Yen Yong Sheng Lin [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/badminton/team/4jwq2g9s3kd0m0v/image/small",[18:30 30/07/2026] Chen Zhiyi Presley Smith vs Lin Chia Yen Yong Sheng Lin [FLV]
-#EXTVLCOPT:http-referrer=https://xlz.livepingscorex.com/ajax/chanel/type/7/link/channel62/off-tvc?is_off_add=false
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.livepingscorex.com/ajax/chanel/type/5/link/channel28/off-tvc?is_off_add=false","Origin":"https://xlz.livepingscorex.com"}
+https://live3.procdnlive.com/livecdn/channel28.flv?auth_key=3000001785416492-0-0-1db9b964038e3e1ae51518af8ac56024
+#EXTINF:-1 tvg-id="xoilac-ruc-tiep-fk-taraz-vs-akademiya-ontustik-luc-2000-ngay-30-07-2026-s1-1" tvg-name="[20:00 30/07/2026] Fk Taraz vs Akademiya Ontustik [BLV HD POLO] [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/football/team/jw2r09hl17yrz84/image/small",[20:00 30/07/2026] Fk Taraz vs Akademiya Ontustik [BLV HD POLO] [FLV]
+#EXTVLCOPT:http-referrer=https://xlz.livepingscorex.com/ajax/chanel/type/5/link/channel10/off-tvc?is_off_add=false
 #EXTVLCOPT:http-origin=https://xlz.livepingscorex.com
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.livepingscorex.com/ajax/chanel/type/7/link/channel62/off-tvc?is_off_add=false","Origin":"https://xlz.livepingscorex.com"}
-https://live1.streambylivepulse.com/live/channel62.flv?wsSecret=ac8aee7f9e8300e918a1c19d58df2384&wsABSTime=1785454042
-#EXTINF:-1 tvg-id="xoilac--ali-faathir-rayhan-devin-artha-wahyudi-luc-1830-ngay-30-07-2026-s0-4" tvg-name="[18:30 30/07/2026] Hiroki Okamura Kyohei Yamashita vs Ali Faathir Rayhan Devin Artha Wahyudi [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/badminton/team/jw2r09gskwdnrz8/image/small",[18:30 30/07/2026] Hiroki Okamura Kyohei Yamashita vs Ali Faathir Rayhan Devin Artha Wahyudi [FLV]
-#EXTVLCOPT:http-referrer=https://xlz.livepingscorex.com/ajax/chanel/type/7/link/channel64/off-tvc?is_off_add=false
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.livepingscorex.com/ajax/chanel/type/5/link/channel10/off-tvc?is_off_add=false","Origin":"https://xlz.livepingscorex.com"}
+https://live3.procdnlive.com/livecdn/channel10.flv?auth_key=3000001785416478-0-0-6e66a6aab80a65bb55b3dc2e97a640a0
+#EXTINF:-1 tvg-id="xoilac-ruc-tiep-genclerbirligi-vs-keciorengucu-luc-2000-ngay-30-07-2026-s0-4" tvg-name="[20:00 30/07/2026] Genclerbirligi vs Keciorengucu [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/football/team/gx7lm7phd6wm2wd/image/small",[20:00 30/07/2026] Genclerbirligi vs Keciorengucu [FLV]
+#EXTVLCOPT:http-referrer=https://xlz.livepingscorex.com/ajax/chanel/type/7/link/channel34/off-tvc?is_off_add=false
 #EXTVLCOPT:http-origin=https://xlz.livepingscorex.com
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.livepingscorex.com/ajax/chanel/type/7/link/channel64/off-tvc?is_off_add=false","Origin":"https://xlz.livepingscorex.com"}
-https://live1.streambylivepulse.com/live/channel64.flv?wsSecret=2321c4890bef062608bf24cca29424af&wsABSTime=1785454049
-#EXTINF:-1 tvg-id="xoilac-p-nu-hefei-culture-vs-nu-shandong-speed-luc-1830-ngay-30-07-2026-s0-1" tvg-name="[18:30 30/07/2026] Nu Hefei Culture vs Nu Shandong Speed [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/basketball/team/y0or5gtexn3qwzv/image/small",[18:30 30/07/2026] Nu Hefei Culture vs Nu Shandong Speed [FLV]
-#EXTVLCOPT:http-referrer=https://xlz.livepingscorex.com/ajax/chanel/type/7/link/channel45/off-tvc?is_off_add=false
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.livepingscorex.com/ajax/chanel/type/7/link/channel34/off-tvc?is_off_add=false","Origin":"https://xlz.livepingscorex.com"}
+https://live1.streambylivepulse.com/live/channel34.flv?wsSecret=c120fc270defbf1f2c581957475a50ea&wsABSTime=1785459707
+#EXTINF:-1 tvg-id="xoilac-uc-tiep-shao-jiang-vs-chessman-chiba-fc-luc-2000-ngay-30-07-2026-s0-3" tvg-name="[20:00 30/07/2026] Shao Jiang vs Chessman Chiba Fc [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/football/team/k82rekh1844repz/image/small",[20:00 30/07/2026] Shao Jiang vs Chessman Chiba Fc [FLV]
+#EXTVLCOPT:http-referrer=https://xlz.livepingscorex.com/ajax/chanel/type/7/link/channel33/off-tvc?is_off_add=false
 #EXTVLCOPT:http-origin=https://xlz.livepingscorex.com
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.livepingscorex.com/ajax/chanel/type/7/link/channel45/off-tvc?is_off_add=false","Origin":"https://xlz.livepingscorex.com"}
-https://live1.streambylivepulse.com/live/channel45.flv?wsSecret=a8e98db53451673ff7ff9f2edde5b88e&wsABSTime=1785454022
-#EXTINF:-1 tvg-id="xoilac-ongsathapornparn-sabrina-sophita-wedler-luc-1830-ngay-30-07-2026-s0-2" tvg-name="[18:30 30/07/2026] Nanako Hara Riko Kiyose vs Ornnicha Jongsathapornparn Sabrina Sophita Wedler [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/badminton/team/j2ryolskyzj5q1z/image/small",[18:30 30/07/2026] Nanako Hara Riko Kiyose vs Ornnicha Jongsathapornparn Sabrina Sophita Wedler [FLV]
-#EXTVLCOPT:http-referrer=https://xlz.livepingscorex.com/ajax/chanel/type/7/link/channel63/off-tvc?is_off_add=false
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.livepingscorex.com/ajax/chanel/type/7/link/channel33/off-tvc?is_off_add=false","Origin":"https://xlz.livepingscorex.com"}
+https://live1.streambylivepulse.com/live/channel33.flv?wsSecret=b78f15d1dfd3b7867be6c0c911798781&wsABSTime=1785459699
+#EXTINF:-1 tvg-id="xoilac-sportivo-barracas-r-vs-leandro-n-alem-r-luc-2000-ngay-30-07-2026-s0-5" tvg-name="[20:00 30/07/2026] Sportivo Barracas R vs Leandro N Alem R [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/football/team/zp5rzghz5dnq82w/image/small",[20:00 30/07/2026] Sportivo Barracas R vs Leandro N Alem R [FLV]
+#EXTVLCOPT:http-referrer=https://xlz.livepingscorex.com/ajax/chanel/type/7/link/channel35/off-tvc?is_off_add=false
 #EXTVLCOPT:http-origin=https://xlz.livepingscorex.com
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.livepingscorex.com/ajax/chanel/type/7/link/channel63/off-tvc?is_off_add=false","Origin":"https://xlz.livepingscorex.com"}
-https://live1.streambylivepulse.com/live/channel63.flv?wsSecret=6300c21c8eeee91f7da0bc8228b00d4b&wsABSTime=1785454034
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.livepingscorex.com/ajax/chanel/type/7/link/channel35/off-tvc?is_off_add=false","Origin":"https://xlz.livepingscorex.com"}
+https://live1.streambylivepulse.com/live/channel35.flv?wsSecret=b662fc3a8b628fc3896482565cde408c&wsABSTime=1785459714

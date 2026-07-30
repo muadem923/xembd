@@ -1,52 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-30T18:27:25.576161+07:00",
+  "updated_at": "2026-07-30T20:01:38.362280+07:00",
   "matches": {
-    "996253": {
-      "url": "https://live04.chuoichientv.me/live/996253/trau-vs-neroca",
-      "match_name": "TRAU vs NEROCA - Durand Cup",
-      "kickoff_iso": "2026-07-28T18:30:00+07:00",
-      "minutes_to_kickoff": -49,
-      "last_scan_at": "2026-07-28T19:19:25.439505+07:00",
-      "next_scan_at": "2026-07-28T19:24:25.439505+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoichao.flv",
-        "https://gckc0525.edgemaxcdn.org/live/chuoichao/playlist.m3u8"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "1559556": {
-      "url": "https://live04.chuoichientv.me/live/1559556/bomik-vs-broke-boys",
-      "match_name": "Bomik vs Broke Boys - Cúp Nga",
-      "kickoff_iso": "2026-07-28T19:00:00+07:00",
-      "minutes_to_kickoff": -19,
-      "last_scan_at": "2026-07-28T19:19:25.439505+07:00",
-      "next_scan_at": "2026-07-28T19:24:25.439505+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoinho.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "1548092": {
-      "url": "https://live04.chuoichientv.me/live/1548092/malaysia-vs-laos",
-      "match_name": "Malaysia vs Laos - AFF Championship",
-      "kickoff_iso": "2026-07-28T20:00:00+07:00",
-      "minutes_to_kickoff": -116,
-      "last_scan_at": "2026-07-28T21:56:39.513997+07:00",
-      "next_scan_at": "2026-07-28T22:01:39.513997+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoitay.flv",
-        "https://gckc0525.edgemaxcdn.org/live/chuoitay/playlist.m3u8"
-      ],
-      "scan_decision": "browser-fallback"
-    },
     "995444": {
       "url": "https://live04.chuoichientv.me/live/995444/south-united-vs-cisf-protectors",
       "match_name": "South United vs CISF Protectors - Durand Cup",
@@ -462,9 +418,9 @@
       "url": "https://live04.chuoichientv.me/live/999289/poland-vs-ukraine",
       "match_name": "Poland vs Ukraine - Nations League",
       "kickoff_iso": "2026-07-30T18:30:00+07:00",
-      "minutes_to_kickoff": 3,
-      "last_scan_at": "2026-07-30T18:27:25.576064+07:00",
-      "next_scan_at": "2026-07-30T18:32:25.576064+07:00",
+      "minutes_to_kickoff": -91,
+      "last_scan_at": "2026-07-30T20:01:38.362158+07:00",
+      "next_scan_at": "2026-07-30T20:06:38.362158+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -475,15 +431,17 @@
     },
     "1534810": {
       "url": "https://live04.chuoichientv.me/live/1534810/kaspij-aktau-2-vs-aktobe-jas",
-      "match_name": "kaspij aktau 2 vs aktobe jas",
+      "match_name": "Kaspij Aktau 2 vs Aktobe Jas - Hạng Nhất Kazakhstan",
       "kickoff_iso": "2026-07-30T20:00:00+07:00",
-      "minutes_to_kickoff": 93,
-      "last_scan_at": "2026-07-30T18:27:25.576064+07:00",
-      "next_scan_at": "2026-07-30T18:47:25.576064+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -1,
+      "last_scan_at": "2026-07-30T20:01:38.362158+07:00",
+      "next_scan_at": "2026-07-30T20:06:38.362158+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoinho.flv"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "1556540": {
       "url": "https://live04.chuoichientv.me/live/1556540/fk-tobol-kostanay-vs-panevys",
@@ -492,6 +450,42 @@
       "minutes_to_kickoff": 153,
       "last_scan_at": "2026-07-30T18:27:25.576064+07:00",
       "next_scan_at": "2026-07-30T19:12:25.576064+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1583494": {
+      "url": "https://live04.chuoichientv.me/live/1583494/fc-augsburg-vs-bournemouth",
+      "match_name": "fc augsburg vs bournemouth",
+      "kickoff_iso": "2026-07-30T21:00:00+07:00",
+      "minutes_to_kickoff": 59,
+      "last_scan_at": "2026-07-30T20:01:38.362158+07:00",
+      "next_scan_at": "2026-07-30T20:21:38.362158+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1593507": {
+      "url": "https://live04.chuoichientv.me/live/1593507/inter-turku-vs-istanbul-basaksehir",
+      "match_name": "inter turku vs istanbul basaksehir",
+      "kickoff_iso": "2026-07-30T23:00:00+07:00",
+      "minutes_to_kickoff": 179,
+      "last_scan_at": "2026-07-30T20:01:38.362158+07:00",
+      "next_scan_at": "2026-07-30T20:46:38.362158+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1593526": {
+      "url": "https://live04.chuoichientv.me/live/1593526/maccabi-tel-aviv-vs-sheriff-tiraspol",
+      "match_name": "maccabi tel aviv vs sheriff tiraspol",
+      "kickoff_iso": "2026-07-30T23:00:00+07:00",
+      "minutes_to_kickoff": 179,
+      "last_scan_at": "2026-07-30T20:01:38.362158+07:00",
+      "next_scan_at": "2026-07-30T20:46:38.362158+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
