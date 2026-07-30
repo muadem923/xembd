@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-30T10:49:07.636441+07:00",
+  "updated_at": "2026-07-30T13:16:17.235801+07:00",
   "matches": {
     "1602957": {
       "url": "https://live04.chuoichientv.me/live/1602957/tampines-rovers-vs-arema-fc",
@@ -477,11 +477,23 @@
     },
     "210764": {
       "url": "https://live04.chuoichientv.me/live/210764/italy-vs-usa",
-      "match_name": "italy vs usa",
+      "match_name": "Italy vs USA - Nations League",
       "kickoff_iso": "2026-07-30T14:00:00+07:00",
-      "minutes_to_kickoff": 191,
-      "last_scan_at": "2026-07-30T10:49:07.636399+07:00",
-      "next_scan_at": "2026-07-30T11:34:07.636399+07:00",
+      "minutes_to_kickoff": 44,
+      "last_scan_at": "2026-07-30T13:16:17.233824+07:00",
+      "next_scan_at": "2026-07-30T13:26:17.233824+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "browser-fallback"
+    },
+    "1560868": {
+      "url": "https://live04.chuoichientv.me/live/1560868/sydney-olympic-vs-brisbane-roar",
+      "match_name": "sydney olympic vs brisbane roar",
+      "kickoff_iso": "2026-07-30T16:30:00+07:00",
+      "minutes_to_kickoff": 194,
+      "last_scan_at": "2026-07-30T13:16:17.233824+07:00",
+      "next_scan_at": "2026-07-30T14:01:17.233824+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
