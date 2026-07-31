@@ -1,23 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-31T17:26:26.959449+07:00",
+  "updated_at": "2026-07-31T19:25:20.628830+07:00",
   "matches": {
-    "210763": {
-      "url": "https://live04.chuoichientv.me/live/210763/japan-vs-china",
-      "match_name": "Japan vs China - Nations League",
-      "kickoff_iso": "2026-07-29T18:30:00+07:00",
-      "minutes_to_kickoff": -57,
-      "last_scan_at": "2026-07-29T19:27:30.959614+07:00",
-      "next_scan_at": "2026-07-29T19:32:30.959614+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoitay.flv",
-        "https://gckc0525.edgemaxcdn.org/live/chuoitay/playlist.m3u8"
-      ],
-      "scan_decision": "browser-fallback"
-    },
     "1602960": {
       "url": "https://live04.chuoichientv.me/live/1602960/persebaya-surabaya-vs-psms-medan",
       "match_name": "Persebaya Surabaya vs PSMS Medan - Piala Presiden",
@@ -386,59 +371,81 @@
     },
     "1523219": {
       "url": "https://live04.chuoichientv.me/live/1523219/henan-jianye-vs-dalian-zhixing",
-      "match_name": "henan jianye vs dalian zhixing",
+      "match_name": "Henan Jianye vs Dalian Zhixing - Ngoại Hạng Trung Quốc",
       "kickoff_iso": "2026-07-31T18:35:00+07:00",
-      "minutes_to_kickoff": 69,
-      "last_scan_at": "2026-07-31T17:26:26.959278+07:00",
-      "next_scan_at": "2026-07-31T17:46:26.959278+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -50,
+      "last_scan_at": "2026-07-31T19:25:20.628718+07:00",
+      "next_scan_at": "2026-07-31T19:30:20.628718+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoito.flv"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "991536": {
       "url": "https://live04.chuoichientv.me/live/991536/vietnam-w-vs-philippines-w",
-      "match_name": "vietnam w vs philippines w",
+      "match_name": "Vietnam W vs Philippines W - Bóng Chuyền SEA V.LEAGUE",
       "kickoff_iso": "2026-07-31T19:00:00+07:00",
-      "minutes_to_kickoff": 94,
-      "last_scan_at": "2026-07-31T17:26:26.959278+07:00",
-      "next_scan_at": "2026-07-31T17:46:26.959278+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -25,
+      "last_scan_at": "2026-07-31T19:25:20.628718+07:00",
+      "next_scan_at": "2026-07-31T19:30:20.628718+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoitay.flv",
+        "https://gckc0525.edgemaxcdn.org/live/chuoitay/playlist.m3u8"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "1602962": {
       "url": "https://live04.chuoichientv.me/live/1602962/persib-bandung-vs-tampines-rovers",
-      "match_name": "persib bandung vs tampines rovers",
+      "match_name": "Persib Bandung vs Tampines Rovers - Piala Presiden",
       "kickoff_iso": "2026-07-31T19:30:00+07:00",
-      "minutes_to_kickoff": 124,
-      "last_scan_at": "2026-07-31T17:26:26.959278+07:00",
-      "next_scan_at": "2026-07-31T18:11:26.959278+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": 5,
+      "last_scan_at": "2026-07-31T19:25:20.628718+07:00",
+      "next_scan_at": "2026-07-31T19:30:20.628718+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoichao.flv"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "1548094": {
       "url": "https://live04.chuoichientv.me/live/1548094/vit-nam-vs-singapore",
-      "match_name": "vit nam vs singapore",
+      "match_name": "Việt Nam vs Singapore - AFF Championship",
       "kickoff_iso": "2026-07-31T20:00:00+07:00",
-      "minutes_to_kickoff": 154,
-      "last_scan_at": "2026-07-31T17:26:26.959278+07:00",
-      "next_scan_at": "2026-07-31T18:11:26.959278+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": 35,
+      "last_scan_at": "2026-07-31T19:25:20.628718+07:00",
+      "next_scan_at": "2026-07-31T19:35:20.628718+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoinho.flv",
+        "https://gckc0525.edgemaxcdn.org/live/chuoinho/playlist.m3u8"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "993936": {
       "url": "https://live04.chuoichientv.me/live/993936/east-bengal-vs-cisf-protectors",
       "match_name": "east bengal vs cisf protectors",
       "kickoff_iso": "2026-07-31T21:00:00+07:00",
-      "minutes_to_kickoff": 214,
-      "last_scan_at": "2026-07-31T17:26:26.959278+07:00",
-      "next_scan_at": "2026-07-31T18:11:26.959278+07:00",
+      "minutes_to_kickoff": 95,
+      "last_scan_at": "2026-07-31T19:25:20.628718+07:00",
+      "next_scan_at": "2026-07-31T19:45:20.628718+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1585004": {
+      "url": "https://live04.chuoichientv.me/live/1585004/juventus-vs-nice",
+      "match_name": "juventus vs nice",
+      "kickoff_iso": "2026-07-31T23:00:00+07:00",
+      "minutes_to_kickoff": 215,
+      "last_scan_at": "2026-07-31T19:25:20.628718+07:00",
+      "next_scan_at": "2026-07-31T20:10:20.628718+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
