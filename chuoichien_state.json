@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-31T08:24:44.514257+07:00",
+  "updated_at": "2026-07-31T11:51:05.721232+07:00",
   "matches": {
     "1602959": {
       "url": "https://live04.chuoichientv.me/live/1602959/port-fc-vs-persija",
@@ -411,6 +411,18 @@
         "https://gckc0525.edgemaxcdn.org/live/chuoitieu.flv"
       ],
       "scan_decision": "browser-fallback"
+    },
+    "1602961": {
+      "url": "https://live04.chuoichientv.me/live/1602961/arema-fc-vs-dpmm-fc",
+      "match_name": "arema fc vs dpmm fc",
+      "kickoff_iso": "2026-07-31T15:30:00+07:00",
+      "minutes_to_kickoff": 219,
+      "last_scan_at": "2026-07-31T11:51:05.721190+07:00",
+      "next_scan_at": "2026-07-31T12:36:05.721190+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
     }
   }
 }
