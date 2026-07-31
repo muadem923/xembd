@@ -1,23 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-31T23:29:37.595082+07:00",
+  "updated_at": "2026-08-01T01:03:17.233838+07:00",
   "matches": {
-    "1583487": {
-      "url": "https://live04.chuoichientv.me/live/1583487/real-betis-vs-lyon",
-      "match_name": "Real Betis vs Lyon - Giao Hữu Câu Lạc Bộ",
-      "kickoff_iso": "2026-07-30T01:00:00+07:00",
-      "minutes_to_kickoff": -58,
-      "last_scan_at": "2026-07-30T01:58:18.936775+07:00",
-      "next_scan_at": "2026-07-30T02:03:18.936775+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoinho.flv",
-        "https://gckc0525.edgemaxcdn.org/live/chuoinho/playlist.m3u8"
-      ],
-      "scan_decision": "browser-fallback"
-    },
     "1493022": {
       "url": "https://live04.chuoichientv.me/live/1493022/defensa-y-justicia-vs-deportivo-riestra",
       "match_name": "Defensa Y Justicia vs Deportivo Riestra - VĐQG Argentina",
@@ -30,20 +15,6 @@
       "verified_urls": [
         "https://gckc0525.edgemaxcdn.org/live/troctru.flv",
         "https://gckc0525.edgemaxcdn.org/live/troctru/playlist.m3u8"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "1556508": {
-      "url": "https://live04.chuoichientv.me/live/1556508/lech-poznan-vs-aarhus",
-      "match_name": "Lech Poznan vs Aarhus - UEFA Champions League",
-      "kickoff_iso": "2026-07-30T00:00:00+07:00",
-      "minutes_to_kickoff": -118,
-      "last_scan_at": "2026-07-30T01:58:18.936775+07:00",
-      "next_scan_at": "2026-07-30T02:03:18.936775+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/angao.flv"
       ],
       "scan_decision": "browser-fallback"
     },
@@ -396,6 +367,57 @@
       "verified_urls": [
         "https://gckc0525.edgemaxcdn.org/live/troctru.flv",
         "https://gckc0525.edgemaxcdn.org/live/troctru/playlist.m3u8"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "1494717": {
+      "url": "https://live04.chuoichientv.me/live/1494717/bodoglimt-vs-lillestrom",
+      "match_name": "bodoglimt vs lillestrom",
+      "kickoff_iso": "2026-08-01T02:00:00+07:00",
+      "minutes_to_kickoff": 57,
+      "last_scan_at": "2026-08-01T01:03:17.233764+07:00",
+      "next_scan_at": "2026-08-01T01:23:17.233764+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1544731": {
+      "url": "https://live04.chuoichientv.me/live/1544731/el-salvador-u20-vs-haiti-u20",
+      "match_name": "el salvador u20 vs haiti u20",
+      "kickoff_iso": "2026-08-01T04:00:00+07:00",
+      "minutes_to_kickoff": 177,
+      "last_scan_at": "2026-08-01T01:03:17.233764+07:00",
+      "next_scan_at": "2026-08-01T01:48:17.233764+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1583514": {
+      "url": "https://live04.chuoichientv.me/live/1583514/birmingham-vs-barcelona",
+      "match_name": "Birmingham vs Barcelona - Giao Hữu Câu Lạc Bộ",
+      "kickoff_iso": "2026-08-01T01:45:00+07:00",
+      "minutes_to_kickoff": 42,
+      "last_scan_at": "2026-08-01T01:03:17.233764+07:00",
+      "next_scan_at": "2026-08-01T01:13:17.233764+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "browser-fallback"
+    },
+    "1561346": {
+      "url": "https://live04.chuoichientv.me/live/1561346/rodina-moskva-vs-fc-rostov",
+      "match_name": "Rodina Moskva vs FC Rostov - Ngoại Hạng Nga",
+      "kickoff_iso": "2026-08-01T00:00:00+07:00",
+      "minutes_to_kickoff": -63,
+      "last_scan_at": "2026-08-01T01:03:17.233764+07:00",
+      "next_scan_at": "2026-08-01T01:08:17.233764+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoito.flv",
+        "https://gckc0525.edgemaxcdn.org/live/chuoito/playlist.m3u8"
       ],
       "scan_decision": "browser-fallback"
     }
