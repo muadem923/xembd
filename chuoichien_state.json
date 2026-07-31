@@ -1,23 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-31T21:45:02.070093+07:00",
+  "updated_at": "2026-07-31T23:29:37.595082+07:00",
   "matches": {
-    "1591938": {
-      "url": "https://live04.chuoichientv.me/live/1591938/kairat-almaty-vs-omonia-nicosia",
-      "match_name": "Kairat Almaty vs Omonia Nicosia - UEFA Champions League",
-      "kickoff_iso": "2026-07-29T22:00:00+07:00",
-      "minutes_to_kickoff": -75,
-      "last_scan_at": "2026-07-29T23:15:11.688938+07:00",
-      "next_scan_at": "2026-07-29T23:20:11.688938+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoito.flv",
-        "https://gckc0525.edgemaxcdn.org/live/chuoito/playlist.m3u8"
-      ],
-      "scan_decision": "browser-fallback"
-    },
     "1583487": {
       "url": "https://live04.chuoichientv.me/live/1583487/real-betis-vs-lyon",
       "match_name": "Real Betis vs Lyon - Giao Hữu Câu Lạc Bộ",
@@ -401,15 +386,18 @@
     },
     "1585004": {
       "url": "https://live04.chuoichientv.me/live/1585004/juventus-vs-nice",
-      "match_name": "juventus vs nice",
+      "match_name": "Juventus vs Nice - Giao Hữu Câu Lạc Bộ",
       "kickoff_iso": "2026-07-31T23:00:00+07:00",
-      "minutes_to_kickoff": 76,
-      "last_scan_at": "2026-07-31T21:45:02.069998+07:00",
-      "next_scan_at": "2026-07-31T22:05:02.069998+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -29,
+      "last_scan_at": "2026-07-31T23:29:37.595032+07:00",
+      "next_scan_at": "2026-07-31T23:34:37.595032+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/troctru.flv",
+        "https://gckc0525.edgemaxcdn.org/live/troctru/playlist.m3u8"
+      ],
+      "scan_decision": "browser-fallback"
     }
   }
 }
