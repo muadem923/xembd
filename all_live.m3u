@@ -1,102 +1,72 @@
 #EXTM3U
-#EXTINF:-1 tvg-id="chuoichien-1523219-1" tvg-name="[18:35 31/07] Henan Jianye vs Dalian Zhixing - Ngoại Hạng Trung Quốc [BLV trực tiếp: Chuối To Trận đấu Henan Jiany]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_133510_2c132dec.png",[18:35 31/07] Henan Jianye vs Dalian Zhixing - Ngoại Hạng Trung Quốc [BLV trực tiếp: Chuối To Trận đấu Henan Jiany] [FHD FLV]
-#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
-https://gckc0525.edgemaxcdn.org/live/chuoito.flv
-#EXTINF:-1 tvg-id="chuoichien-991536-1" tvg-name="[19:00 31/07] Vietnam W vs Philippines W - Bóng Chuyền SEA V.LEAGUE [BLV Chuối Tây]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/20250826_164900_cfcedb98.png",[19:00 31/07] Vietnam W vs Philippines W - Bóng Chuyền SEA V.LEAGUE [BLV Chuối Tây] [FHD FLV]
-#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
-https://gckc0525.edgemaxcdn.org/live/chuoitay.flv
-#EXTINF:-1 tvg-id="chuoichien-991536-2" tvg-name="[19:00 31/07] Vietnam W vs Philippines W - Bóng Chuyền SEA V.LEAGUE [BLV Chuối Tây]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/20250826_164900_cfcedb98.png",[19:00 31/07] Vietnam W vs Philippines W - Bóng Chuyền SEA V.LEAGUE [BLV Chuối Tây] (Luồng 2) [M3U8]
-#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
-https://gckc0525.edgemaxcdn.org/live/chuoitay/playlist.m3u8
-#EXTINF:-1 tvg-id="chuoichien-1602962-1" tvg-name="[19:30 31/07] Persib Bandung vs Tampines Rovers - Piala Presiden [BLV trực tiếp: Chuối Chao Trận đấu Persib Ba]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_134451_f0892f53.png",[19:30 31/07] Persib Bandung vs Tampines Rovers - Piala Presiden [BLV trực tiếp: Chuối Chao Trận đấu Persib Ba] [FHD FLV]
-#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
-https://gckc0525.edgemaxcdn.org/live/chuoichao.flv
-#EXTINF:-1 tvg-id="chuoichien-1548094-1" tvg-name="[20:00 31/07] Việt Nam vs Singapore - AFF Championship [BLV Chuối Nhỏ]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_142852_6270222c.png",[20:00 31/07] Việt Nam vs Singapore - AFF Championship [BLV Chuối Nhỏ] [FHD FLV]
+#EXTINF:-1 tvg-id="chuoichien-1548094-1" tvg-name="[20:00 31/07] Việt Nam vs Singapore - AFF Championship [BLV trực tiếp: Chuối Nhỏ, Trốc Tru Trận đấu]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_132714_c2b04cf4.png",[20:00 31/07] Việt Nam vs Singapore - AFF Championship [BLV trực tiếp: Chuối Nhỏ, Trốc Tru Trận đấu] [FHD FLV]
 #EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
 https://gckc0525.edgemaxcdn.org/live/chuoinho.flv
-#EXTINF:-1 tvg-id="chuoichien-1548094-2" tvg-name="[20:00 31/07] Việt Nam vs Singapore - AFF Championship [BLV Chuối Nhỏ]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_142852_6270222c.png",[20:00 31/07] Việt Nam vs Singapore - AFF Championship [BLV Chuối Nhỏ] (Luồng 2) [M3U8]
+#EXTINF:-1 tvg-id="chuoichien-1548094-2" tvg-name="[20:00 31/07] Việt Nam vs Singapore - AFF Championship [BLV trực tiếp: Chuối Nhỏ, Trốc Tru Trận đấu]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_132714_c2b04cf4.png",[20:00 31/07] Việt Nam vs Singapore - AFF Championship [BLV trực tiếp: Chuối Nhỏ, Trốc Tru Trận đấu] (Luồng 2) [M3U8]
 #EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
 https://gckc0525.edgemaxcdn.org/live/chuoinho/playlist.m3u8
-#EXTINF:-1 tvg-id="gavang-2666-1" tvg-name="[18:35 31/07] Henan Jianye vs Dalian Zhixing - Ngoại Hạng Trung Quốc" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-json/s8-image/d756dd85-451c-441b-bda9-0a91b4cef7f7",[18:35 31/07] Henan Jianye vs Dalian Zhixing - Ngoại Hạng Trung Quốc [FLV]
-#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2666/henan-dalian-csl/?s8_live_fixture_id=2666&s8_live_stream_key=henan-dalian-csl&s8_auto_sound=1
+#EXTINF:-1 tvg-id="chuoichien-993936-1" tvg-name="[21:00 31/07] East Bengal vs CISF Protectors - Durand Cup [BLV trực tiếp: Chuối Tiêu Trận đấu East Beng]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_134451_d0a7a163.png",[21:00 31/07] East Bengal vs CISF Protectors - Durand Cup [BLV trực tiếp: Chuối Tiêu Trận đấu East Beng] [FHD FLV]
+#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
+https://gckc0525.edgemaxcdn.org/live/chuoitieu.flv
+#EXTINF:-1 tvg-id="chuoichien-993936-2" tvg-name="[21:00 31/07] East Bengal vs CISF Protectors - Durand Cup [BLV trực tiếp: Chuối Tiêu Trận đấu East Beng]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_134451_d0a7a163.png",[21:00 31/07] East Bengal vs CISF Protectors - Durand Cup [BLV trực tiếp: Chuối Tiêu Trận đấu East Beng] (Luồng 2) [M3U8]
+#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
+https://gckc0525.edgemaxcdn.org/live/chuoitieu/playlist.m3u8
+#EXTINF:-1 tvg-id="gavang-2668-1" tvg-name="[22:00 31/07] Zorya vs Kolos Kovalivka" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-json/s8-image/307cb203-fde3-468e-909e-b1b735dd466f",[22:00 31/07] Zorya vs Kolos Kovalivka [FLV]
+#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2668/zorya-kolos-ukrprem/?s8_live_fixture_id=2668&s8_live_stream_key=zorya-kolos-ukrprem&s8_auto_sound=1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2666/henan-dalian-csl/?s8_live_fixture_id=2666&s8_live_stream_key=henan-dalian-csl&s8_auto_sound=1","Origin":"https://profecta.io"}
-https://flv.lauthaitv.cc/live/henan-dalian-csl.flv
-#EXTINF:-1 tvg-id="gavang-2667-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ GIỜ 31/07] ASEAN Championship - Viet Nam VS Singapore [BLV NGƯỜI CAT]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ GIỜ 31/07] ASEAN Championship - Viet Nam VS Singapore [BLV NGƯỜI CAT] [FLV]
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2668/zorya-kolos-ukrprem/?s8_live_fixture_id=2668&s8_live_stream_key=zorya-kolos-ukrprem&s8_auto_sound=1","Origin":"https://profecta.io"}
+https://flv.lauthaitv.cc/live/zorya-kolos-ukrprem.flv
+#EXTINF:-1 tvg-id="gavang-2667-1" tvg-name="NGƯỜI CAT vs NGƯỜI BẠC" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-json/s8-image/36e01b1f-ca9c-4233-b84e-c81b92be1791",NGƯỜI CAT vs NGƯỜI BẠC [FLV]
 #EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2667/vie-sin-asean-cat/?s8_live_fixture_id=2667&s8_live_stream_key=vie-sin-asean-cat&s8_auto_sound=1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2667/vie-sin-asean-cat/?s8_live_fixture_id=2667&s8_live_stream_key=vie-sin-asean-cat&s8_auto_sound=1","Origin":"https://profecta.io"}
 https://flv.lauthaitv.cc/live/vie-sin-asean-cat.flv
-#EXTINF:-1 tvg-id="gavang-2678-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ LỊCH] Juarez VS Pumas" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ LỊCH] Juarez VS Pumas [FLV]
-#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2678/juarez-pumas-mexliga/?s8_live_fixture_id=2678&s8_live_stream_key=juarez-pumas-mexliga&s8_auto_sound=1
+#EXTINF:-1 tvg-id="xoilac-aro-abdc-ldb-u22-vs-corinthians-ldb-u22-luc-2145-ngay-31-07-2026-s0-2" tvg-name="[21:45 31/07/2026] Rio Claro Abdc Ldb U22 vs Corinthians Ldb U22 [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/basketball/team/6ypq3kt5kp4md7o/image/small",[21:45 31/07/2026] Rio Claro Abdc Ldb U22 vs Corinthians Ldb U22 [FLV]
+#EXTVLCOPT:http-referrer=https://xlz.textliveupdaterz.com/ajax/chanel/type/7/link/channel42/off-tvc?is_off_add=false
+#EXTVLCOPT:http-origin=https://xlz.textliveupdaterz.com
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2678/juarez-pumas-mexliga/?s8_live_fixture_id=2678&s8_live_stream_key=juarez-pumas-mexliga&s8_auto_sound=1","Origin":"https://profecta.io"}
-https://flv.lauthaitv.cc/live/juarez-pumas-mexliga.flv
-#EXTINF:-1 tvg-id="gavang-2665-1" tvg-name="Preston VS Green" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-json/s8-image/e700a36a-bffb-428f-8796-cb1572d1a2e4",Preston VS Green [FLV]
-#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2665/preston-green-nplvic/?s8_live_fixture_id=2665&s8_live_stream_key=preston-green-nplvic&s8_auto_sound=1
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.textliveupdaterz.com/ajax/chanel/type/7/link/channel42/off-tvc?is_off_add=false","Origin":"https://xlz.textliveupdaterz.com"}
+https://live1.streambylivepulse.com/live/channel42.flv?wsSecret=39a704a6185e534d8e218cd65fc7b752&wsABSTime=1785552292
+#EXTINF:-1 tvg-id="xoilac--tiep-sao-jose-u22-vs-pato-basquete-u22-luc-2145-ngay-31-07-2026-s0-1" tvg-name="[21:45 31/07/2026] Sao Jose U22 vs Pato Basquete U22 [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/basketball/team/6ypq3kt0g10md7o/image/small",[21:45 31/07/2026] Sao Jose U22 vs Pato Basquete U22 [FLV]
+#EXTVLCOPT:http-referrer=https://xlz.textliveupdaterz.com/ajax/chanel/type/7/link/channel43/off-tvc?is_off_add=true
+#EXTVLCOPT:http-origin=https://xlz.textliveupdaterz.com
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2665/preston-green-nplvic/?s8_live_fixture_id=2665&s8_live_stream_key=preston-green-nplvic&s8_auto_sound=1","Origin":"https://profecta.io"}
-https://flv.lauthaitv.cc/live/preston-green-nplvic.flv
-#EXTINF:-1 tvg-id="gavang-2677-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ LỊCH] Puebla VS Guada" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ LỊCH] Puebla VS Guada [FLV]
-#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2677/puebla-guada-mexliga/?s8_live_fixture_id=2677&s8_live_stream_key=puebla-guada-mexliga&s8_auto_sound=1
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.textliveupdaterz.com/ajax/chanel/type/7/link/channel43/off-tvc?is_off_add=true","Origin":"https://xlz.textliveupdaterz.com"}
+https://live1.streambylivepulse.com/live/channel43.flv?wsSecret=1d86eead2414d3c474b8aa109c159888&wsABSTime=1785552278
+#EXTINF:-1 tvg-id="xoilac-ruc-tiep-fk-orsha-vs-shakhter-soligorsk-luc-2200-ngay-31-07-2026-s0-4" tvg-name="[22:00 31/07/2026] Fk Orsha vs Shakhter Soligorsk [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/football/team/318q66hodxlqo9j/image/small",[22:00 31/07/2026] Fk Orsha vs Shakhter Soligorsk [FLV]
+#EXTVLCOPT:http-referrer=https://xlz.textliveupdaterz.com/ajax/chanel/type/7/link/channel2/off-tvc?is_off_add=false
+#EXTVLCOPT:http-origin=https://xlz.textliveupdaterz.com
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2677/puebla-guada-mexliga/?s8_live_fixture_id=2677&s8_live_stream_key=puebla-guada-mexliga&s8_auto_sound=1","Origin":"https://profecta.io"}
-https://flv.lauthaitv.cc/live/puebla-guada-mexliga.flv
-#EXTINF:-1 tvg-id="xoilac-truc-tiep-fk-van-vs-sadarakpat-luc-1900-ngay-31-07-2026-s1-5" tvg-name="[19:00 31/07/2026] Fk Van vs Sadarakpat [BLV HD FELIX] [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/football/team/23xmvkhd114qg8n/image/small",[19:00 31/07/2026] Fk Van vs Sadarakpat [BLV HD FELIX] [FLV]
-#EXTVLCOPT:http-referrer=https://xlz.scorecastbytextz.com/ajax/chanel/type/5/link/channel24/off-tvc?is_off_add=false
-#EXTVLCOPT:http-origin=https://xlz.scorecastbytextz.com
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.textliveupdaterz.com/ajax/chanel/type/7/link/channel2/off-tvc?is_off_add=false","Origin":"https://xlz.textliveupdaterz.com"}
+https://live1.streambylivepulse.com/live/channel2.flv?wsSecret=3c5fac5b34ebdbdca6703a4a8c101947&wsABSTime=1785552311
+#EXTINF:-1 tvg-id="xoilac-el-u18-vs-nu-bosnia-and-herzegovina-u18-luc-2200-ngay-31-07-2026-s0-5" tvg-name="[22:00 31/07/2026] Nu Israel U18 vs Nu Bosnia And Herzegovina U18 [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/basketball/team/kn54ql7t6gprvy9/image/small",[22:00 31/07/2026] Nu Israel U18 vs Nu Bosnia And Herzegovina U18 [FLV]
+#EXTVLCOPT:http-referrer=https://xlz.textliveupdaterz.com/ajax/chanel/type/7/link/channel40/off-tvc?is_off_add=true
+#EXTVLCOPT:http-origin=https://xlz.textliveupdaterz.com
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.scorecastbytextz.com/ajax/chanel/type/5/link/channel24/off-tvc?is_off_add=false","Origin":"https://xlz.scorecastbytextz.com"}
-https://live3.procdnlive.com/livecdn/channel24.flv?auth_key=3000001785500724-0-0-e9a3ec10b81e43a8d8c3127aa12b9f34
-#EXTINF:-1 tvg-id="xoilac--lin-vs-hiroki-okamura-kyohei-yamashita-luc-1910-ngay-31-07-2026-s0-4" tvg-name="[19:10 31/07/2026] Chiu Hsiang Chieh Wang Chi Lin vs Hiroki Okamura Kyohei Yamashita [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/badminton/team/y39mp1esnvzkmoj/image/small",[19:10 31/07/2026] Chiu Hsiang Chieh Wang Chi Lin vs Hiroki Okamura Kyohei Yamashita [FLV]
-#EXTVLCOPT:http-referrer=https://xlz.scorecastbytextz.com/ajax/chanel/type/7/link/channel61/off-tvc?is_off_add=false
-#EXTVLCOPT:http-origin=https://xlz.scorecastbytextz.com
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.textliveupdaterz.com/ajax/chanel/type/7/link/channel40/off-tvc?is_off_add=true","Origin":"https://xlz.textliveupdaterz.com"}
+https://live1.streambylivepulse.com/live/channel40.flv?wsSecret=9d56c0fc36fd20e2170c401bcbd60d2f&wsABSTime=1785552317
+#EXTINF:-1 tvg-id="xoilac-truc-tiep-zorya-vs-kolos-kovalivka-luc-2200-ngay-31-07-2026-s1-3" tvg-name="[22:00 31/07/2026] Zorya vs Kolos Kovalivka [BLV HD HIRO] [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/football/team/4jwq2gh4107m0ve/image/small",[22:00 31/07/2026] Zorya vs Kolos Kovalivka [BLV HD HIRO] [FLV]
+#EXTVLCOPT:http-referrer=https://xlz.textliveupdaterz.com/ajax/chanel/type/5/link/channel14/off-tvc?is_off_add=false
+#EXTVLCOPT:http-origin=https://xlz.textliveupdaterz.com
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.scorecastbytextz.com/ajax/chanel/type/7/link/channel61/off-tvc?is_off_add=false","Origin":"https://xlz.scorecastbytextz.com"}
-https://live1.streambylivepulse.com/live/channel61.flv?wsSecret=8e2c0ea2d38a2247b3ac19910005b941&wsABSTime=1785543916
-#EXTINF:-1 tvg-id="xoilac-vs-ignacio-carou-federico-agustin-gomez-luc-1910-ngay-31-07-2026-s0-3" tvg-name="[19:10 31/07/2026] Vijay Sundar Prashanth Ramkumar Ramanathan vs Ignacio Carou Federico Agustin Gomez [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/tennis/team/ednm9efzex2ryox/image/small",[19:10 31/07/2026] Vijay Sundar Prashanth Ramkumar Ramanathan vs Ignacio Carou Federico Agustin Gomez [FLV]
-#EXTVLCOPT:http-referrer=https://xlz.scorecastbytextz.com/ajax/chanel/type/7/link/channel60/off-tvc?is_off_add=false
-#EXTVLCOPT:http-origin=https://xlz.scorecastbytextz.com
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.scorecastbytextz.com/ajax/chanel/type/7/link/channel60/off-tvc?is_off_add=false","Origin":"https://xlz.scorecastbytextz.com"}
-https://live1.streambylivepulse.com/live/channel60.flv?wsSecret=8725c00a2088694904eb7dd842bdb31c&wsABSTime=1785543909
-#EXTINF:-1 tvg-id="xoilac-uc-tiep-can-tho-catfish-vs-sai-gon-heat-luc-1930-ngay-31-07-2026-s1-2" tvg-name="[19:30 31/07/2026] Can Tho Catfish vs Sai Gon Heat [BLV HD TOMMY] [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/basketball/team/kdj2ry7twler1zp/image/small",[19:30 31/07/2026] Can Tho Catfish vs Sai Gon Heat [BLV HD TOMMY] [FLV]
-#EXTVLCOPT:http-referrer=https://xlz.scorecastbytextz.com/ajax/chanel/type/5/link/channel29/off-tvc?is_off_add=false
-#EXTVLCOPT:http-origin=https://xlz.scorecastbytextz.com
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.scorecastbytextz.com/ajax/chanel/type/5/link/channel29/off-tvc?is_off_add=false","Origin":"https://xlz.scorecastbytextz.com"}
-https://live3.procdnlive.com/livecdn/channel29.flv?auth_key=3000001785500698-0-0-4251a6c39b088e5eee0cbff7b174a7d8
-#EXTINF:-1 tvg-id="xoilac-iep-franca-u22-vs-mogi-basquete-ldb-u22-luc-1930-ngay-31-07-2026-s0-1" tvg-name="[19:30 31/07/2026] Franca U22 vs Mogi Basquete Ldb U22 [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/basketball/team/318q6nto6jjmo9j/image/small",[19:30 31/07/2026] Franca U22 vs Mogi Basquete Ldb U22 [FLV]
-#EXTVLCOPT:http-referrer=https://xlz.scorecastbytextz.com/ajax/chanel/type/7/link/channel49/off-tvc?is_off_add=true
-#EXTVLCOPT:http-origin=https://xlz.scorecastbytextz.com
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.scorecastbytextz.com/ajax/chanel/type/7/link/channel49/off-tvc?is_off_add=true","Origin":"https://xlz.scorecastbytextz.com"}
-https://live1.streambylivepulse.com/live/channel49.flv?wsSecret=4a629419789f999c0bd081d9dd72ecfc&wsABSTime=1785543890
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.textliveupdaterz.com/ajax/chanel/type/5/link/channel14/off-tvc?is_off_add=false","Origin":"https://xlz.textliveupdaterz.com"}
+https://live3.procdnlive.com/livecdn/channel14.flv?auth_key=3000001785509102-0-0-4a2a0a30d827360ad1b5c84b9fc6fa23

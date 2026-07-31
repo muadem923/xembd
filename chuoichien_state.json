@@ -1,51 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-07-31T19:25:20.628830+07:00",
+  "updated_at": "2026-07-31T21:45:02.070093+07:00",
   "matches": {
-    "1602960": {
-      "url": "https://live04.chuoichientv.me/live/1602960/persebaya-surabaya-vs-psms-medan",
-      "match_name": "Persebaya Surabaya vs PSMS Medan - Piala Presiden",
-      "kickoff_iso": "2026-07-29T19:30:00+07:00",
-      "minutes_to_kickoff": 3,
-      "last_scan_at": "2026-07-29T19:27:30.959614+07:00",
-      "next_scan_at": "2026-07-29T19:32:30.959614+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoito.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "1604679": {
-      "url": "https://live04.chuoichientv.me/live/1604679/bayer-leverkusen-vs-genk",
-      "match_name": "Bayer Leverkusen vs Genk - Giao Hữu Câu Lạc Bộ",
-      "kickoff_iso": "2026-07-29T20:00:00+07:00",
-      "minutes_to_kickoff": -99,
-      "last_scan_at": "2026-07-29T21:39:14.410853+07:00",
-      "next_scan_at": "2026-07-29T21:44:14.410853+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoichao.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "1556531": {
-      "url": "https://live04.chuoichientv.me/live/1556531/dukagjini-vs-fc-lugano",
-      "match_name": "Dukagjini vs FC Lugano - UEFA Europa Conference League",
-      "kickoff_iso": "2026-07-29T21:30:00+07:00",
-      "minutes_to_kickoff": -105,
-      "last_scan_at": "2026-07-29T23:15:11.688938+07:00",
-      "next_scan_at": "2026-07-29T23:20:11.688938+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoinho.flv",
-        "https://gckc0525.edgemaxcdn.org/live/chuoinho/playlist.m3u8"
-      ],
-      "scan_decision": "browser-fallback"
-    },
     "1591938": {
       "url": "https://live04.chuoichientv.me/live/1591938/kairat-almaty-vs-omonia-nicosia",
       "match_name": "Kairat Almaty vs Omonia Nicosia - UEFA Champions League",
@@ -416,9 +373,9 @@
       "url": "https://live04.chuoichientv.me/live/1548094/vit-nam-vs-singapore",
       "match_name": "Việt Nam vs Singapore - AFF Championship",
       "kickoff_iso": "2026-07-31T20:00:00+07:00",
-      "minutes_to_kickoff": 35,
-      "last_scan_at": "2026-07-31T19:25:20.628718+07:00",
-      "next_scan_at": "2026-07-31T19:35:20.628718+07:00",
+      "minutes_to_kickoff": -105,
+      "last_scan_at": "2026-07-31T21:45:02.069998+07:00",
+      "next_scan_at": "2026-07-31T21:50:02.069998+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -429,23 +386,26 @@
     },
     "993936": {
       "url": "https://live04.chuoichientv.me/live/993936/east-bengal-vs-cisf-protectors",
-      "match_name": "east bengal vs cisf protectors",
+      "match_name": "East Bengal vs CISF Protectors - Durand Cup",
       "kickoff_iso": "2026-07-31T21:00:00+07:00",
-      "minutes_to_kickoff": 95,
-      "last_scan_at": "2026-07-31T19:25:20.628718+07:00",
-      "next_scan_at": "2026-07-31T19:45:20.628718+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -45,
+      "last_scan_at": "2026-07-31T21:45:02.069998+07:00",
+      "next_scan_at": "2026-07-31T21:50:02.069998+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoitieu.flv",
+        "https://gckc0525.edgemaxcdn.org/live/chuoitieu/playlist.m3u8"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "1585004": {
       "url": "https://live04.chuoichientv.me/live/1585004/juventus-vs-nice",
       "match_name": "juventus vs nice",
       "kickoff_iso": "2026-07-31T23:00:00+07:00",
-      "minutes_to_kickoff": 215,
-      "last_scan_at": "2026-07-31T19:25:20.628718+07:00",
-      "next_scan_at": "2026-07-31T20:10:20.628718+07:00",
+      "minutes_to_kickoff": 76,
+      "last_scan_at": "2026-07-31T21:45:02.069998+07:00",
+      "next_scan_at": "2026-07-31T22:05:02.069998+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
