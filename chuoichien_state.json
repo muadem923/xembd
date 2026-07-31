@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-08-01T03:00:34.894255+07:00",
+  "updated_at": "2026-08-01T04:02:25.889389+07:00",
   "matches": {
     "1589333": {
       "url": "https://live04.chuoichientv.me/live/1589333/liverpool-vs-wrexham",
@@ -358,15 +358,18 @@
     },
     "1544731": {
       "url": "https://live04.chuoichientv.me/live/1544731/el-salvador-u20-vs-haiti-u20",
-      "match_name": "el salvador u20 vs haiti u20",
+      "match_name": "El Salvador U20 vs Haiti U20 - CONCACAF U20",
       "kickoff_iso": "2026-08-01T04:00:00+07:00",
-      "minutes_to_kickoff": 60,
-      "last_scan_at": "2026-08-01T03:00:34.894185+07:00",
-      "next_scan_at": "2026-08-01T03:20:34.894185+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -2,
+      "last_scan_at": "2026-08-01T04:02:25.889276+07:00",
+      "next_scan_at": "2026-08-01T04:07:25.889276+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoinho.flv",
+        "https://gckc0525.edgemaxcdn.org/live/chuoinho/playlist.m3u8"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "1583514": {
       "url": "https://live04.chuoichientv.me/live/1583514/birmingham-vs-barcelona",
@@ -402,9 +405,21 @@
       "url": "https://live04.chuoichientv.me/live/1490361/new-york-city-fc-vs-toronto-fc",
       "match_name": "new york city fc vs toronto fc",
       "kickoff_iso": "2026-08-01T06:30:00+07:00",
-      "minutes_to_kickoff": 210,
-      "last_scan_at": "2026-08-01T03:00:34.894185+07:00",
-      "next_scan_at": "2026-08-01T03:45:34.894185+07:00",
+      "minutes_to_kickoff": 148,
+      "last_scan_at": "2026-08-01T04:02:25.889276+07:00",
+      "next_scan_at": "2026-08-01T04:47:25.889276+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1550912": {
+      "url": "https://live04.chuoichientv.me/live/1550912/puebla-vs-guadalajara-chivas",
+      "match_name": "puebla vs guadalajara chivas",
+      "kickoff_iso": "2026-08-01T08:00:00+07:00",
+      "minutes_to_kickoff": 238,
+      "last_scan_at": "2026-08-01T04:02:25.889276+07:00",
+      "next_scan_at": "2026-08-01T04:47:25.889276+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
