@@ -5,7 +5,13 @@
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2662/arema-dpmm-idncup/?s8_live_fixture_id=2662&s8_live_stream_key=arema-dpmm-idncup&s8_auto_sound=1","Origin":"https://profecta.io"}
 https://flv.lauthaitv.cc/live/arema-dpmm-idncup.flv
-#EXTINF:-1 tvg-id="gavang-2674-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ GIỜ 01/08] BEL Super Cup - Club Brugge VS Union Saint-Gilloise [BLV NGƯỜI CÁO]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ GIỜ 01/08] BEL Super Cup - Club Brugge VS Union Saint-Gilloise [BLV NGƯỜI CÁO] [FLV]
+#EXTINF:-1 tvg-id="gavang-2675-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ LỊCH] Bodø/Glimt VS Lille" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ LỊCH] Bodø/Glimt VS Lille [FLV]
+#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2675/bodo-lille-norelite/?s8_live_fixture_id=2675&s8_live_stream_key=bodo-lille-norelite&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2675/bodo-lille-norelite/?s8_live_fixture_id=2675&s8_live_stream_key=bodo-lille-norelite&s8_auto_sound=1","Origin":"https://profecta.io"}
+https://flv.lauthaitv.cc/live/bodo-lille-norelite.flv
+#EXTINF:-1 tvg-id="gavang-2674-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ LỊCH] Brugge VS Union" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ LỊCH] Brugge VS Union [FLV]
 #EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2674/brugge-union-belsuper/?s8_live_fixture_id=2674&s8_live_stream_key=brugge-union-belsuper&s8_auto_sound=1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
@@ -17,56 +23,50 @@ https://flv.lauthaitv.cc/live/brugge-union-belsuper.flv
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2678/juarez-pumas-mexliga/?s8_live_fixture_id=2678&s8_live_stream_key=juarez-pumas-mexliga&s8_auto_sound=1","Origin":"https://profecta.io"}
 https://flv.lauthaitv.cc/live/juarez-pumas-mexliga.flv
-#EXTINF:-1 tvg-id="gavang-2677-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ GIỜ 01/08] MEX Liga MX - Puebla VS Club Deportivo Guadalajara [BLV NGƯỜI THỎ]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ GIỜ 01/08] MEX Liga MX - Puebla VS Club Deportivo Guadalajara [BLV NGƯỜI THỎ] [FLV]
-#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2677/puebla-guada-mexliga/?s8_live_fixture_id=2677&s8_live_stream_key=puebla-guada-mexliga&s8_auto_sound=1
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
-#EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2677/puebla-guada-mexliga/?s8_live_fixture_id=2677&s8_live_stream_key=puebla-guada-mexliga&s8_auto_sound=1","Origin":"https://profecta.io"}
-https://flv.lauthaitv.cc/live/puebla-guada-mexliga.flv
 #EXTINF:-1 tvg-id="gavang-2676-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ GIỜ 01/08] MLS - New York City FC VS TORONTO FC [BLV NGƯỜI SẮT]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ GIỜ 01/08] MLS - New York City FC VS TORONTO FC [BLV NGƯỜI SẮT] [FLV]
 #EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2676/newyork-toronto-mls/?s8_live_fixture_id=2676&s8_live_stream_key=newyork-toronto-mls&s8_auto_sound=1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2676/newyork-toronto-mls/?s8_live_fixture_id=2676&s8_live_stream_key=newyork-toronto-mls&s8_auto_sound=1","Origin":"https://profecta.io"}
 https://flv.lauthaitv.cc/live/newyork-toronto-mls.flv
-#EXTINF:-1 tvg-id="gavang-2675-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ GIỜ 01/08] NOR Eliteserien - Bodo Glimt VS Lillestrom [BLV NGƯỜI CHÈ]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ GIỜ 01/08] NOR Eliteserien - Bodo Glimt VS Lillestrom [BLV NGƯỜI CHÈ] [FLV]
-#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2675/bodo-lille-norelite/?s8_live_fixture_id=2675&s8_live_stream_key=bodo-lille-norelite&s8_auto_sound=1
+#EXTINF:-1 tvg-id="gavang-2677-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ LỊCH] Puebla VS Guada" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ LỊCH] Puebla VS Guada [FLV]
+#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2677/puebla-guada-mexliga/?s8_live_fixture_id=2677&s8_live_stream_key=puebla-guada-mexliga&s8_auto_sound=1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2675/bodo-lille-norelite/?s8_live_fixture_id=2675&s8_live_stream_key=bodo-lille-norelite&s8_auto_sound=1","Origin":"https://profecta.io"}
-https://flv.lauthaitv.cc/live/bodo-lille-norelite.flv
-#EXTINF:-1 tvg-id="xoilac-uc-tiep-cameron-norrie-vs-bernard-tomic-luc-1100-ngay-31-07-2026-s0-5" tvg-name="[11:00 31/07/2026] Cameron Norrie vs Bernard Tomic [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/tennis/team/4jwq2pfx9x6m0ve/image/small",[11:00 31/07/2026] Cameron Norrie vs Bernard Tomic [FLV]
-#EXTVLCOPT:http-referrer=https://xlz.scorecastbytextz.com/ajax/chanel/type/7/link/channel86/off-tvc?is_off_add=false
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2677/puebla-guada-mexliga/?s8_live_fixture_id=2677&s8_live_stream_key=puebla-guada-mexliga&s8_auto_sound=1","Origin":"https://profecta.io"}
+https://flv.lauthaitv.cc/live/puebla-guada-mexliga.flv
+#EXTINF:-1 tvg-id="xoilac-truc-tiep-howlers-sc-vs-dzongri-fc-luc-1430-ngay-31-07-2026-s0-1" tvg-name="[14:30 31/07/2026] Howlers Sc vs Dzongri Fc [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/football/team/318q66hk4dkqo9j/image/small",[14:30 31/07/2026] Howlers Sc vs Dzongri Fc [FLV]
+#EXTVLCOPT:http-referrer=https://xlz.scorecastbytextz.com/ajax/chanel/type/7/link/channel30/off-tvc?is_off_add=false
 #EXTVLCOPT:http-origin=https://xlz.scorecastbytextz.com
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.scorecastbytextz.com/ajax/chanel/type/7/link/channel86/off-tvc?is_off_add=false","Origin":"https://xlz.scorecastbytextz.com"}
-https://live1.streambylivepulse.com/live/channel86.flv?wsSecret=16f1abe34754245969b7a3cb9b018ec4&wsABSTime=1785516708
-#EXTINF:-1 tvg-id="xoilac-s-anna-sinclair-rogers-allura-zamarripa-luc-1110-ngay-31-07-2026-s0-4" tvg-name="[11:10 31/07/2026] Mia Kupres Raphaelle Lacasse vs Anna Sinclair Rogers Allura Zamarripa [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/tennis/team/6ypq3pfw5xerd7o/image/small",[11:10 31/07/2026] Mia Kupres Raphaelle Lacasse vs Anna Sinclair Rogers Allura Zamarripa [FLV]
-#EXTVLCOPT:http-referrer=https://xlz.scorecastbytextz.com/ajax/chanel/type/7/link/channel53/off-tvc?is_off_add=false
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.scorecastbytextz.com/ajax/chanel/type/7/link/channel30/off-tvc?is_off_add=false","Origin":"https://xlz.scorecastbytextz.com"}
+https://live1.streambylivepulse.com/live/channel30.flv?wsSecret=d466e6753b181a06983b0490dc1ecf5a&wsABSTime=1785526998
+#EXTINF:-1 tvg-id="xoilac--fencibles-united-vs-nu-auckland-united-luc-1430-ngay-31-07-2026-s0-2" tvg-name="[14:30 31/07/2026] Nu Fencibles United vs Nu Auckland United [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/football/team/pxwrxlhve71ryk0/image/small",[14:30 31/07/2026] Nu Fencibles United vs Nu Auckland United [FLV]
+#EXTVLCOPT:http-referrer=https://xlz.scorecastbytextz.com/ajax/chanel/type/7/link/channel31/off-tvc?is_off_add=false
 #EXTVLCOPT:http-origin=https://xlz.scorecastbytextz.com
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.scorecastbytextz.com/ajax/chanel/type/7/link/channel53/off-tvc?is_off_add=false","Origin":"https://xlz.scorecastbytextz.com"}
-https://live1.streambylivepulse.com/live/channel53.flv?wsSecret=3f57738f9b3ed3096c5d3e9ebc485427&wsABSTime=1785516701
-#EXTINF:-1 tvg-id="xoilac-r-challengers-vs-dn-soopers-challengers-luc-1200-ngay-31-07-2026-s1-1" tvg-name="[12:00 31/07/2026] Kt Rolster Challengers vs Dn Soopers Challengers [BLV HD MARTY] [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/lol/team/y0or59wbl2edmwz/image/small",[12:00 31/07/2026] Kt Rolster Challengers vs Dn Soopers Challengers [BLV HD MARTY] [FLV]
-#EXTVLCOPT:http-referrer=https://xlz.scorecastbytextz.com/ajax/chanel/type/5/link/channel30/off-tvc?is_off_add=false
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.scorecastbytextz.com/ajax/chanel/type/7/link/channel31/off-tvc?is_off_add=false","Origin":"https://xlz.scorecastbytextz.com"}
+https://live1.streambylivepulse.com/live/channel31.flv?wsSecret=5bf7ad7ca02a2a2c30c345187e9feaf4&wsABSTime=1785527006
+#EXTINF:-1 tvg-id="xoilac-c-tiep-nu-woori-wibee-vs-nu-sinhan-bank-luc-1430-ngay-31-07-2026-s0-3" tvg-name="[14:30 31/07/2026] Nu Woori Wibee vs Nu Sinhan Bank [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/basketball/team/gpxwrx5t87kqyk0/image/small",[14:30 31/07/2026] Nu Woori Wibee vs Nu Sinhan Bank [FLV]
+#EXTVLCOPT:http-referrer=https://xlz.scorecastbytextz.com/ajax/chanel/type/7/link/channel42/off-tvc?is_off_add=false
 #EXTVLCOPT:http-origin=https://xlz.scorecastbytextz.com
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.scorecastbytextz.com/ajax/chanel/type/5/link/channel30/off-tvc?is_off_add=false","Origin":"https://xlz.scorecastbytextz.com"}
-https://live3.procdnlive.com/livecdn/channel30.flv?auth_key=3000001785473476-0-0-d8971460706a8465fd88814e56cb0402
-#EXTINF:-1 tvg-id="xoilac--tiep-rune-eaters-esports-vs-midas-club-luc-1200-ngay-31-07-2026-s0-3" tvg-name="[12:00 31/07/2026] Rune Eaters Esports vs Midas Club [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/dota2/team/pxwrx8otg5gnqyk/image/small",[12:00 31/07/2026] Rune Eaters Esports vs Midas Club [FLV]
-#EXTVLCOPT:http-referrer=https://xlz.scorecastbytextz.com/ajax/chanel/type/7/link/channel74/off-tvc?is_off_add=false
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.scorecastbytextz.com/ajax/chanel/type/7/link/channel42/off-tvc?is_off_add=false","Origin":"https://xlz.scorecastbytextz.com"}
+https://live1.streambylivepulse.com/live/channel42.flv?wsSecret=78d2e00f95645290dc462a0d3cd7c0a1&wsABSTime=1785527014
+#EXTINF:-1 tvg-id="xoilac-c-tiep-fc-trostianets-vs-oleksandriya-b-luc-1500-ngay-31-07-2026-s0-4" tvg-name="[15:00 31/07/2026] Fc Trostianets vs Oleksandriya B [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/football/team/k82rekho00vrepz/image/small",[15:00 31/07/2026] Fc Trostianets vs Oleksandriya B [FLV]
+#EXTVLCOPT:http-referrer=https://xlz.scorecastbytextz.com/ajax/chanel/type/7/link/channel2/off-tvc?is_off_add=false
 #EXTVLCOPT:http-origin=https://xlz.scorecastbytextz.com
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.scorecastbytextz.com/ajax/chanel/type/7/link/channel74/off-tvc?is_off_add=false","Origin":"https://xlz.scorecastbytextz.com"}
-https://live1.streambylivepulse.com/live/channel74.flv?wsSecret=59e740ec76674b745022ad6d5bf2517b&wsABSTime=1785516694
-#EXTINF:-1 tvg-id="xoilac-ruc-tiep-yellow-submarine-vs-execration-luc-1200-ngay-31-07-2026-s0-2" tvg-name="[12:00 31/07/2026] Yellow Submarine vs Execration [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/dota2/team/2y8m4egt166ql07/image/small",[12:00 31/07/2026] Yellow Submarine vs Execration [FLV]
-#EXTVLCOPT:http-referrer=https://xlz.scorecastbytextz.com/ajax/chanel/type/7/link/channel73/off-tvc?is_off_add=false
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.scorecastbytextz.com/ajax/chanel/type/7/link/channel2/off-tvc?is_off_add=false","Origin":"https://xlz.scorecastbytextz.com"}
+https://live1.streambylivepulse.com/live/channel2.flv?wsSecret=5963f632007c6f6db622802d3bb5becc&wsABSTime=1785527023
+#EXTINF:-1 tvg-id="xoilac-tiep-fk-ural-u19-vs-chertanovo-moscow-r-luc-1500-ngay-31-07-2026-s0-5" tvg-name="[15:00 31/07/2026] Fk Ural U19 vs Chertanovo Moscow R [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/football/team/965mkyh7jy0r1ge/image/small",[15:00 31/07/2026] Fk Ural U19 vs Chertanovo Moscow R [FLV]
+#EXTVLCOPT:http-referrer=https://xlz.scorecastbytextz.com/ajax/chanel/type/7/link/channel3/off-tvc?is_off_add=false
 #EXTVLCOPT:http-origin=https://xlz.scorecastbytextz.com
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.scorecastbytextz.com/ajax/chanel/type/7/link/channel73/off-tvc?is_off_add=false","Origin":"https://xlz.scorecastbytextz.com"}
-https://live1.streambylivepulse.com/live/channel73.flv?wsSecret=c4dc88d1d0d1302a8a812b6ad4708b31&wsABSTime=1785516687
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.scorecastbytextz.com/ajax/chanel/type/7/link/channel3/off-tvc?is_off_add=false","Origin":"https://xlz.scorecastbytextz.com"}
+https://live1.streambylivepulse.com/live/channel3.flv?wsSecret=73fe34448a84dae214c0bea69ab01ae8&wsABSTime=1785527030
