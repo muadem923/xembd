@@ -11,56 +11,194 @@ https://gckc0525.edgemaxcdn.org/live/chuoitieu.flv
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
 https://gckc0525.edgemaxcdn.org/live/chuoitieu/playlist.m3u8
+#EXTINF:-1 tvg-id="chuoichien-1493033-1" tvg-name="[04:00 02/08] Belgrano Cordoba vs Argentinos JRS - VĐQG Argentina [BLV A Ngáo]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_132719_cb10e107.png",[04:00 02/08] Belgrano Cordoba vs Argentinos JRS - VĐQG Argentina [BLV A Ngáo] [FHD FLV]
+#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
+https://gckc0525.edgemaxcdn.org/live/angao.flv
+#EXTINF:-1 tvg-id="chuoichien-1493033-2" tvg-name="[04:00 02/08] Belgrano Cordoba vs Argentinos JRS - VĐQG Argentina [BLV A Ngáo]" group-title="Chuối Chiên" tvg-logo="https://media.chuoichientv.net/media/uploads/20250623_132719_cb10e107.png",[04:00 02/08] Belgrano Cordoba vs Argentinos JRS - VĐQG Argentina [BLV A Ngáo] (Luồng 2) [M3U8]
+#EXTVLCOPT:http-referrer=https://live.chuoichien.tv/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36","Referer":"https://live.chuoichien.tv/"}
+https://gckc0525.edgemaxcdn.org/live/angao/playlist.m3u8
+#EXTINF:-1 tvg-id="gavang-2730-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ GIỜ 03/08] ARG Division 1 - Club Atlético Newell's Old Boys VS Boca Juniors [BLV NGƯỜI SÓI]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ GIỜ 03/08] ARG Division 1 - Club Atlético Newell's Old Boys VS Boca Juniors [BLV NGƯỜI SÓI] [FLV]
+#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2730/newell-boca-argdiv1/?s8_live_fixture_id=2730&s8_live_stream_key=newell-boca-argdiv1&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2730/newell-boca-argdiv1/?s8_live_fixture_id=2730&s8_live_stream_key=newell-boca-argdiv1&s8_auto_sound=1","Origin":"https://profecta.io"}
+https://flv.lauthaitv.cc/live/newell-boca-argdiv1.flv
+#EXTINF:-1 tvg-id="gavang-2733-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ GIỜ 03/08] ARG Division 1 - River Plate VS Rosario Central [BLV NGƯỜI PHÁO]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ GIỜ 03/08] ARG Division 1 - River Plate VS Rosario Central [BLV NGƯỜI PHÁO] [FLV]
+#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2733/riverplate-rosario-argdiv1/?s8_live_fixture_id=2733&s8_live_stream_key=riverplate-rosario-argdiv1&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2733/riverplate-rosario-argdiv1/?s8_live_fixture_id=2733&s8_live_stream_key=riverplate-rosario-argdiv1&s8_auto_sound=1","Origin":"https://profecta.io"}
+https://flv.lauthaitv.cc/live/riverplate-rosario-argdiv1.flv
 #EXTINF:-1 tvg-id="gavang-2702-1" tvg-name="Belgrano VS Argjunior" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",Belgrano VS Argjunior [FLV]
 #EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2702/belgrano-argjunior-argdiv1/?s8_live_fixture_id=2702&s8_live_stream_key=belgrano-argjunior-argdiv1&s8_auto_sound=1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2702/belgrano-argjunior-argdiv1/?s8_live_fixture_id=2702&s8_live_stream_key=belgrano-argjunior-argdiv1&s8_auto_sound=1","Origin":"https://profecta.io"}
 https://flv.lauthaitv.cc/live/belgrano-argjunior-argdiv1.flv
-#EXTINF:-1 tvg-id="gavang-2701-1" tvg-name="[CHƯA CÓ GIỜ 02/08] Categoria Primera A - Deportivo Pasto VS Aguilas Doradas [BLV NGƯỜI CHÈ]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHƯA CÓ GIỜ 02/08] Categoria Primera A - Deportivo Pasto VS Aguilas Doradas [BLV NGƯỜI CHÈ] [FLV]
-#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2701/pasto-doradas-cate/?s8_live_fixture_id=2701&s8_live_stream_key=pasto-doradas-cate&s8_auto_sound=1
+#EXTINF:-1 tvg-id="gavang-2725-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ GIỜ 02/08] BUL First League - Ludogorets Razgrad VS Botev Vratsa [BLV NGƯỜI THỎ]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ GIỜ 02/08] BUL First League - Ludogorets Razgrad VS Botev Vratsa [BLV NGƯỜI THỎ] [FLV]
+#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2725/ludo-botev-bul1st/?s8_live_fixture_id=2725&s8_live_stream_key=ludo-botev-bul1st&s8_auto_sound=1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2701/pasto-doradas-cate/?s8_live_fixture_id=2701&s8_live_stream_key=pasto-doradas-cate&s8_auto_sound=1","Origin":"https://profecta.io"}
-https://flv.lauthaitv.cc/live/pasto-doradas-cate.flv
-#EXTINF:-1 tvg-id="gavang-2700-1" tvg-name="Thun VS Young" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-json/s8-image/779f3ebf-4ed5-49be-9937-f74dfcdb37a4",Thun VS Young [FLV]
-#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2700/thun-young-swi/?s8_live_fixture_id=2700&s8_live_stream_key=thun-young-swi&s8_auto_sound=1
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2725/ludo-botev-bul1st/?s8_live_fixture_id=2725&s8_live_stream_key=ludo-botev-bul1st&s8_auto_sound=1","Origin":"https://profecta.io"}
+https://flv.lauthaitv.cc/live/ludo-botev-bul1st.flv
+#EXTINF:-1 tvg-id="gavang-2735-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ LỊCH] Clubamerica VS Santoslaguna" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ LỊCH] Clubamerica VS Santoslaguna [FLV]
+#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2735/clubamerica-santoslaguna-mexliga/?s8_live_fixture_id=2735&s8_live_stream_key=clubamerica-santoslaguna-mexliga&s8_auto_sound=1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2700/thun-young-swi/?s8_live_fixture_id=2700&s8_live_stream_key=thun-young-swi&s8_auto_sound=1","Origin":"https://profecta.io"}
-https://flv.lauthaitv.cc/live/thun-young-swi.flv
-#EXTINF:-1 tvg-id="xoilac-truc-tiep-canada-u20-vs-jamaica-u20-luc-0300-ngay-02-08-2026-s0-1" tvg-name="[03:00 02/08/2026] Canada U20 vs Jamaica U20 [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/football/team/1l4rjnh6yzwm7vx/image/small",[03:00 02/08/2026] Canada U20 vs Jamaica U20 [FLV]
-#EXTVLCOPT:http-referrer=https://xlz.textliveupdaterz.com/ajax/chanel/type/7/link/channel1/off-tvc?is_off_add=false
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2735/clubamerica-santoslaguna-mexliga/?s8_live_fixture_id=2735&s8_live_stream_key=clubamerica-santoslaguna-mexliga&s8_auto_sound=1","Origin":"https://profecta.io"}
+https://flv.lauthaitv.cc/live/clubamerica-santoslaguna-mexliga.flv
+#EXTINF:-1 tvg-id="gavang-2734-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ GIỜ 03/08] Copa Betano do Brasil - Internacional SC VS Corinthians - SP [BLV NGƯỜI SÓI]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ GIỜ 03/08] Copa Betano do Brasil - Internacional SC VS Corinthians - SP [BLV NGƯỜI SÓI] [FLV]
+#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2734/internacional-corinthians-copabra/?s8_live_fixture_id=2734&s8_live_stream_key=internacional-corinthians-copabra&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2734/internacional-corinthians-copabra/?s8_live_fixture_id=2734&s8_live_stream_key=internacional-corinthians-copabra&s8_auto_sound=1","Origin":"https://profecta.io"}
+https://flv.lauthaitv.cc/live/internacional-corinthians-copabra.flv
+#EXTINF:-1 tvg-id="gavang-2731-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ GIỜ 03/08] Copa Betano do Brasil - Mirassol - SP VS Gremio [BLV NGƯỜI CÁO]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ GIỜ 03/08] Copa Betano do Brasil - Mirassol - SP VS Gremio [BLV NGƯỜI CÁO] [FLV]
+#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2731/mirassol-gremio-copabra/?s8_live_fixture_id=2731&s8_live_stream_key=mirassol-gremio-copabra&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2731/mirassol-gremio-copabra/?s8_live_fixture_id=2731&s8_live_stream_key=mirassol-gremio-copabra&s8_auto_sound=1","Origin":"https://profecta.io"}
+https://flv.lauthaitv.cc/live/mirassol-gremio-copabra.flv
+#EXTINF:-1 tvg-id="gavang-2728-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ LỊCH] Cska VS Dunav" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ LỊCH] Cska VS Dunav [FLV]
+#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2728/cska-dunav-bul1st/?s8_live_fixture_id=2728&s8_live_stream_key=cska-dunav-bul1st&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2728/cska-dunav-bul1st/?s8_live_fixture_id=2728&s8_live_stream_key=cska-dunav-bul1st&s8_auto_sound=1","Origin":"https://profecta.io"}
+https://flv.lauthaitv.cc/live/cska-dunav-bul1st.flv
+#EXTINF:-1 tvg-id="gavang-2715-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ GIỜ 02/08] DEN Superliga - Midtjylland VS AC Horsens [BLV NGƯỜI CAT]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ GIỜ 02/08] DEN Superliga - Midtjylland VS AC Horsens [BLV NGƯỜI CAT] [FLV]
+#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2715/midtjy-horsens-den/?s8_live_fixture_id=2715&s8_live_stream_key=midtjy-horsens-den&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2715/midtjy-horsens-den/?s8_live_fixture_id=2715&s8_live_stream_key=midtjy-horsens-den&s8_auto_sound=1","Origin":"https://profecta.io"}
+https://flv.lauthaitv.cc/live/midtjy-horsens-den.flv
+#EXTINF:-1 tvg-id="gavang-2724-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ GIỜ 02/08] DEN Superliga - Silkeborg VS FC Copenhagen [BLV NGƯỜI CHÈ]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ GIỜ 02/08] DEN Superliga - Silkeborg VS FC Copenhagen [BLV NGƯỜI CHÈ] [FLV]
+#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2724/silkeborg-copenhagen-den/?s8_live_fixture_id=2724&s8_live_stream_key=silkeborg-copenhagen-den&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2724/silkeborg-copenhagen-den/?s8_live_fixture_id=2724&s8_live_stream_key=silkeborg-copenhagen-den&s8_auto_sound=1","Origin":"https://profecta.io"}
+https://flv.lauthaitv.cc/live/silkeborg-copenhagen-den.flv
+#EXTINF:-1 tvg-id="gavang-2717-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ GIỜ 02/08] Ekstraklasa - Legia Warszawa VS Zaglebie Lubin [BLV NGƯỜI TIỀN SỬ]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ GIỜ 02/08] Ekstraklasa - Legia Warszawa VS Zaglebie Lubin [BLV NGƯỜI TIỀN SỬ] [FLV]
+#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2717/legia-zaglebie-eks/?s8_live_fixture_id=2717&s8_live_stream_key=legia-zaglebie-eks&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2717/legia-zaglebie-eks/?s8_live_fixture_id=2717&s8_live_stream_key=legia-zaglebie-eks&s8_auto_sound=1","Origin":"https://profecta.io"}
+https://flv.lauthaitv.cc/live/legia-zaglebie-eks.flv
+#EXTINF:-1 tvg-id="gavang-2723-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ GIỜ 02/08] Ekstraklasa - Slask Wroclaw VS Rakow Czestochowa [BLV NGƯỜI TIỀN SỬ]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ GIỜ 02/08] Ekstraklasa - Slask Wroclaw VS Rakow Czestochowa [BLV NGƯỜI TIỀN SỬ] [FLV]
+#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2723/slask-rakow-eks/?s8_live_fixture_id=2723&s8_live_stream_key=slask-rakow-eks&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2723/slask-rakow-eks/?s8_live_fixture_id=2723&s8_live_stream_key=slask-rakow-eks&s8_auto_sound=1","Origin":"https://profecta.io"}
+https://flv.lauthaitv.cc/live/slask-rakow-eks.flv
+#EXTINF:-1 tvg-id="gavang-2719-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ GIỜ 02/08] FIN Veikkausliiga - AC Oulu VS Ilves Tampere [BLV NGƯỜI CAT]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ GIỜ 02/08] FIN Veikkausliiga - AC Oulu VS Ilves Tampere [BLV NGƯỜI CAT] [FLV]
+#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2719/oulu-ilves-finveik/?s8_live_fixture_id=2719&s8_live_stream_key=oulu-ilves-finveik&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2719/oulu-ilves-finveik/?s8_live_fixture_id=2719&s8_live_stream_key=oulu-ilves-finveik&s8_auto_sound=1","Origin":"https://profecta.io"}
+https://flv.lauthaitv.cc/live/oulu-ilves-finveik.flv
+#EXTINF:-1 tvg-id="gavang-2722-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ GIỜ 02/08] KAZ Premier League - Ordabasy FC VS Tobol Kostanai [BLV NGƯỜI NẶN]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ GIỜ 02/08] KAZ Premier League - Ordabasy FC VS Tobol Kostanai [BLV NGƯỜI NẶN] [FLV]
+#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2722/ordabasy-tobol-kazprem/?s8_live_fixture_id=2722&s8_live_stream_key=ordabasy-tobol-kazprem&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2722/ordabasy-tobol-kazprem/?s8_live_fixture_id=2722&s8_live_stream_key=ordabasy-tobol-kazprem&s8_auto_sound=1","Origin":"https://profecta.io"}
+https://flv.lauthaitv.cc/live/ordabasy-tobol-kazprem.flv
+#EXTINF:-1 tvg-id="gavang-2737-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ GIỜ 03/08] MEX Liga MX - Toluca VS Necaxa [BLV NGƯỜI SẮT]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ GIỜ 03/08] MEX Liga MX - Toluca VS Necaxa [BLV NGƯỜI SẮT] [FLV]
+#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2737/toluca-necaxa-mexliga/?s8_live_fixture_id=2737&s8_live_stream_key=toluca-necaxa-mexliga&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2737/toluca-necaxa-mexliga/?s8_live_fixture_id=2737&s8_live_stream_key=toluca-necaxa-mexliga&s8_auto_sound=1","Origin":"https://profecta.io"}
+https://flv.lauthaitv.cc/live/toluca-necaxa-mexliga.flv
+#EXTINF:-1 tvg-id="gavang-2726-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ GIỜ 03/08] NOR Eliteserien - Brann VS Rosenborg [BLV NGƯỜI CAT]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ GIỜ 03/08] NOR Eliteserien - Brann VS Rosenborg [BLV NGƯỜI CAT] [FLV]
+#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2726/brann-rosenborg-nor/?s8_live_fixture_id=2726&s8_live_stream_key=brann-rosenborg-nor&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2726/brann-rosenborg-nor/?s8_live_fixture_id=2726&s8_live_stream_key=brann-rosenborg-nor&s8_auto_sound=1","Origin":"https://profecta.io"}
+https://flv.lauthaitv.cc/live/brann-rosenborg-nor.flv
+#EXTINF:-1 tvg-id="gavang-2721-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ GIỜ 02/08] NOR Eliteserien - Molde VS Sarpsborg 08 [BLV NGƯỜI SẮT]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ GIỜ 02/08] NOR Eliteserien - Molde VS Sarpsborg 08 [BLV NGƯỜI SẮT] [FLV]
+#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2721/molde-sarpsborg-nor/?s8_live_fixture_id=2721&s8_live_stream_key=molde-sarpsborg-nor&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2721/molde-sarpsborg-nor/?s8_live_fixture_id=2721&s8_live_stream_key=molde-sarpsborg-nor&s8_auto_sound=1","Origin":"https://profecta.io"}
+https://flv.lauthaitv.cc/live/molde-sarpsborg-nor.flv
+#EXTINF:-1 tvg-id="gavang-2729-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ LỊCH] Palmeiras VS Foraleza" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ LỊCH] Palmeiras VS Foraleza [FLV]
+#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2729/palmeiras-foraleza-copabra/?s8_live_fixture_id=2729&s8_live_stream_key=palmeiras-foraleza-copabra&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2729/palmeiras-foraleza-copabra/?s8_live_fixture_id=2729&s8_live_stream_key=palmeiras-foraleza-copabra&s8_auto_sound=1","Origin":"https://profecta.io"}
+https://flv.lauthaitv.cc/live/palmeiras-foraleza-copabra.flv
+#EXTINF:-1 tvg-id="gavang-2727-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ GIỜ 03/08] RUS Premier League - Akhmat Grozny VS Spartak Moscow [BLV NGƯỜI NẶN]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ GIỜ 03/08] RUS Premier League - Akhmat Grozny VS Spartak Moscow [BLV NGƯỜI NẶN] [FLV]
+#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2727/akhmat-spartak-rusprem/?s8_live_fixture_id=2727&s8_live_stream_key=akhmat-spartak-rusprem&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2727/akhmat-spartak-rusprem/?s8_live_fixture_id=2727&s8_live_stream_key=akhmat-spartak-rusprem&s8_auto_sound=1","Origin":"https://profecta.io"}
+https://flv.lauthaitv.cc/live/akhmat-spartak-rusprem.flv
+#EXTINF:-1 tvg-id="gavang-2718-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ GIỜ 02/08] RUS Premier League - Gazovik Orenburg VS Zenit St. Petersburg [BLV NGƯỜI THỎ]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ GIỜ 02/08] RUS Premier League - Gazovik Orenburg VS Zenit St. Petersburg [BLV NGƯỜI THỎ] [FLV]
+#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2718/gazovik-zenit-rusprem/?s8_live_fixture_id=2718&s8_live_stream_key=gazovik-zenit-rusprem&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2718/gazovik-zenit-rusprem/?s8_live_fixture_id=2718&s8_live_stream_key=gazovik-zenit-rusprem&s8_auto_sound=1","Origin":"https://profecta.io"}
+https://flv.lauthaitv.cc/live/gazovik-zenit-rusprem.flv
+#EXTINF:-1 tvg-id="gavang-2736-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ LỊCH] Santafe VS Oncecaidas" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ LỊCH] Santafe VS Oncecaidas [FLV]
+#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2736/santafe-oncecaidas-cate/?s8_live_fixture_id=2736&s8_live_stream_key=santafe-oncecaidas-cate&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2736/santafe-oncecaidas-cate/?s8_live_fixture_id=2736&s8_live_stream_key=santafe-oncecaidas-cate&s8_auto_sound=1","Origin":"https://profecta.io"}
+https://flv.lauthaitv.cc/live/santafe-oncecaidas-cate.flv
+#EXTINF:-1 tvg-id="gavang-2716-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ GIỜ 02/08] SWE Allsvenskan - Brommapojkarna VS Malmo FF [BLV NGƯỜI SẮT]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ GIỜ 02/08] SWE Allsvenskan - Brommapojkarna VS Malmo FF [BLV NGƯỜI SẮT] [FLV]
+#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2716/bromma-malmo-sweall/?s8_live_fixture_id=2716&s8_live_stream_key=bromma-malmo-sweall&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2716/bromma-malmo-sweall/?s8_live_fixture_id=2716&s8_live_stream_key=bromma-malmo-sweall&s8_auto_sound=1","Origin":"https://profecta.io"}
+https://flv.lauthaitv.cc/live/bromma-malmo-sweall.flv
+#EXTINF:-1 tvg-id="gavang-2720-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ GIỜ 02/08] SWI Super League - Grasshopper VS Lugano [BLV NGƯỜI BẠC]" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ GIỜ 02/08] SWI Super League - Grasshopper VS Lugano [BLV NGƯỜI BẠC] [FLV]
+#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2720/grasshopper-lugano-swi/?s8_live_fixture_id=2720&s8_live_stream_key=grasshopper-lugano-swi&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2720/grasshopper-lugano-swi/?s8_live_fixture_id=2720&s8_live_stream_key=grasshopper-lugano-swi&s8_auto_sound=1","Origin":"https://profecta.io"}
+https://flv.lauthaitv.cc/live/grasshopper-lugano-swi.flv
+#EXTINF:-1 tvg-id="gavang-2732-1" tvg-name="[CHỜ PHÁT] [CHƯA CÓ LỊCH] Uchile VS Huachi" group-title="Gà Vàng" tvg-logo="https://profecta.io/wp-content/uploads/2026/04/logo-gavangtv.png",[CHỜ PHÁT] [CHƯA CÓ LỊCH] Uchile VS Huachi [FLV]
+#EXTVLCOPT:http-referrer=https://profecta.io/s8-live/2732/uchile-huachi-chiliga/?s8_live_fixture_id=2732&s8_live_stream_key=uchile-huachi-chiliga&s8_auto_sound=1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+#EXTVLCOPT:http-reconnect=true
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://profecta.io/s8-live/2732/uchile-huachi-chiliga/?s8_live_fixture_id=2732&s8_live_stream_key=uchile-huachi-chiliga&s8_auto_sound=1","Origin":"https://profecta.io"}
+https://flv.lauthaitv.cc/live/uchile-huachi-chiliga.flv
+#EXTINF:-1 tvg-id="xoilac-ruc-tiep-belgrano-vs-argentinos-juniors-luc-0400-ngay-02-08-2026-s1-2" tvg-name="[04:00 02/08/2026] Belgrano vs Argentinos Juniors [BLV HD SILVA] [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/football/team/vl7oqdehzxxr510/image/small",[04:00 02/08/2026] Belgrano vs Argentinos Juniors [BLV HD SILVA] [FLV]
+#EXTVLCOPT:http-referrer=https://xlz.textliveupdaterz.com/ajax/chanel/type/5/link/channel20/off-tvc?is_off_add=false
 #EXTVLCOPT:http-origin=https://xlz.textliveupdaterz.com
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.textliveupdaterz.com/ajax/chanel/type/7/link/channel1/off-tvc?is_off_add=false","Origin":"https://xlz.textliveupdaterz.com"}
-https://live1.streambylivepulse.com/live/channel1.flv?wsSecret=d298dcd5ec732c633ff6ea92c4f700d0&wsABSTime=1785657816
-#EXTINF:-1 tvg-id="xoilac-truc-tiep-costa-rica-u23-vs-panama-u23-luc-0300-ngay-02-08-2026-s0-3" tvg-name="[03:00 02/08/2026] Costa Rica U23 vs Panama U23 [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/football/team/6ypq3nh0o4wmd7o/image/small",[03:00 02/08/2026] Costa Rica U23 vs Panama U23 [FLV]
-#EXTVLCOPT:http-referrer=https://xlz.textliveupdaterz.com/ajax/chanel/type/7/link/channel3/off-tvc?is_off_add=false
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.textliveupdaterz.com/ajax/chanel/type/5/link/channel20/off-tvc?is_off_add=false","Origin":"https://xlz.textliveupdaterz.com"}
+https://live3.procdnlive.com/livecdn/channel20.flv?auth_key=3000001785618881-0-0-91327aab5dfe70fceb2dd359506e1e42
+#EXTINF:-1 tvg-id="xoilac-p-boca-juniors-cali-vs-tigres-zipaquira-luc-0400-ngay-02-08-2026-s0-4" tvg-name="[04:00 02/08/2026] Boca Juniors Cali vs Tigres Zipaquira [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/football/team/vjxm8ghgp5wr6od/image/small",[04:00 02/08/2026] Boca Juniors Cali vs Tigres Zipaquira [FLV]
+#EXTVLCOPT:http-referrer=https://xlz.textliveupdaterz.com/ajax/chanel/type/7/link/channel14/off-tvc?is_off_add=false
 #EXTVLCOPT:http-origin=https://xlz.textliveupdaterz.com
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.textliveupdaterz.com/ajax/chanel/type/7/link/channel3/off-tvc?is_off_add=false","Origin":"https://xlz.textliveupdaterz.com"}
-https://live1.streambylivepulse.com/live/channel3.flv?wsSecret=81a4f56518d29df2fd65962740fdc43e&wsABSTime=1785657830
-#EXTINF:-1 tvg-id="xoilac-truc-tiep-nu-nigeria-vs-nu-zambia-luc-0300-ngay-02-08-2026-s1-4" tvg-name="[03:00 02/08/2026] Nu Nigeria vs Nu Zambia [BLV HD RAVEN] [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/football/team/4wyrn4h8wzjq86p/image/small",[03:00 02/08/2026] Nu Nigeria vs Nu Zambia [BLV HD RAVEN] [FLV]
-#EXTVLCOPT:http-referrer=https://xlz.textliveupdaterz.com/ajax/chanel/type/5/link/channel21/off-tvc?is_off_add=false
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.textliveupdaterz.com/ajax/chanel/type/7/link/channel14/off-tvc?is_off_add=false","Origin":"https://xlz.textliveupdaterz.com"}
+https://live1.streambylivepulse.com/live/channel14.flv?wsSecret=61bf2d43bce1a7fb9c2d1c4f2943ba10&wsABSTime=1785662095
+#EXTINF:-1 tvg-id="xoilac-c-tiep-deportivo-mixco-vs-suchitepequez-luc-0400-ngay-02-08-2026-s0-5" tvg-name="[04:00 02/08/2026] Deportivo Mixco vs Suchitepequez [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/football/team/l5ergph3dyzr8k0/image/small",[04:00 02/08/2026] Deportivo Mixco vs Suchitepequez [FLV]
+#EXTVLCOPT:http-referrer=https://xlz.textliveupdaterz.com/ajax/chanel/type/7/link/channel15/off-tvc?is_off_add=false
 #EXTVLCOPT:http-origin=https://xlz.textliveupdaterz.com
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.textliveupdaterz.com/ajax/chanel/type/5/link/channel21/off-tvc?is_off_add=false","Origin":"https://xlz.textliveupdaterz.com"}
-https://live3.procdnlive.com/livecdn/channel21.flv?auth_key=3000001785614637-0-0-26479d5256be1e9f852bed6b293aaced
-#EXTINF:-1 tvg-id="xoilac--tiep-darja-vidmanova-vs-renata-zarazua-luc-0300-ngay-02-08-2026-s0-5" tvg-name="[03:00 02/08/2026] Darja Vidmanova vs Renata Zarazua [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/tennis/team/4wyrnjf776dq86p/image/small",[03:00 02/08/2026] Darja Vidmanova vs Renata Zarazua [FLV]
-#EXTVLCOPT:http-referrer=https://xlz.textliveupdaterz.com/ajax/chanel/type/7/link/channel52/off-tvc?is_off_add=false
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.textliveupdaterz.com/ajax/chanel/type/7/link/channel15/off-tvc?is_off_add=false","Origin":"https://xlz.textliveupdaterz.com"}
+https://live1.streambylivepulse.com/live/channel15.flv?wsSecret=aaa3aea7f1d585d32162d4398fa13946&wsABSTime=1785662102
+#EXTINF:-1 tvg-id="xoilac-ep-estudiantes-lp-vs-defensa-y-justicia-luc-0400-ngay-02-08-2026-s1-3" tvg-name="[04:00 02/08/2026] Estudiantes Lp vs Defensa Y Justicia [BLV HD BEE] [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/football/team/gx7lm7pheg8m2wd/image/small",[04:00 02/08/2026] Estudiantes Lp vs Defensa Y Justicia [BLV HD BEE] [FLV]
+#EXTVLCOPT:http-referrer=https://xlz.textliveupdaterz.com/ajax/chanel/type/5/link/channel8/off-tvc?is_off_add=false
 #EXTVLCOPT:http-origin=https://xlz.textliveupdaterz.com
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.textliveupdaterz.com/ajax/chanel/type/7/link/channel52/off-tvc?is_off_add=false","Origin":"https://xlz.textliveupdaterz.com"}
-https://live1.streambylivepulse.com/live/channel52.flv?wsSecret=745e28ed2eaebb5fcec386d9cfbd3626&wsABSTime=1785657844
-#EXTINF:-1 tvg-id="xoilac-ruc-tiep-venezuela-u23-vs-guatemala-u23-luc-0300-ngay-02-08-2026-s0-2" tvg-name="[03:00 02/08/2026] Venezuela U23 vs Guatemala U23 [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/football/team/vjxm8ghjng6r6od/image/small",[03:00 02/08/2026] Venezuela U23 vs Guatemala U23 [FLV]
-#EXTVLCOPT:http-referrer=https://xlz.textliveupdaterz.com/ajax/chanel/type/7/link/channel2/off-tvc?is_off_add=false
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.textliveupdaterz.com/ajax/chanel/type/5/link/channel8/off-tvc?is_off_add=false","Origin":"https://xlz.textliveupdaterz.com"}
+https://live3.procdnlive.com/livecdn/channel8.flv?auth_key=3000001785618889-0-0-14a75b253ca2d20774db80ef8a8459ce
+#EXTINF:-1 tvg-id="xoilac-ep-alianza-petrolera-vs-deportes-tolima-luc-0405-ngay-02-08-2026-s1-1" tvg-name="[04:05 02/08/2026] Alianza Petrolera vs Deportes Tolima [BLV HD OLER] [FLV]" group-title="Xôi Lạc" tvg-logo="https://imgts.sportpulseapiz.com/football/team/3glrw7hw3njqdyj/image/small",[04:05 02/08/2026] Alianza Petrolera vs Deportes Tolima [BLV HD OLER] [FLV]
+#EXTVLCOPT:http-referrer=https://xlz.textliveupdaterz.com/ajax/chanel/type/5/link/channel28/off-tvc?is_off_add=false
 #EXTVLCOPT:http-origin=https://xlz.textliveupdaterz.com
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTVLCOPT:http-reconnect=true
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.textliveupdaterz.com/ajax/chanel/type/7/link/channel2/off-tvc?is_off_add=false","Origin":"https://xlz.textliveupdaterz.com"}
-https://live1.streambylivepulse.com/live/channel2.flv?wsSecret=e27db70af815af041f47721eb7586dab&wsABSTime=1785657822
+#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36","Referer":"https://xlz.textliveupdaterz.com/ajax/chanel/type/5/link/channel28/off-tvc?is_off_add=false","Origin":"https://xlz.textliveupdaterz.com"}
+https://live3.procdnlive.com/livecdn/channel28.flv?auth_key=3000001785618869-0-0-9316f1fa478046a57b795c05db954c3a
