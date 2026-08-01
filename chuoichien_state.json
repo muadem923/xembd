@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-08-01T23:44:36.200605+07:00",
+  "updated_at": "2026-08-02T00:49:14.796306+07:00",
   "matches": {
     "1556548": {
       "url": "https://live04.chuoichientv.me/live/1556548/benfica-vs-fc-st-gallen",
@@ -14,20 +14,6 @@
       "has_verified": true,
       "verified_urls": [
         "https://gckc0525.edgemaxcdn.org/live/angao.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "1556549": {
-      "url": "https://live04.chuoichientv.me/live/1556549/fc-midtjylland-vs-besiktas",
-      "match_name": "FC Midtjylland vs Besiktas - UEFA Europa League",
-      "kickoff_iso": "2026-07-31T00:00:00+07:00",
-      "minutes_to_kickoff": -74,
-      "last_scan_at": "2026-07-31T01:14:21.614388+07:00",
-      "next_scan_at": "2026-07-31T01:19:21.614388+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/troctru.flv"
       ],
       "scan_decision": "browser-fallback"
     },
@@ -511,9 +497,9 @@
       "url": "https://live04.chuoichientv.me/live/1589316/real-madrid-vs-fiorentina",
       "match_name": "Real Madrid vs Fiorentina - Giao Hữu Câu Lạc Bộ",
       "kickoff_iso": "2026-08-01T23:00:00+07:00",
-      "minutes_to_kickoff": -44,
-      "last_scan_at": "2026-08-01T23:44:36.200555+07:00",
-      "next_scan_at": "2026-08-01T23:49:36.200555+07:00",
+      "minutes_to_kickoff": -109,
+      "last_scan_at": "2026-08-02T00:49:14.796248+07:00",
+      "next_scan_at": "2026-08-02T00:54:14.796248+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
