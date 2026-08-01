@@ -1,20 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-08-01T14:23:05.759113+07:00",
+  "updated_at": "2026-08-01T16:31:07.290669+07:00",
   "matches": {
-    "1560868": {
-      "url": "https://live04.chuoichientv.me/live/1560868/sydney-olympic-vs-brisbane-roar",
-      "match_name": "Sydney Olympic vs Brisbane Roar - Australia Cup",
-      "kickoff_iso": "2026-07-30T16:30:00+07:00",
-      "minutes_to_kickoff": -117,
-      "last_scan_at": "2026-07-30T18:27:25.576064+07:00",
-      "next_scan_at": "2026-07-30T18:32:25.576064+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "browser-fallback"
-    },
     "999289": {
       "url": "https://live04.chuoichientv.me/live/999289/poland-vs-ukraine",
       "match_name": "Poland vs Ukraine - Nations League",
@@ -447,57 +435,116 @@
       "url": "https://live04.chuoichientv.me/live/1537506/monaro-panthers-vs-oconnor-knights",
       "match_name": "Monaro Panthers vs O'Connor Knights - Capital Territory NPL",
       "kickoff_iso": "2026-08-01T14:45:00+07:00",
-      "minutes_to_kickoff": 22,
-      "last_scan_at": "2026-08-01T14:23:05.758985+07:00",
-      "next_scan_at": "2026-08-01T14:33:05.758985+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
+      "minutes_to_kickoff": -105,
+      "last_scan_at": "2026-08-01T16:31:07.290483+07:00",
+      "next_scan_at": "2026-08-01T16:36:07.290483+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoito.flv"
+      ],
       "scan_decision": "browser-fallback"
     },
     "1602963": {
       "url": "https://live04.chuoichientv.me/live/1602963/persija-vs-psms-medan",
-      "match_name": "persija vs psms medan",
+      "match_name": "Persija vs PSMS Medan - Piala Presiden",
       "kickoff_iso": "2026-08-01T15:30:00+07:00",
-      "minutes_to_kickoff": 67,
-      "last_scan_at": "2026-08-01T14:23:05.758985+07:00",
-      "next_scan_at": "2026-08-01T14:43:05.758985+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -60,
+      "last_scan_at": "2026-08-01T16:31:07.290483+07:00",
+      "next_scan_at": "2026-08-01T16:36:07.290483+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/troctru.flv"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "999791": {
       "url": "https://live04.chuoichientv.me/live/999791/thailand-w-vs-philippines-w",
-      "match_name": "thailand w vs philippines w",
+      "match_name": "Thailand W vs Philippines W - Bóng Chuyền SEA V.LEAGUE",
       "kickoff_iso": "2026-08-01T16:00:00+07:00",
-      "minutes_to_kickoff": 97,
-      "last_scan_at": "2026-08-01T14:23:05.758985+07:00",
-      "next_scan_at": "2026-08-01T14:43:05.758985+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -30,
+      "last_scan_at": "2026-08-01T16:31:07.290483+07:00",
+      "next_scan_at": "2026-08-01T16:36:07.290483+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoitay.flv",
+        "https://gckc0525.edgemaxcdn.org/live/chuoitay/playlist.m3u8"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "1502105": {
       "url": "https://live04.chuoichientv.me/live/1502105/chelsea-vs-tottenham",
-      "match_name": "chelsea vs tottenham",
+      "match_name": "Chelsea vs Tottenham - Giao Hữu Câu Lạc Bộ",
       "kickoff_iso": "2026-08-01T16:45:00+07:00",
-      "minutes_to_kickoff": 142,
-      "last_scan_at": "2026-08-01T14:23:05.758985+07:00",
-      "next_scan_at": "2026-08-01T15:08:05.758985+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": 14,
+      "last_scan_at": "2026-08-01T16:31:07.290483+07:00",
+      "next_scan_at": "2026-08-01T16:36:07.290483+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoinho.flv"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "1548096": {
       "url": "https://live04.chuoichientv.me/live/1548096/laos-vs-philippines",
       "match_name": "laos vs philippines",
       "kickoff_iso": "2026-08-01T17:00:00+07:00",
-      "minutes_to_kickoff": 157,
-      "last_scan_at": "2026-08-01T14:23:05.758985+07:00",
-      "next_scan_at": "2026-08-01T15:08:05.758985+07:00",
+      "minutes_to_kickoff": 29,
+      "last_scan_at": "2026-08-01T16:31:07.290483+07:00",
+      "next_scan_at": "2026-08-01T16:36:07.290483+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoichao.flv"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "211744": {
+      "url": "https://live04.chuoichientv.me/live/211744/japan-vs-usa",
+      "match_name": "japan vs usa",
+      "kickoff_iso": "2026-08-01T18:30:00+07:00",
+      "minutes_to_kickoff": 120,
+      "last_scan_at": "2026-08-01T16:31:07.290483+07:00",
+      "next_scan_at": "2026-08-01T16:51:07.290483+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1546744": {
+      "url": "https://live04.chuoichientv.me/live/1546744/manchester-city-vs-inter",
+      "match_name": "manchester city vs inter",
+      "kickoff_iso": "2026-08-01T18:30:00+07:00",
+      "minutes_to_kickoff": 120,
+      "last_scan_at": "2026-08-01T16:31:07.290483+07:00",
+      "next_scan_at": "2026-08-01T16:51:07.290483+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "992444": {
+      "url": "https://live04.chuoichientv.me/live/992444/vietnam-w-vs-indonesia-w",
+      "match_name": "vietnam w vs indonesia w",
+      "kickoff_iso": "2026-08-01T19:00:00+07:00",
+      "minutes_to_kickoff": 150,
+      "last_scan_at": "2026-08-01T16:31:07.290483+07:00",
+      "next_scan_at": "2026-08-01T17:16:07.290483+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1542343": {
+      "url": "https://live04.chuoichientv.me/live/1542343/manchester-united-vs-atletico-madrid",
+      "match_name": "manchester united vs atletico madrid",
+      "kickoff_iso": "2026-08-01T20:00:00+07:00",
+      "minutes_to_kickoff": 210,
+      "last_scan_at": "2026-08-01T16:31:07.290483+07:00",
+      "next_scan_at": "2026-08-01T17:16:07.290483+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
