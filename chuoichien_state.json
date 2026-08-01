@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-08-02T00:49:14.796306+07:00",
+  "updated_at": "2026-08-02T01:48:19.818660+07:00",
   "matches": {
     "1556548": {
       "url": "https://live04.chuoichientv.me/live/1556548/benfica-vs-fc-st-gallen",
@@ -14,20 +14,6 @@
       "has_verified": true,
       "verified_urls": [
         "https://gckc0525.edgemaxcdn.org/live/angao.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "1593524": {
-      "url": "https://live04.chuoichientv.me/live/1593524/cska-sofia-vs-qarabag",
-      "match_name": "CSKA Sofia vs Qarabag - UEFA Europa League",
-      "kickoff_iso": "2026-07-31T01:00:00+07:00",
-      "minutes_to_kickoff": -119,
-      "last_scan_at": "2026-07-31T02:59:17.796787+07:00",
-      "next_scan_at": "2026-07-31T03:04:17.796787+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoichao.flv"
       ],
       "scan_decision": "browser-fallback"
     },
@@ -505,6 +491,60 @@
       "verified_urls": [
         "https://gckc0525.edgemaxcdn.org/live/chuoichao.flv",
         "https://gckc0525.edgemaxcdn.org/live/chuoichao/playlist.m3u8"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "1582364": {
+      "url": "https://live04.chuoichientv.me/live/1582364/fc-porto-vs-torreense",
+      "match_name": "fc porto vs torreense",
+      "kickoff_iso": "2026-08-02T02:15:00+07:00",
+      "minutes_to_kickoff": 27,
+      "last_scan_at": "2026-08-02T01:48:19.818562+07:00",
+      "next_scan_at": "2026-08-02T01:58:19.818562+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "browser-fallback"
+    },
+    "1493033": {
+      "url": "https://live04.chuoichientv.me/live/1493033/belgrano-cordoba-vs-argentinos-jrs",
+      "match_name": "belgrano cordoba vs argentinos jrs",
+      "kickoff_iso": "2026-08-02T04:00:00+07:00",
+      "minutes_to_kickoff": 132,
+      "last_scan_at": "2026-08-02T01:48:19.818562+07:00",
+      "next_scan_at": "2026-08-02T02:33:19.818562+07:00",
+      "has_stream": false,
+      "has_verified": false,
+      "verified_urls": [],
+      "scan_decision": "http-only-far-upcoming"
+    },
+    "1583596": {
+      "url": "https://live04.chuoichientv.me/live/1583596/girona-vs-arsenal",
+      "match_name": "girona vs arsenal",
+      "kickoff_iso": "2026-08-02T01:00:00+07:00",
+      "minutes_to_kickoff": -48,
+      "last_scan_at": "2026-08-02T01:48:19.818562+07:00",
+      "next_scan_at": "2026-08-02T01:53:19.818562+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/angao.flv",
+        "https://gckc0525.edgemaxcdn.org/live/angao/playlist.m3u8"
+      ],
+      "scan_decision": "browser-fallback"
+    },
+    "1604752": {
+      "url": "https://live04.chuoichientv.me/live/1604752/estrela-vs-al-nassr",
+      "match_name": "Estrela vs Al-Nassr - Giao Hữu Câu Lạc Bộ",
+      "kickoff_iso": "2026-08-02T00:00:00+07:00",
+      "minutes_to_kickoff": -108,
+      "last_scan_at": "2026-08-02T01:48:19.818562+07:00",
+      "next_scan_at": "2026-08-02T01:53:19.818562+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/troctru.flv",
+        "https://gckc0525.edgemaxcdn.org/live/troctru/playlist.m3u8"
       ],
       "scan_decision": "browser-fallback"
     }
