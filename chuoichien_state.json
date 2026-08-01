@@ -1,36 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-08-01T22:49:57.789346+07:00",
+  "updated_at": "2026-08-01T23:44:36.200605+07:00",
   "matches": {
-    "1593507": {
-      "url": "https://live04.chuoichientv.me/live/1593507/inter-turku-vs-istanbul-basaksehir",
-      "match_name": "Inter Turku vs Istanbul Basaksehir - UEFA Europa Conference League",
-      "kickoff_iso": "2026-07-30T23:00:00+07:00",
-      "minutes_to_kickoff": -59,
-      "last_scan_at": "2026-07-30T23:59:39.017409+07:00",
-      "next_scan_at": "2026-07-31T00:04:39.017409+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoichao.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "1593526": {
-      "url": "https://live04.chuoichientv.me/live/1593526/maccabi-tel-aviv-vs-sheriff-tiraspol",
-      "match_name": "Maccabi Tel Aviv vs Sheriff Tiraspol - UEFA Europa League",
-      "kickoff_iso": "2026-07-30T23:00:00+07:00",
-      "minutes_to_kickoff": -59,
-      "last_scan_at": "2026-07-30T23:59:39.017409+07:00",
-      "next_scan_at": "2026-07-31T00:04:39.017409+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoinho.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
     "1556548": {
       "url": "https://live04.chuoichientv.me/live/1556548/benfica-vs-fc-st-gallen",
       "match_name": "Benfica vs FC ST. Gallen - UEFA Europa League",
@@ -539,9 +511,9 @@
       "url": "https://live04.chuoichientv.me/live/1589316/real-madrid-vs-fiorentina",
       "match_name": "Real Madrid vs Fiorentina - Giao Hữu Câu Lạc Bộ",
       "kickoff_iso": "2026-08-01T23:00:00+07:00",
-      "minutes_to_kickoff": 11,
-      "last_scan_at": "2026-08-01T22:49:57.789270+07:00",
-      "next_scan_at": "2026-08-01T22:54:57.789270+07:00",
+      "minutes_to_kickoff": -44,
+      "last_scan_at": "2026-08-01T23:44:36.200555+07:00",
+      "next_scan_at": "2026-08-01T23:49:36.200555+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
