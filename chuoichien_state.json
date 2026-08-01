@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-08-01T21:43:42.984917+07:00",
+  "updated_at": "2026-08-01T22:49:57.789346+07:00",
   "matches": {
     "1593507": {
       "url": "https://live04.chuoichientv.me/live/1593507/inter-turku-vs-istanbul-basaksehir",
@@ -525,9 +525,9 @@
       "url": "https://live04.chuoichientv.me/live/1554097/tranmere-vs-rochdale",
       "match_name": "Tranmere vs Rochdale - Cúp Liên đoàn Anh",
       "kickoff_iso": "2026-08-01T21:00:00+07:00",
-      "minutes_to_kickoff": -43,
-      "last_scan_at": "2026-08-01T21:43:42.984809+07:00",
-      "next_scan_at": "2026-08-01T21:48:42.984809+07:00",
+      "minutes_to_kickoff": -109,
+      "last_scan_at": "2026-08-01T22:49:57.789270+07:00",
+      "next_scan_at": "2026-08-01T22:54:57.789270+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -537,15 +537,18 @@
     },
     "1589316": {
       "url": "https://live04.chuoichientv.me/live/1589316/real-madrid-vs-fiorentina",
-      "match_name": "real madrid vs fiorentina",
+      "match_name": "Real Madrid vs Fiorentina - Giao Hữu Câu Lạc Bộ",
       "kickoff_iso": "2026-08-01T23:00:00+07:00",
-      "minutes_to_kickoff": 77,
-      "last_scan_at": "2026-08-01T21:43:42.984809+07:00",
-      "next_scan_at": "2026-08-01T22:03:42.984809+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": 11,
+      "last_scan_at": "2026-08-01T22:49:57.789270+07:00",
+      "next_scan_at": "2026-08-01T22:54:57.789270+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoichao.flv",
+        "https://gckc0525.edgemaxcdn.org/live/chuoichao/playlist.m3u8"
+      ],
+      "scan_decision": "browser-fallback"
     }
   }
 }
