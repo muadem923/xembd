@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-08-02T04:14:52.102668+07:00",
+  "updated_at": "2026-08-02T05:18:11.018848+07:00",
   "matches": {
     "1492313": {
       "url": "https://live04.chuoichientv.me/live/1492313/corinthians-vs-atletico-paranaense",
@@ -499,14 +499,13 @@
       "url": "https://live04.chuoichientv.me/live/1493033/belgrano-cordoba-vs-argentinos-jrs",
       "match_name": "Belgrano Cordoba vs Argentinos JRS - VĐQG Argentina",
       "kickoff_iso": "2026-08-02T04:00:00+07:00",
-      "minutes_to_kickoff": -14,
-      "last_scan_at": "2026-08-02T04:14:52.102579+07:00",
-      "next_scan_at": "2026-08-02T04:19:52.102579+07:00",
+      "minutes_to_kickoff": -78,
+      "last_scan_at": "2026-08-02T05:18:11.018786+07:00",
+      "next_scan_at": "2026-08-02T05:23:11.018786+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/angao.flv",
-        "https://gckc0525.edgemaxcdn.org/live/angao/playlist.m3u8"
+        "https://gckc0525.edgemaxcdn.org/live/angao.flv"
       ],
       "scan_decision": "browser-fallback"
     },
@@ -544,9 +543,9 @@
       "url": "https://live04.chuoichientv.me/live/1490362/inter-miami-vs-columbus-crew",
       "match_name": "inter miami vs columbus crew",
       "kickoff_iso": "2026-08-02T06:30:00+07:00",
-      "minutes_to_kickoff": 136,
-      "last_scan_at": "2026-08-02T04:14:52.102579+07:00",
-      "next_scan_at": "2026-08-02T04:59:52.102579+07:00",
+      "minutes_to_kickoff": 72,
+      "last_scan_at": "2026-08-02T05:18:11.018786+07:00",
+      "next_scan_at": "2026-08-02T05:38:11.018786+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
