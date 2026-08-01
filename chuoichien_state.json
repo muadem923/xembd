@@ -1,34 +1,8 @@
 {
   "version": 1,
   "source": "chuoichien",
-  "updated_at": "2026-08-01T20:03:48.237253+07:00",
+  "updated_at": "2026-08-01T21:43:42.984917+07:00",
   "matches": {
-    "1556540": {
-      "url": "https://live04.chuoichientv.me/live/1556540/fk-tobol-kostanay-vs-panevys",
-      "match_name": "FK Tobol Kostanay vs Panevėžys - UEFA Europa Conference League",
-      "kickoff_iso": "2026-07-30T21:00:00+07:00",
-      "minutes_to_kickoff": -89,
-      "last_scan_at": "2026-07-30T22:29:41.859867+07:00",
-      "next_scan_at": "2026-07-30T22:34:41.859867+07:00",
-      "has_stream": true,
-      "has_verified": true,
-      "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/troctru.flv"
-      ],
-      "scan_decision": "browser-fallback"
-    },
-    "1583494": {
-      "url": "https://live04.chuoichientv.me/live/1583494/fc-augsburg-vs-bournemouth",
-      "match_name": "fc augsburg vs bournemouth",
-      "kickoff_iso": "2026-07-30T21:00:00+07:00",
-      "minutes_to_kickoff": 59,
-      "last_scan_at": "2026-07-30T20:01:38.362158+07:00",
-      "next_scan_at": "2026-07-30T20:21:38.362158+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
-    },
     "1593507": {
       "url": "https://live04.chuoichientv.me/live/1593507/inter-turku-vs-istanbul-basaksehir",
       "match_name": "Inter Turku vs Istanbul Basaksehir - UEFA Europa Conference League",
@@ -521,13 +495,14 @@
       "url": "https://live04.chuoichientv.me/live/1542343/manchester-united-vs-atletico-madrid",
       "match_name": "Manchester United vs Atletico Madrid - Giao Hữu Câu Lạc Bộ",
       "kickoff_iso": "2026-08-01T20:00:00+07:00",
-      "minutes_to_kickoff": -3,
-      "last_scan_at": "2026-08-01T20:03:48.237056+07:00",
-      "next_scan_at": "2026-08-01T20:08:48.237056+07:00",
+      "minutes_to_kickoff": -103,
+      "last_scan_at": "2026-08-01T21:43:42.984809+07:00",
+      "next_scan_at": "2026-08-01T21:48:42.984809+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
-        "https://gckc0525.edgemaxcdn.org/live/chuoinho.flv"
+        "https://gckc0525.edgemaxcdn.org/live/chuoinho.flv",
+        "https://gckc0525.edgemaxcdn.org/live/chuoinho/playlist.m3u8"
       ],
       "scan_decision": "browser-fallback"
     },
@@ -535,9 +510,9 @@
       "url": "https://live04.chuoichientv.me/live/1548095/thailand-vs-malaysia",
       "match_name": "Thailand vs Malaysia - AFF Championship",
       "kickoff_iso": "2026-08-01T20:00:00+07:00",
-      "minutes_to_kickoff": -3,
-      "last_scan_at": "2026-08-01T20:03:48.237056+07:00",
-      "next_scan_at": "2026-08-01T20:08:48.237056+07:00",
+      "minutes_to_kickoff": -103,
+      "last_scan_at": "2026-08-01T21:43:42.984809+07:00",
+      "next_scan_at": "2026-08-01T21:48:42.984809+07:00",
       "has_stream": true,
       "has_verified": true,
       "verified_urls": [
@@ -548,23 +523,25 @@
     },
     "1554097": {
       "url": "https://live04.chuoichientv.me/live/1554097/tranmere-vs-rochdale",
-      "match_name": "tranmere vs rochdale",
+      "match_name": "Tranmere vs Rochdale - Cúp Liên đoàn Anh",
       "kickoff_iso": "2026-08-01T21:00:00+07:00",
-      "minutes_to_kickoff": 57,
-      "last_scan_at": "2026-08-01T20:03:48.237056+07:00",
-      "next_scan_at": "2026-08-01T20:23:48.237056+07:00",
-      "has_stream": false,
-      "has_verified": false,
-      "verified_urls": [],
-      "scan_decision": "http-only-far-upcoming"
+      "minutes_to_kickoff": -43,
+      "last_scan_at": "2026-08-01T21:43:42.984809+07:00",
+      "next_scan_at": "2026-08-01T21:48:42.984809+07:00",
+      "has_stream": true,
+      "has_verified": true,
+      "verified_urls": [
+        "https://gckc0525.edgemaxcdn.org/live/chuoito.flv"
+      ],
+      "scan_decision": "browser-fallback"
     },
     "1589316": {
       "url": "https://live04.chuoichientv.me/live/1589316/real-madrid-vs-fiorentina",
       "match_name": "real madrid vs fiorentina",
       "kickoff_iso": "2026-08-01T23:00:00+07:00",
-      "minutes_to_kickoff": 177,
-      "last_scan_at": "2026-08-01T20:03:48.237056+07:00",
-      "next_scan_at": "2026-08-01T20:48:48.237056+07:00",
+      "minutes_to_kickoff": 77,
+      "last_scan_at": "2026-08-01T21:43:42.984809+07:00",
+      "next_scan_at": "2026-08-01T22:03:42.984809+07:00",
       "has_stream": false,
       "has_verified": false,
       "verified_urls": [],
